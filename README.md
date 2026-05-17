@@ -112,6 +112,21 @@ npx opennextjs-cloudflare build
 npx wrangler dev
 ```
 
+### Auto-deploy desde GitHub
+
+Cada push a `main` dispara un build automático en Cloudflare Workers Builds que despliega el sitio a producción sin intervención manual.
+
+Workflow:
+
+1. Hacés tus cambios en una branch.
+2. Commit + push de la branch.
+3. Merge ff-only a `main`.
+4. `git push origin main`.
+5. Cloudflare detecta el push, corre `npm ci && npx opennextjs-cloudflare build` y después `npx opennextjs-cloudflare deploy`.
+6. El sitio en datosmexico.org refleja el cambio en 3-6 minutos.
+
+El deploy manual con `npm run deploy` desde local sigue funcionando como fallback.
+
 ---
 
 ## SEO

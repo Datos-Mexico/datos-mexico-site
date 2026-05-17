@@ -1,0 +1,64 @@
+export const meta = {
+  title: "Servidores públicos de la Ciudad de México: una primera lectura",
+  slug: "servidores-publicos-cdmx",
+  category: "mercado-laboral",
+  publishedAt: "2026-05-04",
+  excerpt: "El Gobierno de la Ciudad de México emplea a 246,831 servidores públicos distribuidos en 75 sectores. Sus sueldos brutos siguen una distribución concentrada en los rangos medios-bajos.",
+  readingTime: 7,
+  dataSource: [
+    {
+      name: "Datos Abiertos CDMX",
+      url: "https://datos.cdmx.gob.mx/",
+      accessedAt: "2026-05-04",
+    },
+  ],
+  status: "published",
+};
+
+## Hallazgos clave
+
+- 246,831 servidores públicos en el Gobierno de la Ciudad de México, distribuidos en 75 sectores.
+- Mediana del sueldo bruto mensual: $10,410. Tres de cada cuatro ganan menos de $16,400 brutos.
+- El promedio ($13,225) está por encima de la mediana: la distribución está sesgada por un grupo reducido de cargos altos.
+
+## Contexto
+
+El portal de transparencia del Gobierno de la Ciudad de México publica el padrón de personal del Poder Ejecutivo local. Esta publicación describe la distribución de sueldos brutos del padrón vigente, sin emitir juicios sobre si los montos son adecuados o no. La pregunta que intentamos responder es simple: ¿cómo se distribuye el ingreso laboral del aparato público de la Ciudad?
+
+<Visualization id="cdmx-overview" />
+
+## Distribución salarial
+
+La nómina del Gobierno de la Ciudad de México concentra la mayoría de sus servidores en sueldos brutos entre cinco mil y veinte mil pesos mensuales. Tres de cada cuatro servidores ganan menos de dieciséis mil cuatrocientos pesos brutos al mes, antes de impuestos y deducciones. La mediana de la distribución se ubica en diez mil cuatrocientos diez pesos.
+
+La cifra promedio (trece mil doscientos veinticinco pesos) es mayor que la mediana porque un grupo reducido de cargos altos mueve la media hacia arriba. La diferencia entre ambas cifras es una señal estructural de que la distribución no es simétrica.
+
+<Visualization id="cdmx-tipos-contratacion" />
+
+## Composición por tipo de contratación
+
+El régimen de "BASE" (personal de planta) es el más numeroso, seguido por la "Lista de raya base" (personal eventual con cierta protección laboral). Estos dos regímenes concentran la mayor parte del padrón. Los regímenes restantes corresponden a esquemas de contratación específicos por función o por dependencia.
+
+<Visualization id="cdmx-top-sectores" />
+
+## Concentración por sector
+
+La Secretaría de Seguridad Ciudadana es el sector con más servidores públicos del Gobierno de la Ciudad. Le siguen, en orden, sectores ligados a servicios públicos urbanos y administración general. Los quince sectores más grandes concentran la mayoría del personal.
+
+<Caveat>
+**Lo que estos datos sí muestran:** la distribución de sueldos brutos del padrón de personal del Poder Ejecutivo del Gobierno de la Ciudad de México en el momento de su publicación más reciente. La cifra agregada (246,831 servidores) es la suma del padrón completo en el corte vigente.
+</Caveat>
+
+<Caveat>
+**Lo que estos datos NO muestran:** servidores públicos del Gobierno Federal con sede en la Ciudad de México, personal de organismos autónomos locales, ni empleados de empresas paraestatales. Tampoco incluyen sueldos netos, prestaciones, ni compensaciones extraordinarias. La cifra "sueldo bruto" corresponde al concepto reportado por la dependencia, no necesariamente al concepto fiscal.
+</Caveat>
+
+## Reproducibilidad
+
+Endpoint: `GET /api/v1/dashboard/stats` (cobertura completa del padrón en una sola llamada precomputada).
+
+Fecha del fetch: 4 de mayo de 2026.
+
+Fuente primaria: portal de [Datos Abiertos del Gobierno de la Ciudad de México](https://datos.cdmx.gob.mx/), reprocesado por la infraestructura del observatorio.
+
+> Nota metodológica: esta publicación describe lo que muestran los datos disponibles. El equipo trabaja con la información tal como la publica la fuente original, sin alterar campos ni hacer imputaciones. Para precisiones técnicas profundas (definición exacta del universo de personal, fechas de corte por sector), recomendamos consultar la fuente primaria.

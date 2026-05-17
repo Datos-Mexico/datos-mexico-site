@@ -1,0 +1,65 @@
+export const meta = {
+  title: "Hogares mexicanos en 2024: ingreso, gasto y desigualdad por decil",
+  slug: "hogares-mexicanos-enigh-2024",
+  category: "hogares-bienestar",
+  publishedAt: "2026-05-04",
+  excerpt: "La ENIGH 2024 (Nueva Serie) cubre 91,414 hogares en muestra que representan a 38.8 millones de hogares en el país. Esta publicación describe la distribución de ingresos y gastos por decil.",
+  readingTime: 7,
+  dataSource: [
+    {
+      name: "INEGI ENIGH 2024 NS",
+      url: "https://www.inegi.org.mx/programas/enigh/nc/2024/",
+      accessedAt: "2026-05-04",
+    },
+  ],
+  status: "published",
+};
+
+## Hallazgos clave
+
+- 38.8 millones de hogares mexicanos, estimados a partir de una muestra de 91,414 (ENIGH 2024 Nueva Serie).
+- El ingreso medio mensual del decil más alto supera $78,600 vs. $5,598 del decil más bajo: razón de ~14 a 1.
+- Alimentos, bebidas y tabaco concentran 37.7% del gasto monetario promedio del hogar.
+
+## Contexto
+
+La Encuesta Nacional de Ingresos y Gastos de los Hogares (ENIGH) es el levantamiento oficial del Instituto Nacional de Estadística y Geografía (INEGI) que mide cuánto ganan, cuánto gastan, y en qué consumen los hogares mexicanos. La edición 2024 Nueva Serie introduce cambios metodológicos que el INEGI documenta como una mejora en la captura de ingresos. Esta publicación describe los resultados agregados de hogares y la distribución por decil de ingreso.
+
+<Visualization id="enigh-summary" />
+
+## Distribución por decil de ingreso
+
+Los hogares mexicanos están agrupados en diez deciles de igual tamaño (cada decil contiene aproximadamente 3.88 millones de hogares). El ingreso corriente medio mensual del primer decil es de cinco mil quinientos noventa y ocho pesos, mientras que el del décimo decil supera los setenta y ocho mil seiscientos pesos. La razón entre el decil más alto y el más bajo es de aproximadamente catorce a uno.
+
+<Visualization id="enigh-por-decil" />
+
+## Composición del gasto monetario
+
+El gasto monetario nacional se descompone en nueve rubros. Los alimentos, bebidas y tabaco concentran más de la tercera parte del gasto promedio (37.7%). Le siguen el transporte (19.6%), educación y esparcimiento (9.6%), vivienda (9.1%), y otros rubros con menor peso relativo.
+
+<Visualization id="enigh-gastos-rubro" />
+
+<Caveat>
+**Lo que estos datos sí muestran:** la distribución del ingreso y el gasto monetario de los hogares mexicanos según la encuesta oficial del INEGI. Las cifras agregadas son estimaciones expandidas a partir de la muestra (91,414 hogares) usando los factores de elevación que el propio INEGI calcula. Los valores presentados están verificados contra los publicados por INEGI con diferencias menores al 0.03%.
+</Caveat>
+
+<Caveat>
+**Lo que estos datos NO muestran:** ingresos no reportados (economía informal no captada en la encuesta, ingresos de hogares de muy alto patrimonio que la ENIGH típicamente subreporta), variaciones intra-decil (dos hogares del mismo decil pueden tener composiciones de ingreso muy distintas), ni datos longitudinales (la ENIGH es una encuesta de corte transversal, no sigue a los mismos hogares en el tiempo).
+</Caveat>
+
+## Sobre la Nueva Serie
+
+INEGI publicó la edición 2024 con dos versiones: ENIGH Tradicional y ENIGH Nueva Serie. Esta publicación usa la Nueva Serie, que incorpora ajustes metodológicos en la captura de ingresos. Las dos versiones coexisten y no son directamente comparables con ediciones previas a 2022. Para comparaciones intertemporales rigurosas, INEGI publica notas técnicas específicas.
+
+## Reproducibilidad
+
+Endpoints:
+- `GET /api/v1/enigh/hogares/summary` — KPIs nacionales agregados
+- `GET /api/v1/enigh/hogares/by-decil` — desagregado por los 10 deciles
+- `GET /api/v1/enigh/gastos/by-rubro` — composición del gasto monetario
+
+Fecha del fetch: 4 de mayo de 2026.
+
+Fuente primaria: [Encuesta Nacional de Ingresos y Gastos de los Hogares 2024 Nueva Serie del INEGI](https://www.inegi.org.mx/programas/enigh/nc/2024/), reprocesada por la infraestructura del observatorio.
+
+> Nota metodológica: esta publicación describe los datos tal como los publica INEGI. La validación cruzada con las cifras oficiales pasa el 100% de los bounds (13/13). Para precisiones sobre la metodología de cobertura, ajustes por subdeclaración, o tratamiento de hogares específicos, recomendamos consultar directamente las notas técnicas del INEGI.

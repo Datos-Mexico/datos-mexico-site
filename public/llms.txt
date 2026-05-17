@@ -1,0 +1,39 @@
+# Datos México
+
+> Observatorio independiente de datos públicos de México formado por estudiantes y egresados del ITAM. Trabajamos con microdatos oficiales (INEGI, CONSAR, Banxico, Datos Abiertos CDMX) y publicamos análisis reproducibles en español, con APIs verificables y notas metodológicas explícitas.
+
+Cada publicación incluye:
+- Cifras verificadas contra la fuente primaria
+- Endpoints reproducibles (`/api/v1/...`)
+- Bloques explícitos de "lo que estos datos sí muestran" y "lo que NO muestran"
+- Fecha de fetch y enlace a la fuente original
+
+Idioma: español (es-MX). Cobertura geográfica: México.
+
+## Publicaciones
+
+- [Hogares mexicanos en 2024: ingreso, gasto y desigualdad por decil](https://datosmexico.org/publicaciones/hogares-mexicanos-enigh-2024): Distribución de ingreso y gasto de 38.8 millones de hogares mexicanos según la ENIGH 2024 Nueva Serie del INEGI; razón de ingreso entre el decil más alto y el más bajo es de 14 a 1.
+- [El SAR mexicano administra más de diez billones de pesos: composición y AFOREs](https://datosmexico.org/publicaciones/sar-recursos-administrados): Composición del Sistema de Ahorro para el Retiro mexicano al cierre de junio de 2025 según CONSAR; 10.13 billones de pesos distribuidos entre 11 AFOREs activas.
+- [Servidores públicos de la Ciudad de México: una primera lectura](https://datosmexico.org/publicaciones/servidores-publicos-cdmx): Distribución salarial de 246,831 servidores públicos del Gobierno de la CDMX según Datos Abiertos CDMX; mediana de sueldo bruto mensual de $10,410 pesos.
+
+## Categorías
+
+- [Mercado laboral](https://datosmexico.org/publicaciones/categoria/mercado-laboral): empleo, salarios, productividad y condiciones laborales en México.
+- [Pensiones y ahorro para el retiro](https://datosmexico.org/publicaciones/categoria/pensiones): sistema de pensiones, AFORES, SAR y trayectoria del ahorro para el retiro en México.
+- [Hogares y bienestar](https://datosmexico.org/publicaciones/categoria/hogares-bienestar): ingreso, gasto, pobreza y bienestar de los hogares mexicanos.
+
+## El observatorio
+
+- [Quiénes somos](https://datosmexico.org/quienes-somos): equipo, motivación y vínculo con el ITAM.
+- [Metodología](https://datosmexico.org/metodologia): cómo procesamos microdatos, validamos cifras y publicamos resultados.
+- [Contacto](https://datosmexico.org/contacto): para colaboraciones, prensa y peticiones de datos.
+
+## Índices
+
+- [Sitemap XML](https://datosmexico.org/sitemap.xml)
+- [Feed RSS](https://datosmexico.org/feed.xml)
+
+## Optional
+
+- [Boletín](https://datosmexico.org/boletin)
+- [Prensa](https://datosmexico.org/prensa)

@@ -1,0 +1,74 @@
+export const meta = {
+  title: "El SAR mexicano administra más de diez billones de pesos: composición y AFOREs",
+  slug: "sar-recursos-administrados",
+  category: "pensiones",
+  publishedAt: "2026-05-04",
+  excerpt: "El Sistema de Ahorro para el Retiro mexicano administró 10.13 billones de pesos al cierre de junio de 2025, distribuidos entre once AFOREs activas. Esta publicación describe la composición del sistema.",
+  readingTime: 8,
+  dataSource: [
+    {
+      name: "CONSAR",
+      url: "https://www.gob.mx/consar",
+      accessedAt: "2026-05-04",
+    },
+  ],
+  status: "published",
+};
+
+## Hallazgos clave
+
+- 10.13 billones de pesos administrados por el SAR mexicano al cierre de junio de 2025.
+- 11 AFOREs activas; Profuturo y XXI-Banorte concentran cerca de un tercio del total.
+- Cifras en pesos corrientes: las comparaciones históricas reflejan crecimiento nominal, no real.
+
+## Contexto
+
+La Comisión Nacional del Sistema de Ahorro para el Retiro (CONSAR) publica mensualmente cifras agregadas del SAR mexicano. Esta publicación describe la composición del sistema en su corte más reciente disponible (junio de 2025), incluyendo distribución por AFORE, composición por tipo de recurso, y la evolución histórica de los recursos administrados.
+
+<Visualization id="sar-kpi" />
+
+## Evolución histórica
+
+El SAR mexicano comenzó a operar en mayo de 1998 con seis AFOREs. Desde entonces, la cantidad total de recursos administrados ha crecido de manera sostenida, en términos nominales, hasta superar los diez billones de pesos al cierre de junio de 2025. La gráfica siguiente muestra la serie completa con periodicidad anual.
+
+<Visualization id="sar-totales-historico" />
+
+## Distribución entre AFOREs
+
+Once AFOREs están activas en el sistema. Las dos más grandes (Profuturo y XXI-Banorte) concentran cerca de un tercio del total de recursos administrados. La distribución completa es la siguiente.
+
+<Visualization id="sar-por-afore" />
+
+## Composición por tipo de recurso
+
+Los recursos del SAR se descomponen en varios componentes contables, principalmente recursos del Retiro (RCV), de Vivienda, y aportaciones voluntarias. La identidad contable de la composición está verificada al peso contra el total reportado por CONSAR.
+
+<Visualization id="sar-por-componente" />
+
+## Privado vs público
+
+El sistema SAR coexiste con dos vehículos institucionales: el régimen del IMSS (mayoritariamente privado, donde están las AFOREs comerciales) y el régimen del ISSSTE (público, donde está PensionISSSTE). La gráfica siguiente compara la evolución de ambos.
+
+<Visualization id="sar-imss-vs-issste" />
+
+<Caveat>
+**Lo que estos datos sí muestran:** los recursos totales administrados por el SAR mexicano, según las cifras agregadas que publica CONSAR. La identidad contable entre el total y la suma de componentes está verificada al peso. La distribución por AFORE refleja la cuota de mercado en el corte mensual reportado.
+</Caveat>
+
+<Caveat>
+**Lo que estos datos NO muestran:** rendimientos de las cuentas individuales, comisiones cobradas, ni el monto promedio en la cuenta de un trabajador específico. Tampoco indican si el sistema es suficiente para garantizar pensiones adecuadas en el futuro. Las cifras están en pesos corrientes (no deflactados), por lo que la comparación histórica refleja crecimiento nominal, no real.
+</Caveat>
+
+## Reproducibilidad
+
+Endpoints:
+- `GET /api/v1/consar/recursos/totales` — serie nacional total
+- `GET /api/v1/consar/recursos/por-afore?fecha=2025-06-01` — snapshot mensual por AFORE
+- `GET /api/v1/consar/recursos/por-componente?fecha=2025-06-01` — composición por tipo de recurso
+- `GET /api/v1/consar/recursos/imss-vs-issste` — serie privado vs público
+
+Fecha del fetch: 4 de mayo de 2026.
+
+Fuente primaria: estadísticas mensuales publicadas por la [Comisión Nacional del Sistema de Ahorro para el Retiro (CONSAR)](https://www.gob.mx/consar), reprocesadas por la infraestructura del observatorio.
+
+> Nota metodológica: esta publicación describe la composición del sistema con base en lo que CONSAR reporta. El equipo no recalcula valores ni reclasifica AFOREs. Para análisis técnicos profundos (rendimientos por SIEFORE, comisiones por afiliado, sensibilidad regulatoria), CONSAR publica reportes específicos.

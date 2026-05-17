@@ -1,0 +1,73 @@
+import type { Metadata } from "next";
+import { QuienesSomosHero } from "@/components/quienes-somos/Hero";
+import { MisionVision } from "@/components/quienes-somos/MisionVision";
+import { Historia } from "@/components/quienes-somos/Historia";
+import { Equipo } from "@/components/quienes-somos/Equipo";
+import { Asesoria } from "@/components/quienes-somos/Asesoria";
+import { Acompanamiento } from "@/components/quienes-somos/Acompanamiento";
+import { Areas } from "@/components/quienes-somos/Areas";
+import { Gobernanza } from "@/components/quienes-somos/Gobernanza";
+import { Contacto } from "@/components/quienes-somos/Contacto";
+import { team } from "@/lib/team";
+
+export const metadata: Metadata = {
+  title: "Quiénes somos",
+  description:
+    "Datos México es un observatorio académico independiente formado por estudiantes y egresados del ITAM. Conoce al equipo, nuestra misión y cómo nos organizamos.",
+  alternates: { canonical: "/quienes-somos" },
+  openGraph: {
+    title: "Quiénes somos — Datos México",
+    description:
+      "Observatorio académico independiente formado por estudiantes y egresados del ITAM. Equipo, misión, principios y gobernanza.",
+    url: "/quienes-somos",
+    type: "website",
+    images: [
+      {
+        url: "/og/og-quienes-somos.png",
+        width: 1200,
+        height: 630,
+        alt: "Quiénes somos — Datos México",
+      },
+    ],
+  },
+  twitter: {
+    title: "Quiénes somos — Datos México",
+    description:
+      "Observatorio académico independiente formado por estudiantes y egresados del ITAM.",
+    images: ["/og/og-quienes-somos.png"],
+  },
+};
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://datosmexico.org/#organization",
+  name: "Datos México",
+  url: "https://datosmexico.org",
+  member: team.map((m) => ({
+    "@type": "Person",
+    name: m.name,
+    description: m.bio,
+    ...(m.links.linkedin && { sameAs: [m.links.linkedin] }),
+  })),
+};
+
+export default function QuienesSomosPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+      />
+      <QuienesSomosHero />
+      <MisionVision />
+      <Historia />
+      <Equipo />
+      <Asesoria />
+      <Acompanamiento />
+      <Areas />
+      <Gobernanza />
+      <Contacto />
+    </>
+  );
+}

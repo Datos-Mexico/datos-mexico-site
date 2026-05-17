@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" role="img" aria-label="Datos México">
+  <defs>
+    <linearGradient id="barGradient" x1="78.71" y1="0" x2="921.81" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7FB3D5" stop-opacity="1"/>
+      <stop offset="33%" stop-color="#A6D89A" stop-opacity="1"/>
+      <stop offset="66%" stop-color="#F4E3A1" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#E89B9B" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .border-red   { fill: none; stroke: #FFFFFF;   stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    .border-green { fill: none; stroke: #FFFFFF; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    .dot-red   { fill: #FFFFFF;   }
+    .dot-green { fill: #FFFFFF; }
+    .dot-black { fill: #FFFFFF; }
+  </style>
+
+  <g id="bars" stroke="#FFFFFF" stroke-linecap="round" fill="none">
+    <line x1="86.57" y1="86.59" x2="116.24" y2="86.59" stroke-width="14.84"/>
+    <line x1="78.71" y1="112.78" x2="108.39" y2="112.78" stroke-width="14.84"/>
+    <line x1="108.39" y1="112.78" x2="170.35" y2="112.78" stroke-width="14.84"/>
+    <line x1="98.79" y1="138.96" x2="128.46" y2="138.96" stroke-width="14.84"/>
+    <line x1="169.48" y1="138.96" x2="211.38" y2="138.96" stroke-width="14.84"/>
+    <line x1="108.39" y1="165.14" x2="138.06" y2="165.14" stroke-width="14.84"/>
+    <line x1="203.52" y1="165.14" x2="392.91" y2="165.14" stroke-width="14.84"/>
+    <line x1="119.73" y1="191.33" x2="151.15" y2="191.33" stroke-width="14.84"/>
+    <line x1="228.83" y1="191.33" x2="433.93" y2="191.33" stroke-width="14.84"/>
+    <line x1="131.08" y1="217.51" x2="181.70" y2="217.51" stroke-width="14.84"/>
+    <line x1="239.30" y1="217.51" x2="454.01" y2="217.51" stroke-width="14.84"/>
+    <line x1="136.32" y1="243.69" x2="193.05" y2="243.69" stroke-width="14.84"/>
+    <line x1="250.65" y1="243.69" x2="539.54" y2="243.69" stroke-width="14.84"/>
+    <line x1="141.55" y1="269.87" x2="204.39" y2="269.87" stroke-width="14.84"/>
+    <line x1="262.87" y1="269.87" x2="554.37" y2="269.87" stroke-width="14.84"/>
+    <line x1="149.41" y1="296.06" x2="216.61" y2="296.06" stroke-width="14.84"/>
+    <line x1="277.71" y1="296.06" x2="574.45" y2="296.06" stroke-width="14.84"/>
+    <line x1="175.59" y1="322.24" x2="231.45" y2="322.24" stroke-width="14.84"/>
+    <line x1="292.54" y1="322.24" x2="600.63" y2="322.24" stroke-width="14.84"/>
+    <line x1="201.77" y1="348.42" x2="246.29" y2="348.42" stroke-width="14.84"/>
+    <line x1="307.38" y1="348.42" x2="615.47" y2="348.42" stroke-width="14.84"/>
+    <line x1="214.87" y1="374.61" x2="261.12" y2="374.61" stroke-width="14.84"/>
+    <line x1="324.84" y1="374.61" x2="612.85" y2="374.61" stroke-width="14.84"/>
+    <line x1="217.48" y1="400.79" x2="278.58" y2="400.79" stroke-width="14.84"/>
+    <line x1="342.29" y1="400.79" x2="610.23" y2="400.79" stroke-width="14.84"/>
+    <line x1="236.69" y1="426.97" x2="296.03" y2="426.97" stroke-width="14.84"/>
+    <line x1="359.75" y1="426.97" x2="607.61" y2="426.97" stroke-width="14.84"/>
+    <line x1="256.76" y1="453.16" x2="313.49" y2="453.16" stroke-width="14.84"/>
+    <line x1="377.20" y1="453.16" x2="610.23" y2="453.16" stroke-width="14.84"/>
+    <line x1="395.53" y1="479.34" x2="618.96" y2="479.34" stroke-width="14.84"/>
+    <line x1="414.73" y1="505.52" x2="627.69" y2="505.52" stroke-width="14.84"/>
+    <line x1="888.64" y1="505.52" x2="921.81" y2="505.52" stroke-width="14.84"/>
+    <line x1="427.82" y1="531.71" x2="635.54" y2="531.71" stroke-width="14.84"/>
+    <line x1="876.43" y1="531.71" x2="913.95" y2="531.71" stroke-width="14.84"/>
+    <line x1="425.20" y1="557.89" x2="647.76" y2="557.89" stroke-width="14.84"/>
+    <line x1="863.33" y1="557.89" x2="902.61" y2="557.89" stroke-width="14.84"/>
+    <line x1="425.20" y1="584.07" x2="672.20" y2="584.07" stroke-width="14.84"/>
+    <line x1="839.77" y1="584.07" x2="892.14" y2="584.07" stroke-width="14.84"/>
+    <line x1="464.48" y1="610.26" x2="695.76" y2="610.26" stroke-width="14.84"/>
+    <line x1="809.22" y1="610.26" x2="876.43" y2="610.26" stroke-width="14.84"/>
+    <line x1="516.84" y1="636.44" x2="707.98" y2="636.44" stroke-width="14.84"/>
+    <line x1="814.46" y1="636.44" x2="858.97" y2="636.44" stroke-width="14.84"/>
+    <line x1="580.56" y1="662.62" x2="669.58" y2="662.62" stroke-width="14.84"/>
+  </g>
+
+  <polyline class="border-red"   points="50.00,49.41 160.14,74.81 237.47,124.04 363.50,118.36 447.98,165.93 485.08,214.98 550.10,209.83 584.57,268.83 644.18,328.96 633.62,437.80 665.74,537.99 755.29,635.74"/>
+  <polyline class="border-green" points="50.00,49.41 75.75,157.29 105.25,224.84 121.31,305.22 188.25,372.25 192.35,412.83 237.82,472.18"/>
+  <polyline class="border-green" points="145.39,153.71 202.30,197.70 236.16,276.60 288.70,368.59 354.07,466.34 401.55,533.45 393.00,594.46 454.62,635.65 505.50,660.26 577.15,689.68 660.85,700.59 755.29,635.74"/>
+  <polyline class="border-green" points="755.29,635.74 846.31,557.10 878.43,488.59 950.00,466.34"/>
+  <polyline class="border-red"   points="950.00,466.34 929.05,536.77 904.62,596.64 858.62,665.76 755.29,635.74"/>
+
+  <g id="dots">
+    <circle class="dot-black" cx="50.00" cy="49.41" r="13"/>
+    <circle class="dot-black" cx="755.29" cy="635.74" r="13"/>
+    <circle class="dot-black" cx="950.00" cy="466.34" r="13"/>
+    <circle class="dot-red" cx="160.14" cy="74.81" r="12"/>
+    <circle class="dot-red" cx="237.47" cy="124.04" r="12"/>
+    <circle class="dot-red" cx="363.50" cy="118.36" r="12"/>
+    <circle class="dot-red" cx="447.98" cy="165.93" r="12"/>
+    <circle class="dot-red" cx="485.08" cy="214.98" r="12"/>
+    <circle class="dot-red" cx="550.10" cy="209.83" r="12"/>
+    <circle class="dot-red" cx="584.57" cy="268.83" r="12"/>
+    <circle class="dot-red" cx="644.18" cy="328.96" r="12"/>
+    <circle class="dot-red" cx="633.62" cy="437.80" r="12"/>
+    <circle class="dot-red" cx="665.74" cy="537.99" r="12"/>
+    <circle class="dot-red" cx="929.05" cy="536.77" r="12"/>
+    <circle class="dot-red" cx="904.62" cy="596.64" r="12"/>
+    <circle class="dot-red" cx="858.62" cy="665.76" r="12"/>
+    <circle class="dot-green" cx="75.75" cy="157.29" r="12"/>
+    <circle class="dot-green" cx="105.25" cy="224.84" r="12"/>
+    <circle class="dot-green" cx="121.31" cy="305.22" r="12"/>
+    <circle class="dot-green" cx="188.25" cy="372.25" r="12"/>
+    <circle class="dot-green" cx="192.35" cy="412.83" r="12"/>
+    <circle class="dot-green" cx="237.82" cy="472.18" r="12"/>
+    <circle class="dot-green" cx="145.39" cy="153.71" r="12"/>
+    <circle class="dot-green" cx="202.30" cy="197.70" r="12"/>
+    <circle class="dot-green" cx="236.16" cy="276.60" r="12"/>
+    <circle class="dot-green" cx="288.70" cy="368.59" r="12"/>
+    <circle class="dot-green" cx="354.07" cy="466.34" r="12"/>
+    <circle class="dot-green" cx="401.55" cy="533.45" r="12"/>
+    <circle class="dot-green" cx="393.00" cy="594.46" r="12"/>
+    <circle class="dot-green" cx="454.62" cy="635.65" r="12"/>
+    <circle class="dot-green" cx="505.50" cy="660.26" r="12"/>
+    <circle class="dot-green" cx="577.15" cy="689.68" r="12"/>
+    <circle class="dot-green" cx="660.85" cy="700.59" r="12"/>
+    <circle class="dot-green" cx="846.31" cy="557.10" r="12"/>
+    <circle class="dot-green" cx="878.43" cy="488.59" r="12"/>
+  </g>
+</svg>

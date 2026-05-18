@@ -105,7 +105,7 @@ export default async function PublicationPage({
       url: "https://datosmexico.org",
       logo: {
         "@type": "ImageObject",
-        url: "https://datosmexico.org/android-chrome-512x512.png",
+        url: "https://datosmexico.org/android-chrome-512x512-v2.png",
       },
     },
     isPartOf: {

@@ -54,14 +54,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/android-chrome-512x512-v2.png", sizes: "512x512", type: "image/png" },
+      { url: "/android-chrome-192x192-v2.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-144x144-v2.png", sizes: "144x144", type: "image/png" },
+      { url: "/favicon-96x96-v2.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-48x48-v2.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-32x32-v2.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16-v2.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-v2.ico" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon-v2.png", sizes: "180x180", type: "image/png" }],
     other: [
       { rel: "mask-icon", url: "/brand/logo-mono-black.svg", color: "#15803D" },
     ],
@@ -108,7 +110,7 @@ const organizationJsonLd = {
   name: brand.name,
   alternateName: "Datos ITAM",
   url: siteUrl,
-  logo: `${siteUrl}/android-chrome-512x512.png`,
+  logo: `${siteUrl}/android-chrome-512x512-v2.png`,
   description:
     "Observatorio independiente de datos públicos de México formado por estudiantes y egresados del ITAM.",
   foundingLocation: {

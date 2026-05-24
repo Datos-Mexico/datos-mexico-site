@@ -1,5 +1,6 @@
 import { Globe } from "lucide-react";
 import { Avatar } from "@/components/ui/Avatar";
+import { Badge } from "@/components/ui/Badge";
 import { Body, Mono } from "@/components/typography";
 import {
   LinkedinIcon,
@@ -7,7 +8,7 @@ import {
   GithubIcon,
 } from "@/components/ui/SocialIcons";
 import { cn } from "@/lib/utils";
-import type { TeamMember } from "@/lib/team";
+import { teamTagLabels, type TeamMember } from "@/lib/team";
 
 type MemberCardProps = {
   member: TeamMember;
@@ -53,7 +54,23 @@ export function MemberCard({ member }: MemberCardProps) {
         />
       )}
 
-      <h3 className="mt-5 font-serif text-[19px] font-semibold leading-[1.3] text-foreground md:text-[20px]">
+      {member.tag && (
+        <Badge
+          variant={
+            member.tag === "equipo-tecnico-fundador" ? "outline" : "default"
+          }
+          className="mt-5 self-start"
+        >
+          {teamTagLabels[member.tag]}
+        </Badge>
+      )}
+
+      <h3
+        className={cn(
+          "font-serif text-[19px] font-semibold leading-[1.3] text-foreground md:text-[20px]",
+          member.tag ? "mt-2" : "mt-5",
+        )}
+      >
         {member.name}
       </h3>
       <Body className="mt-1 text-[14px] text-text-subtle">{member.career}</Body>

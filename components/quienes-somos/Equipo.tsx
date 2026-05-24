@@ -10,7 +10,7 @@ export function Equipo() {
         <SectionHeader
           eyebrow="Equipo"
           title="Quién está detrás del observatorio."
-          lead="Somos un equipo de 7 personas — estudiantes y egresados del ITAM — que trabajamos de manera horizontal en la investigación, infraestructura técnica y comunicación del observatorio."
+          lead="El equipo del observatorio reúne estudiantes, egresados y colaboradores con experiencia en ciencia de datos, economía y otras disciplinas. Trabajamos de manera horizontal en la investigación, infraestructura técnica y comunicación del observatorio."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

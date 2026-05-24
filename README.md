@@ -1,7 +1,8 @@
 # Datos México — datosmexico.org
 
 Sitio público institucional de **Datos México**, observatorio independiente
-de datos públicos de México formado por estudiantes y egresados del ITAM.
+de datos públicos de México con respaldo institucional del ITAM, formado por
+estudiantes, egresados y colaboradores.
 
 > Producción: **https://datosmexico.org**
 > Workers preview: deshabilitado en este deploy (ver "Preview URLs" abajo).

@@ -1,3 +1,10 @@
+export type TeamTag = "equipo-tecnico-fundador" | "equipo-del-observatorio";
+
+export const teamTagLabels: Record<TeamTag, string> = {
+  "equipo-tecnico-fundador": "Equipo técnico fundador",
+  "equipo-del-observatorio": "Equipo del observatorio",
+} as const;
+
 export type TeamMember = {
   id: string;
   name: string;
@@ -12,6 +19,7 @@ export type TeamMember = {
     website?: string;
   };
   photo?: string;
+  tag?: TeamTag;
 };
 
 export const team: TeamMember[] = [
@@ -27,6 +35,7 @@ export const team: TeamMember[] = [
       github: "https://github.com/DabtcAvila",
     },
     photo: undefined,
+    tag: "equipo-tecnico-fundador",
   },
   {
     id: "butron-ramirez-gerardo",
@@ -40,6 +49,7 @@ export const team: TeamMember[] = [
       github: "https://github.com/butronand-png",
     },
     photo: undefined,
+    tag: "equipo-tecnico-fundador",
   },
   {
     id: "millan-giffard-emiliano",
@@ -49,9 +59,11 @@ export const team: TeamMember[] = [
     year: "",
     bio: "",
     links: {
+      linkedin: "https://www.linkedin.com/in/emiliano-sebastián-millán-giffard-911635370",
       github: "https://github.com/emilianomillan",
     },
     photo: undefined,
+    tag: "equipo-tecnico-fundador",
   },
   {
     id: "uribe-clemente-jose-roberto",
@@ -64,6 +76,7 @@ export const team: TeamMember[] = [
       github: "https://github.com/RobertoUribeClemente",
     },
     photo: undefined,
+    tag: "equipo-tecnico-fundador",
   },
   {
     id: "solano-diaz-ashley",
@@ -76,6 +89,7 @@ export const team: TeamMember[] = [
       linkedin: "https://mx.linkedin.com/in/ashley-dannae-solano-diaz-08723634a",
     },
     photo: undefined,
+    tag: "equipo-del-observatorio",
   },
   {
     id: "hernandez-monroy-alexa",
@@ -88,6 +102,7 @@ export const team: TeamMember[] = [
       linkedin: "https://www.linkedin.com/in/alexa-fernanda-hern%C3%A1ndez-monroy-9aaa58289",
     },
     photo: undefined,
+    tag: "equipo-del-observatorio",
   },
   {
     id: "campos-juarez-fabiola",
@@ -100,5 +115,19 @@ export const team: TeamMember[] = [
       linkedin: "https://www.linkedin.com/in/fabiola-campos-ju%C3%A1rez-6a41a0334",
     },
     photo: undefined,
+    tag: "equipo-del-observatorio",
+  },
+  {
+    id: "bustillos-hernandez-luis-eduardo",
+    name: "Luis Eduardo Bustillos Hernández",
+    initials: "LB",
+    career: "Estudiante de Ciencia Política, Instituto Tecnológico Autónomo de México",
+    year: "",
+    bio: "",
+    links: {
+      linkedin: "https://www.linkedin.com/in/luiseduardobustilloshernandez",
+    },
+    photo: undefined,
+    tag: "equipo-del-observatorio",
   },
 ];

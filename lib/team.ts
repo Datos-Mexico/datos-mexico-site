@@ -117,4 +117,17 @@ export const team: TeamMember[] = [
     photo: undefined,
     tag: "equipo-del-observatorio",
   },
+  {
+    id: "bustillos-hernandez-luis-eduardo",
+    name: "Luis Eduardo Bustillos Hernández",
+    initials: "LB",
+    career: "Estudiante de Ciencia Política, Instituto Tecnológico Autónomo de México",
+    year: "",
+    bio: "",
+    links: {
+      linkedin: "https://www.linkedin.com/in/luiseduardobustilloshernandez",
+    },
+    photo: undefined,
+    tag: "equipo-del-observatorio",
+  },
 ];

@@ -7,7 +7,6 @@ const formatos: {
   icon: LucideIcon;
   title: string;
   description: string;
-  cadencia: string;
   lectura: string;
 }[] = [
   {
@@ -15,7 +14,6 @@ const formatos: {
     title: "Análisis profundo",
     description:
       "Estudios completos sobre un tema, con metodología detallada, validación contra fuentes oficiales y caveats explícitos. Son las publicaciones más densas del observatorio.",
-    cadencia: "Mensual",
     lectura: "10–20 min",
   },
   {
@@ -23,7 +21,6 @@ const formatos: {
     title: "Notas breves",
     description:
       "Lecturas cortas sobre una cifra específica, una publicación reciente del INEGI, o un dato que vale la pena situar en contexto. Pensadas para leerse en café.",
-    cadencia: "Semanal",
     lectura: "3–5 min",
   },
   {
@@ -31,7 +28,6 @@ const formatos: {
     title: "Comentarios de coyuntura",
     description:
       "Reacciones a publicaciones oficiales el mismo día que salen (ENIGH, ITAEE, Encuesta Banxico, etc.). Sin opinión política, solo la cifra puesta en perspectiva metodológica.",
-    cadencia: "Cuando publica la fuente",
     lectura: "2–3 min",
   },
 ];
@@ -63,12 +59,6 @@ export function Formatos() {
             <dl className="mt-6 space-y-1 border-t border-border pt-4">
               <div className="flex justify-between gap-3">
                 <Mono className="text-[12px] uppercase tracking-[0.08em]">
-                  Cadencia
-                </Mono>
-                <Mono className="text-[12px] text-foreground">{f.cadencia}</Mono>
-              </div>
-              <div className="flex justify-between gap-3">
-                <Mono className="text-[12px] uppercase tracking-[0.08em]">
                   Lectura
                 </Mono>
                 <Mono className="text-[12px] text-foreground">{f.lectura}</Mono>
@@ -79,13 +69,9 @@ export function Formatos() {
       </div>
 
       <Small className="mt-10 mx-auto max-w-2xl text-center text-[14px] leading-[1.6]">
-        En conjunto, esto significa aproximadamente entre 3 y 5 envíos por
-        semana. Si prefieres recibir un solo resumen semanal, podrás
-        configurarlo en tus preferencias una vez nos hayas definido un proveedor
-        de boletín.{" "}
-        <span className="text-text-subtle/80">
-          [PENDIENTE: confirmar al elegir proveedor]
-        </span>
+        El boletín se envía con cadencia quincenal (aproximadamente dos
+        envíos al mes), agrupando los análisis publicados en ese periodo.
+        Sin spam, sin paywalls.
       </Small>
     </section>
   );

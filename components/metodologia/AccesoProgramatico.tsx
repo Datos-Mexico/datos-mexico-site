@@ -7,7 +7,7 @@ export function AccesoProgramatico() {
       <SectionHeader
         eyebrow="Acceso programático"
         title="Trabaja con los datos desde tus propios scripts."
-        lead="Publicamos un cliente Python oficial (datos-mexico) que da acceso a la lectura pública del API completa. El cliente cubre los 78 endpoints públicos con tipos validados, caché integrado y manejo robusto de errores."
+        lead="Publicamos un cliente Python oficial (datos-mexico) que da acceso a la lectura pública del API completa. El cliente cubre todos los endpoints públicos con tipos validados, caché integrado y manejo robusto de errores."
       />
 
       <div className="mt-12 space-y-10">

@@ -59,6 +59,7 @@ export const team: TeamMember[] = [
     year: "",
     bio: "",
     links: {
+      linkedin: "https://www.linkedin.com/in/emiliano-sebastián-millán-giffard-911635370",
       github: "https://github.com/emilianomillan",
     },
     photo: undefined,

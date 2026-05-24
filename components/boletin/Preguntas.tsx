@@ -21,7 +21,7 @@ const faqs: FAQItem[] = [
   {
     question: "¿Cada cuánto envían correos?",
     answer:
-      "Aproximadamente entre 3 y 5 envíos por semana, distribuidos entre análisis profundos, notas breves y comentarios de coyuntura. Si te parece mucho, podrás configurar un resumen semanal una vez activemos el proveedor.",
+      "El boletín tiene cadencia quincenal: dos envíos al mes que agrupan los análisis publicados en ese periodo. Sin spam, sin paywalls.",
   },
   {
     question: "¿Quién escribe los boletines?",

@@ -24,6 +24,9 @@
 /.open-next/
 /.wrangler/
 
+# corpus pregunta-respuesta clonado en build time desde Datos-Mexico/observatorio
+/.observatorio/
+
 # misc
 .DS_Store
 *.pem

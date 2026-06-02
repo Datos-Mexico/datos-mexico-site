@@ -6,7 +6,7 @@ export const week: AgendaWeek = {
   endDate: "2026-06-07",
   weeklyMeeting: {
     date: "2026-06-03",
-    time: "10:00",
+    time: "15:00",
     agenda: [],
   },
   events: [],

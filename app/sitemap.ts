@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPublications } from "@/lib/publicaciones/loader";
 import { categories } from "@/lib/publicaciones/categories";
+import { getAllArticulos } from "@/lib/preguntas/loader";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = "https://datosmexico.org";
@@ -27,6 +28,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${base}/publicaciones`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/preguntas`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.8,
@@ -72,5 +79,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.9,
   }));
 
-  return [...staticEntries, ...categoryEntries, ...publicationEntries];
+  const articulos = await getAllArticulos();
+  const articuloEntries: MetadataRoute.Sitemap = articulos.map((a) => ({
+    url: `${base}/preguntas/${a.slug}`,
+    lastModified: new Date(a.fecha_ultima_actualizacion),
+    changeFrequency: a.tipo_temporal === "puente" ? "monthly" : "yearly",
+    priority: 0.9,
+  }));
+
+  return [
+    ...staticEntries,
+    ...categoryEntries,
+    ...publicationEntries,
+    ...articuloEntries,
+  ];
 }

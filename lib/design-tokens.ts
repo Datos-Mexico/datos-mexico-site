@@ -42,6 +42,7 @@ export type NavItem = {
 export const navigation: readonly NavItem[] = [
   { label: 'Observatorio', href: 'https://datos-itam.org', external: true },
   { label: 'Publicaciones', href: '/publicaciones' },
+  { label: 'Agenda', href: '/agenda' },
   { label: 'Metodología', href: '/metodologia' },
   { label: 'Prensa', href: '/prensa' },
   { label: 'Quiénes Somos', href: '/quienes-somos' },

@@ -6,8 +6,22 @@ export const week: AgendaWeek = {
   endDate: "2026-06-21",
   weeklyMeeting: {
     date: "2026-06-17",
-    time: "10:00",
+    time: "15:00",
     agenda: [],
   },
-  events: [],
+  events: [
+    {
+      id: "2026-w25-itam-inicio-cursos-verano",
+      type: "deadline",
+      date: "2026-06-15",
+      title: "Inicio de cursos verano ITAM",
+      description:
+        "Fecha del calendario académico oficial del Instituto Tecnológico Autónomo de México, institución sede del observatorio.",
+      link: {
+        href: "https://escolar.itam.mx/servicios_escolares/calendarios/calesc2026.pdf",
+        label: "Calendario ITAM 2026",
+        external: true,
+      },
+    },
+  ],
 };

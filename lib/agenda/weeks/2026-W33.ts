@@ -6,8 +6,17 @@ export const week: AgendaWeek = {
   endDate: "2026-08-16",
   weeklyMeeting: {
     date: "2026-08-12",
-    time: "10:00",
+    time: "15:00",
     agenda: [],
   },
-  events: [],
+  events: [
+    {
+      id: "2026-w33-itam-inicio-cursos-otono",
+      type: "deadline",
+      date: "2026-08-10",
+      title: "Inicio de cursos otoño ITAM",
+      description:
+        "Fecha del calendario académico oficial del Instituto Tecnológico Autónomo de México, institución sede del observatorio.",
+    },
+  ],
 };

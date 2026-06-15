@@ -1,7 +1,6 @@
-import { readFile, readdir } from "node:fs/promises";
-import path from "node:path";
 import matter from "gray-matter";
 import { extractCanonicalCopy } from "./banner";
+import { rawArticulos, rawBanners } from "./registry.generated";
 import type {
   AmbitoGeografico,
   Articulo,
@@ -17,10 +16,6 @@ import type {
   TagsGeograficos,
   TipoTemporal,
 } from "./types";
-
-const OBSERVATORIO_ROOT = path.join(process.cwd(), ".observatorio");
-const PREGUNTAS_DIR = path.join(OBSERVATORIO_ROOT, "preguntas");
-const TEMPLATES_DIR = path.join(OBSERVATORIO_ROOT, "templates");
 
 const TIPOS_TEMPORALES: readonly TipoTemporal[] = ["snapshot", "puente"];
 const SENSIBILIDADES: readonly Sensibilidad[] = ["directa", "sensible"];
@@ -382,9 +377,7 @@ function parseArticulo(
   return articulo;
 }
 
-async function readArticuloFile(filename: string): Promise<Articulo> {
-  const full = path.join(PREGUNTAS_DIR, filename);
-  const raw = await readFile(full, "utf8");
+function parseRawArticulo(filename: string, raw: string): Articulo {
   const parsed = matter(raw);
   return parseArticulo(filename, {
     data: parsed.data as Record<string, unknown>,
@@ -396,11 +389,9 @@ let cache: Articulo[] | null = null;
 
 export async function getAllArticulos(): Promise<Articulo[]> {
   if (cache) return cache;
-  const entries = await readdir(PREGUNTAS_DIR);
-  const files = entries
-    .filter((f) => f.endsWith(".md") && f !== "README.md")
-    .sort();
-  const articulos = await Promise.all(files.map((f) => readArticuloFile(f)));
+  const articulos = rawArticulos.map((r) =>
+    parseRawArticulo(r.filename, r.raw),
+  );
   articulos.sort((a, b) =>
     a.fecha_ultima_actualizacion < b.fecha_ultima_actualizacion ? 1 : -1,
   );
@@ -423,13 +414,7 @@ export async function getAllSlugs(): Promise<string[]> {
 export async function getBannerCanonico(
   estado: EstadoArticulo,
 ): Promise<string | null> {
-  const filename = `banner-${estado}.md`;
-  const full = path.join(TEMPLATES_DIR, filename);
-  try {
-    const raw = await readFile(full, "utf8");
-    return extractCanonicalCopy(raw, "Copy canónico");
-  } catch (e) {
-    if ((e as NodeJS.ErrnoException).code === "ENOENT") return null;
-    throw e;
-  }
+  const raw = rawBanners[estado];
+  if (!raw) return null;
+  return extractCanonicalCopy(raw, "Copy canónico");
 }

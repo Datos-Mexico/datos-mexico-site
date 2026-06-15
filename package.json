@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build:preguntas-registry": "tsx scripts/build-preguntas-registry.ts",
+    "predev": "npm run build:preguntas-registry",
     "dev": "next dev",
+    "prebuild": "npm run build:preguntas-registry",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",

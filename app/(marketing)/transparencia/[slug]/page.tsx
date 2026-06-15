@@ -84,6 +84,12 @@ export default async function PiezaPage({
   const { slug } = await params;
   const pieza = await getPiezaPorSlug(slug);
   if (!pieza) notFound();
+  if (
+    pieza.status !== "published" &&
+    process.env.NODE_ENV !== "development"
+  ) {
+    notFound();
+  }
 
   const url = `https://datosmexico.org/transparencia/${pieza.slug}`;
 

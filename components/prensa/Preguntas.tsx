@@ -22,8 +22,25 @@ const faqs: FAQItem[] = [
   },
   {
     question: "¿Tienen datos sobre [tema X]?",
-    answer:
-      "Hoy publicamos análisis sobre tres datasets: la Encuesta Nacional de Ingresos y Gastos de los Hogares (ENIGH 2024 NS) del INEGI, los recursos del SAR (CONSAR 1998–2025) y las remuneraciones de servidores públicos de la Ciudad de México. Si tu tema cae fuera de estos, podemos orientarte sobre dónde buscarlo en fuentes oficiales aunque no tengamos análisis propio.",
+    answer: (
+      <>
+        Hoy publicamos análisis sobre tres datasets: la Encuesta Nacional de
+        Ingresos y Gastos de los Hogares (ENIGH 2024 NS) del INEGI, los
+        recursos del SAR (CONSAR 1998–2025) y las remuneraciones de servidores
+        públicos de la Ciudad de México. Si tu tema cae fuera de estos, podemos
+        orientarte sobre dónde buscarlo en fuentes oficiales aunque no tengamos
+        análisis propio. El observatorio también atiende{" "}
+        <Link
+          href="/transparencia/001-jitomate-superissste"
+          className="text-primary underline-offset-4 hover:underline"
+        >
+          encargos puntuales de prensa
+        </Link>{" "}
+        sobre transparencia y rendición de cuentas; el primero atendido —sobre
+        los precios del jitomate y los contratos del SuperISSSTE— ilustra el
+        formato de entrega.
+      </>
+    ),
   },
   {
     question: "¿Cuánto tardan en responder?",

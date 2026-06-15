@@ -64,21 +64,30 @@ function buildPublicEventJsonLd(week: AgendaWeek) {
     "publication",
     "session",
     "presentation",
+    "press-engagement",
   ];
   return week.events
     .filter((e) => publicTypes.includes(e.type))
-    .map((e) => ({
-      "@context": "https://schema.org",
-      "@type": "Event",
-      name: e.title,
-      description: e.description,
-      startDate: eventStartDate(e),
-      eventStatus: "https://schema.org/EventScheduled",
-      organizer: ORG_REF,
-      ...(e.publicationSlug && {
-        url: `${SITE_URL}/publicaciones/${e.publicationSlug}`,
-      }),
-    }));
+    .map((e) => {
+      let url: string | undefined;
+      if (e.publicationSlug) {
+        url = `${SITE_URL}/publicaciones/${e.publicationSlug}`;
+      } else if (e.link?.href.startsWith("/")) {
+        url = `${SITE_URL}${e.link.href}`;
+      } else if (e.link?.external) {
+        url = e.link.href;
+      }
+      return {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        name: e.title,
+        description: e.description,
+        startDate: eventStartDate(e),
+        eventStatus: "https://schema.org/EventScheduled",
+        organizer: ORG_REF,
+        ...(url && { url }),
+      };
+    });
 }
 
 function buildMacroEventJsonLd(milestones: readonly MacroMilestone[]) {

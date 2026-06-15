@@ -5,7 +5,7 @@ caso: "001"
 pregunta: "Los precios del jitomate observados en tiendas SuperISSSTE en abril de 2026 y los contratos con los que SuperISSSTE adquiere ese producto."
 publishedAt: "2026-06-15"
 excerpt: "Primer encargo de prensa atendido por el observatorio. Yuxtaposición del precio público observado en SuperISSSTE durante abril de 2026 con la negativa al acceso a la información sobre los contratos de adquisición invocando 'secreto comercial'."
-status: "draft"
+status: "published"
 keywords:
   - transparencia
   - jitomate

@@ -39,7 +39,7 @@ export function Header() {
           <Logo variant="default" withWordmark size="md" />
 
           <nav
-            className="hidden items-center gap-7 md:flex"
+            className="hidden items-center gap-6 md:flex"
             aria-label="Navegación principal"
           >
             {navigation.map((item) => (

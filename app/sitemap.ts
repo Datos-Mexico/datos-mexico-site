@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllPublications } from "@/lib/publicaciones/loader";
 import { categories } from "@/lib/publicaciones/categories";
 import { getAllArticulos } from "@/lib/preguntas/loader";
+import { getAllPublishedSlugs, getPiezaPorSlug } from "@/lib/transparencia/loader";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = "https://datosmexico.org";
@@ -34,6 +35,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${base}/preguntas`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/transparencia`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.8,
@@ -87,10 +94,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.9,
   }));
 
+  const transparenciaSlugs = await getAllPublishedSlugs();
+  const transparenciaPiezas = (
+    await Promise.all(transparenciaSlugs.map((slug) => getPiezaPorSlug(slug)))
+  ).filter((p): p is NonNullable<typeof p> => p !== null);
+  const transparenciaEntries: MetadataRoute.Sitemap = transparenciaPiezas.map(
+    (p) => ({
+      url: `${base}/transparencia/${p.slug}`,
+      lastModified: new Date(p.updatedAt ?? p.publishedAt),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    }),
+  );
+
   return [
     ...staticEntries,
     ...categoryEntries,
     ...publicationEntries,
     ...articuloEntries,
+    ...transparenciaEntries,
   ];
 }

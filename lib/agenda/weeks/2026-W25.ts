@@ -23,5 +23,18 @@ export const week: AgendaWeek = {
         external: true,
       },
     },
+    {
+      id: "2026-w25-encargo-001-jitomate-superissste",
+      type: "press-engagement",
+      date: "2026-06-15",
+      title:
+        "El observatorio respondió su primer encargo de prensa: precios del jitomate y contratos del SuperISSSTE",
+      description:
+        "Yuxtaposición del precio público observado en SuperISSSTE durante abril de 2026 con la negativa al acceso a la información sobre los contratos de adquisición, invocando 'secreto comercial'.",
+      link: {
+        href: "/transparencia/001-jitomate-superissste",
+        label: "Leer la pieza",
+      },
+    },
   ],
 };

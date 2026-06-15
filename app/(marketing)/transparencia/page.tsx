@@ -31,6 +31,28 @@ export default async function TransparenciaPage() {
           lead="Piezas públicas sobre transparencia y rendición de cuentas atendidas como encargo de prensa. Cada pieza documenta la pregunta del encargo, los hechos verificados, el marco aplicable y la frontera explícita de lo desconocido."
         />
 
+        <div className="mt-10 max-w-3xl space-y-4">
+          <Body className="font-sans text-[15px] leading-[1.7] text-text-subtle md:text-[17px] md:leading-[1.7]">
+            Un encargo de prensa es una pregunta acotada y de interés
+            público que un medio o periodista dirige al observatorio.
+            El observatorio no produce la nota ni la interpreta:
+            entrega datos verificados y trazables para que quien
+            pregunta construya su trabajo sobre terreno firme. La
+            interpretación es competencia de quien la recibe.
+          </Body>
+          <Body className="font-sans text-[15px] leading-[1.7] text-text-subtle md:text-[17px] md:leading-[1.7]">
+            Cada caso publicado reúne la pregunta del encargo, el
+            dossier de hechos verificados con sus fuentes primarias,
+            el sustento normativo aplicable, el análisis del marco
+            frente a los hechos, y la pieza pública firmada. El rastro
+            académico completo de cada indagación es público y
+            auditable en el repositorio del observatorio.
+          </Body>
+          <Body className="font-sans text-[15px] leading-[1.7] text-text-subtle md:text-[17px] md:leading-[1.7]">
+            Los casos se publican cuando se cierran, no en calendario.
+          </Body>
+        </div>
+
         {piezas.length === 0 ? (
           <div className="mt-14 max-w-2xl rounded-lg border-2 border-dashed border-border bg-muted/40 p-10 text-center">
             <Body className="text-[16px] leading-[1.6] text-text-subtle">

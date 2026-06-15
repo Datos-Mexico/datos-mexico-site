@@ -15,7 +15,6 @@ const TYPE_LABEL: Record<AgendaEvent["type"], string> = {
   presentation: "Presentación",
   deadline: "Entrega",
   milestone: "Hito",
-  "press-engagement": "Encargo de prensa",
 };
 
 function groupByDate(events: readonly AgendaEvent[]) {

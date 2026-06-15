@@ -4,8 +4,7 @@ export type AgendaEventType =
   | "session"
   | "presentation"
   | "deadline"
-  | "milestone"
-  | "press-engagement";
+  | "milestone";
 
 export type AgendaEventLink = {
   href: string;

@@ -36,16 +36,6 @@ recibe.
 
 ## 1. La pregunta
 
-<!--
-  CRÉDITO PENDIENTE.
-  En la entrega final irá aquí el reconocimiento a la periodista que
-  llevó el encargo al observatorio. No se incluye en este borrador;
-  se añadirá tras la entrega del material y con su aprobación
-  explícita, conforme al PROTOCOLO-PRENSA (§ "Comunicación pública
-  del encargo": "No revela comunicación privada con quien preguntó
-  salvo que esa persona lo autorice").
--->
-
 El observatorio recibió, como su primer encargo de prensa, una
 pregunta sobre **los precios del jitomate observados en tiendas
 SuperISSSTE durante abril de 2026 y sobre los contratos con los que

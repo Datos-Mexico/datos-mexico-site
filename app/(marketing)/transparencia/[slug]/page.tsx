@@ -142,7 +142,7 @@ export default async function PiezaPage({
         <Container>
           {pieza.status === "draft" && <BannerBorrador />}
           <TransparenciaHeader pieza={pieza} />
-          <TransparenciaBody content={pieza.content} />
+          <TransparenciaBody html={pieza.html} />
           <TransparenciaMeta caso={pieza.caso} repoPath={pieza.repoPath} />
           <TransparenciaFooter pieza={pieza} />
         </Container>

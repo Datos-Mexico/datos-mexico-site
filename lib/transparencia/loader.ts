@@ -79,17 +79,23 @@ function parseFrontmatter(
   };
 }
 
-function parseRawPieza(filename: string, raw: string): TransparenciaPiece {
+function parseRawPieza(
+  filename: string,
+  raw: string,
+  html: string,
+): TransparenciaPiece {
   const parsed = matter(raw);
   const fm = parseFrontmatter(filename, parsed.data as Record<string, unknown>);
-  return { ...fm, filename, content: parsed.content };
+  return { ...fm, filename, content: parsed.content, html };
 }
 
 let cache: TransparenciaPiece[] | null = null;
 
 async function getAllPiecesIncludingDrafts(): Promise<TransparenciaPiece[]> {
   if (cache) return cache;
-  const pieces = rawPiezas.map((r) => parseRawPieza(r.filename, r.raw));
+  const pieces = rawPiezas.map((r) =>
+    parseRawPieza(r.filename, r.raw, r.html),
+  );
   pieces.sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
   cache = pieces;
   return pieces;

@@ -95,4 +95,5 @@ export type Articulo = {
 
   filename: string;
   content: string;
+  body_html: string;
 };

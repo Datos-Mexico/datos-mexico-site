@@ -136,7 +136,7 @@ function FooterLink({
 
   return (
     <li>
-      <Link href={href} className={className}>
+      <Link href={href} prefetch={false} className={className}>
         {children}
       </Link>
     </li>

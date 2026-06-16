@@ -28,12 +28,40 @@ type SummaryHtml = {
   frontera: string;
 };
 
+type BodyChunk = {
+  html: string;
+  chartAfter: "V2" | "V3" | "V4" | null;
+};
+
 type RawPieza = {
   filename: string;
   raw: string;
   html: string;
+  bodyChunks: BodyChunk[];
   summaryHtml: SummaryHtml;
 };
+
+// Split renderized body HTML at chart sentinels. Each sentinel `[chart:VX]`
+// on its own markdown line becomes a `<p class="…">[chart:VX]</p>` paragraph
+// after react-markdown + markdownComponents. We find those exact paragraphs
+// and split the body into chunks, dropping the sentinel paragraph and
+// labeling which chart goes after each chunk.
+function splitBodyAtSentinels(html: string): BodyChunk[] {
+  const sentinelRegex =
+    /<p class="font-sans[^"]*">\[chart:(V[234])\]<\/p>/g;
+  const chunks: BodyChunk[] = [];
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = sentinelRegex.exec(html)) !== null) {
+    chunks.push({
+      html: html.slice(last, m.index),
+      chartAfter: m[1] as "V2" | "V3" | "V4",
+    });
+    last = m.index + m[0].length;
+  }
+  chunks.push({ html: html.slice(last), chartAfter: null });
+  return chunks;
+}
 
 function renderMarkdownToHtml(content: string): string {
   const rendered = renderToString(
@@ -96,11 +124,12 @@ async function readPiezas(): Promise<RawPieza[]> {
     const raw = await readFile(path.join(TRANSPARENCIA_DIR, filename), "utf8");
     const parsed = matter(raw);
     const html = renderMarkdownToHtml(parsed.content);
+    const bodyChunks = splitBodyAtSentinels(html);
     const summaryHtml = renderSummaryHtml(
       parsed.data as Record<string, unknown>,
       filename,
     );
-    out.push({ filename, raw, html, summaryHtml });
+    out.push({ filename, raw, html, bodyChunks, summaryHtml });
   }
   return out;
 }
@@ -126,18 +155,29 @@ async function main(): Promise<void> {
     "  readonly frontera: string;",
     "};",
     "",
+    "export type RawBodyChunk = {",
+    '  readonly html: string;',
+    '  readonly chartAfter: "V2" | "V3" | "V4" | null;',
+    "};",
+    "",
     "export type RawPieza = {",
     "  readonly filename: string;",
     "  readonly raw: string;",
     "  readonly html: string;",
+    "  readonly bodyChunks: ReadonlyArray<RawBodyChunk>;",
     "  readonly summaryHtml: RawSummaryHtml;",
     "};",
     "",
     "export const rawPiezas: ReadonlyArray<RawPieza> = [",
-    ...piezas.map(
-      (p) =>
-        `  { filename: ${literal(p.filename)}, raw: ${literal(p.raw)}, html: ${literal(p.html)}, summaryHtml: { pregunta: ${literal(p.summaryHtml.pregunta)}, precios: ${literal(p.summaryHtml.precios)}, contratos: ${literal(p.summaryHtml.contratos)}, frontera: ${literal(p.summaryHtml.frontera)} } },`,
-    ),
+    ...piezas.map((p) => {
+      const chunks = p.bodyChunks
+        .map(
+          (c) =>
+            `    { html: ${literal(c.html)}, chartAfter: ${c.chartAfter === null ? "null" : literal(c.chartAfter)} },`,
+        )
+        .join("\n");
+      return `  { filename: ${literal(p.filename)}, raw: ${literal(p.raw)}, html: ${literal(p.html)}, bodyChunks: [\n${chunks}\n  ], summaryHtml: { pregunta: ${literal(p.summaryHtml.pregunta)}, precios: ${literal(p.summaryHtml.precios)}, contratos: ${literal(p.summaryHtml.contratos)}, frontera: ${literal(p.summaryHtml.frontera)} } },`;
+    }),
     "];",
     "",
   ];

@@ -154,7 +154,10 @@ export default async function PiezaPage({
 
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-12">
             <div className="min-w-0">
-              <TransparenciaBody html={pieza.html} />
+              <TransparenciaBody
+                bodyChunks={pieza.bodyChunks}
+                chartData={pieza.chartData}
+              />
             </div>
             <aside
               aria-label="Resumen y guía de la pieza"

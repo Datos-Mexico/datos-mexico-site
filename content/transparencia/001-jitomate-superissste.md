@@ -45,6 +45,34 @@ toc:
   - anchor: "6-acceso-al-trabajo-completo"
     label: "6 · Acceso al trabajo completo"
     sub: "Repositorio del observatorio."
+chartData:
+  v2:
+    eyebrow: "Verificación en campo · La Jornada · 14 de abril de 2026"
+    title: "Precios del jitomate constatados por La Jornada en establecimientos de la CDMX"
+    note: "Mercado 2 de Abril en rango $60–$70 según constatación del medio. Dos tiendas SuperISSSTE constatadas (Manuel Tolsá/Enrico Martínez y La Ciudadela)."
+    domainMax: 80
+    items:
+      - { store: "SuperISSSTE", min: 19.90, max: 19.90 }
+      - { store: "Soriana Híper", min: 49.00, max: 49.00 }
+      - { store: "Chedraui", min: 49.00, max: 49.00 }
+      - { store: "Walmart", min: 59.00, max: 59.00 }
+      - { store: "Mercado 2 de Abril", min: 60.00, max: 70.00 }
+  v3:
+    eyebrow: "Medición nacional · Profeco · fines de marzo de 2026"
+    title: "Rango nacional de precios del jitomate, por variedad"
+    note: "Establecimientos nombrados por Profeco al difundir esta medición: Soriana, Central de Abasto, S Mart, La Comer, Mercado Morelos, Mercado Nicolás Bravo. SuperISSSTE no figura en el universo Profeco de esta medición."
+    domainMax: 75
+    items:
+      - { variety: "Jitomate saladet", min: 16.99, max: 60.00 }
+      - { variety: "Jitomate bola", min: 19.90, max: 69.90 }
+  v4:
+    eyebrow: "Medición primaria oficial · SNIIM · 15 de abril de 2026"
+    title: "Rango mayorista de tomate en la Central de Abasto de Iztapalapa, CDMX"
+    note: "Saladette: orígenes Puebla y Sinaloa, cajas de 12, 13 y 25 kg. Bola: origen Puebla, caja de 10 kg. La plaza y el origen con que SuperISSSTE adquiere el jitomate no son necesariamente Iztapalapa, Puebla ni Sinaloa: forma parte de lo que permanece desconocido, negado por «secreto comercial»."
+    domainMax: 100
+    items:
+      - { variety: "Tomate saladette primera", origins: "Puebla, Sinaloa", min: 23.08, max: 43.33 }
+      - { variety: "Tomate bola primera", origins: "Puebla", min: 75.00, max: 90.00 }
 ---
 
 ## Naturaleza de este documento
@@ -132,6 +160,8 @@ no publican precio individual por producto.
 para jitomate bola**, cota estadística sobre el mercado nacional;
 no es un precio atribuido por Profeco a SuperISSSTE.
 
+[chart:V3]
+
 ### 2.2 Verificación de El Universal — tienda SuperISSSTE, 16 de abril de 2026
 
 El medio constató, por reportería directa en piso de venta de
@@ -191,6 +221,8 @@ INEGI, atribuida en buena parte al alza de frutas y verduras.
 del medio en varios establecimientos** de la CDMX, con SuperISSSTE
 como extremo bajo del rango monitoreado.
 
+[chart:V2]
+
 ### 2.4 Síntesis de los tres registros del 19.90
 
 La cifra "19.90 pesos por kilo" aparece, en este caso, en **tres
@@ -223,6 +255,8 @@ verificación de El Universal:
 
 *Etiqueta:* medición de mayoreo en Central de Abasto, fuente
 primaria oficial.
+
+[chart:V4]
 
 ### 2.6 Contraste menudeo SuperISSSTE vs mayoreo SNIIM en días contiguos de abril, con su salvedad
 

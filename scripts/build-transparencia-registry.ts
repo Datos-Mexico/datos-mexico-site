@@ -30,7 +30,7 @@ type SummaryHtml = {
 
 type BodyChunk = {
   html: string;
-  chartAfter: "V2" | "V3" | "V4" | null;
+  chartAfter: "V2" | "V3" | "V4" | "V5" | null;
 };
 
 type RawPieza = {
@@ -48,14 +48,14 @@ type RawPieza = {
 // labeling which chart goes after each chunk.
 function splitBodyAtSentinels(html: string): BodyChunk[] {
   const sentinelRegex =
-    /<p class="font-sans[^"]*">\[chart:(V[234])\]<\/p>/g;
+    /<p class="font-sans[^"]*">\[chart:(V[2345])\]<\/p>/g;
   const chunks: BodyChunk[] = [];
   let last = 0;
   let m: RegExpExecArray | null;
   while ((m = sentinelRegex.exec(html)) !== null) {
     chunks.push({
       html: html.slice(last, m.index),
-      chartAfter: m[1] as "V2" | "V3" | "V4",
+      chartAfter: m[1] as "V2" | "V3" | "V4" | "V5",
     });
     last = m.index + m[0].length;
   }
@@ -157,7 +157,7 @@ async function main(): Promise<void> {
     "",
     "export type RawBodyChunk = {",
     '  readonly html: string;',
-    '  readonly chartAfter: "V2" | "V3" | "V4" | null;',
+    '  readonly chartAfter: "V2" | "V3" | "V4" | "V5" | null;',
     "};",
     "",
     "export type RawPieza = {",

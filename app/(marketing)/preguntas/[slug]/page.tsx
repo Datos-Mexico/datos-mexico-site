@@ -180,7 +180,7 @@ export default async function ArticuloPage({
           <ArticuloHeader articulo={articulo} />
           <ArticuloBanner articulo={articulo} />
           <MarcasTemporales articulo={articulo} />
-          <ArticuloBody content={articulo.content} />
+          <ArticuloBody body_html={articulo.body_html} />
           <ArticuloMeta articulo={articulo} />
         </Container>
       </article>

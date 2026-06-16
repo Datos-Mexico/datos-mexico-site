@@ -1,5 +1,4 @@
 import matter from "gray-matter";
-import { extractCanonicalCopy } from "./banner";
 import { rawArticulos, rawBanners } from "./registry.generated";
 import type {
   AmbitoGeografico,
@@ -247,7 +246,7 @@ function asErrataReferencia(
 
 function parseArticulo(
   filename: string,
-  raw: { data: Record<string, unknown>; content: string },
+  raw: { data: Record<string, unknown>; content: string; body_html: string },
 ): Articulo {
   const fm = raw.data;
   const slug = asString(fm.slug, filename, "slug");
@@ -353,6 +352,7 @@ function parseArticulo(
 
     filename,
     content: raw.content,
+    body_html: raw.body_html,
   };
 
   if (tipoTemporal === "puente") {
@@ -377,11 +377,16 @@ function parseArticulo(
   return articulo;
 }
 
-function parseRawArticulo(filename: string, raw: string): Articulo {
+function parseRawArticulo(
+  filename: string,
+  raw: string,
+  body_html: string,
+): Articulo {
   const parsed = matter(raw);
   return parseArticulo(filename, {
     data: parsed.data as Record<string, unknown>,
     content: parsed.content,
+    body_html,
   });
 }
 
@@ -390,7 +395,7 @@ let cache: Articulo[] | null = null;
 export async function getAllArticulos(): Promise<Articulo[]> {
   if (cache) return cache;
   const articulos = rawArticulos.map((r) =>
-    parseRawArticulo(r.filename, r.raw),
+    parseRawArticulo(r.filename, r.raw, r.body_html),
   );
   articulos.sort((a, b) =>
     a.fecha_ultima_actualizacion < b.fecha_ultima_actualizacion ? 1 : -1,
@@ -414,7 +419,5 @@ export async function getAllSlugs(): Promise<string[]> {
 export async function getBannerCanonico(
   estado: EstadoArticulo,
 ): Promise<string | null> {
-  const raw = rawBanners[estado];
-  if (!raw) return null;
-  return extractCanonicalCopy(raw, "Copy canónico");
+  return rawBanners[estado] ?? null;
 }

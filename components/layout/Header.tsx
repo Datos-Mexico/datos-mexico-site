@@ -81,6 +81,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  prefetch={false}
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
                   onClick={() => setOpen(false)}
@@ -136,6 +137,7 @@ function NavItem({
   return (
     <Link
       href={href}
+      prefetch={false}
       className="font-sans text-[15px] font-medium text-foreground hover:text-primary transition-colors"
     >
       {label}

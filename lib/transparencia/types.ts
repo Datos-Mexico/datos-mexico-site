@@ -16,4 +16,5 @@ export type TransparenciaFrontmatter = {
 export type TransparenciaPiece = TransparenciaFrontmatter & {
   filename: string;
   content: string;
+  html: string;
 };

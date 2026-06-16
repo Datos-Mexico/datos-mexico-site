@@ -73,6 +73,69 @@ chartData:
     items:
       - { variety: "Tomate saladette primera", origins: "Puebla, Sinaloa", min: 23.08, max: 43.33 }
       - { variety: "Tomate bola primera", origins: "Puebla", min: 75.00, max: 90.00 }
+  v5:
+    eyebrow: "Registro temporal · hechos públicos de distinta naturaleza"
+    title: "Hechos públicos del caso, en el tiempo"
+    note: "Cada nodo es un hecho público fechable. Los carriles separan los tipos de hecho —medición, verificación en campo, declaración o testimonio— para que la secuencia temporal no se lea como una cadena de causa y efecto. La relación entre los nodos es competencia de quien la interpreta; el observatorio solo los ordena."
+    startDate: "2026-03-30"
+    endDate: "2026-06-09"
+    lanes:
+      - id: "medicion"
+        label: "Mediciones"
+      - id: "verificacion"
+        label: "Verificaciones en campo"
+      - id: "declaracion"
+        label: "Declaraciones y testimonio"
+    nodes:
+      - id: "N1"
+        lane: "medicion"
+        date: "2026-03-30"
+        dateLabel: "Fines de marzo de 2026"
+        headline: "Profeco difunde rango nacional"
+        description: |
+          Profeco difundió por canal institucional y por *Quién es Quién en los Precios* el rango nacional del jitomate: saladet $16.99–$60.00 por kilogramo; bola $19.90–$69.90 por kilogramo.
+      - id: "N2"
+        lane: "declaracion"
+        date: "2026-04-14"
+        dateLabel: "14 de abril de 2026"
+        headline: "Conferencia de prensa de Presidencia"
+        description: |
+          En la conferencia de prensa matutina, la presidenta Claudia Sheinbaum preguntó: «¿Cómo es posible que el kilo de jitomate en las tiendas del ISSSTE esté a 20 pesos y en Walmart esté a 80?» (versión estenográfica oficial).
+      - id: "N3"
+        lane: "verificacion"
+        date: "2026-04-14"
+        dateLabel: "14 de abril de 2026"
+        headline: "Reportería La Jornada en CDMX (publicada el 15)"
+        description: |
+          La Jornada constató en establecimientos de la CDMX: SuperISSSTE $19.90 (dos tiendas), Soriana Híper $49.00, Chedraui $49.00, Walmart $59.00, Mercado 2 de Abril $60.00–$70.00.
+      - id: "N4"
+        lane: "medicion"
+        date: "2026-04-15"
+        dateLabel: "15 de abril de 2026"
+        headline: "Medición primaria oficial SNIIM"
+        description: |
+          SNIIM registró el mayoreo del día en la Central de Abasto de Iztapalapa: tomate saladette primera $23.08–$43.33 (orígenes Puebla, Sinaloa); tomate bola primera $75.00–$90.00 (origen Puebla).
+      - id: "N5"
+        lane: "declaracion"
+        date: "2026-04-16"
+        dateLabel: "16 de abril de 2026"
+        headline: "Conferencia de prensa de Presidencia"
+        description: |
+          En la conferencia de prensa matutina, el comparativo se repitió con rango alto ampliado a «80, 100 pesos» (versión estenográfica oficial).
+      - id: "N6"
+        lane: "verificacion"
+        date: "2026-04-16"
+        dateLabel: "16 de abril de 2026"
+        headline: "Verificación El Universal en tienda SuperISSSTE"
+        description: |
+          El Universal constató en piso de venta SuperISSSTE: $19.90 por bolsa de un kilo, tope de dos bolsas por persona, calidad heterogénea en anaquel.
+      - id: "N7"
+        lane: "declaracion"
+        date: "2026-06-09"
+        dateLabel: "9 de junio de 2026"
+        headline: "Columna firmada en Opinión 51"
+        description: |
+          Una columna firmada publicada en Opinión 51 reportó que la solicitud presentada por la Plataforma Nacional de Transparencia ante SuperISSSTE recibió, tras prórroga, una negativa fundamentada en «secretos comerciales».
 ---
 
 ## Naturaleza de este documento
@@ -135,6 +198,8 @@ cuantitativo difundido por la institución responsable de medirlo),
 **verificación en campo** (observación directa en piso de venta,
 atribuida al medio que la levantó), **declaración** (lo dijo una
 autoridad o funcionario, con fuente que lo recoge textualmente).
+
+[chart:V5]
 
 ### 2.1 Medición Profeco — rango nacional, fines de marzo de 2026
 

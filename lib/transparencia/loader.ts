@@ -9,6 +9,10 @@ import type {
   ChartV3Item,
   ChartV4,
   ChartV4Item,
+  TimelineLane,
+  TimelineLaneId,
+  TimelineNode,
+  TimelineV5,
   TocEntry,
   TransparenciaFrontmatter,
   TransparenciaPiece,
@@ -16,6 +20,12 @@ import type {
   TransparenciaSummary,
   TransparenciaSummaryHtml,
 } from "./types";
+
+const TIMELINE_LANE_IDS: readonly TimelineLaneId[] = [
+  "medicion",
+  "verificacion",
+  "declaracion",
+];
 
 const STATUSES: readonly TransparenciaStatus[] = ["draft", "published"];
 
@@ -173,6 +183,84 @@ function parseChartV4(v: unknown, filename: string): ChartV4 {
   };
 }
 
+function parseTimelineLane(
+  v: unknown,
+  filename: string,
+  i: number,
+): TimelineLane {
+  if (!v || typeof v !== "object") {
+    fail(filename, `timeline.lanes[${i}] debe ser objeto`);
+  }
+  const o = v as Record<string, unknown>;
+  return {
+    id: asEnum(
+      o.id,
+      TIMELINE_LANE_IDS,
+      filename,
+      `timeline.lanes[${i}].id`,
+    ),
+    label: asString(o.label, filename, `timeline.lanes[${i}].label`),
+  };
+}
+
+function parseTimelineNode(
+  v: unknown,
+  filename: string,
+  i: number,
+): TimelineNode {
+  if (!v || typeof v !== "object") {
+    fail(filename, `timeline.nodes[${i}] debe ser objeto`);
+  }
+  const o = v as Record<string, unknown>;
+  return {
+    id: asString(o.id, filename, `timeline.nodes[${i}].id`),
+    lane: asEnum(
+      o.lane,
+      TIMELINE_LANE_IDS,
+      filename,
+      `timeline.nodes[${i}].lane`,
+    ),
+    date: toIsoDateString(o.date),
+    dateLabel: asString(
+      o.dateLabel,
+      filename,
+      `timeline.nodes[${i}].dateLabel`,
+    ),
+    headline: asString(
+      o.headline,
+      filename,
+      `timeline.nodes[${i}].headline`,
+    ),
+    description: asString(
+      o.description,
+      filename,
+      `timeline.nodes[${i}].description`,
+    ),
+  };
+}
+
+function parseTimeline(v: unknown, filename: string): TimelineV5 {
+  if (!v || typeof v !== "object") {
+    fail(filename, `campo "timeline" debe ser objeto`);
+  }
+  const o = v as Record<string, unknown>;
+  if (!Array.isArray(o.lanes) || o.lanes.length === 0) {
+    fail(filename, `timeline.lanes debe ser lista no vacía`);
+  }
+  if (!Array.isArray(o.nodes) || o.nodes.length === 0) {
+    fail(filename, `timeline.nodes debe ser lista no vacía`);
+  }
+  return {
+    eyebrow: asString(o.eyebrow, filename, `timeline.eyebrow`),
+    title: asString(o.title, filename, `timeline.title`),
+    note: asString(o.note, filename, `timeline.note`),
+    startDate: toIsoDateString(o.startDate),
+    endDate: toIsoDateString(o.endDate),
+    lanes: o.lanes.map((l, i) => parseTimelineLane(l, filename, i)),
+    nodes: o.nodes.map((n, i) => parseTimelineNode(n, filename, i)),
+  };
+}
+
 function parseChartData(v: unknown, filename: string): ChartData {
   if (!v || typeof v !== "object") {
     fail(filename, `campo "chartData" debe ser objeto`);
@@ -182,6 +270,7 @@ function parseChartData(v: unknown, filename: string): ChartData {
     v2: parseChartV2(o.v2, filename),
     v3: parseChartV3(o.v3, filename),
     v4: parseChartV4(o.v4, filename),
+    v5: parseTimeline(o.v5, filename),
   };
 }
 

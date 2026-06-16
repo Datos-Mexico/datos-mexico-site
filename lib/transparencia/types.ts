@@ -63,15 +63,42 @@ export type ChartV4 = {
   items: ChartV4Item[];
 };
 
+export type TimelineLaneId = "medicion" | "verificacion" | "declaracion";
+
+export type TimelineLane = {
+  id: TimelineLaneId;
+  label: string;
+};
+
+export type TimelineNode = {
+  id: string;
+  lane: TimelineLaneId;
+  date: string;
+  dateLabel: string;
+  headline: string;
+  description: string;
+};
+
+export type TimelineV5 = {
+  eyebrow: string;
+  title: string;
+  note: string;
+  startDate: string;
+  endDate: string;
+  lanes: TimelineLane[];
+  nodes: TimelineNode[];
+};
+
 export type ChartData = {
   v2: ChartV2;
   v3: ChartV3;
   v4: ChartV4;
+  v5: TimelineV5;
 };
 
 export type BodyChunk = {
   html: string;
-  chartAfter: "V2" | "V3" | "V4" | null;
+  chartAfter: "V2" | "V3" | "V4" | "V5" | null;
 };
 
 export type TransparenciaFrontmatter = {

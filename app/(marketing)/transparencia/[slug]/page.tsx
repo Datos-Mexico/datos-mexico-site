@@ -6,6 +6,8 @@ import { TransparenciaBody } from "@/components/transparencia/TransparenciaBody"
 import { TransparenciaMeta } from "@/components/transparencia/TransparenciaMeta";
 import { TransparenciaFooter } from "@/components/transparencia/TransparenciaFooter";
 import { BannerBorrador } from "@/components/transparencia/BannerBorrador";
+import { SummaryGuiaContent } from "@/components/transparencia/SummaryGuiaContent";
+import { MobileSummaryGuia } from "@/components/transparencia/MobileSummaryGuia";
 import {
   getAllPublishedSlugs,
   getPiezaPorSlug,
@@ -142,7 +144,31 @@ export default async function PiezaPage({
         <Container>
           {pieza.status === "draft" && <BannerBorrador />}
           <TransparenciaHeader pieza={pieza} />
-          <TransparenciaBody html={pieza.html} />
+
+          <MobileSummaryGuia>
+            <SummaryGuiaContent
+              summaryHtml={pieza.summaryHtml}
+              toc={pieza.toc}
+            />
+          </MobileSummaryGuia>
+
+          <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-12">
+            <div className="min-w-0">
+              <TransparenciaBody html={pieza.html} />
+            </div>
+            <aside
+              aria-label="Resumen y guía de la pieza"
+              className="hidden lg:block"
+            >
+              <div className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto border-l border-border pl-6">
+                <SummaryGuiaContent
+                  summaryHtml={pieza.summaryHtml}
+                  toc={pieza.toc}
+                />
+              </div>
+            </aside>
+          </div>
+
           <TransparenciaMeta caso={pieza.caso} repoPath={pieza.repoPath} />
           <TransparenciaFooter pieza={pieza} />
         </Container>

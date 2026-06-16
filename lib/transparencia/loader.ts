@@ -1,9 +1,12 @@
 import matter from "gray-matter";
 import { rawPiezas } from "./registry.generated";
 import type {
+  TocEntry,
   TransparenciaFrontmatter,
   TransparenciaPiece,
   TransparenciaStatus,
+  TransparenciaSummary,
+  TransparenciaSummaryHtml,
 } from "./types";
 
 const STATUSES: readonly TransparenciaStatus[] = ["draft", "published"];
@@ -51,6 +54,39 @@ function asEnum<T extends string>(
   return v as T;
 }
 
+function parseSummary(
+  v: unknown,
+  filename: string,
+): TransparenciaSummary {
+  if (!v || typeof v !== "object") {
+    fail(filename, `campo "summary" debe ser objeto`);
+  }
+  const o = v as Record<string, unknown>;
+  return {
+    pregunta: asString(o.pregunta, filename, "summary.pregunta"),
+    precios: asString(o.precios, filename, "summary.precios"),
+    contratos: asString(o.contratos, filename, "summary.contratos"),
+    frontera: asString(o.frontera, filename, "summary.frontera"),
+  };
+}
+
+function parseToc(v: unknown, filename: string): TocEntry[] {
+  if (!Array.isArray(v) || v.length === 0) {
+    fail(filename, `campo "toc" debe ser lista no vacía`);
+  }
+  return v.map((e, i) => {
+    if (!e || typeof e !== "object") {
+      fail(filename, `toc[${i}] debe ser objeto`);
+    }
+    const o = e as Record<string, unknown>;
+    return {
+      anchor: asString(o.anchor, filename, `toc[${i}].anchor`),
+      label: asString(o.label, filename, `toc[${i}].label`),
+      sub: typeof o.sub === "string" ? o.sub : undefined,
+    };
+  });
+}
+
 function parseFrontmatter(
   filename: string,
   fm: Record<string, unknown>,
@@ -76,6 +112,8 @@ function parseFrontmatter(
       ? asStringArray(fm.keywords, filename, "keywords")
       : undefined,
     repoPath: typeof fm.repoPath === "string" ? fm.repoPath : undefined,
+    summary: parseSummary(fm.summary, filename),
+    toc: parseToc(fm.toc, filename),
   };
 }
 
@@ -83,10 +121,11 @@ function parseRawPieza(
   filename: string,
   raw: string,
   html: string,
+  summaryHtml: TransparenciaSummaryHtml,
 ): TransparenciaPiece {
   const parsed = matter(raw);
   const fm = parseFrontmatter(filename, parsed.data as Record<string, unknown>);
-  return { ...fm, filename, content: parsed.content, html };
+  return { ...fm, filename, content: parsed.content, html, summaryHtml };
 }
 
 let cache: TransparenciaPiece[] | null = null;
@@ -94,7 +133,7 @@ let cache: TransparenciaPiece[] | null = null;
 async function getAllPiecesIncludingDrafts(): Promise<TransparenciaPiece[]> {
   if (cache) return cache;
   const pieces = rawPiezas.map((r) =>
-    parseRawPieza(r.filename, r.raw, r.html),
+    parseRawPieza(r.filename, r.raw, r.html, r.summaryHtml),
   );
   pieces.sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
   cache = pieces;

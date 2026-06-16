@@ -30,6 +30,8 @@ export const sanitizeConfig: sanitizeHtml.IOptions = {
   allowedAttributes: {
     "*": ["class"],
     a: ["href", "target", "rel"],
+    h2: ["id"],
+    h3: ["id"],
   },
   allowedSchemes: ["http", "https", "mailto"],
   selfClosing: ["hr", "br"],

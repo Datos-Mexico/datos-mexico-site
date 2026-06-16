@@ -15,6 +15,7 @@ import { renderToString } from "react-dom/server";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { markdownComponents } from "../lib/preguntas/markdown";
+import { sanitizePrerenderedHtml } from "./sanitize-prerendered";
 
 const ROOT = path.resolve(__dirname, "..");
 const TRANSPARENCIA_DIR = path.join(ROOT, "content", "transparencia");
@@ -23,13 +24,14 @@ const OUT = path.join(ROOT, "lib", "transparencia", "registry.generated.ts");
 type RawPieza = { filename: string; raw: string; html: string };
 
 function renderMarkdownToHtml(content: string): string {
-  return renderToString(
+  const rendered = renderToString(
     React.createElement(
       ReactMarkdown,
       { remarkPlugins: [remarkGfm], components: markdownComponents },
       content,
     ),
   );
+  return sanitizePrerenderedHtml(rendered);
 }
 
 async function readPiezas(): Promise<RawPieza[]> {

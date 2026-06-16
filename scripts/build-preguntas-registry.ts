@@ -22,6 +22,7 @@ import remarkGfm from "remark-gfm";
 import { markdownComponents } from "../lib/preguntas/markdown";
 import { stripAllForArticulo } from "../lib/preguntas/strip";
 import { extractCanonicalCopy } from "../lib/preguntas/banner";
+import { sanitizePrerenderedHtml } from "./sanitize-prerendered";
 
 const ROOT = path.resolve(__dirname, "..");
 const PREGUNTAS_DIR = path.join(ROOT, ".observatorio", "preguntas");
@@ -31,13 +32,14 @@ const OUT = path.join(ROOT, "lib", "preguntas", "registry.generated.ts");
 type RawArticulo = { filename: string; raw: string; body_html: string };
 
 function renderMarkdownToHtml(content: string): string {
-  return renderToString(
+  const rendered = renderToString(
     React.createElement(
       ReactMarkdown,
       { remarkPlugins: [remarkGfm], components: markdownComponents },
       content,
     ),
   );
+  return sanitizePrerenderedHtml(rendered);
 }
 
 async function readPreguntas(): Promise<RawArticulo[]> {

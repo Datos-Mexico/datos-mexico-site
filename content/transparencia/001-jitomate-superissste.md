@@ -15,6 +15,36 @@ keywords:
   - LGTAIP
   - artículo 115
 repoPath: "casos/001-jitomate"
+summary:
+  pregunta: |
+    El precio al que SuperISSSTE vendió jitomate en sus tiendas durante abril de 2026, y a qué precio y a quién compra ese producto.
+  precios: |
+    Tres registros independientes —medición Profeco a nivel nacional, verificación en campo de El Universal en una tienda SuperISSSTE, reportería de La Jornada en establecimientos de la CDMX— coinciden numéricamente en *$19.90 por kilo* sin medir lo mismo: el primero es el piso del rango nacional; los otros dos son observaciones de campo en cadenas específicas. La pieza pone ese precio de menudeo al lado del precio de mayoreo del mismo día en la Central de Abasto de Iztapalapa —**son dos niveles de mercado distintos**, y la plaza y el origen con que SuperISSSTE compra el jitomate no son necesariamente los del SNIIM, dato que la solicitud de transparencia preguntó—. Con esa salvedad nombrada, SNIIM (fuente primaria oficial) registró el mayoreo con piso de *$23.08* para tomate saladette de primera con orígenes Puebla y Sinaloa.
+  contratos: |
+    SuperISSSTE negó la solicitud invocando *"secreto comercial"*. El artículo 115 de la LGTAIP, donde se regula esa figura, acota su uso por sujetos obligados a los casos en que **"no involucren el ejercicio de recursos públicos"**. SuperISSSTE adquiere el jitomate con presupuesto público. El observatorio coloca el marco y el hecho lado a lado; no escribe la inferencia.
+  frontera: |
+    La identidad del proveedor, el precio de compra y la plaza/origen reales no son públicos. Tampoco el folio PNT ni el oficio íntegro de la negativa, ni si se interpuso recurso de revisión.
+toc:
+  - anchor: "naturaleza-de-este-documento"
+    label: "Naturaleza de este documento"
+  - anchor: "1-la-pregunta"
+    label: "1 · La pregunta"
+    sub: "Qué se preguntó al observatorio y desde qué contexto."
+  - anchor: "2-lo-que-el-observatorio-encontro-sobre-los-precios"
+    label: "2 · Lo que se encontró sobre los precios"
+    sub: "Profeco, El Universal, La Jornada, SNIIM, y el contraste con su salvedad."
+  - anchor: "3-lo-que-el-observatorio-encontro-sobre-los-contratos"
+    label: "3 · Lo que se encontró sobre los contratos"
+    sub: "La solicitud, la negativa por «secreto comercial» y el marco aplicable."
+  - anchor: "4-la-frontera-de-lo-desconocido"
+    label: "4 · La frontera de lo desconocido"
+    sub: "Lo que no es público."
+  - anchor: "5-como-se-trabajo"
+    label: "5 · Cómo se trabajó"
+    sub: "Régimen del protocolo de prensa y las cuatro etapas previas."
+  - anchor: "6-acceso-al-trabajo-completo"
+    label: "6 · Acceso al trabajo completo"
+    sub: "Repositorio del observatorio."
 ---
 
 ## Naturaleza de este documento

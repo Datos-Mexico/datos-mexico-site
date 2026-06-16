@@ -1,11 +1,36 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import type { Components } from "react-markdown";
 import { Body, H2, H3, Mono } from "@/components/typography";
 import { cn } from "@/lib/utils";
 
+function nodeText(n: ReactNode): string {
+  if (n == null || typeof n === "boolean") return "";
+  if (typeof n === "string") return n;
+  if (typeof n === "number") return String(n);
+  if (Array.isArray(n)) return n.map(nodeText).join("");
+  if (typeof n === "object" && "props" in n) {
+    const child = (n as { props?: { children?: ReactNode } }).props?.children;
+    return nodeText(child);
+  }
+  return "";
+}
+
+function slugifyHeading(s: string): string {
+  return s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export const markdownComponents: Components = {
   h1: () => null,
-  h2: ({ children }) => <H2 className="mt-12">{children}</H2>,
+  h2: ({ children }) => (
+    <H2 id={slugifyHeading(nodeText(children))} className="mt-12">
+      {children}
+    </H2>
+  ),
   h3: ({ children }) => <H3 className="mt-10">{children}</H3>,
   p: ({ children }) => <Body className="mt-5">{children}</Body>,
   ul: ({ children }) => (

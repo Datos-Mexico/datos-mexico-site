@@ -21,7 +21,19 @@ const ROOT = path.resolve(__dirname, "..");
 const TRANSPARENCIA_DIR = path.join(ROOT, "content", "transparencia");
 const OUT = path.join(ROOT, "lib", "transparencia", "registry.generated.ts");
 
-type RawPieza = { filename: string; raw: string; html: string };
+type SummaryHtml = {
+  pregunta: string;
+  precios: string;
+  contratos: string;
+  frontera: string;
+};
+
+type RawPieza = {
+  filename: string;
+  raw: string;
+  html: string;
+  summaryHtml: SummaryHtml;
+};
 
 function renderMarkdownToHtml(content: string): string {
   const rendered = renderToString(
@@ -34,6 +46,46 @@ function renderMarkdownToHtml(content: string): string {
   return sanitizePrerenderedHtml(rendered);
 }
 
+function requireString(
+  v: unknown,
+  filename: string,
+  field: string,
+): string {
+  if (typeof v !== "string" || v.length === 0) {
+    throw new Error(
+      `Frontmatter inválido en ${filename}: campo "${field}" debe ser string no vacío`,
+    );
+  }
+  return v;
+}
+
+function renderSummaryHtml(
+  data: Record<string, unknown>,
+  filename: string,
+): SummaryHtml {
+  const summary = data.summary;
+  if (!summary || typeof summary !== "object") {
+    throw new Error(
+      `Frontmatter inválido en ${filename}: campo "summary" debe ser objeto`,
+    );
+  }
+  const o = summary as Record<string, unknown>;
+  return {
+    pregunta: renderMarkdownToHtml(
+      requireString(o.pregunta, filename, "summary.pregunta"),
+    ),
+    precios: renderMarkdownToHtml(
+      requireString(o.precios, filename, "summary.precios"),
+    ),
+    contratos: renderMarkdownToHtml(
+      requireString(o.contratos, filename, "summary.contratos"),
+    ),
+    frontera: renderMarkdownToHtml(
+      requireString(o.frontera, filename, "summary.frontera"),
+    ),
+  };
+}
+
 async function readPiezas(): Promise<RawPieza[]> {
   const entries = await readdir(TRANSPARENCIA_DIR);
   const files = entries
@@ -44,7 +96,11 @@ async function readPiezas(): Promise<RawPieza[]> {
     const raw = await readFile(path.join(TRANSPARENCIA_DIR, filename), "utf8");
     const parsed = matter(raw);
     const html = renderMarkdownToHtml(parsed.content);
-    out.push({ filename, raw, html });
+    const summaryHtml = renderSummaryHtml(
+      parsed.data as Record<string, unknown>,
+      filename,
+    );
+    out.push({ filename, raw, html, summaryHtml });
   }
   return out;
 }
@@ -63,16 +119,24 @@ async function main(): Promise<void> {
     "// `html` is pre-rendered by react-markdown + remark-gfm + markdownComponents",
     "// at build-time; runtime injects it with dangerouslySetInnerHTML.",
     "",
+    "export type RawSummaryHtml = {",
+    "  readonly pregunta: string;",
+    "  readonly precios: string;",
+    "  readonly contratos: string;",
+    "  readonly frontera: string;",
+    "};",
+    "",
     "export type RawPieza = {",
     "  readonly filename: string;",
     "  readonly raw: string;",
     "  readonly html: string;",
+    "  readonly summaryHtml: RawSummaryHtml;",
     "};",
     "",
     "export const rawPiezas: ReadonlyArray<RawPieza> = [",
     ...piezas.map(
       (p) =>
-        `  { filename: ${literal(p.filename)}, raw: ${literal(p.raw)}, html: ${literal(p.html)} },`,
+        `  { filename: ${literal(p.filename)}, raw: ${literal(p.raw)}, html: ${literal(p.html)}, summaryHtml: { pregunta: ${literal(p.summaryHtml.pregunta)}, precios: ${literal(p.summaryHtml.precios)}, contratos: ${literal(p.summaryHtml.contratos)}, frontera: ${literal(p.summaryHtml.frontera)} } },`,
     ),
     "];",
     "",

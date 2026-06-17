@@ -15,12 +15,11 @@ Buscar `[PENDIENTE` en el código para encontrarlos. Hoy hay:
 
 - **Logo SVG real** — actualmente se usa wordmark "Datos México" en Source Serif (`components/layout/Logo.tsx`).
 - **Aliados / respaldos institucionales** — sección "Quiénes somos" del home (`components/sections/QuienesSomosPreview.tsx`).
-- **Repositorio público (GitHub)** — link en footer (`components/layout/Footer.tsx`).
-- **API documentación** — link en footer (`components/layout/Footer.tsx`).
-- **Twitter / X y LinkedIn** — handles en footer.
-- **Integración del newsletter** — el form solo muestra "Gracias, pronto te contactaremos." Hay que conectarlo a Mailchimp / Buttondown / ConvertKit (`components/sections/Newsletter.tsx`).
-- **Open Graph image** (`/og-image.png`) — declarado en metadata pero el archivo no existe. Generar 1200×630.
-- **Favicon real** — el actual es el default de create-next-app.
+- **Integración real del newsletter** — el form usa `defaultSimulatedSubmit` (`lib/newsletter.ts`) y devuelve un mensaje de éxito simulado sin capturar el correo. Hay que conectarlo a un proveedor (Mailchimp / Buttondown / ConvertKit) y exponer el endpoint backend.
+- **Descargables del kit de prensa** — `components/prensa/Recursos.tsx` marca el logo zip y el PDF del kit como "Próximamente" (botones deshabilitados). Pendiente: generar artefactos y publicar URLs.
+- **Handles de redes y contacto** — `components/contacto/Redes.tsx` y `components/contacto/Preguntas.tsx` tienen marcadores `[PENDIENTE]` para handles reales y links de repositorio.
+- **Figura legal de gobernanza** — `components/quienes-somos/Gobernanza.tsx` declara pendiente la constitución legal del observatorio.
+- **Fotos del equipo** — los miembros en `lib/team.ts` tienen `photo: undefined`; `MemberCard` renderiza Avatar con iniciales como fallback. Pendiente: fotos reales para cada miembro.
 
 ---
 
@@ -77,8 +76,15 @@ npm run dev
 
 Páginas:
 - `/` — home
-- `/styleguide` — design system (no listado en nav)
-- `/publicaciones`, `/metodologia`, `/quienes-somos`, `/contacto` — devuelven 404 (links en nav, sin implementar)
+- `/quienes-somos` — equipo, misión/visión, historia, asesoría, áreas, gobernanza, contacto
+- `/preguntas` y `/preguntas/[slug]` — corpus pregunta-respuesta del observatorio (lee `.observatorio/preguntas/*.md` en build)
+- `/publicaciones` y `/publicaciones/[slug]` — registry estático con artículos del observatorio
+- `/transparencia` y `/transparencia/[slug]` — encargos de prensa (lee `content/transparencia/*.md` en build)
+- `/prensa` — recursos para prensa (voceros, citación, descargables, FAQs)
+- `/agenda` — calendario semestral de actividades
+- `/metodologia`, `/contacto`, `/boletin` — landing pages institucionales
+- `/dash-mapa01` — visualización geográfica (sandbox)
+- `/styleguide` — design system (no listado en nav, `robots: noindex`)
 
 ---
 
@@ -142,12 +148,10 @@ El deploy manual con `npm run deploy` desde local sigue funcionando como fallbac
 
 ## Lo que NO está hecho (intencionalmente)
 
-- Páginas internas: `/quienes-somos`, `/publicaciones`, `/metodologia`, `/contacto`.
 - Modo oscuro.
 - i18n.
 - Animaciones avanzadas.
-- Integración real del newsletter.
-- Logo SVG.
-- OG image.
+- Integración real del newsletter (hoy simulada — ver "Pendientes").
+- Logo SVG (hoy wordmark — ver "Pendientes").
 
 Esos quedan para prompts siguientes.

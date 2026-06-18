@@ -24,12 +24,12 @@ export function QuienesSomosHero() {
           />
           <div className="absolute inset-0">
             <Container className="flex h-full flex-col justify-end gap-4 pb-8 lg:gap-5 lg:pb-10">
-              <article className="max-w-3xl border border-border bg-background p-5 shadow-xl lg:p-7">
+              <article className="max-w-3xl border border-white/10 bg-gradient-to-br from-black/55 to-black/75 p-5 shadow-2xl backdrop-blur-md lg:p-7">
                 <Eyebrow className="mb-2 text-accent">Quiénes somos</Eyebrow>
-                <H1 className="text-[22px] leading-[1.18] md:text-[26px] lg:text-[30px]">
+                <H1 className="text-[22px] leading-[1.18] text-white md:text-[26px] lg:text-[30px]">
                   Un observatorio académico, transparente y en construcción.
                 </H1>
-                <Lead className="mt-3 text-[14px] leading-[1.55] lg:text-[15px] lg:leading-[1.6]">
+                <Lead className="mt-3 text-[14px] leading-[1.55] text-zinc-100 lg:text-[15px] lg:leading-[1.6]">
                   Datos México es un observatorio independiente con respaldo
                   institucional del ITAM, formado por estudiantes, egresados y
                   colaboradores con experiencia en ciencia de datos, economía y
@@ -40,24 +40,24 @@ export function QuienesSomosHero() {
               </article>
 
               <div className="grid grid-cols-2 gap-4 lg:gap-6">
-                <article className="border border-border bg-background p-4 shadow-xl lg:p-6">
+                <article className="border border-white/10 bg-gradient-to-br from-black/55 to-black/75 p-4 shadow-2xl backdrop-blur-md lg:p-6">
                   <Eyebrow className="mb-2 text-accent">Misión</Eyebrow>
-                  <H2 className="text-[18px] leading-[1.2] lg:text-[22px]">
+                  <H2 className="text-[18px] leading-[1.2] text-white lg:text-[22px]">
                     Por qué existimos.
                   </H2>
-                  <Body className="mt-2 text-[13px] leading-[1.5] lg:text-[14px] lg:leading-[1.55]">
+                  <Body className="mt-2 text-[13px] leading-[1.5] text-zinc-100 lg:text-[14px] lg:leading-[1.55]">
                     Procesar, validar y poner al alcance de todos los datos
                     públicos de México, con rigor académico y claridad
                     expositiva, para que ciudadanía, prensa, academia y gobierno
                     tomen decisiones informadas.
                   </Body>
                 </article>
-                <article className="border border-border bg-background p-4 shadow-xl lg:p-6">
+                <article className="border border-white/10 bg-gradient-to-br from-black/55 to-black/75 p-4 shadow-2xl backdrop-blur-md lg:p-6">
                   <Eyebrow className="mb-2 text-accent">Visión</Eyebrow>
-                  <H2 className="text-[18px] leading-[1.2] lg:text-[22px]">
+                  <H2 className="text-[18px] leading-[1.2] text-white lg:text-[22px]">
                     Hacia dónde vamos.
                   </H2>
-                  <Body className="mt-2 text-[13px] leading-[1.5] lg:text-[14px] lg:leading-[1.55]">
+                  <Body className="mt-2 text-[13px] leading-[1.5] text-zinc-100 lg:text-[14px] lg:leading-[1.55]">
                     Ser el observatorio de datos de referencia en México: el
                     lugar donde cualquier persona puede consultar, reproducir y
                     entender los números que describen al país.

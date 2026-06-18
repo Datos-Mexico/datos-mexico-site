@@ -96,21 +96,6 @@ export function Historia() {
             organización ya no es del ITAM: somos un observatorio independiente.
           </p>
         </div>
-
-        {/* Foto del set del auditorio del ITAM al mismo tamaño que cada
-            imagen del tríptico de arriba. Sin caption. */}
-        <figure className="mt-14 md:mt-16">
-          <div className="relative aspect-[4/3] w-full max-w-sm overflow-hidden rounded-md border border-border bg-muted">
-            <Image
-              src="/quienes-somos/presentacion/auditorio.webp"
-              alt="Escenario del auditorio del ITAM con la pantalla de Datos México de fondo."
-              fill
-              sizes="(min-width: 640px) 384px, 100vw"
-              className="object-cover"
-            />
-          </div>
-        </figure>
-
       </Container>
     </section>
   );

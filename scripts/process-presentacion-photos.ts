@@ -3,7 +3,6 @@
  * exporta optimizadas a /public/quienes-somos/presentacion/.
  *
  * - 3 fotos del salón → 1600px ancho, calidad ~82, WebP
- * - auditorio → 2400px ancho, calidad ~82, WebP
  *
  * Las PNG originales NO se mueven al repo (~90 MB combinados). Solo las WebP
  * optimizadas se commitean.
@@ -50,12 +49,6 @@ const jobs: Job[] = [
     source: join(SRC, "IMG_9503 (1).png"),
     output: join(DEST, "sala-03.webp"),
     width: 1600,
-    quality: 82,
-  },
-  {
-    source: join(SRC, "auditorio.png"),
-    output: join(DEST, "auditorio.webp"),
-    width: 2400,
     quality: 82,
   },
 ];

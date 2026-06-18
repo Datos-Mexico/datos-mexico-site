@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Small } from "@/components/typography";
 
 export function Historia() {
   return (
@@ -38,7 +40,47 @@ export function Historia() {
             </a>{" "}
             y será migrada progresivamente a este sitio.
           </p>
+        </div>
 
+        {/* Tríptico editorial del equipo en la sala de cómputo, día de la
+            presentación oficial. Las tres fotos comparten el mismo set y
+            funcionan como una sola unidad visual. */}
+        <figure className="mt-14 md:mt-16">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-border bg-muted">
+              <Image
+                src="/quienes-somos/presentacion/sala-01.webp"
+                alt="Integrantes del equipo de Datos México de pie en la sala de cómputo durante la presentación oficial."
+                fill
+                sizes="(min-width: 640px) 33vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-border bg-muted">
+              <Image
+                src="/quienes-somos/presentacion/sala-02.webp"
+                alt="Otro encuadre del equipo en la misma sala, durante la presentación oficial."
+                fill
+                sizes="(min-width: 640px) 33vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-border bg-muted">
+              <Image
+                src="/quienes-somos/presentacion/sala-03.webp"
+                alt="El equipo junto a un invitado adicional al cerrar la presentación."
+                fill
+                sizes="(min-width: 640px) 33vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <figcaption className="mt-4">
+            <Small>Día de la presentación del observatorio, sala de cómputo.</Small>
+          </figcaption>
+        </figure>
+
+        <div className="mt-14 max-w-3xl space-y-7 font-sans text-[18px] leading-[1.75] text-text md:text-[19px]">
           <p>
             En abril 2026, para evitar riesgos asociados al uso del nombre
             institucional, el proyecto pasó a llamarse{" "}
@@ -51,8 +93,7 @@ export function Historia() {
 
           <p>
             El equipo sigue siendo, casi en su totalidad, gente del ITAM. Pero la
-            organización ya no es del ITAM, ni representa al ITAM. Somos un
-            observatorio independiente.
+            organización ya no es del ITAM: somos un observatorio independiente.
           </p>
         </div>
       </Container>

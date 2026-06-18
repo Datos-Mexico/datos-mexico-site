@@ -1,6 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { Small } from "@/components/typography";
+import { Mono } from "@/components/typography";
 import { academicos } from "@/lib/academicos";
 
 export function Acompanamiento() {
@@ -16,15 +16,18 @@ export function Acompanamiento() {
           lead="Académicos del ITAM que están al pendiente del proyecto y han ofrecido retroalimentación sobre su desarrollo."
         />
 
-        <ul className="mt-12 max-w-2xl space-y-8">
+        {/* Mismo tratamiento sobrio que Asesoría: lista con jerarquía
+            tipográfica sutil, sin cards prominentes. */}
+        <ul className="mt-12 max-w-2xl divide-y divide-border border-y border-border">
           {academicos.map((a) => (
-            <li key={a.id}>
-              <p className="font-sans text-[17px] font-medium text-foreground">
+            <li
+              key={a.id}
+              className="grid grid-cols-1 gap-1 py-5 md:grid-cols-[1fr_auto] md:items-baseline md:gap-6"
+            >
+              <p className="font-serif text-[18px] font-medium leading-[1.3] text-foreground">
                 {a.name}
               </p>
-              <Small className="mt-1">
-                {a.role} — {a.institution}
-              </Small>
+              <Mono className="md:text-right">{a.role} · {a.institution}</Mono>
             </li>
           ))}
         </ul>
@@ -34,13 +37,13 @@ export function Acompanamiento() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="EpicLab — ITAM"
-          className="mt-10 inline-block"
+          className="mt-10 inline-block opacity-70 transition-opacity hover:opacity-100"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/brand/epiclab.avif"
             alt="EpicLab"
-            className="h-12 w-auto"
+            className="h-10 w-auto"
             loading="lazy"
             decoding="async"
           />

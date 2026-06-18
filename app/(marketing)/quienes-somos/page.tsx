@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { QuienesSomosHero } from "@/components/quienes-somos/Hero";
 import { MisionVision } from "@/components/quienes-somos/MisionVision";
+import { Principios } from "@/components/quienes-somos/Principios";
 import { Historia } from "@/components/quienes-somos/Historia";
 import { Equipo } from "@/components/quienes-somos/Equipo";
 import { Asesoria } from "@/components/quienes-somos/Asesoria";
@@ -47,7 +48,9 @@ const orgJsonLd = {
   member: team.map((m) => ({
     "@type": "Person",
     name: m.name,
-    description: m.bio,
+    // Solo incluimos description si hay bio real. No inventamos texto sobre
+    // personas para llenar el schema.
+    ...(m.bio !== "" && { description: m.bio }),
     ...(m.links.linkedin && { sameAs: [m.links.linkedin] }),
   })),
 };
@@ -61,6 +64,7 @@ export default function QuienesSomosPage() {
       />
       <QuienesSomosHero />
       <MisionVision />
+      <Principios />
       <Historia />
       <Equipo />
       <Asesoria />

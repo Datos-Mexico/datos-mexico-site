@@ -1,14 +1,13 @@
 import { Globe } from "lucide-react";
 import { Avatar } from "@/components/ui/Avatar";
-import { Badge } from "@/components/ui/Badge";
-import { Body, Mono } from "@/components/typography";
+import { Body } from "@/components/typography";
 import {
   LinkedinIcon,
   TwitterIcon,
   GithubIcon,
 } from "@/components/ui/SocialIcons";
 import { cn } from "@/lib/utils";
-import { teamTagLabels, type TeamMember } from "@/lib/team";
+import type { TeamMember } from "@/lib/team";
 
 type MemberCardProps = {
   member: TeamMember;
@@ -38,54 +37,43 @@ export function MemberCard({ member }: MemberCardProps) {
   >;
 
   return (
-    <article className="flex h-full flex-col rounded-lg border border-border bg-background p-6 transition-colors hover:border-foreground/20">
+    <article className="flex h-full flex-col">
       {member.photo ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={member.photo}
           alt={member.name}
-          className="h-24 w-24 rounded-full object-cover"
+          className="aspect-square w-full rounded-md object-cover"
         />
       ) : (
+        // Slot cuadrado grande: ocupa todo el ancho de la columna del grid.
+        // Mantiene proporción 1:1 con el área que ocuparía un retrato.
         <Avatar
           initials={member.initials}
-          size="md"
-          className="h-24 w-24 text-[32px]"
+          size="lg"
+          className="h-auto w-full aspect-square text-[64px] md:text-[72px]"
         />
-      )}
-
-      {member.tag && (
-        <Badge
-          variant={
-            member.tag === "equipo-tecnico-fundador" ? "outline" : "default"
-          }
-          className="mt-5 self-start"
-        >
-          {teamTagLabels[member.tag]}
-        </Badge>
       )}
 
       <h3
         className={cn(
-          "font-serif text-[19px] font-semibold leading-[1.3] text-foreground md:text-[20px]",
-          member.tag ? "mt-2" : "mt-5",
+          "mt-5 font-serif text-[18px] font-semibold leading-[1.3] text-foreground md:text-[19px]",
         )}
       >
         {member.name}
       </h3>
-      <Body className="mt-1 text-[14px] text-text-subtle">{member.career}</Body>
-      {member.year !== "" && (
-        <Mono className="mt-2 block text-[12px]">{member.year}</Mono>
-      )}
+      <Body className="mt-1 text-[14px] leading-[1.5] text-text-subtle">
+        {member.career}
+      </Body>
 
       {member.bio !== "" && (
-        <Body className="mt-4 text-[15px] leading-[1.6] text-text">
+        <Body className="mt-3 text-[14px] leading-[1.6] text-text">
           {member.bio}
         </Body>
       )}
 
       {linkEntries.length > 0 && (
-        <ul className="mt-auto flex items-center gap-3 pt-6">
+        <ul className="mt-auto flex items-center gap-2 pt-5">
           {linkEntries.map(([kind, href]) => {
             const Icon = linkIcons[kind];
             return (
@@ -96,7 +84,7 @@ export function MemberCard({ member }: MemberCardProps) {
                   rel="noopener noreferrer"
                   aria-label={`${member.name} en ${linkLabels[kind]}`}
                   className={cn(
-                    "inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-subtle",
+                    "inline-flex h-8 w-8 items-center justify-center rounded border border-border text-text-subtle",
                     "hover:border-foreground hover:text-foreground transition-colors",
                   )}
                 >

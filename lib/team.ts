@@ -10,13 +10,19 @@ export type TeamMember = {
   name: string;
   initials: string;
   career: string;
-  year: string;
+  /**
+   * Bio editorial corta del miembro. Se renderiza solo si no está vacía.
+   * NUNCA se rellena con texto inventado: el campo se queda "" hasta que
+   * la persona misma aporte su biografía.
+   */
   bio: string;
   links: {
     linkedin?: string;
     twitter?: string;
     github?: string;
     website?: string;
+    scholar?: string;
+    orcid?: string;
   };
   photo?: string;
   tag?: TeamTag;
@@ -28,7 +34,6 @@ export const team: TeamMember[] = [
     name: "David Fernando Ávila Díaz",
     initials: "DA",
     career: "Estudiante de Ciencia de Datos, Instituto Tecnológico Autónomo de México",
-    year: "",
     bio: "",
     links: {
       linkedin: "https://www.linkedin.com/in/david-avila-879075302",
@@ -42,7 +47,6 @@ export const team: TeamMember[] = [
     name: "Gerardo André Butrón Ramírez",
     initials: "GB",
     career: "Estudiante de Ciencia de Datos, Instituto Tecnológico Autónomo de México",
-    year: "",
     bio: "",
     links: {
       linkedin: "https://www.linkedin.com/in/andr%C3%A9-butr%C3%B3n-5888a7351",
@@ -56,7 +60,6 @@ export const team: TeamMember[] = [
     name: "Emiliano Sebastián Millán Giffard",
     initials: "EM",
     career: "Estudiante de Ciencia de Datos, Instituto Tecnológico Autónomo de México",
-    year: "",
     bio: "",
     links: {
       linkedin: "https://www.linkedin.com/in/emiliano-sebastián-millán-giffard-911635370",
@@ -70,7 +73,6 @@ export const team: TeamMember[] = [
     name: "José Roberto Uribe Clemente",
     initials: "JU",
     career: "Estudiante de Ciencia de Datos, Instituto Tecnológico Autónomo de México",
-    year: "",
     bio: "",
     links: {
       github: "https://github.com/RobertoUribeClemente",
@@ -83,7 +85,6 @@ export const team: TeamMember[] = [
     name: "Ashley Dannae Solano Díaz",
     initials: "AS",
     career: "Estudiante de Psicología, Universidad del Valle de México",
-    year: "",
     bio: "",
     links: {
       linkedin: "https://mx.linkedin.com/in/ashley-dannae-solano-diaz-08723634a",
@@ -96,7 +97,6 @@ export const team: TeamMember[] = [
     name: "Alexa Fernanda Hernández Monroy",
     initials: "AH",
     career: "Egresada de Economía, Instituto Tecnológico Autónomo de México",
-    year: "",
     bio: "",
     links: {
       linkedin: "https://www.linkedin.com/in/alexa-fernanda-hern%C3%A1ndez-monroy-9aaa58289",
@@ -109,7 +109,6 @@ export const team: TeamMember[] = [
     name: "Fabiola Campos Juárez",
     initials: "FC",
     career: "Estudiante de Economía, Instituto Tecnológico Autónomo de México",
-    year: "",
     bio: "",
     links: {
       linkedin: "https://www.linkedin.com/in/fabiola-campos-ju%C3%A1rez-6a41a0334",
@@ -122,7 +121,6 @@ export const team: TeamMember[] = [
     name: "Luis Eduardo Bustillos Hernández",
     initials: "LB",
     career: "Estudiante de Ciencia Política, Instituto Tecnológico Autónomo de México",
-    year: "",
     bio: "",
     links: {
       linkedin: "https://www.linkedin.com/in/luiseduardobustilloshernandez",

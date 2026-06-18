@@ -47,7 +47,9 @@ const orgJsonLd = {
   member: team.map((m) => ({
     "@type": "Person",
     name: m.name,
-    description: m.bio,
+    // Solo incluimos description si hay bio real. No inventamos texto sobre
+    // personas para llenar el schema.
+    ...(m.bio !== "" && { description: m.bio }),
     ...(m.links.linkedin && { sameAs: [m.links.linkedin] }),
   })),
 };

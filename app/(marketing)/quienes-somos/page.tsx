@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { QuienesSomosHero } from "@/components/quienes-somos/Hero";
+import { MisionVision } from "@/components/quienes-somos/MisionVision";
 import { Principios } from "@/components/quienes-somos/Principios";
 import { Historia } from "@/components/quienes-somos/Historia";
 import { Equipo } from "@/components/quienes-somos/Equipo";
@@ -62,6 +63,7 @@ export default function QuienesSomosPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
       <QuienesSomosHero />
+      <MisionVision />
       <Principios />
       <Historia />
       <Equipo />

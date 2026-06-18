@@ -97,6 +97,23 @@ export function Historia() {
           </p>
         </div>
 
+        {/* Foto del set del auditorio del ITAM: misma escena de la presentación,
+            mismo tono editorial que el tríptico de arriba. */}
+        <figure className="mt-14 md:mt-16">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-md border border-border bg-muted">
+            <Image
+              src="/quienes-somos/presentacion/auditorio.webp"
+              alt="Escenario del auditorio del ITAM con la pantalla de Datos México de fondo, sillones vacíos al frente."
+              fill
+              sizes="(min-width: 1024px) 960px, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <figcaption className="mt-4">
+            <Small>Auditorio del ITAM, set de la presentación oficial.</Small>
+          </figcaption>
+        </figure>
+
       </Container>
     </section>
   );

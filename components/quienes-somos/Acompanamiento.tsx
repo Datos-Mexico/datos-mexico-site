@@ -1,6 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { Mono, Small } from "@/components/typography";
+import { Mono } from "@/components/typography";
 import { academicos } from "@/lib/academicos";
 
 export function Acompanamiento() {
@@ -17,8 +17,7 @@ export function Acompanamiento() {
         />
 
         {/* Mismo tratamiento sobrio que Asesoría: lista con jerarquía
-            tipográfica sutil, sin cards prominentes. El acompañamiento
-            informa al observatorio, no lo respalda institucionalmente. */}
+            tipográfica sutil, sin cards prominentes. */}
         <ul className="mt-12 max-w-2xl divide-y divide-border border-y border-border">
           {academicos.map((a) => (
             <li
@@ -32,11 +31,6 @@ export function Acompanamiento() {
             </li>
           ))}
         </ul>
-
-        <Small className="mt-6 max-w-2xl">
-          El acompañamiento es a título personal de cada académico. El
-          observatorio no representa al ITAM.
-        </Small>
 
         <a
           href="https://epiclab.itam.mx/"

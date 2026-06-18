@@ -97,25 +97,6 @@ export function Historia() {
           </p>
         </div>
 
-        {/* Auditorio en plano amplio nativo 16:9. Sin overlay, sin texto
-            sobreimpreso: la composición original ya sitúa al panel en plano
-            general y el contexto institucional se lee desde la pantalla y los
-            elementos del set. El caption se mantiene mínimo y neutral. */}
-        <figure className="mt-14 md:mt-16">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-md border border-border bg-muted">
-            <Image
-              src="/quienes-somos/presentacion/auditorio.webp"
-              alt="Panel del observatorio sobre escenario, en auditorio con butacas vacías y pantalla con el lema de Datos México al fondo."
-              fill
-              sizes="(min-width: 1024px) 960px, 100vw"
-              className="object-cover"
-              priority={false}
-            />
-          </div>
-          <figcaption className="mt-4">
-            <Small>Presentación oficial del observatorio.</Small>
-          </figcaption>
-        </figure>
       </Container>
     </section>
   );

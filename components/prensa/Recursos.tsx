@@ -12,7 +12,6 @@ type Recurso = {
   body: string;
   ctaLabel: string;
   available: boolean;
-  // [PENDIENTE: enlaces reales]
   href: string;
 };
 
@@ -23,17 +22,17 @@ const recursos: Recurso[] = [
     body:
       "Logo principal y variantes (color, monocromo, fondo claro, fondo oscuro) en formato SVG y PNG.",
     ctaLabel: "Descargar (.zip)",
-    available: false,
-    href: "#",
+    available: true,
+    href: "/brand/datos-mexico-logos.zip",
   },
   {
     icon: FileText,
     title: "Kit de prensa",
     body:
-      "Documento PDF con resumen del proyecto, equipo, datasets activos, metodología y datos de contacto. Útil para periodistas que cubren el observatorio por primera vez.",
+      "Documento PDF con resumen del proyecto, datasets activos, protocolo de qué entrega el observatorio, citación canónica y datos de contacto. Útil para periodistas que cubren el observatorio por primera vez.",
     ctaLabel: "Descargar (.pdf)",
-    available: false,
-    href: "#",
+    available: true,
+    href: "/brand/datos-mexico-kit-prensa.pdf",
   },
   {
     icon: Database,

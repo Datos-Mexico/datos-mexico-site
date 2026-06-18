@@ -93,8 +93,7 @@ export function Historia() {
 
           <p>
             El equipo sigue siendo, casi en su totalidad, gente del ITAM. Pero la
-            organización ya no es del ITAM, ni representa al ITAM. Somos un
-            observatorio independiente.
+            organización ya no es del ITAM: somos un observatorio independiente.
           </p>
         </div>
 

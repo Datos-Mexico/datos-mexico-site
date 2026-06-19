@@ -7,16 +7,9 @@ import { team, teamTagLabels, type TeamTag } from "@/lib/team";
 type TierProps = {
   tag: TeamTag;
   description: string;
-  /** Columnas en el breakpoint xl. El grid escala 1→2→3→cols. */
-  xlCols: 4 | 5;
 };
 
-const xlColsClass: Record<TierProps["xlCols"], string> = {
-  4: "xl:grid-cols-4",
-  5: "xl:grid-cols-5",
-};
-
-function Tier({ tag, description, xlCols }: TierProps) {
+function Tier({ tag, description }: TierProps) {
   const members = team.filter((m) => m.tag === tag);
   if (members.length === 0) return null;
 
@@ -29,13 +22,14 @@ function Tier({ tag, description, xlCols }: TierProps) {
         </Body>
       </header>
 
-      {/* Grid responsivo: 1 col móvil, 2 col tablet, 3 col laptop. En xl
-          cada tier toma el grid que exactamente acomoda su cantidad
-          actual de miembros (4-col para fundador, 5-col para observatorio):
-          cada fila se rellena sin huérfanas ni celdas vacías. */}
-      <div
-        className={`mt-10 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 ${xlColsClass[xlCols]}`}
-      >
+      {/* Grid uniforme en ambos tiers para que cada card tenga el mismo
+          ancho independientemente del tier. 5 columnas a partir de lg
+          absorben los 5 miembros del observatorio en una sola fila; el
+          tier de fundadores (4 miembros) ocupa 4 columnas con el slot
+          final vacío — las cards no se estiran, mantienen su tamaño y
+          el slot vacío se lee como espacio editorial al cierre de la
+          fila, no como huérfana. */}
+      <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-5">
         {members.map((member) => (
           <MemberCard key={member.id} member={member} />
         ))}
@@ -58,12 +52,10 @@ export function Equipo() {
           <Tier
             tag="equipo-tecnico-fundador"
             description="Estudiantes que iniciaron el proyecto y mantienen la base técnica: procesamiento de microdatos, validación, dashboards, código abierto."
-            xlCols={4}
           />
           <Tier
             tag="equipo-del-observatorio"
             description="Colaboradores que se integraron al observatorio desde economía, ciencia política, psicología y administración, ampliando el ámbito de la investigación."
-            xlCols={5}
           />
         </div>
       </Container>

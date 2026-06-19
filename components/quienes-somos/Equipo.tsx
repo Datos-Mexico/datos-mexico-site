@@ -22,9 +22,10 @@ function Tier({ tag, description }: TierProps) {
         </Body>
       </header>
 
-      {/* 4 columnas en desktop, 2 en tablet, 1 en mobile. Cero huérfanas
-          mientras el tier mantenga 4 miembros. */}
-      <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Grid responsivo: 1 col móvil, 2 col tablet, 3 col laptop, 5 col
+          desktop. La fila de 5 absorbe el crecimiento del equipo sin que
+          cada card abarque tanto espacio. */}
+      <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {members.map((member) => (
           <MemberCard key={member.id} member={member} />
         ))}
@@ -46,11 +47,11 @@ export function Equipo() {
         <div className="mt-14 space-y-16">
           <Tier
             tag="equipo-tecnico-fundador"
-            description="Cuatro estudiantes que iniciaron el proyecto y mantienen la base técnica: procesamiento de microdatos, validación, dashboards, código abierto."
+            description="Estudiantes que iniciaron el proyecto y mantienen la base técnica: procesamiento de microdatos, validación, dashboards, código abierto."
           />
           <Tier
             tag="equipo-del-observatorio"
-            description="Cuatro colaboradores que se integraron al observatorio desde economía, ciencia política y psicología, ampliando el ámbito de la investigación."
+            description="Colaboradores que se integraron al observatorio desde economía, ciencia política, psicología y administración, ampliando el ámbito de la investigación."
           />
         </div>
       </Container>

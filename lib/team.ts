@@ -128,4 +128,14 @@ export const team: TeamMember[] = [
     photo: undefined,
     tag: "equipo-del-observatorio",
   },
+  {
+    id: "alfaro-rodriguez-ian-miguel",
+    name: "Ian Miguel Alfaro Rodriguez",
+    initials: "IA",
+    career: "Estudiante de Administración de Negocios, Instituto Tecnológico Autónomo de México",
+    bio: "",
+    links: {},
+    photo: undefined,
+    tag: "equipo-del-observatorio",
+  },
 ];

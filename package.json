@@ -6,6 +6,7 @@
     "build:preguntas-registry": "tsx scripts/build-preguntas-registry.ts",
     "build:transparencia-registry": "tsx scripts/build-transparencia-registry.ts",
     "check:agenda-buffer": "tsx scripts/check-agenda-buffer.ts",
+    "check:deploy": "tsx scripts/check-deploy.ts",
     "predev": "npm run build:preguntas-registry && npm run build:transparencia-registry && npm run check:agenda-buffer",
     "dev": "next dev",
     "prebuild": "npm run build:preguntas-registry && npm run build:transparencia-registry && npm run check:agenda-buffer",

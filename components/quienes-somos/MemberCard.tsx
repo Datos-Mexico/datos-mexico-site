@@ -46,23 +46,25 @@ export function MemberCard({ member }: MemberCardProps) {
           className="aspect-square w-full rounded-md object-cover"
         />
       ) : (
-        // Slot cuadrado grande: ocupa todo el ancho de la columna del grid.
-        // Mantiene proporción 1:1 con el área que ocuparía un retrato.
+        // Slot cuadrado: ocupa todo el ancho de la columna del grid y
+        // escala el tipo de las iniciales al ancho disponible. Calibrado
+        // para grids de 4 y 5 col en xl (fundador 4-col vs observatorio
+        // 5-col): mismo tamaño en ambos para coherencia visual entre tiers.
         <Avatar
           initials={member.initials}
           size="lg"
-          className="h-auto w-full aspect-square text-[64px] md:text-[72px]"
+          className="h-auto w-full aspect-square text-[56px] md:text-[64px] lg:text-[52px] xl:text-[48px]"
         />
       )}
 
       <h3
         className={cn(
-          "mt-5 font-serif text-[18px] font-semibold leading-[1.3] text-foreground md:text-[19px]",
+          "mt-5 font-serif text-[18px] font-semibold leading-[1.3] text-foreground md:text-[19px] xl:text-[16px]",
         )}
       >
         {member.name}
       </h3>
-      <Body className="mt-1 text-[14px] leading-[1.5] text-text-subtle">
+      <Body className="mt-1 text-[14px] leading-[1.5] text-text-subtle xl:text-[13px] xl:leading-[1.45]">
         {member.career}
       </Body>
 

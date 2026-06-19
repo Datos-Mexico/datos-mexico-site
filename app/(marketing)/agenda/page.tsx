@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AgendaHero } from "@/components/agenda/Hero";
 import { SemanaActual } from "@/components/agenda/SemanaActual";
+import { ProximasSemanas } from "@/components/agenda/ProximasSemanas";
 import { CadenciaOperacional } from "@/components/agenda/CadenciaOperacional";
 import { VisionMacro } from "@/components/agenda/VisionMacro";
 import { AgendaCierre } from "@/components/agenda/Cierre";
@@ -9,6 +10,7 @@ import {
   getCadence,
   getCurrentWeek,
   getMacro,
+  getUpcomingWeeks,
   getWeek,
 } from "@/lib/agenda/loader";
 import type {
@@ -122,6 +124,7 @@ export default async function AgendaPage({
   const requested = wParam ? getWeek(wParam) : undefined;
   const week = requested ?? getCurrentWeek();
   const { prev, next } = getAdjacentWeeks(week.isoWeek);
+  const upcoming = getUpcomingWeeks(week.isoWeek, 3);
   const cadence = getCadence();
   const macro = getMacro();
 
@@ -164,6 +167,7 @@ export default async function AgendaPage({
 
       <AgendaHero />
       <SemanaActual week={week} prev={prev} next={next} />
+      <ProximasSemanas weeks={upcoming} />
       <CadenciaOperacional items={cadence} />
       <VisionMacro milestones={macro} />
       <AgendaCierre />

@@ -40,6 +40,20 @@ export function getAdjacentWeeks(isoWeek: string): {
   };
 }
 
+/**
+ * Devuelve las N semanas que siguen a `isoWeek` en el registry, en orden.
+ * Si no hay suficientes, regresa las que existan. Útil para la UI de
+ * "esta semana + 3 siguientes".
+ */
+export function getUpcomingWeeks(
+  isoWeek: string,
+  count: number,
+): readonly AgendaWeek[] {
+  const idx = weeks.findIndex((w) => w.isoWeek === isoWeek);
+  if (idx === -1) return [];
+  return weeks.slice(idx + 1, idx + 1 + count);
+}
+
 export function getCadence(): readonly CadenceItem[] {
   return cadence;
 }

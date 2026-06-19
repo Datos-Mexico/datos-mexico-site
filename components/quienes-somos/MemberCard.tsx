@@ -47,12 +47,13 @@ export function MemberCard({ member }: MemberCardProps) {
         />
       ) : (
         // Slot cuadrado: ocupa todo el ancho de la columna del grid y
-        // escala el tipo de las iniciales al ancho disponible (más
-        // pequeño en xl cuando el grid pasa a 5-col).
+        // escala el tipo de las iniciales al ancho disponible. Calibrado
+        // para grids de 4 y 5 col en xl (fundador 4-col vs observatorio
+        // 5-col): mismo tamaño en ambos para coherencia visual entre tiers.
         <Avatar
           initials={member.initials}
           size="lg"
-          className="h-auto w-full aspect-square text-[56px] md:text-[64px] lg:text-[52px] xl:text-[40px]"
+          className="h-auto w-full aspect-square text-[56px] md:text-[64px] lg:text-[52px] xl:text-[48px]"
         />
       )}
 

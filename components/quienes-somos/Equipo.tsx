@@ -7,9 +7,16 @@ import { team, teamTagLabels, type TeamTag } from "@/lib/team";
 type TierProps = {
   tag: TeamTag;
   description: string;
+  /** Columnas en el breakpoint xl. El grid escala 1→2→3→cols. */
+  xlCols: 4 | 5;
 };
 
-function Tier({ tag, description }: TierProps) {
+const xlColsClass: Record<TierProps["xlCols"], string> = {
+  4: "xl:grid-cols-4",
+  5: "xl:grid-cols-5",
+};
+
+function Tier({ tag, description, xlCols }: TierProps) {
   const members = team.filter((m) => m.tag === tag);
   if (members.length === 0) return null;
 
@@ -22,10 +29,13 @@ function Tier({ tag, description }: TierProps) {
         </Body>
       </header>
 
-      {/* Grid responsivo: 1 col móvil, 2 col tablet, 3 col laptop, 5 col
-          desktop. La fila de 5 absorbe el crecimiento del equipo sin que
-          cada card abarque tanto espacio. */}
-      <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      {/* Grid responsivo: 1 col móvil, 2 col tablet, 3 col laptop. En xl
+          cada tier toma el grid que exactamente acomoda su cantidad
+          actual de miembros (4-col para fundador, 5-col para observatorio):
+          cada fila se rellena sin huérfanas ni celdas vacías. */}
+      <div
+        className={`mt-10 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 ${xlColsClass[xlCols]}`}
+      >
         {members.map((member) => (
           <MemberCard key={member.id} member={member} />
         ))}
@@ -48,10 +58,12 @@ export function Equipo() {
           <Tier
             tag="equipo-tecnico-fundador"
             description="Estudiantes que iniciaron el proyecto y mantienen la base técnica: procesamiento de microdatos, validación, dashboards, código abierto."
+            xlCols={4}
           />
           <Tier
             tag="equipo-del-observatorio"
             description="Colaboradores que se integraron al observatorio desde economía, ciencia política, psicología y administración, ampliando el ámbito de la investigación."
+            xlCols={5}
           />
         </div>
       </Container>

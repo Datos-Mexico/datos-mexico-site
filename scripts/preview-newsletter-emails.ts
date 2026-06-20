@@ -15,6 +15,12 @@
 //   export PREVIEW_TO_EMAIL='df.avila.diaz@gmail.com'
 //   npm run preview:newsletter
 //   unset RESEND_API_KEY PREVIEW_TO_EMAIL
+//
+// Para juicios visuales puntuales que necesiten la key del worker
+// sin sacarla del secret de Cloudflare, se puede stand-up un endpoint
+// temporal en una rama (ver historial: PR #30 introdujo
+// `/api/newsletter/preview-send`; PR de cleanup lo retiró tras la
+// prueba). Volver a montarlo si hace falta otra ronda.
 
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";

@@ -314,6 +314,39 @@ async function generateOgImages() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────
+// Phase 4: Email assets
+// ─────────────────────────────────────────────────────────────────────────
+//
+// Los clientes de correo (Outlook desktop, muchos corporativos) renderizan
+// SVG de forma inconsistente. PNG es el formato fiable. Generamos un PNG
+// del isotipo a tamaño @1x y @2x para retina, sobre el background del
+// observatorio para que se integre con el header del correo.
+
+async function generateEmailAssets() {
+  console.log("→ Generating email assets…");
+  const logoSvg = await readFile(join(BRAND, "logo.svg"));
+
+  // Isotipo solo (sin wordmark — el wordmark va como texto en el HTML
+  // del correo para que el remitente quede visible incluso si el cliente
+  // bloquea imágenes). Ratio 4:3 del SVG fuente.
+  const offWhite = { r: 250, g: 250, b: 249, alpha: 1 };
+  const sizes = [
+    { name: "logo-email.png", width: 96, height: 72 },
+    { name: "logo-email@2x.png", width: 192, height: 144 },
+  ] as const;
+
+  for (const { name, width, height } of sizes) {
+    const buf = await sharp(logoSvg, { density: 384 })
+      .resize(width, height, { fit: "contain", background: offWhite })
+      .flatten({ background: offWhite })
+      .png()
+      .toBuffer();
+    await writeFile(join(BRAND, name), buf);
+    console.log(`  ✓ ${name} (${(buf.length / 1024).toFixed(1)} KB)`);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────────────────
 
@@ -329,6 +362,7 @@ async function main() {
   await generateSvgVariants();
   await generateFavicons();
   await generateOgImages();
+  await generateEmailAssets();
 
   console.log("\n✓ All brand assets generated.");
 }

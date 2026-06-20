@@ -27,6 +27,9 @@
 # corpus pregunta-respuesta clonado en build time desde Datos-Mexico/observatorio
 /.observatorio/
 
+# previews locales de los correos del boletín (no se versionan)
+/.email-previews/
+
 # misc
 .DS_Store
 *.pem

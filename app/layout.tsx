@@ -112,7 +112,7 @@ const organizationJsonLd = {
   url: siteUrl,
   logo: `${siteUrl}/android-chrome-512x512-v2.png`,
   description:
-    "Observatorio independiente de datos públicos de México con respaldo institucional del ITAM, formado por estudiantes, egresados y colaboradores.",
+    "Observatorio independiente de datos públicos de México, formado por estudiantes, egresados y colaboradores del ITAM.",
   foundingLocation: {
     "@type": "Place",
     name: "Ciudad de México, México",

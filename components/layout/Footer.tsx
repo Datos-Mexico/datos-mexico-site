@@ -63,10 +63,27 @@ export function Footer() {
           </FooterColumn>
         </div>
 
-        <div className="border-t border-white/10 py-8">
+        <div className="border-t border-white/10 py-8 space-y-3">
           <p className="font-sans text-[13px] leading-[1.6] text-white/50">
             © {new Date().getFullYear()} {brand.name}. Datos públicos bajo licencias abiertas.
             Equipo conformado por estudiantes, egresados y colaboradores con respaldo institucional del ITAM.
+          </p>
+          <p className="font-sans text-[13px] leading-[1.6] text-white/60">
+            <Link
+              href="/privacidad"
+              prefetch={false}
+              className="text-white/80 hover:text-white transition-colors underline underline-offset-2"
+            >
+              Aviso de privacidad
+            </Link>
+            <span className="mx-2 text-white/30">·</span>
+            <Link
+              href="/contacto"
+              prefetch={false}
+              className="text-white/80 hover:text-white transition-colors underline underline-offset-2"
+            >
+              Contacto
+            </Link>
           </p>
         </div>
       </Container>

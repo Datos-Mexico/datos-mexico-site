@@ -32,6 +32,7 @@ type SubscriberRow = {
   created_at: string;
   confirmed_at: string | null;
   unsubscribed_at: string | null;
+  consent_at: string | null;
 };
 
 function adaptD1(sqlite: DatabaseSync): D1Database {
@@ -85,14 +86,36 @@ function adaptD1(sqlite: DatabaseSync): D1Database {
   } as unknown as D1Database;
 }
 
-function loadMigration(): string {
-  return readFileSync(
-    join(__dirname, "..", "migrations", "0001_create_subscribers.sql"),
-    "utf-8",
-  );
+function loadMigrations(): string {
+  // Las migraciones se aplican en orden: el esquema base y luego
+  // los ALTER TABLE posteriores. node:sqlite procesa cada `exec()`
+  // atómicamente; concatenarlas funciona.
+  const files = [
+    "0001_create_subscribers.sql",
+    "0002_add_consent_at.sql",
+  ];
+  return files
+    .map((f) => readFileSync(join(__dirname, "..", "migrations", f), "utf-8"))
+    .join("\n");
 }
 
-function postJson(url: string, body: unknown): Request {
+// Helper: añade `consented: true` automáticamente a cada POST contra
+// /subscribe. Refleja el contrato del endpoint en producción.
+function postJson(url: string, body: Record<string, unknown>): Request {
+  const augmented =
+    url.endsWith("/subscribe") && !("consented" in body)
+      ? { ...body, consented: true }
+      : body;
+  return new Request(url, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(augmented),
+  });
+}
+
+// Variante sin consent — usada solo para probar que el endpoint
+// rechaza POSTs sin el flag.
+function postJsonNoConsent(url: string, body: Record<string, unknown>): Request {
   return new Request(url, {
     method: "POST",
     headers: { "content-type": "application/json" },
@@ -118,7 +141,7 @@ function assert(name: string, condition: boolean, detail?: string): void {
 
 async function main(): Promise<void> {
   const sqlite = new DatabaseSync(":memory:");
-  sqlite.exec(loadMigration());
+  sqlite.exec(loadMigrations());
   const db = adaptD1(sqlite);
   // Env vacío: no hay RESEND_API_KEY → los envíos se omiten en silencio
   // y los handlers responden igual. La parte de envío se testea aparte
@@ -153,6 +176,10 @@ async function main(): Promise<void> {
     assert(
       "subscribe: tokens distintos",
       row?.confirmation_token !== row?.unsubscribe_token,
+    );
+    assert(
+      "subscribe: consent_at poblado en formato ISO8601 UTC",
+      !!row?.consent_at && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(row.consent_at),
     );
   }
 
@@ -343,6 +370,36 @@ async function main(): Promise<void> {
       getJson(`${BASE}/api/newsletter/confirm?token=${"f".repeat(64)}`),
     );
     assert("nonexistent token: status 400", r5.status === 400);
+
+    // LFPDPPP: subscribe sin `consented: true` debe ser rechazado a
+    // nivel servidor, independiente del frontend.
+    const r6 = await handleSubscribe(
+      db,
+      env,
+      postJsonNoConsent(`${BASE}/api/newsletter/subscribe`, {
+        email: "nuevo-sin-consent@example.com",
+      }),
+    );
+    assert("subscribe sin consented: status 400", r6.status === 400);
+    const r6body = (await r6.clone().json()) as { error?: string };
+    assert(
+      "subscribe sin consented: error=consentimiento_requerido",
+      r6body.error === "consentimiento_requerido",
+    );
+    const r6row = sqlite
+      .prepare("SELECT id FROM subscribers WHERE email = ?1")
+      .get({ 1: "nuevo-sin-consent@example.com" });
+    assert("subscribe sin consented: NO se insertó fila", !r6row);
+
+    const r7 = await handleSubscribe(
+      db,
+      env,
+      postJsonNoConsent(`${BASE}/api/newsletter/subscribe`, {
+        email: "otro@example.com",
+        consented: false,
+      }),
+    );
+    assert("subscribe con consented=false: status 400", r7.status === 400);
   }
 
   // ------------------------------------------------------------------

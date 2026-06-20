@@ -10,6 +10,7 @@
     "test:newsletter": "tsx scripts/test-newsletter-flow.ts",
     "test:newsletter:remote": "tsx scripts/test-newsletter-flow-remote.ts",
     "test:newsletter:mock": "tsx scripts/test-newsletter-email-mock.ts",
+    "preview:newsletter": "tsx scripts/preview-newsletter-emails.ts",
     "predev": "npm run build:preguntas-registry && npm run build:transparencia-registry && npm run check:agenda-buffer",
     "dev": "next dev",
     "prebuild": "npm run build:preguntas-registry && npm run build:transparencia-registry && npm run check:agenda-buffer",

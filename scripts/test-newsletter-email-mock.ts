@@ -101,7 +101,7 @@ async function main(): Promise<void> {
     assert(
       "HTML identifica al observatorio",
       msg.html.includes("Datos México") &&
-        msg.html.includes("Observatorio independiente de datos públicos"),
+        msg.html.includes("Observatorio académico independiente"),
     );
 
     assert(

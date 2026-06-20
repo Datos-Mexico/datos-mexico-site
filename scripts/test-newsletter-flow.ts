@@ -19,6 +19,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { DatabaseSync, type StatementSync } from "node:sqlite";
 
+import type { EmailEnv } from "../lib/newsletter/email";
 import { handleConfirm, handleSubscribe, handleUnsubscribe } from "../lib/newsletter/handlers";
 
 type SubscriberRow = {
@@ -119,6 +120,10 @@ async function main(): Promise<void> {
   const sqlite = new DatabaseSync(":memory:");
   sqlite.exec(loadMigration());
   const db = adaptD1(sqlite);
+  // Env vacío: no hay RESEND_API_KEY → los envíos se omiten en silencio
+  // y los handlers responden igual. La parte de envío se testea aparte
+  // con scripts/test-newsletter-email-mock.ts.
+  const env: EmailEnv = {};
 
   console.log("Migración aplicada en SQLite en memoria.");
 
@@ -127,6 +132,7 @@ async function main(): Promise<void> {
   {
     const res = await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: "ALICE@example.com" }),
     );
     assert("subscribe: status 200", res.status === 200, `got ${res.status}`);
@@ -161,6 +167,7 @@ async function main(): Promise<void> {
 
     const res = await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: "alice@example.com" }),
     );
     assert("duplicado pendiente: status 200", res.status === 200);
@@ -226,6 +233,7 @@ async function main(): Promise<void> {
 
     const res = await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: "alice@example.com" }),
     );
     assert("subscribe confirmed: status 200", res.status === 200);
@@ -251,6 +259,7 @@ async function main(): Promise<void> {
 
     const res = await handleUnsubscribe(
       db,
+      env,
       getJson(`${BASE}/api/newsletter/unsubscribe?token=${aliceUnsubToken}`),
     );
     assert("unsubscribe: status 200", res.status === 200);
@@ -269,6 +278,7 @@ async function main(): Promise<void> {
   {
     const res = await handleUnsubscribe(
       db,
+      env,
       getJson(`${BASE}/api/newsletter/unsubscribe?token=${aliceUnsubToken}`),
     );
     assert("unsubscribe twice: status 200", res.status === 200);
@@ -284,6 +294,7 @@ async function main(): Promise<void> {
   {
     const res = await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: "alice@example.com" }),
     );
     assert("subscribe after baja: status 200", res.status === 200);
@@ -302,12 +313,14 @@ async function main(): Promise<void> {
   {
     const r1 = await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: "no-es-correo" }),
     );
     assert("invalid email: status 400", r1.status === 400);
 
     const r2 = await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, {}),
     );
     assert("missing email: status 400", r2.status === 400);
@@ -320,6 +333,7 @@ async function main(): Promise<void> {
 
     const r4 = await handleUnsubscribe(
       db,
+      env,
       getJson(`${BASE}/api/newsletter/unsubscribe`),
     );
     assert("missing unsub token: status 400", r4.status === 400);
@@ -336,10 +350,12 @@ async function main(): Promise<void> {
   {
     await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: "bob@example.com" }),
     );
     await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: "carla@example.com" }),
     );
     const tokens = sqlite

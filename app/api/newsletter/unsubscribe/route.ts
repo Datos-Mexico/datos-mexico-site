@@ -13,5 +13,5 @@ export async function GET(request: Request): Promise<Response> {
       { status: 503, headers: { "content-type": "application/json; charset=utf-8" } },
     );
   }
-  return handleUnsubscribe(db, request);
+  return handleUnsubscribe(db, env, request);
 }

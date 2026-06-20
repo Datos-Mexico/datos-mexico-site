@@ -1,6 +1,7 @@
 import { isValidEmail } from "@/lib/newsletter";
 import { confirm, subscribe, unsubscribe } from "./db";
 import {
+  type EmailEnv,
   sendConfirmationEmail,
   sendUnsubscribeReceiptEmail,
 } from "./email";
@@ -37,6 +38,7 @@ function buildOrigin(request: Request): string {
 
 export async function handleSubscribe(
   db: D1Database,
+  env: EmailEnv,
   request: Request,
 ): Promise<Response> {
   let payload: unknown;
@@ -63,12 +65,15 @@ export async function handleSubscribe(
   if (outcome.kind === "created" || outcome.kind === "reissued") {
     const { subscriber } = outcome;
     if (subscriber.confirmationToken) {
-      await sendConfirmationEmail({
-        to: subscriber.email,
-        confirmUrl: `${origin}${CONFIRM_PATH}?token=${subscriber.confirmationToken}`,
-        unsubscribeUrl: `${origin}${UNSUBSCRIBE_PATH}?token=${subscriber.unsubscribeToken}`,
-        privacyUrl: `${origin}${PRIVACY_PATH}`,
-      });
+      await sendConfirmationEmail(
+        {
+          to: subscriber.email,
+          confirmUrl: `${origin}${CONFIRM_PATH}?token=${subscriber.confirmationToken}`,
+          unsubscribeUrl: `${origin}${UNSUBSCRIBE_PATH}?token=${subscriber.unsubscribeToken}`,
+          privacyUrl: `${origin}${PRIVACY_PATH}`,
+        },
+        env,
+      );
     }
   }
 
@@ -114,6 +119,7 @@ export async function handleConfirm(
 
 export async function handleUnsubscribe(
   db: D1Database,
+  env: EmailEnv,
   request: Request,
 ): Promise<Response> {
   const url = new URL(request.url);
@@ -126,10 +132,13 @@ export async function handleUnsubscribe(
   const outcome = await unsubscribe(db, token);
 
   if (outcome.kind === "unsubscribed") {
-    await sendUnsubscribeReceiptEmail({
-      to: outcome.subscriber.email,
-      privacyUrl: `${buildOrigin(request)}${PRIVACY_PATH}`,
-    });
+    await sendUnsubscribeReceiptEmail(
+      {
+        to: outcome.subscriber.email,
+        privacyUrl: `${buildOrigin(request)}${PRIVACY_PATH}`,
+      },
+      env,
+    );
     return jsonResponse(
       {
         ok: true,

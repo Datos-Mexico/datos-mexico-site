@@ -6,6 +6,16 @@ prosa institucional en 8 lugares.
 **Rol del operador**: plan de ejecución, producido por el equipo del
 observatorio.
 
+> **ACTUALIZACIÓN 2026-06-20 — revisión del wording institucional.** El
+> sintagma "con respaldo institucional del ITAM" introducido por este plan
+> (Camino C) fue revisado por decisión del CEO. La prosa institucional
+> vigente del observatorio es: *"formado por estudiantes, egresados y
+> colaboradores del ITAM"*. El cambio modera la afirmación de aval
+> institucional formal y conserva el ITAM como afiliación factual de las
+> personas. Las celdas "Texto propuesto" de este plan se mantienen como
+> registro histórico de la decisión previa. Para la prosa vigente en código,
+> consultar el commit de la branch `feat/wording-itam-moderar-aval`.
+
 ## Metadata
 
 | Campo | Valor |

@@ -14,12 +14,12 @@ import { team } from "@/lib/team";
 export const metadata: Metadata = {
   title: "Quiénes somos",
   description:
-    "Datos México es un observatorio académico independiente con respaldo institucional del ITAM, formado por estudiantes, egresados y colaboradores. Conoce al equipo, nuestra misión y cómo nos organizamos.",
+    "Datos México es un observatorio académico independiente, formado por estudiantes, egresados y colaboradores del ITAM. Conoce al equipo, nuestra misión y cómo nos organizamos.",
   alternates: { canonical: "/quienes-somos" },
   openGraph: {
     title: "Quiénes somos — Datos México",
     description:
-      "Observatorio académico independiente con respaldo institucional del ITAM, formado por estudiantes, egresados y colaboradores. Equipo, misión, principios y gobernanza.",
+      "Observatorio académico independiente, formado por estudiantes, egresados y colaboradores del ITAM. Equipo, misión, principios y gobernanza.",
     url: "/quienes-somos",
     type: "website",
     images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Quiénes somos — Datos México",
     description:
-      "Observatorio académico independiente con respaldo institucional del ITAM, formado por estudiantes, egresados y colaboradores.",
+      "Observatorio académico independiente, formado por estudiantes, egresados y colaboradores del ITAM.",
     images: ["/og/og-quienes-somos.png"],
   },
 };

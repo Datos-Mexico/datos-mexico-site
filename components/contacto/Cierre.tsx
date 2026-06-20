@@ -12,10 +12,10 @@ export function ContactoCierre() {
               Sobre la organización
             </h3>
             <Body className="mt-4 text-[15px] leading-[1.65]">
-              Datos México es un observatorio académico independiente con
-              respaldo institucional del ITAM, formado por estudiantes,
-              egresados y colaboradores. Operamos sin fines de lucro, sin
-              financiamiento partidista o gubernamental, y con código abierto.
+              Datos México es un observatorio académico independiente, formado
+              por estudiantes, egresados y colaboradores del ITAM. Operamos
+              sin fines de lucro, sin financiamiento partidista o
+              gubernamental, y con código abierto.
             </Body>
             <Link
               href="/quienes-somos"

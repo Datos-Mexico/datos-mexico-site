@@ -1,6 +1,6 @@
 # Datos México
 
-> Observatorio independiente de datos públicos de México con respaldo institucional del ITAM, formado por estudiantes, egresados y colaboradores. Trabajamos con microdatos oficiales (INEGI, CONSAR, Banxico, Datos Abiertos CDMX) y publicamos análisis reproducibles en español, con APIs verificables y notas metodológicas explícitas.
+> Observatorio independiente de datos públicos de México, formado por estudiantes, egresados y colaboradores del ITAM. Trabajamos con microdatos oficiales (INEGI, CONSAR, Banxico, Datos Abiertos CDMX) y publicamos análisis reproducibles en español, con APIs verificables y notas metodológicas explícitas.
 
 Cada publicación incluye:
 - Cifras verificadas contra la fuente primaria

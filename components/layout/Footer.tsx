@@ -66,7 +66,7 @@ export function Footer() {
         <div className="border-t border-white/10 py-8 space-y-3">
           <p className="font-sans text-[13px] leading-[1.6] text-white/50">
             © {new Date().getFullYear()} {brand.name}. Datos públicos bajo licencias abiertas.
-            Equipo conformado por estudiantes, egresados y colaboradores con respaldo institucional del ITAM.
+            Equipo conformado por estudiantes, egresados y colaboradores.
           </p>
           <p className="font-sans text-[13px] leading-[1.6] text-white/60">
             <Link

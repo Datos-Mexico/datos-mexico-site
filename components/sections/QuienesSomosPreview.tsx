@@ -20,12 +20,11 @@ export function QuienesSomosPreview() {
             <Eyebrow className="mb-5">Quiénes somos</Eyebrow>
             <H2>Un observatorio académico, transparente y reproducible.</H2>
             <Lead className="mt-6 max-w-2xl">
-              Datos México es un observatorio independiente con respaldo
-              institucional del ITAM, formado por estudiantes, egresados y
-              colaboradores con experiencia en ciencia de datos, economía y
-              otras disciplinas. Trabajamos con microdatos oficiales y
-              publicamos análisis verificables, con metodología abierta y sin
-              agenda partidista.
+              Datos México es un observatorio independiente, formado por
+              estudiantes, egresados y colaboradores del ITAM con experiencia
+              en ciencia de datos, economía y otras disciplinas. Trabajamos
+              con microdatos oficiales y publicamos análisis verificables, con
+              metodología abierta y sin agenda partidista.
             </Lead>
             <Link
               href="/quienes-somos"

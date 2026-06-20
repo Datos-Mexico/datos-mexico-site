@@ -14,5 +14,24 @@
   "routes": [
     { "pattern": "datosmexico.org", "custom_domain": true },
     { "pattern": "www.datosmexico.org", "custom_domain": true }
+  ],
+  // D1: lista de suscriptores del boletín.
+  //
+  // La base existe en la cuenta real (creada con
+  // `wrangler d1 create datosmexico-newsletter`) y el esquema está
+  // aplicado vía `wrangler d1 migrations apply --remote`. La tabla
+  // queda vacía hasta que se conecte el formulario.
+  //
+  // El formulario público sigue usando `defaultSimulatedSubmit` (fake)
+  // y los stubs de Resend en `lib/newsletter/email.ts` siguen no-op:
+  // la plomería existe y está enchufada a D1, pero no captura un solo
+  // correo hasta que Resend se monte y el formulario se conecte.
+  "d1_databases": [
+    {
+      "binding": "NEWSLETTER_DB",
+      "database_name": "datosmexico-newsletter",
+      "database_id": "d3f14281-d325-4433-9fa9-5ff6c5d92314",
+      "migrations_dir": "migrations"
+    }
   ]
 }

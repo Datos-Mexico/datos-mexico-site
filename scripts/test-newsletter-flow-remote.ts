@@ -17,6 +17,7 @@
 
 import { spawnSync } from "node:child_process";
 
+import type { EmailEnv } from "../lib/newsletter/email";
 import { handleConfirm, handleSubscribe, handleUnsubscribe } from "../lib/newsletter/handlers";
 
 const DB_NAME = "datosmexico-newsletter";
@@ -208,6 +209,8 @@ const TEST_EMAIL_B = "test-flow-remote-beta@datosmexico.org";
 
 async function main(): Promise<void> {
   const db = adaptRemoteD1();
+  // Env vacío: sin RESEND_API_KEY los envíos se omiten en silencio.
+  const env: EmailEnv = {};
 
   console.log("Pre-flight: limpiando residuos previos en la BD remota...");
   await cleanup();
@@ -220,6 +223,7 @@ async function main(): Promise<void> {
   {
     const res = await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: TEST_EMAIL_A.toUpperCase() }),
     );
     assert("subscribe: status 200", res.status === 200, `got ${res.status}`);
@@ -240,6 +244,7 @@ async function main(): Promise<void> {
   {
     const res = await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: TEST_EMAIL_A }),
     );
     assert("re-subscribe: status 200 (idéntico)", res.status === 200);
@@ -289,6 +294,7 @@ async function main(): Promise<void> {
     const before = fetchSubscriber(TEST_EMAIL_A);
     const res = await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: TEST_EMAIL_A }),
     );
     assert("subscribe confirmed: status 200", res.status === 200);
@@ -305,6 +311,7 @@ async function main(): Promise<void> {
   {
     const res = await handleUnsubscribe(
       db,
+      env,
       getJson(`${BASE}/api/newsletter/unsubscribe?token=${firstUnsubToken}`),
     );
     assert("unsubscribe: status 200", res.status === 200);
@@ -318,6 +325,7 @@ async function main(): Promise<void> {
   {
     const res = await handleUnsubscribe(
       db,
+      env,
       getJson(`${BASE}/api/newsletter/unsubscribe?token=${firstUnsubToken}`),
     );
     assert("unsubscribe twice: status 200", res.status === 200);
@@ -330,6 +338,7 @@ async function main(): Promise<void> {
   {
     const res = await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: TEST_EMAIL_A }),
     );
     assert("subscribe after baja: status 200", res.status === 200);
@@ -347,6 +356,7 @@ async function main(): Promise<void> {
     // Alta de un segundo correo distinto
     await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: TEST_EMAIL_B }),
     );
     assert("dos correos distintos coexisten", rowCount() === 2);
@@ -370,6 +380,7 @@ async function main(): Promise<void> {
   {
     const r1 = await handleSubscribe(
       db,
+      env,
       postJson(`${BASE}/api/newsletter/subscribe`, { email: "no-es-correo" }),
     );
     assert("invalid email: status 400", r1.status === 400);
@@ -382,6 +393,7 @@ async function main(): Promise<void> {
 
     const r3 = await handleUnsubscribe(
       db,
+      env,
       getJson(`${BASE}/api/newsletter/unsubscribe`),
     );
     assert("missing unsub token: status 400", r3.status === 400);

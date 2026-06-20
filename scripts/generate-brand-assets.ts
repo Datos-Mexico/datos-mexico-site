@@ -329,7 +329,13 @@ async function generateEmailAssets() {
   // Isotipo solo (sin wordmark — el wordmark va como texto en el HTML
   // del correo para que el remitente quede visible incluso si el cliente
   // bloquea imágenes). Ratio 4:3 del SVG fuente.
-  const offWhite = { r: 250, g: 250, b: 249, alpha: 1 };
+  //
+  // Canal alfa transparente: el header del correo es `cardBg` (#FFFFFF)
+  // pero el footer es `#FAFAF9` y futuras plantillas podrían poner el
+  // logo sobre otros tonos. Un PNG aplanado introduce un recuadro
+  // visible cuando el fondo del PNG ≠ fondo del contenedor. Con alpha
+  // el isotipo se asienta limpio sobre cualquier fondo claro.
+  const transparent = { r: 0, g: 0, b: 0, alpha: 0 };
   const sizes = [
     { name: "logo-email.png", width: 96, height: 72 },
     { name: "logo-email@2x.png", width: 192, height: 144 },
@@ -337,8 +343,7 @@ async function generateEmailAssets() {
 
   for (const { name, width, height } of sizes) {
     const buf = await sharp(logoSvg, { density: 384 })
-      .resize(width, height, { fit: "contain", background: offWhite })
-      .flatten({ background: offWhite })
+      .resize(width, height, { fit: "contain", background: transparent })
       .png()
       .toBuffer();
     await writeFile(join(BRAND, name), buf);

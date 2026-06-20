@@ -1,34 +1,57 @@
 // Genera vistas previas locales de los correos del observatorio en
-// archivos HTML, para juicio visual sin gastar envíos.
+// archivos HTML, para juicio visual sin gastar envíos ni depender
+// del worker desplegado.
 //
-// El envío real al Gmail de un humano se hace mejor a través del
-// endpoint temporal `/api/newsletter/__preview-send` desplegado en
-// el worker (que usa la RESEND_API_KEY ya cargada en Cloudflare —
-// sin que la key salga del entorno del worker).
+// Los HTML generados embeben el PNG del logo como `data:` URL leída
+// del propio repo (`public/brand/logo-email@2x.png`). Eso garantiza
+// que el navegador local renderiza con la versión del PNG que está
+// en esta rama — no la cacheada por el bucket de assets del worker
+// en producción. Útil para juzgar cambios en el asset (e.g. fondo
+// transparente del logo) antes de mergear.
 //
-// Modo opcional con key local (solo si por algún motivo el endpoint
-// no está disponible):
+// Modo opcional con envío vía Resend (key local en env):
 //
 //   read -rs RESEND_API_KEY && export RESEND_API_KEY
 //   export PREVIEW_TO_EMAIL='df.avila.diaz@gmail.com'
 //   npm run preview:newsletter
 //   unset RESEND_API_KEY PREVIEW_TO_EMAIL
 
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { defaultResendSender } from "../lib/newsletter/email";
 import { buildSampleMessages } from "../lib/newsletter/samples";
 
-const OUT_DIR = join(import.meta.dirname ?? __dirname, "..", ".email-previews");
+const ROOT = join(import.meta.dirname ?? __dirname, "..");
+const OUT_DIR = join(ROOT, ".email-previews");
 mkdirSync(OUT_DIR, { recursive: true });
 
 const recipient = process.env.PREVIEW_TO_EMAIL ?? "destinatario@ejemplo.org";
 const samples = buildSampleMessages(recipient);
 
+// Embebe el PNG local del logo como data URL para que la previa
+// offline rinda EXACTAMENTE el asset del repo, no el cacheado en
+// producción. Solo aplica al HTML escrito a disco; los correos que
+// se envían vía Resend siguen usando la URL pública.
+function readLogoAsDataUrl(filename: string): string {
+  const buf = readFileSync(join(ROOT, "public", "brand", filename));
+  return `data:image/png;base64,${buf.toString("base64")}`;
+}
+
+const LOGO_PUBLIC_URL_1X = "https://datosmexico.org/brand/logo-email.png";
+const LOGO_PUBLIC_URL_2X = "https://datosmexico.org/brand/logo-email@2x.png";
+const LOGO_DATA_URL_1X = readLogoAsDataUrl("logo-email.png");
+const LOGO_DATA_URL_2X = readLogoAsDataUrl("logo-email@2x.png");
+
+function htmlForLocalPreview(html: string): string {
+  return html
+    .replaceAll(LOGO_PUBLIC_URL_2X, LOGO_DATA_URL_2X)
+    .replaceAll(LOGO_PUBLIC_URL_1X, LOGO_DATA_URL_1X);
+}
+
 function writeHtml(filename: string, msg: { subject: string; html: string }): void {
   const path = join(OUT_DIR, filename);
-  writeFileSync(path, msg.html);
+  writeFileSync(path, htmlForLocalPreview(msg.html));
   console.log(`  ${filename.padEnd(28)} → ${path}`);
 }
 
@@ -38,6 +61,9 @@ async function maybeSendViaResend(msg: (typeof samples)[number]): Promise<void> 
   if (!apiKey || !to) {
     return;
   }
+  // El envío real usa el HTML original (con URL pública del PNG)
+  // porque Gmail/Apple Mail cargan la imagen vía red — no necesita
+  // data URL (y los clientes de correo en general no la respetan).
   const result = await defaultResendSender({ ...msg, to: [to] }, apiKey);
   if (result.kind === "sent") {
     console.log(`  ✓ ${msg.label}: enviado (resend_id: ${result.id})`);
@@ -49,7 +75,7 @@ async function maybeSendViaResend(msg: (typeof samples)[number]): Promise<void> 
 }
 
 async function main(): Promise<void> {
-  console.log("Generando previas en .email-previews/ …\n");
+  console.log("Generando previas en .email-previews/ (logo embebido como data URL) …\n");
   const filenames = [
     "01-confirmation.html",
     "02-unsubscribe-receipt.html",
@@ -72,10 +98,9 @@ async function main(): Promise<void> {
     console.log("\nRevisa la bandeja en cliente real (Gmail recomendado).");
   } else {
     console.log(
-      "\n(Solo se generaron los HTML offline.\n" +
-        " Para ver en Gmail real, lo recomendado es disparar el endpoint\n" +
-        " /api/newsletter/preview-send desde el worker — la key vive\n" +
-        " en Cloudflare y no pasa por tu shell.)",
+      "\n(HTML offline con el PNG embebido — rinde fiel al asset del repo.\n" +
+        " Para validar también en Gmail real, exporta RESEND_API_KEY y\n" +
+        " PREVIEW_TO_EMAIL antes de correr el script — ver cabecera.)",
     );
   }
 }

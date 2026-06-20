@@ -6,10 +6,55 @@ import {
   sendUnsubscribeReceiptEmail,
 } from "./email";
 import { isValidTokenShape } from "./tokens";
+import type { ConfirmOutcome, UnsubscribeOutcome } from "./types";
 
 const PRIVACY_PATH = "/privacidad";
-const CONFIRM_PATH = "/api/newsletter/confirm";
-const UNSUBSCRIBE_PATH = "/api/newsletter/unsubscribe";
+// Los correos nuevos apuntan a estas páginas con identidad del
+// observatorio. Los endpoints /api/newsletter/{confirm,unsubscribe}
+// se conservan para los correos ya enviados que tienen URLs viejas
+// — devuelven JSON, comportamiento sin cambios.
+const CONFIRM_PATH = "/boletin/confirmacion";
+const UNSUBSCRIBE_PATH = "/boletin/baja";
+
+// Outcomes que comparten endpoints API (envuelven en JSON) y páginas
+// (renderizan UI). Mantienen la lógica de validación de shape, lookup
+// y efectos en un solo lugar.
+export type ProcessConfirmOutcome =
+  | { kind: "invalid_shape" }
+  | ConfirmOutcome;
+
+export type ProcessUnsubscribeOutcome =
+  | { kind: "invalid_shape" }
+  | UnsubscribeOutcome;
+
+export async function processConfirm(
+  db: D1Database,
+  token: string,
+): Promise<ProcessConfirmOutcome> {
+  if (!isValidTokenShape(token)) {
+    return { kind: "invalid_shape" };
+  }
+  return confirm(db, token);
+}
+
+export async function processUnsubscribe(
+  db: D1Database,
+  env: EmailEnv,
+  token: string,
+  privacyUrl: string,
+): Promise<ProcessUnsubscribeOutcome> {
+  if (!isValidTokenShape(token)) {
+    return { kind: "invalid_shape" };
+  }
+  const outcome = await unsubscribe(db, token);
+  if (outcome.kind === "unsubscribed") {
+    await sendUnsubscribeReceiptEmail(
+      { to: outcome.subscriber.email, privacyUrl },
+      env,
+    );
+  }
+  return outcome;
+}
 
 // Respuesta uniforme para /subscribe. La misma para correo nuevo,
 // pendiente reissue, ya confirmado y ya dado de baja → no filtramos
@@ -98,12 +143,11 @@ export async function handleConfirm(
 ): Promise<Response> {
   const url = new URL(request.url);
   const token = url.searchParams.get("token") ?? "";
+  const outcome = await processConfirm(db, token);
 
-  if (!isValidTokenShape(token)) {
+  if (outcome.kind === "invalid_shape") {
     return jsonResponse({ ok: false, error: "token_invalido" }, 400);
   }
-
-  const outcome = await confirm(db, token);
 
   if (outcome.kind === "confirmed") {
     return jsonResponse(
@@ -136,21 +180,18 @@ export async function handleUnsubscribe(
 ): Promise<Response> {
   const url = new URL(request.url);
   const token = url.searchParams.get("token") ?? "";
+  const outcome = await processUnsubscribe(
+    db,
+    env,
+    token,
+    `${buildOrigin(request)}${PRIVACY_PATH}`,
+  );
 
-  if (!isValidTokenShape(token)) {
+  if (outcome.kind === "invalid_shape") {
     return jsonResponse({ ok: false, error: "token_invalido" }, 400);
   }
 
-  const outcome = await unsubscribe(db, token);
-
   if (outcome.kind === "unsubscribed") {
-    await sendUnsubscribeReceiptEmail(
-      {
-        to: outcome.subscriber.email,
-        privacyUrl: `${buildOrigin(request)}${PRIVACY_PATH}`,
-      },
-      env,
-    );
     return jsonResponse(
       {
         ok: true,

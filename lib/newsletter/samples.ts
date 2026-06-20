@@ -9,9 +9,9 @@
 //     del entorno del worker).
 //
 // Los tokens son placeholders fijos y reconocibles ('a' × 64,
-// 'b' × 64). Los enlaces apuntan a los endpoints reales del sitio,
-// pero los handlers rechazan estos tokens con 400 — no entra nada a
-// D1.
+// 'b' × 64). Los enlaces apuntan a las páginas reales del sitio
+// (/boletin/confirmacion, /boletin/baja), pero la lógica rechaza
+// estos tokens con "enlace inválido" — no entra nada a D1.
 
 import {
   renderDivider,
@@ -49,8 +49,8 @@ export function buildSampleMessages(recipient: string): SampleMessage[] {
   const confirmation = buildConfirmationMessage(
     {
       to: recipient,
-      confirmUrl: `https://datosmexico.org/api/newsletter/confirm?token=${SAMPLE_CONFIRM_TOKEN}`,
-      unsubscribeUrl: `https://datosmexico.org/api/newsletter/unsubscribe?token=${SAMPLE_UNSUB_TOKEN}`,
+      confirmUrl: `https://datosmexico.org/boletin/confirmacion?token=${SAMPLE_CONFIRM_TOKEN}`,
+      unsubscribeUrl: `https://datosmexico.org/boletin/baja?token=${SAMPLE_UNSUB_TOKEN}`,
       privacyUrl: SAMPLE_PRIVACY_URL,
     },
     SAMPLE_FROM,
@@ -108,7 +108,7 @@ function buildBoletinSampleMessage(recipient: string) {
     eyebrow: "Boletín · Entrega 002",
     bodyHtml,
     privacyUrl: SAMPLE_PRIVACY_URL,
-    unsubscribeUrl: `https://datosmexico.org/api/newsletter/unsubscribe?token=${SAMPLE_UNSUB_TOKEN}`,
+    unsubscribeUrl: `https://datosmexico.org/boletin/baja?token=${SAMPLE_UNSUB_TOKEN}`,
     whyReceivingText:
       "Recibes este correo porque te suscribiste al boletín de Datos México. Si ya no quieres recibirlo, puedes darte de baja con un clic abajo.",
   });
@@ -122,7 +122,7 @@ function buildBoletinSampleMessage(recipient: string) {
       "Esta es una muestra del boletín quincenal de la Fase 4. La versión real se construye después de validar el sistema de correos.\n",
     reply_to: SAMPLE_REPLY_TO,
     headers: {
-      "List-Unsubscribe": `<https://datosmexico.org/api/newsletter/unsubscribe?token=${SAMPLE_UNSUB_TOKEN}>`,
+      "List-Unsubscribe": `<https://datosmexico.org/boletin/baja?token=${SAMPLE_UNSUB_TOKEN}>`,
       "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
     },
   };

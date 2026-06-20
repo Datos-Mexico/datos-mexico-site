@@ -52,8 +52,8 @@ function createCapture() {
 
 const SAMPLE_CONFIRM = {
   to: "alice@example.com",
-  confirmUrl: "https://datosmexico.org/api/newsletter/confirm?token=" + "a".repeat(64),
-  unsubscribeUrl: "https://datosmexico.org/api/newsletter/unsubscribe?token=" + "b".repeat(64),
+  confirmUrl: "https://datosmexico.org/boletin/confirmacion?token=" + "a".repeat(64),
+  unsubscribeUrl: "https://datosmexico.org/boletin/baja?token=" + "b".repeat(64),
   privacyUrl: "https://datosmexico.org/privacidad",
 };
 

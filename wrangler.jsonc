@@ -14,5 +14,24 @@
   "routes": [
     { "pattern": "datosmexico.org", "custom_domain": true },
     { "pattern": "www.datosmexico.org", "custom_domain": true }
+  ],
+  // D1: lista de suscriptores del boletín.
+  //
+  // Esta capa de datos está montada pero DESACTIVADA: el formulario público
+  // sigue usando `defaultSimulatedSubmit` (fake). Los IDs de abajo son
+  // placeholders; el `database_id` real lo asigna Cloudflare al crear la
+  // base con `wrangler d1 create datosmexico-newsletter` y debe sustituirse
+  // antes de cualquier deploy que enchufe el flujo real.
+  //
+  // Para desarrollo local, wrangler crea la base en `.wrangler/state/`
+  // automáticamente al ejecutar `wrangler d1 execute --local`; el campo
+  // `database_id` se respeta pero el binding apunta a una BD local separada.
+  "d1_databases": [
+    {
+      "binding": "NEWSLETTER_DB",
+      "database_name": "datosmexico-newsletter",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
   ]
 }

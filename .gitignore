@@ -30,6 +30,10 @@
 # previews locales de los correos del boletín (no se versionan)
 /.email-previews/
 
+# capturas locales de las páginas del boletín en cada estado
+# (se generan ad-hoc para revisión visual; no se versionan)
+/.preview-pages/
+
 # misc
 .DS_Store
 *.pem

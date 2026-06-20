@@ -1,18 +1,18 @@
 // Genera vistas previas locales de los correos del observatorio en
 // archivos HTML, para juicio visual sin gastar envíos.
 //
-// El envío real al Gmail de un humano se hace mejor a través del
-// endpoint temporal `/api/newsletter/__preview-send` desplegado en
-// el worker (que usa la RESEND_API_KEY ya cargada en Cloudflare —
-// sin que la key salga del entorno del worker).
-//
-// Modo opcional con key local (solo si por algún motivo el endpoint
-// no está disponible):
+// Modo opcional con envío vía Resend (key local):
 //
 //   read -rs RESEND_API_KEY && export RESEND_API_KEY
 //   export PREVIEW_TO_EMAIL='df.avila.diaz@gmail.com'
 //   npm run preview:newsletter
 //   unset RESEND_API_KEY PREVIEW_TO_EMAIL
+//
+// Para juicios visuales puntuales que necesiten la key del worker
+// sin sacarla del secret de Cloudflare, se puede stand-up un endpoint
+// temporal en una rama (ver historial: PR #30 introdujo
+// `/api/newsletter/preview-send`; PR de cleanup lo retiró tras la
+// prueba). Volver a montarlo si hace falta otra ronda.
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -73,9 +73,8 @@ async function main(): Promise<void> {
   } else {
     console.log(
       "\n(Solo se generaron los HTML offline.\n" +
-        " Para ver en Gmail real, lo recomendado es disparar el endpoint\n" +
-        " /api/newsletter/preview-send desde el worker — la key vive\n" +
-        " en Cloudflare y no pasa por tu shell.)",
+        " Para ver en Gmail real, exporta RESEND_API_KEY + PREVIEW_TO_EMAIL\n" +
+        " temporalmente — ver instrucciones al inicio del script.)",
     );
   }
 }

@@ -1,8 +1,13 @@
 # Capa de datos del boletín — D1 (DESACTIVADA)
 
-> Estado al 2026-06-19: plomería montada y probada, **no conectada al
-> formulario público**. `NewsletterForm.tsx` sigue usando
-> `defaultSimulatedSubmit` (fake). No captura un solo correo real.
+> Estado al 2026-06-20: plomería montada, BD real provisionada,
+> esquema aplicado en el D1 remoto y flujo validado end-to-end contra
+> la base real. **No conectada al formulario público**.
+> `NewsletterForm.tsx` sigue usando `defaultSimulatedSubmit` (fake) y
+> los stubs de Resend siguen no-op. No captura un solo correo real.
+>
+> - BD remota: `datosmexico-newsletter` (`d3f14281-d325-4433-9fa9-5ff6c5d92314`), región ENAM.
+> - Tabla `subscribers`: existe, vacía (0 filas tras los tests).
 
 ## Arquitectura
 
@@ -64,6 +69,8 @@ activo; idempotente (segundo clic devuelve 200
 
 ## Pruebas
 
+### Local (rápido, SQLite en memoria)
+
 ```bash
 npm run test:newsletter
 ```
@@ -74,49 +81,38 @@ completo (39 checks): alta nueva, duplicados, reissue de token,
 confirmación, re-uso del token confirmado, baja, idempotencia, baja
 previa que no se re-suscribe, validación de inputs, unicidad de tokens.
 
-Para validar el esquema contra el motor D1 real (workerd local):
+### Remoto (contra la BD D1 real)
 
 ```bash
-npx wrangler d1 execute datosmexico-newsletter --local --file=migrations/0001_create_subscribers.sql
-npx wrangler d1 execute datosmexico-newsletter --local --command="SELECT name FROM sqlite_master WHERE type='table';"
+npm run test:newsletter:remote
 ```
 
-## Pasos del CEO (Cloudflare cuenta real)
+Ejecuta los mismos handlers contra el D1 remoto (`--remote`) usando
+un adaptador que reenvía cada query a `wrangler d1 execute`. 34
+checks adicionales que demuestran que el esquema y el flujo
+funcionan contra la base real, incluyendo la verificación a nivel D1
+de la restricción `UNIQUE(email)`. El script **limpia la tabla** al
+empezar y al terminar (la BD queda vacía).
 
-Este PR **no** crea la BD en la cuenta real. Cuando llegue el momento
-de activar el flujo:
+## Provisión de la BD (ya hecho)
 
-1. **Crear la BD** en la cuenta Cloudflare de Datos México:
-   ```bash
-   npx wrangler d1 create datosmexico-newsletter
-   ```
-   Devuelve un `database_id` UUID real.
+Hecho el 2026-06-20:
 
-2. **Sustituir el placeholder** en `wrangler.jsonc`:
-   ```jsonc
-   "d1_databases": [
-     {
-       "binding": "NEWSLETTER_DB",
-       "database_name": "datosmexico-newsletter",
-       "database_id": "<UUID-REAL-DE-CLOUDFLARE>",
-       "migrations_dir": "migrations"
-     }
-   ]
-   ```
+1. `wrangler d1 create datosmexico-newsletter` → UUID
+   `d3f14281-d325-4433-9fa9-5ff6c5d92314`, región ENAM.
+2. UUID sustituido en `wrangler.jsonc` (binding `NEWSLETTER_DB`).
+3. `wrangler d1 migrations apply datosmexico-newsletter --remote` →
+   migración `0001_create_subscribers.sql` aplicada (5 statements OK).
+4. Tests remotos ejecutados (34/34 PASS) y BD limpia.
 
-3. **Aplicar la migración** al D1 remoto:
-   ```bash
-   npx wrangler d1 migrations apply datosmexico-newsletter --remote
-   ```
+## Pasos del CEO (siguientes)
 
-4. **Montar Resend** (paso pendiente, fuera del scope de este PR):
-   sustituir el cuerpo de `sendConfirmationEmail()` y
-   `sendUnsubscribeReceiptEmail()` en `lib/newsletter/email.ts`,
+1. **Montar Resend**: sustituir el cuerpo de `sendConfirmationEmail()`
+   y `sendUnsubscribeReceiptEmail()` en `lib/newsletter/email.ts`,
    añadir el secret `RESEND_API_KEY` vía
    `npx wrangler secret put RESEND_API_KEY` y verificar el remitente
    en el panel de Resend (dominio `datosmexico.org`).
-
-5. **Conectar el formulario** (último paso): en
+2. **Conectar el formulario** (último paso): en
    `components/newsletter/NewsletterForm.tsx`, cambiar el `onSubmit`
    por defecto de `defaultSimulatedSubmit` a una función que llame a
    `POST /api/newsletter/subscribe` y actualizar el copy de éxito si

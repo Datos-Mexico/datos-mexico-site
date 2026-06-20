@@ -17,20 +17,20 @@
   ],
   // D1: lista de suscriptores del boletín.
   //
-  // Esta capa de datos está montada pero DESACTIVADA: el formulario público
-  // sigue usando `defaultSimulatedSubmit` (fake). Los IDs de abajo son
-  // placeholders; el `database_id` real lo asigna Cloudflare al crear la
-  // base con `wrangler d1 create datosmexico-newsletter` y debe sustituirse
-  // antes de cualquier deploy que enchufe el flujo real.
+  // La base existe en la cuenta real (creada con
+  // `wrangler d1 create datosmexico-newsletter`) y el esquema está
+  // aplicado vía `wrangler d1 migrations apply --remote`. La tabla
+  // queda vacía hasta que se conecte el formulario.
   //
-  // Para desarrollo local, wrangler crea la base en `.wrangler/state/`
-  // automáticamente al ejecutar `wrangler d1 execute --local`; el campo
-  // `database_id` se respeta pero el binding apunta a una BD local separada.
+  // El formulario público sigue usando `defaultSimulatedSubmit` (fake)
+  // y los stubs de Resend en `lib/newsletter/email.ts` siguen no-op:
+  // la plomería existe y está enchufada a D1, pero no captura un solo
+  // correo hasta que Resend se monte y el formulario se conecte.
   "d1_databases": [
     {
       "binding": "NEWSLETTER_DB",
       "database_name": "datosmexico-newsletter",
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "d3f14281-d325-4433-9fa9-5ff6c5d92314",
       "migrations_dir": "migrations"
     }
   ]

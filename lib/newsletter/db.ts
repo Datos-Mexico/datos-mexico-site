@@ -16,6 +16,7 @@ type SubscriberRow = {
   created_at: string;
   confirmed_at: string | null;
   unsubscribed_at: string | null;
+  consent_at: string | null;
 };
 
 function rowToSubscriber(row: SubscriberRow): Subscriber {
@@ -29,6 +30,7 @@ function rowToSubscriber(row: SubscriberRow): Subscriber {
     createdAt: row.created_at,
     confirmedAt: row.confirmed_at,
     unsubscribedAt: row.unsubscribed_at,
+    consentAt: row.consent_at,
   };
 }
 
@@ -76,6 +78,7 @@ export async function findByUnsubscribeToken(
 export async function subscribe(
   db: D1Database,
   rawEmail: string,
+  consentAt: string,
 ): Promise<SubscribeOutcome> {
   const email = normalizeEmail(rawEmail);
   const existing = await findByEmail(db, email);
@@ -87,10 +90,10 @@ export async function subscribe(
     await db
       .prepare(
         `INSERT INTO subscribers
-           (email, status, confirmation_token, unsubscribe_token, created_at)
-         VALUES (?1, 'pendiente', ?2, ?3, ?4)`,
+           (email, status, confirmation_token, unsubscribe_token, created_at, consent_at)
+         VALUES (?1, 'pendiente', ?2, ?3, ?4, ?5)`,
       )
-      .bind(email, confirmationToken, unsubscribeToken, createdAt)
+      .bind(email, confirmationToken, unsubscribeToken, createdAt, consentAt)
       .run();
 
     const fresh = await findByEmail(db, email);

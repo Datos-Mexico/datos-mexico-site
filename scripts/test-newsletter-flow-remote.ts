@@ -151,11 +151,17 @@ function adaptRemoteD1(): D1Database {
   } as unknown as D1Database;
 }
 
-function postJson(url: string, body: unknown): Request {
+// Helper: añade `consented: true` automáticamente a cada POST contra
+// /subscribe (refleja el contrato de producción).
+function postJson(url: string, body: Record<string, unknown>): Request {
+  const augmented =
+    url.endsWith("/subscribe") && !("consented" in body)
+      ? { ...body, consented: true }
+      : body;
   return new Request(url, {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify(body),
+    body: JSON.stringify(augmented),
   });
 }
 
@@ -185,6 +191,7 @@ type SubscriberRow = {
   created_at: string;
   confirmed_at: string | null;
   unsubscribed_at: string | null;
+  consent_at: string | null;
 };
 
 function fetchSubscriber(email: string): SubscriberRow | null {
@@ -234,6 +241,10 @@ async function main(): Promise<void> {
     assert(
       "subscribe: token confirmación 64 hex",
       !!row?.confirmation_token && /^[a-f0-9]{64}$/.test(row.confirmation_token),
+    );
+    assert(
+      "subscribe: consent_at poblado en BD remota",
+      !!row?.consent_at && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(row.consent_at),
     );
     firstConfirmToken = row!.confirmation_token!;
     firstUnsubToken = row!.unsubscribe_token;

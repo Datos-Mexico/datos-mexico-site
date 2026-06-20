@@ -59,7 +59,19 @@ export async function handleSubscribe(
     return jsonResponse({ ok: false, error: "correo_invalido" }, 400);
   }
 
-  const outcome = await subscribe(db, email);
+  // LFPDPPP: el endpoint impone el flag de consentimiento. Sin él,
+  // la solicitud no es procesable — esto cierra el camino a un POST
+  // crudo (curl, scripts) que se saltara el checkbox del frontend.
+  const consented =
+    typeof payload === "object" &&
+    payload !== null &&
+    (payload as { consented?: unknown }).consented === true;
+  if (!consented) {
+    return jsonResponse({ ok: false, error: "consentimiento_requerido" }, 400);
+  }
+
+  const consentAt = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
+  const outcome = await subscribe(db, email, consentAt);
   const origin = buildOrigin(request);
 
   if (outcome.kind === "created" || outcome.kind === "reissued") {

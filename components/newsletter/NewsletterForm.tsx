@@ -1,12 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useId, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Loader } from "lucide-react";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import {
-  defaultSimulatedSubmit,
   isValidEmail,
+  liveSubmit,
   type NewsletterSubmitFn,
 } from "@/lib/newsletter";
 import { cn } from "@/lib/utils";
@@ -23,18 +24,20 @@ export type NewsletterFormProps = {
 };
 
 export function NewsletterForm({
-  onSubmit = defaultSimulatedSubmit,
+  onSubmit = liveSubmit,
   size = "lg",
   variant = "default",
-  successMessage = "¡Listo! Te enviaremos un correo de confirmación.",
+  successMessage = "Te enviamos un correo a tu dirección. Abre el enlace para confirmar la suscripción. (Revisa también la carpeta de spam la primera vez.)",
   ctaText = "Suscribirme",
   showLabel,
 }: NewsletterFormProps) {
   const id = useId();
   const inputId = `newsletter-${id}`;
+  const consentId = `newsletter-consent-${id}`;
   const errorId = `newsletter-error-${id}`;
 
   const [email, setEmail] = useState("");
+  const [consentChecked, setConsentChecked] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -42,9 +45,11 @@ export function NewsletterForm({
   const isLg = size === "lg";
   const renderLabel = showLabel ?? isLg;
 
+  const canSubmit = consentChecked && status !== "loading";
+
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (status === "loading") return;
+    if (!canSubmit) return;
 
     const value = email.trim();
     if (!isValidEmail(value)) {
@@ -153,7 +158,7 @@ export function NewsletterForm({
           type="submit"
           variant="primary"
           size={isLg ? "lg" : "md"}
-          disabled={status === "loading"}
+          disabled={!canSubmit}
           className={cn(isLg ? "sm:w-auto" : "sm:w-auto", "w-full")}
         >
           {status === "loading" ? (
@@ -171,6 +176,50 @@ export function NewsletterForm({
             </>
           )}
         </Button>
+      </div>
+
+      <div className={cn("mt-3 flex items-start gap-2")}>
+        <input
+          id={consentId}
+          type="checkbox"
+          checked={consentChecked}
+          onChange={(e) => {
+            setConsentChecked(e.target.checked);
+            if (status === "error") {
+              setStatus("idle");
+              setErrorMessage("");
+            }
+          }}
+          disabled={status === "loading"}
+          required
+          className={cn(
+            "mt-1 h-4 w-4 flex-shrink-0 rounded border-2 cursor-pointer",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+            dark
+              ? "border-white/30 bg-white/5 accent-primary"
+              : "border-foreground/30 accent-primary",
+          )}
+        />
+        <label
+          htmlFor={consentId}
+          className={cn(
+            "font-sans text-[13px] leading-[1.5] cursor-pointer select-none",
+            dark ? "text-white/80" : "text-foreground/80",
+          )}
+        >
+          Acepto el{" "}
+          <Link
+            href="/privacidad"
+            prefetch={false}
+            className={cn(
+              "underline underline-offset-2",
+              dark ? "text-white hover:text-white/90" : "text-foreground hover:text-foreground/80",
+            )}
+          >
+            aviso de privacidad
+          </Link>{" "}
+          de Datos México.
+        </label>
       </div>
 
       <p

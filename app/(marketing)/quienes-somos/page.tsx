@@ -8,6 +8,7 @@ import { Asesoria } from "@/components/quienes-somos/Asesoria";
 import { Acompanamiento } from "@/components/quienes-somos/Acompanamiento";
 import { Areas } from "@/components/quienes-somos/Areas";
 import { Gobernanza } from "@/components/quienes-somos/Gobernanza";
+import { CierreModelo } from "@/components/quienes-somos/CierreModelo";
 import { Contacto } from "@/components/quienes-somos/Contacto";
 import { team } from "@/lib/team";
 
@@ -71,6 +72,7 @@ export default function QuienesSomosPage() {
       <Acompanamiento />
       <Areas />
       <Gobernanza />
+      <CierreModelo />
       <Contacto />
     </>
   );

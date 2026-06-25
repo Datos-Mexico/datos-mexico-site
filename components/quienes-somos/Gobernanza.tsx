@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Body } from "@/components/typography";
@@ -61,20 +60,6 @@ export function Gobernanza() {
             </span>
             . No hemos recibido financiamiento externo a la fecha. Los costos de
             infraestructura los cubre el equipo fundador.
-          </p>
-          <p className="mt-5 font-sans text-[14px] leading-[1.6] text-text-subtle md:text-[15px]">
-            <Link
-              href="/modelo"
-              prefetch={false}
-              className="inline-flex items-center gap-1.5 font-medium text-foreground underline-offset-4 hover:underline"
-            >
-              Lee el modelo institucional completo
-              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-            </Link>
-            <span className="ml-2 text-text-subtle">
-              — cómo opera el observatorio frente a quien lo financia o le
-              encarga trabajo.
-            </span>
           </p>
         </aside>
       </Container>

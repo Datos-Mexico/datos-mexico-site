@@ -53,13 +53,12 @@ export function Gobernanza() {
             <strong className="font-semibold text-foreground">
               Estado actual del proyecto.
             </strong>{" "}
-            Datos México opera de manera informal mientras evaluamos su
-            constitución como Asociación Civil.{" "}
-            <span className="text-text-subtle">
-              [PENDIENTE: actualizar cuando haya figura legal definida]
-            </span>
-            . No hemos recibido financiamiento externo a la fecha. Los costos de
-            infraestructura los cubre el equipo fundador.
+            Datos México opera hoy de manera informal. Su intención formal es
+            constituirse como Asociación Civil bajo la legislación mexicana;
+            a la fecha, el trámite legal de constitución no ha sido iniciado:
+            estamos en fase preparatoria, no en expediente abierto. No hemos
+            recibido financiamiento externo a la fecha; los costos de
+            operación los cubre el equipo fundador.
           </p>
         </aside>
       </Container>

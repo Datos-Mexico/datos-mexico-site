@@ -189,6 +189,8 @@ const TAGLINES = {
   "og-prensa.png": "Prensa · Recursos para periodistas y medios.",
   "og-contacto.png":
     "Contacto · Canales del observatorio según el tipo de consulta.",
+  "og-modelo.png":
+    "Modelo · Cómo opera y cómo se sostiene el observatorio.",
 } as const;
 
 async function generateOgImages() {

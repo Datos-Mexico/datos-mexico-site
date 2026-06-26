@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { Container } from "@/components/layout/Container";
+import { Button } from "@/components/ui/Button";
 
 // Cierre conceptual de /quienes-somos: culmina el recorrido de identidad
 // (misión, principios, equipo, gobernanza) y enlaza a /modelo, donde se
@@ -42,17 +42,10 @@ export function CierreModelo() {
           </p>
 
           <div className="mt-10">
-            <Link
-              href="/modelo"
-              prefetch={false}
-              className="group inline-flex items-center gap-3 rounded-md bg-foreground px-7 py-4 font-sans text-[16px] font-medium text-text-inverse transition-colors hover:bg-text md:text-[17px]"
-            >
+            <Button href="/modelo" variant="primary" size="lg">
               Lee el modelo institucional
-              <ArrowRight
-                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                aria-hidden="true"
-              />
-            </Link>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Button>
           </div>
         </div>
       </Container>

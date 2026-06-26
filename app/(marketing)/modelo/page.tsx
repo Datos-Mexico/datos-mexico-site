@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og/og-default.png",
+        url: "/og/og-modelo.png",
         width: 1200,
         height: 630,
         alt: "Modelo institucional — Datos México",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Modelo institucional — Datos México",
     description:
       "Cómo opera el observatorio frente a quien lo financia o le encarga trabajo.",
-    images: ["/og/og-default.png"],
+    images: ["/og/og-modelo.png"],
   },
 };
 

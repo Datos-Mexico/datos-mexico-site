@@ -8,6 +8,7 @@ import { ReglaIndependencia } from "@/components/modelo/ReglaIndependencia";
 import { Sostenibilidad } from "@/components/modelo/Sostenibilidad";
 import { ModeloGobernanza } from "@/components/modelo/Gobernanza";
 import { Compromisos } from "@/components/modelo/Compromisos";
+import { SigueObservatorio } from "@/components/modelo/SigueObservatorio";
 import { Cierre } from "@/components/modelo/Cierre";
 import { ModeloTOC } from "@/components/modelo/ModeloTOC";
 
@@ -88,6 +89,7 @@ export default function ModeloPage() {
             <Sostenibilidad />
             <ModeloGobernanza />
             <Compromisos />
+            <SigueObservatorio />
             <Cierre />
           </article>
           <div className="hidden lg:block" />

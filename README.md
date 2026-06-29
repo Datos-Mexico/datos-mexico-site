@@ -9,17 +9,24 @@ colaboradores del ITAM.
 
 ---
 
+## Sistemas vivos (ya operando en producción)
+
+- **`/modelo`** — documento doctrinal del observatorio, público y vivo. Articula las tres capas de trabajo, la regla de independencia, sostenibilidad, gobernanza y compromisos asociados. Pieza maestra de la fase de difusión.
+- **Newsletter** — captura real. El form (`components/newsletter/NewsletterForm.tsx`) usa `liveSubmit` que hace POST a `/api/newsletter/subscribe`. El endpoint persiste en D1 (`datosmexico-newsletter`, binding `NEWSLETTER_DB`) y dispara correo de confirmación vía Resend; doble opt-in con páginas `/boletin/confirmacion` y `/boletin/baja`. Lo que falta es el agregador/envío del boletín periódico, no la plomería.
+- **Logo SVG** — variantes color, mono-blanco y mono-negro vivas en `public/brand/logo*.svg`. `components/layout/Logo.tsx` las consume.
+- **Descargables del kit de prensa** — `public/brand/datos-mexico-logos.zip` y `public/brand/datos-mexico-kit-prensa.pdf` están publicados y enlazados desde `components/prensa/Recursos.tsx` (botones activos, no "Próximamente").
+
 ## Pendientes (placeholders en código)
 
 Buscar `[PENDIENTE` en el código para encontrarlos. Hoy hay:
 
-- **Logo SVG real** — actualmente se usa wordmark "Datos México" en Source Serif (`components/layout/Logo.tsx`).
 - **Aliados / respaldos institucionales** — sección "Quiénes somos" del home (`components/sections/QuienesSomosPreview.tsx`).
-- **Integración real del newsletter** — el form usa `defaultSimulatedSubmit` (`lib/newsletter.ts`) y devuelve un mensaje de éxito simulado sin capturar el correo. Hay que conectarlo a un proveedor (Mailchimp / Buttondown / ConvertKit) y exponer el endpoint backend.
-- **Descargables del kit de prensa** — `components/prensa/Recursos.tsx` marca el logo zip y el PDF del kit como "Próximamente" (botones deshabilitados). Pendiente: generar artefactos y publicar URLs.
-- **Handles de redes y contacto** — `components/contacto/Redes.tsx` y `components/contacto/Preguntas.tsx` tienen marcadores `[PENDIENTE]` para handles reales y links de repositorio.
-- **Figura legal de gobernanza** — `components/quienes-somos/Gobernanza.tsx` declara pendiente la constitución legal del observatorio.
+- **Handles de redes y contacto** — `components/contacto/Redes.tsx`, `components/contacto/Preguntas.tsx` y `components/quienes-somos/Contacto.tsx` tienen marcadores `[PENDIENTE]` para handles reales y links de repositorio.
 - **Fotos del equipo** — los miembros en `lib/team.ts` tienen `photo: undefined`; `MemberCard` renderiza Avatar con iniciales como fallback. Pendiente: fotos reales para cada miembro.
+
+Asuntos institucionales fuera del código (visibles en UI como estado actual del proyecto, no como TODOs):
+
+- **Constitución como Asociación Civil** — operación informal hoy; trámite en fase preparatoria. Estado declarado explícitamente en `/quienes-somos` (sección Gobernanza).
 
 ---
 
@@ -31,7 +38,7 @@ Buscar `[PENDIENTE` en el código para encontrarlos. Hoy hay:
 - **Tipografías**: Source Serif 4 / Inter / JetBrains Mono via `next/font/google` con `display: 'swap'`. Mapeadas a `--font-serif`, `--font-sans`, `--font-mono` en `globals.css`.
 - **Tokens**: definidos como CSS custom properties en `globals.css` y mapeados a Tailwind via `@theme inline`. La copia TypeScript vive en `lib/design-tokens.ts` para uso programático (ej. styleguide).
 - **Componentes**: ninguna dependencia pesada de UI. shadcn no se instaló como CLI: en lugar de eso construí `Button`, `Input`, `Card`, `Badge` a mano en `components/ui/` siguiendo la convención (cva + tailwind-merge + radix-style API). Esto evita arrastrar el ecosistema entero de Radix por unos cuantos componentes.
-- **MDX**: `@next/mdx` configurado en `next.config.ts` (`pageExtensions` incluye `md` y `mdx`). Sin uso aún — listo para `/publicaciones`.
+- **MDX**: `@next/mdx` configurado en `next.config.ts` (`pageExtensions` incluye `md` y `mdx`). En uso para los artículos largos de `/publicaciones` (los `.mdx` viven en `content/publicaciones/`).
 - **Custom domain**: configurado en `wrangler.jsonc` con `routes: [{ pattern: "datosmexico.org", custom_domain: true }, ...]`. La zona ya estaba en la cuenta Cloudflare.
 - **Workers.dev URL**: se deshabilitó por defecto al agregar `routes`. Si quieres preview por subdominio agrega `"workers_dev": true` y `"preview_urls": true` a `wrangler.jsonc`.
 
@@ -82,7 +89,9 @@ Páginas:
 - `/transparencia` y `/transparencia/[slug]` — encargos de prensa (lee `content/transparencia/*.md` en build)
 - `/prensa` — recursos para prensa (voceros, citación, descargables, FAQs)
 - `/agenda` — calendario semestral de actividades
-- `/metodologia`, `/contacto`, `/boletin` — landing pages institucionales
+- `/modelo` — modelo institucional del observatorio (documento doctrinal: tres capas, regla de independencia, sostenibilidad, gobernanza, compromisos)
+- `/metodologia`, `/contacto`, `/boletin`, `/privacidad` — landing pages institucionales
+- `/boletin/confirmacion`, `/boletin/baja` — páginas del flujo doble opt-in del newsletter
 - `/dash-mapa01` — visualización geográfica (sandbox)
 - `/styleguide` — design system (no listado en nav, `robots: noindex`)
 
@@ -151,7 +160,4 @@ El deploy manual con `npm run deploy` desde local sigue funcionando como fallbac
 - Modo oscuro.
 - i18n.
 - Animaciones avanzadas.
-- Integración real del newsletter (hoy simulada — ver "Pendientes").
-- Logo SVG (hoy wordmark — ver "Pendientes").
-
-Esos quedan para prompts siguientes.
+- Envío real del boletín periódico (la captura sí está viva — falta el agregador/composición + envío).

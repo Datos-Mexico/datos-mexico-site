@@ -13,6 +13,16 @@ import {
 } from "@/lib/publicaciones/loader";
 import { getCategoryBySlug } from "@/lib/publicaciones/categories";
 import { formatHighwireDate } from "@/lib/publicaciones/format";
+import { team } from "@/lib/team";
+
+const INSTITUTIONAL_AUTHOR = "Equipo de Datos México";
+
+function resolveAuthorNames(ids: string[] | undefined): string[] {
+  if (!ids || ids.length === 0) return [];
+  return ids
+    .map((id) => team.find((m) => m.id === id)?.name)
+    .filter((name): name is string => Boolean(name));
+}
 
 export async function generateStaticParams() {
   const slugs = await getAllSlugs();
@@ -31,6 +41,16 @@ export async function generateMetadata({
   const pubUrl = `https://datosmexico.org/publicaciones/${pub.slug}`;
   const keywordsValue =
     pub.keywords?.join("; ") ?? category?.label ?? "";
+  const individualAuthors = resolveAuthorNames(pub.authors);
+  // citation_author: lista de personas + autor institucional al final.
+  // Scholar acepta el tag repetido; el institucional al final se lee
+  // heurísticamente como autor corporativo (sin coma, no patrón de
+  // nombre personal). La distinción Person vs Organization queda
+  // explícita en el JSON-LD del cuerpo de la página.
+  const citationAuthors =
+    individualAuthors.length > 0
+      ? [...individualAuthors, INSTITUTIONAL_AUTHOR]
+      : [INSTITUTIONAL_AUTHOR];
   return {
     title: pub.title,
     description: pub.excerpt,
@@ -41,7 +61,10 @@ export async function generateMetadata({
       type: "article",
       publishedTime: pub.publishedAt,
       modifiedTime: pub.updatedAt ?? pub.publishedAt,
-      authors: ["Equipo de Datos México"],
+      authors:
+        individualAuthors.length > 0
+          ? [...individualAuthors, INSTITUTIONAL_AUTHOR]
+          : [INSTITUTIONAL_AUTHOR],
       url: `/publicaciones/${pub.slug}`,
       images: [
         {
@@ -60,7 +83,7 @@ export async function generateMetadata({
     },
     other: {
       citation_title: pub.title,
-      citation_author: "Equipo de Datos México",
+      citation_author: citationAuthors,
       citation_publication_date: formatHighwireDate(pub.publishedAt),
       citation_journal_title: "Datos México",
       citation_abstract_html_url: pubUrl,
@@ -84,6 +107,16 @@ export default async function PublicationPage({
   const related = await getRelatedPublications(pub.slug, 3);
   const category = getCategoryBySlug(pub.category);
 
+  const individualAuthors = resolveAuthorNames(pub.authors);
+  const jsonLdAuthors = [
+    ...individualAuthors.map((name) => ({ "@type": "Person", name })),
+    {
+      "@type": "Organization",
+      name: INSTITUTIONAL_AUTHOR,
+      url: "https://datosmexico.org",
+    },
+  ];
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
@@ -93,11 +126,7 @@ export default async function PublicationPage({
     image: ["https://datosmexico.org/og/og-default.png"],
     datePublished: pub.publishedAt,
     dateModified: pub.updatedAt ?? pub.publishedAt,
-    author: {
-      "@type": "Organization",
-      name: "Datos México",
-      url: "https://datosmexico.org",
-    },
+    author: jsonLdAuthors,
     publisher: {
       "@type": "Organization",
       "@id": "https://datosmexico.org/#organization",

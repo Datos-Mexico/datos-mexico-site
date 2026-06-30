@@ -23,6 +23,12 @@ export type PublicationFrontmatter = {
   excerpt: string;
   abstract?: string;
   keywords?: string[];
+  /**
+   * IDs de miembros del equipo (ver `lib/team.ts`). Se resuelven a nombres
+   * reales en `generateMetadata` para emitir `citation_author` múltiples.
+   * Si se omite, el HTML cae a la firma institucional única.
+   */
+  authors?: string[];
   readingTime: number;
   dataSource: DataSource[];
   status: PublicationStatus;

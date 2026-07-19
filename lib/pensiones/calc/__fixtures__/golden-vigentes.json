@@ -1,0 +1,1217 @@
+{
+ "_fuente": "Golden cases de las calculadoras de pensiones: inputs y resultados esperados que fijan la paridad numérica del motor (tolerancia max(,0.05%) montos; exacto enteros/booleanos). Etiquetas de caso neutralizadas.",
+ "cuota_social": [
+  {
+   "caso": "CS01 salario bajo el SM → cuota del piso SM",
+   "sbcMensual": 7661.772800000001,
+   "esperado": 12.15794
+  },
+  {
+   "caso": "CS02 salario mínimo exacto → $12.15794",
+   "sbcMensual": 9577.216,
+   "esperado": 12.15794
+  },
+  {
+   "caso": "CS03 apenas sobre el SM (2.686 UMA) → banda 2.51-3.00",
+   "sbcMensual": 9586.793216,
+   "esperado": 8.76502
+  },
+  {
+   "caso": "CS04 3.00 UMA exacto → banda 2.51-3.00",
+   "sbcMensual": 10698.672,
+   "esperado": 8.76502
+  },
+  {
+   "caso": "CS05 3.01 UMA → banda 3.01-3.50",
+   "sbcMensual": 10734.334239999998,
+   "esperado": 7.91682
+  },
+  {
+   "caso": "CS06 3.50 / 3.51 UMA",
+   "sbcMensual": 12481.784,
+   "esperado": 7.91682
+  },
+  {
+   "caso": "CS06b 3.51 UMA",
+   "sbcMensual": 12517.446239999997,
+   "esperado": 7.06856
+  },
+  {
+   "caso": "CS07 4.00 UMA exacto → última banda con cuota",
+   "sbcMensual": 14264.895999999999,
+   "esperado": 7.06856
+  },
+  {
+   "caso": "CS08 4.01 UMA → $0 (sin cuota social)",
+   "sbcMensual": 14300.558239999998,
+   "esperado": 0.0
+  },
+  {
+   "caso": "CS09 salario alto → $0",
+   "sbcMensual": 80000,
+   "esperado": 0.0
+  }
+ ],
+ "pmg": [
+  {
+   "caso": "P01 mínimo absoluto 2026: 60a, 875 semanas exactas, banda 0 (1.5 UMA)",
+   "args": [
+    60,
+    875,
+    5349.336,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 2622,
+    "mensual": 3540.4697641927996,
+    "banda": 0,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P02 no aplica: 874 semanas en 2026 (una menos que el mínimo)",
+   "args": [
+    60,
+    874,
+    5349.336,
+    2026
+   ],
+   "esperado": {
+    "aplica": false
+   }
+  },
+  {
+   "caso": "P03 no aplica: 59 años con semanas de sobra",
+   "args": [
+    59,
+    2000,
+    10698.672,
+    2025
+   ],
+   "esperado": {
+    "aplica": false
+   }
+  },
+  {
+   "caso": "P04a 899 semanas 2026 → columna 875",
+   "args": [
+    60,
+    899,
+    5349.336,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 2622,
+    "mensual": 3540.4697641927996,
+    "banda": 0,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P04b 900 semanas 2026 → columna 900",
+   "args": [
+    60,
+    900,
+    5349.336,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 2716,
+    "mensual": 3667.397360620764,
+    "banda": 0,
+    "colSemanas": 900
+   }
+  },
+  {
+   "caso": "P05 semanas enormes → tope columna 11 (1,125+ en 2026)",
+   "args": [
+    60,
+    3000,
+    5349.336,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 3559,
+    "mensual": 4805.694847735383,
+    "banda": 0,
+    "colSemanas": 1125
+   }
+  },
+  {
+   "caso": "P06a 1.99 UMA exacto → banda 0",
+   "args": [
+    60,
+    875,
+    7096.78576,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 2622,
+    "mensual": 3540.4697641927996,
+    "banda": 0,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P06b 2.00 UMA exacto → banda 1",
+   "args": [
+    60,
+    875,
+    7132.447999999999,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 3409,
+    "mensual": 4603.150810882247,
+    "banda": 1,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P07 2.99 / 3.00 UMA",
+   "args": [
+    60,
+    875,
+    10663.00976,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 3409,
+    "mensual": 4603.150810882247,
+    "banda": 1,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P07b 3.00 UMA",
+   "args": [
+    60,
+    875,
+    10698.672,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 4195,
+    "mensual": 5664.481563992675,
+    "banda": 2,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P08 3.99 / 4.00 UMA",
+   "args": [
+    60,
+    875,
+    14229.233760000001,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 4195,
+    "mensual": 5664.481563992675,
+    "banda": 2,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P08b 4.00 UMA",
+   "args": [
+    60,
+    875,
+    14264.895999999999,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 4982,
+    "mensual": 6727.162610682123,
+    "banda": 3,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P09 4.99 / 5.00 UMA",
+   "args": [
+    60,
+    875,
+    17795.45776,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 5769,
+    "mensual": 7789.843657371572,
+    "banda": 4,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P09b 5.00 UMA",
+   "args": [
+    60,
+    875,
+    17831.12,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 5769,
+    "mensual": 7789.843657371572,
+    "banda": 4,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P09c salario altísimo → banda 4",
+   "args": [
+    60,
+    875,
+    120000,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 5769,
+    "mensual": 7789.843657371572,
+    "banda": 4,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P10a 64 años",
+   "args": [
+    64,
+    1000,
+    8915.56,
+    2030
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 3725,
+    "mensual": 5029.843581852852,
+    "banda": 1,
+    "colSemanas": 1000
+   }
+  },
+  {
+   "caso": "P10b 65 años → fila 65+",
+   "args": [
+    65,
+    1050,
+    8915.56,
+    2031
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 3896,
+    "mensual": 5260.743783865426,
+    "banda": 1,
+    "colSemanas": 1050
+   }
+  },
+  {
+   "caso": "P10c 70 años → misma fila 65+",
+   "args": [
+    70,
+    1050,
+    8915.56,
+    2031
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 3896,
+    "mensual": 5260.743783865426,
+    "banda": 1,
+    "colSemanas": 1050
+   }
+  },
+  {
+   "caso": "P11a 2031: régimen del art. 170 (1,000 mínimas)",
+   "args": [
+    65,
+    1000,
+    12481.784,
+    2031
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 4495,
+    "mensual": 6069.5696376989445,
+    "banda": 2,
+    "colSemanas": 1000
+   }
+  },
+  {
+   "caso": "P11b 2040: igual que 2031",
+   "args": [
+    65,
+    1250,
+    12481.784,
+    2040
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 5993,
+    "mensual": 8092.309419072253,
+    "banda": 2,
+    "colSemanas": 1250
+   }
+  },
+  {
+   "caso": "P12 2027: 900 mínimas (transitorio)",
+   "args": [
+    61,
+    925,
+    7845.692800000001,
+    2027
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 3579,
+    "mensual": 4832.700719315801,
+    "banda": 1,
+    "colSemanas": 925
+   }
+  },
+  {
+   "caso": "P13 caso AMCP publicado: $450/día, 61a, 980 semanas → $6,555.70",
+   "args": [
+    61,
+    980,
+    13680.0,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 4855,
+    "mensual": 6555.675326146469,
+    "banda": 2,
+    "colSemanas": 975
+   }
+  },
+  {
+   "caso": "P14a mínimo 2026 publicado $3,540.56",
+   "args": [
+    60,
+    875,
+    5349.336,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 2622,
+    "mensual": 3540.4697641927996,
+    "banda": 0,
+    "colSemanas": 875
+   }
+  },
+  {
+   "caso": "P14b máximo 2026 publicado $11,128.01",
+   "args": [
+    65,
+    1125,
+    21397.344,
+    2026
+   ],
+   "esperado": {
+    "aplica": true,
+    "base2020": 8241,
+    "mensual": 11127.769384711235,
+    "banda": 4,
+    "colSemanas": 1125
+   }
+  }
+ ],
+ "ley97": [
+  {
+   "caso": "PV01 base: 40a→65, M, $15,000, densidad 90%",
+   "inputs": {
+    "edad": 40,
+    "edadRetiro": 65,
+    "salario": 15000,
+    "saldo": 100000,
+    "semanas": 600,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "sexo": "M"
+   },
+   "esperado": {
+    "conservador": {
+     "pension": 4518.474023982399,
+     "saldoFinal": 950845.1692881827,
+     "semanasFinales": 1770,
+     "elegible": true
+    },
+    "base": {
+     "pension": 5647.614157681629,
+     "saldoFinal": 1188455.79532672,
+     "semanasFinales": 1770,
+     "elegible": true
+    },
+    "optimista": {
+     "pension": 7124.673475208818,
+     "saldoFinal": 1499280.8015939903,
+     "semanasFinales": 1770,
+     "elegible": true
+    }
+   }
+  },
+  {
+   "caso": "PV02 salario mínimo (cuota social del piso, la más alta $12.15794)",
+   "inputs": {
+    "edad": 35,
+    "edadRetiro": 65,
+    "salario": 9577.216,
+    "saldo": 20000,
+    "semanas": 300,
+    "densidad": 1.0,
+    "voluntaria": 0,
+    "sexo": "H"
+   },
+   "esperado": {
+    "conservador": {
+     "pension": 4042.9532670289796,
+     "saldoFinal": 755578.7997781766,
+     "semanasFinales": 1860,
+     "elegible": true
+    },
+    "base": {
+     "pension": 5166.9683086608875,
+     "saldoFinal": 965643.5420582575,
+     "semanasFinales": 1860,
+     "elegible": true
+    },
+    "optimista": {
+     "pension": 6686.7962183958825,
+     "saldoFinal": 1249680.8959579288,
+     "semanasFinales": 1860,
+     "elegible": true
+    }
+   }
+  },
+  {
+   "caso": "PV03 banda 3.01-3.50 UMA ($12,000 ≈ 3.365 UMA → $7.91682/día)",
+   "inputs": {
+    "edad": 45,
+    "edadRetiro": 65,
+    "salario": 12000,
+    "saldo": 250000,
+    "semanas": 900,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "sexo": "H"
+   },
+   "esperado": {
+    "conservador": {
+     "pension": 4367.133070220567,
+     "saldoFinal": 816164.0626862055,
+     "semanasFinales": 1836,
+     "elegible": true
+    },
+    "base": {
+     "pension": 5414.96329674638,
+     "saldoFinal": 1011990.7894965982,
+     "semanasFinales": 1836,
+     "elegible": true
+    },
+    "optimista": {
+     "pension": 6747.472262553668,
+     "saldoFinal": 1261020.5107375272,
+     "semanasFinales": 1836,
+     "elegible": true
+    }
+   }
+  },
+  {
+   "caso": "PV04 >4 UMA: sin cuota social ($25,000 ≈ 7.0 UMA → $0)",
+   "inputs": {
+    "edad": 45,
+    "edadRetiro": 65,
+    "salario": 25000,
+    "saldo": 400000,
+    "semanas": 900,
+    "densidad": 0.9,
+    "voluntaria": 500,
+    "sexo": "M"
+   },
+   "esperado": {
+    "conservador": {
+     "pension": 7990.477563031733,
+     "saldoFinal": 1681476.3016869188,
+     "semanasFinales": 1836,
+     "elegible": true
+    },
+    "base": {
+     "pension": 9781.775961257497,
+     "saldoFinal": 2058428.2150245672,
+     "semanasFinales": 1836,
+     "elegible": true
+    },
+    "optimista": {
+     "pension": 12039.420120196946,
+     "saldoFinal": 2533515.6076056734,
+     "semanasFinales": 1836,
+     "elegible": true
+    }
+   }
+  }
+ ],
+ "comparador": [
+  {
+   "caso": "C01 base 45a H, rutas 60/65/68",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 300000,
+    "semanas": 900,
+    "pre97": false,
+    "densidad": 0.9,
+    "voluntaria": 0
+   },
+   "edades": [
+    60,
+    65,
+    68
+   ],
+   "escenario": "base",
+   "esperado": {
+    "60": {
+     "pension": 4466.92,
+     "saldoFinal": 937217.58,
+     "semanasFinales": 1602,
+     "reqSemanas": 1000,
+     "anioRetiro": 2041,
+     "elegible": true,
+     "ex": 24.47,
+     "acumulado": 1311453.2,
+     "l73pension": null
+    },
+    "65": {
+     "pension": 6655.27,
+     "saldoFinal": 1243788.25,
+     "semanasFinales": 1836,
+     "reqSemanas": 1000,
+     "anioRetiro": 2046,
+     "elegible": true,
+     "ex": 20.91,
+     "acumulado": 1670220.15,
+     "l73pension": null
+    },
+    "68": {
+     "pension": 8413.02,
+     "saldoFinal": 1454445.94,
+     "semanasFinales": 1976,
+     "reqSemanas": 1000,
+     "anioRetiro": 2049,
+     "elegible": true,
+     "ex": 18.88,
+     "acumulado": 1905902.61,
+     "l73pension": null
+    }
+   }
+  },
+  {
+   "caso": "C01c ídem, conservador",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 300000,
+    "semanas": 900,
+    "pre97": false,
+    "densidad": 0.9,
+    "voluntaria": 0
+   },
+   "edades": [
+    60,
+    65,
+    68
+   ],
+   "escenario": "conservador",
+   "esperado": {
+    "60": {
+     "pension": 3781.53,
+     "saldoFinal": 793415.43,
+     "semanasFinales": 1602,
+     "reqSemanas": 1000,
+     "anioRetiro": 2041,
+     "elegible": true,
+     "ex": 24.47,
+     "acumulado": 1110230.13,
+     "l73pension": null
+    },
+    "65": {
+     "pension": 5378.64,
+     "saldoFinal": 1005203.2,
+     "semanasFinales": 1836,
+     "reqSemanas": 1000,
+     "anioRetiro": 2046,
+     "elegible": true,
+     "ex": 20.91,
+     "acumulado": 1349836.39,
+     "l73pension": null
+    },
+    "68": {
+     "pension": 6615.42,
+     "saldoFinal": 1143676.83,
+     "semanasFinales": 1976,
+     "reqSemanas": 1000,
+     "anioRetiro": 2049,
+     "elegible": true,
+     "ex": 18.88,
+     "acumulado": 1498671.49,
+     "l73pension": null
+    }
+   }
+  },
+  {
+   "caso": "C01o ídem, optimista",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 300000,
+    "semanas": 900,
+    "pre97": false,
+    "densidad": 0.9,
+    "voluntaria": 0
+   },
+   "edades": [
+    60,
+    65,
+    68
+   ],
+   "escenario": "optimista",
+   "esperado": {
+    "60": {
+     "pension": 5287.11,
+     "saldoFinal": 1109305.5,
+     "semanasFinales": 1602,
+     "reqSemanas": 1000,
+     "anioRetiro": 2041,
+     "elegible": true,
+     "ex": 24.47,
+     "acumulado": 1552256.68,
+     "l73pension": null
+    },
+    "65": {
+     "pension": 8276.58,
+     "saldoFinal": 1546792.91,
+     "semanasFinales": 1836,
+     "reqSemanas": 1000,
+     "anioRetiro": 2046,
+     "elegible": true,
+     "ex": 20.91,
+     "acumulado": 2077109.74,
+     "l73pension": null
+    },
+    "68": {
+     "pension": 10777.94,
+     "saldoFinal": 1863294.66,
+     "semanasFinales": 1976,
+     "reqSemanas": 1000,
+     "anioRetiro": 2049,
+     "elegible": true,
+     "ex": 18.88,
+     "acumulado": 2441657.03,
+     "l73pension": null
+    }
+   }
+  },
+  {
+   "caso": "C02 mujer (divisor y esperanza mayores)",
+   "inputs": {
+    "edad": 45,
+    "sexo": "M",
+    "salario": 15000,
+    "saldo": 300000,
+    "semanas": 900,
+    "pre97": false,
+    "densidad": 0.9,
+    "voluntaria": 0
+   },
+   "edades": [
+    60,
+    65,
+    68
+   ],
+   "escenario": "base",
+   "esperado": {
+    "60": {
+     "pension": 3918.23,
+     "saldoFinal": 937217.58,
+     "semanasFinales": 1602,
+     "reqSemanas": 1000,
+     "anioRetiro": 2041,
+     "elegible": true,
+     "ex": 28.18,
+     "acumulado": 1325208.42,
+     "l73pension": null
+    },
+    "65": {
+     "pension": 5910.56,
+     "saldoFinal": 1243788.25,
+     "semanasFinales": 1836,
+     "reqSemanas": 1000,
+     "anioRetiro": 2046,
+     "elegible": true,
+     "ex": 23.59,
+     "acumulado": 1673162.2,
+     "l73pension": null
+    },
+    "68": {
+     "pension": 7578.51,
+     "saldoFinal": 1454445.94,
+     "semanasFinales": 1976,
+     "reqSemanas": 1000,
+     "anioRetiro": 2049,
+     "elegible": true,
+     "ex": 20.88,
+     "acumulado": 1898798.22,
+     "l73pension": null
+    }
+   }
+  },
+  {
+   "caso": "C03 pre-97: Ley 73 en las tres rutas",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 300000,
+    "semanas": 900,
+    "pre97": true,
+    "densidad": 0.9,
+    "voluntaria": 0
+   },
+   "edades": [
+    60,
+    65,
+    70
+   ],
+   "escenario": "base",
+   "esperado": {
+    "60": {
+     "pension": 4466.92,
+     "saldoFinal": 937217.58,
+     "semanasFinales": 1602,
+     "reqSemanas": 1000,
+     "anioRetiro": 2041,
+     "elegible": true,
+     "ex": 24.47,
+     "acumulado": 1311453.2,
+     "l73pension": 10259.88
+    },
+    "65": {
+     "pension": 6655.27,
+     "saldoFinal": 1243788.25,
+     "semanasFinales": 1836,
+     "reqSemanas": 1000,
+     "anioRetiro": 2046,
+     "elegible": true,
+     "ex": 20.91,
+     "acumulado": 1670220.15,
+     "l73pension": 14913.9
+    },
+    "70": {
+     "pension": 9831.44,
+     "saldoFinal": 1607211.38,
+     "semanasFinales": 2070,
+     "reqSemanas": 1000,
+     "anioRetiro": 2051,
+     "elegible": true,
+     "ex": 17.56,
+     "acumulado": 2072253.05,
+     "l73pension": 15000.0
+    }
+   }
+  },
+  {
+   "caso": "C04 rutas extremas 60/65/70",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 300000,
+    "semanas": 900,
+    "pre97": false,
+    "densidad": 0.9,
+    "voluntaria": 0
+   },
+   "edades": [
+    60,
+    65,
+    70
+   ],
+   "escenario": "base",
+   "esperado": {
+    "60": {
+     "pension": 4466.92,
+     "saldoFinal": 937217.58,
+     "semanasFinales": 1602,
+     "reqSemanas": 1000,
+     "anioRetiro": 2041,
+     "elegible": true,
+     "ex": 24.47,
+     "acumulado": 1311453.2,
+     "l73pension": null
+    },
+    "65": {
+     "pension": 6655.27,
+     "saldoFinal": 1243788.25,
+     "semanasFinales": 1836,
+     "reqSemanas": 1000,
+     "anioRetiro": 2046,
+     "elegible": true,
+     "ex": 20.91,
+     "acumulado": 1670220.15,
+     "l73pension": null
+    },
+    "70": {
+     "pension": 9831.44,
+     "saldoFinal": 1607211.38,
+     "semanasFinales": 2070,
+     "reqSemanas": 1000,
+     "anioRetiro": 2051,
+     "elegible": true,
+     "ex": 17.56,
+     "acumulado": 2072253.05,
+     "l73pension": null
+    }
+   }
+  },
+  {
+   "caso": "C05 rutas juntas 64/65/66",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 300000,
+    "semanas": 900,
+    "pre97": false,
+    "densidad": 0.9,
+    "voluntaria": 0
+   },
+   "edades": [
+    64,
+    65,
+    66
+   ],
+   "escenario": "base",
+   "esperado": {
+    "64": {
+     "pension": 6151.84,
+     "saldoFinal": 1178204.36,
+     "semanasFinales": 1789,
+     "reqSemanas": 1000,
+     "anioRetiro": 2045,
+     "elegible": true,
+     "ex": 21.61,
+     "acumulado": 1595173.88,
+     "l73pension": null
+    },
+    "65": {
+     "pension": 6655.27,
+     "saldoFinal": 1243788.25,
+     "semanasFinales": 1836,
+     "reqSemanas": 1000,
+     "anioRetiro": 2046,
+     "elegible": true,
+     "ex": 20.91,
+     "acumulado": 1670220.15,
+     "l73pension": null
+    },
+    "66": {
+     "pension": 7197.49,
+     "saldoFinal": 1311642.04,
+     "semanasFinales": 1882,
+     "reqSemanas": 1000,
+     "anioRetiro": 2047,
+     "elegible": true,
+     "ex": 20.23,
+     "acumulado": 1746994.89,
+     "l73pension": null
+    }
+   }
+  },
+  {
+   "caso": "C06 semanas justas: no elegible temprano",
+   "inputs": {
+    "edad": 57,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 300000,
+    "semanas": 500,
+    "pre97": false,
+    "densidad": 0.6,
+    "voluntaria": 0
+   },
+   "edades": [
+    60,
+    65,
+    70
+   ],
+   "escenario": "base",
+   "esperado": {
+    "60": {
+     "pension": 1756.28,
+     "saldoFinal": 368490.95,
+     "semanasFinales": 593,
+     "reqSemanas": 950,
+     "anioRetiro": 2029,
+     "elegible": false,
+     "ex": 24.47,
+     "acumulado": 515631.22,
+     "l73pension": null
+    },
+    "65": {
+     "pension": 2776.19,
+     "saldoFinal": 518836.27,
+     "semanasFinales": 749,
+     "reqSemanas": 1000,
+     "anioRetiro": 2034,
+     "elegible": false,
+     "ex": 20.91,
+     "acumulado": 696718.91,
+     "l73pension": null
+    },
+    "70": {
+     "pension": 4277.56,
+     "saldoFinal": 699282.12,
+     "semanasFinales": 905,
+     "reqSemanas": 1000,
+     "anioRetiro": 2039,
+     "elegible": false,
+     "ex": 17.56,
+     "acumulado": 901617.25,
+     "l73pension": null
+    }
+   }
+  },
+  {
+   "caso": "C07 densidad 40%, voluntaria $1,000",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 300000,
+    "semanas": 900,
+    "pre97": false,
+    "densidad": 0.4,
+    "voluntaria": 1000
+   },
+   "edades": [
+    60,
+    65,
+    68
+   ],
+   "escenario": "base",
+   "esperado": {
+    "60": {
+     "pension": 4318.53,
+     "saldoFinal": 906084.96,
+     "semanasFinales": 1212,
+     "reqSemanas": 1000,
+     "anioRetiro": 2041,
+     "elegible": true,
+     "ex": 24.47,
+     "acumulado": 1267889.17,
+     "l73pension": null
+    },
+    "65": {
+     "pension": 6345.68,
+     "saldoFinal": 1185931.15,
+     "semanasFinales": 1316,
+     "reqSemanas": 1000,
+     "anioRetiro": 2046,
+     "elegible": true,
+     "ex": 20.91,
+     "acumulado": 1592526.78,
+     "l73pension": null
+    },
+    "68": {
+     "pension": 7961.98,
+     "saldoFinal": 1376469.14,
+     "semanasFinales": 1378,
+     "reqSemanas": 1000,
+     "anioRetiro": 2049,
+     "elegible": true,
+     "ex": 18.88,
+     "acumulado": 1803722.0,
+     "l73pension": null
+    }
+   }
+  },
+  {
+   "caso": "C08 59a (1 año a la ruta A)",
+   "inputs": {
+    "edad": 59,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 900000,
+    "semanas": 900,
+    "pre97": false,
+    "densidad": 0.9,
+    "voluntaria": 0
+   },
+   "edades": [
+    60,
+    65,
+    68
+   ],
+   "escenario": "base",
+   "esperado": {
+    "60": {
+     "pension": 4502.82,
+     "saldoFinal": 944750.57,
+     "semanasFinales": 946,
+     "reqSemanas": 900,
+     "anioRetiro": 2027,
+     "elegible": true,
+     "ex": 24.47,
+     "acumulado": 1321994.15,
+     "l73pension": null
+    },
+    "65": {
+     "pension": 6526.98,
+     "saldoFinal": 1219813.95,
+     "semanasFinales": 1180,
+     "reqSemanas": 1000,
+     "anioRetiro": 2032,
+     "elegible": true,
+     "ex": 20.91,
+     "acumulado": 1638026.27,
+     "l73pension": null
+    },
+    "68": {
+     "pension": 8189.78,
+     "saldoFinal": 1415852.79,
+     "semanasFinales": 1321,
+     "reqSemanas": 1000,
+     "anioRetiro": 2035,
+     "elegible": true,
+     "ex": 18.88,
+     "acumulado": 1855330.25,
+     "l73pension": null
+    }
+   }
+  },
+  {
+   "caso": "C09 salario mínimo (piso SBC, banda 1 SM)",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 9000,
+    "saldo": 300000,
+    "semanas": 900,
+    "pre97": false,
+    "densidad": 0.9,
+    "voluntaria": 0
+   },
+   "edades": [
+    60,
+    65,
+    68
+   ],
+   "escenario": "base",
+   "esperado": {
+    "60": {
+     "pension": 3642.55,
+     "saldoFinal": 764255.29,
+     "semanasFinales": 1602,
+     "reqSemanas": 1000,
+     "anioRetiro": 2041,
+     "elegible": true,
+     "ex": 24.47,
+     "acumulado": 1069426.21,
+     "l73pension": null
+    },
+    "65": {
+     "pension": 5271.72,
+     "saldoFinal": 985220.8,
+     "semanasFinales": 1836,
+     "reqSemanas": 1000,
+     "anioRetiro": 2046,
+     "elegible": true,
+     "ex": 20.91,
+     "acumulado": 1323003.04,
+     "l73pension": null
+    },
+    "68": {
+     "pension": 6573.21,
+     "saldoFinal": 1136379.65,
+     "semanasFinales": 1976,
+     "reqSemanas": 1000,
+     "anioRetiro": 2049,
+     "elegible": true,
+     "ex": 18.88,
+     "acumulado": 1489109.28,
+     "l73pension": null
+    }
+   }
+  },
+  {
+   "caso": "C10 pre-97 con pocas semanas: L73 no aplica",
+   "inputs": {
+    "edad": 58,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 300000,
+    "semanas": 300,
+    "pre97": true,
+    "densidad": 0.4,
+    "voluntaria": 0
+   },
+   "edades": [
+    60,
+    65,
+    68
+   ],
+   "escenario": "base",
+   "esperado": {
+    "60": {
+     "pension": 1597.52,
+     "saldoFinal": 335180.27,
+     "semanasFinales": 341,
+     "reqSemanas": 925,
+     "anioRetiro": 2028,
+     "elegible": false,
+     "ex": 24.47,
+     "acumulado": 469019.42,
+     "l73pension": null
+    },
+    "65": {
+     "pension": 2393.01,
+     "saldoFinal": 447224.68,
+     "semanasFinales": 445,
+     "reqSemanas": 1000,
+     "anioRetiro": 2033,
+     "elegible": false,
+     "ex": 20.91,
+     "acumulado": 600555.34,
+     "l73pension": null
+    },
+    "68": {
+     "pension": 3042.11,
+     "saldoFinal": 525920.46,
+     "semanasFinales": 508,
+     "reqSemanas": 1000,
+     "anioRetiro": 2036,
+     "elegible": false,
+     "ex": 18.88,
+     "acumulado": 689164.97,
+     "l73pension": 9577.22
+    }
+   }
+  }
+ ]
+}

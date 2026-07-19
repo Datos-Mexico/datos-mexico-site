@@ -1,0 +1,489 @@
+/* ========================================
+   TIMELINE — El SAR en 29 años
+   Porte 1:1 (D8 — fidelidad total). Única transformación permitida:
+   tokens de color re-mapeados a la paleta del observatorio (bloque
+   .timeline de abajo) y rgba() re-derivados del color nuevo con la
+   MISMA opacidad. Estructura, timing, easing, responsive, scroll-snap
+   y reduced-motion idénticos al origen.
+
+   Mapeo de tokens (validación visual pendiente del CEO):
+     navy    #1B2A5E → primario  #15803D   (rgba 27,42,94 → 21,128,61)
+     navy-dk #0F1B3D → hover     #166534
+     gold    #B8943E → acento    #B45309   (rgba 184,148,62 → 180,83,9)
+     gold-lt #D4B15A → acento-lt #D97706
+     bg-alt  #F4F5FA → fondo     #FAFAF9
+     white   #FFFFFF → superficie/inversa #FAFAF9
+     text-2º #6C757D → texto sutil #4B5563
+   ======================================== */
+.timeline {
+  --navy: #15803D;
+  --navy-dark: #166534;
+  --gold: #B45309;
+  --gold-light: #D97706;
+  --bg-alt: #FAFAF9;
+  --text-primary: #1F2937;
+  --text-secondary: #4B5563;
+  --white: #FAFAF9;
+  --transition: 0.3s ease;
+  --max-width: 1140px;
+}
+
+/* Clases base del origen (styles.v2.css), scopeadas al componente */
+.timeline .container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.timeline .gold-line {
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+.timeline .gold-line--left {
+  margin-left: 0;
+}
+
+.timeline {
+  padding: 5rem 0 4.5rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(180, 83, 9, 0.04) 0%, transparent 60%),
+    var(--white);
+  position: relative;
+}
+
+.timeline__header {
+  max-width: 760px;
+  margin-bottom: 3rem;
+}
+
+.timeline__eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.5rem;
+}
+
+.timeline__title {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: var(--navy);
+  margin: 0 0 0.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.timeline .gold-line {
+  margin-bottom: 1.25rem;
+}
+
+.timeline__lede {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.timeline__lede strong {
+  color: var(--navy);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Chart container */
+.timeline__chart {
+  margin: 0 0 1.5rem;
+}
+
+.timeline__plot {
+  position: relative;
+  height: 340px;
+  padding: 1.25rem 0 2.25rem 4.25rem;
+  border-bottom: 1px solid rgba(21, 128, 61, 0.12);
+}
+
+/* Horizontal grid + Y-axis ticks (3,000 / 6,000 / 9,000) */
+.timeline__grid {
+  position: absolute;
+  inset: 1.25rem 0 2.25rem 4.25rem;
+  pointer-events: none;
+}
+
+.timeline__grid span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right,
+                              rgba(21, 128, 61, 0.05) 0%,
+                              rgba(21, 128, 61, 0.08) 12%,
+                              rgba(21, 128, 61, 0.08) 88%,
+                              rgba(21, 128, 61, 0.05) 100%);
+}
+
+.timeline__grid span::before {
+  content: attr(data-label);
+  position: absolute;
+  left: -4.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.timeline__grid span:nth-child(1) { top: 0%; }   /* 9,000 */
+.timeline__grid span:nth-child(2) { top: 33.33%; } /* 6,000 */
+.timeline__grid span:nth-child(3) { top: 66.66%; } /* 3,000 */
+.timeline__grid span:nth-child(4) { top: 100%; background: var(--navy); opacity: 0.4; height: 1px; }
+.timeline__grid span:nth-child(4)::before { font-weight: 600; }
+
+/* Bars container */
+.timeline__bars {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 0.4rem;
+  align-items: end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.timeline__item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Each bar is a link */
+.timeline__bar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* The colored bar fill */
+.timeline__fill {
+  display: block;
+  width: 100%;
+  height: var(--bar-h, 50%);
+  background: linear-gradient(to top,
+                              var(--navy) 0%,
+                              var(--navy) 60%,
+                              var(--gold) 100%);
+  border-radius: 2px 2px 0 0;
+  transform-origin: bottom center;
+  animation: timeline-grow 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms) both;
+  /* Corrección de contexto (no rediseño): en el origen la pieza vive
+     above-the-fold y anima al cargar; aquí la animación arranca cuando la
+     pieza entra al viewport (IntersectionObserver agrega .is-inview). El
+     timing, stagger y easing quedan intactos. */
+  animation-play-state: paused;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.timeline.is-inview .timeline__fill {
+  animation-play-state: running;
+}
+
+@keyframes timeline-grow {
+  from {
+    transform: scaleY(0);
+    opacity: 0.5;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Year tick below the bar */
+.timeline__year {
+  position: absolute;
+  bottom: -1.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* Tooltip on top of bar */
+.timeline__tooltip {
+  position: absolute;
+  bottom: calc(var(--bar-h, 50%) + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.4rem 0.55rem;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.timeline__tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--navy);
+}
+
+.timeline__tooltip strong {
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.timeline__tooltip em {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.62rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-top: 0.15rem;
+}
+
+/* Bar hover interactions */
+.timeline__bar:hover .timeline__fill,
+.timeline__bar:focus-visible .timeline__fill {
+  background: linear-gradient(to top, var(--navy-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+  transform: scaleY(1.02);
+  box-shadow: 0 -4px 16px rgba(21, 128, 61, 0.22);
+}
+
+.timeline__bar:hover .timeline__tooltip,
+.timeline__bar:focus-visible .timeline__tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.timeline__bar:hover .timeline__year,
+.timeline__bar:focus-visible .timeline__year {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* Caption + legend */
+.timeline__caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2.25rem 0 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.timeline__legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeline__legend-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(to top, var(--navy) 0%, var(--gold) 100%);
+  border-radius: 2px;
+}
+
+.timeline__source {
+  font-style: italic;
+}
+
+.timeline__source-link {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(180, 83, 9, 0.35);
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.timeline__source-link:hover,
+.timeline__source-link:focus-visible {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+}
+
+/* CTA */
+.timeline__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0.85rem 1.4rem;
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: gap 0.22s ease, background 0.22s ease, transform 0.22s ease;
+}
+
+.timeline__cta:hover,
+.timeline__cta:focus-visible {
+  background: var(--navy-dark);
+  gap: 0.85rem;
+  transform: translateY(-1px);
+}
+
+/* ---------- Responsive ---------- */
+
+/* Tablet: 16 barras siguen entrando, año más chico */
+@media (max-width: 900px) {
+  .timeline__plot {
+    height: 300px;
+    padding-left: 3.5rem;
+  }
+  .timeline__grid { inset: 1.25rem 0 2.25rem 3.5rem; }
+  .timeline__grid span::before { left: -3.5rem; font-size: 0.68rem; }
+  .timeline__bars { gap: 0.3rem; }
+  .timeline__year { font-size: 0.65rem; bottom: -1.5rem; }
+}
+
+/* Móvil: scroll horizontal con snap; ancho mínimo de barra para legibilidad */
+@media (max-width: 640px) {
+  .timeline { padding: 3.5rem 0 3rem; }
+  .timeline__header { margin-bottom: 2rem; }
+  .timeline__lede { font-size: 0.98rem; }
+
+  .timeline__chart {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+  }
+  .timeline__plot {
+    height: 260px;
+    padding: 1rem 1rem 2rem 3rem;
+    overflow-x: auto;
+    overflow-y: visible;
+    border-bottom: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(21, 128, 61, 0.25) transparent;
+  }
+  .timeline__plot::after {
+    content: '';
+    position: absolute;
+    left: 3rem;
+    right: 1rem;
+    bottom: 2rem;
+    height: 1px;
+    background: var(--navy);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .timeline__plot::-webkit-scrollbar { height: 4px; }
+  .timeline__plot::-webkit-scrollbar-track { background: transparent; }
+  .timeline__plot::-webkit-scrollbar-thumb {
+    background: rgba(21, 128, 61, 0.25);
+    border-radius: 2px;
+  }
+
+  .timeline__grid {
+    position: sticky;
+    left: 0;
+    width: 3rem;
+    inset: 1rem auto 2rem 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .timeline__grid span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: transparent;
+  }
+  .timeline__grid span::before {
+    left: 0;
+    font-size: 0.62rem;
+  }
+  .timeline__grid span:nth-child(4) { background: transparent; }
+
+  .timeline__bars {
+    grid-template-columns: repeat(16, 28px);
+    gap: 0.45rem;
+    height: 100%;
+    padding-bottom: 0;
+  }
+  .timeline__item {
+    scroll-snap-align: end;
+  }
+  .timeline__year { font-size: 0.62rem; bottom: -1.4rem; }
+  .timeline__tooltip {
+    padding: 0.3rem 0.45rem;
+  }
+  .timeline__tooltip strong { font-size: 0.85rem; }
+  .timeline__tooltip em { font-size: 0.56rem; }
+
+  .timeline__caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin: 2rem 1.25rem 0;
+    font-size: 0.72rem;
+  }
+  .timeline__cta { margin-top: 1.5rem; }
+}
+
+/* Reduced motion: respeta preferencias del usuario */
+@media (prefers-reduced-motion: reduce) {
+  .timeline__fill {
+    animation: none;
+  }
+  .timeline__bar:hover .timeline__fill,
+  .timeline__bar:focus-visible .timeline__fill {
+    transform: none;
+  }
+}

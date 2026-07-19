@@ -1,0 +1,29 @@
+/* Reemplazo de ingreso — reusa la base común (calc-base.css) y añade partidas
+   editables, cascada ingreso→objetivo y escala de referencias. Portado TAL
+   CUAL (D8); rgba() remapeados igual que la base. */
+@import "./calc-base.css";
+
+.calc-root .grupo{margin-top:16px;padding-top:12px;border-top:1px solid var(--line)}
+.calc-root .grupo .g-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.calc-root .grupo .g-title{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.calc-root .grupo.des .g-title{color:var(--ok)}
+.calc-root .grupo.aum .g-title{color:var(--mid)}
+.calc-root .grupo .g-total{font-family:Merriweather,Georgia,serif;font-size:15px;font-weight:700;color:var(--navy);
+  font-variant-numeric:tabular-nums}
+.calc-root .partida{display:grid;grid-template-columns:minmax(0,1fr) 108px;gap:8px;align-items:center;margin-top:8px}
+.calc-root .partida label{font-weight:400;font-size:12.5px}
+.calc-root .partida label b{font-weight:600;color:var(--navy)}
+.calc-root .partida input{padding:5px 8px;font-size:13px;text-align:right}
+
+.calc-root .casc{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.calc-root .casc-row{display:grid;grid-template-columns:170px minmax(0,1fr) 100px;gap:10px;align-items:center}
+.calc-root .casc-row .c-lbl{font-size:12.5px;font-weight:600;color:var(--navy);text-align:right;line-height:1.3}
+.calc-root .casc-row .c-lbl .hint{display:block}
+.calc-root .casc-track{position:relative;height:20px;background:var(--bg-alt);border-radius:4px;overflow:hidden}
+.calc-root .casc-fill{position:absolute;top:0;bottom:0;border-radius:4px;transition:width .45s cubic-bezier(.16,1,.3,1),left .45s cubic-bezier(.16,1,.3,1)}
+.calc-root .casc-val{font-size:13px;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+
+.calc-root .escala-wrap{position:relative;margin-top:14px}
+.calc-root .escala-wrap svg{display:block;width:100%;height:auto}
+.calc-root .ref-lbl{font-size:10.5px;font-weight:600;fill:var(--text-secondary);font-family:'Inter',sans-serif}
+.calc-root .tu-lbl{font-size:11.5px;font-weight:700;fill:var(--navy);font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums}

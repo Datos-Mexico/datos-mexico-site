@@ -3,8 +3,9 @@
   Panel Mensual del SAR por AFORE, 1997-2025
 ================================================================================
 
-  Licencia: datos de origen CC BY 4.0 (CONSAR, datos.gob.mx);
-            compilacion del Observatorio Datos Mexico
+  Licencia: CC BY 4.0 (compilacion) - Equipo de Datos Mexico,
+            Observatorio Datos Mexico (datosmexico.org);
+            datos de origen CC BY 4.0 (CONSAR via datos.gob.mx)
   Publicado: Febrero 2026
   Autor: Equipo de Datos Mexico
   Formato: CSV (UTF-8, delimitador coma)
@@ -186,9 +187,12 @@
   LICENCIA
 ================================================================================
 
+  La compilacion se publica bajo licencia Creative Commons
+  Attribution 4.0 (CC BY 4.0). Atribucion: Equipo de Datos Mexico,
+  Observatorio Datos Mexico (datosmexico.org).
+
   Los datos originales de CONSAR estan publicados bajo licencia
-  Creative Commons Attribution 4.0 en datos.gob.mx. El Observatorio
-  Datos Mexico los compila, estructura y documenta.
+  Creative Commons Attribution 4.0 en datos.gob.mx.
 
   Observatorio Datos Mexico
   https://datosmexico.org

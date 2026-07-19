@@ -111,7 +111,12 @@ export default function PensionesHub() {
           </a>
 
           <div className="mt-10">
-            <Mono className="block text-[12px]">Proyección · motor actuarial</Mono>
+            <div className="flex items-baseline justify-between gap-4">
+              <Mono className="block text-[12px]">Proyección · motor actuarial</Mono>
+              <a href="/pensiones/calculadoras" className="font-mono text-[12px] text-primary underline-offset-4 hover:underline">
+                Ver el índice completo →
+              </a>
+            </div>
             <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {proyeccion.map((c) => <CalcCard key={c.slug} {...c} />)}
             </div>

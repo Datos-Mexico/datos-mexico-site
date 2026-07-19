@@ -1,0 +1,34 @@
+/* Comparador de escenarios — reusa la base común de las calculadoras
+   (calc-base.css, scope .calc-root) y añade las clases propias de las tres
+   rutas. Portado TAL CUAL (D8); tokens y rgba() remapeados igual que la base.
+   Las clases de ruta se scopean a .calc-root (solo existen en este cuerpo). */
+@import "./calc-base.css";
+
+.calc-root .rutas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:10px}
+@media (max-width:840px){.calc-root .rutas{grid-template-columns:1fr}}
+.calc-root .ruta{border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;
+  flex-direction:column;gap:8px;background:#fff;position:relative;
+  transition:box-shadow .2s,transform .2s cubic-bezier(.16,1,.3,1)}
+.calc-root .ruta:hover{box-shadow:0 6px 18px rgba(21,128,61,.10);transform:translateY(-2px)}
+.calc-root .ruta.ref{border:2px solid var(--gold);background:linear-gradient(180deg,#fff 0%,var(--bg-alt) 160%)}
+.calc-root .ruta .r-tag{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--text-secondary)}
+.calc-root .ruta.ref .r-tag{color:var(--gold)}
+.calc-root .ruta .r-edad{font-family:Merriweather,Georgia,serif;font-size:21px;color:var(--navy);line-height:1.2}
+.calc-root .ruta .r-edad .hint{font-family:'Inter',sans-serif}
+.calc-root .ruta .r-big{font-family:Merriweather,Georgia,serif;font-size:clamp(22px,2.6vw,28px);color:var(--navy);
+  font-variant-numeric:tabular-nums;line-height:1.1}
+.calc-root .ruta .r-big small{font-size:12px;color:var(--text-secondary);font-family:'Inter',sans-serif;font-weight:400}
+.calc-root .ruta .r-rango{font-size:11.5px;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.calc-root .delta{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;border-radius:999px;
+  padding:2px 10px;width:fit-content}
+.calc-root .delta.up{background:rgba(30,110,69,.10);color:var(--ok)}
+.calc-root .delta.down{background:rgba(158,43,37,.10);color:var(--low)}
+.calc-root .delta.zero{background:var(--bg-alt);color:var(--navy)}
+.calc-root .ruta .r-rows{display:flex;flex-direction:column;gap:5px;font-size:12.5px;margin-top:2px}
+.calc-root .ruta .r-rows .rw{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line);
+  padding-bottom:4px}
+.calc-root .ruta .r-rows .rw:last-child{border-bottom:none}
+.calc-root .ruta .r-rows .rw b{color:var(--navy)}
+.calc-root .ruta .r-warn{font-size:11.5px;color:var(--low);font-weight:600;line-height:1.4}
+.calc-root .ruta .r-l73{font-size:11.5px;color:var(--text-secondary);border-top:1px dashed var(--line);padding-top:6px}
+.calc-root .ruta .r-l73 b{color:var(--navy);font-variant-numeric:tabular-nums}

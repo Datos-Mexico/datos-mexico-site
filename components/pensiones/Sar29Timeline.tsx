@@ -88,7 +88,7 @@ export function Sar29Timeline() {
           <figcaption className="timeline__caption">
             <span className="timeline__legend">
               <span className="timeline__legend-swatch"></span> Recursos al
-              cierre de cada año
+              cierre de cada ano
             </span>{" "}
             <span className="timeline__source">
               Fuente: CONSAR vía{" "}
@@ -104,7 +104,7 @@ export function Sar29Timeline() {
           </figcaption>
         </figure>
 
-        <a href="/pensiones/sar-29" className="timeline__cta">
+        <a href="#serie-entregas" className="timeline__cta">
           Ver los 29 estudios
           <svg
             width="18"

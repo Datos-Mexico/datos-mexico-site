@@ -24,7 +24,10 @@ export default function Sar29Page() {
     <>
       <Sar29Timeline />
 
-      <section className="border-b border-t border-border py-20 md:py-24">
+      <section
+        id="serie-entregas"
+        className="border-b border-t border-border py-20 md:py-24 scroll-mt-20"
+      >
         <Container>
           <SectionHeader
             eyebrow="Pensiones"

@@ -109,20 +109,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const sar29LastModified = new Date("2026-07-18");
-  const sar29Entries: MetadataRoute.Sitemap = [
-    {
-      url: `${base}/pensiones/sar-29`,
-      lastModified: sar29LastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    ...sar29Entregas.map((e) => ({
-      url: `${base}${e.href}`,
-      lastModified: sar29LastModified,
-      changeFrequency: "yearly" as const,
-      priority: 0.9,
+  const pensionesLastModified = new Date("2026-07-19");
+  const calculadoras = [
+    "pension", "comparador", "elegibilidad", "ahorro", "aportaciones", "brecha",
+    "interes-compuesto", "reemplazo", "gasto-vida", "gastos-medicos",
+  ];
+  const pensionesEntries: MetadataRoute.Sitemap = [
+    // Hub de la sección (la antigua landing /pensiones/sar-29 redirige aquí).
+    { url: `${base}/pensiones`, lastModified: pensionesLastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/pensiones/tu-retiro`, lastModified: pensionesLastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/pensiones/calculadoras`, lastModified: pensionesLastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/pensiones/calculadoras/metodologia`, lastModified: pensionesLastModified, changeFrequency: "monthly", priority: 0.6 },
+    ...calculadoras.map((slug) => ({
+      url: `${base}/pensiones/calculadoras/${slug}`,
+      lastModified: pensionesLastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
   ];
+  const sar29Entries: MetadataRoute.Sitemap = sar29Entregas.map((e) => ({
+    url: `${base}${e.href}`,
+    lastModified: sar29LastModified,
+    changeFrequency: "yearly" as const,
+    priority: 0.9,
+  }));
 
   return [
     ...staticEntries,
@@ -130,6 +140,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...publicationEntries,
     ...articuloEntries,
     ...transparenciaEntries,
+    ...pensionesEntries,
     ...sar29Entries,
   ];
 }

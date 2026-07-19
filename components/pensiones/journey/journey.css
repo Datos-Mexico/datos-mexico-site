@@ -1,0 +1,1404 @@
+/* Journey "Tu retiro" — estilos portados TAL CUAL (D8) de journey.css.
+   Única transformación: tokens de color originales -> observatorio (mismo
+   mapeo validado en Fases 2-4) y rgba() re-derivados con la MISMA opacidad.
+   Excepción 5.5 (veracidad): se retiran las reglas .j-reco* y .j-modal* —
+   los cards de curso/guía y el modal de honestidad no se portan porque esos
+   productos del Frente 5 no existen ni existirán en el observatorio. */
+.j-body{
+  --navy:#15803D; --navy-dark:#166534; --gold:#B45309; --gold-light:#D97706;
+  --bg-alt:#F5F5F4; --text-primary:#1F2937; --text-secondary:#4B5563;
+  --white:#FFFFFF; --line:#E7E5E4;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.08); --shadow-md:0 4px 16px rgba(0,0,0,.12);
+  --transition:.3s ease; --max-width:1140px;
+}
+/* Clases base heredadas del molde (styles.v2.css), scopeadas al journey */
+.j-body .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 1.5rem}
+.j-body .gold-line{width:60px;height:3px;background:var(--gold);margin:1rem auto;border-radius:2px}
+.j-body .gold-line--left{margin-left:0}
+/* ========================================
+   Journey "Tu retiro"
+   Capa Experiencia · EX.0 + EX.1 (voz) + EX.2 (personalización) +
+   EX.3 pulido visual e interactivo.
+   ======================================== */
+
+/* --- Foco visible: anillo dorado consistente con la identidad --- */
+*:focus {
+  outline: none;
+}
+
+.j-body *:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+  transition: outline-offset 0.15s ease;
+}
+
+/* --- Reducción de movimiento: respeto al usuario --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Estado base de la página --- */
+.j-body {
+  background: var(--white);
+}
+
+.j-stage {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Eyebrow estilizado (heredado del visual canónico) */
+.j-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.5rem;
+}
+
+/* --- Sistema de pantallas (SPA mínima) ---
+   Modelo: salida (--leaving) → entrada (--active). El JS añade
+   --leaving en la pantalla actual, espera ~280ms, y luego activa
+   la siguiente. Da la sensación de transición continua, no de
+   "cargar otra página". */
+.j-screen {
+  display: none;
+  min-height: calc(100vh - 72px);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.32s ease-out, transform 0.32s ease-out;
+}
+
+.j-screen--active {
+  display: block;
+  animation: jScreenEnter 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.j-screen--leaving {
+  display: block;
+  animation: jScreenLeave 0.26s ease-in forwards;
+}
+
+@keyframes jScreenEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jScreenLeave {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.j-screen__inner {
+  padding: 3rem 1.5rem 5rem;
+}
+
+/* ========================================
+   PROGRESO DEL JOURNEY (6 pasos)
+   ======================================== */
+.j-progress {
+  margin: 0 auto 2.5rem;
+  max-width: 940px;
+}
+
+.j-progress__bar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5rem;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.j-progress__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  text-align: center;
+}
+
+.j-progress__step::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: calc(-50% + 9px);
+  right: calc(50% + 9px);
+  height: 2px;
+  background: var(--bg-alt);
+  z-index: 0;
+}
+
+.j-progress__step:first-child::before { display: none; }
+
+.j-progress__step.is-done::before,
+.j-progress__step.is-active::before {
+  background: var(--gold);
+}
+
+.j-progress__dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--bg-alt);
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.j-progress__step.is-done .j-progress__dot {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.j-progress__step.is-active .j-progress__dot {
+  background: var(--navy);
+  border-color: var(--gold);
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px rgba(180, 83, 9, 0.15);
+}
+
+.j-progress__label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  line-height: 1.3;
+  max-width: 110px;
+}
+
+.j-progress__step.is-active .j-progress__label {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.j-progress__step.is-done .j-progress__label {
+  color: var(--navy);
+}
+
+/* ========================================
+   SCREEN 0 — INTRO
+   ======================================== */
+.j-intro {
+  background:
+    radial-gradient(ellipse 70% 50% at 30% 20%, rgba(180, 83, 9, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, var(--white) 0%, #fafbfd 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.j-intro__inner {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 1.5rem 5rem;
+  max-width: 760px;
+}
+
+.j-intro__title {
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  margin: 0 0 0.5rem;
+}
+
+.j-intro__rule {
+  margin: 1.25rem 0 1.75rem;
+}
+
+.j-intro__lede {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 0 2.5rem;
+}
+
+.j-intro__cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.j-intro__time {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.j-intro__chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.j-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--navy);
+  background: rgba(180, 83, 9, 0.08);
+  border: 1px solid rgba(180, 83, 9, 0.18);
+  border-radius: 100px;
+}
+
+.j-intro__bg {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 540px;
+  height: 540px;
+  background: radial-gradient(circle, rgba(21, 128, 61, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* ========================================
+   SCREEN 1 — TEST
+   ======================================== */
+.j-test__header {
+  max-width: 720px;
+  margin: 0 0 3rem;
+}
+
+.j-test__title {
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--navy);
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.j-test__lede {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0.75rem 0 0;
+}
+
+.j-test__inner {
+  max-width: 720px;
+}
+
+.j-question {
+  display: none;
+  animation: jFadeIn 0.45s ease;
+}
+
+.j-question.is-active {
+  display: block;
+}
+
+.j-question__num {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.j-question__num strong {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.j-question__text {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.j-question__sub {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0 0 1.5rem;
+}
+
+.j-options {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.j-option {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 1.1rem 3rem 1.1rem 1.25rem;
+  background: var(--white);
+  border: 1.5px solid var(--bg-alt);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.15s ease,
+              background 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.j-option::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  border-radius: 50%;
+  border: 1.5px solid var(--bg-alt);
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'></polyline></svg>") center / 14px no-repeat;
+  background-color: transparent;
+  transform: scale(0.85);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.j-option:hover {
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.j-option:hover::after {
+  border-color: var(--gold);
+}
+
+.j-option.is-selected {
+  border-color: var(--navy);
+  background: rgba(21, 128, 61, 0.03);
+  box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.08);
+}
+
+.j-option.is-selected::after {
+  background-color: var(--navy);
+  border-color: var(--navy);
+  transform: scale(1);
+}
+
+.j-option__label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.4;
+}
+
+.j-option__hint {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.j-test__resolved {
+  text-align: left;
+  padding: 2rem 0;
+}
+
+.j-test__segment-title {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--navy);
+  font-weight: 900;
+  margin: 0 0 0.5rem;
+}
+
+.j-test__segment-title span {
+  color: var(--gold);
+}
+
+.j-test__segment-desc {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 1rem 0 1.25rem;
+  max-width: 600px;
+}
+
+/* Reconocimiento de la pregunta principal */
+.j-test__segment-worry {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--navy);
+  background: rgba(180, 83, 9, 0.08);
+  border-left: 3px solid var(--gold);
+  padding: 0.85rem 1.1rem;
+  border-radius: 0 6px 6px 0;
+  max-width: 600px;
+  margin: 0 0 2rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ========================================
+   SCREEN 2 — ENGANCHE
+   ======================================== */
+.j-enganche__card {
+  max-width: 760px;
+  background: var(--white);
+  padding: 3rem;
+  border-radius: 14px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--bg-alt);
+  border-top: 4px solid var(--gold);
+  margin: 1rem auto 0;
+}
+
+.j-enganche__title {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+.j-enganche__body {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin: 1rem 0 1.25rem;
+}
+
+/* Eco de la pregunta del usuario en el enganche */
+.j-enganche__worry {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--navy);
+  background: rgba(180, 83, 9, 0.06);
+  border-left: 3px solid var(--gold);
+  padding: 0.85rem 1.1rem;
+  border-radius: 0 6px 6px 0;
+  margin: 0 0 1.5rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.j-enganche__cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* ========================================
+   BANNER ILUSTRATIVO
+   Diseño deliberado de "nota premium": no es un alerta de error,
+   es una declaración honesta de la naturaleza del esqueleto.
+   ======================================== */
+.j-illustrative {
+  display: flex;
+  gap: 0.95rem;
+  align-items: flex-start;
+  padding: 1.15rem 1.35rem;
+  background: linear-gradient(135deg, #fefaf0 0%, #fcf3da 100%);
+  border: 1px solid #e8c97a;
+  border-left: 4px solid var(--gold);
+  border-radius: 10px;
+  margin: 0 auto 2rem;
+  max-width: 920px;
+  color: #6b4c1b;
+  box-shadow: 0 1px 2px rgba(180, 83, 9, 0.08);
+}
+
+.j-illustrative__icon {
+  color: #b8862e;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.j-illustrative__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #6b4c1b;
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.01em;
+}
+
+.j-illustrative__text {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #6b4c1b;
+  margin: 0;
+}
+
+.j-illustrative__text strong {
+  color: #4a3210;
+  font-weight: 700;
+}
+
+.j-illustrative--compact {
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.j-illustrative--compact .j-illustrative__title {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.j-illustrative--compact .j-illustrative__text {
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   SCREEN 3 — CALCULADORA
+   ======================================== */
+.j-calc__header {
+  max-width: 720px;
+  margin: 0 0 2.5rem;
+}
+
+.j-calc__title {
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  color: var(--navy);
+  margin: 0 0 0.5rem;
+}
+
+.j-calc__lede {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0.75rem 0 0;
+}
+
+/* Framing por situación laboral */
+.j-calc__framing {
+  margin: 1.25rem 0 0;
+  padding: 0.85rem 1.1rem;
+  background: var(--bg-alt);
+  border-left: 3px solid var(--navy);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+.j-calc__form {
+  max-width: 720px;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.j-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.j-field__label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.j-field__input {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--bg-alt);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  appearance: none;
+}
+
+.j-field__input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.15);
+}
+
+.j-field__input.j-field__input--error {
+  border-color: #c33;
+  background: #fef5f5;
+}
+
+.j-field__hint {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.j-field__money {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.j-field__money-prefix {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  pointer-events: none;
+}
+
+.j-field__money-suffix {
+  position: absolute;
+  right: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.j-field__input--money {
+  padding-left: 2rem;
+  padding-right: 3.5rem;
+}
+
+select.j-field__input {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231B2A5E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.j-calc__cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* ========================================
+   SCREEN 4 — RESULTADO
+   ======================================== */
+.j-result__hero {
+  max-width: 920px;
+  margin: 0 0 3rem;
+}
+
+.j-result__title {
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: clamp(1.75rem, 4vw, 2.3rem);
+  color: var(--navy);
+  margin: 0 0 0.5rem;
+}
+
+.j-result__sub {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+
+.j-result__amount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 1.5rem 0 1.5rem;
+  font-family: 'Merriweather', serif;
+  font-variant-numeric: tabular-nums;
+  flex-wrap: wrap;
+}
+
+.j-result__currency {
+  font-size: 2rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.j-result__value {
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.j-result__period {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-left: 0.25rem;
+}
+
+/* Badge "Ejemplo" junto a la cifra: refuerzo inline del banner ilustrativo.
+   El recordatorio visible siempre que se vea el monto, sin alarmismo. */
+.j-result__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  background: rgba(180, 83, 9, 0.18);
+  color: #6b4c1b;
+  border: 1px solid rgba(180, 83, 9, 0.4);
+  border-radius: 100px;
+  margin-left: 0.5rem;
+  align-self: center;
+  white-space: nowrap;
+}
+
+/* Semáforo */
+.j-semaforo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  background: var(--white);
+  border: 1px solid var(--bg-alt);
+  border-radius: 100px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+.j-semaforo__light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.j-semaforo[data-status="rojo"] .j-semaforo__light--rojo {
+  background: #d64545;
+  box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.2);
+}
+
+.j-semaforo[data-status="amarillo"] .j-semaforo__light--amarillo {
+  background: #e3a72c;
+  box-shadow: 0 0 0 3px rgba(227, 167, 44, 0.22);
+}
+
+.j-semaforo[data-status="verde"] .j-semaforo__light--verde {
+  background: #4a9b62;
+  box-shadow: 0 0 0 3px rgba(74, 155, 98, 0.22);
+}
+
+.j-semaforo__label {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* Pulso del semáforo activo al revelarse el resultado. Sobrio, no estridente. */
+.j-semaforo--reveal[data-status="rojo"] .j-semaforo__light--rojo,
+.j-semaforo--reveal[data-status="amarillo"] .j-semaforo__light--amarillo,
+.j-semaforo--reveal[data-status="verde"] .j-semaforo__light--verde {
+  animation: jSemaforoPulse 1.2s ease-out 0.3s 2;
+}
+
+@keyframes jSemaforoPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+/* Gráfica de cobertura */
+.j-coverage {
+  margin: 1.5rem 0 0;
+  padding: 1.5rem;
+  background: var(--bg-alt);
+  border-radius: 10px;
+}
+
+.j-coverage__row {
+  margin-bottom: 1.25rem;
+}
+
+.j-coverage__row:last-of-type {
+  margin-bottom: 0.5rem;
+}
+
+.j-coverage__row-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
+  line-height: 1.5;
+}
+
+.j-coverage__row-label small {
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+.j-coverage__bar {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.j-coverage__bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.j-coverage__bar--need > span {
+  background: linear-gradient(90deg, var(--navy) 0%, var(--navy-dark) 100%);
+}
+
+.j-coverage__bar--have > span {
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+}
+
+.j-coverage__row-val {
+  margin: 0.4rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.j-coverage__pct {
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.j-coverage__caption {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Interpretación */
+.j-result__reading {
+  max-width: 920px;
+  margin: 3.5rem 0 0;
+  padding: 2.5rem;
+  background: var(--white);
+  border: 1px solid var(--bg-alt);
+  border-radius: 12px;
+  border-left: 4px solid var(--navy);
+}
+
+.j-reading__body {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  margin: 1rem 0 1.5rem;
+}
+
+.j-reading__pillars {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--bg-alt);
+}
+
+.j-reading__pillars strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* --- Lo que vemos en el sistema (anclas reales) --- */
+.j-result__anchors-wrap {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px dashed var(--bg-alt);
+}
+
+.j-anchors__eyebrow {
+  margin-bottom: 0.4rem;
+}
+
+.j-anchors__title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 1.5rem;
+  line-height: 1.4;
+  max-width: 660px;
+}
+
+.j-anchors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.j-anchor {
+  padding: 1.35rem 1.4rem;
+  background: linear-gradient(180deg, var(--bg-alt) 0%, #eef0f7 100%);
+  border-radius: 10px;
+  border-left: 3px solid var(--gold);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.25s ease,
+              border-left-color 0.25s ease;
+}
+
+.j-anchor:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(21, 128, 61, 0.08);
+  border-left-color: var(--gold-light);
+}
+
+.j-anchor__label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
+}
+
+.j-anchor__value {
+  margin: 0 0 0.65rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  line-height: 1.2;
+}
+
+.j-anchor__value strong {
+  font-family: 'Merriweather', serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.j-anchor__value span {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.j-anchor__detail {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  margin: 0 0 0.85rem;
+}
+
+.j-anchor__source {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.j-anchor__source a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.j-anchor__source a:hover {
+  color: var(--gold);
+}
+
+.j-anchors__note {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+.j-anchors__note strong {
+  color: var(--navy);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.j-anchors__note em {
+  color: #8a6e2c;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Recomendación */
+.j-result__reco {
+  max-width: 920px;
+  margin: 3.5rem 0 0;
+}
+
+/* Acción */
+.j-result__action {
+  max-width: 920px;
+  margin: 3.5rem 0 0;
+  padding: 2rem 0;
+  text-align: left;
+}
+
+.j-action__row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0 1rem;
+}
+
+.j-action__sub {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 1rem 0 0;
+}
+
+/* ========================================
+   BOTONES (consistentes con el sistema)
+   ======================================== */
+.j-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.j-btn--primary {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+
+.j-btn--primary:hover {
+  background: var(--navy-dark);
+  border-color: var(--navy-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(21, 128, 61, 0.25);
+}
+
+.j-btn--secondary {
+  background: var(--white);
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+.j-btn--secondary:hover {
+  background: var(--bg-alt);
+  transform: translateY(-1px);
+}
+
+.j-btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: var(--bg-alt);
+}
+
+.j-btn--ghost:hover {
+  color: var(--navy);
+  border-color: var(--text-secondary);
+}
+
+.j-link {
+  background: none;
+  border: none;
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.j-link:hover {
+  color: var(--gold);
+}
+
+/* ========================================
+   ANIMACIONES
+   ======================================== */
+@keyframes jFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes jModalIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Stagger reveal: cuando la pantalla de resultado se vuelve activa,
+   sus secciones aparecen una tras otra. La cifra está animada por JS
+   (count-up); el semáforo lleva su pulso; este stagger orquesta el
+   resto de las secciones para que el ojo recorra el resultado de
+   arriba hacia abajo sin saltos. */
+.j-screen[data-screen="result"].j-screen--active .j-result__hero,
+.j-screen[data-screen="result"].j-screen--active .j-result__reading,
+.j-screen[data-screen="result"].j-screen--active .j-result__reco,
+.j-screen[data-screen="result"].j-screen--active .j-result__action {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: jStaggerIn 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.j-screen[data-screen="result"].j-screen--active .j-result__hero    { animation-delay: 0.10s; }
+.j-screen[data-screen="result"].j-screen--active .j-result__reading { animation-delay: 0.30s; }
+.j-screen[data-screen="result"].j-screen--active .j-result__reco    { animation-delay: 0.50s; }
+.j-screen[data-screen="result"].j-screen--active .j-result__action  { animation-delay: 0.70s; }
+
+@keyframes jStaggerIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Sub-stagger dentro del bloque "Lo que vemos en el sistema":
+   las tres anclas entran una tras otra (50ms entre cada una). */
+.j-screen[data-screen="result"].j-screen--active .j-anchor {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: jStaggerIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.j-screen[data-screen="result"].j-screen--active .j-anchor:nth-child(1) { animation-delay: 0.55s; }
+.j-screen[data-screen="result"].j-screen--active .j-anchor:nth-child(2) { animation-delay: 0.65s; }
+.j-screen[data-screen="result"].j-screen--active .j-anchor:nth-child(3) { animation-delay: 0.75s; }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .j-screen__inner {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .j-intro__inner {
+    padding: 3rem 1rem 4rem;
+  }
+
+  .j-progress {
+    margin-bottom: 1.75rem;
+  }
+
+  .j-progress__label {
+    display: none;
+  }
+
+  .j-progress__dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  .j-progress__step::before {
+    top: 6px;
+  }
+
+  .j-intro__cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .j-intro__time {
+    text-align: center;
+  }
+
+  .j-btn {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.95rem;
+    justify-content: center;
+  }
+
+  .j-intro__cta-row .j-btn {
+    width: 100%;
+  }
+
+  .j-enganche__card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 10px;
+  }
+
+  .j-enganche__cta-row,
+  .j-calc__cta-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .j-enganche__cta-row .j-btn,
+  .j-calc__cta-row .j-btn,
+  .j-action__row .j-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .j-illustrative {
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .j-illustrative__title {
+    font-size: 0.85rem;
+  }
+
+  .j-illustrative__text {
+    font-size: 0.82rem;
+  }
+
+  .j-result__hero,
+  .j-result__reading,
+  .j-result__reco,
+  .j-result__action {
+    margin-top: 2rem;
+  }
+
+  .j-result__reading {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .j-anchors {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .j-anchor {
+    padding: 1rem 1.1rem;
+  }
+
+  .j-anchor__value strong {
+    font-size: 1.4rem;
+  }
+
+  .j-result__anchors-wrap {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+
+  .j-anchors__title {
+    font-size: 1.05rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .j-action__row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .j-coverage {
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .j-intro__chips {
+    gap: 0.4rem;
+  }
+
+  .j-chip {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .j-result__amount {
+    margin: 1rem 0;
+  }
+
+  .j-result__period {
+    font-size: 0.9rem;
+  }
+
+  /* Tap target más cómodo en móvil */
+  .j-option {
+    padding: 1rem 3rem 1rem 1.1rem;
+    min-height: 60px;
+  }
+
+  /* La nota sobre datos verificados queda mejor con más respiro */
+  .j-anchors__note {
+    font-size: 0.82rem;
+    margin-top: 0.5rem;
+  }
+
+  /* El semáforo no necesita tanto margen inferior en móvil */
+  .j-semaforo {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ========================================
+   Tablet — entre móvil y desktop
+   ======================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .j-screen__inner {
+    padding: 2.5rem 1.5rem 4.5rem;
+  }
+
+  .j-progress__label {
+    font-size: 0.7rem;
+    max-width: 90px;
+  }
+
+  /* Las anclas en tablet se ven mejor en 3 columnas pero más compactas */
+  .j-anchor {
+    padding: 1.15rem 1.2rem;
+  }
+
+  .j-anchor__value strong {
+    font-size: 1.35rem;
+  }
+}

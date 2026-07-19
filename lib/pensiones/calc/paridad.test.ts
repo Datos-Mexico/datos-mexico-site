@@ -97,7 +97,7 @@ for (const c of golden.comparador)
 // ahorro — aporte para meta
 let staleSkipped = 0;
 for (const c of golden.ahorro) {
-  if (c.stale) { staleSkipped++; continue; } // golden previo a IND-0069; cubierto por TS≡motor-original
+  if (c.stale) { staleSkipped++; continue; } // golden previo al refino de cuota social; cubierto por TS≡motor-original
   const r = aporteParaMeta(c.inputs as EntradaAhorro, P.TASAS[c.escenario as keyof typeof P.TASAS]);
   check(`AHO ${c.caso.slice(0, 30)} · aporte`, cmpNum(r.aporte, c.esperado.aporte), r.aporte, c.esperado.aporte);
   check(`AHO ${c.caso.slice(0, 30)} · capitalMeta`, cmpNum(r.capitalMeta, c.esperado.capitalMeta), r.capitalMeta, c.esperado.capitalMeta);

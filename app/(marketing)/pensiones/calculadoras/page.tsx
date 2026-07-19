@@ -47,7 +47,19 @@ export default function CalculadorasPage() {
           lead="Diez herramientas educativas para entender tu retiro IMSS: proyección de pensión (Ley 73, Ley 97 y transición) y presupuesto (gasto, salud, reemplazo). En pesos de hoy, con supuestos públicos y metodología validada actuarialmente. Informan; las decisiones son tuyas."
         />
 
-        <div className="mt-14">
+        <a
+          href="/pensiones/tu-retiro"
+          className="group mt-12 flex flex-col gap-2 rounded-lg border border-border bg-muted/40 p-6 transition-colors hover:border-foreground sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div>
+            <span className="font-mono text-[12px] text-accent">¿No sabes por dónde empezar?</span>
+            <h3 className="mt-1 font-serif text-[18px] font-semibold text-foreground">Tu retiro — un recorrido personal</h3>
+            <p className="mt-1 font-sans text-[15px] leading-[1.6] text-text-subtle">Un test breve te lleva a la lectura y la calculadora más relevantes para tu etapa.</p>
+          </div>
+          <span className="shrink-0 font-mono text-[13px] text-primary">Comenzar el recorrido →</span>
+        </a>
+
+        <div className="mt-12">
           <Mono className="block text-[12px]">Proyección · motor actuarial</Mono>
           <Grid familia="proyeccion" />
         </div>

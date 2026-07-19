@@ -64,6 +64,16 @@ export default function Sar29Page() {
             </div>
           </div>
 
+          <div className="mt-10 border-t border-border pt-8">
+            <p className="font-sans text-[16px] leading-[1.65] text-text-subtle">
+              ¿Y tu propia situación de retiro? Del sistema a tu caso:{" "}
+              <a href="/pensiones/tu-retiro" className="font-semibold text-primary underline-offset-4 hover:underline">
+                recorre “Tu retiro”
+              </a>{" "}
+              — un test breve que te lleva a la lectura y la calculadora más relevantes para tu etapa.
+            </p>
+          </div>
+
           <Mono className="mt-10 block text-[12px]">
             29 entregas · 1997–2025 · serie descriptiva-retrospectiva
           </Mono>

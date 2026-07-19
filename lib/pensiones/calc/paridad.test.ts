@@ -20,6 +20,16 @@ import {
   comparaEdad,
   type EntradaLey97,
 } from "./engine";
+import {
+  aporteParaMeta,
+  impactoAporte,
+  calculaBrecha,
+  evaluaElegibilidad,
+  type EntradaAhorro,
+  type EntradaAportaciones,
+  type EntradaBrecha,
+  type EntradaElegibilidad,
+} from "./calculos";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const golden = JSON.parse(readFileSync(join(here, "__fixtures__/golden-vigentes.json"), "utf8"));
@@ -71,7 +81,47 @@ for (const c of golden.comparador)
     check(`CMP ${c.caso.slice(0, 26)} @${ed} · l73`, (r.l73pension === null) === (e.l73pension === null), r.l73pension, e.l73pension);
   }
 
+// ahorro — aporte para meta
+let staleSkipped = 0;
+for (const c of golden.ahorro) {
+  if (c.stale) { staleSkipped++; continue; } // golden previo a IND-0069; cubierto por TS≡motor-original
+  const r = aporteParaMeta(c.inputs as EntradaAhorro, P.TASAS[c.escenario as keyof typeof P.TASAS]);
+  check(`AHO ${c.caso.slice(0, 30)} · aporte`, cmpNum(r.aporte, c.esperado.aporte), r.aporte, c.esperado.aporte);
+  check(`AHO ${c.caso.slice(0, 30)} · capitalMeta`, cmpNum(r.capitalMeta, c.esperado.capitalMeta), r.capitalMeta, c.esperado.capitalMeta);
+  check(`AHO ${c.caso.slice(0, 30)} · saldoActual`, cmpNum(r.saldoActual, c.esperado.saldoActual), r.saldoActual, c.esperado.saldoActual);
+}
+
+// aportaciones — impacto de una aportación extra
+for (const c of golden.aportaciones) {
+  const r = impactoAporte(c.inputs as EntradaAportaciones, P.TASAS[c.escenario as keyof typeof P.TASAS]);
+  for (const k of ["sin", "con", "saldoExtra", "pensionExtra", "aportado", "rendimiento"] as const)
+    check(`APO ${c.caso.slice(0, 28)} · ${k}`, cmpNum(r[k], c.esperado[k]), r[k], c.esperado[k]);
+}
+
+// brecha — brecha de retiro
+for (const c of golden.brecha) {
+  const r = calculaBrecha(c.inputs as EntradaBrecha, P.TASAS[c.escenario as keyof typeof P.TASAS]);
+  check(`BRE ${c.caso.slice(0, 28)} · pension`, cmpNum(r.pension, c.esperado.pension), r.pension, c.esperado.pension);
+  check(`BRE ${c.caso.slice(0, 28)} · ingreso`, cmpNum(r.ingreso, c.esperado.ingreso), r.ingreso, c.esperado.ingreso);
+  check(`BRE ${c.caso.slice(0, 28)} · brecha`, cmpNum(r.brecha, c.esperado.brecha), r.brecha, c.esperado.brecha);
+  check(`BRE ${c.caso.slice(0, 28)} · capitalBrecha`, cmpNum(r.capitalBrecha, c.esperado.capitalBrecha), r.capitalBrecha, c.esperado.capitalBrecha);
+  check(`BRE ${c.caso.slice(0, 28)} · regimen`, r.regimen === c.esperado.regimen, r.regimen, c.esperado.regimen);
+}
+
+// elegibilidad — requisitos + trayectoria
+for (const c of golden.elegibilidad) {
+  const r = evaluaElegibilidad(c.inputs as EntradaElegibilidad);
+  check(`ELE ${c.caso.slice(0, 30)} · anioRetiro`, r.anioRetiro === c.esperado.anioRetiro, r.anioRetiro, c.esperado.anioRetiro);
+  check(`ELE ${c.caso.slice(0, 30)} · req`, r.req === c.esperado.req, r.req, c.esperado.req);
+  check(`ELE ${c.caso.slice(0, 30)} · semanas`, r.semanas === c.esperado.semanas, r.semanas, c.esperado.semanas);
+  check(`ELE ${c.caso.slice(0, 30)} · elegible`, r.elegible === c.esperado.elegible, r.elegible, c.esperado.elegible);
+  check(`ELE ${c.caso.slice(0, 30)} · faltan`, r.faltan === c.esperado.faltan, r.faltan, c.esperado.faltan);
+  check(`ELE ${c.caso.slice(0, 30)} · cruce`, JSON.stringify(r.cruce) === JSON.stringify(c.esperado.cruce), JSON.stringify(r.cruce), JSON.stringify(c.esperado.cruce));
+  check(`ELE ${c.caso.slice(0, 30)} · l73cumple`, r.l73.cumple === c.esperado.l73cumple, r.l73.cumple, c.esperado.l73cumple);
+}
+
 console.log(`\n=== Paridad del motor de calculadoras vs golden vigentes ===`);
+if (staleSkipped) console.log(`(${staleSkipped} caso stale saltado — golden previo al refino de cuota social; cubierto por el invariante TS≡motor-original en staging)`);
 console.log(`${ok} OK · ${fail} FALLOS  (tolerancia: max($1, 0.05%) montos; exacto enteros/booleanos)`);
 if (fail) { console.log(fallos.slice(0, 25).join("\n")); process.exit(1); }
 console.log("PARIDAD TOTAL — el motor casa los golden cases al centavo.");

@@ -1213,5 +1213,1023 @@
     }
    }
   }
+ ],
+ "ahorro": [
+  {
+   "caso": "A01 base 35a H, meta $12,000, ret 65",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 120000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "meta": 12000
+   },
+   "escenario": "base",
+   "esperado": {
+    "aporte": 1092.81,
+    "capitalMeta": 2242654.07,
+    "saldoActual": 1600044.12
+   }
+  },
+  {
+   "caso": "A01c idem, escenario conservador",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 120000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "meta": 12000
+   },
+   "escenario": "conservador",
+   "esperado": {
+    "aporte": 2232.73,
+    "capitalMeta": 2242654.07,
+    "saldoActual": 1221803.79
+   }
+  },
+  {
+   "caso": "A01o idem, escenario optimista",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 120000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "meta": 12000
+   },
+   "escenario": "optimista",
+   "esperado": {
+    "aporte": 153.95,
+    "capitalMeta": 2242654.07,
+    "saldoActual": 2124878.95
+   }
+  },
+  {
+   "caso": "A02 meta ya cubierta (saldo $5M) -> aporte 0",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 5000000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "meta": 12000
+   },
+   "escenario": "base",
+   "esperado": {
+    "aporte": 0.0,
+    "capitalMeta": 2242654.07,
+    "saldoActual": 13445084.98
+   }
+  },
+  {
+   "caso": "A03 mujer (divisor mayor -> capital meta mayor)",
+   "inputs": {
+    "edad": 35,
+    "sexo": "M",
+    "salario": 15000,
+    "saldo": 120000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "meta": 12000
+   },
+   "escenario": "base",
+   "esperado": {
+    "aporte": 1573.34,
+    "capitalMeta": 2525220.23,
+    "saldoActual": 1600044.12
+   }
+  },
+  {
+   "caso": "A04 retiro a los 60 (menos anios, divisor mayor)",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 120000,
+    "semanas": 0,
+    "edadRetiro": 60,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "meta": 12000
+   },
+   "escenario": "base",
+   "esperado": {
+    "aporte": 2856.9,
+    "capitalMeta": 2517757.03,
+    "saldoActual": 1230331.35
+   }
+  },
+  {
+   "caso": "A05 retiro a los 70",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 120000,
+    "semanas": 0,
+    "edadRetiro": 70,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "meta": 12000
+   },
+   "escenario": "base",
+   "esperado": {
+    "aporte": 0.0,
+    "capitalMeta": 1961720.76,
+    "saldoActual": 2037505.69
+   }
+  },
+  {
+   "caso": "A06 ya aporta $1,000 voluntarios (adicional sobre eso)",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 120000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 1000,
+    "meta": 12000
+   },
+   "escenario": "base",
+   "esperado": {
+    "aporte": 92.81,
+    "capitalMeta": 2242654.07,
+    "saldoActual": 2188076.26
+   }
+  },
+  {
+   "caso": "A07 horizonte corto (58a -> 65, meta $20,000)",
+   "inputs": {
+    "edad": 58,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 800000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "meta": 20000
+   },
+   "escenario": "base",
+   "esperado": {
+    "aporte": 27218.04,
+    "capitalMeta": 3737756.78,
+    "saldoActual": 1159989.77
+   }
+  },
+  {
+   "caso": "A08 salario 2 UMA (activa piso SBC = SM)",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 7132,
+    "saldo": 120000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "meta": 12000
+   },
+   "escenario": "base",
+   "esperado": {
+    "aporte": 1941.67,
+    "capitalMeta": 2242654.07,
+    "saldoActual": 1100888.24
+   },
+   "stale": "Golden previo al refino de cuota social (cuota social por banda); el motor original tampoco lo reproduce. Conservado sin ajustar; cubierto por el invariante TS≡motor-original."
+  }
+ ],
+ "brecha": [
+  {
+   "caso": "B01 base 45a H, gasto $15,000, sin otros",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 18000,
+    "saldo": 300000,
+    "semanas": 900,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "gasto": 15000,
+    "otros": 0,
+    "pre97": false
+   },
+   "escenario": "base",
+   "esperado": {
+    "pension": 7406.47,
+    "regimen": "Ley 97",
+    "ingreso": 7406.47,
+    "brecha": 7593.53,
+    "capitalBrecha": 1419138.36,
+    "elegible97": true,
+    "semanas": 1836,
+    "req": 1000
+   }
+  },
+  {
+   "caso": "B01c idem, escenario conservador",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 18000,
+    "saldo": 300000,
+    "semanas": 900,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "gasto": 15000,
+    "otros": 0,
+    "pre97": false
+   },
+   "escenario": "conservador",
+   "esperado": {
+    "pension": 6021.97,
+    "regimen": "Ley 97",
+    "ingreso": 6021.97,
+    "brecha": 8978.03,
+    "capitalBrecha": 1677885.05,
+    "elegible97": true,
+    "semanas": 1836,
+    "req": 1000
+   }
+  },
+  {
+   "caso": "B01o idem, escenario optimista",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 18000,
+    "saldo": 300000,
+    "semanas": 900,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "gasto": 15000,
+    "otros": 0,
+    "pre97": false
+   },
+   "escenario": "optimista",
+   "esperado": {
+    "pension": 9157.62,
+    "regimen": "Ley 97",
+    "ingreso": 9157.62,
+    "brecha": 5842.38,
+    "capitalBrecha": 1091868.93,
+    "elegible97": true,
+    "semanas": 1836,
+    "req": 1000
+   }
+  },
+  {
+   "caso": "B02 con otros ingresos $8,000",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 18000,
+    "saldo": 300000,
+    "semanas": 900,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "gasto": 15000,
+    "otros": 8000,
+    "pre97": false
+   },
+   "escenario": "base",
+   "esperado": {
+    "pension": 7406.47,
+    "regimen": "Ley 97",
+    "ingreso": 15406.47,
+    "brecha": -406.47,
+    "capitalBrecha": 0.0,
+    "elegible97": true,
+    "semanas": 1836,
+    "req": 1000
+   }
+  },
+  {
+   "caso": "B03 pre97: conviene Ley 73 (1 SM, 1,200 sem)",
+   "inputs": {
+    "edad": 58,
+    "sexo": "H",
+    "salario": 9578,
+    "saldo": 100000,
+    "semanas": 1200,
+    "edadRetiro": 65,
+    "densidad": 1.0,
+    "voluntaria": 0,
+    "gasto": 15000,
+    "otros": 0,
+    "pre97": true
+   },
+   "escenario": "base",
+   "esperado": {
+    "pension": 9578.0,
+    "regimen": "Ley 73",
+    "ingreso": 9578.0,
+    "brecha": 5422.0,
+    "capitalBrecha": 1013305.86,
+    "elegible97": true,
+    "semanas": 1564,
+    "req": 1000
+   }
+  },
+  {
+   "caso": "B04 pre97: conviene Ley 97 (saldo $4M, 600 sem)",
+   "inputs": {
+    "edad": 58,
+    "sexo": "H",
+    "salario": 25000,
+    "saldo": 4000000,
+    "semanas": 600,
+    "edadRetiro": 65,
+    "densidad": 1.0,
+    "voluntaria": 0,
+    "gasto": 40000,
+    "otros": 0,
+    "pre97": true
+   },
+   "escenario": "base",
+   "esperado": {
+    "pension": 28068.11,
+    "regimen": "Ley 97",
+    "ingreso": 28068.11,
+    "brecha": 11931.89,
+    "capitalBrecha": 2229924.26,
+    "elegible97": false,
+    "semanas": 964,
+    "req": 1000
+   }
+  },
+  {
+   "caso": "B05 no elegible por semanas (200 sem, d=50%)",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 18000,
+    "saldo": 300000,
+    "semanas": 200,
+    "edadRetiro": 65,
+    "densidad": 0.5,
+    "voluntaria": 0,
+    "gasto": 15000,
+    "otros": 0,
+    "pre97": false
+   },
+   "escenario": "base",
+   "esperado": {
+    "pension": 5403.26,
+    "regimen": "Ley 97",
+    "ingreso": 5403.26,
+    "brecha": 9596.74,
+    "capitalBrecha": 1793514.29,
+    "elegible97": false,
+    "semanas": 720,
+    "req": 1000
+   }
+  },
+  {
+   "caso": "B06 excedente (gasto $5,000, otros $3,000)",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 18000,
+    "saldo": 300000,
+    "semanas": 900,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "gasto": 5000,
+    "otros": 3000,
+    "pre97": false
+   },
+   "escenario": "base",
+   "esperado": {
+    "pension": 7406.47,
+    "regimen": "Ley 97",
+    "ingreso": 10406.47,
+    "brecha": -5406.47,
+    "capitalBrecha": 0.0,
+    "elegible97": true,
+    "semanas": 1836,
+    "req": 1000
+   }
+  },
+  {
+   "caso": "B07 mujer (divisor mayor -> pension menor)",
+   "inputs": {
+    "edad": 45,
+    "sexo": "M",
+    "salario": 18000,
+    "saldo": 300000,
+    "semanas": 900,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "gasto": 15000,
+    "otros": 0,
+    "pre97": false
+   },
+   "escenario": "base",
+   "esperado": {
+    "pension": 6577.7,
+    "regimen": "Ley 97",
+    "ingreso": 6577.7,
+    "brecha": 8422.3,
+    "capitalBrecha": 1772346.06,
+    "elegible97": true,
+    "semanas": 1836,
+    "req": 1000
+   }
+  },
+  {
+   "caso": "B08 retiro a los 60 con gasto $25,000",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "salario": 18000,
+    "saldo": 300000,
+    "semanas": 900,
+    "edadRetiro": 60,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "gasto": 25000,
+    "otros": 0,
+    "pre97": false
+   },
+   "escenario": "base",
+   "esperado": {
+    "pension": 4914.77,
+    "regimen": "Ley 97",
+    "ingreso": 4914.77,
+    "brecha": 20085.23,
+    "capitalBrecha": 4214144.09,
+    "elegible97": true,
+    "semanas": 1602,
+    "req": 1000
+   }
+  }
+ ],
+ "aportaciones": [
+  {
+   "caso": "V01 base 35a H, $500 extra, ret 65",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 150000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "extra": 500
+   },
+   "escenario": "base",
+   "esperado": {
+    "sin": 1672862.0,
+    "con": 1966878.07,
+    "saldoExtra": 294016.07,
+    "pensionExtra": 1573.22,
+    "aportado": 180000,
+    "rendimiento": 114016.07
+   }
+  },
+  {
+   "caso": "V01c ídem, escenario conservador",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 150000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "extra": 500
+   },
+   "escenario": "conservador",
+   "esperado": {
+    "sin": 1268696.19,
+    "con": 1497306.76,
+    "saldoExtra": 228610.57,
+    "pensionExtra": 1223.25,
+    "aportado": 180000,
+    "rendimiento": 48610.57
+   }
+  },
+  {
+   "caso": "V01o ídem, escenario optimista",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 150000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "extra": 500
+   },
+   "escenario": "optimista",
+   "esperado": {
+    "sin": 2237238.5,
+    "con": 2619752.82,
+    "saldoExtra": 382514.33,
+    "pensionExtra": 2046.76,
+    "aportado": 180000,
+    "rendimiento": 202514.33
+   }
+  },
+  {
+   "caso": "V02 mínimo del control ($100)",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 150000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "extra": 100
+   },
+   "escenario": "base",
+   "esperado": {
+    "sin": 1672862.0,
+    "con": 1731665.21,
+    "saldoExtra": 58803.21,
+    "pensionExtra": 314.64,
+    "aportado": 36000,
+    "rendimiento": 22803.21
+   }
+  },
+  {
+   "caso": "V03 tope del control ($5,000)",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 150000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "extra": 5000
+   },
+   "escenario": "base",
+   "esperado": {
+    "sin": 1672862.0,
+    "con": 4613022.69,
+    "saldoExtra": 2940160.69,
+    "pensionExtra": 15732.22,
+    "aportado": 1800000,
+    "rendimiento": 1140160.69
+   }
+  },
+  {
+   "caso": "V04 mujer (divisor mayor → pensión extra menor)",
+   "inputs": {
+    "edad": 35,
+    "sexo": "M",
+    "salario": 15000,
+    "saldo": 150000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "extra": 500
+   },
+   "escenario": "base",
+   "esperado": {
+    "sin": 1672862.0,
+    "con": 1966878.07,
+    "saldoExtra": 294016.07,
+    "pensionExtra": 1397.18,
+    "aportado": 180000,
+    "rendimiento": 114016.07
+   }
+  },
+  {
+   "caso": "V05 sobre voluntaria existente de $1,000 (linealidad)",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 150000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 1000,
+    "extra": 500
+   },
+   "escenario": "base",
+   "esperado": {
+    "sin": 2260894.13,
+    "con": 2554910.2,
+    "saldoExtra": 294016.07,
+    "pensionExtra": 1573.22,
+    "aportado": 180000,
+    "rendimiento": 114016.07
+   }
+  },
+  {
+   "caso": "V06 horizonte corto: 60a → 65",
+   "inputs": {
+    "edad": 60,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 800000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "extra": 500
+   },
+   "escenario": "base",
+   "esperado": {
+    "sin": 1042818.44,
+    "con": 1075628.9,
+    "saldoExtra": 32810.46,
+    "pensionExtra": 175.56,
+    "aportado": 30000,
+    "rendimiento": 2810.46
+   }
+  },
+  {
+   "caso": "V07 retiro a los 60",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 150000,
+    "semanas": 0,
+    "edadRetiro": 60,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "extra": 500
+   },
+   "escenario": "base",
+   "esperado": {
+    "sin": 1293144.69,
+    "con": 1518462.95,
+    "saldoExtra": 225318.25,
+    "pensionExtra": 1073.9,
+    "aportado": 150000,
+    "rendimiento": 75318.25
+   }
+  },
+  {
+   "caso": "V08 retiro a los 70",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 150000,
+    "semanas": 0,
+    "edadRetiro": 70,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "extra": 500
+   },
+   "escenario": "base",
+   "esperado": {
+    "sin": 2121921.57,
+    "con": 2495577.23,
+    "saldoExtra": 373655.67,
+    "pensionExtra": 2285.68,
+    "aportado": 210000,
+    "rendimiento": 163655.67
+   }
+  },
+  {
+   "caso": "V09 salario alto (5 UMA aprox), densidad 60%",
+   "inputs": {
+    "edad": 35,
+    "sexo": "H",
+    "salario": 18000,
+    "saldo": 150000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.6,
+    "voluntaria": 0,
+    "extra": 500
+   },
+   "escenario": "base",
+   "esperado": {
+    "sin": 1411107.47,
+    "con": 1705123.54,
+    "saldoExtra": 294016.07,
+    "pensionExtra": 1573.22,
+    "aportado": 180000,
+    "rendimiento": 114016.07
+   }
+  },
+  {
+   "caso": "V10 un año exacto de hábito (64→65)",
+   "inputs": {
+    "edad": 64,
+    "sexo": "H",
+    "salario": 15000,
+    "saldo": 150000,
+    "semanas": 0,
+    "edadRetiro": 65,
+    "densidad": 0.9,
+    "voluntaria": 0,
+    "extra": 500
+   },
+   "escenario": "base",
+   "esperado": {
+    "sin": 172250.57,
+    "con": 178430.57,
+    "saldoExtra": 6180.0,
+    "pensionExtra": 33.07,
+    "aportado": 6000,
+    "rendimiento": 180.0
+   }
+  }
+ ],
+ "elegibilidad": [
+  {
+   "caso": "E01 base 55a, 900 sem, 90%, ret 65 (2036, req 1000)",
+   "inputs": {
+    "edad": 55,
+    "semanas": 900,
+    "pre97": false,
+    "edadRetiro": 65,
+    "densidad": 0.9
+   },
+   "esperado": {
+    "anioRetiro": 2036,
+    "req": 1000,
+    "semanas": 1368,
+    "tipo": "vejez",
+    "cumpleEdad": true,
+    "elegible": true,
+    "faltan": 0,
+    "cruce": {
+     "edad": 60,
+     "anio": 2031,
+     "semanas": 1134
+    },
+    "l73cumple": false
+   }
+  },
+  {
+   "caso": "E02 justo en el umbral: llega exacto a 1000",
+   "inputs": {
+    "edad": 60,
+    "semanas": 766,
+    "pre97": false,
+    "edadRetiro": 65,
+    "densidad": 0.9
+   },
+   "esperado": {
+    "anioRetiro": 2031,
+    "req": 1000,
+    "semanas": 1000,
+    "tipo": "vejez",
+    "cumpleEdad": true,
+    "elegible": true,
+    "faltan": 0,
+    "cruce": {
+     "edad": 65,
+     "anio": 2031,
+     "semanas": 1000
+    },
+    "l73cumple": false
+   }
+  },
+  {
+   "caso": "E03 ya no cotiza (d=0) con semanas de sobra",
+   "inputs": {
+    "edad": 58,
+    "semanas": 1200,
+    "pre97": false,
+    "edadRetiro": 65,
+    "densidad": 0.0
+   },
+   "esperado": {
+    "anioRetiro": 2033,
+    "req": 1000,
+    "semanas": 1200,
+    "tipo": "vejez",
+    "cumpleEdad": true,
+    "elegible": true,
+    "faltan": 0,
+    "cruce": {
+     "edad": 60,
+     "anio": 2028,
+     "semanas": 1200
+    },
+    "l73cumple": false
+   }
+  },
+  {
+   "caso": "E04 ya no cotiza (d=0), semanas insuficientes → sin cruce",
+   "inputs": {
+    "edad": 58,
+    "semanas": 800,
+    "pre97": false,
+    "edadRetiro": 65,
+    "densidad": 0.0
+   },
+   "esperado": {
+    "anioRetiro": 2033,
+    "req": 1000,
+    "semanas": 800,
+    "tipo": "vejez",
+    "cumpleEdad": true,
+    "elegible": false,
+    "faltan": 200,
+    "cruce": null,
+    "l73cumple": false
+   }
+  },
+  {
+   "caso": "E05 densidad 40% (52d<25: nunca alcanza el régimen creciente)",
+   "inputs": {
+    "edad": 57,
+    "semanas": 100,
+    "pre97": false,
+    "edadRetiro": 65,
+    "densidad": 0.4
+   },
+   "esperado": {
+    "anioRetiro": 2034,
+    "req": 1000,
+    "semanas": 266,
+    "tipo": "vejez",
+    "cumpleEdad": true,
+    "elegible": false,
+    "faltan": 734,
+    "cruce": null,
+    "l73cumple": false
+   }
+  },
+  {
+   "caso": "E06 joven 30a, 200 sem, 90% → cumple de sobra a los 60",
+   "inputs": {
+    "edad": 30,
+    "semanas": 200,
+    "pre97": false,
+    "edadRetiro": 60,
+    "densidad": 0.9
+   },
+   "esperado": {
+    "anioRetiro": 2056,
+    "req": 1000,
+    "semanas": 1604,
+    "tipo": "cesantía en edad avanzada",
+    "cumpleEdad": true,
+    "elegible": true,
+    "faltan": 0,
+    "cruce": {
+     "edad": 60,
+     "anio": 2056,
+     "semanas": 1604
+    },
+    "l73cumple": false
+   }
+  },
+  {
+   "caso": "E07 retiro a los 60 en 2027 (req 900, cesantía)",
+   "inputs": {
+    "edad": 59,
+    "semanas": 880,
+    "pre97": false,
+    "edadRetiro": 60,
+    "densidad": 0.9
+   },
+   "esperado": {
+    "anioRetiro": 2027,
+    "req": 900,
+    "semanas": 926,
+    "tipo": "cesantía en edad avanzada",
+    "cumpleEdad": true,
+    "elegible": true,
+    "faltan": 0,
+    "cruce": {
+     "edad": 60,
+     "anio": 2027,
+     "semanas": 926
+    },
+    "l73cumple": false
+   }
+  },
+  {
+   "caso": "E08 pre-97 con 480 sem y d=0: L73 no, cruce nunca",
+   "inputs": {
+    "edad": 61,
+    "semanas": 480,
+    "pre97": true,
+    "edadRetiro": 65,
+    "densidad": 0.0
+   },
+   "esperado": {
+    "anioRetiro": 2030,
+    "req": 975,
+    "semanas": 480,
+    "tipo": "vejez",
+    "cumpleEdad": true,
+    "elegible": false,
+    "faltan": 495,
+    "cruce": null,
+    "l73cumple": false
+   }
+  },
+  {
+   "caso": "E09 pre-97 que sí cruza las 500 (L73) y las de L97",
+   "inputs": {
+    "edad": 50,
+    "semanas": 450,
+    "pre97": true,
+    "edadRetiro": 65,
+    "densidad": 0.9
+   },
+   "esperado": {
+    "anioRetiro": 2041,
+    "req": 1000,
+    "semanas": 1152,
+    "tipo": "vejez",
+    "cumpleEdad": true,
+    "elegible": true,
+    "faltan": 0,
+    "cruce": {
+     "edad": 62,
+     "anio": 2038,
+     "semanas": 1011
+    },
+    "l73cumple": true
+   }
+  },
+  {
+   "caso": "E10 retiro a los 70, densidad 60%",
+   "inputs": {
+    "edad": 52,
+    "semanas": 600,
+    "pre97": false,
+    "edadRetiro": 70,
+    "densidad": 0.6
+   },
+   "esperado": {
+    "anioRetiro": 2044,
+    "req": 1000,
+    "semanas": 1161,
+    "tipo": "vejez",
+    "cumpleEdad": true,
+    "elegible": true,
+    "faltan": 0,
+    "cruce": {
+     "edad": 65,
+     "anio": 2039,
+     "semanas": 1005
+    },
+    "l73cumple": false
+   }
+  },
+  {
+   "caso": "E11 próximo: no cumple a los 62 pero cruza a los 64",
+   "inputs": {
+    "edad": 60,
+    "semanas": 830,
+    "pre97": false,
+    "edadRetiro": 62,
+    "densidad": 0.9
+   },
+   "esperado": {
+    "anioRetiro": 2028,
+    "req": 925,
+    "semanas": 923,
+    "tipo": "cesantía en edad avanzada",
+    "cumpleEdad": true,
+    "elegible": false,
+    "faltan": 2,
+    "cruce": {
+     "edad": 63,
+     "anio": 2029,
+     "semanas": 970
+    },
+    "l73cumple": false
+   }
+  }
  ]
 }

@@ -1,0 +1,30 @@
+/* Brecha de retiro — reusa la base común (calc-base.css) y añade el "puente"
+   (segmentos pensión/otros/brecha) y la tarjeta de capital. Portado TAL CUAL
+   (D8); rgba() remapeados igual que la base. */
+@import "./calc-base.css";
+
+.calc-root .bridge{display:flex;flex-direction:column;gap:12px;margin-top:26px;position:relative}
+.calc-root .br-row{display:grid;grid-template-columns:96px minmax(0,1fr) 100px;gap:10px;align-items:center;cursor:pointer}
+.calc-root .br-row .b-lbl{font-size:12px;font-weight:600;color:var(--navy);text-align:right;line-height:1.25}
+.calc-root .br-row .b-lbl .hint{display:block}
+.calc-root .br-track{position:relative;height:24px;background:var(--bg-alt);border-radius:4px;overflow:visible}
+.calc-root .seg{position:absolute;top:0;bottom:0;transition:width .45s cubic-bezier(.16,1,.3,1),left .45s cubic-bezier(.16,1,.3,1)}
+.calc-root .seg.pen{background:var(--navy);border-radius:4px 0 0 4px}
+.calc-root .seg.otr{background:var(--gold)}
+.calc-root .seg.gap{background:repeating-linear-gradient(45deg,rgba(158,43,37,.20) 0 5px,rgba(158,43,37,.05) 5px 10px);
+  border:1.5px dashed var(--low);border-radius:0 4px 4px 0}
+.calc-root .br-row:hover .seg.pen,.calc-root .br-row:hover .seg.otr{filter:brightness(1.1)}
+.calc-root .br-val{font-size:12.5px;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1.3}
+.calc-root .br-val .hint{display:block;font-weight:400}
+.calc-root .refline{position:absolute;top:-8px;bottom:-8px;width:0;border-left:2px dashed var(--navy);opacity:.7;
+  transition:left .45s cubic-bezier(.16,1,.3,1)}
+.calc-root .reflab{position:absolute;top:-24px;transform:translateX(-50%);font-size:10.5px;font-weight:600;
+  color:var(--navy);white-space:nowrap;background:#fff;padding:0 4px}
+
+.calc-root .capital{border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;
+  background:linear-gradient(180deg,#fff 0%,var(--bg-alt) 130%)}
+.calc-root .capital .bigcap{font-family:Merriweather,Georgia,serif;font-size:26px;color:var(--navy);
+  font-variant-numeric:tabular-nums;margin:4px 0 2px}
+.calc-root .capital p{font-size:12.5px;color:var(--text-secondary);margin:6px 0 0;line-height:1.55}
+.calc-root .cap-range{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;font-size:12.5px;font-variant-numeric:tabular-nums}
+.calc-root .cap-range span b{color:var(--navy)}

@@ -1,0 +1,18 @@
+/* Elegibilidad — reusa la base común (calc-base.css, scope .calc-root) y añade
+   el checklist de requisitos. Portado TAL CUAL (D8); tokens remapeados igual
+   que la base. La calculadora no proyecta dinero: solo requisitos. */
+@import "./calc-base.css";
+
+/* .big con clamp propio de esta calculadora (estatus en palabras) */
+.calc-root .big.elig{font-size:clamp(26px,3.6vw,36px);line-height:1.15;text-wrap:balance}
+
+.calc-root .reqs{display:flex;flex-direction:column;gap:0;margin-top:8px}
+.calc-root .req{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:12px;align-items:center;
+  padding:11px 4px;border-bottom:1px solid var(--line)}
+.calc-root .req:last-child{border-bottom:none}
+.calc-root .req .mark{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;color:#fff;transition:background .25s}
+.calc-root .req .mark.si{background:var(--ok)} .calc-root .req .mark.no{background:var(--low)} .calc-root .req .mark.casi{background:var(--mid)}
+.calc-root .req .q{font-size:13.5px;font-weight:600;color:var(--navy)}
+.calc-root .req .q .hint{display:block;font-weight:400}
+.calc-root .req .st{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;color:var(--navy)}

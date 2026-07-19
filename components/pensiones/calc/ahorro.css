@@ -1,0 +1,10 @@
+/* Ahorro para el retiro — reusa la base común (calc-base.css) y añade la
+   tarjeta de referencias documentadas. Portado TAL CUAL (D8). */
+@import "./calc-base.css";
+
+.calc-root .refs{border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;
+  background:linear-gradient(180deg,#fff 0%,var(--bg-alt) 130%)}
+.calc-root .refs table{border-collapse:collapse;width:100%;font-size:12.5px;font-variant-numeric:tabular-nums;margin-top:8px}
+.calc-root .refs th{background:var(--navy);color:#fff;padding:5px 9px;text-align:left;font-weight:600}
+.calc-root .refs td{border:1px solid var(--line);padding:5px 9px}
+.calc-root .refs p{font-size:12.5px;color:var(--text-secondary);margin:6px 0 0;line-height:1.55}

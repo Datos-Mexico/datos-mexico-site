@@ -3,6 +3,7 @@ import { getAllPublications } from "@/lib/publicaciones/loader";
 import { categories } from "@/lib/publicaciones/categories";
 import { getAllArticulos } from "@/lib/preguntas/loader";
 import { getAllPublishedSlugs, getPiezaPorSlug } from "@/lib/transparencia/loader";
+import { sar29Entregas } from "@/lib/pensiones/sar29";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = "https://datosmexico.org";
@@ -107,11 +108,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
   );
 
+  const sar29LastModified = new Date("2026-07-18");
+  const sar29Entries: MetadataRoute.Sitemap = [
+    {
+      url: `${base}/pensiones/sar-29`,
+      lastModified: sar29LastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...sar29Entregas.map((e) => ({
+      url: `${base}${e.href}`,
+      lastModified: sar29LastModified,
+      changeFrequency: "yearly" as const,
+      priority: 0.9,
+    })),
+  ];
+
   return [
     ...staticEntries,
     ...categoryEntries,
     ...publicationEntries,
     ...articuloEntries,
     ...transparenciaEntries,
+    ...sar29Entries,
   ];
 }

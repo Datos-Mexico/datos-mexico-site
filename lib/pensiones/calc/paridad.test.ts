@@ -30,6 +30,19 @@ import {
   type EntradaBrecha,
   type EntradaElegibilidad,
 } from "./calculos";
+import {
+  IC_TASAS,
+  REFS,
+  comparaInicios,
+  calculaReemplazo,
+  calculaGastoVida,
+  proyectaGastoMedico,
+  DIF_MED,
+  type EntradaIC,
+  type EntradaReemplazo,
+  type EntradaGastoVida,
+  type EntradaGastosMedicos,
+} from "./calculos-c";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const golden = JSON.parse(readFileSync(join(here, "__fixtures__/golden-vigentes.json"), "utf8"));
@@ -118,6 +131,47 @@ for (const c of golden.elegibilidad) {
   check(`ELE ${c.caso.slice(0, 30)} · faltan`, r.faltan === c.esperado.faltan, r.faltan, c.esperado.faltan);
   check(`ELE ${c.caso.slice(0, 30)} · cruce`, JSON.stringify(r.cruce) === JSON.stringify(c.esperado.cruce), JSON.stringify(r.cruce), JSON.stringify(c.esperado.cruce));
   check(`ELE ${c.caso.slice(0, 30)} · l73cumple`, r.l73.cumple === c.esperado.l73cumple, r.l73.cumple, c.esperado.l73cumple);
+}
+
+// interés compuesto
+for (const c of golden.interes_compuesto) {
+  const r = comparaInicios(c.inputs as EntradaIC, IC_TASAS[c.escenario as keyof typeof IC_TASAS]);
+  check(`IC ${c.caso.slice(0, 30)} · saldoHoy`, cmpNum(r.hoy.saldoFinal, c.esperado.saldoHoy), r.hoy.saldoFinal, c.esperado.saldoHoy);
+  check(`IC ${c.caso.slice(0, 30)} · saldoTarde`, cmpNum(r.tarde.saldoFinal, c.esperado.saldoTarde), r.tarde.saldoFinal, c.esperado.saldoTarde);
+  check(`IC ${c.caso.slice(0, 30)} · costo`, cmpNum(r.costo, c.esperado.costo), r.costo, c.esperado.costo);
+  check(`IC ${c.caso.slice(0, 30)} · nHoy`, r.nHoy === c.esperado.nHoy, r.nHoy, c.esperado.nHoy);
+  check(`IC ${c.caso.slice(0, 30)} · nTarde`, r.nTarde === c.esperado.nTarde, r.nTarde, c.esperado.nTarde);
+}
+
+// reemplazo de ingreso
+for (const c of golden.reemplazo) {
+  if (c.refs) { // caso RREF: verifica las constantes de referencia [V]
+    check(`REE refs · oit`, REFS.oitMinimo === c.refs.oitMinimo, REFS.oitMinimo, c.refs.oitMinimo);
+    check(`REE refs · ocde`, REFS.ocdePromedioNeta === c.refs.ocdePromedioNeta, REFS.ocdePromedioNeta, c.refs.ocdePromedioNeta);
+    check(`REE refs · mexico`, REFS.mexicoProyectadaNeta === c.refs.mexicoProyectadaNeta, REFS.mexicoProyectadaNeta, c.refs.mexicoProyectadaNeta);
+    continue;
+  }
+  const r = calculaReemplazo(c.inputs as EntradaReemplazo);
+  check(`REE ${c.caso.slice(0, 30)} · desaparecen`, cmpNum(r.desaparecen, c.esperado.desaparecen), r.desaparecen, c.esperado.desaparecen);
+  check(`REE ${c.caso.slice(0, 30)} · aumentan`, cmpNum(r.aumentan, c.esperado.aumentan), r.aumentan, c.esperado.aumentan);
+  check(`REE ${c.caso.slice(0, 30)} · objetivo`, cmpNum(r.objetivo, c.esperado.objetivo), r.objetivo, c.esperado.objetivo);
+  check(`REE ${c.caso.slice(0, 30)} · tasa`, r.tasa === null ? c.esperado.tasa === null : cmpNum(r.tasa, c.esperado.tasa), r.tasa, c.esperado.tasa);
+}
+
+// gasto de vida
+for (const c of golden.gasto_vida) {
+  const r = calculaGastoVida(c.inputs as EntradaGastoVida);
+  for (const k of ["mensual", "anual", "refTotal", "ex", "acumulado", "acumuladoMas5"] as const)
+    check(`GV ${c.caso.slice(0, 28)} · ${k}`, cmpNum(r[k], c.esperado[k]), r[k], c.esperado[k]);
+}
+
+// gastos médicos
+for (const c of golden.gastos_medicos) {
+  const r = proyectaGastoMedico(c.inputs as EntradaGastosMedicos, DIF_MED[c.escenario as keyof typeof DIF_MED]);
+  for (const k of ["alRetiro", "alFinal", "acumulado", "promedioRetiro", "ex"] as const)
+    check(`GM ${c.caso.slice(0, 28)} · ${k}`, cmpNum(r[k], c.esperado[k]), r[k], c.esperado[k]);
+  check(`GM ${c.caso.slice(0, 28)} · horizonte`, r.horizonte === c.esperado.horizonte, r.horizonte, c.esperado.horizonte);
+  check(`GM ${c.caso.slice(0, 28)} · anios`, r.aniosRetiro === c.esperado.anios, r.aniosRetiro, c.esperado.anios);
 }
 
 console.log(`\n=== Paridad del motor de calculadoras vs golden vigentes ===`);

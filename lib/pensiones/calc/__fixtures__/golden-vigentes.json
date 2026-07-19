@@ -2231,5 +2231,807 @@
     "l73cumple": false
    }
   }
+ ],
+ "interes_compuesto": [
+  {
+   "caso": "I01 base 25a, $1,000, espera 10, ret 65",
+   "inputs": {
+    "edad": 25,
+    "edadRetiro": 65,
+    "aporte": 1000,
+    "espera": 10
+   },
+   "escenario": "base",
+   "esperado": {
+    "nHoy": 40,
+    "nTarde": 30,
+    "saldoHoy": 931959.57,
+    "saldoTarde": 588032.14,
+    "aportadoHoy": 480000,
+    "aportadoTarde": 360000,
+    "costo": 343927.43
+   }
+  },
+  {
+   "caso": "I01c ídem, conservador",
+   "inputs": {
+    "edad": 25,
+    "edadRetiro": 65,
+    "aporte": 1000,
+    "espera": 10
+   },
+   "escenario": "conservador",
+   "esperado": {
+    "nHoy": 40,
+    "nTarde": 30,
+    "saldoHoy": 660982.95,
+    "saldoTarde": 457221.14,
+    "aportadoHoy": 480000,
+    "aportadoTarde": 360000,
+    "costo": 203761.81
+   }
+  },
+  {
+   "caso": "I01o ídem, optimista",
+   "inputs": {
+    "edad": 25,
+    "edadRetiro": 65,
+    "aporte": 1000,
+    "espera": 10
+   },
+   "escenario": "optimista",
+   "esperado": {
+    "nHoy": 40,
+    "nTarde": 30,
+    "saldoHoy": 1342160.25,
+    "saldoTarde": 765028.65,
+    "aportadoHoy": 480000,
+    "aportadoTarde": 360000,
+    "costo": 577131.6
+   }
+  },
+  {
+   "caso": "I02 espera 1 año (costo marginal del primero)",
+   "inputs": {
+    "edad": 25,
+    "edadRetiro": 65,
+    "aporte": 1000,
+    "espera": 1
+   },
+   "escenario": "base",
+   "esperado": {
+    "nHoy": 40,
+    "nTarde": 39,
+    "saldoHoy": 931959.57,
+    "saldoTarde": 892815.12,
+    "aportadoHoy": 480000,
+    "aportadoTarde": 468000,
+    "costo": 39144.45
+   }
+  },
+  {
+   "caso": "I03 espera 20 años",
+   "inputs": {
+    "edad": 25,
+    "edadRetiro": 65,
+    "aporte": 1000,
+    "espera": 20
+   },
+   "escenario": "base",
+   "esperado": {
+    "nHoy": 40,
+    "nTarde": 20,
+    "saldoHoy": 931959.57,
+    "saldoTarde": 332117.83,
+    "aportadoHoy": 480000,
+    "aportadoTarde": 240000,
+    "costo": 599841.74
+   }
+  },
+  {
+   "caso": "I04 espera mayor que el horizonte (50a, espera 20, ret 65 → tardía 0 años)",
+   "inputs": {
+    "edad": 50,
+    "edadRetiro": 65,
+    "aporte": 1000,
+    "espera": 20
+   },
+   "escenario": "base",
+   "esperado": {
+    "nHoy": 15,
+    "nTarde": 0,
+    "saldoHoy": 229882.58,
+    "saldoTarde": 0.0,
+    "aportadoHoy": 180000,
+    "aportadoTarde": 0,
+    "costo": 229882.58
+   }
+  },
+  {
+   "caso": "I05 aporte mínimo del control ($100) — linealidad",
+   "inputs": {
+    "edad": 25,
+    "edadRetiro": 65,
+    "aporte": 100,
+    "espera": 10
+   },
+   "escenario": "base",
+   "esperado": {
+    "nHoy": 40,
+    "nTarde": 30,
+    "saldoHoy": 93195.96,
+    "saldoTarde": 58803.21,
+    "aportadoHoy": 48000,
+    "aportadoTarde": 36000,
+    "costo": 34392.74
+   }
+  },
+  {
+   "caso": "I06 aporte tope ($10,000) — linealidad ×100 de I05",
+   "inputs": {
+    "edad": 25,
+    "edadRetiro": 65,
+    "aporte": 10000,
+    "espera": 10
+   },
+   "escenario": "base",
+   "esperado": {
+    "nHoy": 40,
+    "nTarde": 30,
+    "saldoHoy": 9319595.7,
+    "saldoTarde": 5880321.38,
+    "aportadoHoy": 4800000,
+    "aportadoTarde": 3600000,
+    "costo": 3439274.32
+   }
+  },
+  {
+   "caso": "I07 horizonte corto (60→65, espera 2)",
+   "inputs": {
+    "edad": 60,
+    "edadRetiro": 65,
+    "aporte": 1000,
+    "espera": 2
+   },
+   "escenario": "base",
+   "esperado": {
+    "nHoy": 5,
+    "nTarde": 3,
+    "saldoHoy": 65620.92,
+    "saldoTarde": 38203.52,
+    "aportadoHoy": 60000,
+    "aportadoTarde": 36000,
+    "costo": 27417.39
+   }
+  },
+  {
+   "caso": "I08 retiro a los 70, espera 15",
+   "inputs": {
+    "edad": 25,
+    "edadRetiro": 70,
+    "aporte": 1000,
+    "espera": 15
+   },
+   "escenario": "base",
+   "esperado": {
+    "nHoy": 45,
+    "nTarde": 30,
+    "saldoHoy": 1146017.49,
+    "saldoTarde": 588032.14,
+    "aportadoHoy": 540000,
+    "aportadoTarde": 360000,
+    "costo": 557985.35
+   }
+  },
+  {
+   "caso": "I09 un solo año de horizonte (64→65, espera 1)",
+   "inputs": {
+    "edad": 64,
+    "edadRetiro": 65,
+    "aporte": 1000,
+    "espera": 1
+   },
+   "escenario": "base",
+   "esperado": {
+    "nHoy": 1,
+    "nTarde": 0,
+    "saldoHoy": 12360.0,
+    "saldoTarde": 0.0,
+    "aportadoHoy": 12000,
+    "aportadoTarde": 0,
+    "costo": 12360.0
+   }
+  }
+ ],
+ "reemplazo": [
+  {
+   "caso": "R01 base: $20,000, desaparecen $2,500, aumentan $1,500",
+   "inputs": {
+    "ingreso": 20000,
+    "desaparecen": {
+     "trabajo": 1500,
+     "vivienda": 0,
+     "dependientes": 0,
+     "ahorro": 1000,
+     "otros": 0
+    },
+    "aumentan": {
+     "salud": 1000,
+     "esparcimiento": 500,
+     "otros": 0
+    }
+   },
+   "esperado": {
+    "desaparecen": 2500,
+    "aumentan": 1500,
+    "objetivo": 19000,
+    "tasa": 0.95
+   }
+  },
+  {
+   "caso": "R02 nada cambia → tasa 100%",
+   "inputs": {
+    "ingreso": 20000,
+    "desaparecen": {
+     "trabajo": 0,
+     "vivienda": 0,
+     "dependientes": 0,
+     "ahorro": 0,
+     "otros": 0
+    },
+    "aumentan": {
+     "salud": 0,
+     "esparcimiento": 0,
+     "otros": 0
+    }
+   },
+   "esperado": {
+    "desaparecen": 0,
+    "aumentan": 0,
+    "objetivo": 20000,
+    "tasa": 1.0
+   }
+  },
+  {
+   "caso": "R03 solo desaparecen → tasa < 1",
+   "inputs": {
+    "ingreso": 20000,
+    "desaparecen": {
+     "trabajo": 1500,
+     "vivienda": 5000,
+     "dependientes": 0,
+     "ahorro": 1000,
+     "otros": 0
+    },
+    "aumentan": {
+     "salud": 0,
+     "esparcimiento": 0,
+     "otros": 0
+    }
+   },
+   "esperado": {
+    "desaparecen": 7500,
+    "aumentan": 0,
+    "objetivo": 12500,
+    "tasa": 0.625
+   }
+  },
+  {
+   "caso": "R04 aumenta más de lo que desaparece → tasa > 1",
+   "inputs": {
+    "ingreso": 20000,
+    "desaparecen": {
+     "trabajo": 0,
+     "vivienda": 0,
+     "dependientes": 0,
+     "ahorro": 0,
+     "otros": 0
+    },
+    "aumentan": {
+     "salud": 6000,
+     "esparcimiento": 500,
+     "otros": 0
+    }
+   },
+   "esperado": {
+    "desaparecen": 0,
+    "aumentan": 6500,
+    "objetivo": 26500,
+    "tasa": 1.325
+   }
+  },
+  {
+   "caso": "R05 desaparece más que el ingreso → objetivo piso 0",
+   "inputs": {
+    "ingreso": 5000,
+    "desaparecen": {
+     "trabajo": 1500,
+     "vivienda": 8000,
+     "dependientes": 0,
+     "ahorro": 1000,
+     "otros": 0
+    },
+    "aumentan": {
+     "salud": 0,
+     "esparcimiento": 0,
+     "otros": 0
+    }
+   },
+   "esperado": {
+    "desaparecen": 10500,
+    "aumentan": 0,
+    "objetivo": 0,
+    "tasa": 0.0
+   }
+  },
+  {
+   "caso": "R06 ingreso 0 → tasa None",
+   "inputs": {
+    "ingreso": 0,
+    "desaparecen": {
+     "trabajo": 1500,
+     "vivienda": 0,
+     "dependientes": 0,
+     "ahorro": 1000,
+     "otros": 0
+    },
+    "aumentan": {
+     "salud": 1000,
+     "esparcimiento": 500,
+     "otros": 0
+    }
+   },
+   "esperado": {
+    "desaparecen": 2500,
+    "aumentan": 1500,
+    "objetivo": 0,
+    "tasa": null
+   }
+  },
+  {
+   "caso": "R07 partida negativa se trata como 0",
+   "inputs": {
+    "ingreso": 20000,
+    "desaparecen": {
+     "trabajo": 1500,
+     "vivienda": 0,
+     "dependientes": 0,
+     "ahorro": 1000,
+     "otros": -500
+    },
+    "aumentan": {
+     "salud": 1000,
+     "esparcimiento": 500,
+     "otros": -200
+    }
+   },
+   "esperado": {
+    "desaparecen": 2500,
+    "aumentan": 1500,
+    "objetivo": 19000,
+    "tasa": 0.95
+   }
+  },
+  {
+   "caso": "R08 tasa exacta 40% (borde OIT)",
+   "inputs": {
+    "ingreso": 10000,
+    "desaparecen": {
+     "trabajo": 6000,
+     "vivienda": 0,
+     "dependientes": 0,
+     "ahorro": 0,
+     "otros": 0
+    },
+    "aumentan": {
+     "salud": 0,
+     "esparcimiento": 0,
+     "otros": 0
+    }
+   },
+   "esperado": {
+    "desaparecen": 6000,
+    "aumentan": 0,
+    "objetivo": 4000,
+    "tasa": 0.4
+   }
+  },
+  {
+   "caso": "R09 ingreso alto, partidas grandes",
+   "inputs": {
+    "ingreso": 90000,
+    "desaparecen": {
+     "trabajo": 4000,
+     "vivienda": 12000,
+     "dependientes": 8000,
+     "ahorro": 5000,
+     "otros": 1000
+    },
+    "aumentan": {
+     "salud": 4000,
+     "esparcimiento": 3000,
+     "otros": 0
+    }
+   },
+   "esperado": {
+    "desaparecen": 30000,
+    "aumentan": 7000,
+    "objetivo": 67000,
+    "tasa": 0.7444444444444445
+   }
+  },
+  {
+   "caso": "R10 centavos (aritmética exacta)",
+   "inputs": {
+    "ingreso": 12345.67,
+    "desaparecen": {
+     "trabajo": 111.11,
+     "vivienda": 0,
+     "dependientes": 0,
+     "ahorro": 222.22,
+     "otros": 0
+    },
+    "aumentan": {
+     "salud": 33.33,
+     "esparcimiento": 0,
+     "otros": 0
+    }
+   },
+   "esperado": {
+    "desaparecen": 333.33,
+    "aumentan": 33.33,
+    "objetivo": 12045.67,
+    "tasa": 0.9756999822609871
+   }
+  },
+  {
+   "caso": "RREF referencias [V] exactas vs documentación documento",
+   "refs": {
+    "oitMinimo": 0.4,
+    "ocdePromedioNeta": 0.632,
+    "mexicoProyectadaNeta": 0.796
+   }
+  }
+ ],
+ "gasto_vida": [
+  {
+   "caso": "G01 canasta = referencia 65+, H retiro 65",
+   "inputs": {
+    "rubros": {
+     "alimentos": 5659,
+     "vestido": 443,
+     "vivienda": 1211,
+     "limpieza": 1089,
+     "salud": 812,
+     "transporte": 2527,
+     "educacion": 831,
+     "personales": 1091,
+     "transferencias": 416
+    },
+    "sexo": "H",
+    "edadRetiro": 65,
+    "ingreso": 0
+   },
+   "esperado": {
+    "mensual": 14079,
+    "anual": 168948,
+    "refTotal": 14077.47,
+    "vsRef": 1.0,
+    "ex": 20.91,
+    "acumulado": 3533296.79,
+    "acumuladoMas5": 4378036.79,
+    "cobertura": null
+   }
+  },
+  {
+   "caso": "G02 idem, mujer (horizonte mayor)",
+   "inputs": {
+    "rubros": {
+     "alimentos": 5659,
+     "vestido": 443,
+     "vivienda": 1211,
+     "limpieza": 1089,
+     "salud": 812,
+     "transporte": 2527,
+     "educacion": 831,
+     "personales": 1091,
+     "transferencias": 416
+    },
+    "sexo": "M",
+    "edadRetiro": 65,
+    "ingreso": 0
+   },
+   "esperado": {
+    "mensual": 14079,
+    "anual": 168948,
+    "refTotal": 14077.47,
+    "vsRef": 1.0,
+    "ex": 23.59,
+    "acumulado": 3985487.19,
+    "acumuladoMas5": 4830227.19,
+    "cobertura": null
+   }
+  },
+  {
+   "caso": "G03 canasta austera (0.7x), retiro 60",
+   "inputs": {
+    "rubros": {
+     "alimentos": 3961,
+     "vestido": 310,
+     "vivienda": 848,
+     "limpieza": 763,
+     "salud": 568,
+     "transporte": 1769,
+     "educacion": 581,
+     "personales": 764,
+     "transferencias": 291
+    },
+    "sexo": "H",
+    "edadRetiro": 60,
+    "ingreso": 0
+   },
+   "esperado": {
+    "mensual": 9855,
+    "anual": 118260,
+    "refTotal": 14077.47,
+    "vsRef": 0.7,
+    "ex": 24.47,
+    "acumulado": 2893353.99,
+    "acumuladoMas5": 3484653.99,
+    "cobertura": null
+   }
+  },
+  {
+   "caso": "G04 canasta holgada (1.8x), retiro 70",
+   "inputs": {
+    "rubros": {
+     "alimentos": 10187,
+     "vestido": 797,
+     "vivienda": 2179,
+     "limpieza": 1961,
+     "salud": 1461,
+     "transporte": 4548,
+     "educacion": 1495,
+     "personales": 1964,
+     "transferencias": 748
+    },
+    "sexo": "M",
+    "edadRetiro": 70,
+    "ingreso": 0
+   },
+   "esperado": {
+    "mensual": 25340,
+    "anual": 304080,
+    "refTotal": 14077.47,
+    "vsRef": 1.8,
+    "ex": 19.1,
+    "acumulado": 5807382.82,
+    "acumuladoMas5": 7327782.82,
+    "cobertura": null
+   }
+  },
+  {
+   "caso": "G05 con ingreso esperado $10,000 (cobertura)",
+   "inputs": {
+    "rubros": {
+     "alimentos": 5659,
+     "vestido": 443,
+     "vivienda": 1211,
+     "limpieza": 1089,
+     "salud": 812,
+     "transporte": 2527,
+     "educacion": 831,
+     "personales": 1091,
+     "transferencias": 416
+    },
+    "sexo": "H",
+    "edadRetiro": 65,
+    "ingreso": 10000
+   },
+   "esperado": {
+    "mensual": 14079,
+    "anual": 168948,
+    "refTotal": 14077.47,
+    "vsRef": 1.0,
+    "ex": 20.91,
+    "acumulado": 3533296.79,
+    "acumuladoMas5": 4378036.79,
+    "cobertura": 0.71
+   }
+  },
+  {
+   "caso": "G06 un solo rubro (alimentos $6,000)",
+   "inputs": {
+    "rubros": {
+     "alimentos": 6000
+    },
+    "sexo": "H",
+    "edadRetiro": 65,
+    "ingreso": 0
+   },
+   "esperado": {
+    "mensual": 6000,
+    "anual": 72000,
+    "refTotal": 14077.47,
+    "vsRef": 0.43,
+    "ex": 20.91,
+    "acumulado": 1505773.19,
+    "acumuladoMas5": 1865773.19,
+    "cobertura": null
+   }
+  }
+ ],
+ "gastos_medicos": [
+  {
+   "caso": "M01 base 45a H, ret 65, $475/mes, historico",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "edadRetiro": 65,
+    "gastoHoy": 475
+   },
+   "escenario": "historico",
+   "esperado": {
+    "alRetiro": 719.17,
+    "alFinal": 982.4,
+    "acumulado": 232005.2,
+    "promedioRetiro": 878.81,
+    "horizonte": 86,
+    "ex": 20.91,
+    "anios": 22
+   }
+  },
+  {
+   "caso": "M02i idem, escenario igual a la general",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "edadRetiro": 65,
+    "gastoHoy": 475
+   },
+   "escenario": "igual",
+   "esperado": {
+    "alRetiro": 690.99,
+    "alFinal": 905.13,
+    "acumulado": 218037.71,
+    "promedioRetiro": 825.9,
+    "horizonte": 86,
+    "ex": 20.91,
+    "anios": 22
+   }
+  },
+  {
+   "caso": "M02a idem, escenario sostenida alta",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "edadRetiro": 65,
+    "gastoHoy": 475
+   },
+   "escenario": "alto",
+   "esperado": {
+    "alRetiro": 930.67,
+    "alFinal": 1666.55,
+    "acumulado": 347615.38,
+    "promedioRetiro": 1316.72,
+    "horizonte": 86,
+    "ex": 20.91,
+    "anios": 22
+   }
+  },
+  {
+   "caso": "M03 mujer (horizonte mayor)",
+   "inputs": {
+    "edad": 45,
+    "sexo": "M",
+    "edadRetiro": 65,
+    "gastoHoy": 475
+   },
+   "escenario": "historico",
+   "esperado": {
+    "alRetiro": 719.17,
+    "alFinal": 988.3,
+    "acumulado": 267513.09,
+    "promedioRetiro": 891.71,
+    "horizonte": 89,
+    "ex": 23.59,
+    "anios": 25
+   }
+  },
+  {
+   "caso": "M04 nivel alto ($2,000/mes hoy)",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "edadRetiro": 65,
+    "gastoHoy": 2000
+   },
+   "escenario": "historico",
+   "esperado": {
+    "alRetiro": 3028.06,
+    "alFinal": 4136.4,
+    "acumulado": 976863.99,
+    "promedioRetiro": 3700.24,
+    "horizonte": 86,
+    "ex": 20.91,
+    "anios": 22
+   }
+  },
+  {
+   "caso": "M05 55a retiro 60 (banda 50 hoy)",
+   "inputs": {
+    "edad": 55,
+    "sexo": "H",
+    "edadRetiro": 60,
+    "gastoHoy": 475
+   },
+   "escenario": "historico",
+   "esperado": {
+    "alRetiro": 568.55,
+    "alFinal": 781.33,
+    "acumulado": 200700.57,
+    "promedioRetiro": 669.0,
+    "horizonte": 84,
+    "ex": 24.47,
+    "anios": 25
+   }
+  },
+  {
+   "caso": "M06 62a retiro 65 (ya en banda 60)",
+   "inputs": {
+    "edad": 62,
+    "sexo": "H",
+    "edadRetiro": 65,
+    "gastoHoy": 700
+   },
+   "escenario": "historico",
+   "esperado": {
+    "alRetiro": 704.21,
+    "alFinal": 961.96,
+    "acumulado": 227180.05,
+    "promedioRetiro": 860.53,
+    "horizonte": 86,
+    "ex": 20.91,
+    "anios": 22
+   }
+  },
+  {
+   "caso": "M07 gasto hoy $0 (todo en cero)",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "edadRetiro": 65,
+    "gastoHoy": 0
+   },
+   "escenario": "historico",
+   "esperado": {
+    "alRetiro": 0.0,
+    "alFinal": 0.0,
+    "acumulado": 0.0,
+    "promedioRetiro": 0.0,
+    "horizonte": 86,
+    "ex": 20.91,
+    "anios": 22
+   }
+  },
+  {
+   "caso": "M08 retiro a los 70",
+   "inputs": {
+    "edad": 45,
+    "sexo": "H",
+    "edadRetiro": 70,
+    "gastoHoy": 475
+   },
+   "escenario": "alto",
+   "esperado": {
+    "alRetiro": 1215.74,
+    "alFinal": 1716.92,
+    "acumulado": 330976.3,
+    "promedioRetiro": 1451.65,
+    "horizonte": 88,
+    "ex": 17.56,
+    "anios": 19
+   }
+  }
  ]
 }

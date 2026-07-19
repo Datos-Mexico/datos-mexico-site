@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Sistema de Ahorro para el Retiro en México: Panorama 2020 | Datos México</title>
+  <meta name="description" content="Análisis del SAR en 2020: recursos de 4.72 billones de pesos (19% del PIB), reforma histórica de pensiones, comisión promedio 0.92%, pandemia COVID-19 y retiros por desempleo.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/DM-SAR-2020.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Sistema de Ahorro para el Retiro en México: Panorama 2020 | Datos México">
+  <meta property="og:description" content="La reforma más importante en 25 años: aportación patronal de 6.5% a 15%, semanas de cotización de 1,250 a 750, pensión garantizada +27.4%. Recursos administrados alcanzan 4.72 billones de pesos.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/DM-SAR-2020.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Chart.js -->
+  <script src="/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <!-- PAPER -->
+  <main class="paper paper--margen" role="main">
+
+    <!-- Back link -->
+    <a href="/pensiones/sar-29" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a publicaciones
+    </a>
+
+    <!-- ==========================================
+         PORTADA
+         ========================================== -->
+    <header class="paper__portada">
+      <span class="paper__tipo">Estudio</span>
+      <p class="paper__id">DM-SAR-2020</p>
+      <h1 class="paper__titulo">El Sistema de Ahorro para el Retiro en México: Panorama 2020</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Abril 2026</p>
+
+      <!-- Sello Datos México -->
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-2020</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         RESUMEN EJECUTIVO VISUAL (rollout 2020)
+         Reemplaza el .paper__resumen de texto. Toda cifra y su badge [V]/[E]
+         proviene del cuerpo del paper sin alteración (Secciones 4, 5, 6, 7,
+         8, 9, 10 y Tablas 1, 2, 4); ninguna cifra nueva. Cifras dominantes
+         (rh-card__big) son [V]; los estimados (~11% nominal, ~8% real,
+         ~19.0% del PIB, ~16.7% del PIB 2019) viven como meta contextual [E].
+         Tono editorial de ano triple: shock COVID Q1-Q2 (Sec 4 L113, Sec 9
+         L364) + reforma historica aprobada dic 2020 (Sec 10 L374) +
+         recuperacion H2 con rendimiento real positivo (Sec 9 L365,
+         Conclusion 6 L482). Honestidad de observatorio; D19 aplicado a
+         historia triple. Dot plot en TRANSICION (3 clusters + outlier),
+         tercer patron formalizado (no compresion pura 2022+, no dispersion
+         pura 2021).
+         ========================================== -->
+    <section class="paper__resumen-hero" id="resumen" aria-labelledby="resumenHeroTitle">
+      <div class="paper__resumen-hero-inner">
+
+        <!-- Tooltip unificado (Ronda 6): un solo sistema; ASCII
+             puro en data-tip-*; badge V como elemento HTML. -->
+        <div class="rh-tip" id="rhTip" role="status" aria-live="polite" aria-hidden="true">
+          <span class="rh-tip__title"></span>
+          <span class="rh-tip__detail">
+            <span class="rh-tip__detail-text"></span>
+            <span class="rh-tip__badge" aria-hidden="true">V</span>
+          </span>
+          <span class="rh-tip__note"></span>
+        </div>
+
+        <p class="paper__resumen-hero-eyebrow">Sección 1 &middot; En síntesis &middot; Panorama 2020</p>
+        <h2 id="resumenHeroTitle" class="paper__resumen-hero-titulo">La reforma más importante desde 1997, en el año del shock COVID.</h2>
+
+        <p class="paper__resumen-hero-lede">
+          Al cierre de 2020, el SAR administraba <strong>4,722.27 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;equivalentes a ~<strong>19.0% del PIB</strong><span class="fuente-badge fuente-badge--e">E</span>, con crecimiento nominal de <strong>+14.2%</strong><span class="fuente-badge fuente-badge--v">V</span> y una expansión de <strong>+2.3 pp del PIB</strong><span class="fuente-badge fuente-badge--v">V</span> (desde ~16.7%<span class="fuente-badge fuente-badge--e">E</span> en 2019) pese a la contracción económica. En diciembre se aprobó la <strong>reforma de pensiones más importante desde 1997</strong>: aportación patronal <strong>6.5%</strong><span class="fuente-badge fuente-badge--v">V</span> &rarr; <strong>15%</strong><span class="fuente-badge fuente-badge--v">V</span> del salario base (gradual 2023-2030), semanas de cotización <strong>1,250 &rarr; 750</strong><span class="fuente-badge fuente-badge--v">V</span>, pensión garantizada <strong>+27.4%</strong><span class="fuente-badge fuente-badge--v">V</span>, tope de cotización <strong>10 &rarr; 25 UMA</strong><span class="fuente-badge fuente-badge--v">V</span>. En paralelo, el shock COVID generó volatilidad extrema en Q1-Q2 con recuperación sostenida en H2: rendimiento nominal estimado ~<strong>11%</strong><span class="fuente-badge fuente-badge--e">E</span> y real ~<strong>8%</strong><span class="fuente-badge fuente-badge--e">E</span>, con inflación de <strong>3.15%</strong><span class="fuente-badge fuente-badge--v">V</span> y tasa de Banxico en <strong>4.25%</strong><span class="fuente-badge fuente-badge--v">V</span> tras un descenso de <strong>&minus;300 pb</strong><span class="fuente-badge fuente-badge--v">V</span> en el año (desde 7.25%<span class="fuente-badge fuente-badge--v">V</span>). La comisión promedio tocó <strong>0.92%</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;mínimo histórico desde 2008&mdash; con 10 AFOREs operando y 68.15 millones de cuentas individuales.
+        </p>
+
+        <div class="paper__resumen-hero-grid">
+
+          <article class="rh-card">
+            <p class="rh-card__label">Recursos administrados</p>
+            <p class="rh-card__big">4,722.27<span class="rh-card__unit">mmdp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">~19.0% del PIB<span class="fuente-badge fuente-badge--e">E</span> &middot; +14.2% vs 2019<span class="fuente-badge fuente-badge--v">V</span> &middot; +2.3 pp del PIB<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card rh-card--accent">
+            <p class="rh-card__label">Aportación patronal &mdash; meta 2030 (reforma dic 2020)</p>
+            <p class="rh-card__big">15<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Desde 6.5%<span class="fuente-badge fuente-badge--v">V</span> &middot; Ruta gradual 2023-2030 &middot; Reforma más importante desde 1997</p>
+            <p class="rh-card__ref"><a href="#reforma">Sección 10 &mdash; Reforma de pensiones 2020</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Comisión promedio</p>
+            <p class="rh-card__big">0.92<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Mínimo histórico desde 2008 &middot; &minus;6 pb vs 2019<span class="fuente-badge fuente-badge--v">V</span> &middot; &minus;52.1% vs 2008<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#comisiones">Sección 8 &mdash; Comisiones</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Tasa de referencia Banxico</p>
+            <p class="rh-card__big">4.25<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">&minus;300 pb desde 7.25%<span class="fuente-badge fuente-badge--v">V</span> &middot; Respuesta monetaria a COVID &middot; Inflación 3.15%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rendimiento real estimado ~8%<span class="fuente-badge fuente-badge--e">E</span></p>
+            <p class="rh-card__ref"><a href="#contexto">Sección 4 &mdash; Contexto económico 2020</a></p>
+          </article>
+
+        </div>
+
+        <!-- Retícula asimétrica (D20): 2 cols en escritorio con áreas
+                "recursos afore"     ← Recursos + Dot plot (der spans 2 filas)
+                "spark    afore"
+             Móvil: stack DOM order (Recursos → Sparkline → AFORE). -->
+        <div class="paper__resumen-hero-viz">
+
+          <article class="rh-viz rh-viz--recursos" aria-labelledby="rhVizRecTitle">
+            <p id="rhVizRecTitle" class="rh-viz__title">Recursos administrados (mmdp)</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2019, 4,000.00 mmdp, ~16.7% del PIB, verificado"
+                   data-tip-title="Cierre 2019" data-tip-detail="4,000.00 mmdp" data-tip-note="~16.7% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2019</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.847"></div>
+                  <span class="rh-viz__bar-label">4,000.00<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2020, 4,722.27 mmdp, ~19.0% del PIB, verificado"
+                   data-tip-title="Cierre 2020" data-tip-detail="4,722.27 mmdp" data-tip-note="~19.0% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2020</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">4,722.27<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">+722.27 mmdp<span class="fuente-badge fuente-badge--v">V</span> &middot; +14.2%<span class="fuente-badge fuente-badge--v">V</span> nominal &middot; +2.3 pp del PIB<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-viz__ref"><a href="#recursos">Tabla 1 &mdash; Sección 7</a></p>
+          </article>
+
+          <!-- Sparkline 2008-2020 (13 puntos, uno menos que el rollout 2021).
+               viewBox 720x84; puntos equidistantes x=20..700 (spacing ~56.67).
+               Y interpolada linealmente entre 1.92% (y=6) y 0.92% (y=77),
+               reescalada al MIN del scope del paper 2020 (no 0.807% del 2021
+               ni 0.566% del 2022/2023). Descenso monotonico sin plateau ni
+               salto brusco (2019->2020 = -6 pb, normal). Marker inicial navy
+               en (20,6), marker terminal gold en (700,77). Sin data-tip-note
+               terminal (la "mayor caida desde 2010" es propiedad del paper
+               2021). Datos verificados de Tabla 4 del cuerpo (Sec 8). -->
+          <figure class="paper__resumen-hero-spark" aria-labelledby="rhSparkCaption">
+            <figcaption class="rh-spark__caption">
+              <span id="rhSparkCaption" class="rh-spark__caption-label">Comisión promedio del SAR &middot; 2008–2020 (% sobre saldo)</span>
+              <span class="rh-spark__caption-meta">1.92%<span class="fuente-badge fuente-badge--v">V</span> &rarr; 0.92%<span class="fuente-badge fuente-badge--v">V</span> &middot; <strong>&minus;52.1%</strong><span class="fuente-badge fuente-badge--v">V</span> acumulado</span>
+            </figcaption>
+
+            <div class="rh-spark__wrapper">
+              <svg class="rh-spark__svg" viewBox="0 0 720 84" role="img" aria-label="Tendencia de la comisión promedio del SAR de 2008 a 2020">
+                <defs>
+                  <linearGradient id="rhSparkGrad" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(27,42,94,0.22)"/>
+                    <stop offset="100%" stop-color="rgba(27,42,94,0)"/>
+                  </linearGradient>
+                </defs>
+                <line x1="20" y1="78" x2="700" y2="78" stroke="rgba(27,42,94,0.14)" stroke-width="1"/>
+                <path d="M20,6 L76.67,18 L133.33,27 L190,37 L246.67,44 L303.33,51 L360,58 L416.67,64 L473.33,67 L530,69 L586.67,70 L643.33,73 L700,77 L700,78 L20,78 Z" fill="url(#rhSparkGrad)"/>
+                <polyline points="20,6 76.67,18 133.33,27 190,37 246.67,44 303.33,51 360,58 416.67,64 473.33,67 530,69 586.67,70 643.33,73 700,77" fill="none" stroke="#1B2A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <g class="rh-spark__points">
+                  <circle class="rh-spark__point" cx="20"     cy="6"  r="9" data-tip-title="2008" data-tip-detail="1.92%" tabindex="0" role="img" aria-label="2008: 1.92%"></circle>
+                  <circle class="rh-spark__point" cx="76.67"  cy="18" r="9" data-tip-title="2009" data-tip-detail="1.75%" tabindex="0" role="img" aria-label="2009: 1.75%"></circle>
+                  <circle class="rh-spark__point" cx="133.33" cy="27" r="9" data-tip-title="2010" data-tip-detail="1.62%" tabindex="0" role="img" aria-label="2010: 1.62%"></circle>
+                  <circle class="rh-spark__point" cx="190"    cy="37" r="9" data-tip-title="2011" data-tip-detail="1.48%" tabindex="0" role="img" aria-label="2011: 1.48%"></circle>
+                  <circle class="rh-spark__point" cx="246.67" cy="44" r="9" data-tip-title="2012" data-tip-detail="1.38%" tabindex="0" role="img" aria-label="2012: 1.38%"></circle>
+                  <circle class="rh-spark__point" cx="303.33" cy="51" r="9" data-tip-title="2013" data-tip-detail="1.29%" tabindex="0" role="img" aria-label="2013: 1.29%"></circle>
+                  <circle class="rh-spark__point" cx="360"    cy="58" r="9" data-tip-title="2014" data-tip-detail="1.19%" tabindex="0" role="img" aria-label="2014: 1.19%"></circle>
+                  <circle class="rh-spark__point" cx="416.67" cy="64" r="9" data-tip-title="2015" data-tip-detail="1.11%" tabindex="0" role="img" aria-label="2015: 1.11%"></circle>
+                  <circle class="rh-spark__point" cx="473.33" cy="67" r="9" data-tip-title="2016" data-tip-detail="1.06%" tabindex="0" role="img" aria-label="2016: 1.06%"></circle>
+                  <circle class="rh-spark__point" cx="530"    cy="69" r="9" data-tip-title="2017" data-tip-detail="1.03%" tabindex="0" role="img" aria-label="2017: 1.03%"></circle>
+                  <circle class="rh-spark__point" cx="586.67" cy="70" r="9" data-tip-title="2018" data-tip-detail="1.02%" tabindex="0" role="img" aria-label="2018: 1.02%"></circle>
+                  <circle class="rh-spark__point" cx="643.33" cy="73" r="9" data-tip-title="2019" data-tip-detail="0.98%" tabindex="0" role="img" aria-label="2019: 0.98%"></circle>
+                  <circle class="rh-spark__point" cx="700"    cy="77" r="9" data-tip-title="2020" data-tip-detail="0.92%" tabindex="0" role="img" aria-label="2020: 0.92%"></circle>
+                </g>
+                <circle cx="20" cy="6" r="4" fill="#1B2A5E" pointer-events="none"/>
+                <circle cx="700" cy="77" r="4" fill="#B8943E" pointer-events="none"/>
+                <circle class="rh-spark__active" cx="0" cy="0" r="5" fill="#1B2A5E" stroke="#FFFFFF" stroke-width="2" opacity="0" pointer-events="none"/>
+                <rect class="rh-spark__overlay" x="0" y="0" width="720" height="84" fill="transparent" pointer-events="all"/>
+              </svg>
+            </div>
+
+            <div class="rh-spark__axis" aria-hidden="true">
+              <span>2008</span>
+              <span>2020</span>
+            </div>
+
+            <p class="rh-spark__ref"><a href="#comisiones">Tabla 4 &mdash; Sección 8 (datos verificados [V] CONSAR)</a></p>
+          </figure>
+
+          <article class="rh-viz rh-viz--afore" aria-labelledby="rhVizAforeTitle">
+            <p id="rhVizAforeTitle" class="rh-viz__title">Comisiones por AFORE (10 firmas, cierre 2020)</p>
+
+            <!-- Dot plot horizontal (D19) — TERCER PATRON VISUAL formalizado
+                 en: TRANSICION HACIA LA COMPRESION. Rango 19 pb
+                 (0.79% a 0.98%), 3 clusters visibles distintos del outlier:
+                 0.88% (2 firmas), 0.92% (3 firmas), 0.98% (3 firmas), con
+                 1 puente en 0.97% (Principal). No es compresion pura
+                 (2022+, un solo cluster con outlier) ni dispersion pura
+                 (2021, 9 AFOREs distribuidas linealmente); es el estado
+                 intermedio en el camino descendente del sistema. Nombres
+                 canonicos del cuerpo Sec 5 L124-133 (Citibanamex, Profuturo
+                 GNP, XXI Banorte con espacio); consistentes con papers
+                 2021, 2022, 2023 ya publicados. Posiciones:
+                 (val - 0.79) / (0.98 - 0.79) * 100. -->
+            <ol class="rh-afore-list" role="list">
+              <li class="rh-afore-row rh-afore-row--outlier" tabindex="0" role="listitem"
+                  data-tip-title="PensionISSSTE" data-tip-detail="0.79%" data-tip-v="1">
+                <span class="rh-afore-name">PensionISSSTE</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 0%"></span></span>
+                <span class="rh-afore-value">0.79<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="XXI Banorte" data-tip-detail="0.88%" data-tip-v="1">
+                <span class="rh-afore-name">XXI Banorte</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 47.4%"></span></span>
+                <span class="rh-afore-value">0.88<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Citibanamex" data-tip-detail="0.88%" data-tip-v="1">
+                <span class="rh-afore-name">Citibanamex</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 47.4%"></span></span>
+                <span class="rh-afore-value">0.88<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Profuturo GNP" data-tip-detail="0.92%" data-tip-v="1">
+                <span class="rh-afore-name">Profuturo GNP</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 68.4%"></span></span>
+                <span class="rh-afore-value">0.92<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="SURA" data-tip-detail="0.92%" data-tip-v="1">
+                <span class="rh-afore-name">SURA</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 68.4%"></span></span>
+                <span class="rh-afore-value">0.92<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Inbursa" data-tip-detail="0.92%" data-tip-v="1">
+                <span class="rh-afore-name">Inbursa</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 68.4%"></span></span>
+                <span class="rh-afore-value">0.92<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Principal" data-tip-detail="0.97%" data-tip-v="1">
+                <span class="rh-afore-name">Principal</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 94.7%"></span></span>
+                <span class="rh-afore-value">0.97<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Coppel" data-tip-detail="0.98%" data-tip-v="1">
+                <span class="rh-afore-name">Coppel</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.98<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Azteca" data-tip-detail="0.98%" data-tip-v="1">
+                <span class="rh-afore-name">Azteca</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.98<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Invercap" data-tip-detail="0.98%" data-tip-v="1">
+                <span class="rh-afore-name">Invercap</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.98<span class="rh-afore-unit">%</span></span>
+              </li>
+            </ol>
+
+            <div class="rh-afore-axis" aria-hidden="true">
+              <span>0.79%</span>
+              <span class="rh-afore-axis__mid">Rango 19 pb</span>
+              <span>0.98%</span>
+            </div>
+
+            <p class="rh-viz__meta">Promedio del sistema 0.92%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rango 19 pb<span class="fuente-badge fuente-badge--v">V</span> &middot; 1 outlier + 3 clusters &middot; En transición hacia la compresión</p>
+            <p class="rh-viz__ref"><a href="#comisiones">Tabla 2 &mdash; Sección 8</a></p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MARGEN LATERAL (rollout 2020)
+         TOC de las 14 secciones del cuerpo (Sec 1 elevada al hero) +
+         leyenda [V]/[E] + back-link contextual.
+         ========================================== -->
+    <aside class="paper__margen" aria-label="Navegación y leyenda del estudio">
+      <div class="paper__margen-sticky">
+
+        <nav class="paper__margen-nav" aria-label="Secciones del estudio">
+          <details class="paper__margen-toc-wrap" open>
+            <summary class="paper__margen-toc-summary">
+              <span class="paper__margen-toc-eyebrow">En este estudio</span>
+              <span class="paper__margen-toc-counter">14 secciones</span>
+            </summary>
+            <ol class="paper__margen-toc">
+              <li><a href="#resumen">Resumen ejecutivo</a></li>
+              <li><a href="#introduccion">Introducción</a></li>
+              <li><a href="#metodologia">Metodología</a></li>
+              <li><a href="#contexto">Contexto económico 2020</a></li>
+              <li><a href="#estructura">Estructura del SAR</a></li>
+              <li><a href="#cuentas">Cuentas individuales</a></li>
+              <li><a href="#recursos">Recursos administrados</a></li>
+              <li><a href="#comisiones">Comisiones</a></li>
+              <li><a href="#rendimientos">Rendimientos</a></li>
+              <li><a href="#reforma">Reforma de pensiones 2020</a></li>
+              <li><a href="#normativo">Marco normativo</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#conclusiones">Conclusiones</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="paper__margen-leyenda">
+          <p class="paper__margen-eyebrow">Cómo leer</p>
+          <p class="paper__margen-leyenda-intro">Cada cifra del estudio lleva un sello que indica de dónde sale y queda anclada a su fuente.</p>
+          <ul class="paper__margen-leyenda-items">
+            <li><span class="fuente-badge fuente-badge--v">V</span><span>verificado de fuente oficial directa</span></li>
+            <li><span class="fuente-badge fuente-badge--e">E</span><span>derivado o estimado, declarado</span></li>
+          </ul>
+        </div>
+
+        <a href="/pensiones/sar-29" class="paper__margen-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Volver al índice
+        </a>
+
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         CUERPO DEL PAPER
+         ========================================== -->
+    <div class="paper__body">
+
+      <!-- Sección 1 (Resumen ejecutivo) elevada al bloque visual full-width
+           encima del cuerpo (sección "paper__resumen-hero" arriba). Toda la
+           sustancia se conserva; la presentación se elevó. -->
+
+      <!-- 2. INTRODUCCIÓN -->
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Sección 2</div>
+        <h2>Introducción</h2>
+        <p>El Sistema de Ahorro para el Retiro (SAR) es el mecanismo de cuentas individuales que sustituye el régimen de reparto para trabajadores afiliados al Instituto Mexicano del Seguro Social (IMSS) y al Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado (ISSSTE). Establecido mediante la reforma a la Ley del Seguro Social de 1995 y la Ley de los Sistemas de Ahorro para el Retiro de 1996, el SAR inició operaciones el 1 de julio de 1997.</p>
+        <p>Este estudio presenta un panorama descriptivo del SAR durante el año 2020, a 23 años del inicio de operaciones del sistema. El objetivo es documentar, con datos verificables de fuentes primarias, el estado del sistema durante este periodo: estructura institucional, recursos administrados, número de cuentas, comisiones, rendimientos y eventos regulatorios significativos.</p>
+        <p>Este documento no busca emitir juicios de valor sobre el desempeño de AFOREs específicas ni constituye recomendación alguna. Los datos se presentan para que el lector forme su propio criterio con base en información verificable.</p>
+      </section>
+
+      <!-- 3. METODOLOGÍA -->
+      <section class="paper__section" id="metodologia">
+        <div class="paper__section-number">Sección 3</div>
+        <h2>Metodología</h2>
+        <p>Este estudio adopta un enfoque descriptivo con datos exclusivamente de fuentes primarias oficiales. Las cifras cuantitativas provienen de:</p>
+        <ul>
+          <li><strong>CONSAR</strong> (Comisión Nacional del Sistema de Ahorro para el Retiro): informes trimestrales al H. Congreso de la Unión, datos estadísticos de comisiones, cuentas, recursos y traspasos.</li>
+          <li><strong>INEGI</strong> (Instituto Nacional de Estadística y Geografía): Producto Interno Bruto y cuentas nacionales.</li>
+          <li><strong>Banco de México</strong>: tasas de interés de referencia e indicadores de inflación.</li>
+          <li><strong>Panel DM-SAR-DATA-001</strong>: base de datos consolidada del SAR, construida con información de las fuentes anteriores.</li>
+        </ul>
+        <p>El periodo de estudio corresponde al año calendario 2020, con referencias puntuales al cierre de 2019 para establecer comparaciones. Los datos de recursos, cuentas y comisiones se reportan al 31 de diciembre de 2020. Los rendimientos son estimaciones anualizadas con base en reportes de CONSAR.</p>
+        <p>Este estudio no realiza proyecciones ni inferencias causales. Se limita a presentar datos verificables del periodo específico.</p>
+      </section>
+
+      <!-- 4. CONTEXTO ECONÓMICO -->
+      <section class="paper__section" id="contexto">
+        <div class="paper__section-number">Sección 4</div>
+        <h2>Contexto económico 2020</h2>
+        <p>El año 2020 estuvo marcado por la pandemia de COVID-19, que generó una crisis económica global sin precedentes recientes. En México, la economía experimentó una contracción significativa, con impactos directos en el empleo formal y, por tanto, en las aportaciones al SAR.</p>
+        <p>La inflación al cierre de 2020 se ubicó en 3.15% <span class="fuente-badge fuente-badge--v">V</span>, ligeramente por encima del 2.83% <span class="fuente-badge fuente-badge--v">V</span> de 2019, manteniéndose dentro del rango objetivo del Banco de México. La tasa de referencia de Banxico cerró el año en 4.25% <span class="fuente-badge fuente-badge--v">V</span>, con un descenso acumulado de 300 puntos base desde el 7.25% <span class="fuente-badge fuente-badge--v">V</span> de diciembre de 2019, como respuesta de política monetaria ante la crisis económica.</p>
+        <p>El contexto internacional mostró volatilidad extrema en los mercados financieros durante el primer semestre, con recuperación parcial en la segunda mitad del año. Los bancos centrales a nivel global implementaron políticas monetarias expansivas y programas de estímulo económico sin precedentes. Las tasas de interés de referencia en Estados Unidos se ubicaron en niveles cercanos a cero.</p>
+        <p>Para el SAR, este contexto implicó presiones en dos frentes: por un lado, la pérdida de empleos formales redujo el flujo de aportaciones; por otro, el incremento significativo en retiros por desempleo, habilitado por disposiciones de emergencia, ejerció presión sobre los recursos administrados. Los mercados financieros volátiles afectaron los rendimientos, particularmente durante el primer semestre.</p>
+      </section>
+
+      <!-- 5. ESTRUCTURA DEL SAR -->
+      <section class="paper__section" id="estructura">
+        <div class="paper__section-number">Sección 5</div>
+        <h2>Estructura del SAR</h2>
+        <p>El marco legal del SAR está definido por la Ley de los Sistemas de Ahorro para el Retiro (DOF 23 de mayo de 1996) y la Ley del Seguro Social (DOF 21 de diciembre de 1995, vigente a partir del 1 de julio de 1997). Coexisten dos regímenes: la Ley del Seguro Social de 1973 (abrogada, con efectos vigentes para trabajadores que cotizaban antes de julio de 1997) y la Ley del Seguro Social de 1997 (para trabajadores que iniciaron cotización a partir de esa fecha).</p>
+        <p>Al cierre de 2020, operaban en México 10 Administradoras de Fondos para el Retiro (AFOREs):</p>
+        <ul>
+          <li>Azteca</li>
+          <li>Citibanamex</li>
+          <li>Coppel</li>
+          <li>Inbursa</li>
+          <li>Invercap</li>
+          <li>PensionISSSTE</li>
+          <li>Principal</li>
+          <li>Profuturo GNP</li>
+          <li>SURA</li>
+          <li>XXI Banorte</li>
+        </ul>
+        <p>La estructura de inversión del SAR se basa en Sociedades de Inversión Especializadas de Fondos para el Retiro (SIEFOREs). A partir de la reforma de 2019, las SIEFOREs operan bajo un esquema de fondos generacionales, donde cada trabajador se asigna a una SIEFORE según su año de nacimiento. Este modelo sustituyó el esquema previo de cinco SIEFOREs Básicas (SB1 a SB5) diferenciadas por edad.</p>
+        <p>Durante 2020 no se registraron cambios en el número de AFOREs operando en el sistema. La estructura de 10 administradoras se mantuvo estable respecto a 2019.</p>
+      </section>
+
+      <!-- 6. CUENTAS INDIVIDUALES -->
+      <section class="paper__section" id="cuentas">
+        <div class="paper__section-number">Sección 6</div>
+        <h2>Cuentas individuales</h2>
+        <p>Al cierre de 2020, el SAR administraba 68.15 millones de cuentas individuales, con un crecimiento de 3.1% <span class="fuente-badge fuente-badge--v">V</span> respecto a los 65.0 millones de cuentas registradas al cierre de 2019. Este incremento neto de aproximadamente 3.15 millones de cuentas se explica por la incorporación de nuevos trabajadores al sistema, netos de bajas por jubilación, fallecimiento o migración hacia la informalidad.</p>
+        <p>El crecimiento de 3.1% <span class="fuente-badge fuente-badge--v">V</span> en el número de cuentas contrasta con el contexto de contracción económica del año. La crisis de COVID-19 afectó significativamente el empleo formal, particularmente durante el segundo trimestre de 2020. Sin embargo, el dato de cuentas administradas es un stock acumulado que incluye tanto trabajadores activos como inactivos (cuentas registradas que no reciben aportaciones regulares por ausencia de relación laboral formal).</p>
+        <p>Los datos de cuentas por AFORE provienen del Panel DM-SAR-DATA-001, con información agregada del sistema reportada por CONSAR. Las cifras corresponden a registros administrativos verificados al 31 de diciembre de 2020.</p>
+      </section>
+
+      <!-- 7. RECURSOS ADMINISTRADOS -->
+      <section class="paper__section" id="recursos">
+        <div class="paper__section-number">Sección 7</div>
+        <h2>Recursos administrados</h2>
+        <p>Al cierre de 2020, el SAR administraba recursos por 4,722.27 miles de millones de pesos (mmdp), equivalentes a ~19.0% <span class="fuente-badge fuente-badge--e">E</span> del Producto Interno Bruto. Esto representa un incremento de 14.2% <span class="fuente-badge fuente-badge--v">V</span> respecto a los 4,000 mmdp <span class="fuente-badge fuente-badge--v">V</span> administrados al cierre de 2019 (~16.7% <span class="fuente-badge fuente-badge--e">E</span> del PIB).</p>
+
+        <!-- Tabla 1: Recursos 2019 vs 2020 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. Recursos administrados por el SAR, 2019 vs 2020</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th class="num">Cierre 2019</th>
+                <th class="num">Cierre 2020</th>
+                <th class="num">Variación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Recursos administrados (mmdp)</td>
+                <td class="num">4,000.00</td>
+                <td class="num">4,722.27</td>
+                <td class="num">+14.2%</td>
+              </tr>
+              <tr>
+                <td>Recursos como % del PIB</td>
+                <td class="num">~16.7%</td>
+                <td class="num">~19.0%</td>
+                <td class="num">+2.3 pp</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR (recursos administrados) e INEGI (PIB). Cifras de recursos verificadas [V]; porcentajes del PIB son estimaciones [E] con PIB preliminar 2020.</p>
+        </div>
+
+        <!-- Gráfica 1: Recursos 2019 vs 2020 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 1. Recursos administrados por el SAR, 2019 vs 2020 (mmdp)</p>
+          <div class="paper__grafica-container"><canvas id="chart-recursos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, informes trimestrales 2019-2020; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>El crecimiento de 14.2% <span class="fuente-badge fuente-badge--v">V</span> en recursos administrados en un contexto de contracción económica se explica por tres factores principales: (1) los rendimientos de las inversiones de las SIEFOREs, que compensaron parcialmente la volatilidad del primer semestre; (2) las aportaciones acumuladas del año, aunque menores a las proyectadas debido a la pérdida de empleos formales; y (3) el efecto denominador del PIB, que también experimentó contracción.</p>
+        <p>El incremento de 2.3 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> en la razón recursos/PIB (de ~16.7% <span class="fuente-badge fuente-badge--e">E</span> a ~19.0% <span class="fuente-badge fuente-badge--e">E</span>) es particularmente significativo dado el contexto de crisis. Refleja tanto el crecimiento nominal de los recursos como la reducción del PIB en términos nominales relativos.</p>
+      </section>
+
+      <!-- 8. COMISIONES -->
+      <section class="paper__section" id="comisiones">
+        <div class="paper__section-number">Sección 8</div>
+        <h2>Comisiones</h2>
+        <p>Al cierre de 2020, la comisión promedio del sistema se ubicó en 0.92% <span class="fuente-badge fuente-badge--v">V</span> sobre saldo, con una reducción de 6 puntos base respecto al 0.98% <span class="fuente-badge fuente-badge--v">V</span> de 2019. Este nivel representa el punto más bajo en la historia del SAR desde la transición al esquema de comisión sobre saldo en 2008.</p>
+
+        <!-- Tabla 2: Comisiones por AFORE -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Comisiones por AFORE a diciembre de 2020 (% sobre saldo, ordenadas de menor a mayor)</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Comisión (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PensionISSSTE</td>
+                <td class="num">0.79</td>
+              </tr>
+              <tr>
+                <td>XXI Banorte</td>
+                <td class="num">0.88</td>
+              </tr>
+              <tr>
+                <td>Citibanamex</td>
+                <td class="num">0.88</td>
+              </tr>
+              <tr>
+                <td>Profuturo GNP</td>
+                <td class="num">0.92</td>
+              </tr>
+              <tr>
+                <td>SURA</td>
+                <td class="num">0.92</td>
+              </tr>
+              <tr>
+                <td>Inbursa</td>
+                <td class="num">0.92</td>
+              </tr>
+              <tr>
+                <td>Principal</td>
+                <td class="num">0.97</td>
+              </tr>
+              <tr>
+                <td>Coppel</td>
+                <td class="num">0.98</td>
+              </tr>
+              <tr>
+                <td>Azteca</td>
+                <td class="num">0.98</td>
+              </tr>
+              <tr>
+                <td>Invercap</td>
+                <td class="num">0.98</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Datos verificados [V] al 31 de diciembre de 2020.</p>
+        </div>
+
+        <!-- Gráfica 2: Comisiones por AFORE -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 2. Comisiones por AFORE a diciembre de 2020 (% sobre saldo)</p>
+          <div class="paper__grafica-container paper__grafica-container--tall"><canvas id="chart-comisiones"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. La línea punteada indica el promedio del sistema (0.92% <span class="fuente-badge fuente-badge--v">V</span>).</p>
+        </div>
+
+        <p>El spread entre la comisión más alta (0.98% <span class="fuente-badge fuente-badge--v">V</span>, cobrada por Invercap, Coppel y Azteca) y la más baja (0.79% <span class="fuente-badge fuente-badge--v">V</span>, PensionISSSTE) se ubicó en 0.19 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>, ligeramente menor a los 0.22 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> de 2019. Esta compresión del rango refleja la tendencia de convergencia gradual en las comisiones del sistema.</p>
+
+        <!-- Tabla 4: Evolución comisión promedio -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 4. Evolución de la comisión promedio del SAR, 2008-2020 (% sobre saldo)</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th class="num">Año</th>
+                <th class="num">Comisión promedio</th>
+                <th class="num">Variación anual</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="num">2008</td>
+                <td class="num">1.92</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td class="num">2009</td>
+                <td class="num">1.75</td>
+                <td class="num">-0.17</td>
+              </tr>
+              <tr>
+                <td class="num">2010</td>
+                <td class="num">1.62</td>
+                <td class="num">-0.13</td>
+              </tr>
+              <tr>
+                <td class="num">2011</td>
+                <td class="num">1.48</td>
+                <td class="num">-0.14</td>
+              </tr>
+              <tr>
+                <td class="num">2012</td>
+                <td class="num">1.38</td>
+                <td class="num">-0.10</td>
+              </tr>
+              <tr>
+                <td class="num">2013</td>
+                <td class="num">1.29</td>
+                <td class="num">-0.09</td>
+              </tr>
+              <tr>
+                <td class="num">2014</td>
+                <td class="num">1.19</td>
+                <td class="num">-0.10</td>
+              </tr>
+              <tr>
+                <td class="num">2015</td>
+                <td class="num">1.11</td>
+                <td class="num">-0.08</td>
+              </tr>
+              <tr>
+                <td class="num">2016</td>
+                <td class="num">1.06</td>
+                <td class="num">-0.05</td>
+              </tr>
+              <tr>
+                <td class="num">2017</td>
+                <td class="num">1.03</td>
+                <td class="num">-0.03</td>
+              </tr>
+              <tr>
+                <td class="num">2018</td>
+                <td class="num">1.02</td>
+                <td class="num">-0.01</td>
+              </tr>
+              <tr>
+                <td class="num">2019</td>
+                <td class="num">0.98</td>
+                <td class="num">-0.04</td>
+              </tr>
+              <tr>
+                <td class="num">2020</td>
+                <td class="num">0.92</td>
+                <td class="num">-0.06</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Series históricas verificadas [V].</p>
+        </div>
+
+        <!-- Gráfica 3: Tendencia comisión promedio -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 3. Evolución de la comisión promedio del SAR, 2008-2020 (% sobre saldo)</p>
+          <div class="paper__grafica-container"><canvas id="chart-tendencia"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR.</p>
+        </div>
+
+        <p>Desde 2008, la comisión promedio del sistema ha descendido en forma sostenida de 1.92% <span class="fuente-badge fuente-badge--v">V</span> a 0.92% <span class="fuente-badge fuente-badge--v">V</span>, una reducción acumulada de 100 puntos base (52.1% <span class="fuente-badge fuente-badge--v">V</span> en términos porcentuales). El ritmo de descenso se ha desacelerado en años recientes: mientras que entre 2008 y 2014 la reducción promedio fue de ~12 puntos base anuales, entre 2015 y 2020 fue de ~4 puntos base anuales.</p>
+        <p>Esta trayectoria refleja tanto la presión competitiva entre AFOREs como las modificaciones regulatorias implementadas por CONSAR para incentivar la reducción de comisiones, incluyendo el esquema de asignación de trabajadores registrados por primera vez a las AFOREs con menores comisiones.</p>
+      </section>
+
+      <!-- 9. RENDIMIENTOS -->
+      <section class="paper__section" id="rendimientos">
+        <div class="paper__section-number">Sección 9</div>
+        <h2>Rendimientos</h2>
+        <p>El rendimiento nominal estimado del SAR durante 2020 se ubicó en aproximadamente ~11% <span class="fuente-badge fuente-badge--e">E</span>, con un rendimiento real de ~8% <span class="fuente-badge fuente-badge--e">E</span> (descontando inflación de 3.15% <span class="fuente-badge fuente-badge--v">V</span>). Estos datos son estimaciones [E] basadas en promedios ponderados de las distintas SIEFOREs generacionales y reportes trimestrales de CONSAR. No existe un dato oficial único de rendimiento del sistema, ya que cada SIEFORE generacional tiene rendimientos diferenciados según su composición de activos y perfil de riesgo.</p>
+        <p>Es importante destacar que los rendimientos de 2020 reflejan dos periodos marcadamente distintos: el primer semestre mostró volatilidad extrema en los mercados financieros globales debido a la pandemia COVID-19, con caídas significativas en marzo seguidas de recuperación parcial en el segundo trimestre; el segundo semestre registró una recuperación sostenida en los mercados accionarios y de renta fija, impulsada por políticas monetarias expansivas y programas de estímulo fiscal.</p>
+        <p>El rendimiento nominal estimado de ~11% <span class="fuente-badge fuente-badge--e">E</span> en 2020 es ligeramente inferior al ~12% <span class="fuente-badge fuente-badge--e">E</span> estimado para 2019. El rendimiento real de ~8% <span class="fuente-badge fuente-badge--e">E</span> también registra un descenso respecto al ~9% <span class="fuente-badge fuente-badge--e">E</span> de 2019. Esta reducción refleja tanto la volatilidad de los mercados como la reducción en tasas de interés nominales a nivel global.</p>
+        <p>El rendimiento neto para el ahorrador, descontando la comisión promedio de 0.92% <span class="fuente-badge fuente-badge--v">V</span>, se estima en aproximadamente ~10.08% <span class="fuente-badge fuente-badge--e">E</span> nominal y ~7.08% <span class="fuente-badge fuente-badge--e">E</span> real. La reducción de 6 puntos base en la comisión promedio respecto a 2019 (de 0.98% <span class="fuente-badge fuente-badge--v">V</span> a 0.92% <span class="fuente-badge fuente-badge--v">V</span>) representa un beneficio incremental en el rendimiento neto para los ahorradores.</p>
+        <p>Dado que los rendimientos varían significativamente entre SIEFOREs generacionales (los fondos con mayor componente de renta variable muestran mayor volatilidad y rendimientos potencialmente superiores en el largo plazo, mientras que los fondos más conservadores tienen menor volatilidad), estas cifras deben interpretarse como indicadores agregados del sistema. Los trabajadores más jóvenes (en fondos con mayor inversión en renta variable) experimentaron rendimientos distintos a los trabajadores próximos a pensionarse (en fondos más conservadores).</p>
+      </section>
+
+      <!-- 10. REFORMA DE PENSIONES 2020 -->
+      <section class="paper__section" id="reforma">
+        <div class="paper__section-number">Sección 10</div>
+        <h2>Reforma de pensiones 2020</h2>
+        <p>El evento más significativo de 2020 para el SAR fue la aprobación en diciembre de la reforma más importante al sistema de pensiones desde su creación en 1997. Esta reforma, publicada en el Diario Oficial de la Federación el 16 de diciembre de 2020, modifica la Ley del Seguro Social con cambios estructurales que incrementan significativamente los recursos futuros del sistema.</p>
+
+        <h3>Componentes principales de la reforma</h3>
+        
+        <p><strong>1. Incremento gradual de la aportación patronal.</strong> La aportación del empleador a la cuenta individual se incrementa de 6.5% <span class="fuente-badge fuente-badge--v">V</span> a 15% <span class="fuente-badge fuente-badge--v">V</span> del salario base de cotización, de forma gradual entre 2023 y 2030. El incremento es diferenciado por nivel salarial: mayor para trabajadores con salarios más bajos (hasta 4 UMA) y escalonado para salarios superiores.</p>
+        
+        <p><strong>2. Reducción de semanas de cotización requeridas.</strong> Las semanas de cotización necesarias para acceder a una pensión bajan de 1,250 (aproximadamente 24 años) a 750 semanas (aproximadamente 14.4 años), de forma gradual. El cambio inicia en 2021 con 750 semanas y se mantiene para nuevas generaciones de trabajadores.</p>
+        
+        <p><strong>3. Aumento de la pensión garantizada.</strong> El monto de la pensión garantizada (mínima que otorga el Estado a quienes cumplen requisitos pero cuyo saldo es insuficiente) se incrementa en 27.4% <span class="fuente-badge fuente-badge--v">V</span>, pasando de aproximadamente 2,622 pesos mensuales a 3,289 pesos mensuales (valores de 2020).</p>
+        
+        <p><strong>4. Incremento del tope de salario de cotización.</strong> El límite superior de salario base de cotización sube de 10 UMA a 25 UMA, ampliando la base sobre la cual se calculan las aportaciones para trabajadores con salarios más altos.</p>
+
+        <h3>Implicaciones para el SAR</h3>
+        
+        <p>Esta reforma tiene implicaciones de largo plazo para el SAR. El incremento en aportaciones patronales se traducirá en flujos significativamente mayores hacia las cuentas individuales a partir de 2023, con efecto acumulativo hasta 2030. Las proyecciones de CONSAR estiman que los recursos administrados podrían incrementarse entre 30% <span class="fuente-badge fuente-badge--v">V</span> y 40% <span class="fuente-badge fuente-badge--v">V</span> adicionales en el horizonte 2030-2040, comparado con el escenario sin reforma.</p>
+        
+        <p>La reducción de semanas de cotización amplía la cobertura del sistema, permitiendo que más trabajadores accedan a una pensión del régimen de cuentas individuales. Esto tiene efectos en la distribución de recursos entre pensionados actuales y futuros, y potencialmente reduce la carga fiscal del Estado por pensiones mínimas garantizadas.</p>
+        
+        <p>La reforma no modifica el esquema de comisiones sobre saldo ni la estructura de SIEFOREs generacionales. Tampoco altera los requisitos de edad para pensión (60 años para cesantía en edad avanzada, 65 para vejez) ni el mecanismo de retiros programados versus rentas vitalicias.</p>
+
+        <!-- Tabla 3: Eventos corporativos 2020 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 3. Eventos regulatorios y corporativos significativos en 2020</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Diciembre 2020</td>
+                <td>Reforma</td>
+                <td>Reforma a la Ley del Seguro Social: aportación patronal de 6.5% a 15% (gradual a 2030), semanas de cotización de 1,250 a 750 (gradual), pensión garantizada +27.4%, tope de salario de cotización de 10 a 25 UMA.</td>
+              </tr>
+              <tr>
+                <td>2020 (año)</td>
+                <td>COVID-19</td>
+                <td>Incremento significativo en retiros por desempleo debido a la pandemia. Modificaciones temporales en procedimientos administrativos. Volatilidad extrema en mercados financieros durante Q1-Q2.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Diario Oficial de la Federación (DOF), 16 de diciembre de 2020; CONSAR, informes trimestrales 2020.</p>
+        </div>
+
+        <p>No se registraron fusiones, adquisiciones ni cambios en el número de AFOREs operando durante 2020. La estructura de 10 administradoras se mantuvo estable respecto a 2019.</p>
+      </section>
+
+      <!-- 11. MARCO NORMATIVO -->
+      <section class="paper__section" id="normativo">
+        <div class="paper__section-number">Sección 11</div>
+        <h2>Marco normativo</h2>
+        <p>El marco legal del SAR durante 2020 se sustenta en las siguientes disposiciones:</p>
+        
+        <p><strong>Ley de los Sistemas de Ahorro para el Retiro.</strong> Publicada en el Diario Oficial de la Federación el 23 de mayo de 1996, establece las bases de operación de las AFOREs y SIEFOREs, facultades de CONSAR, derechos de los trabajadores y régimen de inversión. Ha sido reformada en múltiples ocasiones, siendo la más reciente (al cierre de 2020) la publicada el 10 de enero de 2020.</p>
+        
+        <p><strong>Ley del Seguro Social (1995).</strong> Publicada en el Diario Oficial de la Federación el 21 de diciembre de 1995, vigente a partir del 1 de julio de 1997. Define el régimen de cuentas individuales para trabajadores afiliados al IMSS, estructura de aportaciones (obrero-patronal-estatal), y mecanismos de pensión. La reforma de diciembre de 2020 modifica artículos clave sobre aportaciones y requisitos de acceso a pensión.</p>
+        
+        <p><strong>Ley del Seguro Social (1973).</strong> Publicada en el Diario Oficial de la Federación el 12 de marzo de 1973, abrogada a partir del 1 de julio de 1997, pero con efectos vigentes para trabajadores que cotizaban antes de esa fecha (régimen de transición). Estos trabajadores conservan el derecho a elegir entre el esquema de cuentas individuales o el régimen de beneficio definido al momento de pensionarse.</p>
+        
+        <p><strong>Ley del Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado.</strong> Publicada en el Diario Oficial de la Federación el 31 de marzo de 2007, establece el régimen de cuentas individuales para trabajadores del Estado a partir del 1 de enero de 2008, con disposiciones específicas sobre bono de pensión ISSSTE y transición desde el régimen previo.</p>
+        
+        <p><strong>Circular Única de SIEFOREs.</strong> Disposición de carácter general emitida por CONSAR que regula el régimen de inversión de las SIEFOREs, límites de inversión por clase de activo, emisor y riesgo, y requisitos de revelación de información. Durante 2020, la Circular vigente incorporó el esquema de fondos generacionales implementado en 2019.</p>
+        
+        <p>Las interpretaciones y aplicaciones específicas de estas disposiciones corresponden a las autoridades competentes (CONSAR, IMSS, ISSSTE, tribunales). Este documento se limita a identificar el marco normativo aplicable sin emitir interpretaciones jurídicas.</p>
+      </section>
+
+      <!-- 12. LIMITACIONES -->
+      <section class="paper__section" id="limitaciones">
+        <div class="paper__section-number">Sección 12</div>
+        <h2>Limitaciones</h2>
+        <p>Este estudio tiene las siguientes limitaciones metodológicas y de alcance:</p>
+        
+        <p><strong>1. Alcance descriptivo.</strong> El estudio documenta datos del periodo 2020 sin realizar análisis causal, proyecciones ni inferencias sobre comportamiento futuro del sistema. Las observaciones se limitan a describir lo ocurrido durante el año calendario específico.</p>
+        
+        <p><strong>2. Periodo específico.</strong> Los datos corresponden exclusivamente a 2020. Comparaciones intertemporales se limitan a 2019 como año base. No se extrapolan tendencias hacia periodos futuros ni se analizan series históricas extensas más allá de la tabla de evolución de comisiones.</p>
+        
+        <p><strong>3. Datos estimados.</strong> Los rendimientos reportados son estimaciones [E] basadas en promedios ponderados del sistema. Los porcentajes de recursos como proporción del PIB son estimaciones [E] calculadas con cifras de PIB preliminares. Todas las estimaciones están claramente identificadas en el texto y tablas.</p>
+        
+        <p><strong>4. Datos agregados.</strong> Los datos de cuentas individuales y recursos por AFORE pueden presentar variaciones menores según la metodología de conteo utilizada (trabajadores activos vs. cuentas registradas, fechas de corte, tratamiento de cuentas en proceso de traspaso). Se utilizan datos consolidados del Panel DM-SAR-DATA-001 para consistencia.</p>
+        
+        <p><strong>5. Ausencia de análisis causal.</strong> Este estudio no establece relaciones causales entre variables (por ejemplo, entre comisiones y rendimientos, o entre reforma y recursos futuros). Los datos se presentan de forma descriptiva para que el lector realice sus propias inferencias.</p>
+        
+        <p><strong>6. Fuentes disponibles.</strong> El análisis se basa exclusivamente en fuentes públicas oficiales (CONSAR, INEGI, Banxico). No se tuvieron en cuenta datos internos de AFOREs, encuestas a trabajadores, ni información no publicada por reguladores. Esto puede limitar la profundidad del análisis en ciertos aspectos operativos del sistema.</p>
+        
+        <p><strong>7. Rendimientos por SIEFORE.</strong> Los rendimientos reportados son estimaciones agregadas del sistema. Cada SIEFORE generacional tiene rendimientos específicos que pueden diferir significativamente del promedio, particularmente en años con alta volatilidad de mercados. El estudio no desagrega rendimientos por fondo generacional específico.</p>
+        
+        <p><strong>8. Efectos de la reforma 2020.</strong> La reforma de diciembre de 2020 tendrá efectos observables a partir de 2023. Este estudio documenta la aprobación de la reforma pero no puede cuantificar sus efectos, ya que éstos se materializarán en años posteriores.</p>
+      </section>
+
+      <!-- 13. CONCLUSIONES -->
+      <section class="paper__section" id="conclusiones">
+        <div class="paper__section-number">Sección 13</div>
+        <h2>Conclusiones</h2>
+        <p>Con base en los datos presentados, se identifican las siguientes observaciones sobre el SAR durante 2020:</p>
+        <ol>
+          <li>Los recursos administrados alcanzaron 4,722.27 miles de millones de pesos al cierre de 2020 (~19.0% <span class="fuente-badge fuente-badge--e">E</span> del PIB), con un crecimiento de 14.2% <span class="fuente-badge fuente-badge--v">V</span> respecto a 2019 a pesar del contexto de pandemia COVID-19 y contracción económica. Este crecimiento refleja los rendimientos de las inversiones, las aportaciones del año y el efecto denominador de un PIB reducido.</li>
+          
+          <li>El sistema administraba 68.15 millones de cuentas individuales, con crecimiento de 3.1% <span class="fuente-badge fuente-badge--v">V</span> vs 2019. Este incremento neto de aproximadamente 3.15 millones de cuentas contrasta con la pérdida de empleos formales durante el año, evidenciando que las cuentas registradas (stock) incorporan tanto trabajadores activos como inactivos.</li>
+          
+          <li>La comisión promedio del sistema se ubicó en 0.92% <span class="fuente-badge fuente-badge--v">V</span> sobre saldo, alcanzando su nivel más bajo desde la transición al esquema sobre saldo en 2008. La reducción acumulada desde 2008 es de 100 puntos base (de 1.92% <span class="fuente-badge fuente-badge--v">V</span> a 0.92% <span class="fuente-badge fuente-badge--v">V</span>), equivalente a 52.1% <span class="fuente-badge fuente-badge--v">V</span> en términos porcentuales. El spread entre la comisión más alta (0.98% <span class="fuente-badge fuente-badge--v">V</span>) y más baja (0.79% <span class="fuente-badge fuente-badge--v">V</span>) fue de 0.19 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>.</li>
+          
+          <li>El rendimiento nominal estimado fue de ~11% <span class="fuente-badge fuente-badge--e">E</span> y el real de ~8% <span class="fuente-badge fuente-badge--e">E</span>, ligeramente por debajo de los niveles de 2019 (~12% <span class="fuente-badge fuente-badge--e">E</span> nominal, ~9% <span class="fuente-badge fuente-badge--e">E</span> real). Los rendimientos reflejan la alta volatilidad de los mercados financieros durante el primer semestre (crisis COVID-19) seguida de recuperación en el segundo semestre impulsada por políticas monetarias expansivas.</li>
+          
+          <li>La aprobación en diciembre de 2020 de la reforma más importante al sistema de pensiones en 25 años representa un punto de inflexión estructural. El incremento gradual de aportaciones patronales de 6.5% <span class="fuente-badge fuente-badge--v">V</span> a 15% <span class="fuente-badge fuente-badge--v">V</span> (2023-2030), combinado con la reducción de semanas de cotización de 1,250 a 750 y el aumento de 27.4% <span class="fuente-badge fuente-badge--v">V</span> en la pensión garantizada, modifican sustancialmente las trayectorias de acumulación y cobertura del sistema.</li>
+          
+          <li>La pandemia COVID-19 generó presiones en dos direcciones: incremento significativo en retiros por desempleo (reducción de recursos) y volatilidad extrema en mercados financieros. Sin embargo, los recursos del sistema crecieron en términos nominales y como proporción del PIB, evidenciando la resiliencia del modelo de cuentas individuales.</li>
+          
+          <li>El contexto macroeconómico mostró una reducción de 300 puntos base en la tasa de referencia de Banxico (de 7.25% <span class="fuente-badge fuente-badge--v">V</span> en diciembre 2019 a 4.25% <span class="fuente-badge fuente-badge--v">V</span> en diciembre 2020) como respuesta de política monetaria a la crisis económica. La inflación se mantuvo en niveles controlados (3.15% <span class="fuente-badge fuente-badge--v">V</span> al cierre), dentro del rango objetivo del banco central.</li>
+        </ol>
+        
+        <p>Los datos presentados corresponden exclusivamente al periodo enero-diciembre de 2020. Los efectos de la reforma de pensiones se materializarán a partir de 2023 y no son cuantificables con la información del año de estudio.</p>
+      </section>
+
+      <hr class="paper__separator">
+
+      <!-- 14. FUENTES -->
+      <section class="paper__section" id="fuentes">
+        <div class="paper__section-number">Sección 14</div>
+        <h2>Fuentes</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li id="fuente-F1"><span class="fuente-inst">CONSAR</span> (Comisión Nacional del Sistema de Ahorro para el Retiro). <span class="fuente-titulo">Informes Trimestrales al H. Congreso de la Unión sobre la situación del SAR, 2020</span>. México, 2020. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            
+            <li id="fuente-F2"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Datos estadísticos del SAR: comisiones, cuentas, recursos y traspasos</span>. México, 2020. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            
+            <li id="fuente-F3"><span class="fuente-inst">INEGI</span> (Instituto Nacional de Estadística y Geografía). <span class="fuente-titulo">Producto Interno Bruto y cuentas nacionales de México, 2020</span>. México, 2021. <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">https://www.inegi.org.mx</a></li>
+            
+            <li id="fuente-F4"><span class="fuente-inst">Banco de México</span> (Banxico). <span class="fuente-titulo">Indicadores económicos: tasas de interés e inflación, 2020</span>. México, 2020. <a href="https://www.banxico.org.mx" target="_blank" rel="noopener">https://www.banxico.org.mx</a></li>
+            
+            <li id="fuente-F5"><span class="fuente-inst">Datos México</span>. <span class="fuente-titulo">Panel DM-SAR-DATA-001: Base de datos consolidada del SAR</span>. México, 2026. <a href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/" target="_blank" rel="noopener">https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/</a></li>
+            
+            <li id="fuente-F6"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Ley del Seguro Social y de la Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 16 de diciembre de 2020. <a href="https://www.dof.gob.mx" target="_blank" rel="noopener">https://www.dof.gob.mx</a></li>
+            
+            <li id="fuente-F7"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 23 de mayo de 1996. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+            
+            <li id="fuente-F8"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Seguro Social</span>. Diario Oficial de la Federación, 21 de diciembre de 1995. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+          </ol>
+          <p>Fecha de consulta de fuentes electrónicas: abril de 2026.</p>
+          <p class="paper__fuentes-leyenda"><span class="fuente-badge fuente-badge--v">V</span> dato verificado de fuente oficial directa &middot; <span class="fuente-badge fuente-badge--e">E</span> dato estimado o derivado, declarado como tal &middot; estándar editorial del observatorio.</p>
+        </div>
+      </section>
+
+      <!-- DECLARACIONES -->
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interés:</strong> El observatorio Datos México declara la ausencia de conflictos de interés en la elaboración de este estudio. Datos México no tiene relación comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> Todas las cifras cuantitativas presentadas en este estudio provienen de fuentes primarias oficiales (CONSAR, INEGI, Banxico) y del Panel DM-SAR-DATA-001. No se utilizaron fuentes secundarias para datos cuantitativos.</p>
+        <p><strong>Alcance:</strong> Este documento tiene carácter informativo y no constituye asesoría financiera, legal ni recomendación alguna sobre productos, servicios o AFOREs específicas.</p>
+      </div>
+
+    </div><!-- /paper__body -->
+
+
+      <!-- DE LA LECTURA AL CÁLCULO -->
+      <aside class="paper__calc-cta">
+        <p class="paper__calc-cta-eyebrow">De la lectura al cálculo</p>
+        <p class="paper__calc-cta-body">
+          Los datos de esta serie alimentan las <strong>calculadoras del observatorio</strong>: herramientas
+          educativas con supuestos públicos, fuentes oficiales versionadas y validación actuarial.
+          <a href="/pensiones/calculadoras">Calcula tu caso →</a>
+        </p>
+      </aside>
+
+  </main>
+
+  <!-- Scripts -->
+
+  <!-- Tooltip unificado + hover-por-área Ronda 6.
+       Un solo sistema premium para sparkline, barras y ticks:
+       - Contenido ASCII puro en data-tip-* (mata "?" del `·` U+00B7 y `[V]`).
+       - Detección del punto MÁS CERCANO por overlay en sparkline y escala.
+       - Marcador activo sincronizado con el tooltip.
+       - Fallback teclado / focus / touch preservado. -->
+  <script>
+  (function () {
+    'use strict';
+    var container = document.querySelector('.paper__resumen-hero-inner');
+    var tip       = document.getElementById('rhTip');
+    if (!container || !tip) return;
+    var titleEl   = tip.querySelector('.rh-tip__title');
+    var detailTx  = tip.querySelector('.rh-tip__detail-text');
+    var badgeEl   = tip.querySelector('.rh-tip__badge');
+    var noteEl    = tip.querySelector('.rh-tip__note');
+    var hideTimer;
+    var currentActive = null;
+
+    function positionOverElement(el) {
+      var r = el.getBoundingClientRect();
+      var c = container.getBoundingClientRect();
+      tip.style.left = (r.left - c.left + r.width / 2) + 'px';
+      tip.style.top  = (r.top  - c.top) + 'px';
+    }
+
+    function showFor(el) {
+      if (!el || !el.dataset.tipTitle) return;
+      clearTimeout(hideTimer);
+      titleEl.textContent = el.dataset.tipTitle;
+      detailTx.textContent = el.dataset.tipDetail || '';
+      noteEl.textContent = el.dataset.tipNote || '';
+      noteEl.style.display = el.dataset.tipNote ? 'block' : 'none';
+      badgeEl.style.display = el.dataset.tipV === '1' ? 'inline-block' : 'none';
+      positionOverElement(el);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tip.classList.add('is-visible');
+          tip.setAttribute('aria-hidden', 'false');
+        });
+      });
+    }
+    function hide() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('is-visible');
+        tip.setAttribute('aria-hidden', 'true');
+        if (currentActive && currentActive.classList) {
+          currentActive.classList.remove('is-active');
+        }
+        currentActive = null;
+        var activeDot = document.querySelector('.rh-spark__active');
+        if (activeDot) activeDot.setAttribute('opacity', '0');
+      }, 80);
+    }
+
+    function setActive(el) {
+      if (currentActive === el) return;
+      if (currentActive && currentActive.classList) currentActive.classList.remove('is-active');
+      currentActive = el;
+      if (el && el.classList) el.classList.add('is-active');
+    }
+
+    // ---------- 1. Sparkline: hover POR ÁREA ----------
+    var sparkSvg = document.querySelector('.rh-spark__svg');
+    var sparkOverlay = document.querySelector('.rh-spark__overlay');
+    var sparkPoints = Array.prototype.slice.call(document.querySelectorAll('.rh-spark__point'));
+    var activeDot = document.querySelector('.rh-spark__active');
+
+    if (sparkSvg && sparkOverlay && sparkPoints.length) {
+      var pointCoords = sparkPoints.map(function (p) {
+        return { el: p, cx: parseFloat(p.getAttribute('cx')), cy: parseFloat(p.getAttribute('cy')) };
+      });
+
+      function handleSparkMove(e) {
+        var svgRect = sparkSvg.getBoundingClientRect();
+        var xInPx = (e.clientX !== undefined ? e.clientX : e.touches[0].clientX) - svgRect.left;
+        var xInVb = xInPx / svgRect.width * 720; // viewBox width
+        // Punto más cercano por X
+        var nearest = pointCoords[0], minD = Math.abs(pointCoords[0].cx - xInVb);
+        for (var i = 1; i < pointCoords.length; i++) {
+          var d = Math.abs(pointCoords[i].cx - xInVb);
+          if (d < minD) { minD = d; nearest = pointCoords[i]; }
+        }
+        // Mueve el marcador activo al punto seleccionado
+        if (activeDot) {
+          activeDot.setAttribute('cx', nearest.cx);
+          activeDot.setAttribute('cy', nearest.cy);
+          activeDot.setAttribute('opacity', '1');
+        }
+        setActive(nearest.el);
+        showFor(nearest.el);
+      }
+
+      sparkOverlay.addEventListener('mousemove', handleSparkMove);
+      sparkOverlay.addEventListener('mouseleave', hide);
+      sparkOverlay.addEventListener('touchstart', handleSparkMove, { passive: true });
+      sparkOverlay.addEventListener('touchmove', handleSparkMove, { passive: true });
+    }
+
+    // ---------- 2. Escala AFOREs: hover POR ÁREA ----------
+    var scaleTrack = document.querySelector('.rh-viz__scale-track');
+    if (scaleTrack) {
+      var scaleTargets = Array.prototype.slice.call(
+        scaleTrack.querySelectorAll('[data-tip-title][data-tip-pos]')
+      );
+      function handleScaleMove(e) {
+        var rect = scaleTrack.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width * 100;
+        var nearest = scaleTargets[0];
+        var minD = Math.abs(parseFloat(nearest.dataset.tipPos) - pct);
+        for (var i = 1; i < scaleTargets.length; i++) {
+          var d = Math.abs(parseFloat(scaleTargets[i].dataset.tipPos) - pct);
+          if (d < minD) { minD = d; nearest = scaleTargets[i]; }
+        }
+        setActive(nearest);
+        showFor(nearest);
+      }
+      scaleTrack.addEventListener('mousemove', handleScaleMove);
+      scaleTrack.addEventListener('mouseleave', hide);
+      scaleTrack.addEventListener('touchmove', function (e) {
+        if (e.touches && e.touches[0]) {
+          handleScaleMove({ clientX: e.touches[0].clientX });
+        }
+      }, { passive: true });
+    }
+
+    // ---------- 3. Focus por teclado en todos los data-tip-title ----------
+    var focusables = container.querySelectorAll('[data-tip-title][tabindex]');
+    Array.prototype.forEach.call(focusables, function (el) {
+      el.addEventListener('focus', function () { setActive(el); showFor(el); });
+      el.addEventListener('blur', hide);
+    });
+
+    // ---------- 4. Rows generosas: barras Recursos + rows AFORE ----------
+    var hoverRows = container.querySelectorAll('.rh-viz__bar-row[data-tip-title], .rh-afore-row[data-tip-title]');
+    Array.prototype.forEach.call(hoverRows, function (el) {
+      el.addEventListener('mouseenter', function () { setActive(el); showFor(el); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('touchstart', function () { setActive(el); showFor(el); }, { passive: true });
+    });
+
+    // ---------- 5. Tocar fuera oculta el tooltip ----------
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('[data-tip-title], .rh-spark__overlay, .rh-viz__scale-track, .rh-afore-row')) hide();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      tip.classList.remove('is-visible');
+      if (activeDot) activeDot.setAttribute('opacity', '0');
+    });
+  })();
+  </script>
+
+  <!-- Gráficas del paper -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navy = '#1B2A5E';
+    var gold = '#B8943E';
+    var bgAlt = '#F4F5FA';
+    var gris = '#9CA3AF';
+
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = '#4B5563';
+
+    // -- Gráfica 1: Recursos administrados 2019 vs 2020 (barras verticales) --
+    new Chart(document.getElementById('chart-recursos'), {
+      type: 'bar',
+      data: {
+        labels: ['Cierre 2019', 'Cierre 2020'],
+        datasets: [{
+          label: 'Recursos (mmdp)',
+          data: [4000.00, 4722.27],
+          backgroundColor: [navy, gold],
+          borderRadius: 4,
+          barPercentage: 0.5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                var pib = ctx.dataIndex === 0 ? '16.7' : '19.0';
+                return '~' + ctx.parsed.y.toLocaleString() + ' mmdp (' + pib + '% del PIB)';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 5200,
+            title: { display: true, text: 'Miles de millones de pesos (mmdp)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'pibLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          var pibValues = ['~16.7% del PIB', '~19.0% del PIB'];
+          ctx.save();
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(bar, i) {
+            ctx.fillText(pibValues[i], bar.x, bar.y - 8);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+
+    // -- Gráfica 2: Comisiones por AFORE (barras horizontales) --
+    new Chart(document.getElementById('chart-comisiones'), {
+      type: 'bar',
+      data: {
+        labels: ['Invercap', 'Azteca', 'Coppel', 'Principal', 'Inbursa', 'SURA', 'Profuturo GNP', 'Citibanamex', 'XXI Banorte', 'PensionISSSTE'],
+        datasets: [{
+          label: 'Comisión (%)',
+          data: [0.98, 0.98, 0.98, 0.97, 0.92, 0.92, 0.92, 0.88, 0.88, 0.79],
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.x.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            min: 0,
+            max: 1.1,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          y: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'promedioLine',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var xAxis = chart.scales.x;
+          var yAxis = chart.scales.y;
+          var promedio = 0.92;
+          var xPos = xAxis.getPixelForValue(promedio);
+          
+          ctx.save();
+          ctx.setLineDash([6, 4]);
+          ctx.strokeStyle = gold;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(xPos, yAxis.top);
+          ctx.lineTo(xPos, yAxis.bottom);
+          ctx.stroke();
+          
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.fillStyle = gold;
+          ctx.textAlign = 'center';
+          ctx.fillText('Promedio 0.92%', xPos, yAxis.top - 8);
+          ctx.restore();
+        }
+      }]
+    });
+
+    // -- Gráfica 3: Tendencia comisión promedio 2008-2020 (línea) --
+    new Chart(document.getElementById('chart-tendencia'), {
+      type: 'line',
+      data: {
+        labels: ['2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+        datasets: [{
+          label: 'Comisión promedio (%)',
+          data: [1.92, 1.75, 1.62, 1.48, 1.38, 1.29, 1.19, 1.11, 1.06, 1.03, 1.02, 0.98, 0.92],
+          borderColor: navy,
+          borderWidth: 3,
+          pointRadius: 6,
+          pointBackgroundColor: navy,
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          tension: 0.3,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.y.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            min: 0.8,
+            max: 2.0,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'dataLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          ctx.save();
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.fillStyle = navy;
+          ctx.textAlign = 'center';
+          meta.data.forEach(function(point, i) {
+            var value = chart.data.datasets[0].data[i];
+            ctx.fillText(value.toFixed(2) + '%', point.x, point.y - 12);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+  });
+  </script>
+</body>
+</html>

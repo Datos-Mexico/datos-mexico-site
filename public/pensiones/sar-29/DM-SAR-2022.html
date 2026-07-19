@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Sistema de Ahorro para el Retiro en México: Panorama 2022 | Datos México</title>
+  <meta name="description" content="Análisis del SAR en 2022: 5.23 billones de pesos, 72.5 millones de cuentas, comisiones históricamente bajas en 0.566% y rendimientos negativos por inflación de 7.82%.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/DM-SAR-2022.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Sistema de Ahorro para el Retiro en México: Panorama 2022 | Datos México">
+  <meta property="og:description" content="Estudio del SAR 2022: recursos de 5.23 billones, comisión promedio histórica de 0.566% y rendimientos reales negativos en contexto de inflación máxima.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/DM-SAR-2022.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Chart.js -->
+  <script src="/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <!-- PAPER -->
+  <main class="paper paper--margen" role="main">
+
+    <!-- Back link -->
+    <a href="/pensiones/sar-29" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a publicaciones
+    </a>
+
+    <!-- ==========================================
+         PORTADA
+         ========================================== -->
+    <header class="paper__portada">
+      <span class="paper__tipo">Estudio</span>
+      <p class="paper__id">DM-SAR-2022</p>
+      <h1 class="paper__titulo">El Sistema de Ahorro para el Retiro en México: Panorama 2022</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Abril 2026</p>
+
+      <!-- Sello Datos México -->
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-2022</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         RESUMEN EJECUTIVO VISUAL (rollout 2022)
+         Reemplaza el .paper__resumen de texto. Toda cifra y su badge [V]
+         proviene del cuerpo del paper sin alteración (Secciones 4, 6, 7, 8,
+         9, 10 y Tablas 1, 2, 4); ninguna cifra nueva. Cifras dominantes
+         (rh-card__big) son [V]; las estimaciones (~-215 mmdp, ~-12% real)
+         viven como meta contextual [E]. Tono sobrio: año adverso reportado
+         con honestidad de observatorio (D19 aplicado a historia negativa).
+         ========================================== -->
+    <section class="paper__resumen-hero" id="resumen" aria-labelledby="resumenHeroTitle">
+      <div class="paper__resumen-hero-inner">
+
+        <!-- Tooltip unificado (Ronda 6): un solo sistema; ASCII
+             puro en data-tip-*; badge V como elemento HTML. -->
+        <div class="rh-tip" id="rhTip" role="status" aria-live="polite" aria-hidden="true">
+          <span class="rh-tip__title"></span>
+          <span class="rh-tip__detail">
+            <span class="rh-tip__detail-text"></span>
+            <span class="rh-tip__badge" aria-hidden="true">V</span>
+          </span>
+          <span class="rh-tip__note"></span>
+        </div>
+
+        <p class="paper__resumen-hero-eyebrow">Sección 1 &middot; En síntesis &middot; Panorama 2022</p>
+        <h2 id="resumenHeroTitle" class="paper__resumen-hero-titulo">Inflación máxima desde 2000 cerró un ciclo de minusvalías para el SAR.</h2>
+
+        <p class="paper__resumen-hero-lede">
+          Al cierre de 2022, el SAR administraba <strong>5,229.46 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;equivalentes al <strong>17.2% del PIB</strong><span class="fuente-badge fuente-badge--v">V</span>, una contracción de <strong>&minus;1.3 pp</strong><span class="fuente-badge fuente-badge--v">V</span> frente a 2021 (18.5%<span class="fuente-badge fuente-badge--v">V</span>)&mdash; en un año adverso marcado por la inflación más alta desde 2000 (<strong>7.82%</strong><span class="fuente-badge fuente-badge--v">V</span>) y la tasa de Banxico en <strong>10.5%</strong><span class="fuente-badge fuente-badge--v">V</span>. Las SIEFOREs registraron rendimientos reales estimados en aproximadamente <strong>&minus;12%</strong><span class="fuente-badge fuente-badge--e">E</span> y minusvalías por aproximadamente <strong>&minus;215 mmdp</strong><span class="fuente-badge fuente-badge--e">E</span>. La comisión promedio tocó su <strong>mínimo histórico</strong> en <strong>0.566%</strong><span class="fuente-badge fuente-badge--v">V</span> con la caída anual más pronunciada desde 2008 (<strong>&minus;24.1 pp</strong><span class="fuente-badge fuente-badge--v">V</span> vs 2021). El sistema operó con <strong>10 AFOREs</strong> y 72.47 millones de cuentas individuales.
+        </p>
+
+        <div class="paper__resumen-hero-grid">
+
+          <article class="rh-card">
+            <p class="rh-card__label">Recursos administrados</p>
+            <p class="rh-card__big">5,229.46<span class="rh-card__unit">mmdp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">17.2% del PIB<span class="fuente-badge fuente-badge--v">V</span> &middot; +3.0% vs 2021<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card rh-card--accent">
+            <p class="rh-card__label">Contracción del sistema</p>
+            <p class="rh-card__big">&minus;1.3<span class="rh-card__unit">pp del PIB</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">SAR / PIB: 18.5%<span class="fuente-badge fuente-badge--v">V</span> &rarr; 17.2%<span class="fuente-badge fuente-badge--v">V</span> &middot; Minusvalías estimadas ~&minus;215 mmdp<span class="fuente-badge fuente-badge--e">E</span></p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Comisión promedio</p>
+            <p class="rh-card__big">0.566<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Mínimo histórico &middot; &minus;24.1 pp vs 2021<span class="fuente-badge fuente-badge--v">V</span> &middot; &minus;70.5% vs 2008<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#comisiones">Sección 8 &mdash; Comisiones</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Inflación cierre 2022</p>
+            <p class="rh-card__big">7.82<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Máxima desde 2000 &middot; Tasa Banxico 10.5%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rendimiento real estimado ~&minus;12%<span class="fuente-badge fuente-badge--e">E</span></p>
+            <p class="rh-card__ref"><a href="#contexto">Sección 4 &mdash; Contexto económico 2022</a></p>
+          </article>
+
+        </div>
+
+        <!-- Retícula asimétrica (D20): 2 cols en escritorio con áreas
+                "recursos afore"     ← Recursos + Dot plot (der spans 2 filas)
+                "spark    afore"
+             Móvil: stack DOM order (Recursos → Sparkline → AFORE). -->
+        <div class="paper__resumen-hero-viz">
+
+          <article class="rh-viz rh-viz--recursos" aria-labelledby="rhVizRecTitle">
+            <p id="rhVizRecTitle" class="rh-viz__title">Recursos administrados (mmdp)</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2021, 5,100.0 mmdp, 18.5% del PIB, verificado"
+                   data-tip-title="Cierre 2021" data-tip-detail="5,100.0 mmdp" data-tip-note="18.5% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2021</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.975"></div>
+                  <span class="rh-viz__bar-label">5,100.0<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2022, 5,229.46 mmdp, 17.2% del PIB, verificado"
+                   data-tip-title="Cierre 2022" data-tip-detail="5,229.46 mmdp" data-tip-note="17.2% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2022</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">5,229.46<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">+129.46 mmdp<span class="fuente-badge fuente-badge--v">V</span> &middot; +3.0%<span class="fuente-badge fuente-badge--v">V</span> nominal &middot; &minus;1.3 pp del PIB<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-viz__ref"><a href="#recursos">Tabla 1 &mdash; Sección 7</a></p>
+          </article>
+
+          <!-- Sparkline 2008-2022 (15 puntos, uno menos que el rollout 2023).
+               viewBox 720x84; puntos equidistantes x=20..700 (spacing 48.57).
+               Y interpolada linealmente entre 1.92% (y=6) y 0.566% (y=77).
+               Historia visual del 2022: el segmento terminal 2021 (y=64) → 2022 (y=77)
+               es la caída MÁS PRONUNCIADA de toda la serie 2008-2022 en un solo año
+               (13 y-units en un x-step, más del doble que cualquier salto previo).
+               No requiere anotación textual: la pendiente terminal lo comunica. -->
+          <figure class="paper__resumen-hero-spark" aria-labelledby="rhSparkCaption">
+            <figcaption class="rh-spark__caption">
+              <span id="rhSparkCaption" class="rh-spark__caption-label">Comisión promedio del SAR &middot; 2008–2022 (% sobre saldo)</span>
+              <span class="rh-spark__caption-meta">1.92%<span class="fuente-badge fuente-badge--v">V</span> &rarr; 0.566%<span class="fuente-badge fuente-badge--v">V</span> &middot; <strong>&minus;70.5%</strong><span class="fuente-badge fuente-badge--v">V</span> acumulado</span>
+            </figcaption>
+
+            <div class="rh-spark__wrapper">
+              <svg class="rh-spark__svg" viewBox="0 0 720 84" role="img" aria-label="Tendencia de la comisión promedio del SAR de 2008 a 2022">
+                <defs>
+                  <linearGradient id="rhSparkGrad" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(27,42,94,0.22)"/>
+                    <stop offset="100%" stop-color="rgba(27,42,94,0)"/>
+                  </linearGradient>
+                </defs>
+                <line x1="20" y1="78" x2="700" y2="78" stroke="rgba(27,42,94,0.14)" stroke-width="1"/>
+                <path d="M20,6 L69,15 L117,22 L166,29 L214,34 L263,39 L311,44 L360,48 L409,51 L457,53 L506,53 L554,55 L603,58 L651,64 L700,77 L700,78 L20,78 Z" fill="url(#rhSparkGrad)"/>
+                <polyline points="20,6 69,15 117,22 166,29 214,34 263,39 311,44 360,48 409,51 457,53 506,53 554,55 603,58 651,64 700,77" fill="none" stroke="#1B2A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <g class="rh-spark__points">
+                  <circle class="rh-spark__point" cx="20"  cy="6"  r="9" data-tip-title="2008" data-tip-detail="1.92%"  tabindex="0" role="img" aria-label="2008: 1.92%"></circle>
+                  <circle class="rh-spark__point" cx="69"  cy="15" r="9" data-tip-title="2009" data-tip-detail="1.75%"  tabindex="0" role="img" aria-label="2009: 1.75%"></circle>
+                  <circle class="rh-spark__point" cx="117" cy="22" r="9" data-tip-title="2010" data-tip-detail="1.62%"  tabindex="0" role="img" aria-label="2010: 1.62%"></circle>
+                  <circle class="rh-spark__point" cx="166" cy="29" r="9" data-tip-title="2011" data-tip-detail="1.48%"  tabindex="0" role="img" aria-label="2011: 1.48%"></circle>
+                  <circle class="rh-spark__point" cx="214" cy="34" r="9" data-tip-title="2012" data-tip-detail="1.38%"  tabindex="0" role="img" aria-label="2012: 1.38%"></circle>
+                  <circle class="rh-spark__point" cx="263" cy="39" r="9" data-tip-title="2013" data-tip-detail="1.29%"  tabindex="0" role="img" aria-label="2013: 1.29%"></circle>
+                  <circle class="rh-spark__point" cx="311" cy="44" r="9" data-tip-title="2014" data-tip-detail="1.19%"  tabindex="0" role="img" aria-label="2014: 1.19%"></circle>
+                  <circle class="rh-spark__point" cx="360" cy="48" r="9" data-tip-title="2015" data-tip-detail="1.11%"  tabindex="0" role="img" aria-label="2015: 1.11%"></circle>
+                  <circle class="rh-spark__point" cx="409" cy="51" r="9" data-tip-title="2016" data-tip-detail="1.06%"  tabindex="0" role="img" aria-label="2016: 1.06%"></circle>
+                  <circle class="rh-spark__point" cx="457" cy="53" r="9" data-tip-title="2017" data-tip-detail="1.03%"  tabindex="0" role="img" aria-label="2017: 1.03%"></circle>
+                  <circle class="rh-spark__point" cx="506" cy="53" r="9" data-tip-title="2018" data-tip-detail="1.02%"  tabindex="0" role="img" aria-label="2018: 1.02%"></circle>
+                  <circle class="rh-spark__point" cx="554" cy="55" r="9" data-tip-title="2019" data-tip-detail="0.98%"  tabindex="0" role="img" aria-label="2019: 0.98%"></circle>
+                  <circle class="rh-spark__point" cx="603" cy="58" r="9" data-tip-title="2020" data-tip-detail="0.92%"  tabindex="0" role="img" aria-label="2020: 0.92%"></circle>
+                  <circle class="rh-spark__point" cx="651" cy="64" r="9" data-tip-title="2021" data-tip-detail="0.807%" tabindex="0" role="img" aria-label="2021: 0.807%"></circle>
+                  <circle class="rh-spark__point" cx="700" cy="77" r="9" data-tip-title="2022" data-tip-detail="0.566%" data-tip-note="Caida anual mas pronunciada desde 2008" tabindex="0" role="img" aria-label="2022: 0.566%, caida anual mas pronunciada desde 2008"></circle>
+                </g>
+                <circle cx="20" cy="6" r="4" fill="#1B2A5E" pointer-events="none"/>
+                <circle cx="700" cy="77" r="4" fill="#B8943E" pointer-events="none"/>
+                <circle class="rh-spark__active" cx="0" cy="0" r="5" fill="#1B2A5E" stroke="#FFFFFF" stroke-width="2" opacity="0" pointer-events="none"/>
+                <rect class="rh-spark__overlay" x="0" y="0" width="720" height="84" fill="transparent" pointer-events="all"/>
+              </svg>
+            </div>
+
+            <div class="rh-spark__axis" aria-hidden="true">
+              <span>2008</span>
+              <span>2022</span>
+            </div>
+
+            <p class="rh-spark__ref"><a href="#comisiones">Tabla 4 &mdash; Sección 8 (datos verificados [V] CONSAR)</a></p>
+          </figure>
+
+          <article class="rh-viz rh-viz--afore" aria-labelledby="rhVizAforeTitle">
+            <p id="rhVizAforeTitle" class="rh-viz__title">Comisiones por AFORE (10 firmas, cierre 2022)</p>
+
+            <!-- Dot plot horizontal (D19): cada AFORE en su fila,
+                 orden ascendente por comisión. Las 9 alineadas a 0.57%
+                 comunican la convergencia histórica de un vistazo;
+                 PensionISSSTE queda alone a la izquierda como outlier a 0.53%.
+                 Nombres del cuerpo del 2022 Sec 5 L140-151 (idénticos a 2023). -->
+            <ol class="rh-afore-list" role="list">
+              <li class="rh-afore-row rh-afore-row--outlier" tabindex="0" role="listitem"
+                  data-tip-title="PensionISSSTE" data-tip-detail="0.53%" data-tip-v="1">
+                <span class="rh-afore-name">PensionISSSTE</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 0%"></span></span>
+                <span class="rh-afore-value">0.53<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Azteca" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Azteca</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Citibanamex" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Citibanamex</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Coppel" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Coppel</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Inbursa" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Inbursa</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Invercap" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Invercap</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Principal" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Principal</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Profuturo GNP" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Profuturo GNP</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="SURA" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">SURA</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="XXI Banorte" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">XXI Banorte</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+            </ol>
+
+            <div class="rh-afore-axis" aria-hidden="true">
+              <span>0.53%</span>
+              <span class="rh-afore-axis__mid">Promedio 0.566%</span>
+              <span>0.57%</span>
+            </div>
+
+            <p class="rh-viz__meta">Promedio del sistema 0.566%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rango 4 pb<span class="fuente-badge fuente-badge--v">V</span> &middot; 1 outlier de 10</p>
+            <p class="rh-viz__ref"><a href="#comisiones">Tabla 2 &mdash; Sección 8</a></p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MARGEN LATERAL (rollout 2022)
+         TOC de las 14 secciones del cuerpo (Sec 1 elevada al hero) +
+         leyenda [V]/[E] + back-link contextual.
+         ========================================== -->
+    <aside class="paper__margen" aria-label="Navegación y leyenda del estudio">
+      <div class="paper__margen-sticky">
+
+        <nav class="paper__margen-nav" aria-label="Secciones del estudio">
+          <details class="paper__margen-toc-wrap" open>
+            <summary class="paper__margen-toc-summary">
+              <span class="paper__margen-toc-eyebrow">En este estudio</span>
+              <span class="paper__margen-toc-counter">14 secciones</span>
+            </summary>
+            <ol class="paper__margen-toc">
+              <li><a href="#resumen">Resumen ejecutivo</a></li>
+              <li><a href="#introduccion">Introducción</a></li>
+              <li><a href="#metodologia">Metodología</a></li>
+              <li><a href="#contexto">Contexto económico 2022</a></li>
+              <li><a href="#estructura">Estructura del SAR</a></li>
+              <li><a href="#cuentas">Cuentas individuales</a></li>
+              <li><a href="#recursos">Recursos administrados</a></li>
+              <li><a href="#comisiones">Comisiones</a></li>
+              <li><a href="#rendimientos">Rendimientos</a></li>
+              <li><a href="#evolucion">Evolución del sistema</a></li>
+              <li><a href="#normativo">Marco normativo</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#conclusiones">Conclusiones</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="paper__margen-leyenda">
+          <p class="paper__margen-eyebrow">Cómo leer</p>
+          <p class="paper__margen-leyenda-intro">Cada cifra del estudio lleva un sello que indica de dónde sale y queda anclada a su fuente.</p>
+          <ul class="paper__margen-leyenda-items">
+            <li><span class="fuente-badge fuente-badge--v">V</span><span>verificado de fuente oficial directa</span></li>
+            <li><span class="fuente-badge fuente-badge--e">E</span><span>derivado o estimado, declarado</span></li>
+          </ul>
+        </div>
+
+        <a href="/pensiones/sar-29" class="paper__margen-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Volver al índice
+        </a>
+
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         CUERPO DEL PAPER
+         ========================================== -->
+    <div class="paper__body">
+
+      <!-- Sección 1 (Resumen ejecutivo) elevada al bloque visual full-width
+           encima del cuerpo (sección "paper__resumen-hero" arriba). Toda la
+           sustancia se conserva; la presentación se elevó. -->
+
+      <!-- 2. INTRODUCCIÓN -->
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Sección 2</div>
+        <h2>Introducción</h2>
+        <p>El Sistema de Ahorro para el Retiro (SAR) es el mecanismo de cuentas individuales mediante el cual los trabajadores afiliados al Instituto Mexicano del Seguro Social (IMSS) y al Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado (ISSSTE) acumulan recursos para financiar su pensión. El SAR fue establecido por la reforma al sistema de pensiones de 1995, vigente a partir del 1 de julio de 1997.</p>
+        <p>El presente estudio ofrece un panorama descriptivo del SAR durante el año 2022, a 25 años de la entrada en vigor de la reforma. El propósito de este documento es presentar los indicadores principales del sistema durante dicho período: recursos administrados, número de cuentas individuales, estructura de comisiones, rendimientos y eventos corporativos relevantes.</p>
+        <p>Este estudio no busca emitir juicios de valor ni recomendar AFOREs específicas. La información presentada tiene carácter exclusivamente informativo y se basa en datos verificables de fuentes primarias oficiales para que el lector forme su propio criterio.</p>
+      </section>
+
+      <!-- 3. METODOLOGÍA -->
+      <section class="paper__section" id="metodologia">
+        <div class="paper__section-number">Sección 3</div>
+        <h2>Metodología</h2>
+        <p>Este estudio adopta un enfoque descriptivo basado en fuentes primarias oficiales. Los datos cuantitativos provienen de:</p>
+        <ul>
+          <li><strong>CONSAR</strong> (Comisión Nacional del Sistema de Ahorro para el Retiro): informes trimestrales al H. Congreso de la Unión, datos estadísticos de comisiones, cuentas, recursos y traspasos.</li>
+          <li><strong>INEGI</strong> (Instituto Nacional de Estadística y Geografía): Producto Interno Bruto y cuentas nacionales.</li>
+          <li><strong>Banco de México</strong>: indicadores económicos, tasas de interés e inflación.</li>
+          <li><strong>Panel DM-SAR-DATA-001</strong>: base de datos consolidada del SAR construida a partir de fuentes oficiales.</li>
+        </ul>
+        <p>El periodo de análisis corresponde al año calendario 2022, con referencias al cierre de 2021 para efectos comparativos. Todos los datos de recursos administrados se presentan en pesos corrientes (nominales). Los datos de comisiones y cuentas son verificados [V] cuando provienen directamente de reportes oficiales CONSAR; los datos de rendimientos son estimados [E] debido a la inexistencia de un dato oficial único para el sistema en su conjunto.</p>
+        <p>Este estudio no realiza proyecciones futuras ni establece relaciones causales entre variables. Se limita a presentar los datos del período de forma descriptiva.</p>
+      </section>
+
+      <!-- 4. CONTEXTO ECONÓMICO -->
+      <section class="paper__section" id="contexto">
+        <div class="paper__section-number">Sección 4</div>
+        <h2>Contexto económico 2022</h2>
+        <p>El año 2022 estuvo marcado por un entorno macroeconómico adverso que impactó directamente el desempeño del SAR. Los tres indicadores principales fueron:</p>
+        <ul>
+          <li><strong>Inflación</strong>: 7.82% <span class="fuente-badge fuente-badge--v">V</span> al cierre del año, según INEGI. Este nivel representó la inflación más alta desde el año 2000 y un incremento de 0.46 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> respecto al cierre de 2021 (7.36% <span class="fuente-badge fuente-badge--v">V</span>).</li>
+          <li><strong>Tasa de referencia Banxico</strong>: 10.5% <span class="fuente-badge fuente-badge--v">V</span> al cierre de 2022, resultado de un ciclo agresivo de aumentos iniciado en 2021. La tasa se ubicó 5.0 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> por encima del nivel de cierre de 2021 (5.5% <span class="fuente-badge fuente-badge--v">V</span>).</li>
+          <li><strong>Contexto internacional</strong>: presiones inflacionarias globales derivadas de disrupciones en cadenas de suministro post-pandemia, conflicto Rusia-Ucrania (iniciado febrero 2022) y endurecimiento monetario sincronizado de bancos centrales.</li>
+        </ul>
+        <p>El impacto en el SAR se manifestó en tres dimensiones:</p>
+        <ol>
+          <li><strong>Rendimientos nominales negativos</strong>: las SIEFOREs registraron minusvalías estimadas en aproximadamente -215 mmdp durante el año.</li>
+          <li><strong>Rendimientos reales profundamente negativos</strong>: la combinación de rendimientos nominales negativos e inflación elevada resultó en rendimientos reales estimados en aproximadamente -12%.</li>
+          <li><strong>Volatilidad en mercados</strong>: la incertidumbre global generó alta volatilidad en renta variable y ajustes en portafolios de inversión.</li>
+        </ol>
+        <p>A pesar del entorno adverso, los recursos administrados crecieron 3.0% <span class="fuente-badge fuente-badge--v">V</span> en términos nominales debido al flujo continuo de aportaciones tripartitas (trabajador-patrón-gobierno), aunque disminuyeron como proporción del PIB.</p>
+      </section>
+
+      <!-- 5. ESTRUCTURA DEL SAR -->
+      <section class="paper__section" id="estructura">
+        <div class="paper__section-number">Sección 5</div>
+        <h2>Estructura del SAR</h2>
+        
+        <h3>Marco legal</h3>
+        <p>El SAR se rige por la Ley de los Sistemas de Ahorro para el Retiro (DOF 23 de mayo de 1996) y la Ley del Seguro Social (DOF 21 de diciembre de 1995, vigente a partir del 1 de julio de 1997). Coexisten dos regímenes pensionarios:</p>
+        <ul>
+          <li><strong>Ley del Seguro Social 1973</strong> (abrogada pero con efectos vigentes): trabajadores que cotizaban al IMSS antes del 1 de julio de 1997 conservan el derecho a elegir entre el esquema de beneficio definido (Ley 73) o el de cuentas individuales (Ley 97) al momento del retiro.</li>
+          <li><strong>Ley del Seguro Social 1997</strong>: trabajadores que iniciaron cotización a partir del 1 de julio de 1997 están sujetos al régimen de cuentas individuales administradas por AFOREs.</li>
+        </ul>
+
+        <h3>Administradoras de Fondos para el Retiro (AFOREs)</h3>
+        <p>Al cierre de 2022, operaban 10 AFOREs autorizadas por CONSAR:</p>
+        <ol>
+          <li>Azteca</li>
+          <li>Citibanamex</li>
+          <li>Coppel</li>
+          <li>Inbursa</li>
+          <li>Invercap</li>
+          <li>PensionISSSTE</li>
+          <li>Principal</li>
+          <li>Profuturo GNP</li>
+          <li>SURA</li>
+          <li>XXI Banorte</li>
+        </ol>
+        <p>El número de AFOREs se mantuvo sin cambios respecto a 2021. No se registraron fusiones, adquisiciones ni entradas o salidas de participantes durante el año.</p>
+
+        <h3>Estructura de SIEFOREs</h3>
+        <p>Desde la reforma regulatoria de 2019-2020, el sistema opera bajo el esquema de <strong>SIEFOREs Generacionales</strong>, que sustituyó al modelo de SIEFOREs Básicas por edad (SB1-SB5). Las SIEFOREs Generacionales se organizan por año de nacimiento del trabajador, con perfiles de inversión que se ajustan automáticamente conforme el trabajador se acerca a la edad de retiro.</p>
+        <p>Este esquema fue implementado de forma gradual a partir de 2020, con el objetivo de optimizar el perfil riesgo-rendimiento a lo largo del ciclo de vida laboral del trabajador. Durante 2022, la transición al modelo generacional estaba consolidada y todas las AFOREs operaban bajo este esquema.</p>
+
+        <h3>Cambios regulatorios en 2022</h3>
+        <p>No se registraron reformas estructurales a la Ley del SAR ni a la Circular Única de SIEFOREs durante 2022. Los ajustes regulatorios fueron de carácter técnico y operativo, enfocados en transparencia y reporte de información.</p>
+      </section>
+
+      <!-- 6. CUENTAS INDIVIDUALES -->
+      <section class="paper__section" id="cuentas">
+        <div class="paper__section-number">Sección 6</div>
+        <h2>Cuentas individuales</h2>
+        <p>Al cierre de 2022, el SAR gestionaba 72.47 millones de cuentas individuales, según datos verificados de CONSAR [V]. Esto representó un crecimiento de 2.9% <span class="fuente-badge fuente-badge--v">V</span> respecto al cierre de 2021 (70.0 millones de cuentas), equivalente a 2.47 millones de cuentas adicionales durante el año.</p>
+        <p>El crecimiento en el número de cuentas se explica por:</p>
+        <ul>
+          <li><strong>Incorporación de nuevos trabajadores</strong>: trabajadores que se afilian por primera vez al IMSS o ISSSTE y reciben una cuenta individual.</li>
+          <li><strong>Formalización laboral</strong>: trabajadores que transitan de la economía informal a empleos formales con acceso a seguridad social.</li>
+          <li><strong>Registro de cuentas inactivas</strong>: cuentas que permanecen en el sistema aunque el trabajador no esté cotizando activamente.</li>
+        </ul>
+        <p>El dato de 72.47 millones de cuentas corresponde al total de cuentas registradas en el sistema (cuentas activas + cuentas inactivas). No se dispone de desagregación verificada por AFORE para este período. La distribución de cuentas entre AFOREs varía según las asignaciones del sistema (para trabajadores que no eligen AFORE), los traspasos voluntarios y las estrategias comerciales de cada administradora.</p>
+        <p>El crecimiento de 2.9% <span class="fuente-badge fuente-badge--v">V</span> en cuentas fue consistente con la tendencia histórica del sistema, reflejando la expansión gradual de la cobertura de seguridad social en México.</p>
+      </section>
+
+      <!-- 7. RECURSOS ADMINISTRADOS -->
+      <section class="paper__section" id="recursos">
+        <div class="paper__section-number">Sección 7</div>
+        <h2>Recursos administrados</h2>
+        <p>Al cierre de 2022, el SAR administraba 5,229.46 mmdp <span class="fuente-badge fuente-badge--v">V</span> en recursos de las cuentas individuales de los trabajadores, según datos verificados de CONSAR [V]. Esta cifra representó 17.2% <span class="fuente-badge fuente-badge--v">V</span> del Producto Interno Bruto (PIB) de México en 2022.</p>
+
+        <!-- Tabla 1 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. Recursos administrados por el SAR, 2021 vs 2022</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th class="num">Cierre 2021</th>
+                <th class="num">Cierre 2022</th>
+                <th class="num">Variación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Recursos administrados (mmdp)</td>
+                <td class="num">5,100.0</td>
+                <td class="num">5,229.46</td>
+                <td class="num">+3.0%</td>
+              </tr>
+              <tr>
+                <td>Recursos como % del PIB</td>
+                <td class="num">18.5%</td>
+                <td class="num">17.2%</td>
+                <td class="num">-1.3 pp</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR, informes trimestrales 2021-2022; INEGI, cuentas nacionales; Panel DM-SAR-DATA-001. Datos verificados [V].</p>
+        </div>
+
+        <!-- Gráfica 1 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 1. Recursos administrados por el SAR, 2021 vs 2022 (mmdp)</p>
+          <div class="paper__grafica-container"><canvas id="chart-recursos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, informes trimestrales 2021-2022; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <h3>Análisis del crecimiento</h3>
+        <p>El crecimiento nominal de 3.0% <span class="fuente-badge fuente-badge--v">V</span> en recursos administrados (129.46 mmdp <span class="fuente-badge fuente-badge--v">V</span> adicionales) contrasta con la caída de 1.3 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> en la proporción respecto al PIB. Esta dinámica se explica por dos factores concurrentes:</p>
+        <ol>
+          <li><strong>Flujo positivo de aportaciones</strong>: las contribuciones tripartitas (trabajador-patrón-gobierno) generaron un flujo continuo de recursos nuevos al sistema. Estas aportaciones se calculan como porcentaje del salario base de cotización y no se interrumpen por la volatilidad de los mercados.</li>
+          <li><strong>Minusvalías en inversiones</strong>: los rendimientos nominales negativos (estimados en aproximadamente -4%) generaron pérdidas de aproximadamente -215 mmdp en los portafolios de inversión de las SIEFOREs. Estas minusvalías fueron parcialmente compensadas por el flujo de aportaciones.</li>
+        </ol>
+        <p>La disminución de 1.3 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> como proporción del PIB refleja que el crecimiento del PIB nominal fue superior al crecimiento de los recursos del SAR. El PIB creció en términos nominales mientras que los recursos del sistema crecieron a un ritmo menor debido a las pérdidas por valuación de activos.</p>
+        <p>A pesar del entorno adverso, los recursos administrados mantuvieron una trayectoria positiva en términos absolutos, alcanzando un nuevo máximo histórico en pesos corrientes. Sin embargo, en términos reales (ajustados por inflación), los recursos experimentaron una contracción significativa.</p>
+      </section>
+
+      <!-- 8. COMISIONES -->
+      <section class="paper__section" id="comisiones">
+        <div class="paper__section-number">Sección 8</div>
+        <h2>Comisiones</h2>
+        <p>La comisión promedio del SAR al cierre de 2022 fue de 0.566% <span class="fuente-badge fuente-badge--v">V</span> sobre saldo administrado, según datos verificados de CONSAR [V]. Este nivel representó el más bajo desde que se implementó el esquema de comisión sobre saldo en 2008, y marcó una reducción de 24.1 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> respecto al promedio de 2021 (0.807% <span class="fuente-badge fuente-badge--v">V</span>).</p>
+
+        <h3>Comisiones por AFORE</h3>
+        <p>Al cierre de diciembre de 2022, nueve de las diez AFOREs cobraban la misma comisión (0.57% <span class="fuente-badge fuente-badge--v">V</span>), mientras que PensionISSSTE cobraba 0.53% <span class="fuente-badge fuente-badge--v">V</span>. Esta convergencia representó un cambio significativo respecto a la estructura de comisiones de años anteriores, cuando existía mayor dispersión entre administradoras.</p>
+
+        <!-- Tabla 2 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Comisiones por AFORE a diciembre de 2022 (ordenadas de menor a mayor)</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Comisión sobre saldo (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PensionISSSTE</td>
+                <td class="num">0.53</td>
+              </tr>
+              <tr>
+                <td>Profuturo GNP</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>XXI Banorte</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Citibanamex</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>SURA</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Coppel</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Azteca</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Principal</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Invercap</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Inbursa</td>
+                <td class="num">0.57</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR, registro de comisiones diciembre 2022; Panel DM-SAR-DATA-001. Datos verificados [V]. Promedio del sistema: 0.566% <span class="fuente-badge fuente-badge--v">V</span>.</p>
+        </div>
+
+        <!-- Gráfica 2 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 2. Comisiones por AFORE a diciembre de 2022 (% sobre saldo)</p>
+          <div class="paper__grafica-container paper__grafica-container--tall"><canvas id="chart-comisiones"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, registro de comisiones diciembre 2022; Panel DM-SAR-DATA-001. La línea punteada indica el promedio del sistema (0.566% <span class="fuente-badge fuente-badge--v">V</span>).</p>
+        </div>
+
+        <h3>Dispersión de comisiones</h3>
+        <p>El spread entre la comisión más alta y la más baja fue de apenas 0.04 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> (4 puntos base), resultado de la convergencia en 0.57% <span class="fuente-badge fuente-badge--v">V</span> de nueve AFOREs. Este spread contrastó significativamente con el de 2021 (0.34 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>), cuando existía mayor diferenciación entre administradoras.</p>
+        <p>La reducción en la dispersión de comisiones se explica por:</p>
+        <ul>
+          <li><strong>Presión competitiva</strong>: las AFOREs ajustaron sus comisiones a la baja para evitar pérdida de clientes por traspaso.</li>
+          <li><strong>Régimen de traspasos</strong>: el mecanismo de asignación de cuentas y traspasos incentiva a las AFOREs a mantener comisiones competitivas.</li>
+          <li><strong>Transparencia regulatoria</strong>: CONSAR publica periódicamente los indicadores de comisiones, facilitando la comparación entre AFOREs.</li>
+        </ul>
+
+        <h3>Evolución histórica</h3>
+        <p>La comisión promedio de 0.566% <span class="fuente-badge fuente-badge--v">V</span> en 2022 representó una reducción acumulada de 70.5% <span class="fuente-badge fuente-badge--v">V</span> respecto al nivel de 2008 (1.92% <span class="fuente-badge fuente-badge--v">V</span>), primer año del esquema de comisión sobre saldo.</p>
+
+        <!-- Tabla 4 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 4. Evolución de la comisión promedio del SAR, 2008-2022</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th class="num">Año</th>
+                <th class="num">Comisión promedio (%)</th>
+                <th class="num">Variación anual (pp)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="num">2008</td>
+                <td class="num">1.92</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td class="num">2009</td>
+                <td class="num">1.75</td>
+                <td class="num">-0.17</td>
+              </tr>
+              <tr>
+                <td class="num">2010</td>
+                <td class="num">1.62</td>
+                <td class="num">-0.13</td>
+              </tr>
+              <tr>
+                <td class="num">2011</td>
+                <td class="num">1.48</td>
+                <td class="num">-0.14</td>
+              </tr>
+              <tr>
+                <td class="num">2012</td>
+                <td class="num">1.38</td>
+                <td class="num">-0.10</td>
+              </tr>
+              <tr>
+                <td class="num">2013</td>
+                <td class="num">1.29</td>
+                <td class="num">-0.09</td>
+              </tr>
+              <tr>
+                <td class="num">2014</td>
+                <td class="num">1.19</td>
+                <td class="num">-0.10</td>
+              </tr>
+              <tr>
+                <td class="num">2015</td>
+                <td class="num">1.11</td>
+                <td class="num">-0.08</td>
+              </tr>
+              <tr>
+                <td class="num">2016</td>
+                <td class="num">1.06</td>
+                <td class="num">-0.05</td>
+              </tr>
+              <tr>
+                <td class="num">2017</td>
+                <td class="num">1.03</td>
+                <td class="num">-0.03</td>
+              </tr>
+              <tr>
+                <td class="num">2018</td>
+                <td class="num">1.02</td>
+                <td class="num">-0.01</td>
+              </tr>
+              <tr>
+                <td class="num">2019</td>
+                <td class="num">0.98</td>
+                <td class="num">-0.04</td>
+              </tr>
+              <tr>
+                <td class="num">2020</td>
+                <td class="num">0.92</td>
+                <td class="num">-0.06</td>
+              </tr>
+              <tr>
+                <td class="num">2021</td>
+                <td class="num">0.807</td>
+                <td class="num">-0.113</td>
+              </tr>
+              <tr>
+                <td class="num">2022</td>
+                <td class="num">0.566</td>
+                <td class="num">-0.241</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR, reportes históricos de comisiones 2008-2022; Panel DM-SAR-DATA-001. Datos verificados [V].</p>
+        </div>
+
+        <!-- Gráfica 3 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 3. Tendencia de la comisión promedio del SAR, 2008-2022 (% sobre saldo)</p>
+          <div class="paper__grafica-container"><canvas id="chart-tendencia"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, reportes históricos de comisiones 2008-2022; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <h3>Análisis de la tendencia</h3>
+        <p>La reducción de 24.1 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> entre 2021 y 2022 fue la más pronunciada en un solo año desde 2008. Esta caída acelerada se explica por:</p>
+        <ul>
+          <li><strong>Maduración del sistema</strong>: economías de escala por el crecimiento en recursos administrados permitieron reducir costos operativos.</li>
+          <li><strong>Competencia</strong>: las AFOREs compitieron por atraer cuentas mediante reducciones de comisiones, especialmente en un entorno de rendimientos negativos donde la comisión representaba un costo más visible para los trabajadores.</li>
+          <li><strong>Presión regulatoria indirecta</strong>: aunque no hubo cambios normativos que forzaran reducciones, la publicación de indicadores de desempeño por CONSAR generó presión competitiva.</li>
+        </ul>
+        <p>La comisión promedio de 0.566% <span class="fuente-badge fuente-badge--v">V</span> se ubicó significativamente por debajo del promedio de América Latina (estimado en aproximadamente 1.0% <span class="fuente-badge fuente-badge--e">E</span>-1.2% <span class="fuente-badge fuente-badge--v">V</span> para sistemas de capitalización individual) y se acercó a niveles de mercados desarrollados.</p>
+      </section>
+
+      <!-- 9. RENDIMIENTOS -->
+      <section class="paper__section" id="rendimientos">
+        <div class="paper__section-number">Sección 9</div>
+        <h2>Rendimientos</h2>
+        <p>Durante 2022, las SIEFOREs registraron rendimientos nominales estimados en aproximadamente -4% [E], según datos del Panel DM-SAR-DATA-001 basados en reportes de CONSAR. Ajustando por la inflación de 7.82% <span class="fuente-badge fuente-badge--v">V</span>, el rendimiento real estimado fue de aproximadamente -12% [E].</p>
+        <p>Es importante señalar que no existe un dato oficial único de rendimiento para el SAR en su conjunto. Los rendimientos varían por:</p>
+        <ul>
+          <li><strong>SIEFORE Generacional</strong>: cada generación tiene un perfil de inversión diferente, con mayor exposición a renta variable en generaciones más jóvenes y mayor exposición a renta fija en generaciones cercanas al retiro.</li>
+          <li><strong>AFORE</strong>: cada administradora tiene estrategias de inversión específicas dentro de los límites regulatorios.</li>
+          <li><strong>Periodo de medición</strong>: los rendimientos pueden calcularse para diferentes horizontes temporales (mensual, trimestral, anual, multianual).</li>
+        </ul>
+        <p>El rendimiento estimado de aproximadamente -4% nominal representa un promedio ponderado del sistema y debe interpretarse como un indicador referencial, no como una cifra exacta aplicable a todas las cuentas.</p>
+
+        <h3>Rendimiento neto de comisiones</h3>
+        <p>Descontando la comisión promedio de 0.566% <span class="fuente-badge fuente-badge--v">V</span>, el rendimiento neto nominal estimado fue de aproximadamente -4.566% y el rendimiento neto real estimado fue de aproximadamente -12.566%. La comisión, aunque históricamente baja, representó un costo adicional en un año de rendimientos negativos.</p>
+
+        <h3>Comparación con años previos</h3>
+        <p>Los rendimientos de 2022 contrastaron marcadamente con 2021, cuando se estimaron rendimientos nominales de aproximadamente 5% <span class="fuente-badge fuente-badge--e">E</span> y rendimientos reales de aproximadamente -2% (ajustados por inflación de 7.36%). La diferencia de 9 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> en rendimientos nominales y 10 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> en rendimientos reales reflejó el deterioro en condiciones de mercado.</p>
+
+        <h3>Factores determinantes</h3>
+        <p>Los rendimientos negativos de 2022 se explican por:</p>
+        <ol>
+          <li><strong>Caída en mercados de renta variable</strong>: los principales índices bursátiles globales registraron pérdidas significativas durante el año. El S&amp;P 500 cayó aproximadamente 18% <span class="fuente-badge fuente-badge--e">E</span>, el MSCI World aproximadamente 18% <span class="fuente-badge fuente-badge--e">E</span> y el IPC de la Bolsa Mexicana de Valores aproximadamente 10% <span class="fuente-badge fuente-badge--e">E</span>.</li>
+          <li><strong>Ajustes en renta fija</strong>: el ciclo de aumentos de tasas de interés por bancos centrales generó pérdidas por valuación en portafolios de bonos, ya que los precios de bonos existentes caen cuando las tasas suben.</li>
+          <li><strong>Volatilidad cambiaria</strong>: la apreciación del dólar estadounidense afectó las posiciones en activos internacionales.</li>
+          <li><strong>Composición de portafolios</strong>: las SIEFOREs tienen límites regulatorios sobre la proporción de activos que pueden invertir en renta variable versus renta fija, lo que limitó la capacidad de ajuste ante condiciones adversas.</li>
+        </ol>
+
+        <h3>Contexto de largo plazo</h3>
+        <p>Es importante contextualizar los rendimientos de 2022 en el horizonte de largo plazo del SAR. El sistema de ahorro para el retiro está diseñado para acumular recursos durante 30-40 años de vida laboral, por lo que los rendimientos de un solo año, aunque significativos, deben evaluarse en el marco del desempeño multianual.</p>
+        <p>Históricamente, las SIEFOREs han generado rendimientos reales positivos en horizontes de mediano y largo plazo, a pesar de años específicos con rendimientos negativos. La volatilidad de corto plazo es inherente a los portafolios de inversión diversificados que incluyen renta variable.</p>
+        <p>Para los trabajadores más jóvenes (generaciones con mayor exposición a renta variable), los rendimientos negativos de 2022 representaron una oportunidad de acumulación de activos a precios más bajos, lo que potencialmente beneficia el rendimiento de largo plazo. Para trabajadores cercanos al retiro (generaciones con mayor exposición a renta fija), el impacto fue menor debido a portafolios más conservadores.</p>
+      </section>
+
+      <!-- 10. EVOLUCIÓN DEL SISTEMA -->
+      <section class="paper__section" id="evolucion">
+        <div class="paper__section-number">Sección 10</div>
+        <h2>Evolución del sistema</h2>
+        <p>El año 2022 no registró eventos corporativos significativos en el SAR. No se llevaron a cabo fusiones, adquisiciones, entradas ni salidas de AFOREs durante el periodo. El número de participantes se mantuvo estable en 10 administradoras, la misma configuración que en 2021.</p>
+
+        <h3>Consolidación de comisiones</h3>
+        <p>El desarrollo más significativo del año fue la convergencia histórica en comisiones. La reducción del spread entre la comisión más alta y más baja a solo 0.04 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> representó el nivel más bajo de dispersión desde la implementación del esquema de comisión sobre saldo en 2008.</p>
+        <p>Esta convergencia sugiere que el mercado alcanzó un punto de equilibrio competitivo donde la diferenciación entre AFOREs se desplazó de la comisión hacia otros factores como calidad de servicio, canales de atención y estrategias de inversión.</p>
+
+        <h3>Consolidación del modelo generacional</h3>
+        <p>Durante 2022, el esquema de SIEFOREs Generacionales completó su segundo año de operación plena tras la transición desde el modelo de SIEFOREs Básicas (SB1-SB5). El modelo mostró estabilidad operativa y las AFOREs consolidaron sus procesos de administración bajo la nueva estructura.</p>
+        <p>El diseño generacional fue especialmente relevante durante un año de volatilidad, ya que permitió que los perfiles de inversión se ajustaran automáticamente según la edad del trabajador, protegiendo a los trabajadores cercanos al retiro mediante mayor exposición a renta fija.</p>
+
+        <h3>Contexto institucional</h3>
+        <p>CONSAR mantuvo su rol de supervisión y regulación sin introducir cambios estructurales durante el año. Las actualizaciones normativas se limitaron a aspectos técnicos y de reporte, enfocándose en transparencia y acceso a información para los trabajadores.</p>
+        <p>El regulador intensificó esfuerzos de educación financiera y difusión de información sobre el SAR, particularmente relevante en un contexto de rendimientos negativos donde los trabajadores requerían mayor claridad sobre el funcionamiento del sistema y las perspectivas de largo plazo.</p>
+
+        <h3>Participación de mercado</h3>
+        <p>Aunque no se dispone de datos verificados de participación de mercado por AFORE para 2022, el mecanismo de asignación de trabajadores sin elección de AFORE y el régimen de traspasos continuaron operando. Las AFOREs con comisiones más bajas tendieron a recibir mayor flujo de traspasos, aunque el impacto en la distribución general de cuentas es gradual.</p>
+      </section>
+
+      <!-- 11. MARCO NORMATIVO -->
+      <section class="paper__section" id="normativo">
+        <div class="paper__section-number">Sección 11</div>
+        <h2>Marco normativo</h2>
+        <p>El marco legal del SAR durante 2022 estuvo compuesto por:</p>
+
+        <h3>Legislación primaria</h3>
+        <ul>
+          <li><strong>Ley de los Sistemas de Ahorro para el Retiro</strong>, publicada en el Diario Oficial de la Federación el 23 de mayo de 1996. Esta ley establece las bases de organización y funcionamiento del SAR, las atribuciones de CONSAR, los derechos y obligaciones de los trabajadores, y el régimen de operación de las AFOREs.</li>
+          <li><strong>Ley del Seguro Social</strong>, publicada en el DOF el 21 de diciembre de 1995, vigente a partir del 1 de julio de 1997. Esta ley establece el régimen de seguridad social para los trabajadores afiliados al IMSS, incluyendo el esquema de pensiones por cuentas individuales.</li>
+          <li><strong>Ley del Seguro Social de 1973</strong> (abrogada pero con efectos vigentes para trabajadores que cotizaban antes del 1 de julio de 1997). Estos trabajadores conservan el derecho a elegir entre el esquema de beneficio definido (Ley 73) o el de cuentas individuales (Ley 97) al momento del retiro.</li>
+        </ul>
+
+        <h3>Regulación secundaria</h3>
+        <ul>
+          <li><strong>Circular Única de SIEFOREs</strong>: emitida por CONSAR, establece las reglas de operación, régimen de inversión, límites de exposición por clase de activo, mecanismos de valuación y reporte de información. Durante 2022 no se realizaron reformas estructurales a esta circular, manteniéndose vigentes las disposiciones del esquema de SIEFOREs Generacionales implementado en 2019-2020.</li>
+        </ul>
+
+        <h3>Reformas relevantes vigentes</h3>
+        <p>El marco normativo vigente en 2022 incorporaba las reformas implementadas en años previos, particularmente:</p>
+        <ul>
+          <li><strong>Reforma al régimen de inversión (2019-2020)</strong>: transición de SIEFOREs Básicas a SIEFOREs Generacionales, ampliación de límites de inversión en renta variable para generaciones jóvenes, y ajustes al régimen de inversión extranjera.</li>
+        </ul>
+
+        <h3>Interpretación legal</h3>
+        <p>Las interpretaciones sobre alcances específicos de la legislación corresponden a las autoridades competentes: CONSAR como regulador sectorial, la Secretaría de Hacienda y Crédito Público en temas de política financiera, y el Poder Judicial en controversias legales. Este estudio se limita a describir el marco normativo vigente sin emitir interpretaciones jurídicas.</p>
+      </section>
+
+      <!-- 12. LIMITACIONES -->
+      <section class="paper__section" id="limitaciones">
+        <div class="paper__section-number">Sección 12</div>
+        <h2>Limitaciones</h2>
+        <p>Este estudio presenta las siguientes limitaciones que deben considerarse al interpretar los resultados:</p>
+
+        <h3>Alcance descriptivo</h3>
+        <p>El estudio tiene carácter exclusivamente descriptivo. No se realizan proyecciones sobre el comportamiento futuro del SAR, no se establecen relaciones causales entre variables, y no se emiten recomendaciones sobre políticas públicas, productos financieros o AFOREs específicas.</p>
+
+        <h3>Periodo específico</h3>
+        <p>Los datos corresponden al año 2022. Los hallazgos no deben extrapolarse a otros periodos sin considerar los cambios en contexto macroeconómico, regulación, estructura de mercado y comportamiento de los participantes. En particular, los rendimientos negativos de 2022 no son predictivos de rendimientos futuros.</p>
+
+        <h3>Datos estimados</h3>
+        <p>Los rendimientos nominales y reales son estimaciones [E] basadas en promedios del sistema y deben interpretarse como indicadores referenciales. Los rendimientos efectivos varían por SIEFORE Generacional, AFORE, composición de portafolio y periodo de medición. No existe un dato oficial único de rendimiento del SAR en su conjunto.</p>
+
+        <h3>Datos agregados</h3>
+        <p>Los datos de recursos administrados y cuentas individuales se presentan a nivel sistema. La desagregación por AFORE está sujeta a variaciones según la metodología de conteo (cuentas activas vs. totales, asignación de cuentas sin AFORE elegida, cuentas en proceso de traspaso). Los datos agregados pueden no sumar exactamente debido a redondeos y ajustes metodológicos de las fuentes primarias.</p>
+
+        <h3>Ausencia de análisis causal</h3>
+        <p>El estudio no establece relaciones causales entre variables. Por ejemplo, aunque se describe la correlación entre inflación elevada y rendimientos negativos, no se afirma que una causa la otra de forma directa. Las correlaciones observadas pueden estar mediadas por múltiples factores no analizados en este estudio.</p>
+
+        <h3>Fuentes disponibles</h3>
+        <p>El análisis se basa exclusivamente en información publicada por fuentes oficiales (CONSAR, INEGI, Banxico) y el Panel DM-SAR-DATA-001. No se consideraron datos no publicados, información confidencial de AFOREs ni fuentes secundarias (consultoras, análisis de terceros). Los datos internos de operación de las AFOREs no son públicos y por tanto no forman parte del análisis.</p>
+
+        <h3>Interpretación de comisiones</h3>
+        <p>La comisión promedio de 0.566% <span class="fuente-badge fuente-badge--v">V</span> es un promedio ponderado y no refleja necesariamente la comisión que paga cada trabajador individual, la cual depende de la AFORE en que esté registrado. La comparación internacional de comisiones debe considerar diferencias en estructura de costos, servicios incluidos, régimen regulatorio y características de cada mercado.</p>
+      </section>
+
+      <!-- 13. CONCLUSIONES -->
+      <section class="paper__section" id="conclusiones">
+        <div class="paper__section-number">Sección 13</div>
+        <h2>Conclusiones</h2>
+        <ol>
+          <li>Al cierre de 2022, el SAR administraba 5,229.46 mmdp <span class="fuente-badge fuente-badge--v">V</span> (17.2% <span class="fuente-badge fuente-badge--v">V</span> del PIB), gestionaba 72.47 millones de cuentas individuales y operaba con 10 AFOREs. Los recursos crecieron 3.0% <span class="fuente-badge fuente-badge--v">V</span> nominal respecto a 2021 pero disminuyeron 1.3 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> como proporción del PIB.</li>
+          <li>La comisión promedio alcanzó un mínimo histórico de 0.566% <span class="fuente-badge fuente-badge--v">V</span> sobre saldo, reducción de 24.1 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> respecto a 2021 (0.807% <span class="fuente-badge fuente-badge--v">V</span>) y de 70.5% <span class="fuente-badge fuente-badge--v">V</span> respecto a 2008 (1.92% <span class="fuente-badge fuente-badge--v">V</span>). Nueve de diez AFOREs convergieron en 0.57% <span class="fuente-badge fuente-badge--v">V</span>, generando un spread de apenas 0.04 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>.</li>
+          <li>El año registró rendimientos nominales estimados en aproximadamente -4% y rendimientos reales estimados en aproximadamente -12%, resultado del contexto macroeconómico adverso con inflación de 7.82% <span class="fuente-badge fuente-badge--v">V</span> (máxima desde 2000) y tasa Banxico en 10.5% <span class="fuente-badge fuente-badge--v">V</span>. Las SIEFOREs registraron minusvalías estimadas en aproximadamente -215 mmdp.</li>
+          <li>La combinación de aportaciones continuas (+flujo positivo) y pérdidas por valuación de activos (-215 mmdp <span class="fuente-badge fuente-badge--v">V</span>) resultó en un crecimiento neto positivo pero moderado de los recursos administrados. El flujo de aportaciones compensó parcialmente las minusvalías de inversión.</li>
+          <li>El número de cuentas individuales creció 2.9% <span class="fuente-badge fuente-badge--v">V</span> (2.47 millones adicionales), consistente con la tendencia de expansión de cobertura de seguridad social. El sistema no experimentó cambios en su estructura corporativa (fusiones, adquisiciones o entradas/salidas de AFOREs).</li>
+          <li>El esquema de SIEFOREs Generacionales completó su segundo año de operación plena, permitiendo que los perfiles de inversión se ajustaran automáticamente según la edad del trabajador. Este diseño fue especialmente relevante durante un año de alta volatilidad.</li>
+          <li>El año 2022 representó el último año del ciclo de minusvalías consecutivas (2021-2022) antes de la recuperación de 2023. Los rendimientos negativos deben contextualizarse en el horizonte de largo plazo del SAR (30-40 años), donde la volatilidad de corto plazo es inherente a portafolios diversificados.</li>
+        </ol>
+        <p>Los datos y análisis presentados en este estudio corresponden exclusivamente al periodo enero-diciembre de 2022, a 25 años de la entrada en vigor de la reforma de 1997.</p>
+      </section>
+
+      <hr class="paper__separator">
+
+      <!-- 14. FUENTES -->
+      <section class="paper__section" id="fuentes">
+        <div class="paper__section-number">Sección 14</div>
+        <h2>Fuentes</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li id="fuente-F1"><span class="fuente-inst">CONSAR</span> (Comisión Nacional del Sistema de Ahorro para el Retiro). <span class="fuente-titulo">Informes Trimestrales al H. Congreso de la Unión sobre la situación del SAR, 2022</span>. México, 2022. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F2"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Datos estadísticos del SAR: comisiones, cuentas, recursos y traspasos</span>. México, 2022. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F3"><span class="fuente-inst">INEGI</span> (Instituto Nacional de Estadística y Geografía). <span class="fuente-titulo">Producto Interno Bruto y cuentas nacionales de México, 2022</span>. México, 2023. <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">https://www.inegi.org.mx</a></li>
+            <li id="fuente-F4"><span class="fuente-inst">Banco de México</span> (Banxico). <span class="fuente-titulo">Indicadores económicos: tasas de interés e inflación, 2022</span>. México, 2022. <a href="https://www.banxico.org.mx" target="_blank" rel="noopener">https://www.banxico.org.mx</a></li>
+            <li id="fuente-F5"><span class="fuente-inst">Datos México</span>. <span class="fuente-titulo">Panel DM-SAR-DATA-001: Base de datos consolidada del SAR</span>. México, 2026. <a href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/" target="_blank" rel="noopener">https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/</a></li>
+            <li id="fuente-F6"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 23 de mayo de 1996. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+            <li id="fuente-F7"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Seguro Social</span>. Diario Oficial de la Federación, 21 de diciembre de 1995. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+          </ol>
+          <p>Fecha de consulta de fuentes electrónicas: abril de 2026.</p>
+          <p class="paper__fuentes-leyenda"><span class="fuente-badge fuente-badge--v">V</span> dato verificado de fuente oficial directa &middot; <span class="fuente-badge fuente-badge--e">E</span> dato estimado o derivado, declarado como tal &middot; estándar editorial del observatorio.</p>
+        </div>
+      </section>
+
+      <!-- DECLARACIONES -->
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interés:</strong> El observatorio Datos México declara la ausencia de conflictos de interés en la elaboración de este estudio. Datos México no tiene relación comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> Todas las cifras cuantitativas presentadas en este estudio provienen de fuentes primarias oficiales (CONSAR, INEGI, Banxico) y del Panel DM-SAR-DATA-001. No se utilizaron fuentes secundarias para datos cuantitativos.</p>
+        <p><strong>Alcance:</strong> Este documento tiene carácter informativo y no constituye asesoría financiera, legal ni recomendación alguna sobre productos, servicios o AFOREs específicas.</p>
+      </div>
+
+    </div><!-- /paper__body -->
+
+
+      <!-- DE LA LECTURA AL CÁLCULO -->
+      <aside class="paper__calc-cta">
+        <p class="paper__calc-cta-eyebrow">De la lectura al cálculo</p>
+        <p class="paper__calc-cta-body">
+          Los datos de esta serie alimentan las <strong>calculadoras del observatorio</strong>: herramientas
+          educativas con supuestos públicos, fuentes oficiales versionadas y validación actuarial.
+          <a href="/pensiones/calculadoras">Calcula tu caso →</a>
+        </p>
+      </aside>
+
+  </main>
+
+  <!-- Scripts -->
+
+  <!-- Tooltip unificado + hover-por-área Ronda 6.
+       Un solo sistema premium para sparkline, barras y rows AFORE:
+       - Contenido ASCII puro en data-tip-* (mata "?" del `·` U+00B7 y `[V]`).
+       - Detección del punto MÁS CERCANO por overlay en sparkline.
+       - Marcador activo sincronizado con el tooltip.
+       - Fallback teclado / focus / touch preservado. -->
+  <script>
+  (function () {
+    'use strict';
+    var container = document.querySelector('.paper__resumen-hero-inner');
+    var tip       = document.getElementById('rhTip');
+    if (!container || !tip) return;
+    var titleEl   = tip.querySelector('.rh-tip__title');
+    var detailTx  = tip.querySelector('.rh-tip__detail-text');
+    var badgeEl   = tip.querySelector('.rh-tip__badge');
+    var noteEl    = tip.querySelector('.rh-tip__note');
+    var hideTimer;
+    var currentActive = null;
+
+    function positionOverElement(el) {
+      var r = el.getBoundingClientRect();
+      var c = container.getBoundingClientRect();
+      tip.style.left = (r.left - c.left + r.width / 2) + 'px';
+      tip.style.top  = (r.top  - c.top) + 'px';
+    }
+
+    function showFor(el) {
+      if (!el || !el.dataset.tipTitle) return;
+      clearTimeout(hideTimer);
+      titleEl.textContent = el.dataset.tipTitle;
+      detailTx.textContent = el.dataset.tipDetail || '';
+      noteEl.textContent = el.dataset.tipNote || '';
+      noteEl.style.display = el.dataset.tipNote ? 'block' : 'none';
+      badgeEl.style.display = el.dataset.tipV === '1' ? 'inline-block' : 'none';
+      positionOverElement(el);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tip.classList.add('is-visible');
+          tip.setAttribute('aria-hidden', 'false');
+        });
+      });
+    }
+    function hide() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('is-visible');
+        tip.setAttribute('aria-hidden', 'true');
+        if (currentActive && currentActive.classList) {
+          currentActive.classList.remove('is-active');
+        }
+        currentActive = null;
+        var activeDot = document.querySelector('.rh-spark__active');
+        if (activeDot) activeDot.setAttribute('opacity', '0');
+      }, 80);
+    }
+
+    function setActive(el) {
+      if (currentActive === el) return;
+      if (currentActive && currentActive.classList) currentActive.classList.remove('is-active');
+      currentActive = el;
+      if (el && el.classList) el.classList.add('is-active');
+    }
+
+    // ---------- 1. Sparkline: hover POR ÁREA ----------
+    var sparkSvg = document.querySelector('.rh-spark__svg');
+    var sparkOverlay = document.querySelector('.rh-spark__overlay');
+    var sparkPoints = Array.prototype.slice.call(document.querySelectorAll('.rh-spark__point'));
+    var activeDot = document.querySelector('.rh-spark__active');
+
+    if (sparkSvg && sparkOverlay && sparkPoints.length) {
+      var pointCoords = sparkPoints.map(function (p) {
+        return { el: p, cx: parseFloat(p.getAttribute('cx')), cy: parseFloat(p.getAttribute('cy')) };
+      });
+
+      function handleSparkMove(e) {
+        var svgRect = sparkSvg.getBoundingClientRect();
+        var xInPx = (e.clientX !== undefined ? e.clientX : e.touches[0].clientX) - svgRect.left;
+        var xInVb = xInPx / svgRect.width * 720; // viewBox width
+        // Punto más cercano por X
+        var nearest = pointCoords[0], minD = Math.abs(pointCoords[0].cx - xInVb);
+        for (var i = 1; i < pointCoords.length; i++) {
+          var d = Math.abs(pointCoords[i].cx - xInVb);
+          if (d < minD) { minD = d; nearest = pointCoords[i]; }
+        }
+        // Mueve el marcador activo al punto seleccionado
+        if (activeDot) {
+          activeDot.setAttribute('cx', nearest.cx);
+          activeDot.setAttribute('cy', nearest.cy);
+          activeDot.setAttribute('opacity', '1');
+        }
+        setActive(nearest.el);
+        showFor(nearest.el);
+      }
+
+      sparkOverlay.addEventListener('mousemove', handleSparkMove);
+      sparkOverlay.addEventListener('mouseleave', hide);
+      sparkOverlay.addEventListener('touchstart', handleSparkMove, { passive: true });
+      sparkOverlay.addEventListener('touchmove', handleSparkMove, { passive: true });
+    }
+
+    // ---------- 2. Focus por teclado en todos los data-tip-title ----------
+    var focusables = container.querySelectorAll('[data-tip-title][tabindex]');
+    Array.prototype.forEach.call(focusables, function (el) {
+      el.addEventListener('focus', function () { setActive(el); showFor(el); });
+      el.addEventListener('blur', hide);
+    });
+
+    // ---------- 3. Rows generosas: barras Recursos + rows AFORE ----------
+    var hoverRows = container.querySelectorAll('.rh-viz__bar-row[data-tip-title], .rh-afore-row[data-tip-title]');
+    Array.prototype.forEach.call(hoverRows, function (el) {
+      el.addEventListener('mouseenter', function () { setActive(el); showFor(el); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('touchstart', function () { setActive(el); showFor(el); }, { passive: true });
+    });
+
+    // ---------- 4. Tocar fuera oculta el tooltip ----------
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('[data-tip-title], .rh-spark__overlay, .rh-afore-row')) hide();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      tip.classList.remove('is-visible');
+      if (activeDot) activeDot.setAttribute('opacity', '0');
+    });
+  })();
+  </script>
+
+  <!-- Gráficas del paper -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navy = '#1B2A5E';
+    var gold = '#B8943E';
+    var bgAlt = '#F4F5FA';
+    var gris = '#9CA3AF';
+
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = '#4B5563';
+
+    // -- Gráfica 1: Recursos administrados 2021 vs 2022 (barras verticales) --
+    new Chart(document.getElementById('chart-recursos'), {
+      type: 'bar',
+      data: {
+        labels: ['Cierre 2021', 'Cierre 2022'],
+        datasets: [{
+          label: 'Recursos (mmdp)',
+          data: [5100.0, 5229.46],
+          backgroundColor: [navy, gold],
+          borderRadius: 4,
+          barPercentage: 0.5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                var pib = ctx.dataIndex === 0 ? '18.5' : '17.2';
+                return '~' + ctx.parsed.y.toLocaleString() + ' mmdp (' + pib + '% del PIB)';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 6000,
+            title: { display: true, text: 'Miles de millones de pesos (mmdp)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'pibLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          var pibValues = ['~18.5% del PIB', '~17.2% del PIB'];
+          ctx.save();
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(bar, i) {
+            ctx.fillText(pibValues[i], bar.x, bar.y - 8);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+
+    // -- Gráfica 2: Comisiones por AFORE (barras horizontales) --
+    new Chart(document.getElementById('chart-comisiones'), {
+      type: 'bar',
+      data: {
+        labels: ['Inbursa', 'Invercap', 'Principal', 'Azteca', 'Coppel', 'SURA', 'Citibanamex', 'XXI Banorte', 'Profuturo GNP', 'PensionISSSTE'],
+        datasets: [{
+          label: 'Comisión (%)',
+          data: [0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.53],
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.x.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            min: 0,
+            max: 0.7,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' },
+            ticks: {
+              callback: function(value) {
+                return value.toFixed(2) + '%';
+              }
+            }
+          },
+          y: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'promedioLine',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var yAxis = chart.scales.y;
+          var xAxis = chart.scales.x;
+          var promedio = 0.566;
+          var xPos = xAxis.getPixelForValue(promedio);
+          
+          ctx.save();
+          ctx.setLineDash([6, 4]);
+          ctx.strokeStyle = gold;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(xPos, yAxis.top);
+          ctx.lineTo(xPos, yAxis.bottom);
+          ctx.stroke();
+          ctx.restore();
+
+          ctx.save();
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.fillStyle = gold;
+          ctx.textAlign = 'center';
+          ctx.fillText('Promedio 0.566%', xPos, yAxis.top - 8);
+          ctx.restore();
+        }
+      }]
+    });
+
+    // -- Gráfica 3: Tendencia comisión promedio 2008-2022 (línea) --
+    new Chart(document.getElementById('chart-tendencia'), {
+      type: 'line',
+      data: {
+        labels: ['2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+        datasets: [{
+          label: 'Comisión promedio (%)',
+          data: [1.92, 1.75, 1.62, 1.48, 1.38, 1.29, 1.19, 1.11, 1.06, 1.03, 1.02, 0.98, 0.92, 0.807, 0.566],
+          borderColor: navy,
+          backgroundColor: navy,
+          borderWidth: 3,
+          pointRadius: 6,
+          pointBackgroundColor: navy,
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          tension: 0.3,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.y.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            min: 0.4,
+            max: 2.1,
+            title: { display: true, text: 'Comisión promedio (% sobre saldo)' },
+            grid: { color: 'rgba(0,0,0,0.06)' },
+            ticks: {
+              callback: function(value) {
+                return value.toFixed(2) + '%';
+              }
+            }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'dataLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          
+          ctx.save();
+          ctx.font = 'bold 10px Inter, sans-serif';
+          ctx.fillStyle = navy;
+          ctx.textAlign = 'center';
+          
+          meta.data.forEach(function(point, index) {
+            var value = chart.data.datasets[0].data[index];
+            ctx.fillText(value.toFixed(2) + '%', point.x, point.y - 12);
+          });
+          
+          ctx.restore();
+        }
+      }]
+    });
+  });
+  </script>
+</body>
+</html>

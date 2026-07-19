@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apendice para investigadores - DM-SAR-DATA-001 | Datos México</title>
+  <meta name="description" content="Apendice metodologico y de referencia para investigadores del dataset DM-SAR-DATA-001: Panel Mensual del SAR por AFORE, 1997-2025.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/apendice.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Apendice para investigadores - DM-SAR-DATA-001 | Datos México">
+  <meta property="og:description" content="Apendice metodologico y de referencia para investigadores del dataset DM-SAR-DATA-001.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/apendice.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <main class="paper" role="main">
+
+    <!-- Back link -->
+    <a href="/datos.html" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a datos
+    </a>
+
+    <!-- PORTADA -->
+    <header class="paper__portada">
+      <span class="paper__tipo">Apendice</span>
+      <p class="paper__id">DM-SAR-DATA-001</p>
+      <h1 class="paper__titulo">Apendice para investigadores</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Febrero 2026</p>
+
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-DATA-001</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- CUERPO -->
+    <div class="paper__body">
+
+      <!-- 1. INTRODUCCION -->
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Seccion 1</div>
+        <h2>Introduccion</h2>
+        <p>El dataset DM-SAR-DATA-001 se distribuye como un archivo CSV plano (flat file) de 2,932 registros y 18 columnas. Esta estructura, conocida en teoria de bases de datos como <strong>relacion universal</strong>, es conveniente para la distribucion y portabilidad de datos, pero presenta redundancias y dependencias que el investigador debe comprender antes de utilizarlo en un sistema relacional o en analisis que requieran integridad referencial.</p>
+        <p>Este apendice presenta un analisis formal de normalizacion del dataset hasta la Tercera Forma Normal (3NF), siguiendo la teoria relacional de Codd (1970) y sus extensiones por Boyce y Codd (1974). El objetivo es que el investigador pueda:</p>
+        <ul>
+          <li>Identificar las dependencias funcionales presentes en los datos.</li>
+          <li>Comprender las redundancias inherentes a la estructura plana.</li>
+          <li>Disenar un esquema relacional normalizado si requiere almacenar los datos en una base de datos.</li>
+          <li>Evitar anomalias de insercion, actualizacion y eliminacion al manipular los datos.</li>
+        </ul>
+      </section>
+
+      <!-- 2. RELACION UNIVERSAL -->
+      <section class="paper__section" id="relacion-universal">
+        <div class="paper__section-number">Seccion 2</div>
+        <h2>La relacion universal</h2>
+        <p>El dataset se distribuye como una unica relacion <strong>R</strong> con el siguiente esquema:</p>
+        <div class="paper__resumen">
+          <p><strong>R</strong>(fecha, afore, comision_sobre_saldo_pct, total_cuentas, trabajadores_registrados, trabajadores_asignados, trabajadores_imss, trabajadores_issste, rcv_imss_mdp, rcv_issste_mdp, ahorro_voluntario_mdp, recursos_administrados_mdp, recursos_registrados_mdp, vivienda_mdp, entradas_mdp, salidas_mdp, traspasos_cedidos, traspasos_recibidos)</p>
+        </div>
+        <p>La <strong>clave candidata</strong> de esta relacion es el par compuesto:</p>
+        <div class="paper__resumen">
+          <p><strong>K = {fecha, afore}</strong></p>
+        </div>
+        <p>Es decir, la combinacion de mes y administradora identifica de forma unica cada registro. No existe un solo atributo que por si mismo sea suficiente para distinguir cada tupla: hay multiples registros por fecha (uno por cada AFORE) y multiples registros por AFORE (uno por cada mes).</p>
+        <p>Cardinalidad observada:</p>
+        <ul>
+          <li><strong>|fecha|</strong> = 331 valores distintos (diciembre 1997 a junio 2025).</li>
+          <li><strong>|afore|</strong> = 10 valores distintos.</li>
+          <li><strong>|R|</strong> = 2,932 tuplas (no todos los meses tienen las 10 AFOREs, ya que algunas iniciaron operaciones despues de 1997).</li>
+        </ul>
+      </section>
+
+      <!-- 3. DEPENDENCIAS FUNCIONALES -->
+      <section class="paper__section" id="dependencias">
+        <div class="paper__section-number">Seccion 3</div>
+        <h2>Dependencias funcionales</h2>
+        <p>Una dependencia funcional X &rarr; Y establece que para todo par de tuplas t<sub>1</sub> y t<sub>2</sub> en R, si t<sub>1</sub>[X] = t<sub>2</sub>[X], entonces t<sub>1</sub>[Y] = t<sub>2</sub>[Y]. A continuacion se identifican las dependencias funcionales presentes en el dataset.</p>
+
+        <h3>3.1 Dependencias funcionales completas (de la clave)</h3>
+        <p>Las siguientes dependencias son <strong>completas</strong> respecto a la clave K = {fecha, afore}, es decir, ningun subconjunto propio de K las determina:</p>
+        <div class="paper__resumen">
+          <p>{fecha, afore} &rarr; comision_sobre_saldo_pct<br>
+          {fecha, afore} &rarr; total_cuentas<br>
+          {fecha, afore} &rarr; trabajadores_registrados<br>
+          {fecha, afore} &rarr; trabajadores_asignados<br>
+          {fecha, afore} &rarr; trabajadores_imss<br>
+          {fecha, afore} &rarr; trabajadores_issste<br>
+          {fecha, afore} &rarr; rcv_imss_mdp<br>
+          {fecha, afore} &rarr; rcv_issste_mdp<br>
+          {fecha, afore} &rarr; ahorro_voluntario_mdp<br>
+          {fecha, afore} &rarr; recursos_administrados_mdp<br>
+          {fecha, afore} &rarr; recursos_registrados_mdp<br>
+          {fecha, afore} &rarr; vivienda_mdp<br>
+          {fecha, afore} &rarr; entradas_mdp<br>
+          {fecha, afore} &rarr; salidas_mdp<br>
+          {fecha, afore} &rarr; traspasos_cedidos<br>
+          {fecha, afore} &rarr; traspasos_recibidos</p>
+        </div>
+        <p><strong>Nota sobre comisiones:</strong> A primera vista, las comisiones de las AFOREs parecerian depender solo del ano y la AFORE, ya que CONSAR las autoriza anualmente. Sin embargo, el analisis empirico del dataset revela que en 10 casos las comisiones cambian dentro del mismo ano calendario (por ejemplo, Coppel paso de 3.30% a 1.94% durante 2009). Por tanto, la dependencia funcional completa {fecha, afore} &rarr; comision es correcta; un atributo derivado como {ano, afore} no seria suficiente.</p>
+
+        <h3>3.2 Dependencias transitivas</h3>
+        <p>Se identifican las siguientes <strong>dependencias transitivas</strong> dentro de la relacion, es decir, dependencias de la forma K &rarr; A &rarr; B donde A no es clave:</p>
+
+        <h3>3.2.1 Cuentas totales como atributo derivado</h3>
+        <p>Se observa empiricamente que:</p>
+        <div class="paper__resumen">
+          <p>total_cuentas = trabajadores_registrados + trabajadores_asignados</p>
+        </div>
+        <p>Esto constituye una <strong>dependencia funcional transitiva</strong>:</p>
+        <ul>
+          <li>{fecha, afore} &rarr; {trabajadores_registrados, trabajadores_asignados}</li>
+          <li>{trabajadores_registrados, trabajadores_asignados} &rarr; total_cuentas</li>
+        </ul>
+        <p>El atributo <em>total_cuentas</em> es derivable a partir de otros atributos no clave. Su presencia en la relacion introduce redundancia: si se modifica <em>trabajadores_registrados</em> sin actualizar <em>total_cuentas</em>, se genera una inconsistencia. Esta es la <strong>anomalia de actualizacion</strong> clasica que la normalizacion busca eliminar.</p>
+
+        <h3>3.2.2 Recursos registrados como atributo derivado</h3>
+        <p>De forma analoga, los recursos registrados en el SAR son una composicion de otros campos:</p>
+        <div class="paper__resumen">
+          <p>recursos_registrados_mdp &asymp; recursos_administrados_mdp + vivienda_mdp + [bono ISSSTE] + [recursos en Banxico]</p>
+        </div>
+        <p>La relacion no es exacta porque dos componentes (bono de pension ISSSTE y recursos depositados en Banco de Mexico) no estan presentes como columnas individuales en el dataset. Esto representa una <strong>dependencia transitiva parcialmente observable</strong>: el investigador puede verificar que recursos_registrados &ge; recursos_administrados + vivienda, pero la diferencia corresponde a componentes no incluidos en el archivo plano.</p>
+
+        <h3>3.3 Resumen de dependencias</h3>
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. Dependencias funcionales identificadas</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Determinante</th>
+                <th>Dependiente</th>
+                <th>Implicacion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Completa</td>
+                <td>{fecha, afore}</td>
+                <td>comision_sobre_saldo_pct</td>
+                <td>Cumple 2NF</td>
+              </tr>
+              <tr>
+                <td>Completa</td>
+                <td>{fecha, afore}</td>
+                <td>trabajadores_registrados</td>
+                <td>Cumple 2NF</td>
+              </tr>
+              <tr>
+                <td>Completa</td>
+                <td>{fecha, afore}</td>
+                <td>trabajadores_asignados</td>
+                <td>Cumple 2NF</td>
+              </tr>
+              <tr>
+                <td>Completa</td>
+                <td>{fecha, afore}</td>
+                <td>recursos_administrados_mdp</td>
+                <td>Cumple 2NF</td>
+              </tr>
+              <tr class="highlight">
+                <td>Transitiva</td>
+                <td>{trab_reg, trab_asig}</td>
+                <td>total_cuentas</td>
+                <td>Viola 3NF</td>
+              </tr>
+              <tr class="highlight">
+                <td>Transitiva parcial</td>
+                <td>{rec_admin, vivienda, ...}</td>
+                <td>recursos_registrados_mdp</td>
+                <td>Viola 3NF</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4. PRIMERA FORMA NORMAL -->
+      <section class="paper__section" id="1nf">
+        <div class="paper__section-number">Seccion 4</div>
+        <h2>Primera Forma Normal (1NF)</h2>
+        <p>Una relacion esta en 1NF si y solo si:</p>
+        <ol>
+          <li>Todos los atributos contienen valores atomicos (no hay conjuntos, listas ni estructuras anidadas).</li>
+          <li>No hay grupos repetitivos.</li>
+          <li>Existe una clave primaria que identifica de forma unica cada tupla.</li>
+        </ol>
+
+        <h3>Evaluacion del dataset</h3>
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Evaluacion de 1NF</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Criterio</th>
+                <th>Resultado</th>
+                <th>Observacion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Valores atomicos</td>
+                <td><strong>Cumple</strong></td>
+                <td>Cada celda contiene un unico valor numerico o texto. No hay listas ni valores compuestos.</td>
+              </tr>
+              <tr>
+                <td>Sin grupos repetitivos</td>
+                <td><strong>Cumple</strong></td>
+                <td>No hay columnas como <em>recurso_1, recurso_2, ..., recurso_n</em>. Cada tipo de recurso tiene su propia columna con semantica distinta.</td>
+              </tr>
+              <tr>
+                <td>Clave primaria definida</td>
+                <td><strong>Cumple</strong></td>
+                <td>K = {fecha, afore} identifica de forma unica cada registro. No se observan duplicados.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="paper__resumen">
+          <p><strong>Conclusion:</strong> El dataset DM-SAR-DATA-001 cumple con la Primera Forma Normal (1NF).</p>
+        </div>
+      </section>
+
+      <!-- 5. SEGUNDA FORMA NORMAL -->
+      <section class="paper__section" id="2nf">
+        <div class="paper__section-number">Seccion 5</div>
+        <h2>Segunda Forma Normal (2NF)</h2>
+        <p>Una relacion esta en 2NF si y solo si:</p>
+        <ol>
+          <li>Esta en 1NF.</li>
+          <li>Todo atributo no clave depende funcionalmente de <strong>toda</strong> la clave primaria, no de un subconjunto propio de ella (no hay <strong>dependencias parciales</strong>).</li>
+        </ol>
+        <p>La 2NF es relevante unicamente cuando la clave primaria es compuesta, como en nuestro caso donde K = {fecha, afore}.</p>
+
+        <h3>Analisis de dependencias parciales</h3>
+        <p>Para que exista una violacion de 2NF, deberiamos encontrar algun atributo no clave que dependa solamente de <em>fecha</em> o solamente de <em>afore</em>.</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 3. Analisis de dependencias parciales</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Posible dependencia parcial</th>
+                <th>Resultado</th>
+                <th>Justificacion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{afore} &rarr; comision?</td>
+                <td><strong>No</strong></td>
+                <td>La comision de cada AFORE cambia a lo largo del tiempo. Una misma AFORE tiene distintas comisiones en distintas fechas.</td>
+              </tr>
+              <tr>
+                <td>{fecha} &rarr; comision?</td>
+                <td><strong>No</strong></td>
+                <td>En una misma fecha, cada AFORE tiene una comision distinta.</td>
+              </tr>
+              <tr>
+                <td>{afore} &rarr; recursos?</td>
+                <td><strong>No</strong></td>
+                <td>Los recursos de cada AFORE cambian mes a mes.</td>
+              </tr>
+              <tr>
+                <td>{fecha} &rarr; recursos?</td>
+                <td><strong>No</strong></td>
+                <td>En una misma fecha, cada AFORE administra montos distintos.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Ningun atributo no clave depende de un subconjunto propio de la clave. Todos los atributos requieren conocer <strong>tanto</strong> la fecha <strong>como</strong> la AFORE para ser determinados.</p>
+        <div class="paper__resumen">
+          <p><strong>Conclusion:</strong> El dataset cumple con la Segunda Forma Normal (2NF). No existen dependencias parciales.</p>
+        </div>
+
+        <h3>Nota academica: el caso de las comisiones</h3>
+        <p>Un analisis superficial podria sugerir que la comision depende de {ano, afore} en lugar de {fecha, afore}, dado que CONSAR las autoriza con periodicidad anual. Sin embargo, el examen empirico del dataset revela que en al menos 10 combinaciones (ano, afore) la comision varia dentro del mismo ano. Esto ocurrio principalmente en 2008-2009, durante la transicion del regimen de comision sobre flujo al regimen sobre saldo. Por ejemplo:</p>
+        <ul>
+          <li><strong>Coppel 2009:</strong> inicio el ano en 3.30% y lo cerro en 1.94%.</li>
+          <li><strong>Invercap 2009:</strong> inicio en 2.48% y cerro en 1.93%.</li>
+          <li><strong>Banamex 2009:</strong> inicio en 1.84% y cerro en 1.75%.</li>
+        </ul>
+        <p>Este hallazgo empirico confirma que la granularidad mensual de la clave es necesaria y que una clave {ano, afore} introduciria una violacion de la definicion de dependencia funcional.</p>
+      </section>
+
+      <!-- 6. TERCERA FORMA NORMAL -->
+      <section class="paper__section" id="3nf">
+        <div class="paper__section-number">Seccion 6</div>
+        <h2>Tercera Forma Normal (3NF)</h2>
+        <p>Una relacion esta en 3NF si y solo si:</p>
+        <ol>
+          <li>Esta en 2NF.</li>
+          <li>Ningun atributo no clave depende transitivamente de la clave primaria. Es decir, no existe un atributo no clave A tal que K &rarr; A y A &rarr; B, donde B es otro atributo no clave.</li>
+        </ol>
+        <p>Dicho de otra forma: todo atributo no clave debe depender de <em>la clave, toda la clave y nada mas que la clave</em>.</p>
+
+        <h3>6.1 Violacion identificada: total_cuentas</h3>
+        <p>Como se demostro en la Seccion 3, el atributo <em>total_cuentas</em> es la suma de <em>trabajadores_registrados</em> y <em>trabajadores_asignados</em>. Formalmente:</p>
+        <div class="paper__resumen">
+          <p>{fecha, afore} &rarr; {trabajadores_registrados, trabajadores_asignados} &rarr; total_cuentas</p>
+        </div>
+        <p>Esto es una <strong>dependencia transitiva</strong>. El atributo <em>total_cuentas</em> no depende directamente de la clave sino a traves de otros atributos no clave. Para alcanzar 3NF, este atributo derivado deberia eliminarse de la relacion (o calcularse dinamicamente en consultas).</p>
+
+        <h3>6.2 Violacion identificada: recursos_registrados_mdp</h3>
+        <p>El atributo <em>recursos_registrados_mdp</em> es una composicion que incluye <em>recursos_administrados_mdp</em>, <em>vivienda_mdp</em> y otros componentes no presentes en el dataset (bono de pension ISSSTE, recursos en Banco de Mexico). Esto constituye una dependencia transitiva parcialmente observable:</p>
+        <div class="paper__resumen">
+          <p>{fecha, afore} &rarr; {recursos_administrados_mdp, vivienda_mdp, ...} &rarr; recursos_registrados_mdp</p>
+        </div>
+
+        <h3>6.3 Anomalias resultantes</h3>
+        <p>Las dependencias transitivas generan tres tipos de anomalias:</p>
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 4. Anomalias por violacion de 3NF</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Anomalia</th>
+                <th>Ejemplo en el dataset</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Actualizacion</strong></td>
+                <td>Si se corrige <em>trabajadores_registrados</em> para una tupla pero no se actualiza <em>total_cuentas</em>, el registro se vuelve internamente inconsistente.</td>
+              </tr>
+              <tr>
+                <td><strong>Insercion</strong></td>
+                <td>Al insertar una nueva tupla, se debe calcular <em>total_cuentas</em> correctamente o se introduce un dato erroneo. No hay restriccion estructural que lo impida.</td>
+              </tr>
+              <tr>
+                <td><strong>Eliminacion</strong></td>
+                <td>No aplica de forma critica en este caso, dado que el valor derivado no almacena informacion independiente que se perderia al eliminar la tupla.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="paper__resumen">
+          <p><strong>Conclusion:</strong> El dataset <strong>no cumple</strong> con la Tercera Forma Normal (3NF) debido a la presencia de al menos dos atributos derivados que constituyen dependencias transitivas: <em>total_cuentas</em> y <em>recursos_registrados_mdp</em>.</p>
+        </div>
+      </section>
+
+      <!-- 7. DESCOMPOSICION A 3NF -->
+      <section class="paper__section" id="descomposicion">
+        <div class="paper__section-number">Seccion 7</div>
+        <h2>Descomposicion a 3NF</h2>
+        <p>Para llevar el dataset a 3NF, se propone la siguiente descomposicion sin perdida (lossless-join decomposition) que preserva todas las dependencias funcionales:</p>
+
+        <h3>R1: observacion_mensual (relacion principal)</h3>
+        <div class="paper__resumen">
+          <p><strong>R1</strong>(fecha, afore, comision_sobre_saldo_pct, trabajadores_registrados, trabajadores_asignados, trabajadores_imss, trabajadores_issste, rcv_imss_mdp, rcv_issste_mdp, ahorro_voluntario_mdp, recursos_administrados_mdp, vivienda_mdp, entradas_mdp, salidas_mdp, traspasos_cedidos, traspasos_recibidos)<br><br>
+          <strong>Clave primaria:</strong> {fecha, afore}</p>
+        </div>
+        <p>Se eliminan los dos atributos derivados:</p>
+        <ul>
+          <li><strong>total_cuentas</strong> se obtiene como: <code>trabajadores_registrados + trabajadores_asignados</code></li>
+          <li><strong>recursos_registrados_mdp</strong> se omite (contiene componentes no presentes en el dataset).</li>
+        </ul>
+
+        <h3>Vistas derivadas (views)</h3>
+        <p>Los atributos eliminados pueden reconstruirse en tiempo de consulta. En SQL:</p>
+        <div class="paper__resumen">
+          <p><code>SELECT fecha, afore,<br>
+          &nbsp;&nbsp;trabajadores_registrados + trabajadores_asignados AS total_cuentas<br>
+          FROM observacion_mensual;</code></p>
+        </div>
+
+        <h3>Verificacion de la descomposicion</h3>
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 5. Verificacion de propiedades de la descomposicion</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Propiedad</th>
+                <th>Resultado</th>
+                <th>Justificacion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sin perdida (lossless join)</td>
+                <td><strong>Cumple</strong></td>
+                <td>La descomposicion no separa la relacion en multiples tablas, solo elimina columnas derivables. La reunion natural reconstruye el dataset original.</td>
+              </tr>
+              <tr>
+                <td>Preservacion de dependencias</td>
+                <td><strong>Cumple</strong></td>
+                <td>Todas las dependencias funcionales no transitivas se mantienen en R1.</td>
+              </tr>
+              <tr>
+                <td>3NF</td>
+                <td><strong>Cumple</strong></td>
+                <td>No quedan dependencias transitivas. Todo atributo no clave depende directamente de K.</td>
+              </tr>
+              <tr>
+                <td>BCNF</td>
+                <td><strong>Cumple</strong></td>
+                <td>Todo determinante es superclave. No hay dependencias funcionales donde el determinante no sea clave candidata.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 8. ESQUEMA RELACIONAL EXTENDIDO -->
+      <section class="paper__section" id="esquema-extendido">
+        <div class="paper__section-number">Seccion 8</div>
+        <h2>Esquema relacional extendido</h2>
+        <p>Para un sistema de base de datos completo, el investigador podria considerar una descomposicion mas granular que separe las dimensiones del dominio. A continuacion se presenta un esquema de referencia que, si bien va mas alla de lo estrictamente necesario para alcanzar 3NF, sigue principios de modelado dimensional utiles para analisis:</p>
+
+        <h3>Tabla de dimension: afore</h3>
+        <div class="paper__resumen">
+          <p><strong>dim_afore</strong>(afore_id PK, nombre, nombre_anterior, fecha_inicio_operaciones, fecha_fin_operaciones, status, absorbida_por, tipo)<br><br>
+          Ejemplo: (7, 'principal', NULL, '1997-07-01', NULL, 'activa', NULL, 'privada')<br>
+          Ejemplo: (18, 'metlife', NULL, '2005-02-24', '2018-05-07', 'fusionada', 'principal', 'privada')</p>
+        </div>
+
+        <h3>Tabla de hechos: observacion_mensual</h3>
+        <div class="paper__resumen">
+          <p><strong>fact_observacion</strong>(fecha, afore_id FK, comision_sobre_saldo_pct, trabajadores_registrados, trabajadores_asignados, trabajadores_imss, trabajadores_issste, rcv_imss_mdp, rcv_issste_mdp, ahorro_voluntario_mdp, recursos_administrados_mdp, vivienda_mdp, entradas_mdp, salidas_mdp, traspasos_cedidos, traspasos_recibidos)<br><br>
+          <strong>Clave primaria:</strong> {fecha, afore_id}</p>
+        </div>
+
+        <p>Este esquema permite:</p>
+        <ul>
+          <li>Consultar el historial de fusiones y adquisiciones sin redundancia.</li>
+          <li>Agregar atributos a la dimension AFORE (grupo financiero, pais de origen, regulador) sin modificar la tabla de hechos.</li>
+          <li>Mantener integridad referencial mediante la clave foranea afore_id.</li>
+        </ul>
+      </section>
+
+      <!-- 9. CONSIDERACIONES PRACTICAS -->
+      <section class="paper__section" id="consideraciones">
+        <div class="paper__section-number">Seccion 9</div>
+        <h2>Consideraciones practicas</h2>
+
+        <h3>9.1 Por que se distribuye desnormalizado</h3>
+        <p>El dataset se distribuye intencionalmente como un archivo plano (CSV) y no como un esquema normalizado por las siguientes razones:</p>
+        <ul>
+          <li><strong>Portabilidad:</strong> Un archivo CSV es legible por cualquier herramienta (Excel, R, Python, Stata, SPSS) sin necesidad de un motor de base de datos.</li>
+          <li><strong>Reproducibilidad:</strong> El archivo plano corresponde directamente a las fuentes originales de CONSAR en datos.gob.mx, facilitando la verificacion.</li>
+          <li><strong>Convencion del dominio:</strong> Los datasets abiertos de organismos publicos (CONSAR, INEGI, Banxico, FRED, Eurostat) se distribuyen universalmente como archivos planos.</li>
+        </ul>
+
+        <h3>9.2 Recomendaciones para el investigador</h3>
+        <ul>
+          <li>Si utiliza los datos en un sistema relacional (PostgreSQL, MySQL, SQLite), implemente la descomposicion a 3NF descrita en la Seccion 7.</li>
+          <li>Si trabaja en un entorno analitico (R, Python/pandas, Stata), el archivo plano es directamente utilizable. Los atributos derivados (<em>total_cuentas</em>, <em>recursos_registrados_mdp</em>) pueden servir como checksum para validar la integridad de los datos.</li>
+          <li>Si realiza series de tiempo, considere que los valores estan en pesos nominales. El ajuste por inflacion debe realizarse por separado utilizando el INPC publicado por INEGI.</li>
+        </ul>
+
+        <h3>9.3 Valores nulos</h3>
+        <p>Los valores vacios en el CSV representan datos no disponibles para ese periodo, no ceros. Las principales causas de valores nulos son:</p>
+        <ul>
+          <li><strong>comision_sobre_saldo_pct:</strong> Nulo antes de marzo 2008 (regimen de comision sobre flujo).</li>
+          <li><strong>trabajadores_issste:</strong> Nulo antes de diciembre 2008 (PensionISSSTE no existia).</li>
+          <li><strong>entradas_mdp, salidas_mdp:</strong> Nulo antes de enero 2009 (serie no disponible).</li>
+          <li><strong>Registros de AFOREs inexistentes:</strong> Azteca, Coppel, Invercap y PensionISSSTE tienen registros con valores nulos en los anos anteriores a su fecha de inicio de operaciones.</li>
+        </ul>
+      </section>
+
+      <!-- 10. REFERENCIAS -->
+      <section class="paper__section" id="referencias">
+        <div class="paper__section-number">Seccion 10</div>
+        <h2>Referencias</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li><span class="fuente-inst">Codd, E. F.</span> (1970). <span class="fuente-titulo">A Relational Model of Data for Large Shared Data Banks</span>. Communications of the ACM, 13(6), 377-387.</li>
+            <li><span class="fuente-inst">Codd, E. F.</span> (1974). <span class="fuente-titulo">Recent Investigations into Relational Data Base Systems</span>. IBM Research Report RJ1385.</li>
+            <li><span class="fuente-inst">Boyce, R. F. y Chamberlin, D. D.</span> (1974). <span class="fuente-titulo">SEQUEL: A Structured English Query Language</span>. Proceedings of the 1974 ACM SIGFIDET Workshop.</li>
+            <li><span class="fuente-inst">Date, C. J.</span> (2004). <span class="fuente-titulo">An Introduction to Database Systems</span>. 8a edicion. Addison-Wesley.</li>
+            <li><span class="fuente-inst">Elmasri, R. y Navathe, S. B.</span> (2016). <span class="fuente-titulo">Fundamentals of Database Systems</span>. 7a edicion. Pearson.</li>
+            <li><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Datos abiertos del Sistema de Ahorro para el Retiro</span>. datos.gob.mx. Consultado en febrero de 2026.</li>
+          </ol>
+        </div>
+      </section>
+
+      <hr class="paper__separator">
+
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interes:</strong> El observatorio Datos México declara la ausencia de conflictos de interes. Datos México no tiene relacion comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> El dataset DM-SAR-DATA-001 fue construido integramente a partir de los datos abiertos publicados por CONSAR en datos.gob.mx.</p>
+        <p><strong>Alcance:</strong> Este documento tiene caracter informativo y no constituye asesoria financiera, legal ni recomendacion alguna.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+</body>
+</html>

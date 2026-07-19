@@ -1,0 +1,2413 @@
+/* ========================================
+   Datos México - Publicacion Individual
+   Estilos para paginas de papers/estudios
+   ======================================== */
+
+/* --- Paper container --- */
+.paper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Portada / Header --- */
+.paper__portada {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 2px solid var(--navy);
+  margin-bottom: 2.5rem;
+}
+
+.paper__tipo {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  background: rgba(27, 42, 94, 0.1);
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+
+.paper__id {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.paper__titulo {
+  font-size: 2rem;
+  line-height: 1.3;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+
+.paper__autores {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.paper__fecha {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* --- Sello Datos México --- */
+.sello {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--gold);
+  border-radius: 6px;
+  background: rgba(184, 148, 62, 0.06);
+}
+
+.sello__icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.sello__text {
+  font-family: 'Merriweather', serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+
+.sello__code {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+/* --- Paper body sections --- */
+.paper__body {
+  padding-bottom: 3rem;
+}
+
+.paper__section {
+  margin-bottom: 2.5rem;
+}
+
+.paper__section-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+}
+
+.paper__section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--navy);
+}
+
+.paper__section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--navy);
+}
+
+.paper__section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.paper__section ul,
+.paper__section ol {
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+}
+
+.paper__section ul {
+  list-style: disc;
+}
+
+.paper__section ol {
+  list-style: decimal;
+}
+
+.paper__section li {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+/* --- Resumen ejecutivo highlight --- */
+.paper__resumen {
+  background: var(--bg-alt);
+  border-left: 4px solid var(--gold);
+  padding: 1.5rem 2rem;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 2.5rem;
+}
+
+.paper__resumen p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
+
+/* --- Academic tables --- */
+.paper__tabla-wrap {
+  margin: 1.5rem 0 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.paper__tabla-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.paper__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.paper__tabla thead {
+  background: var(--navy);
+}
+
+.paper__tabla th {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  border-bottom: 2px solid var(--gold);
+}
+
+.paper__tabla td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--text-primary);
+}
+
+.paper__tabla tbody tr:hover {
+  background: rgba(27, 42, 94, 0.03);
+}
+
+.paper__tabla-fuente {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+
+/* Right-align numeric columns */
+.paper__tabla .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Highlight row */
+.paper__tabla tr.highlight td {
+  background: rgba(184, 148, 62, 0.08);
+  font-weight: 600;
+}
+
+/* --- Fuentes / Referencias --- */
+.paper__fuentes {
+  margin-top: 2rem;
+}
+
+.paper__fuentes ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+}
+
+.paper__fuentes li {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  padding-left: 0.25rem;
+}
+
+.paper__fuentes .fuente-inst {
+  font-weight: 600;
+}
+
+.paper__fuentes .fuente-titulo {
+  font-style: italic;
+}
+
+.paper__fuentes a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-color: rgba(184, 148, 62, 0.4);
+  transition: text-decoration-color var(--transition);
+}
+
+.paper__fuentes a:hover {
+  text-decoration-color: var(--gold);
+}
+
+/* --- Declaraciones --- */
+.paper__declaraciones {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  background: var(--bg-alt);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.paper__declaraciones h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.paper__declaraciones p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+.paper__declaraciones p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Back link --- */
+.paper__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  transition: gap var(--transition);
+}
+
+.paper__back:hover {
+  gap: 0.7rem;
+}
+
+.paper__back svg {
+  transform: rotate(180deg);
+}
+
+/* --- Graficas (Chart.js) --- */
+.paper__grafica-wrap {
+  margin: 2rem 0 2.5rem;
+  padding: 1.5rem;
+  background: var(--bg-alt);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.paper__grafica-container {
+  position: relative;
+  height: 350px;
+  width: 100%;
+}
+
+.paper__grafica-container--tall {
+  height: 480px;
+}
+
+.paper__grafica-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.paper__grafica-fuente {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+/* --- Separator --- */
+.paper__separator {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 2rem 0;
+  border: none;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .paper {
+    padding: 0 1rem;
+  }
+
+  .paper__portada {
+    padding: 2rem 0 2rem;
+  }
+
+  .paper__titulo {
+    font-size: 1.5rem;
+  }
+
+  .paper__section h2 {
+    font-size: 1.3rem;
+  }
+
+  .paper__resumen {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .paper__tabla th,
+  .paper__tabla td {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.82rem;
+  }
+
+  .paper__declaraciones {
+    padding: 1.25rem;
+  }
+
+  .paper__grafica-wrap {
+    padding: 1rem;
+  }
+
+  .paper__grafica-container {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .paper__titulo {
+    font-size: 1.35rem;
+  }
+
+  .paper__tabla-wrap {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 0 1rem;
+  }
+
+  .sello {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+  }
+
+  .paper__grafica-container {
+    height: 240px;
+  }
+}
+
+/* ==========================================================================
+   Protocolo editorial — papers pre-2008 (régimen sobre flujo)
+   ========================================================================== */
+
+/* Bloque obligatorio "Régimen de comisiones vigente en <año>" */
+.paper__regimen-box {
+  margin: 1.5rem 0 2rem;
+  padding: 1.5rem 1.75rem;
+  background: var(--bg-alt);
+  border-left: 4px solid var(--navy);
+  border-radius: 4px;
+}
+
+.paper__regimen-titulo {
+  font-family: 'Merriweather', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 0.5rem 0;
+}
+
+.paper__regimen-tag {
+  margin: 0 0 0.85rem 0;
+}
+
+.regimen-flag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+}
+
+.regimen-flag--flujo {
+  background: rgba(184, 148, 62, 0.15);
+  color: #6e5828;
+  border: 1px solid rgba(184, 148, 62, 0.4);
+}
+
+.regimen-flag--saldo {
+  background: rgba(27, 42, 94, 0.12);
+  color: var(--navy);
+  border: 1px solid rgba(27, 42, 94, 0.3);
+}
+
+.paper__regimen-box p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 0.6rem;
+}
+
+.paper__regimen-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Badge inline [V]/[E] junto a cifras (Regla 3) */
+.fuente-badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.08rem 0.32rem;
+  border-radius: 2px;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+
+.fuente-badge--v {
+  background: rgba(34, 134, 58, 0.12);
+  color: #1f6b34;
+  border: 1px solid rgba(34, 134, 58, 0.35);
+}
+
+.fuente-badge--e {
+  background: rgba(184, 148, 62, 0.12);
+  color: #7a6024;
+  border: 1px solid rgba(184, 148, 62, 0.4);
+}
+
+/* Columna "Origen" en tablas */
+.paper__tabla .origen {
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.paper__tabla .origen a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(27, 42, 94, 0.35);
+}
+
+.paper__tabla .origen a:hover {
+  border-bottom-color: var(--navy);
+}
+
+/* Leyenda al pie del listado de fuentes */
+.paper__fuentes-leyenda {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed rgba(0, 0, 0, 0.12);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Banner de PROTOTIPO (solo para archivos en review/, NUNCA en producción) */
+.paper__prototipo-banner {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(220, 38, 38, 0.08);
+  border: 2px dashed rgba(220, 38, 38, 0.6);
+  border-radius: 6px;
+  color: #991b1b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.paper__prototipo-banner strong {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Ruptura visual de series que cruzan 2008 (Regla 2) — utilidad opcional */
+.serie-ruptura {
+  display: inline-block;
+  border-left: 2px dashed var(--gold);
+  padding-left: 0.6rem;
+  margin-left: 0.4rem;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Rediseño visual del paper — margen lateral aprovechado (piloto)
+   --------------------------------------------------------------------------
+   Opt-in: TODAS las reglas viven bajo .paper--margen. Los 28 papers que NO
+   llevan ese modificador no machean una sola regla nueva — su render y su
+   hash en producción se conservan.
+   ========================================================================== */
+
+/* Base mobile-first — el aside es un bloque normal entre la portada y el
+   cuerpo. En desktop (≥1100px) el grid lo reubica al margen derecho. */
+.paper__margen {
+  margin: 1rem 0 2rem;
+}
+
+.paper__margen-sticky {
+  padding: 1.4rem 1.5rem;
+  background: var(--bg-alt);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 2px 2px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.paper__margen-eyebrow {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.7rem;
+}
+
+/* --- TOC --- */
+.paper__margen-toc-wrap {
+  margin: 0;
+}
+
+.paper__margen-toc-summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.paper__margen-toc-summary::-webkit-details-marker { display: none; }
+.paper__margen-toc-summary::marker { content: ''; }
+
+.paper__margen-toc-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.paper__margen-toc-counter {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.paper__margen-toc-wrap[open] .paper__margen-toc-counter::after { content: ' ▴'; }
+.paper__margen-toc-wrap:not([open]) .paper__margen-toc-counter::after { content: ' ▾'; }
+
+.paper__margen-toc {
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: paper-toc;
+}
+
+.paper__margen-toc li {
+  counter-increment: paper-toc;
+  margin: 0 0 0.15rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+
+.paper__margen-toc li::before {
+  content: counter(paper-toc, decimal-leading-zero);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  flex: 0 0 1.5rem;
+  opacity: 0.6;
+  padding-top: 0.18rem;
+}
+
+.paper__margen-toc a {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--navy);
+  padding: 0.18rem 0 0.18rem 0.5rem;
+  border-left: 2px solid transparent;
+  margin-left: -0.5rem;
+  text-decoration: none;
+  transition: color var(--transition), border-left-color var(--transition), background var(--transition);
+  flex: 1 1 auto;
+}
+
+.paper__margen-toc a:hover,
+.paper__margen-toc a:focus-visible {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  background: rgba(184, 148, 62, 0.06);
+}
+
+/* --- Leyenda [V]/[E] --- */
+.paper__margen-leyenda {
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(27, 42, 94, 0.1);
+}
+
+.paper__margen-leyenda-intro {
+  margin: 0 0 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.paper__margen-leyenda-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.paper__margen-leyenda-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.paper__margen-leyenda-items .fuente-badge {
+  margin-left: 0;
+  flex: 0 0 auto;
+  margin-top: 0.05rem;
+}
+
+/* --- Back link (solo desktop; en móvil .paper__back arriba hace lo mismo) --- */
+.paper__margen-link {
+  display: none;
+}
+
+/* ==========================================================================
+   Desktop (≥1100px): grid 2-columnas, sidebar sticky
+   El resumen-hero y la portada se sirven a ancho completo del paper; el
+   sidebar (TOC + leyenda) empieza DEBAJO del resumen, no a su lado.
+   ========================================================================== */
+@media (min-width: 1100px) {
+  .paper--margen {
+    max-width: 1140px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 248px;
+    grid-template-areas:
+      "back    back"
+      "portada portada"
+      "resumen resumen"
+      "body    aside";
+    column-gap: 3.5rem;
+    /* .paper ya define margin:0 auto y padding:0 1.5rem; se heredan. */
+  }
+
+  .paper--margen > .paper__back          { grid-area: back; }
+  .paper--margen > .paper__portada       { grid-area: portada; }
+  .paper--margen > .paper__resumen-hero  { grid-area: resumen; }
+  .paper--margen > .paper__body          { grid-area: body; }
+  .paper--margen > .paper__margen  {
+    grid-area: aside;
+    margin: 0;
+  }
+
+  .paper--margen .paper__margen-sticky {
+    position: sticky;
+    top: 96px; /* nav fijo 72 + 24 de aire */
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(27, 42, 94, 0.2) transparent;
+  }
+
+  .paper--margen .paper__margen-sticky::-webkit-scrollbar { width: 4px; }
+  .paper--margen .paper__margen-sticky::-webkit-scrollbar-track { background: transparent; }
+  .paper--margen .paper__margen-sticky::-webkit-scrollbar-thumb {
+    background: rgba(27, 42, 94, 0.2);
+    border-radius: 2px;
+  }
+
+  /* En desktop el TOC siempre se ve — ocultamos la summary del details */
+  .paper--margen .paper__margen-toc-summary {
+    display: none;
+  }
+
+  /* Eyebrow del TOC en desktop (la summary lo proveía en móvil) */
+  .paper--margen .paper__margen-toc-wrap::before {
+    content: 'En este estudio';
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 0.7rem;
+  }
+
+  /* En desktop el TOC parte sin el espacio superior del details */
+  .paper--margen .paper__margen-toc {
+    margin-top: 0;
+  }
+
+  /* Back link en desktop: visible al pie del sticky */
+  .paper--margen .paper__margen-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(27, 42, 94, 0.1);
+    transition: color var(--transition), gap var(--transition);
+  }
+
+  .paper--margen .paper__margen-link:hover,
+  .paper--margen .paper__margen-link:focus-visible {
+    color: var(--navy);
+    gap: 0.6rem;
+  }
+
+  /* Anclas del TOC: que el título de sección no quede oculto bajo el nav fijo */
+  .paper--margen .paper__section[id] {
+    scroll-margin-top: 88px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .paper--margen {
+    max-width: 1200px;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    column-gap: 4rem;
+  }
+}
+
+/* Reduced motion: nada que mover; el sticky es estructural */
+@media (prefers-reduced-motion: reduce) {
+  .paper--margen .paper__margen-toc a,
+  .paper--margen .paper__margen-link {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   RESUMEN EJECUTIVO VISUAL (piloto en la entrega 2024)
+   --------------------------------------------------------------------------
+   Sustituye el .paper__resumen de texto. Es la primera pieza que ve el lector:
+   un golpe de comprensión con las cifras [V] del cuerpo (mismas fuentes,
+   mismos valores) presentadas con jerarquía editorial. Toda regla vive bajo
+   .paper--margen → cero riesgo a los 28 papers sin el modificador.
+   ========================================================================== */
+.paper--margen .paper__resumen-hero {
+  background: var(--bg-alt);
+  border-top: 3px solid var(--gold);
+  padding: 2.5rem 1.5rem 2.75rem;
+  margin: 1rem 0 2rem;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.paper--margen .paper__resumen-hero::before {
+  /* Sutil radial gold al tope para dar profundidad sin estridencia. */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(184, 148, 62, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.paper--margen .paper__resumen-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.paper--margen .paper__resumen-hero-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.75rem;
+}
+
+.paper--margen .paper__resumen-hero-titulo {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  margin: 0 0 1.1rem;
+}
+
+.paper--margen .paper__resumen-hero-lede {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  margin: 0 0 2.25rem;
+  max-width: 740px;
+}
+
+.paper--margen .paper__resumen-hero-lede strong {
+  color: var(--navy);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.paper--margen .paper__resumen-hero-lede .fuente-badge {
+  margin-left: 0.2rem;
+}
+
+/* --- Grid de cards de cifras --- */
+.paper--margen .paper__resumen-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 0 2.5rem;
+}
+
+.paper--margen .rh-card {
+  background: var(--white);
+  border: 1px solid rgba(27, 42, 94, 0.08);
+  border-radius: 4px;
+  padding: 1.25rem 1.35rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.paper--margen .rh-card--accent {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.paper--margen .rh-card__label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.paper--margen .rh-card--accent .rh-card__label {
+  color: var(--gold-light);
+}
+
+.paper--margen .rh-card__big {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.paper--margen .rh-card--accent .rh-card__big {
+  color: var(--white);
+}
+
+.paper--margen .rh-card__unit {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-left: -0.2rem;
+}
+
+.paper--margen .rh-card--accent .rh-card__unit {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.paper--margen .rh-card__big .fuente-badge {
+  margin-left: 0.15rem;
+  font-size: 0.62rem;
+  align-self: center;
+}
+
+.paper--margen .rh-card__meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.paper--margen .rh-card--accent .rh-card__meta {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.paper--margen .rh-card__ref {
+  margin: 0.3rem 0 0;
+  padding-top: 0.65rem;
+  border-top: 1px dashed rgba(27, 42, 94, 0.12);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+}
+
+.paper--margen .rh-card--accent .rh-card__ref {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.paper--margen .rh-card__ref a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 148, 62, 0.35);
+  transition: color var(--transition), border-bottom-color var(--transition);
+}
+
+.paper--margen .rh-card--accent .rh-card__ref a {
+  color: var(--gold-light);
+  border-bottom-color: rgba(212, 177, 90, 0.4);
+}
+
+.paper--margen .rh-card__ref a:hover,
+.paper--margen .rh-card__ref a:focus-visible {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+}
+
+.paper--margen .rh-card--accent .rh-card__ref a:hover,
+.paper--margen .rh-card--accent .rh-card__ref a:focus-visible {
+  color: var(--white);
+  border-bottom-color: var(--white);
+}
+
+/* --- Sparkline editorial --- */
+.paper--margen .paper__resumen-hero-spark {
+  background: var(--white);
+  border: 1px solid rgba(27, 42, 94, 0.08);
+  border-radius: 4px;
+  padding: 1.35rem 1.5rem 1.4rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.paper--margen .rh-spark__caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+  margin: 0;
+}
+
+.paper--margen .rh-spark__caption-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
+
+.paper--margen .rh-spark__caption-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.paper--margen .rh-spark__caption-meta strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.paper--margen .rh-spark__svg {
+  display: block;
+  width: 100%;
+  height: 84px;
+}
+
+.paper--margen .rh-spark__axis {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.35rem 0 0;
+  padding: 0 5%;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.paper--margen .rh-spark__ref {
+  margin: 0;
+  padding-top: 0.65rem;
+  border-top: 1px dashed rgba(27, 42, 94, 0.12);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+}
+
+.paper--margen .rh-spark__ref a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 148, 62, 0.35);
+  transition: color var(--transition), border-bottom-color var(--transition);
+}
+
+.paper--margen .rh-spark__ref a:hover,
+.paper--margen .rh-spark__ref a:focus-visible {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+}
+
+/* --- Responsive del hero --- */
+@media (min-width: 768px) {
+  .paper--margen .paper__resumen-hero {
+    padding: 3rem 2rem 3.25rem;
+  }
+  .paper--margen .paper__resumen-hero-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .paper--margen .paper__resumen-hero {
+    padding: 3.5rem 2.5rem 3.5rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+  .paper--margen .paper__resumen-hero-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .paper--margen .rh-card__big {
+    font-size: clamp(1.6rem, 2.4vw, 2.05rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  .paper--margen .paper__resumen-hero {
+    padding: 3.75rem 3rem 3.75rem;
+  }
+  .paper--margen .paper__resumen-hero-grid {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .paper--margen .paper__resumen-hero {
+    padding: 2rem 1.25rem 2.25rem;
+  }
+  .paper--margen .paper__resumen-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .paper--margen .rh-spark__caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper--margen .rh-card,
+  .paper--margen .rh-card__ref a,
+  .paper--margen .rh-spark__ref a {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Ruta A (fix visual): portada compacta + sello a la derecha,
+   sin doble barra, sin espacio muerto, cards 2x2 en rango medio.
+   Todas las reglas bajo .paper--margen — los 28 papers sin el modificador
+   conservan su layout original al 100%.
+   ========================================================================== */
+
+/* Back-link: menos margen al inicio (estaba 2rem por default) */
+.paper--margen .paper__back {
+  margin-bottom: 1rem;
+}
+
+/* Portada compacta: el resumen es el primer impacto, la portada queda
+   como cabecera mínima y se pega al bloque del resumen. */
+.paper--margen .paper__portada {
+  padding: 1.25rem 0 1.4rem;
+  border-bottom: none;
+  margin-bottom: 0;
+  /* Grid 2 columnas: textos a la izquierda, sello a la derecha bottom */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 2rem;
+  row-gap: 0;
+  align-items: start;
+}
+
+/* Los hijos de texto van a la columna 1; el Sello a la columna 2 todas las filas */
+.paper--margen .paper__portada > :not(.sello) {
+  grid-column: 1;
+}
+
+.paper--margen .paper__portada > .sello {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: end;
+  margin: 0;
+}
+
+/* Compactar márgenes internos de la portada (ya no necesitan separar tanto) */
+.paper--margen .paper__portada .paper__tipo    { margin-bottom: 0.65rem; }
+.paper--margen .paper__portada .paper__id      { margin-bottom: 0.4rem; }
+.paper--margen .paper__portada .paper__titulo  { margin-bottom: 0.75rem; line-height: 1.2; }
+.paper--margen .paper__portada .paper__autores { margin-bottom: 0.25rem; }
+.paper--margen .paper__portada .paper__fecha   { margin-bottom: 0; }
+
+/* Resumen-hero: sin border-top gold (el bg-alt ya separa) y sin margen
+   superior (queda pegado a la portada compacta). */
+.paper--margen .paper__resumen-hero {
+  border-top: none;
+  margin-top: 0;
+}
+
+/* Cards: 2x2 en el rango 1100–1279px (evita el amontonamiento previo);
+   se queda 4x1 a partir de 1280px donde sí hay aire. */
+@media (min-width: 1100px) and (max-width: 1279.98px) {
+  .paper--margen .paper__resumen-hero-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  /* Sello más compacto en este rango para no competir con la portada */
+  .paper--margen .paper__portada .sello {
+    transform: scale(0.95);
+    transform-origin: right bottom;
+  }
+}
+
+/* Mobile/tablet: portada en columna única, sello al final
+   (debajo de fecha como antes, pero con margen reducido) */
+@media (max-width: 767.98px) {
+  .paper--margen .paper__portada {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
+  }
+  .paper--margen .paper__portada > .sello {
+    grid-column: 1;
+    grid-row: auto;
+    align-self: start;
+    justify-self: start;
+    margin-top: 0.75rem;
+  }
+}
+
+/* ==========================================================================
+   Ronda 3 : integrar el resumen (sin fondo), una sola línea
+   divisora gold, sparkline con puntos circulares, y dos visualizaciones
+   mini (Recursos 2023→2024 + distribución AFOREs).
+   Todas las reglas siguen bajo .paper--margen — 28 papers intactos.
+   ========================================================================== */
+
+/* Línea divisora gold única tras la portada (sustituye al border-bottom
+   navy de la Ruta A; ya no hay barra inferior pero sí una marca editorial). */
+.paper--margen .paper__portada::after {
+  content: '';
+  display: block;
+  grid-column: 1 / -1;
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin: 1.25rem 0 0;
+}
+
+/* Resumen-hero integrado: sin fondo bg-alt, sin gradiente radial.
+   La jerarquía la sostienen tipografía, espaciado y los bg-alt internos
+   de cards y sparkline. */
+.paper--margen .paper__resumen-hero {
+  background: transparent;
+  padding: 1.5rem 0 1rem;
+  margin: 0;
+}
+
+.paper--margen .paper__resumen-hero::before {
+  display: none;
+}
+
+/* En responsive, el padding del resumen ya no necesita los valores
+   anteriores (no hay caja). Los @media previos (768, 1100, 1280, 480)
+   siguen aplicando sus padding y aquí los neutralizamos. */
+@media (min-width: 768px) {
+  .paper--margen .paper__resumen-hero {
+    padding: 1.75rem 0 1.25rem;
+  }
+}
+@media (min-width: 1100px) {
+  .paper--margen .paper__resumen-hero {
+    padding: 2rem 0 1.5rem;
+    margin: 0;
+  }
+}
+@media (max-width: 480px) {
+  .paper--margen .paper__resumen-hero {
+    padding: 1.25rem 0 1rem;
+  }
+}
+
+/* Las cards ahora viven sobre fondo blanco del paper → necesitan más
+   contraste local: bg-alt sutil + sombra fina. La accent (Plusvalías)
+   sigue navy — se re-declara aquí para que gane por source order. */
+.paper--margen .rh-card {
+  background: var(--bg-alt);
+  border: 1px solid rgba(27, 42, 94, 0.08);
+  box-shadow: 0 1px 3px rgba(27, 42, 94, 0.04);
+}
+
+.paper--margen .rh-card--accent {
+  background: var(--navy);
+  border-color: var(--navy);
+  box-shadow: 0 2px 6px rgba(27, 42, 94, 0.18);
+}
+
+/* Sparkline: aspect-ratio garantiza puntos circulares (B5 cerrado).
+   viewBox cambió a 720×84 (aspecto 8.57:1) para mejor ocupación del ancho. */
+.paper--margen .rh-spark__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 720 / 84;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* La sparkline también vive en su tarjeta bg-alt */
+.paper--margen .paper__resumen-hero-spark {
+  background: var(--bg-alt);
+  border: 1px solid rgba(27, 42, 94, 0.08);
+  box-shadow: 0 1px 3px rgba(27, 42, 94, 0.04);
+}
+
+/* ==========================================================================
+   Visualizaciones mini: contenedor 2-col en desktop, stack en móvil
+   ========================================================================== */
+.paper--margen .paper__resumen-hero-viz {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0 0 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .paper--margen .paper__resumen-hero-viz {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.paper--margen .rh-viz {
+  background: var(--bg-alt);
+  border: 1px solid rgba(27, 42, 94, 0.08);
+  border-radius: 4px;
+  padding: 1.1rem 1.25rem 1.15rem;
+  box-shadow: 0 1px 3px rgba(27, 42, 94, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.paper--margen .rh-viz__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --- Viz 1: barras horizontales Recursos 2023 → 2024 --- */
+.paper--margen .rh-viz__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0.25rem 0 0.25rem;
+}
+
+.paper--margen .rh-viz__bar-row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.paper--margen .rh-viz__year {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.paper--margen .rh-viz__track {
+  position: relative;
+  height: 22px;
+  background: rgba(27, 42, 94, 0.05);
+  border-radius: 2px;
+  overflow: visible;
+}
+
+.paper--margen .rh-viz__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: calc(var(--ratio, 0) * 100%);
+  border-radius: 2px;
+  transition: none;
+}
+
+.paper--margen .rh-viz__bar--prev {
+  background: linear-gradient(90deg, var(--navy) 0%, rgba(27, 42, 94, 0.7) 100%);
+}
+
+.paper--margen .rh-viz__bar--curr {
+  background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+}
+
+.paper--margen .rh-viz__bar-label {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  font-family: 'Merriweather', serif;
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: var(--white);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.paper--margen .rh-viz__bar-label .fuente-badge {
+  margin-left: 0.25rem;
+  font-size: 0.6rem;
+  text-shadow: none;
+}
+
+/* --- Viz 2: escala AFOREs --- */
+.paper--margen .rh-viz__scale {
+  margin: 0.4rem 0 0.4rem;
+}
+
+.paper--margen .rh-viz__scale-track {
+  position: relative;
+  height: 36px;
+  background: linear-gradient(to right,
+    rgba(184, 148, 62, 0.18) 0%,
+    rgba(184, 148, 62, 0.05) 30%,
+    rgba(27, 42, 94, 0.05) 70%,
+    rgba(27, 42, 94, 0.18) 100%);
+  border-radius: 18px;
+  margin: 0 0 0.4rem;
+}
+
+.paper--margen .rh-viz__scale-tick,
+.paper--margen .rh-viz__scale-mark {
+  position: absolute;
+  top: 50%;
+  left: var(--pos, 0%);
+  transform: translate(-50%, -50%);
+}
+
+.paper--margen .rh-viz__scale-tick {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--white);
+  box-shadow: 0 1px 3px rgba(27, 42, 94, 0.25);
+  z-index: 2;
+}
+
+.paper--margen .rh-viz__scale-tick--cluster {
+  background: var(--navy);
+}
+
+.paper--margen .rh-viz__scale-tick--cluster::before,
+.paper--margen .rh-viz__scale-tick--cluster::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 2px solid var(--white);
+  transform: translateY(-50%);
+}
+
+.paper--margen .rh-viz__scale-tick--cluster::before { left: -10px; }
+.paper--margen .rh-viz__scale-tick--cluster::after { left: -22px; }
+
+.paper--margen .rh-viz__scale-mark {
+  width: 2px;
+  height: 28px;
+  background: rgba(27, 42, 94, 0.45);
+  border-radius: 1px;
+  z-index: 1;
+}
+
+.paper--margen .rh-viz__scale-axis {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Viz meta + ref + leyenda dots */
+.paper--margen .rh-viz__meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.paper--margen .rh-viz__meta strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.paper--margen .rh-viz__legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--navy);
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 0 0.35rem 0 0;
+  transform: translateY(-1px);
+}
+
+.paper--margen .rh-viz__legend-dot--gold {
+  background: var(--gold);
+}
+
+.paper--margen .rh-viz__ref {
+  margin: 0;
+  padding-top: 0.7rem;
+  border-top: 1px dashed rgba(27, 42, 94, 0.12);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+}
+
+.paper--margen .rh-viz__ref a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 148, 62, 0.35);
+  transition: color var(--transition), border-bottom-color var(--transition);
+}
+
+.paper--margen .rh-viz__ref a:hover,
+.paper--margen .rh-viz__ref a:focus-visible {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+}
+
+/* ==========================================================================
+   Ronda 4 : gráficos vivos — hover + tooltips + accesibilidad
+   Paleta editorial estricta (navy #1B2A5E, gold #B8943E, bg-alt #F4F5FA,
+   text-secondary #6C757D, white). Ningún color fuera de paleta.
+   ========================================================================== */
+
+/* ---------- Sparkline interactivo ---------- */
+
+.paper--margen .rh-spark__wrapper {
+  position: relative;
+}
+
+.paper--margen .rh-spark__points {
+  /* Permite hits sobre los círculos invisibles. */
+}
+
+.paper--margen .rh-spark__point {
+  fill: transparent;
+  stroke: transparent;
+  cursor: pointer;
+  transition: fill 0.18s ease, stroke 0.18s ease;
+}
+
+.paper--margen .rh-spark__point:hover,
+.paper--margen .rh-spark__point:focus {
+  fill: rgba(184, 148, 62, 0.18); /* gold con alfa, dentro de paleta */
+  stroke: var(--navy);
+  stroke-width: 1.5;
+  outline: none;
+}
+
+/* ---------- Tooltip unificado .rh-tip (Ronda 5) ----------
+   Sustituye al viejo .rh-spark__tooltip y a los title nativos del navegador.
+   Un único sistema para sparkline, barras y ticks.
+   Vive dentro de .paper__resumen-hero-inner con position:relative implícito
+   por el JS, que setea left/top respecto a ese contenedor. */
+.paper--margen .paper__resumen-hero-inner {
+  position: relative;
+}
+
+.paper--margen .rh-tip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 30;
+  pointer-events: none;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+  color: var(--white);
+  padding: 0.55rem 0.85rem 0.6rem;
+  border-radius: 4px;
+  box-shadow:
+    0 8px 24px rgba(15, 27, 61, 0.28),
+    0 2px 6px rgba(15, 27, 61, 0.18);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.35;
+  white-space: nowrap;
+  opacity: 0;
+  /* Posicionado desde JS con left/top; el transform centra horizontalmente
+     y eleva 8px sobre el elemento, partiendo 6px más abajo para la animación. */
+  transform: translate(-50%, calc(-100% - 8px)) translateY(6px);
+  transition:
+    opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.paper--margen .rh-tip.is-visible {
+  opacity: 1;
+  transform: translate(-50%, calc(-100% - 8px)) translateY(0);
+}
+
+.paper--margen .rh-tip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--navy-dark);
+  filter: drop-shadow(0 2px 1px rgba(15, 27, 61, 0.15));
+}
+
+.paper--margen .rh-tip__title {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--gold-light);
+  margin-bottom: 0.15rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.paper--margen .rh-tip__detail {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  font-variant-numeric: tabular-nums;
+  color: var(--white);
+}
+
+.paper--margen .rh-tip__detail-text {
+  display: inline-block;
+}
+
+/* Badge V DENTRO del tooltip — variante especial: alto contraste sobre navy */
+.paper--margen .rh-tip__badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.05rem 0.3rem;
+  border-radius: 2px;
+  background: rgba(212, 177, 90, 0.18);
+  color: var(--gold-light);
+  border: 1px solid rgba(212, 177, 90, 0.45);
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+/* Línea opcional debajo del detail: contexto sin cargar la principal */
+.paper--margen .rh-tip__note {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.72);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper--margen .rh-tip {
+    transition: opacity 0.05s ease;
+    transform: translate(-50%, calc(-100% - 8px));
+  }
+  .paper--margen .rh-tip.is-visible {
+    transform: translate(-50%, calc(-100% - 8px));
+  }
+}
+
+/* ---------- Cards: lift + sombra en hover/focus ---------- */
+
+.paper--margen .rh-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.paper--margen .rh-card:hover,
+.paper--margen .rh-card:focus-within {
+  transform: translateY(-2px);
+  border-color: rgba(27, 42, 94, 0.16);
+  box-shadow: 0 8px 22px rgba(27, 42, 94, 0.1);
+}
+
+.paper--margen .rh-card--accent:hover,
+.paper--margen .rh-card--accent:focus-within {
+  box-shadow: 0 10px 26px rgba(27, 42, 94, 0.32);
+}
+
+/* ---------- Barras Recursos: brillo y resaltado en hover/focus ---------- */
+
+.paper--margen .rh-viz__bar-row {
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+  border-radius: 3px;
+  padding: 0.15rem 0;
+  margin: -0.15rem 0;
+}
+
+.paper--margen .rh-viz__bar-row:hover,
+.paper--margen .rh-viz__bar-row:focus-visible {
+  outline: none;
+  background-color: rgba(27, 42, 94, 0.03);
+}
+
+.paper--margen .rh-viz__bar {
+  transition: filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper--margen .rh-viz__bar-row:hover .rh-viz__bar,
+.paper--margen .rh-viz__bar-row:focus-visible .rh-viz__bar {
+  filter: brightness(1.08) saturate(1.08);
+  box-shadow: 0 1px 6px rgba(27, 42, 94, 0.22);
+}
+
+/* ---------- Scale ticks (AFOREs): scale + tooltip nativo ---------- */
+
+.paper--margen .rh-viz__scale-tick {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper--margen .rh-viz__scale-tick:hover,
+.paper--margen .rh-viz__scale-tick:focus-visible {
+  transform: translate(-50%, -50%) scale(1.4);
+  box-shadow: 0 3px 10px rgba(27, 42, 94, 0.35);
+  outline: none;
+  z-index: 3;
+}
+
+.paper--margen .rh-viz__scale-tick--cluster:hover::before,
+.paper--margen .rh-viz__scale-tick:focus-visible.rh-viz__scale-tick--cluster::before,
+.paper--margen .rh-viz__scale-tick--cluster:hover::after,
+.paper--margen .rh-viz__scale-tick:focus-visible.rh-viz__scale-tick--cluster::after {
+  box-shadow: 0 3px 10px rgba(27, 42, 94, 0.3);
+}
+
+/* ---------- Reduced motion: respetamos la preferencia del usuario ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .paper--margen .rh-spark__point,
+  .paper--margen .rh-spark__tooltip,
+  .paper--margen .rh-card,
+  .paper--margen .rh-viz__bar-row,
+  .paper--margen .rh-viz__bar,
+  .paper--margen .rh-viz__scale-tick {
+    transition: none;
+  }
+
+  .paper--margen .rh-card:hover,
+  .paper--margen .rh-card:focus-within {
+    transform: none;
+  }
+
+  .paper--margen .rh-viz__scale-tick:hover,
+  .paper--margen .rh-viz__scale-tick:focus-visible {
+    transform: translate(-50%, -50%); /* sin scale */
+  }
+}
+
+/* ==========================================================================
+   Ronda 6 : hover POR ÁREA + estados activos sincronizados
+   ========================================================================== */
+
+/* Overlay del sparkline: capa transparente sobre todo el chart.
+   Cursor: pointer (mano) — señal universal de interactividad; nunca help ni
+   crosshair (help muestra "?" literal en macOS/Windows → B11). */
+.paper--margen .rh-spark__overlay {
+  cursor: pointer;
+}
+
+/* Estado activo del punto del sparkline (aunque el punto es invisible,
+   la escala del marcador visible .rh-spark__active hace el trabajo). */
+.paper--margen .rh-spark__point.is-active {
+  fill: rgba(184, 148, 62, 0.22);
+}
+
+/* Marcador activo VISIBLE: navy con borde blanco, sigue al punto más cercano.
+   Transición suave para que se sienta líquido cuando el cursor se mueve. */
+.paper--margen .rh-spark__active {
+  transition:
+    cx 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+    cy 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.15s ease;
+  will-change: cx, cy;
+}
+
+/* Track de la escala AFOREs: cursor pointer sobre toda la zona interactiva. */
+.paper--margen .rh-viz__scale-track {
+  cursor: pointer;
+}
+
+/* Estado activo de los ticks: escalado igual al hover */
+.paper--margen .rh-viz__scale-tick.is-active {
+  transform: translate(-50%, -50%) scale(1.4);
+  box-shadow: 0 3px 10px rgba(27, 42, 94, 0.35);
+  z-index: 3;
+}
+
+.paper--margen .rh-viz__scale-mark.is-active {
+  background: var(--gold);
+  width: 3px;
+  box-shadow: 0 0 6px rgba(184, 148, 62, 0.6);
+}
+
+/* Estado activo de la barra Recursos: brillo + sombra igual al hover */
+.paper--margen .rh-viz__bar-row.is-active {
+  background-color: rgba(27, 42, 94, 0.03);
+}
+.paper--margen .rh-viz__bar-row.is-active .rh-viz__bar {
+  filter: brightness(1.08) saturate(1.08);
+  box-shadow: 0 1px 6px rgba(27, 42, 94, 0.22);
+}
+
+/* Reduced motion aplicado al marcador activo del sparkline */
+@media (prefers-reduced-motion: reduce) {
+  .paper--margen .rh-spark__active {
+    transition: opacity 0.05s ease;
+  }
+  .paper--margen .rh-viz__scale-tick.is-active {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ==========================================================================
+   Ronda 8 : dot plot Comisiones AFORE — cada AFORE en su fila.
+   Bajo el criterio D19: la forma comunica compresión de un vistazo
+   (9 puntos alineados verticalmente a 100% + 1 outlier a 0%).
+   Cada fila hover-alcanzable individualmente. Paleta editorial estricta.
+   ========================================================================== */
+
+.paper--margen .rh-afore-list {
+  list-style: none;
+  margin: 0.5rem 0 0.75rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.paper--margen .rh-afore-row {
+  display: grid;
+  grid-template-columns: minmax(88px, 1.2fr) minmax(0, 3fr) auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 4px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  min-height: 24px;
+}
+
+.paper--margen .rh-afore-row:hover,
+.paper--margen .rh-afore-row.is-active,
+.paper--margen .rh-afore-row:focus-visible {
+  background-color: rgba(27, 42, 94, 0.055);
+  outline: none;
+}
+
+.paper--margen .rh-afore-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.15s ease;
+}
+
+.paper--margen .rh-afore-row.is-active .rh-afore-name,
+.paper--margen .rh-afore-row:hover .rh-afore-name {
+  color: var(--navy);
+}
+
+/* La AFORE outlier (PensionISSSTE) va con acento gold para leerla al ojo */
+.paper--margen .rh-afore-row--outlier .rh-afore-name {
+  color: var(--gold);
+  font-weight: 600;
+}
+.paper--margen .rh-afore-row--outlier:hover .rh-afore-name,
+.paper--margen .rh-afore-row--outlier.is-active .rh-afore-name {
+  color: var(--gold);
+}
+
+/* El track: eje horizontal sutil de 0.53% a 0.57% */
+.paper--margen .rh-afore-track {
+  position: relative;
+  height: 14px;
+  display: block;
+}
+
+.paper--margen .rh-afore-track::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(to right,
+    rgba(27, 42, 94, 0.12) 0%,
+    rgba(27, 42, 94, 0.06) 50%,
+    rgba(27, 42, 94, 0.12) 100%);
+  transform: translateY(-50%);
+}
+
+/* El punto: navy por defecto, gold para el outlier */
+.paper--margen .rh-afore-dot {
+  position: absolute;
+  left: var(--pos, 0%);
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 2px solid var(--white);
+  box-shadow: 0 1px 3px rgba(27, 42, 94, 0.22);
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.18s ease,
+              background-color 0.18s ease;
+}
+
+.paper--margen .rh-afore-row--outlier .rh-afore-dot {
+  background: var(--gold);
+  box-shadow: 0 1px 3px rgba(184, 148, 62, 0.28);
+}
+
+.paper--margen .rh-afore-row:hover .rh-afore-dot,
+.paper--margen .rh-afore-row.is-active .rh-afore-dot,
+.paper--margen .rh-afore-row:focus-visible .rh-afore-dot {
+  transform: translate(-50%, -50%) scale(1.35);
+  box-shadow: 0 2px 8px rgba(27, 42, 94, 0.35);
+  z-index: 2;
+}
+
+.paper--margen .rh-afore-row--outlier:hover .rh-afore-dot,
+.paper--margen .rh-afore-row--outlier.is-active .rh-afore-dot {
+  box-shadow: 0 2px 8px rgba(184, 148, 62, 0.45);
+}
+
+.paper--margen .rh-afore-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.005em;
+  min-width: 3rem;
+  text-align: right;
+}
+
+.paper--margen .rh-afore-row--outlier .rh-afore-value {
+  color: var(--gold);
+}
+
+.paper--margen .rh-afore-unit {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.paper--margen .rh-afore-row--outlier .rh-afore-unit {
+  color: rgba(184, 148, 62, 0.75);
+}
+
+/* Eje de valores debajo del dot plot */
+.paper--margen .rh-afore-axis {
+  display: grid;
+  grid-template-columns: minmax(88px, 1.2fr) minmax(0, 3fr) auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.35rem 6px 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  border-top: 1px dashed rgba(27, 42, 94, 0.12);
+  margin-top: 0.35rem;
+}
+
+/* Los dos labels del eje (0.53% y 0.57%) viven en la 2ª columna (el track),
+   uno a cada extremo. Y el promedio del sistema queda en el medio. */
+.paper--margen .rh-afore-axis > span:nth-child(1) { grid-column: 2; justify-self: start; }
+.paper--margen .rh-afore-axis > span:nth-child(2) { grid-column: 2; justify-self: center; color: var(--navy); font-weight: 600; }
+.paper--margen .rh-afore-axis > span:nth-child(3) { grid-column: 2; justify-self: end; }
+.paper--margen .rh-afore-axis > span { grid-row: 1; }
+
+/* Responsive: en móvil (<480px), nombres de AFORE más compactos */
+@media (max-width: 480px) {
+  .paper--margen .rh-afore-row {
+    grid-template-columns: 82px minmax(0, 1fr) auto;
+    gap: 0.55rem;
+    min-height: 22px;
+  }
+  .paper--margen .rh-afore-axis {
+    grid-template-columns: 82px minmax(0, 1fr) auto;
+    gap: 0.55rem;
+  }
+  .paper--margen .rh-afore-name,
+  .paper--margen .rh-afore-value {
+    font-size: 0.78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper--margen .rh-afore-row,
+  .paper--margen .rh-afore-name,
+  .paper--margen .rh-afore-dot {
+    transition: none;
+  }
+  .paper--margen .rh-afore-row:hover .rh-afore-dot,
+  .paper--margen .rh-afore-row.is-active .rh-afore-dot,
+  .paper--margen .rh-afore-row:focus-visible .rh-afore-dot {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ==========================================================================
+   Ronda 9 (D20): retícula asimétrica del resumen
+   Escritorio ≥768px: grid 2-col con áreas
+      "recursos afore"     ← Recursos + Dot plot (der spans 2 filas)
+      "spark    afore"     ← Sparkline (izq bajo)
+   El dot plot AFOREs fija la altura; la columna izq se llena con dos piezas
+   apiladas (Recursos + Sparkline). Cero zonas muertas.
+
+   Móvil <768px: single-col, DOM order (Recursos → Sparkline → AFORE).
+   ========================================================================== */
+
+/* Anular las reglas viejas del bloque .paper__resumen-hero-viz (fila única) */
+@media (min-width: 768px) {
+  .paper--margen .paper__resumen-hero-viz {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "recursos afore"
+      "spark    afore";
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+  .paper--margen .paper__resumen-hero-viz > .rh-viz--recursos     { grid-area: recursos; }
+  .paper--margen .paper__resumen-hero-viz > .rh-viz--afore        { grid-area: afore; align-self: stretch; }
+  .paper--margen .paper__resumen-hero-viz > .paper__resumen-hero-spark { grid-area: spark; }
+}
+
+/* Cuando la sparkline vive DENTRO del viz grid, hereda estilos de card
+   (bg-alt + borde + sombra) para consistencia con Recursos y AFOREs. */
+.paper--margen .paper__resumen-hero-viz > .paper__resumen-hero-spark {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .paper--margen .paper__resumen-hero-viz > .paper__resumen-hero-spark {
+    padding: 1rem 1.15rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.55rem;
+  }
+  /* Sparkline en columna más angosta: reajustar aspect para que ocupe
+     mejor su celda (la columna izq tiene ~sobras verticales que la
+     sparkline llena con altura proporcional a 480:84). */
+  .paper--margen .paper__resumen-hero-viz > .paper__resumen-hero-spark .rh-spark__svg {
+    aspect-ratio: 480 / 84;
+    max-width: none;
+    height: auto;
+    width: 100%;
+  }
+  /* Caption en el sparkline dentro del grid: se apila (label + meta) en
+     una sola línea para no comerse alto. */
+  .paper--margen .paper__resumen-hero-viz > .paper__resumen-hero-spark .rh-spark__caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+  .paper--margen .paper__resumen-hero-viz > .paper__resumen-hero-spark .rh-spark__caption-label {
+    font-size: 0.78rem;
+  }
+  .paper--margen .paper__resumen-hero-viz > .paper__resumen-hero-spark .rh-spark__caption-meta {
+    font-size: 0.72rem;
+  }
+}
+
+/* ≥1100px (donde el aside sidebar aparece): la retícula 2-col sigue
+   funcionando; sólo un pelín más de gap para respirar. */
+@media (min-width: 1100px) {
+  .paper--margen .paper__resumen-hero-viz {
+    gap: 1.5rem;
+  }
+}
+
+/* ≥1280px: idem, gap más generoso */
+@media (min-width: 1280px) {
+  .paper--margen .paper__resumen-hero-viz {
+    gap: 1.75rem;
+  }
+}
+
+/* Móvil <768px: single column, cada pieza a full width, DOM order.
+   Sparkline recupera su aspect original + max-width para no ser gigante. */
+@media (max-width: 767.98px) {
+  .paper--margen .paper__resumen-hero-viz {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .paper--margen .paper__resumen-hero-viz > .paper__resumen-hero-spark {
+    aspect-ratio: auto;
+  }
+}
+
+/* ==========================================================================
+   Ronda 10 (D21): densificar el HERO — aside desde portada nivel
+   El aside sidebar arranca al mismo nivel que la portada (no debajo del
+   resumen). Elimina la columna derecha vacía en el above-the-fold.
+   Reduce padding/margen entre back, portada y resumen sin ahogar la
+   jerarquía tipográfica. Móvil <1100px no se toca (grid no aplica).
+   ========================================================================== */
+@media (min-width: 1100px) {
+  .paper--margen {
+    /* Override grid-template-areas: aside sube al nivel de portada */
+    grid-template-areas:
+      "back    back"
+      "portada aside"
+      "resumen aside"
+      "body    aside";
+    /* Gap ligeramente reducido para densidad (era 3.5rem) */
+    column-gap: 3rem;
+  }
+
+  /* Back-link: reducir margen inferior (era 1rem) */
+  .paper--margen > .paper__back {
+    margin-bottom: 0.6rem;
+  }
+
+  /* Portada: paddings más ceñidos, sin ahogar (era 1.25rem 0 1.4rem) */
+  .paper--margen > .paper__portada {
+    padding: 0.65rem 0 0.9rem;
+    margin-bottom: 0;
+  }
+
+  /* Resumen-hero: arranca justo después del divisor gold (era 2rem 0 1.5rem) */
+  .paper--margen > .paper__resumen-hero {
+    padding: 1rem 0 1rem;
+    margin-top: 0;
+  }
+
+  /* La línea divisora gold entre portada y resumen: reducir margen superior */
+  .paper--margen .paper__portada::after {
+    margin: 0.85rem 0 0;
+  }
+
+  /* El sticky aside: subir el top offset para que el TOC arranque más arriba */
+  .paper--margen .paper__margen-sticky {
+    top: 88px; /* era 96px — mismo nav 72 + 16 de aire */
+  }
+}
+
+/* En 1280+ mantener el gap original (4rem del rule anterior) — el ancho da
+   más aire; la densidad de 3rem no es necesaria. Anular explícitamente. */
+@media (min-width: 1280px) {
+  .paper--margen {
+    column-gap: 3.5rem;
+  }
+}
+
+
+/* ==========================================================================
+   — Extensión del molde .paper--margen para papers pre-2008
+   (régimen de comisiones sobre flujo, protocolo editorial).
+   Bloque ADITIVO: ninguna regla previa se modifica. Todas las reglas viven
+   bajo el scope .paper--margen. Paleta editorial estricta.
+   ========================================================================== */
+
+/* Aviso de régimen en el hero: tira compacta entre la lede y las cards.
+   La caja completa .paper__regimen-box permanece INTACTA al inicio de la
+   Sección 8 (protocolo editorial, Regla 1); esta tira solo contextualiza temprano y
+   ancla a esa sección. Reutiliza .regimen-flag--flujo existente. */
+.paper--margen .rh-regimen-note {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin: 1.1rem 0 0.35rem;
+  padding: 0.7rem 1rem;
+  background: rgba(184, 148, 62, 0.07);
+  border-left: 3px solid var(--gold);
+  border-radius: 3px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.paper--margen .rh-regimen-note .regimen-flag {
+  flex-shrink: 0;
+}
+
+.paper--margen .rh-regimen-note a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(27, 42, 94, 0.35);
+  text-underline-offset: 2px;
+}
+
+.paper--margen .rh-regimen-note a:hover {
+  text-decoration-color: var(--gold);
+}
+
+/* Cifra destacada (stat) como mini-viz: para años cuyo cuerpo no sustenta
+   una serie temporal (arranque de régimen 2008, años tempranos). Vive
+   dentro de un .rh-viz para heredar el tratamiento de card (D20 paso 5). */
+.paper--margen .rh-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0.25rem 0;
+}
+
+.paper--margen .rh-stat__big {
+  font-family: 'Merriweather', serif;
+  font-size: 2.35rem;
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--navy);
+  margin: 0;
+}
+
+.paper--margen .rh-stat__big .rh-stat__unit {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-left: 0.2rem;
+}
+
+.paper--margen .rh-stat__big--gold {
+  color: var(--gold);
+}
+
+.paper--margen .rh-stat__caption {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Slots genéricos de la retícula asimétrica (D20) para papers cuyo cuerpo
+   sustituye el sparkline o el dot plot por otra visualización (pre-2008,
+   R2 del protocolo editorial): la pieza sustituta hereda el slot con un
+   modificador, sin depender de las clases específicas del piloto. */
+@media (min-width: 768px) {
+  .paper--margen .paper__resumen-hero-viz > .rh-viz--slot-recursos { grid-area: recursos; }
+  .paper--margen .paper__resumen-hero-viz > .rh-viz--slot-spark    { grid-area: spark; }
+  .paper--margen .paper__resumen-hero-viz > .rh-viz--slot-afore    { grid-area: afore; align-self: stretch; }
+}
+
+/* Retícula DUAL (2 piezas de altura similar, D20 paso 2 caso simétrico):
+   para resúmenes pre-2008 cuyo cuerpo solo sustenta dos visualizaciones
+   [V]. Anula las areas del layout de 3 piezas; las 2 cards fluyen 1fr 1fr. */
+@media (min-width: 768px) {
+  .paper--margen .paper__resumen-hero-viz--dual {
+    grid-template-areas: none;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+  }
+  .paper--margen .paper__resumen-hero-viz--dual > .rh-viz,
+  .paper--margen .paper__resumen-hero-viz--dual > .rh-viz--slot-recursos,
+  .paper--margen .paper__resumen-hero-viz--dual > .rh-viz--slot-spark,
+  .paper--margen .paper__resumen-hero-viz--dual > .rh-viz--slot-afore {
+    grid-area: auto;
+  }
+}
+
+/* Variantes para barras de baja ocupación (caso 1997): cuando la
+   barra llena <60% del track, la etiqueta cae sobre el track claro y el
+   blanco del molde pierde contraste — variante navy. Y para comparaciones
+   no-anuales (p. ej. "Potencial" vs "Registrados"), la columna de etiqueta
+   de 2.5rem del molde queda corta — variante ancha. Ambas ADITIVAS. */
+.paper--margen .rh-viz__bar-label--dark {
+  color: var(--navy);
+  text-shadow: none;
+}
+
+.paper--margen .rh-viz__bars--wide-labels .rh-viz__bar-row {
+  grid-template-columns: 5.6rem 1fr;
+}
+
+/* ============================================================
+   Lote C — dot plots con nombres de época (papers pre-2008).
+   Los mercados 1998-2003 incluyen administradoras de nombre largo
+   (Santander Mexicano, Banorte Generali, Allianz Dresdner) que la
+   columna estándar de 88px truncaba con elipsis. El modificador
+   .rh-afore-list--epoca ensancha la columna de nombre para que se
+   lean completos; el tooltip (data-tip-title) conserva siempre el
+   nombre íntegro como respaldo. Aditivo: no altera ningún dot plot
+   sin el modificador.
+   ============================================================ */
+.paper--margen .rh-afore-list--epoca .rh-afore-row {
+  grid-template-columns: minmax(148px, 1.6fr) minmax(0, 3fr) auto;
+}
+
+@media (max-width: 480px) {
+  .paper--margen .rh-afore-list--epoca .rh-afore-row {
+    grid-template-columns: 124px minmax(0, 1fr) auto;
+  }
+  .paper--margen .rh-afore-list--epoca .rh-afore-name {
+    font-size: 0.74rem;
+    letter-spacing: 0;
+  }
+}
+
+/* --- De la lectura al cálculo (puente de cierre hacia /calculadoras/) --- */
+.paper__calc-cta {
+  background: var(--bg-alt);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.paper__calc-cta-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.4rem;
+}
+
+.paper__calc-cta-body {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.paper__calc-cta-body strong {
+  color: var(--navy);
+}
+
+.paper__calc-cta-body a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+
+.paper__calc-cta-body a:hover {
+  color: var(--gold);
+}

@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Sistema de Ahorro para el Retiro en México: Panorama 2011 | Datos México</title>
+  <meta name="description" content="Estudio descriptivo del Sistema de Ahorro para el Retiro en Mexico durante 2011: consolidacion del sistema, recursos administrados, comisiones, rendimientos y fusion HSBC-Principal.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/DM-SAR-2011.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Sistema de Ahorro para el Retiro en Mexico: Panorama 2011 | Datos México">
+  <meta property="og:description" content="Estudio descriptivo del SAR en Mexico durante 2011: consolidacion del sistema con la fusion HSBC-Principal, recursos administrados, comisiones y rendimientos.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/DM-SAR-2011.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Chart.js -->
+  <script src="/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <!-- PAPER -->
+  <main class="paper paper--margen" role="main">
+
+    <!-- Back link -->
+    <a href="/pensiones/sar-29" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a publicaciones
+    </a>
+
+    <!-- ==========================================
+         PORTADA
+         ========================================== -->
+    <header class="paper__portada">
+      <span class="paper__tipo">Estudio</span>
+      <p class="paper__id">DM-SAR-2011</p>
+      <h1 class="paper__titulo">El Sistema de Ahorro para el Retiro en México: Panorama 2011</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Marzo 2026</p>
+
+      <!-- Sello Datos México -->
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-2011</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         RESUMEN EJECUTIVO VISUAL (rollout 2011)
+         Reemplaza el .paper__resumen de texto. Toda cifra y su badge [V]/[E]
+         proviene del cuerpo del paper sin alteración (Secciones 4, 6, 7, 8,
+         10 y Tablas 1, 2, 3); ninguna cifra nueva. Cifras dominantes
+         (rh-card__big) son [V]; los estimados (~10.7% del PIB, ~1.62%
+         promedio 2010, ~19.8% crecimiento 2010, ~7% nominal, ~3% real)
+         viven como contexto [E], y las cifras que el cuerpo presenta SIN
+         badge (~1,555 mmdp, ~1,430 mmdp, 42.5 M de cuentas, 2,790/4,331
+         miles de cuentas de Principal, ~1,541 miles absorbidas) se
+         replican sin badge — no se promueven. Historia del año: la fusión
+         HSBC-Principal del 5 de septiembre marca la consolidación del
+         sistema (Sec 1; Sec 10: "el evento mas significativo del SAR
+         durante 2011"; Conclusiones 5 y 7), con comisiones a la baja en
+         todas las AFOREs salvo PensionISSSTE (Sec 8) y crecimiento de
+         recursos de +8.7% [V] en un año de desaceleración (Sec 4, Sec 7).
+         El paper NO tiene Tabla 4 (serie 2008→2011 de comisión promedio):
+         un sparkline exigiría cifras que el cuerpo no contiene, así que el
+         slot "spark" de la retícula D20 se ocupa con barras pareadas de la
+         fusión (cuentas de Principal ene→dic 2011, Tabla 3 y Sec 10) —
+         omisión honesta sobre relleno bonito (D19). Dot plot con las 12
+         firmas EXACTAS de la Tabla 2: patrón de DISPERSIÓN amplia en
+         bandas (rango 0.73 pp, el más ancho del rollout), outlier
+         PensionISSSTE. data-tip-v sólo en las filas cuyo valor está
+         badgeado [V] en el texto del cuerpo (PensionISSSTE, Principal,
+         Invercap); la fuente de la Tabla 2 no declara "[V]".
+         ========================================== -->
+    <section class="paper__resumen-hero" id="resumen" aria-labelledby="resumenHeroTitle">
+      <div class="paper__resumen-hero-inner">
+
+        <!-- Tooltip unificado (Ronda 6): un solo sistema; ASCII
+             puro en data-tip-*; badge V como elemento HTML. -->
+        <div class="rh-tip" id="rhTip" role="status" aria-live="polite" aria-hidden="true">
+          <span class="rh-tip__title"></span>
+          <span class="rh-tip__detail">
+            <span class="rh-tip__detail-text"></span>
+            <span class="rh-tip__badge" aria-hidden="true">V</span>
+          </span>
+          <span class="rh-tip__note"></span>
+        </div>
+
+        <p class="paper__resumen-hero-eyebrow">Sección 1 &middot; En síntesis &middot; Panorama 2011</p>
+        <h2 id="resumenHeroTitle" class="paper__resumen-hero-titulo">La fusión HSBC-Principal marca el año de la consolidación del sistema.</h2>
+
+        <p class="paper__resumen-hero-lede">
+          Al cierre de diciembre de 2011, el SAR administraba recursos por aproximadamente <strong>1,555 mmdp</strong> &mdash;equivalentes a <strong>~10.7% del PIB</strong><span class="fuente-badge fuente-badge--e">E</span>&mdash;, un crecimiento de <strong>+8.7%</strong><span class="fuente-badge fuente-badge--v">V</span> respecto a los ~1,430 mmdp de 2010, con aproximadamente 42.5 millones de cuentas individuales (<strong>+2.94%</strong><span class="fuente-badge fuente-badge--v">V</span> en el año). El evento más significativo del año fue la <strong>fusión de HSBC con Principal</strong>, concretada el 5 de septiembre de 2011, que dejó al sistema con 14 administradoras en operación al cierre, incluyendo PensionISSSTE (<a href="#fuente-F8">F8</a>, <a href="#fuente-F9">F9</a>). La comisión promedio sobre saldo se ubicó en <strong>1.48%</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;desde ~1.62%<span class="fuente-badge fuente-badge--e">E</span> en 2010&mdash;, con un rango de <strong>0.99%</strong><span class="fuente-badge fuente-badge--v">V</span> (PensionISSSTE) a <strong>1.72%</strong><span class="fuente-badge fuente-badge--v">V</span> (Invercap). El contexto macro: crecimiento del PIB de <strong>3.9%</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;una desaceleración frente al 5.5%<span class="fuente-badge fuente-badge--v">V</span> de 2010&mdash;, inflación de <strong>3.82%</strong><span class="fuente-badge fuente-badge--v">V</span> y tasa de referencia de Banxico mantenida en <strong>4.50%</strong><span class="fuente-badge fuente-badge--v">V</span> durante todo el año. Los rendimientos nominales del sistema se estimaron en ~<strong>7%</strong><span class="fuente-badge fuente-badge--e">E</span>, equivalentes a ~<strong>3%</strong><span class="fuente-badge fuente-badge--e">E</span> en términos reales.
+        </p>
+
+        <div class="paper__resumen-hero-grid">
+
+          <article class="rh-card">
+            <p class="rh-card__label">Crecimiento de recursos</p>
+            <p class="rh-card__big">+8.7<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">~1,555 mmdp al cierre &middot; ~10.7% del PIB<span class="fuente-badge fuente-badge--e">E</span> &middot; Desde ~1,430 mmdp en 2010</p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card rh-card--accent">
+            <p class="rh-card__label">Fusión HSBC-Principal &mdash; recursos de Principal</p>
+            <p class="rh-card__big">+82.3<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Concretada el 5 de septiembre de 2011 &middot; +55.2% en cuentas<span class="fuente-badge fuente-badge--v">V</span> &middot; El sistema cierra con 14 administradoras en operación</p>
+            <p class="rh-card__ref"><a href="#consolidacion">Sección 10 &mdash; Consolidación del sistema</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Comisión promedio</p>
+            <p class="rh-card__big">1.48<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Desde ~1.62%<span class="fuente-badge fuente-badge--e">E</span> en 2010 &middot; Rango de 0.99%<span class="fuente-badge fuente-badge--v">V</span> a 1.72%<span class="fuente-badge fuente-badge--v">V</span> (0.73 pp<span class="fuente-badge fuente-badge--v">V</span>)</p>
+            <p class="rh-card__ref"><a href="#comisiones">Sección 8 &mdash; Comisiones</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Crecimiento del PIB 2011</p>
+            <p class="rh-card__big">3.9<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Desaceleración vs 5.5%<span class="fuente-badge fuente-badge--v">V</span> de 2010 &middot; Inflación 3.82%<span class="fuente-badge fuente-badge--v">V</span> &middot; Tasa Banxico 4.50%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rendimiento real estimado ~3%<span class="fuente-badge fuente-badge--e">E</span></p>
+            <p class="rh-card__ref"><a href="#contexto">Sección 4 &mdash; Contexto económico 2011</a></p>
+          </article>
+
+        </div>
+
+        <!-- Retícula asimétrica (D20): 2 cols en escritorio con áreas
+                "recursos afore"     ← Recursos + Dot plot (der spans 2 filas)
+                "spark    afore"
+             Móvil: stack DOM order (Recursos → Fusión → AFORE). -->
+        <div class="paper__resumen-hero-viz">
+
+          <article class="rh-viz rh-viz--recursos" aria-labelledby="rhVizRecTitle">
+            <p id="rhVizRecTitle" class="rh-viz__title">Recursos administrados (mmdp)</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2010, aproximadamente 1,430 mmdp"
+                   data-tip-title="Cierre 2010" data-tip-detail="~1,430 mmdp">
+                <span class="rh-viz__year">2010</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.920"></div>
+                  <span class="rh-viz__bar-label">~1,430</span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2011, aproximadamente 1,555 mmdp, ~10.7% del PIB estimado"
+                   data-tip-title="Cierre 2011" data-tip-detail="~1,555 mmdp" data-tip-note="~10.7% del PIB (estimado)">
+                <span class="rh-viz__year">2011</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">~1,555</span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">+8.7%<span class="fuente-badge fuente-badge--v">V</span> nominal &middot; ~10.7% del PIB<span class="fuente-badge fuente-badge--e">E</span> &middot; Menor ritmo que el ~19.8%<span class="fuente-badge fuente-badge--e">E</span> de 2010</p>
+            <p class="rh-viz__ref"><a href="#recursos">Tabla 1 &mdash; Sección 7</a></p>
+          </article>
+
+          <!-- El paper 2011 NO tiene Tabla 4 (serie 2008→2011 de comisión
+               promedio sobre saldo): el cuerpo sólo contiene 1.48% [V]
+               (2011) y ~1.62% [E] (2010). Un sparkline exigiría cifras que
+               el cuerpo no verifica — omisión honesta (D19). El slot
+               "spark" de la retícula se ocupa con la segunda historia
+               verificada del año: la fusión HSBC-Principal leída en
+               cuentas de Principal enero→diciembre 2011 (Tabla 3, Sec 6,
+               Sec 10), barras pareadas pre/post. El article lleva la clase
+               paper__resumen-hero-spark SÓLO para heredar la grid-area del
+               slot (cero CSS nuevo). -->
+          <article class="rh-viz paper__resumen-hero-spark" aria-labelledby="rhVizFusionTitle">
+            <p id="rhVizFusionTitle" class="rh-viz__title">Fusión HSBC-Principal &middot; cuentas de Principal (miles)</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Enero 2011, 2,790 miles de cuentas, antes de la fusión"
+                   data-tip-title="Enero 2011" data-tip-detail="2,790 miles de cuentas" data-tip-note="Antes de la fusion">
+                <span class="rh-viz__year">Ene</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.644"></div>
+                  <span class="rh-viz__bar-label">2,790</span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Diciembre 2011, 4,331 miles de cuentas, incluye las cuentas absorbidas de HSBC"
+                   data-tip-title="Diciembre 2011" data-tip-detail="4,331 miles de cuentas" data-tip-note="Incluye cuentas absorbidas de HSBC">
+                <span class="rh-viz__year">Dic</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">4,331</span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">+55.2%<span class="fuente-badge fuente-badge--v">V</span> &middot; ~1,541 miles de cuentas absorbidas de HSBC &middot; Concretada el 5 de septiembre de 2011</p>
+            <p class="rh-viz__ref"><a href="#consolidacion">Tabla 3 &mdash; Sección 6 &middot; Sección 10</a></p>
+          </article>
+
+          <article class="rh-viz rh-viz--afore" aria-labelledby="rhVizAforeTitle">
+            <p id="rhVizAforeTitle" class="rh-viz__title">Comisiones por AFORE (12 firmas, cierre 2011)</p>
+
+            <!-- Dot plot horizontal (D19) — patrón de DISPERSIÓN amplia en
+                 bandas: rango 0.73 pp [V] (0.99% a 1.72%), el más ancho
+                 del rollout hasta ahora. PensionISSSTE outlier
+                 (--pos: 0%), Inbursa semi-aislada (24.7%), banda media de
+                 6 firmas (1.40-1.53, pos 56.2-74.0) y banda alta de 4
+                 firmas (1.67-1.72, pos 93.2-100). El mercado de 2011 aún
+                 no converge: dispersión, no compresión. Las 12 filas son
+                 las EXACTAS de la Tabla 2 (incluye Afirme Bajio y MetLife;
+                 el roster completo de 14 vive en Sec 5 desde la Tabla 2 declara su corte y denominaciones al pie).
+                 Posiciones: (val - 0.99) / (1.72 - 0.99) * 100.
+                 data-tip-v="1" sólo en PensionISSSTE (0.99% [V] Sec 8),
+                 Principal (1.52% [V] Sec 10) e Invercap (1.72% [V] Sec 8);
+                 el resto de los valores vive sólo en la Tabla 2, cuya
+                 fuente no declara "[V]" — se replican sin badge. -->
+            <ol class="rh-afore-list" role="list">
+              <li class="rh-afore-row rh-afore-row--outlier" tabindex="0" role="listitem"
+                  data-tip-title="PensionISSSTE" data-tip-detail="0.99%" data-tip-v="1">
+                <span class="rh-afore-name">PensionISSSTE</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 0%"></span></span>
+                <span class="rh-afore-value">0.99<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Inbursa" data-tip-detail="1.17%">
+                <span class="rh-afore-name">Inbursa</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 24.7%"></span></span>
+                <span class="rh-afore-value">1.17<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="XXI Banorte" data-tip-detail="1.40%">
+                <span class="rh-afore-name">XXI Banorte</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 56.2%"></span></span>
+                <span class="rh-afore-value">1.40<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Banamex" data-tip-detail="1.45%">
+                <span class="rh-afore-name">Banamex</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 63.0%"></span></span>
+                <span class="rh-afore-value">1.45<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="SURA" data-tip-detail="1.48%">
+                <span class="rh-afore-name">SURA</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 67.1%"></span></span>
+                <span class="rh-afore-value">1.48<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Afirme Bajio" data-tip-detail="1.51%">
+                <span class="rh-afore-name">Afirme Bajío</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 71.2%"></span></span>
+                <span class="rh-afore-value">1.51<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Principal" data-tip-detail="1.52%" data-tip-v="1">
+                <span class="rh-afore-name">Principal</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 72.6%"></span></span>
+                <span class="rh-afore-value">1.52<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Profuturo GNP" data-tip-detail="1.53%">
+                <span class="rh-afore-name">Profuturo GNP</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 74.0%"></span></span>
+                <span class="rh-afore-value">1.53<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Azteca" data-tip-detail="1.67%">
+                <span class="rh-afore-name">Azteca</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 93.2%"></span></span>
+                <span class="rh-afore-value">1.67<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="MetLife" data-tip-detail="1.69%">
+                <span class="rh-afore-name">MetLife</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 95.9%"></span></span>
+                <span class="rh-afore-value">1.69<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Coppel" data-tip-detail="1.70%">
+                <span class="rh-afore-name">Coppel</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 97.3%"></span></span>
+                <span class="rh-afore-value">1.70<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Invercap" data-tip-detail="1.72%" data-tip-v="1">
+                <span class="rh-afore-name">Invercap</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">1.72<span class="rh-afore-unit">%</span></span>
+              </li>
+            </ol>
+
+            <div class="rh-afore-axis" aria-hidden="true">
+              <span>0.99%</span>
+              <span class="rh-afore-axis__mid">Rango 0.73 pp</span>
+              <span>1.72%</span>
+            </div>
+
+            <p class="rh-viz__meta">Promedio del sistema 1.48%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rango 0.73 pp<span class="fuente-badge fuente-badge--v">V</span> &middot; Todas redujeron su comisión vs 2010, excepto PensionISSSTE</p>
+            <p class="rh-viz__ref"><a href="#comisiones">Tabla 2 &mdash; Sección 8</a></p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MARGEN LATERAL (rollout 2011)
+         TOC de las 14 secciones del cuerpo (Sec 1 elevada al hero) +
+         leyenda [V]/[E] + back-link contextual.
+         ========================================== -->
+    <aside class="paper__margen" aria-label="Navegación y leyenda del estudio">
+      <div class="paper__margen-sticky">
+
+        <nav class="paper__margen-nav" aria-label="Secciones del estudio">
+          <details class="paper__margen-toc-wrap" open>
+            <summary class="paper__margen-toc-summary">
+              <span class="paper__margen-toc-eyebrow">En este estudio</span>
+              <span class="paper__margen-toc-counter">14 secciones</span>
+            </summary>
+            <ol class="paper__margen-toc">
+              <li><a href="#resumen">Resumen ejecutivo</a></li>
+              <li><a href="#introduccion">Introducción</a></li>
+              <li><a href="#metodologia">Metodología</a></li>
+              <li><a href="#contexto">Contexto económico 2011</a></li>
+              <li><a href="#estructura">Estructura del SAR</a></li>
+              <li><a href="#cuentas">Cuentas individuales</a></li>
+              <li><a href="#recursos">Recursos administrados</a></li>
+              <li><a href="#comisiones">Comisiones</a></li>
+              <li><a href="#rendimientos">Rendimientos</a></li>
+              <li><a href="#consolidacion">Consolidación del sistema</a></li>
+              <li><a href="#normativo">Marco normativo</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#conclusiones">Conclusiones</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="paper__margen-leyenda">
+          <p class="paper__margen-eyebrow">Cómo leer</p>
+          <p class="paper__margen-leyenda-intro">Cada cifra del estudio lleva un sello que indica de dónde sale y queda anclada a su fuente.</p>
+          <ul class="paper__margen-leyenda-items">
+            <li><span class="fuente-badge fuente-badge--v">V</span><span>verificado de fuente oficial directa</span></li>
+            <li><span class="fuente-badge fuente-badge--e">E</span><span>derivado o estimado, declarado</span></li>
+          </ul>
+        </div>
+
+        <a href="/pensiones/sar-29" class="paper__margen-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Volver al índice
+        </a>
+
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         CUERPO DEL PAPER
+         ========================================== -->
+    <div class="paper__body">
+
+      <!-- Sección 1 (Resumen ejecutivo) elevada al bloque visual full-width
+           encima del cuerpo (sección "paper__resumen-hero" arriba). Toda la
+           sustancia se conserva; la presentación se elevó. -->
+
+      <!-- 2. INTRODUCCION -->
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Sección 2</div>
+        <h2>Introducción</h2>
+        <p>El Sistema de Ahorro para el Retiro (SAR) es el mecanismo mediante el cual los trabajadores en México acumulan recursos para su retiro a través de cuentas individuales administradas por AFORE. Creado a partir de la reforma a la Ley del Seguro Social de 1995 (vigente desde julio de 1997), el SAR reemplazo parcialmente el sistema de reparto y se estableció como un esquema de contribución definida basado en cuentas individuales.</p>
+        <p>El presente estudio ofrece un panorama descriptivo del SAR durante el año 2011, a catorce años de la entrada en vigor de la reforma. El objetivo es documentar, con base en fuentes primarias oficiales, el estado del sistema en ese periodo: su estructura, los recursos administrados, las comisiones cobradas, los rendimientos obtenidos y el proceso de consolidación que marcó el año.</p>
+        <p>Este estudio no busca emitir juicios de valor ni recomendar AFOREs específicas. Su propósito es presentar información verificable que permita al lector formar su propio criterio sobre el funcionamiento del sistema en 2011.</p>
+      </section>
+
+      <!-- 3. METODOLOGIA -->
+      <section class="paper__section" id="metodologia">
+        <div class="paper__section-number">Sección 3</div>
+        <h2>Metodología</h2>
+        <p>El presente estudio emplea un enfoque descriptivo con base exclusiva en fuentes primarias oficiales. Las principales fuentes consultadas son:</p>
+        <ul>
+          <li><strong>CONSAR</strong> (Comisión Nacional del Sistema de Ahorro para el Retiro): Informes trimestrales al H. Congreso de la Unión correspondientes a 2011, así como datos estadísticos publicados en su portal.</li>
+          <li><strong>INEGI</strong> (Instituto Nacional de Estadística y Geografía): Datos de PIB, inflación e indicadores económicos 2011.</li>
+          <li><strong>Banxico</strong> (Banco de México): Datos de tasa de referencia e inflación.</li>
+          <li><strong>Panel DM-SAR-DATA-001:</strong> Base de datos consolidada con información de CONSAR, consultada en marzo de 2026.</li>
+        </ul>
+        <p>El periodo de análisis comprende el año calendario 2011, con referencias puntuales al cierre de 2010 para fines de contexto y comparación. No se realizan proyecciones, estimaciones propias ni inferencias causales. Todas las cifras cuantitativas provienen directamente de las fuentes citadas.</p>
+      </section>
+
+      <!-- 4. CONTEXTO ECONOMICO 2011 -->
+      <section class="paper__section" id="contexto">
+        <div class="paper__section-number">Sección 4</div>
+        <h2>Contexto económico 2011</h2>
+        <p>El año 2011 representó el segundo año de recuperación económica para México tras la crisis financiera global de 2008-2009, aunque con una desaceleración respecto al dinamismo de 2010. Los principales indicadores macroeconómicos fueron:</p>
+        <ul>
+          <li><strong>Crecimiento del PIB:</strong> 3.9% <span class="fuente-badge fuente-badge--v">V</span>, según datos del INEGI, una desaceleración respecto al 5.5% <span class="fuente-badge fuente-badge--v">V</span> registrado en 2010.</li>
+          <li><strong>Inflación:</strong> 3.82% <span class="fuente-badge fuente-badge--v">V</span> al cierre del año, según datos de INEGI y Banxico, menor que el ~4.2% <span class="fuente-badge fuente-badge--e">E</span> de 2010.</li>
+          <li><strong>Tasa de referencia de Banxico:</strong> 4.50% <span class="fuente-badge fuente-badge--v">V</span>, mantenida sin cambios durante todo 2011, al igual que en 2010.</li>
+        </ul>
+        <p>El contexto internacional estuvo marcado por la crisis de deuda soberana en la zona euro y una desaceleración del crecimiento global. No obstante, México mantuvo una trayectoria de crecimiento positivo, aunque moderado en comparación con el rebote de 2010. La estabilidad en la tasa de referencia y la menor inflación proporcionaron un entorno relativamente favorable para los fondos de pensiones.</p>
+      </section>
+
+      <!-- 5. ESTRUCTURA DEL SAR -->
+      <section class="paper__section" id="estructura">
+        <div class="paper__section-number">Sección 5</div>
+        <h2>Estructura del SAR</h2>
+
+        <h3>Marco legal</h3>
+        <p>El SAR continuó operando en 2011 bajo el mismo marco legal fundamental vigente desde la reforma:</p>
+        <ul>
+          <li><strong>Ley del Seguro Social</strong> (publicada el 21 de diciembre de 1995, vigente desde el 1 de julio de 1997): Estableció el esquema de contribución definida con cuentas individuales para los trabajadores afiliados al IMSS.</li>
+          <li><strong>Ley de los Sistemas de Ahorro para el Retiro</strong> (Ley del SAR): Define la regulación de las AFORE, SIEFORE, y el papel de la CONSAR como órgano regulador.</li>
+        </ul>
+        <p>No se registraron reformas legales significativas al marco del SAR durante 2011. Los dos regímenes del IMSS continuaron vigentes:</p>
+        <ul>
+          <li><strong>Ley de 1973 (Ley 73):</strong> Aplica a trabajadores que comenzaron a cotizar antes del 1 de julio de 1997. Otorga pensión por reparto bajo requisitos de edad y semanas cotizadas.</li>
+          <li><strong>Ley de 1997 (Ley 97):</strong> Aplica a trabajadores que comenzaron a cotizar a partir del 1 de julio de 1997. Opera bajo el esquema de contribución definida con cuenta individual.</li>
+        </ul>
+
+        <h3>Participantes del sistema</h3>
+        <p>Durante 2011, el número de administradoras en operación se redujo como resultado del proceso de consolidación. Al inicio del año operaban <strong>15 administradoras</strong> <span class="fuente-badge fuente-badge--v">V</span>: Afirme Bajío, Azteca, Banamex, Bancomer, Banorte Generali, Coppel, HSBC, Inbursa, ING, Invercap, MetLife, PensionISSSTE, Principal, Profuturo GNP y XXI (roster oficial a marzo de 2010 del Informe Trimestral CONSAR Q1-2010, <a href="#fuente-F8">F8</a>, sin movimientos corporativos documentados hasta la fusión de 2011). Tras la fusión de HSBC con Principal el 5 de septiembre (CONSAR Eventos Corporativos, <a href="#fuente-F9">F9</a>), el sistema cerró el año con <strong>14 administradoras en operación</strong> <span class="fuente-badge fuente-badge--v">V</span>. Los cambios de identidad posteriores —el cambio de denominación de ING a SURA (24 de enero de 2012) y la fusión de Afore XXI con Banorte Generali para formar XXI Banorte (16 de enero de 2012)— ocurrieron ya en 2012 (<a href="#fuente-F9">F9</a>).</p>
+
+        <h3>Estructura de SIEFOREs Básicas</h3>
+        <p>El sistema continuó operando con cinco SIEFOREs básicas diferenciadas por edad:</p>
+        <ul>
+          <li><strong>SB1:</strong> Trabajadores de 56 años y mayores.</li>
+          <li><strong>SB2:</strong> Trabajadores de 46 a 55 años.</li>
+          <li><strong>SB3:</strong> Trabajadores de 37 a 45 años.</li>
+          <li><strong>SB4:</strong> Trabajadores de 27 a 36 años.</li>
+          <li><strong>SB5:</strong> Trabajadores de 26 años y menores.</li>
+        </ul>
+      </section>
+
+      <!-- 6. CUENTAS INDIVIDUALES -->
+      <section class="paper__section" id="cuentas">
+        <div class="paper__section-number">Sección 6</div>
+        <h2>Cuentas individuales</h2>
+        <p>Durante 2011, el número de cuentas individuales administradas por el SAR pasó de aproximadamente 41.3 millones en enero a 42.5 millones al cierre de diciembre, un incremento de 2.94% <span class="fuente-badge fuente-badge--v">V</span>. Este crecimiento refleja la incorporación continua de nuevos trabajadores al sistema.</p>
+
+        <!-- Tabla 3: Cuentas por AFORE -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 3. Cuentas individuales por AFORE, 2011</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Enero 2011 (miles)</th>
+                <th class="num">Diciembre 2011 (miles)</th>
+                <th class="num">Variación (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Banamex</td>
+                <td class="num">6,572</td>
+                <td class="num">6,850</td>
+                <td class="num">+4.2%</td>
+              </tr>
+              <tr>
+                <td>SURA</td>
+                <td class="num">5,022</td>
+                <td class="num">5,168</td>
+                <td class="num">+2.9%</td>
+              </tr>
+              <tr>
+                <td>Principal*</td>
+                <td class="num">2,790</td>
+                <td class="num">4,331</td>
+                <td class="num">+55.2%</td>
+              </tr>
+              <tr>
+                <td>Inbursa</td>
+                <td class="num">3,293</td>
+                <td class="num">3,159</td>
+                <td class="num">-4.1%</td>
+              </tr>
+              <tr>
+                <td>XXI Banorte</td>
+                <td class="num">3,028</td>
+                <td class="num">3,175</td>
+                <td class="num">+4.9%</td>
+              </tr>
+              <tr>
+                <td>Profuturo GNP</td>
+                <td class="num">3,113</td>
+                <td class="num">3,143</td>
+                <td class="num">+1.0%</td>
+              </tr>
+              <tr>
+                <td>Coppel</td>
+                <td class="num">2,446</td>
+                <td class="num">3,127</td>
+                <td class="num">+27.8%</td>
+              </tr>
+              <tr>
+                <td>Invercap</td>
+                <td class="num">1,411</td>
+                <td class="num">1,502</td>
+                <td class="num">+6.4%</td>
+              </tr>
+              <tr>
+                <td>PensionISSSTE</td>
+                <td class="num">872</td>
+                <td class="num">942</td>
+                <td class="num">+8.0%</td>
+              </tr>
+              <tr>
+                <td>Azteca</td>
+                <td class="num">929</td>
+                <td class="num">892</td>
+                <td class="num">-4.0%</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Cifras en miles de cuentas. *Principal incluye cuentas absorbidas de HSBC a partir de septiembre 2011.</p>
+        </div>
+
+        <p>Dos movimientos destacan en el año. Primero, Coppel registró un crecimiento de 27.8% <span class="fuente-badge fuente-badge--v">V</span> en cuentas administradas, consolidándose como la AFORE de mayor expansión orgánica. Segundo, Principal pasó de 2,790 a 4,331 miles de cuentas (+55.2% <span class="fuente-badge fuente-badge--v">V</span>) como resultado de la absorción de las cuentas de HSBC en septiembre de 2011 (ver Sección 10).</p>
+
+        <!-- Grafica 3: Cuentas por AFORE -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 3. Cuentas individuales por AFORE, diciembre 2011 (miles)</p>
+          <div class="paper__grafica-container paper__grafica-container--tall"><canvas id="chart-cuentas"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR.</p>
+        </div>
+      </section>
+
+      <!-- 7. RECURSOS ADMINISTRADOS -->
+      <section class="paper__section" id="recursos">
+        <div class="paper__section-number">Sección 7</div>
+        <h2>Recursos administrados</h2>
+        <p>Al cierre de diciembre de 2011, los recursos administrados por el SAR ascendieron a aproximadamente 1,555 miles de millones de pesos (mmdp), equivalentes a ~10.7% <span class="fuente-badge fuente-badge--e">E</span> del PIB, según datos de CONSAR. Esto representó un incremento de 8.7% <span class="fuente-badge fuente-badge--v">V</span> respecto a los ~1,430 mmdp registrados al cierre de 2010.</p>
+
+        <!-- Tabla 1: Recursos 2010 vs 2011 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. Recursos administrados por el SAR, 2010 vs 2011</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Dic 2010 (mdp)</th>
+                <th class="num">Dic 2011 (mdp)</th>
+                <th class="num">Variación (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Banamex</td>
+                <td class="num">232,988</td>
+                <td class="num">262,237</td>
+                <td class="num">+12.6%</td>
+              </tr>
+              <tr>
+                <td>SURA</td>
+                <td class="num">185,402</td>
+                <td class="num">212,358</td>
+                <td class="num">+14.5%</td>
+              </tr>
+              <tr>
+                <td>Profuturo GNP</td>
+                <td class="num">146,786</td>
+                <td class="num">169,658</td>
+                <td class="num">+15.6%</td>
+              </tr>
+              <tr>
+                <td>Inbursa</td>
+                <td class="num">119,049</td>
+                <td class="num">110,528</td>
+                <td class="num">-7.2%</td>
+              </tr>
+              <tr>
+                <td>XXI Banorte</td>
+                <td class="num">91,930</td>
+                <td class="num">108,484</td>
+                <td class="num">+18.0%</td>
+              </tr>
+              <tr>
+                <td>Principal*</td>
+                <td class="num">58,391</td>
+                <td class="num">106,474</td>
+                <td class="num">+82.3%</td>
+              </tr>
+              <tr>
+                <td>PensionISSSTE</td>
+                <td class="num">79,563</td>
+                <td class="num">97,538</td>
+                <td class="num">+22.6%</td>
+              </tr>
+              <tr>
+                <td>Invercap</td>
+                <td class="num">49,871</td>
+                <td class="num">60,267</td>
+                <td class="num">+20.8%</td>
+              </tr>
+              <tr>
+                <td>Coppel</td>
+                <td class="num">35,090</td>
+                <td class="num">46,067</td>
+                <td class="num">+31.3%</td>
+              </tr>
+              <tr>
+                <td>MetLife</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td>Azteca</td>
+                <td class="num">11,525</td>
+                <td class="num">11,787</td>
+                <td class="num">+2.3%</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Cifras en millones de pesos (mdp) nominales, recursos administrados por las AFOREs. *Principal incluye recursos absorbidos de HSBC a partir de septiembre 2011. Los totales del sistema incluyen componentes adicionales (vivienda, Banco de México) no desglosados por AFORE.</p>
+        </div>
+
+        <!-- Grafica 1: Recursos 2010 vs 2011 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 1. Recursos administrados por el SAR, 2010 vs 2011 (mmdp)</p>
+          <div class="paper__grafica-container"><canvas id="chart-recursos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, informes trimestrales 2010-2011; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>El crecimiento de 8.7% <span class="fuente-badge fuente-badge--v">V</span> en recursos totales del sistema durante 2011 fue menor al observado en 2010 (~19.8% <span class="fuente-badge fuente-badge--e">E</span>), en línea con la desaceleración económica general. Principal registró el mayor incremento porcentual (+82.3% <span class="fuente-badge fuente-badge--v">V</span>) debido a la absorción de los recursos de HSBC. En términos organicos, Coppel (+31.3% <span class="fuente-badge fuente-badge--v">V</span>) y PensionISSSTE (+22.6% <span class="fuente-badge fuente-badge--v">V</span>) fueron las AFOREs con mayor crecimiento.</p>
+      </section>
+
+      <!-- 8. COMISIONES -->
+      <section class="paper__section" id="comisiones">
+        <div class="paper__section-number">Sección 8</div>
+        <h2>Comisiones</h2>
+        <p>Las comisiones sobre saldo continuaron su tendencia descendente durante 2011. El promedio del sistema se ubicó en 1.48% <span class="fuente-badge fuente-badge--v">V</span>, una reducción significativa respecto al promedio de ~1.62% <span class="fuente-badge fuente-badge--e">E</span> vigente al inicio de 2010. Esta reducción refleja tanto la presión regulatoria de CONSAR como la competencia entre administradoras.</p>
+        <p>A diciembre de 2011, las comisiones sobre saldo por AFORE eran las siguientes:</p>
+
+        <!-- Tabla 2: Comisiones dic 2011 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Comisiones sobre saldo por AFORE, diciembre 2011</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Comisión sobre saldo (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PensionISSSTE</td>
+                <td class="num">0.99</td>
+              </tr>
+              <tr>
+                <td>Inbursa</td>
+                <td class="num">1.17</td>
+              </tr>
+              <tr>
+                <td>XXI Banorte</td>
+                <td class="num">1.40</td>
+              </tr>
+              <tr>
+                <td>Banamex</td>
+                <td class="num">1.45</td>
+              </tr>
+              <tr>
+                <td>SURA</td>
+                <td class="num">1.48</td>
+              </tr>
+              <tr>
+                <td>Afirme Bajío</td>
+                <td class="num">1.51</td>
+              </tr>
+              <tr>
+                <td>Principal</td>
+                <td class="num">1.52</td>
+              </tr>
+              <tr>
+                <td>Profuturo GNP</td>
+                <td class="num">1.53</td>
+              </tr>
+              <tr>
+                <td>Azteca</td>
+                <td class="num">1.67</td>
+              </tr>
+              <tr>
+                <td>MetLife</td>
+                <td class="num">1.69</td>
+              </tr>
+              <tr>
+                <td>Coppel</td>
+                <td class="num">1.70</td>
+              </tr>
+              <tr>
+                <td>Invercap</td>
+                <td class="num">1.72</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Comisiones expresadas como porcentaje anual sobre saldo administrado. <strong>Nota de corte y denominaciones:</strong> la tabla presenta 12 filas con denominaciones actuales. En diciembre de 2011, "SURA" operaba aún como ING (cambió de denominación el 24-ene-2012) y "XXI Banorte" corresponde a las entonces separadas Afore XXI y Banorte Generali (fusionadas el 16-ene-2012); HSBC no aparece por haberse fusionado con Principal en septiembre de 2011, y Bancomer, en operación en 2011, no figura en la fuente de la tabla. El roster completo de las 14 administradoras al cierre vive en la Sección 5.</p>
+        </div>
+
+        <!-- Grafica 2: Comisiones dic 2011 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 2. Comisiones sobre saldo por AFORE, diciembre 2011</p>
+          <div class="paper__grafica-container paper__grafica-container--tall"><canvas id="chart-comisiones"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Línea punteada: promedio del sistema (1.48% <span class="fuente-badge fuente-badge--v">V</span>).</p>
+        </div>
+
+        <p>El rango de comisiones iba desde 0.99% <span class="fuente-badge fuente-badge--v">V</span> (PensionISSSTE) hasta 1.72% <span class="fuente-badge fuente-badge--v">V</span> (Invercap), una diferencia de 0.73 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>. La reducción generalizada de comisiones respecto a 2010 beneficio directamente a los ahorradores al incrementar el rendimiento neto de sus inversiones. Cabe destacar que todas las AFOREs redujeron sus comisiones respecto al año anterior, con excepción de PensionISSSTE que ya era la más baja del sistema.</p>
+      </section>
+
+      <!-- 9. RENDIMIENTOS -->
+      <section class="paper__section" id="rendimientos">
+        <div class="paper__section-number">Sección 9</div>
+        <h2>Rendimientos</h2>
+        <p>Los rendimientos del SAR durante 2011 se estiman en aproximadamente 7% <span class="fuente-badge fuente-badge--e">E</span> en términos nominales, equivalentes a ~3% <span class="fuente-badge fuente-badge--e">E</span> en términos reales una vez descontada la inflación de 3.82% <span class="fuente-badge fuente-badge--v">V</span>. Estos son datos estimados basados en la información disponible de CONSAR para el periodo.</p>
+        <p>Es importante señalar que no existe un dato oficial único de rendimiento anual del sistema para 2011, ya que los rendimientos varían significativamente según:</p>
+        <ul>
+          <li>El tipo de SIEFORE Básica (SB1 a SB5), con diferente exposición a renta variable.</li>
+          <li>La AFORE específica y su estrategia de inversión.</li>
+          <li>El periodo de medición considerado.</li>
+        </ul>
+        <p>En un contexto de inflación de 3.82% <span class="fuente-badge fuente-badge--v">V</span> y tasa de referencia de 4.50% <span class="fuente-badge fuente-badge--v">V</span>, los rendimientos reales positivos de ~3% <span class="fuente-badge fuente-badge--e">E</span> representaron una generación de valor para los ahorradores, aunque menores a los registrados en años previos como 2009 (10.32% <span class="fuente-badge fuente-badge--v">V</span> real) o 2010.</p>
+        <p>El rendimiento neto que efectivamente recibe el ahorrador resulta de restar la comisión sobre saldo al rendimiento bruto obtenido. Con una comisión promedio de 1.48% <span class="fuente-badge fuente-badge--v">V</span>, el rendimiento neto nominal estimado para el ahorrador promedio sería de aproximadamente 5.5% <span class="fuente-badge fuente-badge--e">E</span>.</p>
+      </section>
+
+      <!-- 10. CONSOLIDACION DEL SISTEMA -->
+      <section class="paper__section" id="consolidacion">
+        <div class="paper__section-number">Sección 10</div>
+        <h2>Consolidación del sistema</h2>
+        <p>El evento más significativo del SAR durante 2011 fue la fusión de AFORE HSBC con AFORE Principal, concretada el 5 de septiembre de 2011. Este proceso formó parte de una tendencia de consolidación del sistema que venia observandose desde años anteriores.</p>
+
+        <h3>Fusión HSBC-Principal</h3>
+        <p>La fusión tuvo los siguientes efectos cuantificables:</p>
+        <ul>
+          <li><strong>Cuentas:</strong> Principal pasó de ~2,790 miles de cuentas (enero 2011) a ~4,331 miles (diciembre 2011), un incremento de ~1,541 miles de cuentas provenientes de HSBC.</li>
+          <li><strong>Recursos:</strong> Los recursos administrados por Principal pasaron de ~58,305 mdp (enero 2011) a ~106,474 mdp (diciembre 2011), incorporando los recursos que administraba HSBC.</li>
+          <li><strong>Comisión:</strong> Principal operó con una comisión de 1.52% <span class="fuente-badge fuente-badge--v">V</span> sobre saldo a diciembre de 2011, menor que la comisión de 1.61% <span class="fuente-badge fuente-badge--v">V</span> que cobraba HSBC en 2010.</li>
+        </ul>
+
+        <h3>Traspasos en el sistema</h3>
+        <p>Ademas de los movimientos por fusiones, el sistema registró actividad de traspasos voluntarios entre AFOREs durante 2011. Los traspasos son un mecanismo que permite a los trabajadores cambiar de AFORE en busca de mejores comisiones o rendimientos. Según datos de CONSAR, las AFOREs que más traspasos recibieron durante el año fueron Invercap, Coppel y Profuturo GNP, mientras que Banamex e Inbursa registraron los mayores volumenes de traspasos cedidos.</p>
+      </section>
+
+      <!-- 11. MARCO NORMATIVO -->
+      <section class="paper__section" id="normativo">
+        <div class="paper__section-number">Sección 11</div>
+        <h2>Marco normativo</h2>
+        <p>El SAR operaba en 2011 bajo el mismo marco regulatorio fundamental vigente desde la reforma de 1997, sin reformas legales mayores durante el año:</p>
+        <ul>
+          <li><strong>Ley de los Sistemas de Ahorro para el Retiro</strong> (Ley del SAR): Publicada en el Diario Oficial de la Federación el 23 de mayo de 1996. Establece las reglas generales de operación del sistema, la constitución y funcionamiento de las AFORE y SIEFORE, y las facultades de la CONSAR.</li>
+          <li><strong>Ley del Seguro Social de 1995</strong> (vigente desde el 1 de julio de 1997): Estableció el régimen de contribución definida con cuentas individuales para los trabajadores afiliados al IMSS.</li>
+          <li><strong>Ley del Seguro Social de 1973</strong> (abrogada, pero con efectos vigentes): Aplica a los trabajadores que comenzaron a cotizar antes del 1 de julio de 1997 y que pueden optar por pensionarse bajo sus disposiciones.</li>
+          <li><strong>Circular Única de SIEFOREs:</strong> Las disposiciones de carácter general emitidas por CONSAR regulaban el régimen de inversión, estableciendo los límites por tipo de activo para cada SIEFORE Básica. En 2011, la estructura de SB1 a SB5 continuó vigente.</li>
+        </ul>
+        <p>Cabe señalar que las interpretaciones específicas sobre la aplicación de estas disposiciones corresponden a las autoridades competentes (CONSAR, IMSS, tribunales). La descripción aquí presentada tiene carácter informativo y no constituye asesoría legal.</p>
+      </section>
+
+      <!-- 12. LIMITACIONES -->
+      <section class="paper__section" id="limitaciones">
+        <div class="paper__section-number">Sección 12</div>
+        <h2>Limitaciones</h2>
+        <p>El presente estudio tiene las siguientes limitaciones que el lector debe considerar:</p>
+        <ul>
+          <li><strong>Alcance descriptivo:</strong> Este documento se limita a presentar información disponible de fuentes oficiales sobre el SAR en 2011. No se realizan análisis predictivos, proyecciones ni evaluaciones del desempeño del sistema.</li>
+          <li><strong>Periodo específico:</strong> Las cifras y datos corresponden al año 2011 y no deben extrapolarse a otros periodos. Las condiciones del SAR han cambiado significativamente desde entonces.</li>
+          <li><strong>Rendimientos estimados:</strong> Los rendimientos anuales del sistema (~7% <span class="fuente-badge fuente-badge--e">E</span> nominal, ~3% <span class="fuente-badge fuente-badge--e">E</span> real) son estimaciones basadas en información disponible de CONSAR. No existe un dato oficial único de rendimiento anual del sistema para 2011 completo, ya que estos varían por SIEFORE, AFORE y periodo.</li>
+          <li><strong>Datos agregados:</strong> Algunas cifras de cuentas individuales totales provienen de estimaciones del propio CONSAR y pueden variar según la metodología de conteo (cuentas activas, asignadas, inactivas).</li>
+          <li><strong>Sin análisis causal:</strong> No se establecen relaciones de causalidad entre variables. Las observaciones sobre contexto económico y desempeño del SAR son descriptivas y no implican causalidad.</li>
+          <li><strong>Fuentes disponibles:</strong> El análisis se basa en informes y datos publicados por las instituciones citadas. Datos no publicados o de acceso restringido no fueron considerados.</li>
+        </ul>
+      </section>
+
+      <!-- 13. CONCLUSIONES -->
+      <section class="paper__section" id="conclusiones">
+        <div class="paper__section-number">Sección 13</div>
+        <h2>Conclusiones</h2>
+        <p>Con base en los datos presentados, se identifican las siguientes observaciones sobre el SAR en 2011:</p>
+        <ol>
+          <li>Al cierre de 2011, el SAR administraba aproximadamente 1,555 mmdp (~10.7% <span class="fuente-badge fuente-badge--e">E</span> del PIB), un crecimiento de 8.7% <span class="fuente-badge fuente-badge--v">V</span> respecto al cierre de 2010 (~1,430 mmdp). El ritmo de crecimiento fue menor al observado en 2010, en línea con la desaceleración económica general.</li>
+          <li>El número de cuentas individuales pasó de 41.3 millones en enero a 42.5 millones en diciembre de 2011, un incremento de 2.94% <span class="fuente-badge fuente-badge--v">V</span>. Coppel registró el mayor crecimiento orgánico en cuentas (+27.8% <span class="fuente-badge fuente-badge--v">V</span>), mientras que Principal creció 55.2% <span class="fuente-badge fuente-badge--v">V</span> por la fusión con HSBC.</li>
+          <li>Las comisiones sobre saldo se redujeron de un promedio de ~1.62% <span class="fuente-badge fuente-badge--e">E</span> en 2010 a 1.48% <span class="fuente-badge fuente-badge--v">V</span> en diciembre de 2011. El rango osciló entre 0.99% <span class="fuente-badge fuente-badge--v">V</span> (PensionISSSTE) y 1.72% <span class="fuente-badge fuente-badge--v">V</span> (Invercap). Todas las AFOREs redujeron sus comisiones respecto al año anterior.</li>
+          <li>Los rendimientos nominales del sistema se estimaron en ~7% <span class="fuente-badge fuente-badge--e">E</span>, equivalentes a ~3% <span class="fuente-badge fuente-badge--e">E</span> en términos reales considerando una inflación de 3.82% <span class="fuente-badge fuente-badge--v">V</span>. El rendimiento neto estimado para el ahorrador promedio, descontando la comisión de 1.48% <span class="fuente-badge fuente-badge--v">V</span>, sería de aproximadamente 5.5% <span class="fuente-badge fuente-badge--e">E</span> nominal.</li>
+          <li>La fusión de HSBC con Principal (5 de septiembre de 2011) fue el evento más significativo del año. Principal absorbió ~1,541 miles de cuentas y recursos por ~48,000 mdp de HSBC, consolidándose como una de las AFOREs de mayor tamaño en el sistema.</li>
+          <li>El contexto macroeconómico de 2011 se caracterizó por un crecimiento del PIB de 3.9% <span class="fuente-badge fuente-badge--v">V</span> (menor al 5.5% <span class="fuente-badge fuente-badge--v">V</span> de 2010), inflación de 3.82% <span class="fuente-badge fuente-badge--v">V</span> y estabilidad en la tasa de referencia de Banxico en 4.50% <span class="fuente-badge fuente-badge--v">V</span>. La crisis de deuda en la zona euro introdujo incertidumbre en los mercados financieros globales.</li>
+          <li>El proceso de consolidación del sistema, con fusiones y cesiones entre AFOREs, redujo el número de participantes. Esta tendencia continuaria en años posteriores con nuevas fusiones (XXI Banorte en 2012, Afirme Bajío con Profuturo en 2014, entre otras).</li>
+        </ol>
+        <p>Los datos presentados corresponden exclusivamente al periodo 2011 y reflejan las condiciones específicas de ese momento. El lector puede utilizar esta información como referencia para comprender el estado del SAR en dicho año.</p>
+      </section>
+
+      <hr class="paper__separator">
+
+      <!-- 14. FUENTES -->
+      <section class="paper__section" id="fuentes">
+        <div class="paper__section-number">Sección 14</div>
+        <h2>Fuentes</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li id="fuente-F1"><span class="fuente-inst">CONSAR</span> (Comisión Nacional del Sistema de Ahorro para el Retiro). <span class="fuente-titulo">Informes Trimestrales al H. Congreso de la Unión sobre la situación del SAR, 2011</span>. México, 2011. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F2"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Datos estadísticos del SAR: comisiones, cuentas, recursos y traspasos</span>. México, 2011. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F3"><span class="fuente-inst">INEGI</span> (Instituto Nacional de Estadística y Geografía). <span class="fuente-titulo">Producto Interno Bruto y cuentas nacionales de México, 2011</span>. México, 2012. <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">https://www.inegi.org.mx</a></li>
+            <li id="fuente-F4"><span class="fuente-inst">Banco de México</span> (Banxico). <span class="fuente-titulo">Indicadores económicos: tasas de interés e inflación, 2011</span>. México, 2011. <a href="https://www.banxico.org.mx" target="_blank" rel="noopener">https://www.banxico.org.mx</a></li>
+            <li id="fuente-F5"><span class="fuente-inst">Datos México</span>. <span class="fuente-titulo">Panel DM-SAR-DATA-001: Base de datos consolidada del SAR</span>. México, 2026. <a href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/" target="_blank" rel="noopener">https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/</a></li>
+            <li id="fuente-F6"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 23 de mayo de 1996. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+            <li id="fuente-F7"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Seguro Social</span>. Diario Oficial de la Federación, 21 de diciembre de 1995. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+            <li id="fuente-F8"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Informe Trimestral al H. Congreso de la Unión sobre la situación del Sistema de Ahorro para el Retiro, primer trimestre de 2010</span>. México, 2010. <a href="https://www.gob.mx/cms/uploads/attachment/file/61285/2010_01_trimestre_1.pdf" target="_blank" rel="noopener">https://www.gob.mx/cms/uploads/attachment/file/61285/2010_01_trimestre_1.pdf</a> &middot; §I.2 y Cuadro 1.1: 15 administradoras en operación al cierre de marzo de 2010, con roster nominal. Copia versionada: <code>engine/sources/CONSAR-Informe-Trimestral-Q1-2010.pdf</code> (SHA-256 en <code>HASHES.txt</code>).</li>
+            <li id="fuente-F9"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Eventos Corporativos en el Sistema de Ahorro para el Retiro</span>. Documento oficial, mayo 2018. <a href="https://www.consar.gob.mx/gobmx/aplicativo/factsheets/EC/ECSAR.pdf" target="_blank" rel="noopener">https://www.consar.gob.mx/gobmx/aplicativo/factsheets/EC/ECSAR.pdf</a> &middot; fusión HSBC&ndash;Principal (5-sep-2011); fusión Afore XXI&ndash;Banorte Generali (16-ene-2012); cambio de denominación ING&rarr;SURA (24-ene-2012). Copia versionada: <code>engine/sources/CONSAR-Eventos-Corporativos-2018.pdf</code>.</li>
+          </ol>
+          <p>Fecha de consulta de fuentes electrónicas: marzo de 2026.</p>
+          <p class="paper__fuentes-leyenda"><span class="fuente-badge fuente-badge--v">V</span> dato verificado de fuente oficial directa &middot; <span class="fuente-badge fuente-badge--e">E</span> dato estimado o derivado, declarado como tal &middot; estándar editorial del observatorio.</p>
+        </div>
+      </section>
+
+      <!-- DECLARACIONES -->
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interés:</strong> El observatorio Datos México declara la ausencia de conflictos de interés en la elaboración de este estudio. Datos México no tiene relación comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> Todas las cifras cuantitativas presentadas en este estudio provienen de fuentes primarias oficiales (CONSAR, INEGI, Banxico) y del Panel DM-SAR-DATA-001. No se utilizaron fuentes secundarias para datos cuantitativos.</p>
+        <p><strong>Alcance:</strong> Este documento tiene carácter informativo y no constituye asesoría financiera, legal ni recomendación alguna sobre productos, servicios o AFOREs específicas.</p>
+      </div>
+
+    </div><!-- /paper__body -->
+
+
+      <!-- DE LA LECTURA AL CÁLCULO -->
+      <aside class="paper__calc-cta">
+        <p class="paper__calc-cta-eyebrow">De la lectura al cálculo</p>
+        <p class="paper__calc-cta-body">
+          Los datos de esta serie alimentan las <strong>calculadoras del observatorio</strong>: herramientas
+          educativas con supuestos públicos, fuentes oficiales versionadas y validación actuarial.
+          <a href="/pensiones/calculadoras">Calcula tu caso →</a>
+        </p>
+      </aside>
+
+  </main>
+
+  <!-- Scripts -->
+
+  <!-- Tooltip unificado + hover-por-área Ronda 6.
+       Un solo sistema premium para sparkline, barras y ticks:
+       - Contenido ASCII puro en data-tip-* (mata "?" del `·` U+00B7 y `[V]`).
+       - Detección del punto MÁS CERCANO por overlay en sparkline y escala.
+       - Marcador activo sincronizado con el tooltip.
+       - Fallback teclado / focus / touch preservado. -->
+  <script>
+  (function () {
+    'use strict';
+    var container = document.querySelector('.paper__resumen-hero-inner');
+    var tip       = document.getElementById('rhTip');
+    if (!container || !tip) return;
+    var titleEl   = tip.querySelector('.rh-tip__title');
+    var detailTx  = tip.querySelector('.rh-tip__detail-text');
+    var badgeEl   = tip.querySelector('.rh-tip__badge');
+    var noteEl    = tip.querySelector('.rh-tip__note');
+    var hideTimer;
+    var currentActive = null;
+
+    function positionOverElement(el) {
+      var r = el.getBoundingClientRect();
+      var c = container.getBoundingClientRect();
+      tip.style.left = (r.left - c.left + r.width / 2) + 'px';
+      tip.style.top  = (r.top  - c.top) + 'px';
+    }
+
+    function showFor(el) {
+      if (!el || !el.dataset.tipTitle) return;
+      clearTimeout(hideTimer);
+      titleEl.textContent = el.dataset.tipTitle;
+      detailTx.textContent = el.dataset.tipDetail || '';
+      noteEl.textContent = el.dataset.tipNote || '';
+      noteEl.style.display = el.dataset.tipNote ? 'block' : 'none';
+      badgeEl.style.display = el.dataset.tipV === '1' ? 'inline-block' : 'none';
+      positionOverElement(el);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tip.classList.add('is-visible');
+          tip.setAttribute('aria-hidden', 'false');
+        });
+      });
+    }
+    function hide() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('is-visible');
+        tip.setAttribute('aria-hidden', 'true');
+        if (currentActive && currentActive.classList) {
+          currentActive.classList.remove('is-active');
+        }
+        currentActive = null;
+        var activeDot = document.querySelector('.rh-spark__active');
+        if (activeDot) activeDot.setAttribute('opacity', '0');
+      }, 80);
+    }
+
+    function setActive(el) {
+      if (currentActive === el) return;
+      if (currentActive && currentActive.classList) currentActive.classList.remove('is-active');
+      currentActive = el;
+      if (el && el.classList) el.classList.add('is-active');
+    }
+
+    // ---------- 1. Sparkline: hover POR ÁREA ----------
+    var sparkSvg = document.querySelector('.rh-spark__svg');
+    var sparkOverlay = document.querySelector('.rh-spark__overlay');
+    var sparkPoints = Array.prototype.slice.call(document.querySelectorAll('.rh-spark__point'));
+    var activeDot = document.querySelector('.rh-spark__active');
+
+    if (sparkSvg && sparkOverlay && sparkPoints.length) {
+      var pointCoords = sparkPoints.map(function (p) {
+        return { el: p, cx: parseFloat(p.getAttribute('cx')), cy: parseFloat(p.getAttribute('cy')) };
+      });
+
+      function handleSparkMove(e) {
+        var svgRect = sparkSvg.getBoundingClientRect();
+        var xInPx = (e.clientX !== undefined ? e.clientX : e.touches[0].clientX) - svgRect.left;
+        var xInVb = xInPx / svgRect.width * 720; // viewBox width
+        // Punto más cercano por X
+        var nearest = pointCoords[0], minD = Math.abs(pointCoords[0].cx - xInVb);
+        for (var i = 1; i < pointCoords.length; i++) {
+          var d = Math.abs(pointCoords[i].cx - xInVb);
+          if (d < minD) { minD = d; nearest = pointCoords[i]; }
+        }
+        // Mueve el marcador activo al punto seleccionado
+        if (activeDot) {
+          activeDot.setAttribute('cx', nearest.cx);
+          activeDot.setAttribute('cy', nearest.cy);
+          activeDot.setAttribute('opacity', '1');
+        }
+        setActive(nearest.el);
+        showFor(nearest.el);
+      }
+
+      sparkOverlay.addEventListener('mousemove', handleSparkMove);
+      sparkOverlay.addEventListener('mouseleave', hide);
+      sparkOverlay.addEventListener('touchstart', handleSparkMove, { passive: true });
+      sparkOverlay.addEventListener('touchmove', handleSparkMove, { passive: true });
+    }
+
+    // ---------- 2. Escala AFOREs: hover POR ÁREA ----------
+    var scaleTrack = document.querySelector('.rh-viz__scale-track');
+    if (scaleTrack) {
+      var scaleTargets = Array.prototype.slice.call(
+        scaleTrack.querySelectorAll('[data-tip-title][data-tip-pos]')
+      );
+      function handleScaleMove(e) {
+        var rect = scaleTrack.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width * 100;
+        var nearest = scaleTargets[0];
+        var minD = Math.abs(parseFloat(nearest.dataset.tipPos) - pct);
+        for (var i = 1; i < scaleTargets.length; i++) {
+          var d = Math.abs(parseFloat(scaleTargets[i].dataset.tipPos) - pct);
+          if (d < minD) { minD = d; nearest = scaleTargets[i]; }
+        }
+        setActive(nearest);
+        showFor(nearest);
+      }
+      scaleTrack.addEventListener('mousemove', handleScaleMove);
+      scaleTrack.addEventListener('mouseleave', hide);
+      scaleTrack.addEventListener('touchmove', function (e) {
+        if (e.touches && e.touches[0]) {
+          handleScaleMove({ clientX: e.touches[0].clientX });
+        }
+      }, { passive: true });
+    }
+
+    // ---------- 3. Focus por teclado en todos los data-tip-title ----------
+    var focusables = container.querySelectorAll('[data-tip-title][tabindex]');
+    Array.prototype.forEach.call(focusables, function (el) {
+      el.addEventListener('focus', function () { setActive(el); showFor(el); });
+      el.addEventListener('blur', hide);
+    });
+
+    // ---------- 4. Rows generosas: barras Recursos + rows AFORE ----------
+    var hoverRows = container.querySelectorAll('.rh-viz__bar-row[data-tip-title], .rh-afore-row[data-tip-title]');
+    Array.prototype.forEach.call(hoverRows, function (el) {
+      el.addEventListener('mouseenter', function () { setActive(el); showFor(el); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('touchstart', function () { setActive(el); showFor(el); }, { passive: true });
+    });
+
+    // ---------- 5. Tocar fuera oculta el tooltip ----------
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('[data-tip-title], .rh-spark__overlay, .rh-viz__scale-track, .rh-afore-row')) hide();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      tip.classList.remove('is-visible');
+      if (activeDot) activeDot.setAttribute('opacity', '0');
+    });
+  })();
+  </script>
+
+  <!-- Graficas del paper -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navy = '#1B2A5E';
+    var gold = '#B8943E';
+    var bgAlt = '#F4F5FA';
+    var gris = '#9CA3AF';
+
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = '#4B5563';
+
+    // ── Grafica 1: Recursos administrados 2010 vs 2011 (barras verticales) ──
+    new Chart(document.getElementById('chart-recursos'), {
+      type: 'bar',
+      data: {
+        labels: ['Cierre 2010', 'Cierre 2011'],
+        datasets: [{
+          label: 'Recursos (mmdp)',
+          data: [1430, 1555],
+          backgroundColor: [navy, gold],
+          borderRadius: 4,
+          barPercentage: 0.5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                var pib = ctx.dataIndex === 0 ? '~10.3' : '~10.7';
+                return '~' + ctx.parsed.y.toLocaleString() + ' mmdp (' + pib + '% del PIB)';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 1800,
+            title: { display: true, text: 'Miles de millones de pesos (mmdp)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'pibLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          var pibValues = ['~10.3% del PIB', '~10.7% del PIB'];
+          ctx.save();
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(bar, i) {
+            ctx.fillText(pibValues[i], bar.x, bar.y - 8);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+
+    // ── Grafica 2: Comisiones por AFORE dic 2011 (barras horizontales) ──
+    new Chart(document.getElementById('chart-comisiones'), {
+      type: 'bar',
+      data: {
+        labels: [
+          'Invercap','Coppel','MetLife','Azteca',
+          'Profuturo GNP','Principal','Afirme Bajio','SURA',
+          'Banamex','XXI Banorte','Inbursa','PensionISSSTE'
+        ],
+        datasets: [{
+          label: 'Comisión sobre saldo (%)',
+          data: [1.72,1.70,1.69,1.67,1.53,1.52,1.51,1.48,1.45,1.40,1.17,0.99],
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: {
+            min: 0,
+            max: 2.0,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          y: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'promedioLine',
+        afterDraw: function(chart) {
+          var xScale = chart.scales.x;
+          var yScale = chart.scales.y;
+          var ctx = chart.ctx;
+          var xPos = xScale.getPixelForValue(1.48);
+          ctx.save();
+          ctx.beginPath();
+          ctx.setLineDash([6, 4]);
+          ctx.strokeStyle = gold;
+          ctx.lineWidth = 2;
+          ctx.moveTo(xPos, yScale.top);
+          ctx.lineTo(xPos, yScale.bottom);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = gold;
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('Promedio 1.48%', xPos, yScale.top - 6);
+          ctx.restore();
+        }
+      }]
+    });
+
+    // ── Grafica 3: Cuentas por AFORE dic 2011 (barras horizontales) ──
+    new Chart(document.getElementById('chart-cuentas'), {
+      type: 'bar',
+      data: {
+        labels: [
+          'Banamex','SURA','Principal','XXI Banorte',
+          'Inbursa','Profuturo GNP','Coppel','Invercap',
+          'PensionISSSTE','Azteca'
+        ],
+        datasets: [{
+          label: 'Cuentas (miles)',
+          data: [6850,5168,4331,3175,3159,3143,3127,1502,942,892],
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.x.toLocaleString() + ' miles de cuentas';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            min: 0,
+            title: { display: true, text: 'Miles de cuentas' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          y: {
+            grid: { display: false }
+          }
+        }
+      }
+    });
+  });
+  </script>
+</body>
+</html>

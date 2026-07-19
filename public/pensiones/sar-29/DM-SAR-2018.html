@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Sistema de Ahorro para el Retiro en México: Panorama 2018 | Datos México</title>
+  <meta name="description" content="Análisis del SAR en 2018: 3,327 mmdp en recursos (15% del PIB), 10 AFOREs tras fusión MetLife-Principal, comisión promedio 1.02%, rendimientos negativos reales (-4%) por volatilidad de mercados.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/DM-SAR-2018.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Sistema de Ahorro para el Retiro en México: Panorama 2018 | Datos México">
+  <meta property="og:description" content="Estudio DM-SAR-2018: Panorama del SAR 2018, año de consolidación con fusión MetLife-Principal y ajuste monetario restrictivo.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/DM-SAR-2018.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Chart.js -->
+  <script src="/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <!-- PAPER -->
+  <main class="paper paper--margen" role="main">
+
+    <!-- Back link -->
+    <a href="/pensiones/sar-29" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a publicaciones
+    </a>
+
+    <!-- ==========================================
+         PORTADA
+         ========================================== -->
+    <header class="paper__portada">
+      <span class="paper__tipo">Estudio</span>
+      <p class="paper__id">DM-SAR-2018</p>
+      <h1 class="paper__titulo">El Sistema de Ahorro para el Retiro en México: Panorama 2018</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Abril 2026</p>
+
+      <!-- Sello Datos México -->
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-2018</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         RESUMEN EJECUTIVO VISUAL (rollout 2018)
+         Reemplaza el .paper__resumen de texto. Toda cifra y su badge [V]/[E]
+         proviene del cuerpo del paper sin alteración (Secciones 4, 6, 7, 8,
+         9, 10 y Tablas 1, 2, 4); ninguna cifra nueva. Cifras dominantes
+         (rh-card__big) son [V]; los estimados (~1% nominal, ~-4% real,
+         declarados "estimados [E]" en Sec 9 y Limitaciones) viven como
+         contexto [E] en lede y metas. Historia del año (ADVERSA): entorno
+         adverso en mercados financieros (Conclusión 4) con rendimientos
+         reales negativos; el SAR creció +7.4% nominal solo por aportaciones
+         (Sec 7, Conclusión 1) y no ganó peso en la economía (0.0 pp del
+         PIB, Tabla 1) — la card accent ancla ese efecto verificable [V]
+         del año, extensión de D19 para año adverso: ni maquillar
+         ni dramatizar. La cifra de minusvalías (~182 mmdp) que papers
+         vecinos atribuyen a 2018 NO existe en el cuerpo del -009 y por eso
+         NO aparece aquí. Dot plot en TRANSICION (outlier + clusters
+         formándose, rango 23 pb), consistente con 2019/2020. Nombres
+         canónicos de Sec 5 (Citibanamex, Profuturo GNP, XXI Banorte con
+         espacio); la Tabla 2 usaba variantes (Banamex, Profuturo,
+         XXI-Banorte), unificadas al canónico.
+         ========================================== -->
+    <section class="paper__resumen-hero" id="resumen" aria-labelledby="resumenHeroTitle">
+      <div class="paper__resumen-hero-inner">
+
+        <!-- Tooltip unificado (Ronda 6): un solo sistema; ASCII
+             puro en data-tip-*; badge V como elemento HTML. -->
+        <div class="rh-tip" id="rhTip" role="status" aria-live="polite" aria-hidden="true">
+          <span class="rh-tip__title"></span>
+          <span class="rh-tip__detail">
+            <span class="rh-tip__detail-text"></span>
+            <span class="rh-tip__badge" aria-hidden="true">V</span>
+          </span>
+          <span class="rh-tip__note"></span>
+        </div>
+
+        <p class="paper__resumen-hero-eyebrow">Sección 1 &middot; En síntesis &middot; Panorama 2018</p>
+        <h2 id="resumenHeroTitle" class="paper__resumen-hero-titulo">Rendimientos reales negativos: el SAR creció por aportaciones, no por inversión.</h2>
+
+        <p class="paper__resumen-hero-lede">
+          Al cierre de 2018, el SAR administraba <strong>3,327.79 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;equivalentes a <strong>15.0% del PIB</strong><span class="fuente-badge fuente-badge--v">V</span>&mdash;, con un crecimiento nominal de <strong>+7.4%</strong><span class="fuente-badge fuente-badge--v">V</span> respecto a los <strong>3,100 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span> de 2017, pero sin ganar peso en la economía: la proporción del PIB se mantuvo en <strong>15.0%</strong><span class="fuente-badge fuente-badge--v">V</span> ambos años. El sistema operó con 10 AFOREs tras la fusión de MetLife con Principal en mayo, con 62.88 millones de cuentas individuales (<strong>+5.1%</strong><span class="fuente-badge fuente-badge--v">V</span>). La comisión promedio sobre saldo se ubicó en <strong>1.02%</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;una reducción de 90 puntos base desde el <strong>1.92%</strong><span class="fuente-badge fuente-badge--v">V</span> de 2008&mdash;, con un rango de <strong>0.85%</strong><span class="fuente-badge fuente-badge--v">V</span> (PensionISSSTE) a <strong>1.08%</strong><span class="fuente-badge fuente-badge--v">V</span> (Invercap, Azteca, Coppel). El contexto: política monetaria restrictiva con tasa de Banxico en <strong>8.25%</strong><span class="fuente-badge fuente-badge--v">V</span> (+100 pb vs diciembre de 2017) e inflación de <strong>4.83%</strong><span class="fuente-badge fuente-badge--v">V</span>. Los rendimientos nominales se estimaron en ~<strong>1%</strong><span class="fuente-badge fuente-badge--e">E</span> y los reales en ~<strong>&minus;4%</strong><span class="fuente-badge fuente-badge--e">E</span>, por la volatilidad de los mercados financieros globales y el ajuste monetario doméstico. 2018 marcó el vigésimo primer aniversario de la reforma del SAR.
+        </p>
+
+        <div class="paper__resumen-hero-grid">
+
+          <article class="rh-card">
+            <p class="rh-card__label">Recursos administrados</p>
+            <p class="rh-card__big">3,327.79<span class="rh-card__unit">mmdp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">15.0% del PIB<span class="fuente-badge fuente-badge--v">V</span> &middot; +7.4% vs 2017<span class="fuente-badge fuente-badge--v">V</span> &middot; +227.79 mmdp<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card rh-card--accent">
+            <p class="rh-card__label">Peso del SAR en el PIB &mdash; sin avance</p>
+            <p class="rh-card__big">0.0<span class="rh-card__unit">pp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">15.0% del PIB<span class="fuente-badge fuente-badge--v">V</span> en 2017 y 2018 &middot; Crecimiento explicado por aportaciones obligatorias &middot; Rendimiento real estimado ~&minus;4%<span class="fuente-badge fuente-badge--e">E</span></p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Comisión promedio</p>
+            <p class="rh-card__big">1.02<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">&minus;1 pb vs 2017 (1.03%<span class="fuente-badge fuente-badge--v">V</span>) &middot; &minus;90 pb desde 2008 &middot; &minus;46.9%<span class="fuente-badge fuente-badge--v">V</span> acumulado</p>
+            <p class="rh-card__ref"><a href="#comisiones">Sección 8 &mdash; Comisiones</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Tasa de referencia Banxico</p>
+            <p class="rh-card__big">8.25<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">+100 pb vs 2017 (7.25%<span class="fuente-badge fuente-badge--v">V</span>) &middot; Inflación 4.83%<span class="fuente-badge fuente-badge--v">V</span> &middot; Corrección de mercados en el cuarto trimestre</p>
+            <p class="rh-card__ref"><a href="#contexto">Sección 4 &mdash; Contexto económico 2018</a></p>
+          </article>
+
+        </div>
+
+        <!-- Retícula asimétrica (D20): 2 cols en escritorio con áreas
+                "recursos afore"     ← Recursos + Dot plot (der spans 2 filas)
+                "spark    afore"
+             Móvil: stack DOM order (Recursos → Sparkline → AFORE). -->
+        <div class="paper__resumen-hero-viz">
+
+          <article class="rh-viz rh-viz--recursos" aria-labelledby="rhVizRecTitle">
+            <p id="rhVizRecTitle" class="rh-viz__title">Recursos administrados (mmdp)</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2017, 3,100.00 mmdp, 15.0% del PIB, verificado"
+                   data-tip-title="Cierre 2017" data-tip-detail="3,100.00 mmdp" data-tip-note="15.0% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2017</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.932"></div>
+                  <span class="rh-viz__bar-label">3,100.00<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2018, 3,327.79 mmdp, 15.0% del PIB, verificado"
+                   data-tip-title="Cierre 2018" data-tip-detail="3,327.79 mmdp" data-tip-note="15.0% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2018</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">3,327.79<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">+227.79 mmdp<span class="fuente-badge fuente-badge--v">V</span> &middot; +7.4%<span class="fuente-badge fuente-badge--v">V</span> nominal &middot; 0.0 pp del PIB</p>
+            <p class="rh-viz__ref"><a href="#recursos">Tabla 1 &mdash; Sección 7</a></p>
+          </article>
+
+          <!-- Sparkline 2008-2018 (11 puntos, uno menos que el rollout 2019).
+               viewBox 720x84; puntos equidistantes x=20..700 (spacing 68).
+               Y interpolada linealmente entre 1.92% (y=6) y 1.02% (y=77),
+               reescalada al MIN del scope del paper 2018 (no 0.98% del 2019).
+               Plateau terminal visible 2016-2018 (73.8/76.2/77): el "ritmo
+               más moderado" de reducción (Sec 8) se lee sin anotación.
+               SIN data-tip-note terminal: el cuerpo no verifica un hito
+               puntual de 2018 en la serie (el cruce de 1% es hito del 2019).
+               Marker inicial navy en (20,6), marker terminal gold en (700,77).
+               Datos de Tabla 4 del cuerpo (Sec 8). -->
+          <figure class="paper__resumen-hero-spark" aria-labelledby="rhSparkCaption">
+            <figcaption class="rh-spark__caption">
+              <span id="rhSparkCaption" class="rh-spark__caption-label">Comisión promedio del SAR &middot; 2008–2018 (% sobre saldo)</span>
+              <span class="rh-spark__caption-meta">1.92%<span class="fuente-badge fuente-badge--v">V</span> &rarr; 1.02%<span class="fuente-badge fuente-badge--v">V</span> &middot; <strong>&minus;46.9%</strong><span class="fuente-badge fuente-badge--v">V</span> acumulado</span>
+            </figcaption>
+
+            <div class="rh-spark__wrapper">
+              <svg class="rh-spark__svg" viewBox="0 0 720 84" role="img" aria-label="Tendencia de la comisión promedio del SAR de 2008 a 2018">
+                <defs>
+                  <linearGradient id="rhSparkGrad" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(27,42,94,0.22)"/>
+                    <stop offset="100%" stop-color="rgba(27,42,94,0)"/>
+                  </linearGradient>
+                </defs>
+                <line x1="20" y1="78" x2="700" y2="78" stroke="rgba(27,42,94,0.14)" stroke-width="1"/>
+                <path d="M20,6 L88,19.4 L156,29.7 L224,40.7 L292,48.6 L360,55.7 L428,63.6 L496,69.9 L564,73.8 L632,76.2 L700,77 L700,78 L20,78 Z" fill="url(#rhSparkGrad)"/>
+                <polyline points="20,6 88,19.4 156,29.7 224,40.7 292,48.6 360,55.7 428,63.6 496,69.9 564,73.8 632,76.2 700,77" fill="none" stroke="#1B2A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <g class="rh-spark__points">
+                  <circle class="rh-spark__point" cx="20"  cy="6"    r="9" data-tip-title="2008" data-tip-detail="1.92%" tabindex="0" role="img" aria-label="2008: 1.92%"></circle>
+                  <circle class="rh-spark__point" cx="88"  cy="19.4" r="9" data-tip-title="2009" data-tip-detail="1.75%" tabindex="0" role="img" aria-label="2009: 1.75%"></circle>
+                  <circle class="rh-spark__point" cx="156" cy="29.7" r="9" data-tip-title="2010" data-tip-detail="1.62%" tabindex="0" role="img" aria-label="2010: 1.62%"></circle>
+                  <circle class="rh-spark__point" cx="224" cy="40.7" r="9" data-tip-title="2011" data-tip-detail="1.48%" tabindex="0" role="img" aria-label="2011: 1.48%"></circle>
+                  <circle class="rh-spark__point" cx="292" cy="48.6" r="9" data-tip-title="2012" data-tip-detail="1.38%" tabindex="0" role="img" aria-label="2012: 1.38%"></circle>
+                  <circle class="rh-spark__point" cx="360" cy="55.7" r="9" data-tip-title="2013" data-tip-detail="1.29%" tabindex="0" role="img" aria-label="2013: 1.29%"></circle>
+                  <circle class="rh-spark__point" cx="428" cy="63.6" r="9" data-tip-title="2014" data-tip-detail="1.19%" tabindex="0" role="img" aria-label="2014: 1.19%"></circle>
+                  <circle class="rh-spark__point" cx="496" cy="69.9" r="9" data-tip-title="2015" data-tip-detail="1.11%" tabindex="0" role="img" aria-label="2015: 1.11%"></circle>
+                  <circle class="rh-spark__point" cx="564" cy="73.8" r="9" data-tip-title="2016" data-tip-detail="1.06%" tabindex="0" role="img" aria-label="2016: 1.06%"></circle>
+                  <circle class="rh-spark__point" cx="632" cy="76.2" r="9" data-tip-title="2017" data-tip-detail="1.03%" tabindex="0" role="img" aria-label="2017: 1.03%"></circle>
+                  <circle class="rh-spark__point" cx="700" cy="77"   r="9" data-tip-title="2018" data-tip-detail="1.02%" tabindex="0" role="img" aria-label="2018: 1.02%"></circle>
+                </g>
+                <circle cx="20" cy="6" r="4" fill="#1B2A5E" pointer-events="none"/>
+                <circle cx="700" cy="77" r="4" fill="#B8943E" pointer-events="none"/>
+                <circle class="rh-spark__active" cx="0" cy="0" r="5" fill="#1B2A5E" stroke="#FFFFFF" stroke-width="2" opacity="0" pointer-events="none"/>
+                <rect class="rh-spark__overlay" x="0" y="0" width="720" height="84" fill="transparent" pointer-events="all"/>
+              </svg>
+            </div>
+
+            <div class="rh-spark__axis" aria-hidden="true">
+              <span>2008</span>
+              <span>2018</span>
+            </div>
+
+            <p class="rh-spark__ref"><a href="#comisiones">Tabla 4 &mdash; Sección 8</a></p>
+          </figure>
+
+          <article class="rh-viz rh-viz--afore" aria-labelledby="rhVizAforeTitle">
+            <p id="rhVizAforeTitle" class="rh-viz__title">Comisiones por AFORE (10 firmas, cierre 2018)</p>
+
+            <!-- Dot plot horizontal (D19) — patrón de TRANSICION (formalizado
+                 en para el 2020, aplicado al 2019 en):
+                 clusters formándose + outlier. Rango 23 pb (0.85% a 1.08%):
+                 PensionISSSTE outlier (--pos: 0%), escalera baja de 3 firmas
+                 (0.97/0.98/0.99 en 52.2/56.5/60.9%), par en el promedio
+                 (2 firmas a 1.02 en 73.9%), Principal 1.07 (95.7%) como
+                 puente y bloque de 3 en el tope a 1.08 (100%) — un paso
+                 antes del patrón del 2019 (cluster de 4 en el tope).
+                 Nombres canónicos del cuerpo Sec 5 (Citibanamex, Profuturo
+                 GNP, XXI Banorte con espacio); consistentes con papers
+                 2019-2023 ya publicados; la Tabla 2 usaba variantes (Banamex,
+                 Profuturo, XXI-Banorte), unificadas al canónico.
+                 data-tip-v="1" SOLO donde el texto del cuerpo badgea la
+                 cifra [V] (0.85, 1.07, 1.08); los valores que solo viven
+                 en la Tabla 2 sin badge (0.97, 0.98, 0.99, 1.02 por AFORE)
+                 se replican sin flag V (regla: no promover).
+                 Posiciones: (val - 0.85) / (1.08 - 0.85) * 100. -->
+            <ol class="rh-afore-list" role="list">
+              <li class="rh-afore-row rh-afore-row--outlier" tabindex="0" role="listitem"
+                  data-tip-title="PensionISSSTE" data-tip-detail="0.85%" data-tip-v="1">
+                <span class="rh-afore-name">PensionISSSTE</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 0%"></span></span>
+                <span class="rh-afore-value">0.85<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Inbursa" data-tip-detail="0.97%">
+                <span class="rh-afore-name">Inbursa</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 52.2%"></span></span>
+                <span class="rh-afore-value">0.97<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Citibanamex" data-tip-detail="0.98%">
+                <span class="rh-afore-name">Citibanamex</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 56.5%"></span></span>
+                <span class="rh-afore-value">0.98<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="XXI Banorte" data-tip-detail="0.99%">
+                <span class="rh-afore-name">XXI Banorte</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 60.9%"></span></span>
+                <span class="rh-afore-value">0.99<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Profuturo GNP" data-tip-detail="1.02%">
+                <span class="rh-afore-name">Profuturo GNP</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 73.9%"></span></span>
+                <span class="rh-afore-value">1.02<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="SURA" data-tip-detail="1.02%">
+                <span class="rh-afore-name">SURA</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 73.9%"></span></span>
+                <span class="rh-afore-value">1.02<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Principal" data-tip-detail="1.07%" data-tip-v="1">
+                <span class="rh-afore-name">Principal</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 95.7%"></span></span>
+                <span class="rh-afore-value">1.07<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Coppel" data-tip-detail="1.08%" data-tip-v="1">
+                <span class="rh-afore-name">Coppel</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">1.08<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Azteca" data-tip-detail="1.08%" data-tip-v="1">
+                <span class="rh-afore-name">Azteca</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">1.08<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Invercap" data-tip-detail="1.08%" data-tip-v="1">
+                <span class="rh-afore-name">Invercap</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">1.08<span class="rh-afore-unit">%</span></span>
+              </li>
+            </ol>
+
+            <div class="rh-afore-axis" aria-hidden="true">
+              <span>0.85%</span>
+              <span class="rh-afore-axis__mid">Rango 23 pb</span>
+              <span>1.08%</span>
+            </div>
+
+            <p class="rh-viz__meta">Promedio del sistema 1.02%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rango 23 pb &middot; 1 outlier + 3 firmas en el tope &middot; Ligera convergencia vs 2017</p>
+            <p class="rh-viz__ref"><a href="#comisiones">Tabla 2 &mdash; Sección 8</a></p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MARGEN LATERAL (rollout 2018)
+         TOC de las 14 secciones del cuerpo (Sec 1 elevada al hero) +
+         leyenda [V]/[E] + back-link contextual.
+         ========================================== -->
+    <aside class="paper__margen" aria-label="Navegación y leyenda del estudio">
+      <div class="paper__margen-sticky">
+
+        <nav class="paper__margen-nav" aria-label="Secciones del estudio">
+          <details class="paper__margen-toc-wrap" open>
+            <summary class="paper__margen-toc-summary">
+              <span class="paper__margen-toc-eyebrow">En este estudio</span>
+              <span class="paper__margen-toc-counter">14 secciones</span>
+            </summary>
+            <ol class="paper__margen-toc">
+              <li><a href="#resumen">Resumen ejecutivo</a></li>
+              <li><a href="#introduccion">Introducción</a></li>
+              <li><a href="#metodologia">Metodología</a></li>
+              <li><a href="#contexto">Contexto económico 2018</a></li>
+              <li><a href="#estructura">Estructura del SAR</a></li>
+              <li><a href="#cuentas">Cuentas individuales</a></li>
+              <li><a href="#recursos">Recursos administrados</a></li>
+              <li><a href="#comisiones">Comisiones</a></li>
+              <li><a href="#rendimientos">Rendimientos</a></li>
+              <li><a href="#consolidacion">Consolidación del sistema</a></li>
+              <li><a href="#normativo">Marco normativo</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#conclusiones">Conclusiones</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="paper__margen-leyenda">
+          <p class="paper__margen-eyebrow">Cómo leer</p>
+          <p class="paper__margen-leyenda-intro">Cada cifra del estudio lleva un sello que indica de dónde sale y queda anclada a su fuente.</p>
+          <ul class="paper__margen-leyenda-items">
+            <li><span class="fuente-badge fuente-badge--v">V</span><span>verificado de fuente oficial directa</span></li>
+            <li><span class="fuente-badge fuente-badge--e">E</span><span>derivado o estimado, declarado</span></li>
+          </ul>
+        </div>
+
+        <a href="/pensiones/sar-29" class="paper__margen-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Volver al índice
+        </a>
+
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         CUERPO DEL PAPER
+         ========================================== -->
+    <div class="paper__body">
+
+      <!-- Sección 1 (Resumen ejecutivo) elevada al bloque visual full-width
+           encima del cuerpo (sección "paper__resumen-hero" arriba). Toda la
+           sustancia se conserva; la presentación se elevó. -->
+
+      <!-- 2. INTRODUCCIÓN -->
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Sección 2</div>
+        <h2>Introducción</h2>
+        <p>El Sistema de Ahorro para el Retiro (SAR) constituye el mecanismo de cuentas individuales mediante el cual los trabajadores afiliados al Instituto Mexicano del Seguro Social (IMSS) acumulan recursos para financiar su pensión. Este sistema fue establecido mediante la reforma a la Ley del Seguro Social de 1995 y entró en operación el 1 de julio de 1997, sustituyendo el esquema de reparto por un modelo de capitalización individual administrado por entidades privadas reguladas.</p>
+        <p>El presente estudio tiene como propósito ofrecer un panorama descriptivo del SAR durante el año 2018, a 21 años de la entrada en vigor de la reforma. Se analizan los principales indicadores del sistema: recursos administrados, número de cuentas individuales, estructura de comisiones, rendimientos y eventos corporativos relevantes, en el contexto de las condiciones macroeconómicas del periodo.</p>
+        <p>Este documento no busca emitir juicios de valor sobre el desempeño de AFOREs específicas ni formular recomendaciones sobre productos o servicios financieros. Su objetivo es presentar datos verificables de fuentes primarias que permitan al lector formar su propio criterio sobre la evolución del sistema durante 2018.</p>
+      </section>
+
+      <!-- 3. METODOLOGÍA -->
+      <section class="paper__section" id="metodologia">
+        <div class="paper__section-number">Sección 3</div>
+        <h2>Metodología</h2>
+        <p>Este estudio adopta un enfoque descriptivo basado exclusivamente en fuentes primarias oficiales. Los datos cuantitativos provienen de:</p>
+        <ul>
+          <li><strong>Comisión Nacional del Sistema de Ahorro para el Retiro (CONSAR):</strong> Informes trimestrales al H. Congreso de la Unión, estadísticas de comisiones, cuentas individuales y recursos administrados.</li>
+          <li><strong>Instituto Nacional de Estadística y Geografía (INEGI):</strong> Producto Interno Bruto y cuentas nacionales de México.</li>
+          <li><strong>Banco de México (Banxico):</strong> Tasa de interés interbancaria de equilibrio a 1 día e índice de precios al consumidor.</li>
+          <li><strong>Panel DM-SAR-DATA-001:</strong> Base de datos consolidada del SAR con series históricas verificadas.</li>
+        </ul>
+        <p>El periodo de análisis corresponde al año calendario 2018, con referencias comparativas al cierre de 2017 cuando resulta metodológicamente apropiado. Todas las cifras de recursos administrados se presentan en montos corrientes (pesos nominales) según la fuente original. Los porcentajes respecto al PIB utilizan la cifra nominal del año correspondiente publicada por INEGI.</p>
+        <p>Este estudio no realiza proyecciones, inferencias causales ni análisis econométricos. Su alcance se limita a la descripción objetiva de los datos observados durante 2018.</p>
+      </section>
+
+      <!-- 4. CONTEXTO ECONÓMICO -->
+      <section class="paper__section" id="contexto">
+        <div class="paper__section-number">Sección 4</div>
+        <h2>Contexto económico 2018</h2>
+        <p>El año 2018 se caracterizó por un entorno macroeconómico de ajuste monetario restrictivo en respuesta a presiones inflacionarias y movimientos en los mercados financieros internacionales. La tasa de interés interbancaria de equilibrio a 1 día del Banco de México cerró el año en 8.25% <span class="fuente-badge fuente-badge--v">V</span>, representando un incremento de 100 puntos base respecto al cierre de 2017 (7.25% <span class="fuente-badge fuente-badge--v">V</span>). Este ajuste al alza fue parte de un ciclo de endurecimiento monetario iniciado en 2015.</p>
+        <p>La inflación anual al cierre de diciembre de 2018 se ubicó en 4.83% <span class="fuente-badge fuente-badge--v">V</span>, por debajo del 6.77% <span class="fuente-badge fuente-badge--v">V</span> registrado en diciembre de 2017, reflejando una moderación en las presiones sobre precios aunque manteniéndose por encima del objetivo de 3% <span class="fuente-badge fuente-badge--v">V</span> ±1 punto porcentual de Banxico. El descenso de la inflación desde los niveles elevados de 2017 permitió cierta normalización, aunque el Banco Central mantuvo una postura restrictiva ante riesgos latentes.</p>
+        <p>En el ámbito de mercados financieros, 2018 fue un año de alta volatilidad global. Los índices accionarios internacionales experimentaron correcciones significativas en el último trimestre del año, afectados por tensiones comerciales entre Estados Unidos y China, expectativas de desaceleración económica global y el proceso de normalización monetaria en economías desarrolladas. Esta volatilidad tuvo efectos directos sobre los rendimientos de las carteras de inversión de las SIEFOREs.</p>
+        <p>El impacto combinado de tasas de interés más altas, volatilidad en mercados accionarios y ajustes en valuaciones de instrumentos de deuda configuró un entorno desafiante para el desempeño de inversiones del SAR, particularmente visible en los rendimientos reales negativos del periodo.</p>
+      </section>
+
+      <!-- 5. ESTRUCTURA DEL SAR -->
+      <section class="paper__section" id="estructura">
+        <div class="paper__section-number">Sección 5</div>
+        <h2>Estructura del SAR</h2>
+        <p>El marco legal del Sistema de Ahorro para el Retiro se sustenta en la Ley de los Sistemas de Ahorro para el Retiro (publicada en el Diario Oficial de la Federación el 23 de mayo de 1996) y en la Ley del Seguro Social (21 de diciembre de 1995, vigente a partir del 1 de julio de 1997). Los trabajadores que iniciaron su vida laboral antes del 1 de julio de 1997 tienen derechos adquiridos bajo la Ley del Seguro Social de 1973, aunque sus cuentas individuales operan bajo el nuevo esquema.</p>
+        <p>Al cierre de 2018, el sistema operaba con 10 Administradoras de Fondos para el Retiro, tras la fusión corporativa ocurrida en mayo. Las AFOREs activas al 31 de diciembre de 2018 eran:</p>
+        <ul>
+          <li>Azteca</li>
+          <li>Citibanamex</li>
+          <li>Coppel</li>
+          <li>Inbursa</li>
+          <li>Invercap</li>
+          <li>PensionISSSTE</li>
+          <li>Principal</li>
+          <li>Profuturo GNP</li>
+          <li>SURA</li>
+          <li>XXI Banorte</li>
+        </ul>
+        <p>Cada AFORE administra recursos a través de Sociedades de Inversión Especializadas de Fondos para el Retiro (SIEFOREs). Desde 2008, la estructura de SIEFOREs adoptó un esquema de multifondos según la edad del trabajador, denominadas SIEFOREs Básicas. Durante 2018, el sistema operó con cuatro SIEFOREs Básicas (SB1, SB2, SB3 y SB4), cada una con perfiles de inversión diferenciados: mayor componente de renta variable para trabajadores jóvenes (SB4) y mayor proporción de instrumentos conservadores para trabajadores próximos al retiro (SB1).</p>
+        <p>La regulación específica de las inversiones de las SIEFOREs se encuentra contenida en la Circular Única de SIEFOREs emitida por CONSAR, la cual establece los límites de inversión por clase de activo, régimen de valuación y requisitos de diversificación. Durante 2018 no se registraron modificaciones estructurales a dicha normativa.</p>
+      </section>
+
+      <!-- 6. CUENTAS INDIVIDUALES -->
+      <section class="paper__section" id="cuentas">
+        <div class="paper__section-number">Sección 6</div>
+        <h2>Cuentas individuales</h2>
+        <p>Al cierre de diciembre de 2018, el Sistema de Ahorro para el Retiro administraba un total de 62.88 millones de cuentas individuales, cifra verificada según datos oficiales de CONSAR. Esto representa un crecimiento de 5.1% <span class="fuente-badge fuente-badge--v">V</span> respecto a las 59.0 millones de cuentas registradas al cierre de 2017.</p>
+        <p>El incremento neto de 3.88 millones de cuentas en el año refleja la incorporación de nuevos trabajadores al sistema, tanto por entrada de jóvenes al mercado laboral formal como por formalización de trabajadores previamente en la economía informal. Este crecimiento se mantuvo consistente con la tendencia observada en años anteriores, evidenciando la expansión gradual de la cobertura del SAR.</p>
+        <p>Es importante señalar que el concepto de "cuenta individual" incluye tanto cuentas activas (con aportaciones recientes) como cuentas inactivas (sin aportaciones en periodos prolongados), así como cuentas de trabajadores que han migrado entre el sector privado y el sector público. La CONSAR no publica de manera sistemática la desagregación por AFORE del total de cuentas en sus informes trimestrales del periodo analizado, por lo que este estudio reporta únicamente el dato agregado del sistema.</p>
+        <p>La relación entre el crecimiento de cuentas (5.1% <span class="fuente-badge fuente-badge--v">V</span>) y el crecimiento de recursos administrados (7.4% <span class="fuente-badge fuente-badge--v">V</span>) indica que, además del efecto de nuevas incorporaciones, el incremento patrimonial provino de aportaciones de trabajadores existentes y rendimientos de inversión, aunque estos últimos fueron limitados durante 2018 por las condiciones de mercado descritas en la sección de contexto económico.</p>
+      </section>
+
+      <!-- 7. RECURSOS ADMINISTRADOS -->
+      <section class="paper__section" id="recursos">
+        <div class="paper__section-number">Sección 7</div>
+        <h2>Recursos administrados</h2>
+        <p>Al cierre de 2018, los recursos totales administrados por el Sistema de Ahorro para el Retiro ascendieron a 3,327.79 miles de millones de pesos (mmdp), equivalentes a 15.0% <span class="fuente-badge fuente-badge--v">V</span> del Producto Interno Bruto. Esta cifra representa un crecimiento nominal de 7.4% <span class="fuente-badge fuente-badge--v">V</span> respecto al cierre de 2017, cuando los recursos totalizaban 3,100 mmdp <span class="fuente-badge fuente-badge--v">V</span> (15.0% <span class="fuente-badge fuente-badge--v">V</span> del PIB).</p>
+
+        <!-- Tabla 1: Recursos 2017 vs 2018 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. Recursos administrados por el SAR, 2017 vs 2018</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th class="num">Cierre 2017</th>
+                <th class="num">Cierre 2018</th>
+                <th class="num">Variación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Recursos administrados (mmdp)</td>
+                <td class="num">3,100.00</td>
+                <td class="num">3,327.79</td>
+                <td class="num">+7.4%</td>
+              </tr>
+              <tr>
+                <td>Recursos como % del PIB</td>
+                <td class="num">15.0%</td>
+                <td class="num">15.0%</td>
+                <td class="num">0.0 pp</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR e INEGI. Recursos en montos corrientes (pesos nominales).</p>
+        </div>
+
+        <!-- Gráfica 1: Recursos 2017 vs 2018 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 1. Recursos administrados por el SAR, 2017 vs 2018 (mmdp)</p>
+          <div class="paper__grafica-container"><canvas id="chart-recursos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, informes trimestrales 2017-2018; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>El crecimiento de 227.79 mmdp <span class="fuente-badge fuente-badge--v">V</span> en términos nominales estuvo determinado por tres componentes principales: (1) las aportaciones tripartitas (trabajador, patrón y gobierno) realizadas durante 2018, (2) las aportaciones voluntarias y complementarias de los trabajadores, y (3) los rendimientos generados por las inversiones de las SIEFOREs, netos de comisiones.</p>
+        <p>Es relevante observar que, a pesar del crecimiento nominal de 7.4% <span class="fuente-badge fuente-badge--v">V</span>, los recursos administrados se mantuvieron en 15.0% <span class="fuente-badge fuente-badge--v">V</span> del PIB tanto al cierre de 2017 como de 2018. Esta estabilidad como proporción del producto refleja que el crecimiento de los activos del SAR fue congruente con el crecimiento nominal de la economía mexicana durante el periodo. En un contexto de rendimientos reales negativos, el crecimiento de recursos se explica principalmente por el flujo de aportaciones obligatorias.</p>
+        <p>La composición de los recursos administrados incluye las subcuentas de Retiro, Cesantía en Edad Avanzada y Vejez (RCV), la subcuenta de vivienda (administrada por el INFONAVIT pero contabilizada en el saldo total del SAR), las aportaciones voluntarias y, en el caso de trabajadores del ISSSTE que optaron por el esquema de cuentas individuales, el bono de pensión del ISSSTE. CONSAR reporta el agregado de estos componentes en sus informes trimestrales, sin publicar la desagregación detallada por AFORE en el periodo analizado.</p>
+      </section>
+
+      <!-- 8. COMISIONES -->
+      <section class="paper__section" id="comisiones">
+        <div class="paper__section-number">Sección 8</div>
+        <h2>Comisiones</h2>
+        <p>Desde marzo de 2008, las AFOREs cobran una comisión única sobre el saldo administrado de las cuentas individuales. Al cierre de diciembre de 2018, la comisión promedio del sistema se ubicó en 1.02% <span class="fuente-badge fuente-badge--v">V</span> sobre saldo, con una reducción de 1 punto base respecto al cierre de 2017 (1.03% <span class="fuente-badge fuente-badge--v">V</span>). Esta cifra representa una disminución acumulada de 90 puntos base desde marzo de 2008, cuando la comisión promedio era de 1.92% <span class="fuente-badge fuente-badge--v">V</span>.</p>
+
+        <!-- Tabla 2: Comisiones por AFORE a diciembre 2018 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Comisiones sobre saldo por AFORE a diciembre de 2018 (ordenadas de menor a mayor)</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Comisión sobre saldo (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PensionISSSTE</td>
+                <td class="num">0.85</td>
+              </tr>
+              <tr>
+                <td>Inbursa</td>
+                <td class="num">0.97</td>
+              </tr>
+              <tr>
+                <td>Citibanamex</td>
+                <td class="num">0.98</td>
+              </tr>
+              <tr>
+                <td>XXI Banorte</td>
+                <td class="num">0.99</td>
+              </tr>
+              <tr>
+                <td>Profuturo GNP</td>
+                <td class="num">1.02</td>
+              </tr>
+              <tr>
+                <td>SURA</td>
+                <td class="num">1.02</td>
+              </tr>
+              <tr>
+                <td>Principal</td>
+                <td class="num">1.07</td>
+              </tr>
+              <tr>
+                <td>Coppel</td>
+                <td class="num">1.08</td>
+              </tr>
+              <tr>
+                <td>Azteca</td>
+                <td class="num">1.08</td>
+              </tr>
+              <tr>
+                <td>Invercap</td>
+                <td class="num">1.08</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Comisiones vigentes al 31 de diciembre de 2018.</p>
+        </div>
+
+        <!-- Gráfica 2: Comisiones por AFORE (barras horizontales) -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 2. Comisiones sobre saldo por AFORE a diciembre de 2018 (%)</p>
+          <div class="paper__grafica-container paper__grafica-container--tall"><canvas id="chart-comisiones"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, datos de comisiones vigentes; Panel DM-SAR-DATA-001. La línea punteada indica el promedio del sistema (1.02% <span class="fuente-badge fuente-badge--v">V</span>).</p>
+        </div>
+
+        <p>El rango de comisiones se ubicó entre 0.85% <span class="fuente-badge fuente-badge--v">V</span> (PensionISSSTE) y 1.08% <span class="fuente-badge fuente-badge--v">V</span> (Invercap, Azteca, Coppel), con un spread de 23 puntos base. Esta dispersión es inferior en 1 punto base al spread de 24 puntos base observado al cierre de 2017, evidenciando una ligera convergencia en la estructura de precios del sistema.</p>
+        <p>PensionISSSTE mantuvo la comisión más baja del sistema (0.85% <span class="fuente-badge fuente-badge--v">V</span>), posición que ha conservado desde su incorporación al SAR tras la reforma del ISSSTE de 2007. En el extremo opuesto, tres AFOREs (Invercap, Azteca y Coppel) compartieron la comisión más alta del sistema en 1.08% <span class="fuente-badge fuente-badge--v">V</span>. Principal, resultado de la fusión con MetLife en mayo de 2018, cobró una comisión de 1.07% <span class="fuente-badge fuente-badge--v">V</span>.</p>
+
+        <!-- Tabla 4: Evolución comisión promedio 2008-2018 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 4. Evolución de la comisión promedio del sistema, 2008-2018</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th class="num">Año</th>
+                <th class="num">Comisión promedio (%)</th>
+                <th class="num">Reducción acumulada vs 2008 (pp)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="num">2008</td>
+                <td class="num">1.92</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td class="num">2009</td>
+                <td class="num">1.75</td>
+                <td class="num">-0.17</td>
+              </tr>
+              <tr>
+                <td class="num">2010</td>
+                <td class="num">1.62</td>
+                <td class="num">-0.30</td>
+              </tr>
+              <tr>
+                <td class="num">2011</td>
+                <td class="num">1.48</td>
+                <td class="num">-0.44</td>
+              </tr>
+              <tr>
+                <td class="num">2012</td>
+                <td class="num">1.38</td>
+                <td class="num">-0.54</td>
+              </tr>
+              <tr>
+                <td class="num">2013</td>
+                <td class="num">1.29</td>
+                <td class="num">-0.63</td>
+              </tr>
+              <tr>
+                <td class="num">2014</td>
+                <td class="num">1.19</td>
+                <td class="num">-0.73</td>
+              </tr>
+              <tr>
+                <td class="num">2015</td>
+                <td class="num">1.11</td>
+                <td class="num">-0.81</td>
+              </tr>
+              <tr>
+                <td class="num">2016</td>
+                <td class="num">1.06</td>
+                <td class="num">-0.86</td>
+              </tr>
+              <tr>
+                <td class="num">2017</td>
+                <td class="num">1.03</td>
+                <td class="num">-0.89</td>
+              </tr>
+              <tr>
+                <td class="num">2018</td>
+                <td class="num">1.02</td>
+                <td class="num">-0.90</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Comisiones al cierre de cada año.</p>
+        </div>
+
+        <!-- Gráfica 3: Tendencia comisión promedio 2008-2018 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 3. Tendencia de la comisión promedio del sistema, 2008-2018 (%)</p>
+          <div class="paper__grafica-container"><canvas id="chart-tendencia"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, estadísticas históricas de comisiones; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>La tendencia descendente de la comisión promedio del sistema se mantuvo durante 2018, aunque a un ritmo más moderado que en años previos. Entre 2008 y 2018, la comisión promedio se redujo 90 puntos base (de 1.92% <span class="fuente-badge fuente-badge--v">V</span> a 1.02% <span class="fuente-badge fuente-badge--v">V</span>), lo que representa una disminución de 46.9% <span class="fuente-badge fuente-badge--v">V</span> en términos porcentuales. Esta reducción ha sido resultado de la competencia entre AFOREs, el escrutinio regulatorio de CONSAR y los cambios en la metodología de asignación de trabajadores a AFOREs basada en rendimientos netos.</p>
+        <p>La comisión de 1.02% <span class="fuente-badge fuente-badge--v">V</span> implica que, por cada 100 pesos administrados, las AFOREs cobraban anualmente 1.02 pesos. Este cobro se descuenta del saldo de las cuentas individuales de manera prorrateada a lo largo del año, afectando el rendimiento neto que reciben los trabajadores.</p>
+      </section>
+
+      <!-- 9. RENDIMIENTOS -->
+      <section class="paper__section" id="rendimientos">
+        <div class="paper__section-number">Sección 9</div>
+        <h2>Rendimientos</h2>
+        <p>El año 2018 estuvo marcado por rendimientos negativos en términos reales para las carteras de inversión del SAR. Se estima que el rendimiento nominal promedio del sistema se ubicó en aproximadamente ~1% <span class="fuente-badge fuente-badge--e">E</span>, mientras que el rendimiento real (descontada la inflación de 4.83% <span class="fuente-badge fuente-badge--v">V</span>) fue de aproximadamente ~-4% <span class="fuente-badge fuente-badge--e">E</span>. Estos datos son estimados [E] derivados del comportamiento de los mercados financieros durante el periodo y de referencias agregadas del sistema, dado que CONSAR no publica un rendimiento oficial único del SAR (los rendimientos varían por SIEFORE Básica, AFORE y periodo de medición).</p>
+        <p>Es importante advertir que no existe un dato oficial único de rendimiento del SAR para 2018. Los rendimientos varían significativamente entre las cuatro SIEFOREs Básicas (SB1 a SB4), entre AFOREs, y según el periodo de medición empleado (mensual, trimestral, anual, multianual). Las SIEFOREs con mayor exposición a renta variable (SB3 y SB4, destinadas a trabajadores más jóvenes) experimentaron volatilidad más pronunciada y pérdidas más significativas durante los episodios de corrección de mercados en el año.</p>
+        <p>Descontando la comisión promedio del sistema de 1.02% <span class="fuente-badge fuente-badge--v">V</span> del rendimiento nominal estimado de ~1% <span class="fuente-badge fuente-badge--e">E</span>, el rendimiento neto antes de inflación se ubica en aproximadamente ~0% <span class="fuente-badge fuente-badge--e">E</span>. Una vez ajustado por la inflación anual de 4.83% <span class="fuente-badge fuente-badge--v">V</span>, el rendimiento real neto para el trabajador promedio se estima en ~-5%.</p>
+        <p>La comparación con 2017 resulta desfavorable. Durante ese año, se estimaron rendimientos nominales de ~8% <span class="fuente-badge fuente-badge--e">E</span> y reales de ~1% <span class="fuente-badge fuente-badge--e">E</span>, reflejando condiciones de mercado más favorables. El deterioro en 2018 obedeció a múltiples factores: la corrección en mercados accionarios globales (particularmente pronunciada en el cuarto trimestre), el aumento de tasas de interés que afectó la valuación de instrumentos de deuda de largo plazo en las carteras de las SIEFOREs, y la apreciación del peso mexicano que redujo el valor en moneda nacional de activos denominados en divisas extranjeras.</p>
+        <p>Es relevante señalar que los rendimientos del SAR deben evaluarse en horizontes de largo plazo, dado que las cuentas individuales son instrumentos de ahorro para el retiro con periodos de acumulación de décadas. La volatilidad de corto plazo, aunque impacta los saldos en un momento dado, tiende a suavizarse en plazos extendidos. No obstante, para trabajadores próximos al retiro (cuyas carteras están concentradas en SB1, de perfil conservador), los rendimientos negativos de 2018 tuvieron un impacto más directo sobre el saldo disponible para pensión.</p>
+      </section>
+
+      <!-- 10. CONSOLIDACIÓN DEL SISTEMA -->
+      <section class="paper__section" id="consolidacion">
+        <div class="paper__section-number">Sección 10</div>
+        <h2>Consolidación del sistema</h2>
+        <p>El evento corporativo más significativo de 2018 fue la fusión de MetLife Afore con Principal, concretada el 7 de mayo de 2018. Esta operación redujo el número de administradoras en el sistema de 11 a 10, continuando el proceso de consolidación que ha caracterizado al SAR desde su creación.</p>
+
+        <!-- Tabla 3: Eventos corporativos 2018 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 3. Eventos corporativos del SAR en 2018</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>07-may-2018</td>
+                <td>Fusión</td>
+                <td>MetLife Afore se fusiona con Principal</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR, informes trimestrales 2018; registros corporativos públicos.</p>
+        </div>
+
+        <p>La fusión de MetLife con Principal obedeció a una decisión corporativa de MetLife Inc. de salir del negocio de administración de pensiones en México. Principal Afore absorbió las cuentas, activos y operaciones de MetLife, convirtiéndose en una de las administradoras de mayor tamaño en el sistema. La operación fue autorizada por CONSAR previa verificación del cumplimiento de requisitos de capital, sistemas operativos y capacidad de administración.</p>
+        <p>Para los trabajadores cuyas cuentas estaban en MetLife, la fusión implicó una trasferencia automática a Principal sin necesidad de trámite alguno. La comisión vigente después de la fusión (1.07% <span class="fuente-badge fuente-badge--v">V</span> para Principal al cierre de 2018) se ubicó por encima del promedio del sistema (1.02% <span class="fuente-badge fuente-badge--v">V</span>), aunque dentro del rango de comisiones observado. Los trabajadores conservaron el derecho de traspasar su cuenta a otra AFORE sin costo si así lo decidían.</p>
+        <p>Esta fusión se inscribe en una tendencia de largo plazo en el SAR. Desde 1997, el número de AFOREs ha disminuido de 17 operadoras originales a 10 al cierre de 2018, producto de fusiones, adquisiciones y salidas del mercado. Este proceso de consolidación ha estado asociado a la búsqueda de economías de escala, la intensificación de la competencia y la presión sobre comisiones derivada de cambios regulatorios.</p>
+        <p>Adicionalmente, el entorno regulatorio de 2018 mantuvo la regla de asignación de trabajadores sin AFORE elegida a las administradoras con menores comisiones y mayores rendimientos históricos, incentivando la reducción de comisiones como estrategia competitiva para captar nuevas cuentas.</p>
+      </section>
+
+      <!-- 11. MARCO NORMATIVO -->
+      <section class="paper__section" id="normativo">
+        <div class="paper__section-number">Sección 11</div>
+        <h2>Marco normativo</h2>
+        <p>El Sistema de Ahorro para el Retiro opera bajo el marco jurídico establecido por la <strong>Ley de los Sistemas de Ahorro para el Retiro</strong>, publicada en el Diario Oficial de la Federación el 23 de mayo de 1996. Esta ley establece las bases de organización y funcionamiento del SAR, las facultades de la Comisión Nacional del Sistema de Ahorro para el Retiro (CONSAR) como órgano regulador, y los derechos y obligaciones de los trabajadores y las administradoras.</p>
+        <p>El régimen de pensiones de cuentas individuales del IMSS fue establecido mediante la reforma a la <strong>Ley del Seguro Social</strong> publicada el 21 de diciembre de 1995, la cual entró en vigor el 1 de julio de 1997. Esta reforma sustituyó el esquema de reparto previsto en la Ley del Seguro Social de 1973 (abrogada para nuevos trabajadores, pero con efectos vigentes para quienes conservan derechos adquiridos bajo el régimen anterior).</p>
+        <p>Los trabajadores que iniciaron su vida laboral antes del 1 de julio de 1997 pueden elegir, al momento de pensionarse, entre el esquema de la Ley de 1973 (pensión calculada con base en salario promedio de los últimos cinco años y semanas cotizadas) o el esquema de cuentas individuales de la Ley de 1997 (pensión determinada por el saldo acumulado en su cuenta). La gran mayoría opta por el esquema de la Ley 73 cuando resulta más favorable.</p>
+        <p>La regulación específica de las inversiones de las SIEFOREs se encuentra contenida en la <strong>Circular Única de SIEFOREs</strong>, emitida por CONSAR. Esta normativa establece los límites de inversión por clase de activo (renta variable nacional, renta variable internacional, deuda gubernamental, deuda corporativa, instrumentos estructurados, entre otros), el régimen de valuación de las carteras, los requisitos de diversificación y los estándares de gobierno corporativo de las administradoras.</p>
+        <p>Durante 2018 no se registraron reformas legales de fondo al marco normativo del SAR. Las modificaciones regulatorias del periodo se limitaron a ajustes técnicos en la Circular Única de SIEFOREs, principalmente relacionados con los límites de inversión en ciertos instrumentos y requisitos de información a trabajadores.</p>
+        <p>Es importante señalar que este estudio presenta exclusivamente hechos descriptivos derivados de la legislación vigente. Cualquier interpretación sobre el alcance específico de las disposiciones legales corresponde a las autoridades competentes y, en última instancia, al Poder Judicial.</p>
+      </section>
+
+      <!-- 12. LIMITACIONES -->
+      <section class="paper__section" id="limitaciones">
+        <div class="paper__section-number">Sección 12</div>
+        <h2>Limitaciones</h2>
+        <p>Este estudio presenta las siguientes limitaciones metodológicas y de alcance que deben considerarse al interpretar los hallazgos:</p>
+        <ol>
+          <li><strong>Alcance descriptivo:</strong> El estudio se limita a presentar datos observados durante 2018. No se realizan análisis causales, econométricos ni proyecciones sobre la evolución futura del sistema.</li>
+          <li><strong>Periodo específico:</strong> Los datos corresponden exclusivamente al año calendario 2018. Las conclusiones no deben extrapolarse a otros periodos sin verificar las condiciones específicas de cada año.</li>
+          <li><strong>Datos estimados:</strong> Los rendimientos nominales (~1% <span class="fuente-badge fuente-badge--e">E</span>) y reales (~-4% <span class="fuente-badge fuente-badge--e">E</span>) son estimados [E] derivados del comportamiento agregado del sistema y de condiciones de mercado. CONSAR no publica un rendimiento oficial único del SAR, dado que los rendimientos varían por SIEFORE Básica, AFORE y periodo de medición. Los datos marcados como estimados [E] deben interpretarse como aproximaciones sujetas a variación según la metodología de cálculo empleada.</li>
+          <li><strong>Datos agregados:</strong> Las cifras de cuentas individuales y recursos administrados se presentan a nivel sistema. CONSAR no publicaba de manera sistemática la desagregación completa por AFORE en sus informes trimestrales del periodo analizado. Las variaciones en metodologías de conteo entre fuentes pueden generar diferencias menores en cifras específicas.</li>
+          <li><strong>Ausencia de análisis causal:</strong> Este estudio no identifica relaciones causales entre variables. Por ejemplo, se documenta que las comisiones bajaron y los rendimientos fueron negativos en 2018, pero no se establece una relación de causalidad entre ambos fenómenos.</li>
+          <li><strong>Fuentes disponibles:</strong> El análisis se sustenta exclusivamente en información publicada por fuentes oficiales (CONSAR, INEGI, Banxico) y en el Panel DM-SAR-DATA-001. No se consideraron datos internos de AFOREs, estudios no publicados ni información confidencial de reguladores.</li>
+        </ol>
+        <p>Estas limitaciones no invalidan los hallazgos presentados, pero establecen el marco apropiado para su interpretación. Los datos cuantitativos verificados [V] provienen directamente de fuentes primarias oficiales y pueden replicarse por terceros independientes.</p>
+      </section>
+
+      <!-- 13. CONCLUSIONES -->
+      <section class="paper__section" id="conclusiones">
+        <div class="paper__section-number">Sección 13</div>
+        <h2>Conclusiones</h2>
+        <ol>
+          <li>Al cierre de 2018, el Sistema de Ahorro para el Retiro administraba 3,327.79 mmdp <span class="fuente-badge fuente-badge--v">V</span> (15.0% <span class="fuente-badge fuente-badge--v">V</span> del PIB), con un crecimiento nominal de 7.4% <span class="fuente-badge fuente-badge--v">V</span> respecto a 2017 pero manteniendo la misma proporción del producto. Este crecimiento ocurrió en un contexto de rendimientos reales negativos (~-4% <span class="fuente-badge fuente-badge--e">E</span>), lo que indica que el incremento patrimonial provino principalmente del flujo de aportaciones obligatorias más que de ganancias de inversión.</li>
+          <li>El sistema operó con 10 AFOREs tras la fusión de MetLife con Principal en mayo de 2018, continuando un proceso de consolidación que ha reducido el número de administradoras de 17 originales en 1997 a 10 al cierre del año analizado. Esta concentración ha estado asociada a la búsqueda de economías de escala en un entorno de presión competitiva sobre comisiones.</li>
+          <li>La comisión promedio del sistema se ubicó en 1.02% <span class="fuente-badge fuente-badge--v">V</span> sobre saldo, evidenciando una reducción de 90 puntos base desde 2008 (1.92% <span class="fuente-badge fuente-badge--v">V</span>). El spread entre la comisión más baja (0.85% <span class="fuente-badge fuente-badge--v">V</span>, PensionISSSTE) y la más alta (1.08% <span class="fuente-badge fuente-badge--v">V</span>, Invercap/Azteca/Coppel) fue de 23 puntos base, ligeramente inferior al año previo. Esta compresión de comisiones representa una tendencia secular de reducción de costos para los trabajadores.</li>
+          <li>Los rendimientos nominales estimados de ~1% <span class="fuente-badge fuente-badge--e">E</span> y reales de ~-4% <span class="fuente-badge fuente-badge--e">E</span> reflejan un entorno adverso en mercados financieros durante 2018, caracterizado por volatilidad accionaria global, correcciones de valuación en el cuarto trimestre, y el impacto del incremento de tasas de interés sobre instrumentos de deuda de largo plazo. Estas condiciones contrastan con los rendimientos de 2017 (~8% <span class="fuente-badge fuente-badge--e">E</span> nominal, ~1% <span class="fuente-badge fuente-badge--e">E</span> real), evidenciando la sensibilidad de las carteras del SAR a ciclos de mercado.</li>
+          <li>El contexto macroeconómico estuvo marcado por política monetaria restrictiva, con tasa de Banxico en 8.25% <span class="fuente-badge fuente-badge--v">V</span> al cierre del año (100 puntos base superior a diciembre 2017) e inflación de 4.83% <span class="fuente-badge fuente-badge--v">V</span>. Este entorno de tasas más altas afectó tanto las valuaciones de activos financieros como el costo de oportunidad del ahorro para el retiro.</li>
+          <li>El número de cuentas individuales creció 5.1% <span class="fuente-badge fuente-badge--v">V</span> (de 59.0 a 62.88 millones), reflejando la incorporación neta de trabajadores al sistema. Esta expansión de cobertura, junto con el flujo continuo de aportaciones, aseguró el crecimiento patrimonial del SAR a pesar de rendimientos negativos en el año.</li>
+          <li>El año 2018 representó el vigésimo primer aniversario de la entrada en vigor del SAR de cuentas individuales. El sistema administraba recursos equivalentes a 15% <span class="fuente-badge fuente-badge--v">V</span> de la economía nacional, consolidando su rol como mecanismo central de ahorro de largo plazo en México, aunque enfrentando desafíos estructurales relacionados con suficiencia de tasas de reemplazo y cobertura en economía informal.</li>
+        </ol>
+        <p>Los datos, análisis y conclusiones presentados en este estudio corresponden exclusivamente al periodo comprendido entre el 1 de enero y el 31 de diciembre de 2018. Las condiciones del SAR, la estructura del mercado, el marco regulatorio y el entorno económico evolucionan constantemente, por lo que la extrapolación de estos hallazgos a otros periodos requiere verificación específica de las condiciones vigentes en cada momento.</p>
+      </section>
+
+      <hr class="paper__separator">
+
+      <!-- 14. FUENTES -->
+      <section class="paper__section" id="fuentes">
+        <div class="paper__section-number">Sección 14</div>
+        <h2>Fuentes</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li id="fuente-F1"><span class="fuente-inst">CONSAR</span> (Comisión Nacional del Sistema de Ahorro para el Retiro). <span class="fuente-titulo">Informes Trimestrales al H. Congreso de la Unión sobre la situación del SAR, 2018</span>. México, 2018. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F2"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Datos estadísticos del SAR: comisiones, cuentas, recursos y traspasos</span>. México, 2018. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F3"><span class="fuente-inst">INEGI</span> (Instituto Nacional de Estadística y Geografía). <span class="fuente-titulo">Producto Interno Bruto y cuentas nacionales de México, 2018</span>. México, 2019. <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">https://www.inegi.org.mx</a></li>
+            <li id="fuente-F4"><span class="fuente-inst">Banco de México</span> (Banxico). <span class="fuente-titulo">Indicadores económicos: tasas de interés e inflación, 2018</span>. México, 2018. <a href="https://www.banxico.org.mx" target="_blank" rel="noopener">https://www.banxico.org.mx</a></li>
+            <li id="fuente-F5"><span class="fuente-inst">Datos México</span>. <span class="fuente-titulo">Panel DM-SAR-DATA-001: Base de datos consolidada del SAR</span>. México, 2026. <a href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/" target="_blank" rel="noopener">https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/</a></li>
+            <li id="fuente-F6"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 23 de mayo de 1996. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+            <li id="fuente-F7"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Seguro Social</span>. Diario Oficial de la Federación, 21 de diciembre de 1995. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+          </ol>
+          <p>Fecha de consulta de fuentes electrónicas: abril de 2026.</p>
+          <p class="paper__fuentes-leyenda"><span class="fuente-badge fuente-badge--v">V</span> dato verificado de fuente oficial directa &middot; <span class="fuente-badge fuente-badge--e">E</span> dato estimado o derivado, declarado como tal &middot; estándar editorial del observatorio.</p>
+        </div>
+      </section>
+
+      <!-- DECLARACIONES -->
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interés:</strong> El observatorio Datos México declara la ausencia de conflictos de interés en la elaboración de este estudio. Datos México no tiene relación comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> Todas las cifras cuantitativas presentadas en este estudio provienen de fuentes primarias oficiales (CONSAR, INEGI, Banxico) y del Panel DM-SAR-DATA-001. No se utilizaron fuentes secundarias para datos cuantitativos.</p>
+        <p><strong>Alcance:</strong> Este documento tiene carácter informativo y no constituye asesoría financiera, legal ni recomendación alguna sobre productos, servicios o AFOREs específicas.</p>
+      </div>
+
+    </div><!-- /paper__body -->
+
+
+      <!-- DE LA LECTURA AL CÁLCULO -->
+      <aside class="paper__calc-cta">
+        <p class="paper__calc-cta-eyebrow">De la lectura al cálculo</p>
+        <p class="paper__calc-cta-body">
+          Los datos de esta serie alimentan las <strong>calculadoras del observatorio</strong>: herramientas
+          educativas con supuestos públicos, fuentes oficiales versionadas y validación actuarial.
+          <a href="/pensiones/calculadoras">Calcula tu caso →</a>
+        </p>
+      </aside>
+
+  </main>
+
+  <!-- Scripts -->
+
+  <!-- Tooltip unificado + hover-por-área Ronda 6.
+       Un solo sistema premium para sparkline, barras y ticks:
+       - Contenido ASCII puro en data-tip-* (mata "?" del `·` U+00B7 y `[V]`).
+       - Detección del punto MÁS CERCANO por overlay en sparkline y escala.
+       - Marcador activo sincronizado con el tooltip.
+       - Fallback teclado / focus / touch preservado. -->
+  <script>
+  (function () {
+    'use strict';
+    var container = document.querySelector('.paper__resumen-hero-inner');
+    var tip       = document.getElementById('rhTip');
+    if (!container || !tip) return;
+    var titleEl   = tip.querySelector('.rh-tip__title');
+    var detailTx  = tip.querySelector('.rh-tip__detail-text');
+    var badgeEl   = tip.querySelector('.rh-tip__badge');
+    var noteEl    = tip.querySelector('.rh-tip__note');
+    var hideTimer;
+    var currentActive = null;
+
+    function positionOverElement(el) {
+      var r = el.getBoundingClientRect();
+      var c = container.getBoundingClientRect();
+      tip.style.left = (r.left - c.left + r.width / 2) + 'px';
+      tip.style.top  = (r.top  - c.top) + 'px';
+    }
+
+    function showFor(el) {
+      if (!el || !el.dataset.tipTitle) return;
+      clearTimeout(hideTimer);
+      titleEl.textContent = el.dataset.tipTitle;
+      detailTx.textContent = el.dataset.tipDetail || '';
+      noteEl.textContent = el.dataset.tipNote || '';
+      noteEl.style.display = el.dataset.tipNote ? 'block' : 'none';
+      badgeEl.style.display = el.dataset.tipV === '1' ? 'inline-block' : 'none';
+      positionOverElement(el);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tip.classList.add('is-visible');
+          tip.setAttribute('aria-hidden', 'false');
+        });
+      });
+    }
+    function hide() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('is-visible');
+        tip.setAttribute('aria-hidden', 'true');
+        if (currentActive && currentActive.classList) {
+          currentActive.classList.remove('is-active');
+        }
+        currentActive = null;
+        var activeDot = document.querySelector('.rh-spark__active');
+        if (activeDot) activeDot.setAttribute('opacity', '0');
+      }, 80);
+    }
+
+    function setActive(el) {
+      if (currentActive === el) return;
+      if (currentActive && currentActive.classList) currentActive.classList.remove('is-active');
+      currentActive = el;
+      if (el && el.classList) el.classList.add('is-active');
+    }
+
+    // ---------- 1. Sparkline: hover POR ÁREA ----------
+    var sparkSvg = document.querySelector('.rh-spark__svg');
+    var sparkOverlay = document.querySelector('.rh-spark__overlay');
+    var sparkPoints = Array.prototype.slice.call(document.querySelectorAll('.rh-spark__point'));
+    var activeDot = document.querySelector('.rh-spark__active');
+
+    if (sparkSvg && sparkOverlay && sparkPoints.length) {
+      var pointCoords = sparkPoints.map(function (p) {
+        return { el: p, cx: parseFloat(p.getAttribute('cx')), cy: parseFloat(p.getAttribute('cy')) };
+      });
+
+      function handleSparkMove(e) {
+        var svgRect = sparkSvg.getBoundingClientRect();
+        var xInPx = (e.clientX !== undefined ? e.clientX : e.touches[0].clientX) - svgRect.left;
+        var xInVb = xInPx / svgRect.width * 720; // viewBox width
+        // Punto más cercano por X
+        var nearest = pointCoords[0], minD = Math.abs(pointCoords[0].cx - xInVb);
+        for (var i = 1; i < pointCoords.length; i++) {
+          var d = Math.abs(pointCoords[i].cx - xInVb);
+          if (d < minD) { minD = d; nearest = pointCoords[i]; }
+        }
+        // Mueve el marcador activo al punto seleccionado
+        if (activeDot) {
+          activeDot.setAttribute('cx', nearest.cx);
+          activeDot.setAttribute('cy', nearest.cy);
+          activeDot.setAttribute('opacity', '1');
+        }
+        setActive(nearest.el);
+        showFor(nearest.el);
+      }
+
+      sparkOverlay.addEventListener('mousemove', handleSparkMove);
+      sparkOverlay.addEventListener('mouseleave', hide);
+      sparkOverlay.addEventListener('touchstart', handleSparkMove, { passive: true });
+      sparkOverlay.addEventListener('touchmove', handleSparkMove, { passive: true });
+    }
+
+    // ---------- 2. Escala AFOREs: hover POR ÁREA ----------
+    var scaleTrack = document.querySelector('.rh-viz__scale-track');
+    if (scaleTrack) {
+      var scaleTargets = Array.prototype.slice.call(
+        scaleTrack.querySelectorAll('[data-tip-title][data-tip-pos]')
+      );
+      function handleScaleMove(e) {
+        var rect = scaleTrack.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width * 100;
+        var nearest = scaleTargets[0];
+        var minD = Math.abs(parseFloat(nearest.dataset.tipPos) - pct);
+        for (var i = 1; i < scaleTargets.length; i++) {
+          var d = Math.abs(parseFloat(scaleTargets[i].dataset.tipPos) - pct);
+          if (d < minD) { minD = d; nearest = scaleTargets[i]; }
+        }
+        setActive(nearest);
+        showFor(nearest);
+      }
+      scaleTrack.addEventListener('mousemove', handleScaleMove);
+      scaleTrack.addEventListener('mouseleave', hide);
+      scaleTrack.addEventListener('touchmove', function (e) {
+        if (e.touches && e.touches[0]) {
+          handleScaleMove({ clientX: e.touches[0].clientX });
+        }
+      }, { passive: true });
+    }
+
+    // ---------- 3. Focus por teclado en todos los data-tip-title ----------
+    var focusables = container.querySelectorAll('[data-tip-title][tabindex]');
+    Array.prototype.forEach.call(focusables, function (el) {
+      el.addEventListener('focus', function () { setActive(el); showFor(el); });
+      el.addEventListener('blur', hide);
+    });
+
+    // ---------- 4. Rows generosas: barras Recursos + rows AFORE ----------
+    var hoverRows = container.querySelectorAll('.rh-viz__bar-row[data-tip-title], .rh-afore-row[data-tip-title]');
+    Array.prototype.forEach.call(hoverRows, function (el) {
+      el.addEventListener('mouseenter', function () { setActive(el); showFor(el); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('touchstart', function () { setActive(el); showFor(el); }, { passive: true });
+    });
+
+    // ---------- 5. Tocar fuera oculta el tooltip ----------
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('[data-tip-title], .rh-spark__overlay, .rh-viz__scale-track, .rh-afore-row')) hide();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      tip.classList.remove('is-visible');
+      if (activeDot) activeDot.setAttribute('opacity', '0');
+    });
+  })();
+  </script>
+
+  <!-- Gráficas del paper -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navy = '#1B2A5E';
+    var gold = '#B8943E';
+    var bgAlt = '#F4F5FA';
+    var gris = '#9CA3AF';
+
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = '#4B5563';
+
+    // -- Gráfica 1: Recursos administrados 2017 vs 2018 (barras verticales) --
+    new Chart(document.getElementById('chart-recursos'), {
+      type: 'bar',
+      data: {
+        labels: ['Cierre 2017', 'Cierre 2018'],
+        datasets: [{
+          label: 'Recursos (mmdp)',
+          data: [3100.00, 3327.79],
+          backgroundColor: [navy, gold],
+          borderRadius: 4,
+          barPercentage: 0.5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                var pib = ctx.dataIndex === 0 ? '15.0' : '15.0';
+                return '~' + ctx.parsed.y.toLocaleString() + ' mmdp (' + pib + '% del PIB)';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 3600,
+            title: { display: true, text: 'Miles de millones de pesos (mmdp)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'pibLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          var pibValues = ['~15.0% del PIB', '~15.0% del PIB'];
+          ctx.save();
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(bar, i) {
+            ctx.fillText(pibValues[i], bar.x, bar.y - 8);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+
+    // -- Gráfica 2: Comisiones por AFORE (barras horizontales) --
+    new Chart(document.getElementById('chart-comisiones'), {
+      type: 'bar',
+      data: {
+        labels: ['Invercap', 'Azteca', 'Coppel', 'Principal', 'SURA', 'Profuturo GNP', 'XXI Banorte', 'Citibanamex', 'Inbursa', 'PensionISSSTE'],
+        datasets: [{
+          label: 'Comisión sobre saldo (%)',
+          data: [1.08, 1.08, 1.08, 1.07, 1.02, 1.02, 0.99, 0.98, 0.97, 0.85],
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.x.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            min: 0,
+            max: 1.2,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          y: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'promedioLine',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var chartArea = chart.chartArea;
+          var xScale = chart.scales.x;
+          var promedio = 1.02;
+          var xPos = xScale.getPixelForValue(promedio);
+
+          ctx.save();
+          ctx.setLineDash([6, 4]);
+          ctx.strokeStyle = gold;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(xPos, chartArea.top);
+          ctx.lineTo(xPos, chartArea.bottom);
+          ctx.stroke();
+
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.fillStyle = gold;
+          ctx.textAlign = 'center';
+          ctx.fillText('Promedio 1.02%', xPos, chartArea.top - 8);
+          ctx.restore();
+        }
+      }]
+    });
+
+    // -- Gráfica 3: Tendencia comisión promedio 2008-2018 (línea) --
+    new Chart(document.getElementById('chart-tendencia'), {
+      type: 'line',
+      data: {
+        labels: ['2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018'],
+        datasets: [{
+          label: 'Comisión promedio (%)',
+          data: [1.92, 1.75, 1.62, 1.48, 1.38, 1.29, 1.19, 1.11, 1.06, 1.03, 1.02],
+          borderColor: navy,
+          borderWidth: 3,
+          pointRadius: 6,
+          pointBackgroundColor: navy,
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          tension: 0.3,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.y.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            min: 0.8,
+            max: 2.1,
+            title: { display: true, text: 'Comisión promedio sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'dataLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          ctx.save();
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(point, i) {
+            var value = chart.data.datasets[0].data[i];
+            ctx.fillText(value.toFixed(2) + '%', point.x, point.y - 12);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+
+  });
+  </script>
+</body>
+</html>

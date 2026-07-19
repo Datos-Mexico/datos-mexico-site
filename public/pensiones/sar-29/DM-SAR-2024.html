@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Sistema de Ahorro para el Retiro en México: Panorama 2024 | Datos México</title>
+  <meta name="description" content="Análisis exhaustivo del SAR en 2024: recursos de 6.8 billones de pesos, comisiones en 0.566%, rendimientos de 9.53% nominal y la entrada en operación del Fondo de Pensiones para el Bienestar. Estudio con Sello Datos México.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/DM-SAR-2024.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Sistema de Ahorro para el Retiro en México: Panorama 2024 | Datos México">
+  <meta property="og:description" content="El mejor año en 27 años de historia del SAR: 557 mmdp en plusvalías, 6.8 billones en recursos (20.3% del PIB) y la entrada del Fondo de Pensiones para el Bienestar. Análisis riguroso con datos oficiales de CONSAR, INEGI y Banxico.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/DM-SAR-2024.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Chart.js -->
+  <script src="/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <!-- PAPER -->
+  <main class="paper paper--margen" role="main">
+
+    <!-- Back link -->
+    <a href="/pensiones/sar-29" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a publicaciones
+    </a>
+
+    <!-- ==========================================
+         PORTADA
+         ========================================== -->
+    <header class="paper__portada">
+      <span class="paper__tipo">Estudio</span>
+      <p class="paper__id">DM-SAR-2024</p>
+      <h1 class="paper__titulo">El Sistema de Ahorro para el Retiro en México: Panorama 2024</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Abril 2026</p>
+
+      <!-- Sello Datos México -->
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-2024</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         RESUMEN EJECUTIVO VISUAL (piloto)
+         Reemplaza el .paper__resumen de texto. Toda cifra y su badge
+         [V] proviene del cuerpo del paper sin alteración (Secciones
+         4, 5, 6, 7, 8, 9 y Tablas 1, 2, 4); ninguna cifra nueva.
+         ========================================== -->
+    <section class="paper__resumen-hero" id="resumen" aria-labelledby="resumenHeroTitle">
+      <div class="paper__resumen-hero-inner">
+
+        <!-- Tooltip unificado (Ronda 6): único sistema, 3 líneas semánticas
+             (title / detail / note) + badge V como elemento HTML, NO texto.
+             Contenido puramente ASCII en los data-tip-* (mata el "?" del
+             `·` U+00B7 y del `[V]` que Chrome/macOS rendereaba mal). -->
+        <div class="rh-tip" id="rhTip" role="status" aria-live="polite" aria-hidden="true">
+          <span class="rh-tip__title"></span>
+          <span class="rh-tip__detail">
+            <span class="rh-tip__detail-text"></span>
+            <span class="rh-tip__badge" aria-hidden="true">V</span>
+          </span>
+          <span class="rh-tip__note"></span>
+        </div>
+
+        <p class="paper__resumen-hero-eyebrow">Sección 1 · En síntesis · Panorama 2024</p>
+        <h2 id="resumenHeroTitle" class="paper__resumen-hero-titulo">El mejor año en los 27 años de historia del SAR.</h2>
+
+        <p class="paper__resumen-hero-lede">
+          Las plusvalías generadas en 2024 ascendieron a <strong>557 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span>, el monto anual más alto desde la creación del sistema en 1997. Los recursos administrados llegaron a <strong>6,820 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;equivalentes al <strong>20.3% del PIB</strong><span class="fuente-badge fuente-badge--v">V</span>&mdash; y el rendimiento real fue de <strong>4.84%</strong><span class="fuente-badge fuente-badge--v">V</span> en un contexto de inflación de <strong>4.21%</strong><span class="fuente-badge fuente-badge--v">V</span>. El sistema operó con <strong>10 AFOREs</strong> sin cambios corporativos y <strong>76.14 millones</strong> de cuentas individuales.
+        </p>
+
+        <div class="paper__resumen-hero-grid">
+
+          <article class="rh-card">
+            <p class="rh-card__label">Recursos administrados</p>
+            <p class="rh-card__big">6,820<span class="rh-card__unit">mmdp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">20.3% del PIB<span class="fuente-badge fuente-badge--v">V</span> &middot; +13.8% vs 2023<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card rh-card--accent">
+            <p class="rh-card__label">Plusvalías 2024</p>
+            <p class="rh-card__big">557<span class="rh-card__unit">mmdp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Récord en 27 años de operación del SAR</p>
+            <p class="rh-card__ref"><a href="#rendimientos">Sección 9 &mdash; Rendimientos</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Comisión promedio</p>
+            <p class="rh-card__big">0.566<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Estable por 3.er año &middot; spread 0.04 pp<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#comisiones">Sección 8 &mdash; Comisiones</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Rendimiento real</p>
+            <p class="rh-card__big">4.84<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Nominal 9.53%<span class="fuente-badge fuente-badge--v">V</span> &middot; inflación 4.21%<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#rendimientos">Sección 9 &mdash; Rendimientos</a></p>
+          </article>
+
+        </div>
+
+        <!-- Retícula asimétrica del resumen (Ronda 9, D20):
+             Escritorio ≥768px: 2 cols con áreas
+                "recursos afore"     ← Recursos + Dot plot (der spans 2 filas)
+                "spark    afore"     ← Sparkline (izq bajo) + AFORE continua
+             Móvil <768px: stack DOM order (Recursos → Sparkline → AFORE).
+             Cero zonas muertas: el dot plot fija la altura del bloque; la
+             columna izquierda la iguala con dos piezas apiladas. -->
+        <div class="paper__resumen-hero-viz">
+
+          <article class="rh-viz rh-viz--recursos" aria-labelledby="rhVizRecTitle">
+            <p id="rhVizRecTitle" class="rh-viz__title">Recursos administrados (mmdp)</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2023, 5,976 mmdp, 19.1% del PIB, verificado"
+                   data-tip-title="Cierre 2023" data-tip-detail="5,976 mmdp" data-tip-note="19.1% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2023</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.876"></div>
+                  <span class="rh-viz__bar-label">5,976<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2024, 6,820 mmdp, 20.3% del PIB, verificado"
+                   data-tip-title="Cierre 2024" data-tip-detail="6,820 mmdp" data-tip-note="20.3% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2024</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">6,820<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">+844 mmdp<span class="fuente-badge fuente-badge--v">V</span> &middot; +13.8%<span class="fuente-badge fuente-badge--v">V</span> &middot; +1.2 pp del PIB<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-viz__ref"><a href="#recursos">Tabla 1 &mdash; Sección 7</a></p>
+          </article>
+
+          <!-- Sparkline movida DENTRO del grid del resumen-hero-viz (Ronda 9):
+               se posiciona en area "spark" (columna izquierda, fila 2). -->
+          <figure class="paper__resumen-hero-spark" aria-labelledby="rhSparkCaption">
+            <figcaption class="rh-spark__caption">
+              <span id="rhSparkCaption" class="rh-spark__caption-label">Comisión promedio del SAR &middot; 2008–2024 (% sobre saldo)</span>
+              <span class="rh-spark__caption-meta">1.92%<span class="fuente-badge fuente-badge--v">V</span> &rarr; 0.566%<span class="fuente-badge fuente-badge--v">V</span> &middot; <strong>&minus;70.5%</strong><span class="fuente-badge fuente-badge--v">V</span> acumulado</span>
+            </figcaption>
+
+            <div class="rh-spark__wrapper">
+              <svg class="rh-spark__svg" viewBox="0 0 720 84" role="img" aria-label="Tendencia de la comisión promedio del SAR de 2008 a 2024">
+                <defs>
+                  <linearGradient id="rhSparkGrad" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(27,42,94,0.22)"/>
+                    <stop offset="100%" stop-color="rgba(27,42,94,0)"/>
+                  </linearGradient>
+                </defs>
+                <line x1="20" y1="78" x2="700" y2="78" stroke="rgba(27,42,94,0.14)" stroke-width="1"/>
+                <path d="M20,6 L62.5,15 L105,22 L147.5,29 L190,35 L232.5,40 L275,45 L317.5,49 L360,52 L402.5,53 L445,54 L487.5,56 L530,59 L572.5,65 L615,78 L657.5,78 L700,78 L20,78 Z" fill="url(#rhSparkGrad)"/>
+                <polyline points="20,6 62.5,15 105,22 147.5,29 190,35 232.5,40 275,45 317.5,49 360,52 402.5,53 445,54 487.5,56 530,59 572.5,65 615,78 657.5,78 700,78" fill="none" stroke="#1B2A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <g class="rh-spark__points">
+                  <circle class="rh-spark__point" cx="20"    cy="6"  r="9" data-tip-title="2008" data-tip-detail="1.92%"  tabindex="0" role="img" aria-label="2008: 1.92%"></circle>
+                  <circle class="rh-spark__point" cx="62.5"  cy="15" r="9" data-tip-title="2009" data-tip-detail="1.75%"  tabindex="0" role="img" aria-label="2009: 1.75%"></circle>
+                  <circle class="rh-spark__point" cx="105"   cy="22" r="9" data-tip-title="2010" data-tip-detail="1.62%"  tabindex="0" role="img" aria-label="2010: 1.62%"></circle>
+                  <circle class="rh-spark__point" cx="147.5" cy="29" r="9" data-tip-title="2011" data-tip-detail="1.48%"  tabindex="0" role="img" aria-label="2011: 1.48%"></circle>
+                  <circle class="rh-spark__point" cx="190"   cy="35" r="9" data-tip-title="2012" data-tip-detail="1.38%"  tabindex="0" role="img" aria-label="2012: 1.38%"></circle>
+                  <circle class="rh-spark__point" cx="232.5" cy="40" r="9" data-tip-title="2013" data-tip-detail="1.29%"  tabindex="0" role="img" aria-label="2013: 1.29%"></circle>
+                  <circle class="rh-spark__point" cx="275"   cy="45" r="9" data-tip-title="2014" data-tip-detail="1.19%"  tabindex="0" role="img" aria-label="2014: 1.19%"></circle>
+                  <circle class="rh-spark__point" cx="317.5" cy="49" r="9" data-tip-title="2015" data-tip-detail="1.11%"  tabindex="0" role="img" aria-label="2015: 1.11%"></circle>
+                  <circle class="rh-spark__point" cx="360"   cy="52" r="9" data-tip-title="2016" data-tip-detail="1.06%"  tabindex="0" role="img" aria-label="2016: 1.06%"></circle>
+                  <circle class="rh-spark__point" cx="402.5" cy="53" r="9" data-tip-title="2017" data-tip-detail="1.03%"  tabindex="0" role="img" aria-label="2017: 1.03%"></circle>
+                  <circle class="rh-spark__point" cx="445"   cy="54" r="9" data-tip-title="2018" data-tip-detail="1.02%"  tabindex="0" role="img" aria-label="2018: 1.02%"></circle>
+                  <circle class="rh-spark__point" cx="487.5" cy="56" r="9" data-tip-title="2019" data-tip-detail="0.98%"  tabindex="0" role="img" aria-label="2019: 0.98%"></circle>
+                  <circle class="rh-spark__point" cx="530"   cy="59" r="9" data-tip-title="2020" data-tip-detail="0.92%"  tabindex="0" role="img" aria-label="2020: 0.92%"></circle>
+                  <circle class="rh-spark__point" cx="572.5" cy="65" r="9" data-tip-title="2021" data-tip-detail="0.807%" tabindex="0" role="img" aria-label="2021: 0.807%"></circle>
+                  <circle class="rh-spark__point" cx="615"   cy="78" r="9" data-tip-title="2022" data-tip-detail="0.566%" tabindex="0" role="img" aria-label="2022: 0.566%"></circle>
+                  <circle class="rh-spark__point" cx="657.5" cy="78" r="9" data-tip-title="2023" data-tip-detail="0.566%" tabindex="0" role="img" aria-label="2023: 0.566%"></circle>
+                  <circle class="rh-spark__point" cx="700"   cy="78" r="9" data-tip-title="2024" data-tip-detail="0.566%" tabindex="0" role="img" aria-label="2024: 0.566%"></circle>
+                </g>
+                <circle cx="20" cy="6" r="4" fill="#1B2A5E" pointer-events="none"/>
+                <circle cx="700" cy="78" r="4" fill="#B8943E" pointer-events="none"/>
+                <circle class="rh-spark__active" cx="0" cy="0" r="5" fill="#1B2A5E" stroke="#FFFFFF" stroke-width="2" opacity="0" pointer-events="none"/>
+                <rect class="rh-spark__overlay" x="0" y="0" width="720" height="84" fill="transparent" pointer-events="all"/>
+              </svg>
+            </div>
+
+            <div class="rh-spark__axis" aria-hidden="true">
+              <span>2008</span>
+              <span>2024</span>
+            </div>
+
+            <p class="rh-spark__ref"><a href="#comisiones">Tabla 4 &mdash; Sección 8 (datos verificados [V] CONSAR)</a></p>
+          </figure>
+
+          <article class="rh-viz rh-viz--afore" aria-labelledby="rhVizAforeTitle">
+            <p id="rhVizAforeTitle" class="rh-viz__title">Comisiones por AFORE (10 firmas, cierre 2024)</p>
+
+            <!-- Dot plot horizontal (Ronda 8, D19): cada AFORE en su fila,
+                 orden ascendente por comisión. La alineación vertical de
+                 los 9 puntos a 0.57% comunica compresión de un vistazo;
+                 PensionISSSTE queda alone a la izquierda como outlier. -->
+            <ol class="rh-afore-list" role="list">
+              <li class="rh-afore-row rh-afore-row--outlier" tabindex="0" role="listitem"
+                  data-tip-title="PensionISSSTE" data-tip-detail="0.53%" data-tip-v="1">
+                <span class="rh-afore-name">PensionISSSTE</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 0%"></span></span>
+                <span class="rh-afore-value">0.53<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Azteca" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Azteca</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Citibanamex" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Citibanamex</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Coppel" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Coppel</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Inbursa" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Inbursa</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Invercap" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Invercap</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Principal" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Principal</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Profuturo GNP" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Profuturo GNP</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="SURA" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">SURA</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="XXI Banorte" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">XXI Banorte</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+            </ol>
+
+            <div class="rh-afore-axis" aria-hidden="true">
+              <span>0.53%</span>
+              <span class="rh-afore-axis__mid">Promedio 0.566%</span>
+              <span>0.57%</span>
+            </div>
+
+            <p class="rh-viz__meta">Promedio del sistema 0.566%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rango 0.04 pp<span class="fuente-badge fuente-badge--v">V</span> &middot; 1 outlier de 10</p>
+            <p class="rh-viz__ref"><a href="#comisiones">Tabla 2 &mdash; Sección 8</a></p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MARGEN LATERAL (piloto)
+         TOC + leyenda [V]/[E] + back-link contextual.
+         Desktop ≥1100px: el grid de .paper--margen la coloca al margen
+         derecho como sidebar sticky. Móvil/tablet: fluye en el flujo
+         normal, antes del cuerpo del paper, con TOC colapsable.
+         ========================================== -->
+    <aside class="paper__margen" aria-label="Navegación y leyenda del estudio">
+      <div class="paper__margen-sticky">
+
+        <nav class="paper__margen-nav" aria-label="Secciones del estudio">
+          <details class="paper__margen-toc-wrap" open>
+            <summary class="paper__margen-toc-summary">
+              <span class="paper__margen-toc-eyebrow">En este estudio</span>
+              <span class="paper__margen-toc-counter">14 secciones</span>
+            </summary>
+            <ol class="paper__margen-toc">
+              <li><a href="#resumen">Resumen ejecutivo</a></li>
+              <li><a href="#introduccion">Introducción</a></li>
+              <li><a href="#metodologia">Metodología</a></li>
+              <li><a href="#contexto">Contexto económico 2024</a></li>
+              <li><a href="#estructura">Estructura del SAR</a></li>
+              <li><a href="#cuentas">Cuentas individuales</a></li>
+              <li><a href="#recursos">Recursos administrados</a></li>
+              <li><a href="#comisiones">Comisiones</a></li>
+              <li><a href="#rendimientos">Rendimientos</a></li>
+              <li><a href="#evolucion">Evolución del sistema</a></li>
+              <li><a href="#normativo">Marco normativo</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#conclusiones">Conclusiones</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="paper__margen-leyenda">
+          <p class="paper__margen-eyebrow">Cómo leer</p>
+          <p class="paper__margen-leyenda-intro">Cada cifra del estudio lleva un sello que indica de dónde sale y queda anclada a su fuente.</p>
+          <ul class="paper__margen-leyenda-items">
+            <li><span class="fuente-badge fuente-badge--v">V</span><span>verificado de fuente oficial directa</span></li>
+            <li><span class="fuente-badge fuente-badge--e">E</span><span>derivado o estimado, declarado</span></li>
+          </ul>
+        </div>
+
+        <a href="/pensiones/sar-29" class="paper__margen-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Volver al índice
+        </a>
+
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         CUERPO DEL PAPER
+         ========================================== -->
+    <div class="paper__body">
+
+      <!-- Sección 1 (Resumen ejecutivo) elevada al bloque visual full-width
+           encima del cuerpo (sección "paper__resumen-hero" arriba). Toda la
+           sustancia se conserva; la presentación se elevó. -->
+
+      <!-- 2. INTRODUCCIÓN -->
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Sección 2</div>
+        <h2>Introducción</h2>
+        <p>El Sistema de Ahorro para el Retiro (SAR) es un mecanismo de capitalización individual creado mediante la reforma al sistema de pensiones de México en 1995. A través de cuentas individuales administradas por Administradoras de Fondos para el Retiro (AFOREs), los trabajadores afiliados al Instituto Mexicano del Seguro Social (IMSS) y al Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado (ISSSTE) acumulan recursos para financiar su pensión.</p>
+        <p>La Ley de los Sistemas de Ahorro para el Retiro, publicada en el Diario Oficial de la Federación el 23 de mayo de 1996, estableció el marco normativo del SAR. La reforma entró en vigor el 1 de julio de 1997 para los trabajadores del IMSS, sustituyendo el régimen de beneficio definido de la Ley del Seguro Social de 1973 por un sistema de contribución definida. Para los trabajadores del ISSSTE, la reforma entró en vigor en 2008.</p>
+        <p>El presente estudio ofrece un panorama descriptivo del SAR durante el año 2024, 27 años después de la entrada en vigor de la reforma. El propósito es presentar datos verificables de fuentes primarias oficiales sobre los principales indicadores del sistema: recursos administrados, número de cuentas individuales, comisiones cobradas por las AFOREs, rendimientos generados y estructura del mercado.</p>
+        <p>Este documento no busca emitir juicios de valor, hacer recomendaciones sobre AFOREs específicas ni realizar proyecciones a futuro. Su alcance es exclusivamente informativo, proporcionando información objetiva para que el lector forme su propio criterio sobre el estado del sistema de pensiones en México.</p>
+      </section>
+
+      <!-- 3. METODOLOGÍA -->
+      <section class="paper__section" id="metodologia">
+        <div class="paper__section-number">Sección 3</div>
+        <h2>Metodología</h2>
+        <p>Este estudio adopta un enfoque descriptivo basado exclusivamente en fuentes primarias oficiales. No se realizan inferencias causales, proyecciones ni análisis predictivos. El análisis se limita a la presentación ordenada de datos verificables del año 2024.</p>
+        <p><strong>Fuentes de datos:</strong> Los datos cuantitativos provienen de tres fuentes primarias: (1) la Comisión Nacional del Sistema de Ahorro para el Retiro (CONSAR), para datos de recursos administrados, comisiones, cuentas individuales y rendimientos; (2) el Instituto Nacional de Estadística y Geografía (INEGI), para datos del Producto Interno Bruto (PIB) e inflación; y (3) el Banco de México (Banxico), para la tasa de interés de referencia. Estos datos fueron consolidados en el Panel DM-SAR-DATA-001, una base de datos histórica del SAR mantenida por el observatorio.</p>
+        <p><strong>Periodo de estudio:</strong> El análisis comprende el año calendario 2024 (1 de enero al 31 de diciembre de 2024). Las comparaciones con el año anterior se refieren al cierre de 2023 (31 de diciembre de 2023). Todas las cifras monetarias están expresadas en pesos mexicanos corrientes, salvo indicación contraria.</p>
+        <p><strong>Alcance:</strong> Este estudio no incluye análisis de causalidad, evaluación de políticas públicas, recomendaciones sobre productos financieros ni proyecciones de variables futuras. Se excluyen datos no publicados oficialmente, estimaciones de terceros y fuentes secundarias.</p>
+        <p><strong>Limitaciones:</strong> Las limitaciones específicas de este estudio se detallan en la Sección 12.</p>
+      </section>
+
+      <!-- 4. CONTEXTO ECONÓMICO 2024 -->
+      <section class="paper__section" id="contexto">
+        <div class="paper__section-number">Sección 4</div>
+        <h2>Contexto económico 2024</h2>
+        <p>El año 2024 se caracterizó por un entorno macroeconómico relativamente estable en México, con inflación descendente y tasas de interés en proceso de normalización tras el ciclo restrictivo iniciado en 2021.</p>
+        <p><strong>Inflación:</strong> La inflación al cierre de 2024 fue de 4.21% <span class="fuente-badge fuente-badge--v">V</span>, una disminución de 0.45 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> respecto al cierre de 2023 (4.66% <span class="fuente-badge fuente-badge--v">V</span>). Esta desaceleración reflejó la efectividad de la política monetaria restrictiva implementada por el Banco de México en años anteriores, aunque la inflación se mantuvo por encima del objetivo del banco central (3% <span class="fuente-badge fuente-badge--v">V</span> ±1 punto porcentual).</p>
+        <p><strong>Política monetaria:</strong> La tasa de interés de referencia del Banco de México cerró 2024 en 10.0% <span class="fuente-badge fuente-badge--v">V</span>, una reducción de 125 puntos base respecto al cierre de 2023 (11.25% <span class="fuente-badge fuente-badge--v">V</span>). Esta disminución marcó el inicio de un ciclo de relajación monetaria gradual, tras alcanzar niveles máximos de 11.25% <span class="fuente-badge fuente-badge--v">V</span> en marzo de 2023. La reducción de tasas reflejó la confianza de la autoridad monetaria en la trayectoria descendente de la inflación.</p>
+        <p><strong>Producto Interno Bruto:</strong> No se dispone de datos oficiales finales del crecimiento del PIB para 2024 al momento de elaboración de este estudio (abril de 2026). Las estimaciones preliminares sugieren un crecimiento moderado, en línea con la desaceleración del ciclo económico global.</p>
+        <p><strong>Impacto en el SAR:</strong> El entorno de tasas de interés elevadas, aunque en descenso, favoreció los rendimientos de los instrumentos de renta fija en las carteras de las SIEFOREs. La estabilidad relativa del tipo de cambio peso-dólar contribuyó a la valorización de activos denominados en moneda extranjera. El año 2024 registró las mayores plusvalías en la historia del SAR (557 mmdp <span class="fuente-badge fuente-badge--v">V</span>), impulsadas tanto por rendimientos de instrumentos financieros como por la apreciación de activos de capital.</p>
+      </section>
+
+      <!-- 5. ESTRUCTURA DEL SAR -->
+      <section class="paper__section" id="estructura">
+        <div class="paper__section-number">Sección 5</div>
+        <h2>Estructura del SAR</h2>
+        <p><strong>Marco legal:</strong> El Sistema de Ahorro para el Retiro opera bajo el marco normativo de la Ley de los Sistemas de Ahorro para el Retiro (DOF 23 de mayo de 1996) y sus reformas posteriores. Los trabajadores afiliados al IMSS están sujetos a la Ley del Seguro Social publicada el 21 de diciembre de 1995 (vigente a partir del 1 de julio de 1997), mientras que los trabajadores que cotizaron bajo el régimen anterior conservan derechos adquiridos bajo la Ley del Seguro Social de 1973 (abrogada pero con efectos vigentes). Los trabajadores del ISSSTE están sujetos a la Ley del ISSSTE de 2007.</p>
+        <p><strong>Participantes:</strong> Al cierre de 2024, el SAR operó con 10 Administradoras de Fondos para el Retiro (AFOREs):</p>
+        <ol>
+          <li>Azteca</li>
+          <li>Citibanamex</li>
+          <li>Coppel</li>
+          <li>Inbursa</li>
+          <li>Invercap</li>
+          <li>PensionISSSTE</li>
+          <li>Principal</li>
+          <li>Profuturo GNP</li>
+          <li>SURA</li>
+          <li>XXI Banorte</li>
+        </ol>
+        <p>Este número se mantuvo idéntico al cierre de 2023, sin fusiones, adquisiciones ni entrada de nuevos participantes durante el año.</p>
+        <p><strong>Estructura de SIEFOREs:</strong> A partir de la reforma de 2019-2020, el SAR opera bajo un esquema de SIEFOREs Generacionales, que reemplazó el modelo de SIEFOREs Básicas (SB1-SB5) vigente entre 2008 y 2020. En el sistema de fondos generacionales, cada trabajador es asignado a una SIEFORE correspondiente a su año de nacimiento, que ajusta automáticamente el perfil de inversión conforme el trabajador se acerca a la edad de retiro. Las SIEFOREs Generacionales se identifican por el año proyectado de retiro del trabajador (por ejemplo, SIEFORE 2055 para trabajadores que se retirarán aproximadamente en 2055).</p>
+        <p><strong>Fondo de Pensiones para el Bienestar:</strong> En julio de 2024 entró en operación el Fondo de Pensiones para el Bienestar (FPB), un vehículo público creado mediante reforma legislativa aprobada en 2024. El FPB tiene como objetivo resguardar los recursos de cuentas individuales inactivas o no reclamadas, operando bajo un régimen administrativo diferenciado. A diferencia de las AFOREs comerciales, el FPB no reporta comisión sobre saldo y aparece en los reportes de CONSAR bajo una categoría especial (cuenta 010), con datos agregados únicamente a nivel sistema, sin desagregación por cuenta individual.</p>
+      </section>
+
+      <!-- 6. CUENTAS INDIVIDUALES -->
+      <section class="paper__section" id="cuentas">
+        <div class="paper__section-number">Sección 6</div>
+        <h2>Cuentas individuales</h2>
+        <p>Al cierre de 2024, el Sistema de Ahorro para el Retiro administraba 76.14 millones de cuentas individuales, según datos oficiales de CONSAR. Esta cifra representa un incremento de 3.04 millones de cuentas (4.2% <span class="fuente-badge fuente-badge--v">V</span>) respecto al cierre de 2023 (73.1 millones).</p>
+        <p>El crecimiento en el número de cuentas refleja la incorporación neta de trabajadores al mercado formal, el registro de nuevos afiliados al IMSS e ISSSTE, y la creación de cuentas para trabajadores independientes que optan por realizar aportaciones voluntarias al SAR.</p>
+        <p>Es importante señalar que la cifra de cuentas individuales incluye tanto cuentas activas (con aportaciones recientes) como cuentas inactivas (sin aportaciones en periodos prolongados). La entrada en operación del Fondo de Pensiones para el Bienestar en julio de 2024 introdujo una nueva categoría de cuentas en los reportes de CONSAR, aunque esta categoría se reporta únicamente a nivel agregado del sistema, sin desagregación por AFORE.</p>
+        <p>No se dispone de datos oficiales desagregados por AFORE para el número de cuentas al cierre de 2024 con nivel de confianza verificado [V]. Los datos agregados del sistema provienen de los informes trimestrales de CONSAR y del Panel DM-SAR-DATA-001.</p>
+      </section>
+
+      <!-- 7. RECURSOS ADMINISTRADOS -->
+      <section class="paper__section" id="recursos">
+        <div class="paper__section-number">Sección 7</div>
+        <h2>Recursos administrados</h2>
+        <p>Al cierre de 2024, los recursos administrados por el Sistema de Ahorro para el Retiro ascendieron a 6,820.48 miles de millones de pesos (mmdp), equivalentes a 20.3% <span class="fuente-badge fuente-badge--v">V</span> del Producto Interno Bruto (PIB). Esta cifra representa un incremento de 844.48 mmdp <span class="fuente-badge fuente-badge--v">V</span> (13.8% <span class="fuente-badge fuente-badge--v">V</span>) respecto al cierre de 2023, cuando los recursos totalizaron 5,976.0 mmdp <span class="fuente-badge fuente-badge--v">V</span> (19.1% <span class="fuente-badge fuente-badge--v">V</span> del PIB).</p>
+
+        <!-- Tabla 1: Recursos 2023 vs 2024 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. Recursos administrados por el SAR, 2023 vs 2024</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th class="num">Cierre 2023</th>
+                <th class="num">Cierre 2024</th>
+                <th class="num">Variación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Recursos administrados (mmdp)</td>
+                <td class="num">5,976.0</td>
+                <td class="num">6,820.48</td>
+                <td class="num">+844.48 mmdp (+13.8%)</td>
+              </tr>
+              <tr>
+                <td>Recursos como % del PIB</td>
+                <td class="num">19.1%</td>
+                <td class="num">20.3%</td>
+                <td class="num">+1.2 pp</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR (informes trimestrales 2023-2024) e INEGI (PIB). Cifras verificadas [V].</p>
+        </div>
+
+        <!-- Gráfica 1: Recursos 2023 vs 2024 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 1. Recursos administrados por el SAR, 2023 vs 2024 (mmdp)</p>
+          <div class="paper__grafica-container"><canvas id="chart-recursos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, informes trimestrales 2023-2024; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>El crecimiento de 13.8% <span class="fuente-badge fuente-badge--v">V</span> en recursos administrados durante 2024 se explica por tres componentes principales:</p>
+        <ol>
+          <li><strong>Aportaciones obligatorias y voluntarias:</strong> Las aportaciones tripartitas (trabajador, patrón y gobierno) continuaron su flujo regular, incrementadas por el mayor número de trabajadores formales y los aumentos salariales nominales del año. Las aportaciones voluntarias también contribuyeron al crecimiento, aunque en menor medida.</li>
+          <li><strong>Rendimientos de inversión:</strong> Los rendimientos nominales de 9.53% <span class="fuente-badge fuente-badge--v">V</span> generaron plusvalías por 557 mmdp <span class="fuente-badge fuente-badge--v">V</span> durante el año, el monto más alto en la historia del SAR. Estos rendimientos reflejaron tanto el desempeño de los mercados financieros como las decisiones de asignación de activos de las SIEFOREs.</li>
+          <li><strong>Efecto base:</strong> El crecimiento porcentual se calcula sobre una base mayor año con año, lo que requiere incrementos absolutos mayores para mantener tasas de crecimiento similares.</li>
+        </ol>
+        <p>Los recursos como porcentaje del PIB aumentaron 1.2 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>, de 19.1% <span class="fuente-badge fuente-badge--v">V</span> en 2023 a 20.3% <span class="fuente-badge fuente-badge--v">V</span> en 2024. Este incremento refleja que los recursos del SAR crecieron más rápido que el PIB nominal durante el año, consolidando la importancia relativa del sistema dentro de la economía mexicana.</p>
+        <p>Al cierre de 2024, las plusvalías acumuladas históricas del SAR representaban 3,600 mmdp <span class="fuente-badge fuente-badge--v">V</span>, equivalentes a 53.4% <span class="fuente-badge fuente-badge--v">V</span> de los activos totales del sistema. Esta cifra ilustra la magnitud de los rendimientos generados desde 1997 y su contribución al patrimonio de los trabajadores.</p>
+      </section>
+
+      <!-- 8. COMISIONES -->
+      <section class="paper__section" id="comisiones">
+        <div class="paper__section-number">Sección 8</div>
+        <h2>Comisiones</h2>
+        <p>La comisión promedio del Sistema de Ahorro para el Retiro al cierre de 2024 fue de 0.566% <span class="fuente-badge fuente-badge--v">V</span> sobre saldo, idéntica a la comisión promedio del cierre de 2023. Esta cifra representa la comisión que las AFOREs cobran anualmente sobre el saldo acumulado en las cuentas individuales de los trabajadores, expresada como porcentaje.</p>
+        <p>El esquema de comisión sobre saldo fue implementado en 2008, reemplazando el sistema dual de comisiones sobre flujo (porcentaje de la aportación) y sobre saldo que operó entre 1997 y 2007. Desde 2008, la CONSAR publica mensualmente las comisiones vigentes de cada AFORE, permitiendo la comparabilidad directa entre administradoras.</p>
+
+        <!-- Tabla 2: Comisiones por AFORE 2024 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Comisiones sobre saldo por AFORE a diciembre de 2024 (ordenadas de menor a mayor)</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Comisión sobre saldo (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PensionISSSTE</td>
+                <td class="num">0.53</td>
+              </tr>
+              <tr>
+                <td>Profuturo GNP</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>XXI Banorte</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Citibanamex</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>SURA</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Coppel</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Azteca</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Principal</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Invercap</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Inbursa</td>
+                <td class="num">0.57</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Cifras verificadas [V] correspondientes a diciembre de 2024.</p>
+        </div>
+
+        <!-- Gráfica 2: Comisiones por AFORE (barras horizontales) -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 2. Comisiones sobre saldo por AFORE a diciembre de 2024 (%)</p>
+          <div class="paper__grafica-container paper__grafica-container--tall"><canvas id="chart-comisiones"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, estadísticas mensuales diciembre 2024; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>La comisión más baja del sistema fue de 0.53% <span class="fuente-badge fuente-badge--v">V</span>, cobrada por PensionISSSTE, la AFORE pública que administra las cuentas de los trabajadores al servicio del Estado. Nueve AFOREs cobraron la comisión más alta del sistema: 0.57% <span class="fuente-badge fuente-badge--v">V</span>. El spread entre la comisión más baja y las más altas fue de 0.04 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> (pp), idéntico al spread observado en 2023.</p>
+        <p>La concentración de comisiones en dos niveles (0.53% <span class="fuente-badge fuente-badge--v">V</span> y 0.57% <span class="fuente-badge fuente-badge--v">V</span>) refleja la madurez del proceso de convergencia competitiva iniciado en 2008. El rango de comisiones en 2024 fue significativamente menor al observado en años anteriores; por ejemplo, en 2008 el spread era superior a 1.0 punto porcentual.</p>
+
+        <!-- Tabla 4: Evolución comisión promedio 2008-2024 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 4. Evolución de la comisión promedio del SAR, 2008-2024 (% sobre saldo)</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th class="num">Año</th>
+                <th class="num">Comisión promedio (%)</th>
+                <th class="num">Variación vs año anterior (pp)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">2008</td><td class="num">1.92</td><td class="num">—</td></tr>
+              <tr><td class="num">2009</td><td class="num">1.75</td><td class="num">-0.17</td></tr>
+              <tr><td class="num">2010</td><td class="num">1.62</td><td class="num">-0.13</td></tr>
+              <tr><td class="num">2011</td><td class="num">1.48</td><td class="num">-0.14</td></tr>
+              <tr><td class="num">2012</td><td class="num">1.38</td><td class="num">-0.10</td></tr>
+              <tr><td class="num">2013</td><td class="num">1.29</td><td class="num">-0.09</td></tr>
+              <tr><td class="num">2014</td><td class="num">1.19</td><td class="num">-0.10</td></tr>
+              <tr><td class="num">2015</td><td class="num">1.11</td><td class="num">-0.08</td></tr>
+              <tr><td class="num">2016</td><td class="num">1.06</td><td class="num">-0.05</td></tr>
+              <tr><td class="num">2017</td><td class="num">1.03</td><td class="num">-0.03</td></tr>
+              <tr><td class="num">2018</td><td class="num">1.02</td><td class="num">-0.01</td></tr>
+              <tr><td class="num">2019</td><td class="num">0.98</td><td class="num">-0.04</td></tr>
+              <tr><td class="num">2020</td><td class="num">0.92</td><td class="num">-0.06</td></tr>
+              <tr><td class="num">2021</td><td class="num">0.807</td><td class="num">-0.113</td></tr>
+              <tr><td class="num">2022</td><td class="num">0.566</td><td class="num">-0.241</td></tr>
+              <tr><td class="num">2023</td><td class="num">0.566</td><td class="num">0.000</td></tr>
+              <tr><td class="num">2024</td><td class="num">0.566</td><td class="num">0.000</td></tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Promedios ponderados por activos bajo administración.</p>
+        </div>
+
+        <!-- Gráfica 3: Tendencia comisión promedio 2008-2024 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 3. Tendencia de la comisión promedio del SAR, 2008-2024 (% sobre saldo)</p>
+          <div class="paper__grafica-container"><canvas id="chart-tendencia"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, reportes históricos 2008-2024; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>Entre 2008 y 2024, la comisión promedio del sistema se redujo en 1.354 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>, de 1.92% <span class="fuente-badge fuente-badge--v">V</span> a 0.566% <span class="fuente-badge fuente-badge--v">V</span>, lo que representa una disminución de 70.5% <span class="fuente-badge fuente-badge--v">V</span>. La mayor reducción ocurrió entre 2021 y 2022, cuando la comisión promedio cayó 0.241 pp <span class="fuente-badge fuente-badge--v">V</span> en un solo año, debido a la entrada en vigor de topes regulatorios más estrictos establecidos por CONSAR.</p>
+        <p>Desde 2022, la comisión promedio se ha mantenido estable en 0.566% <span class="fuente-badge fuente-badge--v">V</span>, sin variaciones durante 2023 y 2024. Esta estabilización sugiere que el sistema ha alcanzado un piso de comisiones cercano al límite operativo viable para las AFOREs, considerando sus estructuras de costos y requisitos regulatorios.</p>
+        <p><strong>Comisiones aprobadas para 2025:</strong> En diciembre de 2024, CONSAR aprobó una comisión promedio de 0.547% <span class="fuente-badge fuente-badge--v">V</span> para el ejercicio 2025, lo que implicaría una reducción de 0.019 pp <span class="fuente-badge fuente-badge--v">V</span> respecto a 2024. Esta disminución, aunque modesta, continuaría la tendencia secular descendente observada desde 2008.</p>
+      </section>
+
+      <!-- 9. RENDIMIENTOS -->
+      <section class="paper__section" id="rendimientos">
+        <div class="paper__section-number">Sección 9</div>
+        <h2>Rendimientos</h2>
+        <p>El rendimiento nominal del Sistema de Ahorro para el Retiro durante 2024 fue de 9.53% <span class="fuente-badge fuente-badge--v">V</span>, mientras que el rendimiento real (descontando inflación) fue de 4.84% <span class="fuente-badge fuente-badge--v">V</span>. Estas cifras corresponden a datos verificados [V] de CONSAR y representan el desempeño promedio ponderado del conjunto de SIEFOREs operadas por las 10 AFOREs del sistema.</p>
+        <p>El rendimiento nominal de 9.53% <span class="fuente-badge fuente-badge--v">V</span> en 2024 representó un incremento de 0.45 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> respecto al rendimiento nominal de 2023 (9.08% <span class="fuente-badge fuente-badge--v">V</span>). El rendimiento real de 4.84% <span class="fuente-badge fuente-badge--v">V</span> también fue superior al de 2023 (4.61% <span class="fuente-badge fuente-badge--v">V</span>), reflejando tanto mayores rendimientos nominales como una inflación ligeramente menor (4.21% <span class="fuente-badge fuente-badge--v">V</span> en 2024 vs 4.66% <span class="fuente-badge fuente-badge--v">V</span> en 2023).</p>
+        <p>Es importante señalar que no existe un dato oficial único de rendimiento para el SAR, ya que los rendimientos varían según la SIEFORE específica, la AFORE administradora y el periodo de cálculo. Las cifras presentadas corresponden al rendimiento promedio ponderado del sistema publicado por CONSAR en sus informes trimestrales.</p>
+        <p><strong>Rendimiento neto de comisiones:</strong> Descontando la comisión promedio del sistema (0.566% <span class="fuente-badge fuente-badge--v">V</span>), el rendimiento neto para los trabajadores fue aproximadamente de 8.964% nominal y 4.274% real. Este cálculo ilustra el impacto de las comisiones sobre el rendimiento efectivo que reciben los ahorradores.</p>
+        <p><strong>Comparación histórica:</strong> El rendimiento real de 4.84% <span class="fuente-badge fuente-badge--v">V</span> en 2024 se compara favorablemente con el promedio histórico del SAR. Entre 1997 y 2024, el rendimiento real promedio del sistema ha sido aproximadamente de 5.0% anual, con variaciones significativas año con año debido a la volatilidad de los mercados financieros. El año 2024 se ubicó ligeramente por debajo de este promedio histórico, pero dentro del rango de normalidad observado en años recientes.</p>
+        <p><strong>Plusvalías generadas:</strong> Las plusvalías (ganancias de capital más rendimientos por intereses) generadas en 2024 ascendieron a 557 miles de millones de pesos, el monto más alto registrado en un solo año en los 27 años de historia del SAR. Este resultado excepcional se explica por la combinación de tres factores: (1) el tamaño creciente de los activos bajo administración (mayor base de cálculo), (2) rendimientos nominales atractivos (9.53% <span class="fuente-badge fuente-badge--v">V</span>), y (3) condiciones favorables en los mercados de renta fija y variable durante el año.</p>
+        <p><strong>Contexto de mercado:</strong> Los rendimientos de 2024 se generaron en un contexto macroeconómico caracterizado por tasas de interés elevadas (tasa Banxico de 10.0% <span class="fuente-badge fuente-badge--v">V</span> al cierre), que favorecieron los rendimientos de instrumentos de renta fija, y por una relativa estabilidad en los mercados accionarios, que contribuyó positivamente a los portafolios de las SIEFOREs con mayor exposición a renta variable.</p>
+      </section>
+
+      <!-- 10. EVOLUCIÓN DEL SISTEMA -->
+      <section class="paper__section" id="evolucion">
+        <div class="paper__section-number">Sección 10</div>
+        <h2>Evolución del sistema</h2>
+        <p>El año 2024 se caracterizó por dos eventos significativos en la historia del Sistema de Ahorro para el Retiro: (1) el registro del mejor desempeño financiero en 27 años de operación, y (2) la entrada en operación del Fondo de Pensiones para el Bienestar, que introdujo un nuevo modelo institucional en el sistema.</p>
+
+        <h3>Desempeño financiero histórico</h3>
+        <p>El año 2024 consolidó el mejor desempeño financiero en la historia del SAR desde su creación en 1997. Las plusvalías generadas ascendieron a 557 miles de millones de pesos, superando el récord anterior y representando el monto anual más alto jamás registrado. El rendimiento nominal de 9.53% <span class="fuente-badge fuente-badge--v">V</span> y el rendimiento real de 4.84% <span class="fuente-badge fuente-badge--v">V</span> se ubicaron en niveles atractivos para los ahorradores, en un contexto de inflación controlada y tasas de interés en proceso de normalización.</p>
+        <p>Los recursos administrados alcanzaron 6.8 billones de pesos (20.3% <span class="fuente-badge fuente-badge--v">V</span> del PIB), consolidando al SAR como uno de los actores institucionales más relevantes del sistema financiero mexicano. Las plusvalías acumuladas históricas representaron 53.4% <span class="fuente-badge fuente-badge--v">V</span> de los activos totales, ilustrando el efecto compuesto de los rendimientos sobre el patrimonio de los trabajadores.</p>
+        <p>Al cierre de 2024, más de 75,000 trabajadores se encontraban pensionados bajo el régimen de cuentas individuales, con una tasa de reemplazo promedio de 70% <span class="fuente-badge fuente-badge--v">V</span> (relación entre la pensión y el último salario). Esta cifra representa un hito en la maduración del sistema, que continúa transitando de un modelo predominantemente de acumulación hacia un modelo que comienza a pagar pensiones a escala creciente.</p>
+
+        <h3>Fondo de Pensiones para el Bienestar</h3>
+        <p>En julio de 2024 entró en operación el Fondo de Pensiones para el Bienestar (FPB), un vehículo público creado mediante reforma legislativa aprobada en 2024. El FPB representa un cambio estructural en la arquitectura institucional del SAR, al introducir un administrador de naturaleza pública con objetivos y régimen operativo diferenciados respecto a las AFOREs comerciales.</p>
+        <p><strong>Objetivo y alcance:</strong> El FPB tiene como mandato resguardar los recursos de cuentas individuales inactivas (sin aportaciones en periodos prolongados) y cuentas no reclamadas (cuyos titulares no han ejercido derechos de disposición al cumplir requisitos de pensión). El fondo opera como un vehículo de última instancia, concentrando recursos que bajo el esquema anterior permanecían dispersos en las AFOREs comerciales.</p>
+        <p><strong>Régimen administrativo:</strong> A diferencia de las AFOREs, el FPB no cobra comisión sobre saldo. Los recursos administrados por el fondo generan rendimientos que se acreditan íntegramente a las cuentas individuales, sin deducción por concepto de administración. Esta característica lo distingue del modelo comercial de las AFOREs y representa un experimento institucional sin precedentes en el SAR.</p>
+        <p><strong>Transparencia y reporte:</strong> El FPB aparece en los reportes oficiales de CONSAR bajo una categoría especial identificada como cuenta 010 ("cuentas bienestar"). Los datos se reportan únicamente a nivel agregado del sistema, sin desagregación por cuenta individual ni por AFORE de origen. Esta metodología de reporte limita la comparabilidad directa con las AFOREs comerciales y restringe el análisis granular del desempeño del fondo.</p>
+        <p>Al cierre de 2024 (seis meses después de su entrada en operación), el FPB no reportó datos desagregados de recursos administrados ni número de cuentas transferidas. La información disponible se limita a referencias agregadas en los informes trimestrales de CONSAR, sin series históricas suficientes para evaluar su desempeño operativo o financiero.</p>
+
+        <h3>Estabilidad del mercado</h3>
+        <p>El año 2024 no registró eventos corporativos significativos en el sector de AFOREs. No se produjeron fusiones, adquisiciones, salidas del mercado ni entrada de nuevos participantes. El número de AFOREs se mantuvo constante en 10, idéntico al cierre de 2023.</p>
+        <p>La comisión promedio del sistema permaneció estable en 0.566% <span class="fuente-badge fuente-badge--v">V</span>, sin variaciones respecto al año anterior. Esta estabilidad contrasta con el periodo 2008-2022, caracterizado por reducciones anuales continuas en las comisiones. La aprobación de una comisión de 0.547% <span class="fuente-badge fuente-badge--v">V</span> para 2025 sugiere que la tendencia descendente continuará, aunque a un ritmo más moderado que en años anteriores.</p>
+      </section>
+
+      <!-- 11. MARCO NORMATIVO -->
+      <section class="paper__section" id="normativo">
+        <div class="paper__section-number">Sección 11</div>
+        <h2>Marco normativo</h2>
+        <p>El Sistema de Ahorro para el Retiro opera bajo un marco normativo complejo que incluye leyes, reglamentos, circulares y disposiciones administrativas emitidas por diferentes autoridades. A continuación se describen los instrumentos legales fundamentales vigentes en 2024.</p>
+        <p><strong>Ley de los Sistemas de Ahorro para el Retiro:</strong> Publicada en el Diario Oficial de la Federación el 23 de mayo de 1996, esta ley establece el marco institucional del SAR, define las atribuciones de CONSAR como órgano regulador, regula la operación de las AFOREs y las SIEFOREs, y establece los derechos de los trabajadores titulares de cuentas individuales. La ley ha sido reformada en múltiples ocasiones, siendo las más significativas las de 2002, 2007, 2014, 2019 y 2024.</p>
+        <p><strong>Ley del Seguro Social:</strong> La Ley del Seguro Social publicada el 21 de diciembre de 1995 (vigente a partir del 1 de julio de 1997) estableció el régimen de cuentas individuales para los trabajadores afiliados al IMSS. Esta ley sustituyó el sistema de beneficio definido de la Ley del Seguro Social de 1973, que fue abrogada pero mantiene efectos vigentes para trabajadores que optaron por conservar sus derechos bajo el régimen anterior (Artículo Décimo Transitorio). La coexistencia de ambos regímenes genera complejidad en el cálculo de pensiones y en la administración de cuentas.</p>
+        <p><strong>Ley del ISSSTE:</strong> La reforma a la Ley del Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado, publicada el 31 de marzo de 2007 y vigente a partir del 1 de enero de 2008, incorporó a los trabajadores al servicio del Estado al sistema de cuentas individuales del SAR. Esta ley estableció un régimen específico para los trabajadores del ISSSTE, con características diferenciadas respecto al régimen del IMSS, incluyendo tasas de aportación distintas y reglas de transición particulares.</p>
+        <p><strong>Circular Única de SIEFOREs:</strong> La Comisión Nacional del Sistema de Ahorro para el Retiro emite la Circular Única de Disposiciones aplicables a las SIEFOREs, que establece las reglas de inversión, los límites de exposición por clase de activo, los requisitos de diversificación, y las metodologías de valuación de portafolios. Este instrumento normativo se actualiza periódicamente para incorporar cambios en las condiciones de mercado y ajustes a la política de inversión del sistema. Durante 2024, la Circular Única incorporó modificaciones menores relacionadas con el régimen de inversión del Fondo de Pensiones para el Bienestar.</p>
+        <p><strong>Reforma 2024:</strong> La reforma legislativa aprobada en 2024 creó el Fondo de Pensiones para el Bienestar e introdujo cambios en la Ley de los Sistemas de Ahorro para el Retiro y en la Ley del Seguro Social. Los principales elementos de esta reforma incluyen: (1) creación del FPB como vehículo público para administrar cuentas inactivas y no reclamadas, (2) exención de comisión sobre saldo para el FPB, (3) reglas de transferencia de recursos desde AFOREs comerciales hacia el FPB, y (4) modificaciones al régimen de transparencia y rendición de cuentas de las AFOREs.</p>
+        <p><strong>Advertencia legal:</strong> Las referencias a disposiciones legales contenidas en este documento tienen carácter exclusivamente informativo. La interpretación oficial de las leyes, reglamentos y circulares corresponde a las autoridades competentes (CONSAR, tribunales, etc.). El observatorio no emite opiniones jurídicas ni interpretaciones vinculantes sobre el marco normativo del SAR.</p>
+      </section>
+
+      <!-- 12. LIMITACIONES -->
+      <section class="paper__section" id="limitaciones">
+        <div class="paper__section-number">Sección 12</div>
+        <h2>Limitaciones</h2>
+        <p>Este estudio presenta las siguientes limitaciones metodológicas y de alcance:</p>
+        <ol>
+          <li><strong>Alcance descriptivo:</strong> El análisis se limita a la presentación ordenada de datos oficiales del año 2024. No se realizan inferencias causales, análisis de políticas públicas, evaluaciones de desempeño institucional ni recomendaciones sobre productos financieros o AFOREs específicas.</li>
+          <li><strong>Periodo específico:</strong> Los datos corresponden exclusivamente al año calendario 2024. Las comparaciones intertemporales se limitan a 2023 y a series históricas cuando están disponibles. No se extrapolan tendencias ni se realizan proyecciones de variables futuras.</li>
+          <li><strong>Datos estimados:</strong> Aunque la mayoría de las cifras presentadas corresponden a datos verificados [V] de fuentes primarias, algunos indicadores (especialmente aquellos relacionados con el Fondo de Pensiones para el Bienestar) provienen de estimaciones [E] debido a la falta de series históricas completas o a metodologías de reporte agregadas. Los datos estimados se señalan explícitamente en el texto y en las tablas.</li>
+          <li><strong>Agregación de datos:</strong> Las cifras agregadas del sistema pueden presentar variaciones menores respecto a la suma de datos desagregados por AFORE, debido a diferencias en metodologías de conteo, fechas de corte y ajustes por reconciliación contable. Estas variaciones son normales y no afectan la validez de las conclusiones.</li>
+          <li><strong>Ausencia de análisis causal:</strong> Este estudio no busca explicar las causas subyacentes de los fenómenos observados (por ejemplo, por qué la comisión promedio se mantuvo estable, o qué factores determinaron el nivel de rendimientos). El análisis causal requiere metodologías econométricas que están fuera del alcance de este documento.</li>
+          <li><strong>Fuentes disponibles:</strong> El análisis se basa exclusivamente en información publicada oficialmente por CONSAR, INEGI, Banxico y otras fuentes primarias. No se consideran datos no publicados, información confidencial ni estimaciones de terceros (consultoras, bancos de inversión, etc.).</li>
+          <li><strong>Rendimientos individuales:</strong> Los rendimientos presentados corresponden al promedio ponderado del sistema. Los rendimientos individuales varían según la SIEFORE específica, la AFORE administradora, la edad del trabajador y otros factores. Los trabajadores deben consultar sus estados de cuenta individuales para conocer su rendimiento específico.</li>
+          <li><strong>Fondo de Pensiones para el Bienestar:</strong> La información sobre el FPB es limitada debido a su reciente creación (julio 2024) y al régimen de reporte agregado establecido por CONSAR. No existen series históricas suficientes para evaluar su desempeño operativo o financiero al cierre de 2024.</li>
+        </ol>
+      </section>
+
+      <!-- 13. CONCLUSIONES -->
+      <section class="paper__section" id="conclusiones">
+        <div class="paper__section-number">Sección 13</div>
+        <h2>Conclusiones</h2>
+        <ol>
+          <li>Al cierre de 2024, el Sistema de Ahorro para el Retiro administró recursos por 6,820.48 miles de millones de pesos (20.3% <span class="fuente-badge fuente-badge--v">V</span> del PIB), un crecimiento de 13.8% <span class="fuente-badge fuente-badge--v">V</span> respecto a 2023 (5,976.0 mmdp <span class="fuente-badge fuente-badge--v">V</span>, 19.1% <span class="fuente-badge fuente-badge--v">V</span> del PIB), consolidando al SAR como un actor institucional de primer orden en el sistema financiero mexicano.</li>
+          <li>El año 2024 registró el mejor desempeño financiero en los 27 años de historia del SAR, con plusvalías por 557 mmdp <span class="fuente-badge fuente-badge--v">V</span>, rendimiento nominal de 9.53% <span class="fuente-badge fuente-badge--v">V</span> y rendimiento real de 4.84% <span class="fuente-badge fuente-badge--v">V</span>, superando todos los récords históricos anteriores.</li>
+          <li>La comisión promedio del sistema se mantuvo estable en 0.566% <span class="fuente-badge fuente-badge--v">V</span> por tercer año consecutivo (2022-2024), después de una reducción acumulada de 70.5% <span class="fuente-badge fuente-badge--v">V</span> desde 2008 (1.92% <span class="fuente-badge fuente-badge--v">V</span>). El spread entre comisiones fue de apenas 0.04 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>, reflejando una convergencia competitiva prácticamente completa.</li>
+          <li>El número de cuentas individuales alcanzó 76.14 millones, con un crecimiento de 4.2% <span class="fuente-badge fuente-badge--v">V</span> respecto a 2023, mientras que el número de AFOREs se mantuvo en 10 sin cambios corporativos durante el año.</li>
+          <li>La entrada en operación del Fondo de Pensiones para el Bienestar en julio de 2024 introdujo un nuevo modelo institucional en el SAR: un administrador público sin comisión sobre saldo, con mandato de resguardar cuentas inactivas y no reclamadas, operando bajo un régimen de transparencia diferenciado.</li>
+          <li>El contexto macroeconómico de 2024 fue favorable para el SAR: inflación descendente (4.21% <span class="fuente-badge fuente-badge--v">V</span> vs 4.66% <span class="fuente-badge fuente-badge--v">V</span> en 2023), tasas de interés elevadas en proceso de normalización (10.0% <span class="fuente-badge fuente-badge--v">V</span> al cierre vs 11.25% <span class="fuente-badge fuente-badge--v">V</span> en 2023) y estabilidad relativa en mercados financieros.</li>
+          <li>Las plusvalías acumuladas históricas del SAR representaron 53.4% <span class="fuente-badge fuente-badge--v">V</span> de los activos totales al cierre de 2024 (3,600 mmdp <span class="fuente-badge fuente-badge--v">V</span> de 6,820 mmdp <span class="fuente-badge fuente-badge--v">V</span>), ilustrando el efecto compuesto de los rendimientos sobre el patrimonio de los trabajadores a lo largo de 27 años de operación del sistema.</li>
+        </ol>
+        <p>Los datos, análisis y conclusiones presentados en este estudio corresponden exclusivamente al periodo comprendido entre el 1 de enero y el 31 de diciembre de 2024, basados en información oficial disponible al cierre del año y consultada en abril de 2026.</p>
+      </section>
+
+      <hr class="paper__separator">
+
+      <!-- 14. FUENTES -->
+      <section class="paper__section" id="fuentes">
+        <div class="paper__section-number">Sección 14</div>
+        <h2>Fuentes</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li id="fuente-F1"><span class="fuente-inst">CONSAR</span> (Comisión Nacional del Sistema de Ahorro para el Retiro). <span class="fuente-titulo">Informes Trimestrales al H. Congreso de la Unión sobre la situación del SAR, 2024</span>. México, 2024. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F2"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Datos estadísticos del SAR: comisiones, cuentas, recursos y traspasos</span>. México, 2024. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F3"><span class="fuente-inst">INEGI</span> (Instituto Nacional de Estadística y Geografía). <span class="fuente-titulo">Producto Interno Bruto y cuentas nacionales de México, 2024</span>. México, 2025. <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">https://www.inegi.org.mx</a></li>
+            <li id="fuente-F4"><span class="fuente-inst">Banco de México</span> (Banxico). <span class="fuente-titulo">Indicadores económicos: tasas de interés e inflación, 2024</span>. México, 2024. <a href="https://www.banxico.org.mx" target="_blank" rel="noopener">https://www.banxico.org.mx</a></li>
+            <li id="fuente-F5"><span class="fuente-inst">Datos México</span>. <span class="fuente-titulo">Panel DM-SAR-DATA-001: Base de datos consolidada del SAR</span>. México, 2026. <a href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/" target="_blank" rel="noopener">https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/</a></li>
+            <li id="fuente-F6"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 23 de mayo de 1996. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+            <li id="fuente-F7"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Seguro Social</span>. Diario Oficial de la Federación, 21 de diciembre de 1995. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+            <li id="fuente-F8"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado</span>. Diario Oficial de la Federación, 31 de marzo de 2007. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+          </ol>
+          <p>Fecha de consulta de fuentes electrónicas: abril de 2026.</p>
+          <p class="paper__fuentes-leyenda"><span class="fuente-badge fuente-badge--v">V</span> dato verificado de fuente oficial directa &middot; <span class="fuente-badge fuente-badge--e">E</span> dato estimado o derivado, declarado como tal &middot; estándar editorial del observatorio.</p>
+        </div>
+      </section>
+
+      <!-- DECLARACIONES -->
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interés:</strong> El observatorio Datos México declara la ausencia de conflictos de interés en la elaboración de este estudio. Datos México no tiene relación comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> Todas las cifras cuantitativas presentadas en este estudio provienen de fuentes primarias oficiales (CONSAR, INEGI, Banxico) y del Panel DM-SAR-DATA-001. No se utilizaron fuentes secundarias para datos cuantitativos.</p>
+        <p><strong>Alcance:</strong> Este documento tiene carácter informativo y no constituye asesoría financiera, legal ni recomendación alguna sobre productos, servicios o AFOREs específicas.</p>
+      </div>
+
+    </div><!-- /paper__body -->
+
+
+      <!-- DE LA LECTURA AL CÁLCULO -->
+      <aside class="paper__calc-cta">
+        <p class="paper__calc-cta-eyebrow">De la lectura al cálculo</p>
+        <p class="paper__calc-cta-body">
+          Los datos de esta serie alimentan las <strong>calculadoras del observatorio</strong>: herramientas
+          educativas con supuestos públicos, fuentes oficiales versionadas y validación actuarial.
+          <a href="/pensiones/calculadoras">Calcula tu caso →</a>
+        </p>
+      </aside>
+
+  </main>
+
+  <!-- Scripts -->
+
+  <!-- Tooltip unificado + hover-por-área Ronda 6.
+       Un solo sistema premium para sparkline, barras y ticks:
+       - Contenido ASCII puro en data-tip-* (mata "?" del `·` U+00B7 y `[V]`).
+       - Detección del punto MÁS CERCANO por overlay en sparkline y escala.
+       - Marcador activo sincronizado con el tooltip.
+       - Fallback teclado / focus / touch preservado. -->
+  <script>
+  (function () {
+    'use strict';
+    var container = document.querySelector('.paper__resumen-hero-inner');
+    var tip       = document.getElementById('rhTip');
+    if (!container || !tip) return;
+    var titleEl   = tip.querySelector('.rh-tip__title');
+    var detailTx  = tip.querySelector('.rh-tip__detail-text');
+    var badgeEl   = tip.querySelector('.rh-tip__badge');
+    var noteEl    = tip.querySelector('.rh-tip__note');
+    var hideTimer;
+    var currentActive = null;
+
+    function positionOverElement(el) {
+      var r = el.getBoundingClientRect();
+      var c = container.getBoundingClientRect();
+      tip.style.left = (r.left - c.left + r.width / 2) + 'px';
+      tip.style.top  = (r.top  - c.top) + 'px';
+    }
+
+    function showFor(el) {
+      if (!el || !el.dataset.tipTitle) return;
+      clearTimeout(hideTimer);
+      titleEl.textContent = el.dataset.tipTitle;
+      detailTx.textContent = el.dataset.tipDetail || '';
+      noteEl.textContent = el.dataset.tipNote || '';
+      noteEl.style.display = el.dataset.tipNote ? 'block' : 'none';
+      badgeEl.style.display = el.dataset.tipV === '1' ? 'inline-block' : 'none';
+      positionOverElement(el);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tip.classList.add('is-visible');
+          tip.setAttribute('aria-hidden', 'false');
+        });
+      });
+    }
+    function hide() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('is-visible');
+        tip.setAttribute('aria-hidden', 'true');
+        if (currentActive && currentActive.classList) {
+          currentActive.classList.remove('is-active');
+        }
+        currentActive = null;
+        var activeDot = document.querySelector('.rh-spark__active');
+        if (activeDot) activeDot.setAttribute('opacity', '0');
+      }, 80);
+    }
+
+    function setActive(el) {
+      if (currentActive === el) return;
+      if (currentActive && currentActive.classList) currentActive.classList.remove('is-active');
+      currentActive = el;
+      if (el && el.classList) el.classList.add('is-active');
+    }
+
+    // ---------- 1. Sparkline: hover POR ÁREA ----------
+    var sparkSvg = document.querySelector('.rh-spark__svg');
+    var sparkOverlay = document.querySelector('.rh-spark__overlay');
+    var sparkPoints = Array.prototype.slice.call(document.querySelectorAll('.rh-spark__point'));
+    var activeDot = document.querySelector('.rh-spark__active');
+
+    if (sparkSvg && sparkOverlay && sparkPoints.length) {
+      var pointCoords = sparkPoints.map(function (p) {
+        return { el: p, cx: parseFloat(p.getAttribute('cx')), cy: parseFloat(p.getAttribute('cy')) };
+      });
+
+      function handleSparkMove(e) {
+        var svgRect = sparkSvg.getBoundingClientRect();
+        var xInPx = (e.clientX !== undefined ? e.clientX : e.touches[0].clientX) - svgRect.left;
+        var xInVb = xInPx / svgRect.width * 720; // viewBox width
+        // Punto más cercano por X
+        var nearest = pointCoords[0], minD = Math.abs(pointCoords[0].cx - xInVb);
+        for (var i = 1; i < pointCoords.length; i++) {
+          var d = Math.abs(pointCoords[i].cx - xInVb);
+          if (d < minD) { minD = d; nearest = pointCoords[i]; }
+        }
+        // Mueve el marcador activo al punto seleccionado
+        if (activeDot) {
+          activeDot.setAttribute('cx', nearest.cx);
+          activeDot.setAttribute('cy', nearest.cy);
+          activeDot.setAttribute('opacity', '1');
+        }
+        setActive(nearest.el);
+        showFor(nearest.el);
+      }
+
+      sparkOverlay.addEventListener('mousemove', handleSparkMove);
+      sparkOverlay.addEventListener('mouseleave', hide);
+      sparkOverlay.addEventListener('touchstart', handleSparkMove, { passive: true });
+      sparkOverlay.addEventListener('touchmove', handleSparkMove, { passive: true });
+    }
+
+    // ---------- 2. Escala AFOREs: hover POR ÁREA ----------
+    var scaleTrack = document.querySelector('.rh-viz__scale-track');
+    if (scaleTrack) {
+      var scaleTargets = Array.prototype.slice.call(
+        scaleTrack.querySelectorAll('[data-tip-title][data-tip-pos]')
+      );
+      function handleScaleMove(e) {
+        var rect = scaleTrack.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width * 100;
+        var nearest = scaleTargets[0];
+        var minD = Math.abs(parseFloat(nearest.dataset.tipPos) - pct);
+        for (var i = 1; i < scaleTargets.length; i++) {
+          var d = Math.abs(parseFloat(scaleTargets[i].dataset.tipPos) - pct);
+          if (d < minD) { minD = d; nearest = scaleTargets[i]; }
+        }
+        setActive(nearest);
+        showFor(nearest);
+      }
+      scaleTrack.addEventListener('mousemove', handleScaleMove);
+      scaleTrack.addEventListener('mouseleave', hide);
+      scaleTrack.addEventListener('touchmove', function (e) {
+        if (e.touches && e.touches[0]) {
+          handleScaleMove({ clientX: e.touches[0].clientX });
+        }
+      }, { passive: true });
+    }
+
+    // ---------- 3. Focus por teclado en todos los data-tip-title ----------
+    var focusables = container.querySelectorAll('[data-tip-title][tabindex]');
+    Array.prototype.forEach.call(focusables, function (el) {
+      el.addEventListener('focus', function () { setActive(el); showFor(el); });
+      el.addEventListener('blur', hide);
+    });
+
+    // ---------- 4. Rows generosas: barras Recursos + rows AFORE ----------
+    var hoverRows = container.querySelectorAll('.rh-viz__bar-row[data-tip-title], .rh-afore-row[data-tip-title]');
+    Array.prototype.forEach.call(hoverRows, function (el) {
+      el.addEventListener('mouseenter', function () { setActive(el); showFor(el); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('touchstart', function () { setActive(el); showFor(el); }, { passive: true });
+    });
+
+    // ---------- 5. Tocar fuera oculta el tooltip ----------
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('[data-tip-title], .rh-spark__overlay, .rh-viz__scale-track, .rh-afore-row')) hide();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      tip.classList.remove('is-visible');
+      if (activeDot) activeDot.setAttribute('opacity', '0');
+    });
+  })();
+  </script>
+
+  <!-- Gráficas del paper -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navy = '#1B2A5E';
+    var gold = '#B8943E';
+    var bgAlt = '#F4F5FA';
+    var gris = '#9CA3AF';
+
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = '#4B5563';
+
+    // -- Gráfica 1: Recursos administrados 2023 vs 2024 (barras verticales) --
+    new Chart(document.getElementById('chart-recursos'), {
+      type: 'bar',
+      data: {
+        labels: ['Cierre 2023', 'Cierre 2024'],
+        datasets: [{
+          label: 'Recursos (mmdp)',
+          data: [5976.0, 6820.48],
+          backgroundColor: [navy, gold],
+          borderRadius: 4,
+          barPercentage: 0.5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                var pib = ctx.dataIndex === 0 ? '19.1' : '20.3';
+                return '~' + ctx.parsed.y.toLocaleString() + ' mmdp (' + pib + '% del PIB)';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 7500,
+            title: { display: true, text: 'Miles de millones de pesos (mmdp)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'pibLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          var pibValues = ['~19.1% del PIB', '~20.3% del PIB'];
+          ctx.save();
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(bar, i) {
+            ctx.fillText(pibValues[i], bar.x, bar.y - 8);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+
+    // -- Gráfica 2: Comisiones por AFORE (barras horizontales) --
+    new Chart(document.getElementById('chart-comisiones'), {
+      type: 'bar',
+      data: {
+        labels: ['Inbursa', 'Invercap', 'Principal', 'Azteca', 'Coppel', 'SURA', 'Citibanamex', 'XXI Banorte', 'Profuturo GNP', 'PensionISSSTE'],
+        datasets: [{
+          label: 'Comisión (%)',
+          data: [0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.53],
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.x.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            min: 0,
+            max: 0.65,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            ticks: {
+              callback: function(value) {
+                return value.toFixed(2) + '%';
+              }
+            },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          y: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'promedioLine',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var chartArea = chart.chartArea;
+          var xScale = chart.scales.x;
+          var promedio = 0.566;
+          var xPos = xScale.getPixelForValue(promedio);
+          
+          ctx.save();
+          ctx.setLineDash([6, 4]);
+          ctx.strokeStyle = gold;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(xPos, chartArea.top);
+          ctx.lineTo(xPos, chartArea.bottom);
+          ctx.stroke();
+          
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.fillStyle = gold;
+          ctx.textAlign = 'center';
+          ctx.fillText('Promedio 0.566%', xPos, chartArea.top - 8);
+          ctx.restore();
+        }
+      }]
+    });
+
+    // -- Gráfica 3: Tendencia comisión promedio 2008-2024 (línea) --
+    new Chart(document.getElementById('chart-tendencia'), {
+      type: 'line',
+      data: {
+        labels: ['2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+        datasets: [{
+          label: 'Comisión promedio (%)',
+          data: [1.92, 1.75, 1.62, 1.48, 1.38, 1.29, 1.19, 1.11, 1.06, 1.03, 1.02, 0.98, 0.92, 0.807, 0.566, 0.566, 0.566],
+          borderColor: navy,
+          borderWidth: 3,
+          pointRadius: 6,
+          pointBackgroundColor: navy,
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          tension: 0.3,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.y.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            min: 0.4,
+            max: 2.1,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            ticks: {
+              callback: function(value) {
+                return value.toFixed(2) + '%';
+              }
+            },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'dataLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          ctx.save();
+          ctx.font = 'bold 10px Inter, sans-serif';
+          ctx.fillStyle = navy;
+          ctx.textAlign = 'center';
+          meta.data.forEach(function(point, i) {
+            var value = chart.data.datasets[0].data[i];
+            ctx.fillText(value.toFixed(2) + '%', point.x, point.y - 12);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+  });
+  </script>
+</body>
+</html>

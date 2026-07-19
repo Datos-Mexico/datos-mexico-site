@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Sistema de Ahorro para el Retiro en México: Panorama 2017 | Datos México</title>
+  <meta name="description" content="Estudio descriptivo del SAR en 2017: recursos superan 3 billones de pesos (15% PIB), comisión promedio alcanza 1.03%, inflación se dispara a 6.77%. Análisis con datos oficiales CONSAR.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/DM-SAR-2017.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Sistema de Ahorro para el Retiro en México: Panorama 2017 | Datos México">
+  <meta property="og:description" content="Recursos del SAR superan 3 billones (15% PIB), comisión promedio 1.03%, inflación 6.77%. Estudio de Datos México con Sello de calidad académica.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/DM-SAR-2017.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Chart.js -->
+  <script src="/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <!-- PAPER -->
+  <main class="paper paper--margen" role="main">
+
+    <!-- Back link -->
+    <a href="/pensiones/sar-29" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a publicaciones
+    </a>
+
+    <!-- ==========================================
+         PORTADA
+         ========================================== -->
+    <header class="paper__portada">
+      <span class="paper__tipo">Estudio</span>
+      <p class="paper__id">DM-SAR-2017</p>
+      <h1 class="paper__titulo">El Sistema de Ahorro para el Retiro en México: Panorama 2017</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Abril 2026</p>
+
+      <!-- Sello Datos México -->
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-2017</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         RESUMEN EJECUTIVO VISUAL (rollout 2017)
+         Reemplaza el .paper__resumen de texto. Toda cifra y su badge [V]/[E]
+         proviene del cuerpo del paper sin alteración (Secciones 4, 6, 7, 8,
+         9 y Tablas 1, 2, 4); ninguna cifra nueva. Cifras dominantes
+         (rh-card__big) son [V]; los estimados (~8% nominal, ~1% real,
+         ~59.0 M cuentas, ~7.25% tasa) viven como contexto [E]. Historia del
+         año: la inflación más alta desde 2008 (6.77%, Sec 4, Conclusión 3)
+         erosionó el rendimiento real (~1% [E]) y, tras descontar la comisión
+         de 1.03% [V], el neto real quedó en ~-0.03% (Sec 4, Sec 9, Sec 10
+         "resultado neto cercano a cero", Conclusión 3) — en un sistema
+         estructuralmente estable (11 AFOREs sin cambios, recursos +8.0% [V]).
+         El -0.03% se replica SIN badge (Sec 4 y Conclusión 3 lo presentan
+         sin badge; Sec 9 lo marca [V] — inconsistencia interna anotada como
+         hilo de higiene, no se promueve). Dot plot en TRANSICION (outlier +
+         cluster de 4 en el tope + banda media), consistente con el patrón
+         del 2019 (-010) y 2020 (-011). Sparkline de 10 puntos reescalada al
+         min del scope del paper (1.03%).
+         ========================================== -->
+    <section class="paper__resumen-hero" id="resumen" aria-labelledby="resumenHeroTitle">
+      <div class="paper__resumen-hero-inner">
+
+        <!-- Tooltip unificado (Ronda 6): un solo sistema; ASCII
+             puro en data-tip-*; badge V como elemento HTML. -->
+        <div class="rh-tip" id="rhTip" role="status" aria-live="polite" aria-hidden="true">
+          <span class="rh-tip__title"></span>
+          <span class="rh-tip__detail">
+            <span class="rh-tip__detail-text"></span>
+            <span class="rh-tip__badge" aria-hidden="true">V</span>
+          </span>
+          <span class="rh-tip__note"></span>
+        </div>
+
+        <p class="paper__resumen-hero-eyebrow">Sección 1 &middot; En síntesis &middot; Panorama 2017</p>
+        <h2 id="resumenHeroTitle" class="paper__resumen-hero-titulo">La inflación más alta desde 2008 dejó el rendimiento neto real cercano a cero.</h2>
+
+        <p class="paper__resumen-hero-lede">
+          Al cierre de 2017, el SAR administraba <strong>3,100.0 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;equivalentes a <strong>15.0% del PIB</strong><span class="fuente-badge fuente-badge--v">V</span>, con crecimiento de <strong>+8.0%</strong><span class="fuente-badge fuente-badge--v">V</span> respecto a los 2,870.0 mmdp<span class="fuente-badge fuente-badge--v">V</span> (14.6%<span class="fuente-badge fuente-badge--v">V</span> del PIB) de 2016&mdash;, operados por 11 AFOREs con aproximadamente <strong>59.0 millones de cuentas individuales</strong><span class="fuente-badge fuente-badge--e">E</span>. La comisión promedio sobre saldo se ubicó en <strong>1.03%</strong><span class="fuente-badge fuente-badge--v">V</span>, con un rango de <strong>0.86%</strong><span class="fuente-badge fuente-badge--v">V</span> (PensionISSSTE) a <strong>1.10%</strong><span class="fuente-badge fuente-badge--v">V</span> (MetLife, Invercap, Coppel, Azteca), acumulando una reducción de <strong>0.89 puntos porcentuales</strong><span class="fuente-badge fuente-badge--v">V</span> desde el 1.92%<span class="fuente-badge fuente-badge--v">V</span> de 2008. El año se caracterizó por la mayor inflación desde 2008: <strong>6.77%</strong><span class="fuente-badge fuente-badge--v">V</span>, que redujo el rendimiento real estimado a ~<strong>1%</strong><span class="fuente-badge fuente-badge--e">E</span> (desde ~2.5%<span class="fuente-badge fuente-badge--e">E</span> en 2016) pese a un rendimiento nominal estimado de ~<strong>8%</strong><span class="fuente-badge fuente-badge--e">E</span>; después de descontar la comisión promedio, el rendimiento neto real se ubicó en aproximadamente <strong>&minus;0.03%</strong>. El contexto estuvo marcado por la renegociación del TLCAN y la política monetaria restrictiva de Banxico, que elevó la tasa objetivo desde 5.75%<span class="fuente-badge fuente-badge--v">V</span> hasta ~<strong>7.25%</strong><span class="fuente-badge fuente-badge--e">E</span>.
+        </p>
+
+        <div class="paper__resumen-hero-grid">
+
+          <article class="rh-card">
+            <p class="rh-card__label">Recursos administrados</p>
+            <p class="rh-card__big">3,100.0<span class="rh-card__unit">mmdp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">15.0% del PIB<span class="fuente-badge fuente-badge--v">V</span> &middot; +8.0% vs 2016<span class="fuente-badge fuente-badge--v">V</span> &middot; +0.4 pp del PIB<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card rh-card--accent">
+            <p class="rh-card__label">Inflación cierre 2017 &mdash; máxima desde 2008</p>
+            <p class="rh-card__big">6.77<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Rendimiento real estimado ~1%<span class="fuente-badge fuente-badge--e">E</span> &middot; Neto real después de comisiones ~&minus;0.03%</p>
+            <p class="rh-card__ref"><a href="#contexto">Sección 4 &mdash; Contexto económico 2017</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Comisión promedio</p>
+            <p class="rh-card__big">1.03<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">&minus;0.03 pp vs 2016<span class="fuente-badge fuente-badge--v">V</span> &middot; Acumulado &minus;0.89 pp<span class="fuente-badge fuente-badge--v">V</span> &middot; &minus;46.4% vs 2008<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#comisiones">Sección 8 &mdash; Comisiones</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Crecimiento de cuentas</p>
+            <p class="rh-card__big">+3.5<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">~59.0 millones de cuentas<span class="fuente-badge fuente-badge--e">E</span> &middot; 57.0 millones<span class="fuente-badge fuente-badge--e">E</span> en 2016 &middot; 11 AFOREs sin cambios</p>
+            <p class="rh-card__ref"><a href="#cuentas">Sección 6 &mdash; Cuentas individuales</a></p>
+          </article>
+
+        </div>
+
+        <!-- Retícula asimétrica (D20): 2 cols en escritorio con áreas
+                "recursos afore"     ← Recursos + Dot plot (der spans 2 filas)
+                "spark    afore"
+             Móvil: stack DOM order (Recursos → Sparkline → AFORE). -->
+        <div class="paper__resumen-hero-viz">
+
+          <article class="rh-viz rh-viz--recursos" aria-labelledby="rhVizRecTitle">
+            <p id="rhVizRecTitle" class="rh-viz__title">Recursos administrados (mmdp)</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2016, 2,870.0 mmdp, 14.6% del PIB, verificado"
+                   data-tip-title="Cierre 2016" data-tip-detail="2,870.0 mmdp" data-tip-note="14.6% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2016</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.926"></div>
+                  <span class="rh-viz__bar-label">2,870.0<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2017, 3,100.0 mmdp, 15.0% del PIB, verificado"
+                   data-tip-title="Cierre 2017" data-tip-detail="3,100.0 mmdp" data-tip-note="15.0% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2017</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">3,100.0<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">+230.0 mmdp<span class="fuente-badge fuente-badge--v">V</span> &middot; +8.0%<span class="fuente-badge fuente-badge--v">V</span> nominal &middot; +0.4 pp del PIB<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-viz__ref"><a href="#recursos">Tabla 1 &mdash; Sección 7</a></p>
+          </article>
+
+          <!-- Sparkline 2008-2017 (10 puntos, dos menos que el rollout 2019).
+               viewBox 720x84; puntos equidistantes x=20..700 (spacing ~75.56).
+               Y interpolada linealmente entre 1.92% (y=6) y 1.03% (y=77),
+               reescalada al MIN del scope del paper 2017 (no 0.98% del 2019).
+               Descenso monotonico con pendiente que se aplana al final
+               (2013-2017 el ritmo se modera, Sec 8); sin data-tip-note
+               terminal: 2017 no marca hito de caída ni umbral en la serie.
+               Marker inicial navy en (20,6), marker terminal gold en (700,77).
+               Datos verificados de Tabla 4 del cuerpo (Sec 8). -->
+          <figure class="paper__resumen-hero-spark" aria-labelledby="rhSparkCaption">
+            <figcaption class="rh-spark__caption">
+              <span id="rhSparkCaption" class="rh-spark__caption-label">Comisión promedio del SAR &middot; 2008–2017 (% sobre saldo)</span>
+              <span class="rh-spark__caption-meta">1.92%<span class="fuente-badge fuente-badge--v">V</span> &rarr; 1.03%<span class="fuente-badge fuente-badge--v">V</span> &middot; <strong>&minus;46.4%</strong><span class="fuente-badge fuente-badge--v">V</span> acumulado</span>
+            </figcaption>
+
+            <div class="rh-spark__wrapper">
+              <svg class="rh-spark__svg" viewBox="0 0 720 84" role="img" aria-label="Tendencia de la comisión promedio del SAR de 2008 a 2017">
+                <defs>
+                  <linearGradient id="rhSparkGrad" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(27,42,94,0.22)"/>
+                    <stop offset="100%" stop-color="rgba(27,42,94,0)"/>
+                  </linearGradient>
+                </defs>
+                <line x1="20" y1="78" x2="700" y2="78" stroke="rgba(27,42,94,0.14)" stroke-width="1"/>
+                <path d="M20,6 L95.56,19.6 L171.11,29.9 L246.67,41.1 L322.22,49.1 L397.78,56.3 L473.33,64.2 L548.89,70.6 L624.44,74.6 L700,77 L700,78 L20,78 Z" fill="url(#rhSparkGrad)"/>
+                <polyline points="20,6 95.56,19.6 171.11,29.9 246.67,41.1 322.22,49.1 397.78,56.3 473.33,64.2 548.89,70.6 624.44,74.6 700,77" fill="none" stroke="#1B2A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <g class="rh-spark__points">
+                  <circle class="rh-spark__point" cx="20"     cy="6"    r="9" data-tip-title="2008" data-tip-detail="1.92%" tabindex="0" role="img" aria-label="2008: 1.92%"></circle>
+                  <circle class="rh-spark__point" cx="95.56"  cy="19.6" r="9" data-tip-title="2009" data-tip-detail="1.75%" tabindex="0" role="img" aria-label="2009: 1.75%"></circle>
+                  <circle class="rh-spark__point" cx="171.11" cy="29.9" r="9" data-tip-title="2010" data-tip-detail="1.62%" tabindex="0" role="img" aria-label="2010: 1.62%"></circle>
+                  <circle class="rh-spark__point" cx="246.67" cy="41.1" r="9" data-tip-title="2011" data-tip-detail="1.48%" tabindex="0" role="img" aria-label="2011: 1.48%"></circle>
+                  <circle class="rh-spark__point" cx="322.22" cy="49.1" r="9" data-tip-title="2012" data-tip-detail="1.38%" tabindex="0" role="img" aria-label="2012: 1.38%"></circle>
+                  <circle class="rh-spark__point" cx="397.78" cy="56.3" r="9" data-tip-title="2013" data-tip-detail="1.29%" tabindex="0" role="img" aria-label="2013: 1.29%"></circle>
+                  <circle class="rh-spark__point" cx="473.33" cy="64.2" r="9" data-tip-title="2014" data-tip-detail="1.19%" tabindex="0" role="img" aria-label="2014: 1.19%"></circle>
+                  <circle class="rh-spark__point" cx="548.89" cy="70.6" r="9" data-tip-title="2015" data-tip-detail="1.11%" tabindex="0" role="img" aria-label="2015: 1.11%"></circle>
+                  <circle class="rh-spark__point" cx="624.44" cy="74.6" r="9" data-tip-title="2016" data-tip-detail="1.06%" tabindex="0" role="img" aria-label="2016: 1.06%"></circle>
+                  <circle class="rh-spark__point" cx="700"    cy="77"   r="9" data-tip-title="2017" data-tip-detail="1.03%" tabindex="0" role="img" aria-label="2017: 1.03%"></circle>
+                </g>
+                <circle cx="20" cy="6" r="4" fill="#1B2A5E" pointer-events="none"/>
+                <circle cx="700" cy="77" r="4" fill="#B8943E" pointer-events="none"/>
+                <circle class="rh-spark__active" cx="0" cy="0" r="5" fill="#1B2A5E" stroke="#FFFFFF" stroke-width="2" opacity="0" pointer-events="none"/>
+                <rect class="rh-spark__overlay" x="0" y="0" width="720" height="84" fill="transparent" pointer-events="all"/>
+              </svg>
+            </div>
+
+            <div class="rh-spark__axis" aria-hidden="true">
+              <span>2008</span>
+              <span>2017</span>
+            </div>
+
+            <p class="rh-spark__ref"><a href="#comisiones">Tabla 4 &mdash; Sección 8 (datos verificados [V] CONSAR)</a></p>
+          </figure>
+
+          <article class="rh-viz rh-viz--afore" aria-labelledby="rhVizAforeTitle">
+            <p id="rhVizAforeTitle" class="rh-viz__title">Comisiones por AFORE (11 firmas, cierre 2017)</p>
+
+            <!-- Dot plot horizontal (D19) — patrón de TRANSICION (formalizado
+                 en para el 2020, aplicado al 2019 en -010): clusters
+                 formándose + outlier. Rango 24 pb (0.86% a 1.10%):
+                 PensionISSSTE outlier (--pos: 0%), banda media de 3 firmas
+                 (0.98-1.00: 50-58.3%), par en 1.03 (70.8%), puente Principal
+                 1.09 (95.8%) y cluster de 4 en el tope 1.10 (100%) — el
+                 cluster de 4 firmas en el tope es el rasgo del año, igual
+                 que en 2019 pero con el mercado 6 pb más arriba y una firma
+                 más (MetLife, que saldría del sistema después). 11 filas =
+                 11 AFOREs de la Tabla 2 del cuerpo, orden ascendente de la
+                 tabla. Nombres canónicos: la Tabla 2 del 2017 ya usa
+                 Citibanamex, Profuturo GNP y XXI Banorte con espacio
+                 (consistentes con Sec 5 y con papers vecinos publicados; sin
+                 hilo de higiene de nombres en este paper). Posiciones:
+                 (val - 0.86) / (1.10 - 0.86) * 100. -->
+            <ol class="rh-afore-list" role="list">
+              <li class="rh-afore-row rh-afore-row--outlier" tabindex="0" role="listitem"
+                  data-tip-title="PensionISSSTE" data-tip-detail="0.86%" data-tip-v="1">
+                <span class="rh-afore-name">PensionISSSTE</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 0%"></span></span>
+                <span class="rh-afore-value">0.86<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Inbursa" data-tip-detail="0.98%" data-tip-v="1">
+                <span class="rh-afore-name">Inbursa</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 50%"></span></span>
+                <span class="rh-afore-value">0.98<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Citibanamex" data-tip-detail="0.99%" data-tip-v="1">
+                <span class="rh-afore-name">Citibanamex</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 54.2%"></span></span>
+                <span class="rh-afore-value">0.99<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="XXI Banorte" data-tip-detail="1.00%" data-tip-v="1">
+                <span class="rh-afore-name">XXI Banorte</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 58.3%"></span></span>
+                <span class="rh-afore-value">1.00<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Profuturo GNP" data-tip-detail="1.03%" data-tip-v="1">
+                <span class="rh-afore-name">Profuturo GNP</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 70.8%"></span></span>
+                <span class="rh-afore-value">1.03<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="SURA" data-tip-detail="1.03%" data-tip-v="1">
+                <span class="rh-afore-name">SURA</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 70.8%"></span></span>
+                <span class="rh-afore-value">1.03<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Principal" data-tip-detail="1.09%" data-tip-v="1">
+                <span class="rh-afore-name">Principal</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 95.8%"></span></span>
+                <span class="rh-afore-value">1.09<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Azteca" data-tip-detail="1.10%" data-tip-v="1">
+                <span class="rh-afore-name">Azteca</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">1.10<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Coppel" data-tip-detail="1.10%" data-tip-v="1">
+                <span class="rh-afore-name">Coppel</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">1.10<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Invercap" data-tip-detail="1.10%" data-tip-v="1">
+                <span class="rh-afore-name">Invercap</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">1.10<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="MetLife" data-tip-detail="1.10%" data-tip-v="1">
+                <span class="rh-afore-name">MetLife</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">1.10<span class="rh-afore-unit">%</span></span>
+              </li>
+            </ol>
+
+            <div class="rh-afore-axis" aria-hidden="true">
+              <span>0.86%</span>
+              <span class="rh-afore-axis__mid">Rango 24 pb</span>
+              <span>1.10%</span>
+            </div>
+
+            <p class="rh-viz__meta">Promedio del sistema 1.03%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rango 24 pb &middot; 1 outlier + cluster de 4 en el tope &middot; Spread menor al 0.25 pp<span class="fuente-badge fuente-badge--v">V</span> de 2016</p>
+            <p class="rh-viz__ref"><a href="#comisiones">Tabla 2 &mdash; Sección 8</a></p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MARGEN LATERAL (rollout 2017)
+         TOC de las 14 secciones del cuerpo (Sec 1 elevada al hero) +
+         leyenda [V]/[E] + back-link contextual.
+         ========================================== -->
+    <aside class="paper__margen" aria-label="Navegación y leyenda del estudio">
+      <div class="paper__margen-sticky">
+
+        <nav class="paper__margen-nav" aria-label="Secciones del estudio">
+          <details class="paper__margen-toc-wrap" open>
+            <summary class="paper__margen-toc-summary">
+              <span class="paper__margen-toc-eyebrow">En este estudio</span>
+              <span class="paper__margen-toc-counter">14 secciones</span>
+            </summary>
+            <ol class="paper__margen-toc">
+              <li><a href="#resumen">Resumen ejecutivo</a></li>
+              <li><a href="#introduccion">Introducción</a></li>
+              <li><a href="#metodologia">Metodología</a></li>
+              <li><a href="#contexto">Contexto económico 2017</a></li>
+              <li><a href="#estructura">Estructura del SAR</a></li>
+              <li><a href="#cuentas">Cuentas individuales</a></li>
+              <li><a href="#recursos">Recursos administrados</a></li>
+              <li><a href="#comisiones">Comisiones</a></li>
+              <li><a href="#rendimientos">Rendimientos</a></li>
+              <li><a href="#evolucion">Evolución del sistema</a></li>
+              <li><a href="#normativo">Marco normativo</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#conclusiones">Conclusiones</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="paper__margen-leyenda">
+          <p class="paper__margen-eyebrow">Cómo leer</p>
+          <p class="paper__margen-leyenda-intro">Cada cifra del estudio lleva un sello que indica de dónde sale y queda anclada a su fuente.</p>
+          <ul class="paper__margen-leyenda-items">
+            <li><span class="fuente-badge fuente-badge--v">V</span><span>verificado de fuente oficial directa</span></li>
+            <li><span class="fuente-badge fuente-badge--e">E</span><span>derivado o estimado, declarado</span></li>
+          </ul>
+        </div>
+
+        <a href="/pensiones/sar-29" class="paper__margen-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Volver al índice
+        </a>
+
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         CUERPO DEL PAPER
+         ========================================== -->
+    <div class="paper__body">
+
+      <!-- Sección 1 (Resumen ejecutivo) elevada al bloque visual full-width
+           encima del cuerpo (sección "paper__resumen-hero" arriba). Toda la
+           sustancia se conserva; la presentación se elevó. -->
+
+      <!-- 2. INTRODUCCIÓN -->
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Sección 2</div>
+        <h2>Introducción</h2>
+        <p>El Sistema de Ahorro para el Retiro (SAR) es el mecanismo mediante el cual los trabajadores afiliados al Instituto Mexicano del Seguro Social (IMSS) y al Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado (ISSSTE) acumulan recursos para su retiro a través de cuentas individuales administradas por Administradoras de Fondos para el Retiro (AFOREs).</p>
+        <p>El régimen de cuentas individuales fue establecido por la Ley del Seguro Social de 1995 y entró en vigor el 1 de julio de 1997, sustituyendo el esquema de reparto que operaba desde 1943. En 2017, el sistema cumplió 20 años de operación bajo este modelo.</p>
+        <p>El presente estudio tiene como propósito ofrecer un panorama descriptivo del SAR durante el año calendario 2017, con base en datos oficiales de la Comisión Nacional del Sistema de Ahorro para el Retiro (CONSAR), el Instituto Nacional de Estadística y Geografía (INEGI) y el Banco de México (Banxico). Este documento no busca emitir juicios de valor ni recomendar AFOREs específicas; su función es presentar información verificable para que el lector forme su propio criterio sobre el estado del sistema.</p>
+      </section>
+
+      <!-- 3. METODOLOGÍA -->
+      <section class="paper__section" id="metodologia">
+        <div class="paper__section-number">Sección 3</div>
+        <h2>Metodología</h2>
+        <p>Este estudio adopta un enfoque descriptivo basado exclusivamente en fuentes primarias y oficiales. Las cifras de recursos administrados, número de cuentas individuales y estructura de comisiones provienen de los informes trimestrales de CONSAR al H. Congreso de la Unión y de las bases de datos estadísticos publicados por dicha institución.</p>
+        <p>Los datos macroeconómicos (Producto Interno Bruto e inflación) se obtienen de INEGI, mientras que las tasas de interés de referencia provienen de Banxico. Adicionalmente, se utiliza el Panel DM-SAR-DATA-001, que consolida series históricas del SAR desde 1997.</p>
+        <p>El periodo de análisis corresponde al año calendario 2017, con referencias comparativas al cierre de 2016 cuando es relevante para contextualizar variaciones interanuales. Los rendimientos del sistema se presentan como estimados [E], dado que no existe un dato oficial único y los rendimientos varían según SIEFORE, AFORE y periodo de medición.</p>
+        <p>Este estudio no realiza proyecciones, modelaciones ni inferencias causales. Su alcance se limita a describir el estado del sistema durante 2017 con base en datos verificables.</p>
+      </section>
+
+      <!-- 4. CONTEXTO ECONÓMICO -->
+      <section class="paper__section" id="contexto">
+        <div class="paper__section-number">Sección 4</div>
+        <h2>Contexto económico 2017</h2>
+        <p>El año 2017 se caracterizó por un entorno macroeconómico complejo que impactó significativamente los rendimientos del SAR. La inflación anual al cierre de diciembre alcanzó 6.77% <span class="fuente-badge fuente-badge--v">V</span>, la más alta desde 2008, impulsada por el ajuste en los precios de los combustibles al inicio del año (liberalización gradual de precios de gasolina y diésel) y la depreciación del peso frente al dólar.</p>
+        <p>En respuesta a las presiones inflacionarias, el Banco de México implementó una política monetaria restrictiva, elevando la tasa de interés objetivo de referencia desde 5.75% <span class="fuente-badge fuente-badge--v">V</span> en diciembre de 2016 hasta aproximadamente 7.25% <span class="fuente-badge fuente-badge--e">E</span> [E] al cierre de 2017. Este ciclo de alzas en tasas representó uno de los más pronunciados en la historia reciente del banco central.</p>
+        <p>El contexto internacional estuvo marcado por la renegociación del Tratado de Libre Comercio de América del Norte (TLCAN), proceso que inició formalmente en agosto de 2017 y generó incertidumbre sobre las relaciones comerciales entre México, Estados Unidos y Canadá. Esta incertidumbre afectó los flujos de inversión y la volatilidad en los mercados financieros.</p>
+        <p>Para el SAR, el incremento en la inflación impactó negativamente los rendimientos reales. Aunque el rendimiento nominal estimado [E] fue de ~8% <span class="fuente-badge fuente-badge--e">E</span>, superior al ~6% <span class="fuente-badge fuente-badge--e">E</span> de 2016, el rendimiento real estimado [E] se redujo a ~1% <span class="fuente-badge fuente-badge--e">E</span>, comparado con ~2.5% <span class="fuente-badge fuente-badge--e">E</span> del año anterior. La diferencia entre rendimiento nominal y real se explica por el nivel de inflación: en 2016, con inflación de 3.36% <span class="fuente-badge fuente-badge--v">V</span>, un rendimiento nominal de ~6% <span class="fuente-badge fuente-badge--e">E</span> resultaba en ~2.5% <span class="fuente-badge fuente-badge--e">E</span> real; en 2017, con inflación de 6.77% <span class="fuente-badge fuente-badge--v">V</span>, un rendimiento nominal de ~8% <span class="fuente-badge fuente-badge--e">E</span> dejaba apenas ~1% <span class="fuente-badge fuente-badge--e">E</span> real.</p>
+        <p>Descontando la comisión promedio de 1.03% <span class="fuente-badge fuente-badge--v">V</span>, el rendimiento neto estimado [E] para el ahorrador se ubicó en aproximadamente -0.03% en términos reales, lo que implica que, en promedio, los recursos depositados en el SAR durante 2017 perdieron ligeramente poder adquisitivo después de comisiones.</p>
+      </section>
+
+      <!-- 5. ESTRUCTURA DEL SAR -->
+      <section class="paper__section" id="estructura">
+        <div class="paper__section-number">Sección 5</div>
+        <h2>Estructura del SAR</h2>
+        <p>El marco legal del SAR se sustenta en la Ley de los Sistemas de Ahorro para el Retiro (DOF 23 de mayo de 1996) y en la Ley del Seguro Social de 1995 (vigente desde el 1 de julio de 1997). Para los trabajadores que iniciaron su vida laboral antes del 1 de julio de 1997, la Ley del Seguro Social de 1973 conserva efectos en cuanto al derecho de elegir el esquema de pensión al momento del retiro (régimen de transición).</p>
+        <p>Al cierre de 2017, operaban 11 AFOREs en el sistema:</p>
+        <ol>
+          <li>Azteca</li>
+          <li>Citibanamex</li>
+          <li>Coppel</li>
+          <li>Inbursa</li>
+          <li>Invercap</li>
+          <li>MetLife</li>
+          <li>PensionISSSTE</li>
+          <li>Principal</li>
+          <li>Profuturo GNP</li>
+          <li>SURA</li>
+          <li>XXI Banorte</li>
+        </ol>
+        <p>El número de AFOREs se mantuvo estable respecto a 2016, sin registrarse fusiones, adquisiciones ni entradas o salidas de participantes durante el año.</p>
+        <p>Cada AFORE opera Sociedades de Inversión Especializadas en Fondos para el Retiro (SIEFOREs), que son los vehículos de inversión donde se depositan los recursos de los trabajadores. Desde 2008, el sistema opera con SIEFOREs Básicas diferenciadas por edad del trabajador: SB1 (mayor a 60 años), SB2 (entre 46 y 59 años), SB3 (entre 37 y 45 años) y SB4 (menor a 36 años). Cada SIEFORE tiene un régimen de inversión específico, con mayor exposición a renta variable en las SIEFOREs de trabajadores más jóvenes.</p>
+      </section>
+
+      <!-- 6. CUENTAS INDIVIDUALES -->
+      <section class="paper__section" id="cuentas">
+        <div class="paper__section-number">Sección 6</div>
+        <h2>Cuentas individuales</h2>
+        <p>Al cierre de 2017, el SAR administraba aproximadamente 59.0 millones de cuentas individuales [E], lo que representa un crecimiento de ~3.5% <span class="fuente-badge fuente-badge--e">E</span> respecto a las 57.0 millones de cuentas [E] registradas al cierre de 2016.</p>
+        <p>Este crecimiento se explica por la incorporación neta de nuevos trabajadores al sistema, tanto por la entrada de trabajadores jóvenes al mercado laboral formal como por la formalización de trabajadores que anteriormente laboraban en la informalidad.</p>
+        <p>Es importante señalar que la cifra de 59.0 millones de cuentas corresponde a un dato estimado [E] basado en el Panel DM-SAR-DATA-001, que consolida información de diversas fuentes de CONSAR. La metodología de conteo de cuentas puede variar según se consideren cuentas activas, cuentas con saldo, o cuentas totales registradas en el sistema (incluyendo cuentas duplicadas o inactivas). Los informes oficiales de CONSAR reportan el número total de cuentas registradas, que incluye duplicidades y cuentas sin movimientos recientes.</p>
+        <p>No se dispone de datos verificados [V] sobre la distribución de cuentas por AFORE para el cierre de 2017 en el Panel DM-SAR-DATA-001, por lo que no se incluye una tabla desagregada por administradora en este estudio.</p>
+      </section>
+
+      <!-- 7. RECURSOS ADMINISTRADOS -->
+      <section class="paper__section" id="recursos">
+        <div class="paper__section-number">Sección 7</div>
+        <h2>Recursos administrados</h2>
+        <p>Al cierre de diciembre de 2017, los recursos administrados por el SAR alcanzaron 3,100.0 mmdp <span class="fuente-badge fuente-badge--v">V</span>, equivalentes a 15.0% <span class="fuente-badge fuente-badge--v">V</span> del Producto Interno Bruto (PIB). Esta cifra representa un crecimiento de 8.0% <span class="fuente-badge fuente-badge--v">V</span> respecto al cierre de 2016, cuando los recursos se ubicaban en 2,870.0 mmdp <span class="fuente-badge fuente-badge--v">V</span> (14.6% <span class="fuente-badge fuente-badge--v">V</span> del PIB).</p>
+
+        <!-- Tabla 1: Recursos 2016 vs 2017 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. Recursos administrados por el SAR, 2016 vs 2017</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th class="num">Cierre 2016</th>
+                <th class="num">Cierre 2017</th>
+                <th class="num">Variación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Recursos administrados (mmdp)</td>
+                <td class="num">2,870.0</td>
+                <td class="num">3,100.0</td>
+                <td class="num">+8.0%</td>
+              </tr>
+              <tr>
+                <td>Recursos como % del PIB</td>
+                <td class="num">14.6%</td>
+                <td class="num">15.0%</td>
+                <td class="num">+0.4 pp</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR e INEGI. Cifras verificadas [V].</p>
+        </div>
+
+        <!-- Gráfica 1: Recursos 2016 vs 2017 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 1. Recursos administrados por el SAR, 2016 vs 2017 (mmdp)</p>
+          <div class="paper__grafica-container"><canvas id="chart-recursos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, informes trimestrales 2016-2017; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>El crecimiento de 230.0 mmdp <span class="fuente-badge fuente-badge--v">V</span> en términos absolutos se explica por tres componentes: (1) las aportaciones obligatorias (cuotas patronales, del trabajador y contribución estatal), (2) los rendimientos generados por la inversión de los recursos en las SIEFOREs, y (3) las aportaciones voluntarias y complementarias, que aunque minoritarias, contribuyen al saldo total.</p>
+        <p>El incremento de 0.4 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> en la proporción de los recursos del SAR respecto al PIB (de 14.6% <span class="fuente-badge fuente-badge--v">V</span> a 15.0% <span class="fuente-badge fuente-badge--v">V</span>) refleja que los recursos del sistema crecieron a un ritmo superior al crecimiento de la economía en su conjunto. Este fenómeno es consistente con la naturaleza capitalizadora del sistema de cuentas individuales, en el cual los recursos se acumulan año con año.</p>
+        <p>En perspectiva histórica, el SAR inició operaciones en 1997 con recursos que representaban aproximadamente 1% <span class="fuente-badge fuente-badge--e">E</span> del PIB. En dos décadas, el sistema multiplicó su tamaño relativo por un factor de 15, consolidándose como uno de los principales inversionistas institucionales de México y un actor relevante en los mercados financieros nacionales.</p>
+        <p>Es importante destacar que los recursos del SAR representan los ahorros de largo plazo de millones de trabajadores mexicanos. El crecimiento sostenido de estos recursos es fundamental para garantizar que los trabajadores cuenten con saldos suficientes al momento de su retiro, aunque la suficiencia individual depende de múltiples factores, incluyendo densidad de cotización, nivel salarial, años de cotización y rendimientos netos del sistema.</p>
+      </section>
+
+      <!-- 8. COMISIONES -->
+      <section class="paper__section" id="comisiones">
+        <div class="paper__section-number">Sección 8</div>
+        <h2>Comisiones</h2>
+        <p>Desde 2008, las AFOREs cobran una comisión sobre el saldo administrado en la cuenta individual del trabajador. Esta comisión se expresa como un porcentaje anual y se descuenta diariamente del valor de las acciones de la SIEFORE correspondiente.</p>
+        <p>Al cierre de diciembre de 2017, la comisión promedio del sistema se ubicó en 1.03% <span class="fuente-badge fuente-badge--v">V</span> sobre saldo, lo que representa una reducción de 0.03 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> respecto al 1.06% <span class="fuente-badge fuente-badge--v">V</span> registrado en 2016. Esta disminución continúa la tendencia descendente observada desde 2008, cuando la comisión promedio era de 1.92% <span class="fuente-badge fuente-badge--v">V</span>.</p>
+
+        <!-- Tabla 2: Comisiones por AFORE -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Comisiones sobre saldo por AFORE, diciembre 2017</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Comisión sobre saldo (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PensionISSSTE</td>
+                <td class="num">0.86</td>
+              </tr>
+              <tr>
+                <td>Inbursa</td>
+                <td class="num">0.98</td>
+              </tr>
+              <tr>
+                <td>Citibanamex</td>
+                <td class="num">0.99</td>
+              </tr>
+              <tr>
+                <td>XXI Banorte</td>
+                <td class="num">1.00</td>
+              </tr>
+              <tr>
+                <td>Profuturo GNP</td>
+                <td class="num">1.03</td>
+              </tr>
+              <tr>
+                <td>SURA</td>
+                <td class="num">1.03</td>
+              </tr>
+              <tr>
+                <td>Principal</td>
+                <td class="num">1.09</td>
+              </tr>
+              <tr>
+                <td>Azteca</td>
+                <td class="num">1.10</td>
+              </tr>
+              <tr>
+                <td>Coppel</td>
+                <td class="num">1.10</td>
+              </tr>
+              <tr>
+                <td>Invercap</td>
+                <td class="num">1.10</td>
+              </tr>
+              <tr>
+                <td>MetLife</td>
+                <td class="num">1.10</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Comisiones vigentes a diciembre de 2017. Datos verificados [V]. Ordenadas de menor a mayor comisión.</p>
+        </div>
+
+        <!-- Gráfica 2: Comisiones por AFORE -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 2. Comisiones sobre saldo por AFORE, diciembre 2017 (%)</p>
+          <div class="paper__grafica-container paper__grafica-container--tall"><canvas id="chart-comisiones"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. La línea punteada indica el promedio del sistema (1.03% <span class="fuente-badge fuente-badge--v">V</span>).</p>
+        </div>
+
+        <p>El rango de comisiones en el sistema osciló entre 0.86% <span class="fuente-badge fuente-badge--v">V</span> (PensionISSSTE, la administradora con la comisión más baja) y 1.10% <span class="fuente-badge fuente-badge--v">V</span> (MetLife, Invercap, Coppel y Azteca, empatadas en el nivel más alto), lo que representa un spread de 0.24 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>. Este spread se redujo ligeramente respecto a los 0.25 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> de 2016.</p>
+        <p>La comisión de PensionISSSTE, significativamente inferior al promedio del sistema, se explica por su carácter de administradora pública orientada exclusivamente a trabajadores del ISSSTE, con una estructura operativa distinta a las AFOREs privadas.</p>
+        <p>La reducción sostenida de comisiones desde 2008 ha sido uno de los fenómenos más relevantes del SAR en la última década. En términos acumulados, la comisión promedio del sistema ha disminuido 0.89 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> desde 2008 (de 1.92% <span class="fuente-badge fuente-badge--v">V</span> a 1.03% <span class="fuente-badge fuente-badge--v">V</span>), lo que representa una reducción de 46.4% <span class="fuente-badge fuente-badge--v">V</span> en términos porcentuales.</p>
+
+        <!-- Tabla 4: Evolución comisión promedio -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 4. Evolución de la comisión promedio del sistema, 2008-2017</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Año</th>
+                <th class="num">Comisión promedio (%)</th>
+                <th class="num">Variación anual (pp)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2008</td>
+                <td class="num">1.92</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td>2009</td>
+                <td class="num">1.75</td>
+                <td class="num">-0.17</td>
+              </tr>
+              <tr>
+                <td>2010</td>
+                <td class="num">1.62</td>
+                <td class="num">-0.13</td>
+              </tr>
+              <tr>
+                <td>2011</td>
+                <td class="num">1.48</td>
+                <td class="num">-0.14</td>
+              </tr>
+              <tr>
+                <td>2012</td>
+                <td class="num">1.38</td>
+                <td class="num">-0.10</td>
+              </tr>
+              <tr>
+                <td>2013</td>
+                <td class="num">1.29</td>
+                <td class="num">-0.09</td>
+              </tr>
+              <tr>
+                <td>2014</td>
+                <td class="num">1.19</td>
+                <td class="num">-0.10</td>
+              </tr>
+              <tr>
+                <td>2015</td>
+                <td class="num">1.11</td>
+                <td class="num">-0.08</td>
+              </tr>
+              <tr>
+                <td>2016</td>
+                <td class="num">1.06</td>
+                <td class="num">-0.05</td>
+              </tr>
+              <tr>
+                <td>2017</td>
+                <td class="num">1.03</td>
+                <td class="num">-0.03</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Datos verificados [V]. Las variaciones anuales pueden no sumar exactamente debido a redondeo.</p>
+        </div>
+
+        <!-- Gráfica 3: Tendencia comisión promedio -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 3. Evolución de la comisión promedio del sistema, 2008-2017 (%)</p>
+          <div class="paper__grafica-container"><canvas id="chart-tendencia"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Serie histórica de comisión promedio ponderada del sistema.</p>
+        </div>
+
+        <p>La reducción de comisiones ha sido gradual pero persistente. Entre 2008 y 2012, la comisión promedio disminuyó a un ritmo promedio de 0.135 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> anuales. Entre 2013 y 2017, el ritmo de reducción se moderó a 0.052 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> anuales en promedio, sugiriendo que las comisiones podrían estar acercándose a un nivel de estabilización determinado por los costos operativos de las administradoras.</p>
+        <p>Esta tendencia descendente beneficia directamente a los trabajadores, ya que comisiones más bajas implican que una mayor proporción de los recursos permanece en las cuentas individuales para generar rendimientos. El impacto de las comisiones se acumula a lo largo de décadas de ahorro, por lo que diferencias aparentemente pequeñas en tasas de comisión pueden traducirse en diferencias significativas en el saldo final al momento del retiro.</p>
+      </section>
+
+      <!-- 9. RENDIMIENTOS -->
+      <section class="paper__section" id="rendimientos">
+        <div class="paper__section-number">Sección 9</div>
+        <h2>Rendimientos</h2>
+        <p>El rendimiento del SAR durante 2017 se vio significativamente afectado por el contexto macroeconómico del año, particularmente por la elevada inflación. El rendimiento nominal estimado [E] del sistema fue de aproximadamente 8% <span class="fuente-badge fuente-badge--e">E</span>, superior al ~6% <span class="fuente-badge fuente-badge--e">E</span> registrado en 2016.</p>
+        <p>Sin embargo, al ajustar por inflación (6.77% <span class="fuente-badge fuente-badge--v">V</span> en 2017), el rendimiento real estimado [E] se ubicó en aproximadamente 1% <span class="fuente-badge fuente-badge--e">E</span>, lo que representa una reducción sustancial respecto al ~2.5% <span class="fuente-badge fuente-badge--e">E</span> real obtenido en 2016. Esta diferencia se explica enteramente por el incremento en la inflación: mientras que en 2016 la inflación fue de 3.36% <span class="fuente-badge fuente-badge--v">V</span>, en 2017 se disparó a 6.77% <span class="fuente-badge fuente-badge--v">V</span>, el nivel más alto desde 2008.</p>
+        <p>Es importante señalar que no existe un dato oficial único de rendimiento para el SAR en su conjunto. Los rendimientos varían según la SIEFORE (SB1, SB2, SB3, SB4), la AFORE específica, y el periodo de medición (mensual, anual, acumulado). Los datos presentados en este estudio son estimaciones [E] basadas en promedios ponderados del sistema, calculados por el Panel DM-SAR-DATA-001 con información de CONSAR.</p>
+        <p>Las SIEFOREs Básicas destinadas a trabajadores más jóvenes (SB3 y SB4), que tienen mayor exposición a renta variable, típicamente muestran mayor volatilidad y tienden a registrar rendimientos nominales superiores al promedio del sistema en periodos de crecimiento de los mercados accionarios. En 2017, el índice S&P/BMV IPC (principal índice de la Bolsa Mexicana de Valores) mostró un desempeño positivo, lo que benefició a estas SIEFOREs.</p>
+        <p>Al descontar la comisión promedio del sistema (1.03% <span class="fuente-badge fuente-badge--v">V</span>), el rendimiento neto para el ahorrador promedio se ubicó en aproximadamente 6.97% <span class="fuente-badge fuente-badge--e">E</span> nominal, o -0.03% <span class="fuente-badge fuente-badge--v">V</span> en términos reales. Esto implica que, después de comisiones e inflación, los recursos depositados en el SAR durante 2017 perdieron ligeramente poder adquisitivo en promedio.</p>
+        <p>Este resultado contrasta con años previos. En 2016, por ejemplo, el rendimiento real después de comisiones fue positivo (~1.44% <span class="fuente-badge fuente-badge--e">E</span> real), y en años anteriores con inflación controlada, los rendimientos reales netos fueron consistentemente superiores.</p>
+        <p>La experiencia de 2017 ilustra uno de los riesgos inherentes al SAR: la exposición a la inflación. Aunque los recursos están invertidos en instrumentos que buscan generar rendimientos superiores a la inflación, no existe garantía de que esto ocurra en todos los periodos. La inflación elevada puede erosionar el poder adquisitivo de los ahorros, especialmente cuando los rendimientos nominales no se ajustan al mismo ritmo que el incremento en precios.</p>
+        <p>Para contexto histórico, la siguiente tabla muestra una comparación de rendimientos estimados [E] en años recientes:</p>
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 3. Rendimientos nominales y reales estimados del SAR, comparativo 2015-2017</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Año</th>
+                <th class="num">Inflación (%)</th>
+                <th class="num">Rendimiento nominal [E] (%)</th>
+                <th class="num">Rendimiento real [E] (%)</th>
+                <th class="num">Comisión promedio (%)</th>
+                <th class="num">Rendimiento neto real [E] (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2015</td>
+                <td class="num">2.13</td>
+                <td class="num">~5%</td>
+                <td class="num">~2.8%</td>
+                <td class="num">1.11</td>
+                <td class="num">~1.7%</td>
+              </tr>
+              <tr>
+                <td>2016</td>
+                <td class="num">3.36</td>
+                <td class="num">~6%</td>
+                <td class="num">~2.5%</td>
+                <td class="num">1.06</td>
+                <td class="num">~1.4%</td>
+              </tr>
+              <tr>
+                <td>2017</td>
+                <td class="num">6.77</td>
+                <td class="num">~8%</td>
+                <td class="num">~1%</td>
+                <td class="num">1.03</td>
+                <td class="num">~-0.03%</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR, INEGI y Banxico. Rendimientos son estimados [E] y representan promedios ponderados del sistema. El rendimiento neto real se calcula restando la comisión promedio al rendimiento real.</p>
+        </div>
+      </section>
+
+      <!-- 10. EVOLUCIÓN DEL SISTEMA -->
+      <section class="paper__section" id="evolucion">
+        <div class="paper__section-number">Sección 10</div>
+        <h2>Evolución del sistema</h2>
+        <p>A diferencia de años previos que se caracterizaron por procesos de consolidación a través de fusiones y adquisiciones de AFOREs, 2017 no registró eventos corporativos significativos en el sistema. El número de administradoras se mantuvo estable en 11 participantes durante todo el año.</p>
+        <p>La ausencia de movimientos corporativos en 2017 contrasta con la dinámica observada en años anteriores. Entre 2008 y 2016, el sistema experimentó múltiples fusiones que redujeron el número de AFOREs de 19 a 11. Esta consolidación respondió a economías de escala en un negocio con altos costos fijos de operación y tecnología, así como a la competencia por comisiones que ejerció presión sobre los márgenes de rentabilidad de las administradoras.</p>
+        <p>El año 2017 puede caracterizarse como un periodo de estabilización estructural del sistema. Con 11 AFOREs operando, el mercado alcanzó un equilibrio entre competencia y concentración. Las administradoras de mayor tamaño (medidas por recursos bajo administración) mantuvieron su posición dominante, mientras que las administradoras más pequeñas o especializadas (como PensionISSSTE, enfocada en trabajadores del ISSSTE) conservaron sus nichos de mercado.</p>
+        <p>Desde la perspectiva regulatoria, 2017 no presentó reformas sustanciales al marco normativo del SAR. La Circular Única de SIEFOREs mantuvo sus disposiciones esenciales, aunque CONSAR continuó publicando modificaciones menores de carácter técnico y administrativo a lo largo del año.</p>
+        <p>Un elemento relevante en la evolución del sistema durante 2017 fue la continuación de la tendencia descendente en comisiones. Aunque no hubo una reforma regulatoria que obligara a reducir comisiones, la presión competitiva y la mayor transparencia en la información disponible para los trabajadores (a través de las herramientas digitales de CONSAR y la difusión del impacto de las comisiones en el saldo final) incentivaron a las AFOREs a mantener o reducir sus comisiones.</p>
+        <p>El contexto de inflación elevada y rendimientos reales reducidos durante 2017 puso de relieve la importancia de las comisiones en el rendimiento neto del trabajador. En un año donde el rendimiento real antes de comisiones fue de apenas ~1% <span class="fuente-badge fuente-badge--e">E</span>, la comisión de 1.03% <span class="fuente-badge fuente-badge--v">V</span> representó prácticamente la totalidad de ese rendimiento, dejando un resultado neto cercano a cero en términos reales.</p>
+        <p>Desde la perspectiva del trabajador, 2017 reforzó la importancia de dos factores en el ahorro para el retiro: (1) elegir AFOREs con comisiones bajas, ya que en contextos de rendimientos reales modestos las comisiones pueden ser determinantes en el resultado neto, y (2) comprender que el SAR está sujeto a riesgos de mercado y de inflación que pueden afectar el poder adquisitivo de los ahorros en periodos específicos, aunque la inversión sea de largo plazo.</p>
+      </section>
+
+      <!-- 11. MARCO NORMATIVO -->
+      <section class="paper__section" id="normativo">
+        <div class="paper__section-number">Sección 11</div>
+        <h2>Marco normativo</h2>
+        <p>El Sistema de Ahorro para el Retiro opera bajo el marco legal establecido por la Ley de los Sistemas de Ahorro para el Retiro (Ley SAR), publicada en el Diario Oficial de la Federación el 23 de mayo de 1996. Esta ley define las facultades de la CONSAR como órgano regulador, las obligaciones de las AFOREs y los derechos de los trabajadores.</p>
+        <p>El régimen de cuentas individuales para trabajadores del IMSS se sustenta en la Ley del Seguro Social de 1995, publicada el 21 de diciembre de 1995 y vigente desde el 1 de julio de 1997. Esta ley estableció la obligatoriedad de las aportaciones tripartitas (patrón, trabajador, Estado) a las cuentas individuales administradas por AFOREs.</p>
+        <p>Para los trabajadores que cotizaban al IMSS antes del 1 de julio de 1997, la Ley del Seguro Social de 1973 (abrogada) conserva efectos en cuanto al derecho de optar, al momento de pensionarse, entre el esquema de pensión de la Ley de 1973 (renta vitalicia garantizada por el IMSS) o el esquema de pensión de la Ley de 1997 (retiros programados o renta vitalicia contratada con aseguradora, con base en el saldo de la cuenta individual). Esta generación de transición puede ejercer esta opción hasta agotar sus derechos.</p>
+        <p>La Circular Única de SIEFOREs, emitida por CONSAR, establece las reglas específicas para la operación de las Sociedades de Inversión Especializadas en Fondos para el Retiro. Esta circular regula aspectos como los límites de inversión por clase de activo, los requisitos de diversificación, las metodologías de valuación, y las obligaciones de revelación de información.</p>
+        <p>Durante 2017, la Circular Única de SIEFOREs mantuvo su estructura esencial, sin modificaciones sustanciales al régimen de inversión. CONSAR publicó diversas modificaciones de carácter técnico a lo largo del año, principalmente relacionadas con ajustes en los formatos de reporteo y en las metodologías de cálculo de indicadores de riesgo.</p>
+        <p>Es importante señalar que las interpretaciones sobre el alcance y aplicación de la normativa del SAR corresponden exclusivamente a las autoridades competentes (CONSAR, tribunales federales). Este estudio se limita a describir el marco legal vigente sin emitir opiniones jurídicas.</p>
+      </section>
+
+      <!-- 12. LIMITACIONES -->
+      <section class="paper__section" id="limitaciones">
+        <div class="paper__section-number">Sección 12</div>
+        <h2>Limitaciones</h2>
+        <p>Este estudio presenta las siguientes limitaciones que deben considerarse al interpretar sus hallazgos:</p>
+        <ol>
+          <li><strong>Alcance descriptivo:</strong> El estudio se limita a describir el estado del SAR durante 2017 con base en datos oficiales. No realiza análisis causal, no evalúa políticas públicas, ni emite recomendaciones sobre AFOREs específicas.</li>
+          <li><strong>Periodo específico:</strong> Los datos y análisis corresponden exclusivamente al año calendario 2017. Las conclusiones no deben extrapolarse a periodos futuros sin considerar cambios en el contexto económico, regulatorio o estructural del sistema.</li>
+          <li><strong>Datos estimados [E]:</strong> Las cifras de rendimientos nominales y reales, así como el número de cuentas individuales, se presentan como estimados [E] basados en el Panel DM-SAR-DATA-001. Estos datos se derivan de información oficial de CONSAR pero involucran supuestos metodológicos (por ejemplo, en el cálculo de rendimientos promedio ponderados o en la definición de "cuenta activa"). Los datos estimados se indican explícitamente con [E] o con el símbolo "~".</li>
+          <li><strong>Datos agregados:</strong> Cuando se presentan cifras del sistema en su conjunto (como comisión promedio o rendimiento promedio), se utilizan promedios ponderados. Estos promedios no reflejan necesariamente la experiencia individual de cada trabajador, que varía según AFORE, SIEFORE, salario, densidad de cotización y otros factores.</li>
+          <li><strong>Ausencia de análisis causal:</strong> Este estudio no busca explicar las causas de los fenómenos observados (por ejemplo, por qué la inflación aumentó en 2017 o por qué las comisiones disminuyeron). Se limita a documentar los hechos con base en datos verificables.</li>
+          <li><strong>Fuentes disponibles:</strong> El análisis se basa en información pública y oficial disponible en las fuentes citadas. No se consideraron datos no publicados, información privilegiada, ni proyecciones internas de las AFOREs o reguladores.</li>
+          <li><strong>Comparabilidad limitada:</strong> Las metodologías de cálculo de algunos indicadores (particularmente rendimientos) pueden variar entre fuentes o haber cambiado a lo largo del tiempo, lo que limita la comparabilidad directa de cifras entre periodos distantes.</li>
+        </ol>
+      </section>
+
+      <!-- 13. CONCLUSIONES -->
+      <section class="paper__section" id="conclusiones">
+        <div class="paper__section-number">Sección 13</div>
+        <h2>Conclusiones</h2>
+        <p>Con base en el análisis de datos oficiales del SAR durante 2017, se identifican las siguientes observaciones:</p>
+        <ol>
+          <li>Los recursos administrados por el SAR alcanzaron 3,100.0 mmdp <span class="fuente-badge fuente-badge--v">V</span> al cierre de 2017, equivalentes a 15.0% <span class="fuente-badge fuente-badge--v">V</span> del PIB, con un crecimiento de 8.0% <span class="fuente-badge fuente-badge--v">V</span> respecto al año anterior (2,870.0 mmdp <span class="fuente-badge fuente-badge--v">V</span>, 14.6% <span class="fuente-badge fuente-badge--v">V</span> del PIB). Esta expansión refleja la dinámica capitalizadora del sistema de cuentas individuales, que acumula recursos año con año mediante aportaciones obligatorias y rendimientos de inversión.</li>
+          <li>La comisión promedio del sistema se ubicó en 1.03% <span class="fuente-badge fuente-badge--v">V</span> sobre saldo, reduciendo 0.03 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> respecto a 2016 (1.06% <span class="fuente-badge fuente-badge--v">V</span>). En términos acumulados desde 2008, la comisión promedio ha disminuido 0.89 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> (de 1.92% <span class="fuente-badge fuente-badge--v">V</span> a 1.03% <span class="fuente-badge fuente-badge--v">V</span>), lo que representa una reducción de 46.4% <span class="fuente-badge fuente-badge--v">V</span> en términos relativos. El rango de comisiones osciló entre 0.86% <span class="fuente-badge fuente-badge--v">V</span> (PensionISSSTE) y 1.10% <span class="fuente-badge fuente-badge--v">V</span> (MetLife, Invercap, Coppel, Azteca).</li>
+          <li>El año 2017 registró la inflación más alta desde 2008 (6.77% <span class="fuente-badge fuente-badge--v">V</span>), impulsada por el ajuste en precios de combustibles y la depreciación del peso. Esta inflación elevada impactó significativamente los rendimientos reales del sistema: aunque el rendimiento nominal estimado [E] fue de ~8% <span class="fuente-badge fuente-badge--e">E</span>, superior al ~6% <span class="fuente-badge fuente-badge--e">E</span> de 2016, el rendimiento real estimado [E] se redujo a ~1% <span class="fuente-badge fuente-badge--e">E</span>, comparado con ~2.5% <span class="fuente-badge fuente-badge--e">E</span> del año anterior. Después de descontar la comisión promedio (1.03% <span class="fuente-badge fuente-badge--v">V</span>), el rendimiento neto real para el ahorrador promedio fue de aproximadamente -0.03%, implicando una pérdida marginal de poder adquisitivo.</li>
+          <li>El sistema operó con 11 AFOREs durante todo 2017, sin registrarse fusiones, adquisiciones, entradas o salidas de participantes. Esta estabilidad estructural contrasta con años previos (2008-2016) que experimentaron procesos de consolidación significativos. El número de cuentas individuales alcanzó aproximadamente 59.0 millones [E], con un crecimiento estimado de ~3.5% <span class="fuente-badge fuente-badge--e">E</span> respecto a 2016 (57.0 millones [E]).</li>
+          <li>El contexto macroeconómico de 2017 se caracterizó por incertidumbre comercial (renegociación del TLCAN), política monetaria restrictiva (Banxico elevó la tasa de referencia de ~5.75% <span class="fuente-badge fuente-badge--e">E</span> a ~7.25% <span class="fuente-badge fuente-badge--e">E</span> [E]) y volatilidad en mercados financieros. Este entorno afectó tanto los rendimientos del SAR como la confianza de los ahorradores en el sistema.</li>
+          <li>La experiencia de 2017 evidencia la exposición del SAR al riesgo de inflación. En contextos de inflación elevada, los rendimientos nominales pueden no ser suficientes para preservar el poder adquisitivo de los ahorros después de comisiones. Este fenómeno refuerza la importancia de dos factores para el trabajador: (1) elegir AFOREs con comisiones bajas, que maximizan el rendimiento neto, y (2) comprender que el ahorro para el retiro está sujeto a riesgos de mercado e inflación en el corto plazo, aunque el horizonte de inversión sea de largo plazo.</li>
+          <li>A 20 años de la entrada en vigor del régimen de cuentas individuales (1 de julio de 1997), el SAR se consolidó como uno de los principales inversionistas institucionales de México, con recursos equivalentes a 15% <span class="fuente-badge fuente-badge--v">V</span> del PIB. Sin embargo, la suficiencia de los saldos individuales para financiar pensiones adecuadas sigue dependiendo de múltiples factores, incluyendo densidad de cotización, nivel salarial, años de ahorro, rendimientos netos y longevidad al retiro, aspectos que no son objeto de este estudio descriptivo.</li>
+        </ol>
+        <p>Los datos y observaciones presentados en este documento corresponden exclusivamente al periodo de estudio (año calendario 2017) y se basan en información oficial de CONSAR, INEGI, Banxico y el Panel DM-SAR-DATA-001. No se realizan proyecciones sobre el desempeño futuro del sistema ni se emiten recomendaciones sobre AFOREs específicas.</p>
+      </section>
+
+      <hr class="paper__separator">
+
+      <!-- 14. FUENTES -->
+      <section class="paper__section" id="fuentes">
+        <div class="paper__section-number">Sección 14</div>
+        <h2>Fuentes</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li id="fuente-F1"><span class="fuente-inst">CONSAR</span> (Comisión Nacional del Sistema de Ahorro para el Retiro). <span class="fuente-titulo">Informes Trimestrales al H. Congreso de la Unión sobre la situación del SAR, 2017</span>. México, 2017. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F2"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Datos estadísticos del SAR: comisiones, cuentas, recursos y traspasos</span>. México, 2017. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F3"><span class="fuente-inst">INEGI</span> (Instituto Nacional de Estadística y Geografía). <span class="fuente-titulo">Producto Interno Bruto y cuentas nacionales de México, 2017</span>. México, 2018. <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">https://www.inegi.org.mx</a></li>
+            <li id="fuente-F4"><span class="fuente-inst">Banco de México</span> (Banxico). <span class="fuente-titulo">Indicadores económicos: tasas de interés e inflación, 2017</span>. México, 2017. <a href="https://www.banxico.org.mx" target="_blank" rel="noopener">https://www.banxico.org.mx</a></li>
+            <li id="fuente-F5"><span class="fuente-inst">Datos México</span>. <span class="fuente-titulo">Panel DM-SAR-DATA-001: Base de datos consolidada del SAR</span>. México, 2026. <a href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/" target="_blank" rel="noopener">https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/</a></li>
+            <li id="fuente-F6"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 23 de mayo de 1996. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+            <li id="fuente-F7"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Seguro Social</span>. Diario Oficial de la Federación, 21 de diciembre de 1995. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+          </ol>
+          <p>Fecha de consulta de fuentes electrónicas: abril de 2026.</p>
+          <p class="paper__fuentes-leyenda"><span class="fuente-badge fuente-badge--v">V</span> dato verificado de fuente oficial directa &middot; <span class="fuente-badge fuente-badge--e">E</span> dato estimado o derivado, declarado como tal &middot; estándar editorial del observatorio.</p>
+        </div>
+      </section>
+
+      <!-- DECLARACIONES -->
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interés:</strong> El observatorio Datos México declara la ausencia de conflictos de interés en la elaboración de este estudio. Datos México no tiene relación comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> Todas las cifras cuantitativas presentadas en este estudio provienen de fuentes primarias oficiales (CONSAR, INEGI, Banxico) y del Panel DM-SAR-DATA-001. No se utilizaron fuentes secundarias para datos cuantitativos.</p>
+        <p><strong>Alcance:</strong> Este documento tiene carácter informativo y no constituye asesoría financiera, legal ni recomendación alguna sobre productos, servicios o AFOREs específicas.</p>
+      </div>
+
+    </div><!-- /paper__body -->
+
+
+      <!-- DE LA LECTURA AL CÁLCULO -->
+      <aside class="paper__calc-cta">
+        <p class="paper__calc-cta-eyebrow">De la lectura al cálculo</p>
+        <p class="paper__calc-cta-body">
+          Los datos de esta serie alimentan las <strong>calculadoras del observatorio</strong>: herramientas
+          educativas con supuestos públicos, fuentes oficiales versionadas y validación actuarial.
+          <a href="/pensiones/calculadoras">Calcula tu caso →</a>
+        </p>
+      </aside>
+
+  </main>
+
+  <!-- Scripts -->
+
+  <!-- Tooltip unificado + hover-por-área Ronda 6.
+       Un solo sistema premium para sparkline, barras y ticks:
+       - Contenido ASCII puro en data-tip-* (mata "?" del `·` U+00B7 y `[V]`).
+       - Detección del punto MÁS CERCANO por overlay en sparkline y escala.
+       - Marcador activo sincronizado con el tooltip.
+       - Fallback teclado / focus / touch preservado. -->
+  <script>
+  (function () {
+    'use strict';
+    var container = document.querySelector('.paper__resumen-hero-inner');
+    var tip       = document.getElementById('rhTip');
+    if (!container || !tip) return;
+    var titleEl   = tip.querySelector('.rh-tip__title');
+    var detailTx  = tip.querySelector('.rh-tip__detail-text');
+    var badgeEl   = tip.querySelector('.rh-tip__badge');
+    var noteEl    = tip.querySelector('.rh-tip__note');
+    var hideTimer;
+    var currentActive = null;
+
+    function positionOverElement(el) {
+      var r = el.getBoundingClientRect();
+      var c = container.getBoundingClientRect();
+      tip.style.left = (r.left - c.left + r.width / 2) + 'px';
+      tip.style.top  = (r.top  - c.top) + 'px';
+    }
+
+    function showFor(el) {
+      if (!el || !el.dataset.tipTitle) return;
+      clearTimeout(hideTimer);
+      titleEl.textContent = el.dataset.tipTitle;
+      detailTx.textContent = el.dataset.tipDetail || '';
+      noteEl.textContent = el.dataset.tipNote || '';
+      noteEl.style.display = el.dataset.tipNote ? 'block' : 'none';
+      badgeEl.style.display = el.dataset.tipV === '1' ? 'inline-block' : 'none';
+      positionOverElement(el);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tip.classList.add('is-visible');
+          tip.setAttribute('aria-hidden', 'false');
+        });
+      });
+    }
+    function hide() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('is-visible');
+        tip.setAttribute('aria-hidden', 'true');
+        if (currentActive && currentActive.classList) {
+          currentActive.classList.remove('is-active');
+        }
+        currentActive = null;
+        var activeDot = document.querySelector('.rh-spark__active');
+        if (activeDot) activeDot.setAttribute('opacity', '0');
+      }, 80);
+    }
+
+    function setActive(el) {
+      if (currentActive === el) return;
+      if (currentActive && currentActive.classList) currentActive.classList.remove('is-active');
+      currentActive = el;
+      if (el && el.classList) el.classList.add('is-active');
+    }
+
+    // ---------- 1. Sparkline: hover POR ÁREA ----------
+    var sparkSvg = document.querySelector('.rh-spark__svg');
+    var sparkOverlay = document.querySelector('.rh-spark__overlay');
+    var sparkPoints = Array.prototype.slice.call(document.querySelectorAll('.rh-spark__point'));
+    var activeDot = document.querySelector('.rh-spark__active');
+
+    if (sparkSvg && sparkOverlay && sparkPoints.length) {
+      var pointCoords = sparkPoints.map(function (p) {
+        return { el: p, cx: parseFloat(p.getAttribute('cx')), cy: parseFloat(p.getAttribute('cy')) };
+      });
+
+      function handleSparkMove(e) {
+        var svgRect = sparkSvg.getBoundingClientRect();
+        var xInPx = (e.clientX !== undefined ? e.clientX : e.touches[0].clientX) - svgRect.left;
+        var xInVb = xInPx / svgRect.width * 720; // viewBox width
+        // Punto más cercano por X
+        var nearest = pointCoords[0], minD = Math.abs(pointCoords[0].cx - xInVb);
+        for (var i = 1; i < pointCoords.length; i++) {
+          var d = Math.abs(pointCoords[i].cx - xInVb);
+          if (d < minD) { minD = d; nearest = pointCoords[i]; }
+        }
+        // Mueve el marcador activo al punto seleccionado
+        if (activeDot) {
+          activeDot.setAttribute('cx', nearest.cx);
+          activeDot.setAttribute('cy', nearest.cy);
+          activeDot.setAttribute('opacity', '1');
+        }
+        setActive(nearest.el);
+        showFor(nearest.el);
+      }
+
+      sparkOverlay.addEventListener('mousemove', handleSparkMove);
+      sparkOverlay.addEventListener('mouseleave', hide);
+      sparkOverlay.addEventListener('touchstart', handleSparkMove, { passive: true });
+      sparkOverlay.addEventListener('touchmove', handleSparkMove, { passive: true });
+    }
+
+    // ---------- 2. Escala AFOREs: hover POR ÁREA ----------
+    var scaleTrack = document.querySelector('.rh-viz__scale-track');
+    if (scaleTrack) {
+      var scaleTargets = Array.prototype.slice.call(
+        scaleTrack.querySelectorAll('[data-tip-title][data-tip-pos]')
+      );
+      function handleScaleMove(e) {
+        var rect = scaleTrack.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width * 100;
+        var nearest = scaleTargets[0];
+        var minD = Math.abs(parseFloat(nearest.dataset.tipPos) - pct);
+        for (var i = 1; i < scaleTargets.length; i++) {
+          var d = Math.abs(parseFloat(scaleTargets[i].dataset.tipPos) - pct);
+          if (d < minD) { minD = d; nearest = scaleTargets[i]; }
+        }
+        setActive(nearest);
+        showFor(nearest);
+      }
+      scaleTrack.addEventListener('mousemove', handleScaleMove);
+      scaleTrack.addEventListener('mouseleave', hide);
+      scaleTrack.addEventListener('touchmove', function (e) {
+        if (e.touches && e.touches[0]) {
+          handleScaleMove({ clientX: e.touches[0].clientX });
+        }
+      }, { passive: true });
+    }
+
+    // ---------- 3. Focus por teclado en todos los data-tip-title ----------
+    var focusables = container.querySelectorAll('[data-tip-title][tabindex]');
+    Array.prototype.forEach.call(focusables, function (el) {
+      el.addEventListener('focus', function () { setActive(el); showFor(el); });
+      el.addEventListener('blur', hide);
+    });
+
+    // ---------- 4. Rows generosas: barras Recursos + rows AFORE ----------
+    var hoverRows = container.querySelectorAll('.rh-viz__bar-row[data-tip-title], .rh-afore-row[data-tip-title]');
+    Array.prototype.forEach.call(hoverRows, function (el) {
+      el.addEventListener('mouseenter', function () { setActive(el); showFor(el); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('touchstart', function () { setActive(el); showFor(el); }, { passive: true });
+    });
+
+    // ---------- 5. Tocar fuera oculta el tooltip ----------
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('[data-tip-title], .rh-spark__overlay, .rh-viz__scale-track, .rh-afore-row')) hide();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      tip.classList.remove('is-visible');
+      if (activeDot) activeDot.setAttribute('opacity', '0');
+    });
+  })();
+  </script>
+
+  <!-- Gráficas del paper -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navy = '#1B2A5E';
+    var gold = '#B8943E';
+    var bgAlt = '#F4F5FA';
+    var gris = '#9CA3AF';
+
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = '#4B5563';
+
+    // -- Gráfica 1: Recursos administrados 2016 vs 2017 (barras verticales) --
+    new Chart(document.getElementById('chart-recursos'), {
+      type: 'bar',
+      data: {
+        labels: ['Cierre 2016', 'Cierre 2017'],
+        datasets: [{
+          label: 'Recursos (mmdp)',
+          data: [2870.0, 3100.0],
+          backgroundColor: [navy, gold],
+          borderRadius: 4,
+          barPercentage: 0.5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                var pib = ctx.dataIndex === 0 ? '14.6' : '15.0';
+                return '~' + ctx.parsed.y.toLocaleString() + ' mmdp (' + pib + '% del PIB)';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 3400,
+            title: { display: true, text: 'Miles de millones de pesos (mmdp)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'pibLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          var pibValues = ['~14.6% del PIB', '~15.0% del PIB'];
+          ctx.save();
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(bar, i) {
+            ctx.fillText(pibValues[i], bar.x, bar.y - 8);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+
+    // -- Gráfica 2: Comisiones por AFORE (barras horizontales) --
+    new Chart(document.getElementById('chart-comisiones'), {
+      type: 'bar',
+      data: {
+        labels: ['MetLife', 'Invercap', 'Coppel', 'Azteca', 'Principal', 'SURA', 'Profuturo GNP', 'XXI Banorte', 'Citibanamex', 'Inbursa', 'PensionISSSTE'],
+        datasets: [{
+          label: 'Comisión sobre saldo (%)',
+          data: [1.10, 1.10, 1.10, 1.10, 1.09, 1.03, 1.03, 1.00, 0.99, 0.98, 0.86],
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.x.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            min: 0,
+            max: 1.3,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          y: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'promedioLine',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var xAxis = chart.scales.x;
+          var yAxis = chart.scales.y;
+          var promedio = 1.03;
+          var xPos = xAxis.getPixelForValue(promedio);
+          
+          ctx.save();
+          ctx.setLineDash([6, 4]);
+          ctx.strokeStyle = gold;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(xPos, yAxis.top);
+          ctx.lineTo(xPos, yAxis.bottom);
+          ctx.stroke();
+          
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.fillStyle = gold;
+          ctx.textAlign = 'center';
+          ctx.fillText('Promedio 1.03%', xPos, yAxis.top - 8);
+          ctx.restore();
+        }
+      }]
+    });
+
+    // -- Gráfica 3: Tendencia comisión promedio 2008-2017 (línea) --
+    new Chart(document.getElementById('chart-tendencia'), {
+      type: 'line',
+      data: {
+        labels: ['2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017'],
+        datasets: [{
+          label: 'Comisión promedio (%)',
+          data: [1.92, 1.75, 1.62, 1.48, 1.38, 1.29, 1.19, 1.11, 1.06, 1.03],
+          borderColor: navy,
+          borderWidth: 3,
+          pointRadius: 6,
+          pointBackgroundColor: navy,
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          tension: 0.3,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.y.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            min: 0.8,
+            max: 2.1,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'dataLabels',
+        afterDatasetsDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          ctx.save();
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.fillStyle = navy;
+          ctx.textAlign = 'center';
+          meta.data.forEach(function(point, index) {
+            var value = chart.data.datasets[0].data[index];
+            ctx.fillText(value.toFixed(2) + '%', point.x, point.y - 12);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+  });
+  </script>
+</body>
+</html>

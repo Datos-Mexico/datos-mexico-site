@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Sistema de Ahorro para el Retiro en México: Panorama 2009 | Datos México</title>
+  <meta name="description" content="Análisis del SAR en 2009: 1,151 mmdp en recursos (~9.0% del PIB), año de recuperación post-crisis. Comisión promedio 1.75% (reducción de 17 pb en un año), consolidación con tres cesiones de cartera a Banorte (Ahorra Ahora, Ixe, Argos).">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/DM-SAR-2009.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Sistema de Ahorro para el Retiro en México: Panorama 2009 | Datos México">
+  <meta property="og:description" content="Estudio DM-SAR-2009: Panorama del SAR 2009, año de recuperación post-crisis, primer año completo bajo régimen sobre saldo, comisión promedio 1.75%.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/DM-SAR-2009.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Chart.js -->
+  <script src="/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <main class="paper paper--margen" role="main">
+
+    <a href="/pensiones/sar-29" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a publicaciones
+    </a>
+
+    <header class="paper__portada">
+      <span class="paper__tipo">Estudio</span>
+      <p class="paper__id">DM-SAR-2009</p>
+      <h1 class="paper__titulo">El Sistema de Ahorro para el Retiro en México: Panorama 2009</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Junio 2026</p>
+
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-2009</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         RESUMEN EJECUTIVO VISUAL (rollout 2009)
+         Reemplaza el .paper__resumen de texto. Toda cifra y su badge [V]/[E]
+         proviene del cuerpo del paper sin alteración (Secciones 4, 5, 7, 8,
+         9, 10 y Tablas 1, 2, 3, 4); ninguna cifra nueva. Cifras dominantes
+         (rh-card__big) son [V]; los estimados (~9.0% PIB, ~8%
+         real) viven como meta/lede [E]; el conteo al cierre (16
+         administradoras) se verifico [V] con F13 en . Historia del año: RECUPERACIÓN
+         post-crisis (análoga al rollout 2023) — las SIEFOREs cruzan por
+         primera vez el billón de pesos (+22.7% nominal, Sec 7, Conclusión 1)
+         y arranca la tendencia descendente del régimen sobre saldo
+         (1.92% → 1.75%, −17 pb, spread 230 → 97 pb; Sec 8, Conclusión 2).
+         DECISIONES DE ADAPTACIÓN documentadas:
+         (a) La serie de comisión sobre saldo tiene SOLO 2 puntos (Tabla 3:
+             2008, 2009) — el sparkline de tendencia no aplica. Se sustituye
+             por PAR DE BARRAS de comisión 2008 → 2009 (D19: comparación
+             pre/post) en el slot "spark" del grid D20, con la nota del
+             arranque de la serie sobre saldo.
+         (b) La card accent es la Card 1 (Recursos — primer billón): la
+             única cifra [V] que ancla la historia de recuperación es
+             1,151,186 mdp (el +22.7% no lleva badge en el cuerpo y no
+             puede ser big). Divergencia de posición documentada.
+         (c) Dot plot con las 16 firmas EXACTAS de la Tabla 2 [V]; Coppel y
+             Principal (ambas 1.94%) agrupadas en UNA fila multi-nombre
+             (>15 filas, regla del protocolo) → 15 filas. Patrón de
+             DISPERSIÓN con outlier (rango 97 pb), variante de convergencia
+             post-recortes (Coppel −136 pb, Invercap −55 pb, MetLife −37 pb).
+         Nombres de AFOREs: los de la Tabla 2 del cuerpo (este paper no
+         tiene lista de AFOREs en Sec 5; la Tabla 2 es la fuente canónica).
+         ========================================== -->
+    <section class="paper__resumen-hero" id="resumen" aria-labelledby="resumenHeroTitle">
+      <div class="paper__resumen-hero-inner">
+
+        <!-- Tooltip unificado (Ronda 6): un solo sistema; ASCII
+             puro en data-tip-*; badge V como elemento HTML. -->
+        <div class="rh-tip" id="rhTip" role="status" aria-live="polite" aria-hidden="true">
+          <span class="rh-tip__title"></span>
+          <span class="rh-tip__detail">
+            <span class="rh-tip__detail-text"></span>
+            <span class="rh-tip__badge" aria-hidden="true">V</span>
+          </span>
+          <span class="rh-tip__note"></span>
+        </div>
+
+        <p class="paper__resumen-hero-eyebrow">Sección 1 &middot; En síntesis &middot; Panorama 2009</p>
+        <h2 id="resumenHeroTitle" class="paper__resumen-hero-titulo">Recuperación post-crisis: las SIEFOREs cruzan por primera vez el billón de pesos.</h2>
+
+        <p class="paper__resumen-hero-lede">
+          Al cierre de 2009, el SAR administraba <strong>1,151,186 millones de pesos</strong><span class="fuente-badge fuente-badge--v">V</span>, cruzando por primera vez la marca del <strong>billón de pesos en activos invertidos por las SIEFOREs</strong> y equivaliendo aproximadamente a <strong>~9.0% del PIB</strong><span class="fuente-badge fuente-badge--e">E</span>. El año fue de <strong>recuperación post-crisis</strong>: tras el choque de la crisis financiera global iniciado en septiembre de 2008, los mercados restauraron parcialmente sus valuaciones y el sistema recobró trayectoria de crecimiento (+22.7% nominal respecto a 2008). La comisión promedio del sistema se redujo a <strong>1.75%</strong> sobre saldo<span class="fuente-badge fuente-badge--v">V</span>, una baja de 17 puntos base en un año respecto al 1.92%<span class="fuente-badge fuente-badge--v">V</span> de 2008 &mdash;primer cierre con tendencia descendente del nuevo régimen instaurado en marzo de 2008. En materia corporativa, el año estuvo marcado por una <strong>consolidación visible</strong>: tres cesiones de cartera a Banorte Generali (Ahorra Ahora en marzo, Ixe en junio, Argos en diciembre)<span class="fuente-badge fuente-badge--v">V</span>, reduciendo el número de AFOREs en operación a aproximadamente <strong>~18 al cierre</strong><span class="fuente-badge fuente-badge--e">E</span>. El Banco de México ejecutó <strong>recortes agresivos</strong> a la tasa de referencia, llevándola de 8.25% al cierre de 2008 a <strong>4.50%</strong> al cierre de 2009<span class="fuente-badge fuente-badge--v">V</span> en respuesta a la moderación inflacionaria (3.57% al cierre, frente a 6.53% en 2008<span class="fuente-badge fuente-badge--v">V</span>) y al apoyo a la actividad económica. 2009 es además el primer año con <strong>Informes Trimestrales al Congreso de la CONSAR disponibles públicamente en línea</strong><span class="fuente-badge fuente-badge--v">V</span>, hito de transparencia para la trazabilidad de la serie.
+        </p>
+
+        <div class="paper__resumen-hero-grid">
+
+          <article class="rh-card rh-card--accent">
+            <p class="rh-card__label">Recursos administrados &mdash; primer billón</p>
+            <p class="rh-card__big">1,151,186<span class="rh-card__unit">mdp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">+22.7% vs 2008 &middot; ~9.0% del PIB<span class="fuente-badge fuente-badge--e">E</span> &middot; Recuperación post-crisis</p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Comisión promedio</p>
+            <p class="rh-card__big">1.75<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">&minus;17 pb vs 2008 &middot; Primera baja del régimen sobre saldo &middot; Spread 230 &rarr; 97 pb</p>
+            <p class="rh-card__ref"><a href="#comisiones">Sección 8 &mdash; Comisiones</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Consolidación &mdash; cesiones a Banorte Generali</p>
+            <p class="rh-card__big">3<span class="rh-card__unit">cesiones</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Ahorra Ahora (mar) &middot; Ixe (jun) &middot; Argos (dic) &middot; 16 administradoras al cierre<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#reestructuracion">Sección 10 &mdash; Consolidación del sistema</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Tasa de referencia Banxico</p>
+            <p class="rh-card__big">4.50<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">&minus;375 pb en el año, desde 8.25% &middot; Inflación 3.57%<span class="fuente-badge fuente-badge--v">V</span>, la mitad de 2008 &middot; Rendimiento real estimado ~8%<span class="fuente-badge fuente-badge--e">E</span></p>
+            <p class="rh-card__ref"><a href="#contexto">Sección 4 &mdash; Contexto económico 2009</a></p>
+          </article>
+
+        </div>
+
+        <!-- Retícula asimétrica (D20): 2 cols en escritorio con áreas
+                "recursos afore"     ← Recursos + Dot plot (der spans 2 filas)
+                "spark    afore"
+             Móvil: stack DOM order (Recursos → Comisión → AFORE).
+             El slot "spark" lo ocupa el PAR DE BARRAS de comisión
+             2008 → 2009 (la serie sobre saldo tiene solo 2 puntos;
+             un sparkline de tendencia no aplica — ver comentario de
+             cabecera del hero). -->
+        <div class="paper__resumen-hero-viz">
+
+          <article class="rh-viz rh-viz--recursos" aria-labelledby="rhVizRecTitle">
+            <p id="rhVizRecTitle" class="rh-viz__title">Recursos administrados (mdp)</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2008, 938,345 millones de pesos, verificado"
+                   data-tip-title="Cierre 2008" data-tip-detail="938,345 mdp" data-tip-note="Aprox. 7.7% del PIB, estimado" data-tip-v="1">
+                <span class="rh-viz__year">2008</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.815"></div>
+                  <span class="rh-viz__bar-label">938,345<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2009, 1,151,186 millones de pesos, primer billón, verificado"
+                   data-tip-title="Cierre 2009" data-tip-detail="1,151,186 mdp" data-tip-note="Cruce del primer billon de pesos" data-tip-v="1">
+                <span class="rh-viz__year">2009</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">1,151,186<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">+22.7% nominal &middot; +1.3&nbsp;pp del PIB &middot; Cruce del primer billón de pesos</p>
+            <p class="rh-viz__ref"><a href="#recursos">Tabla 1 &mdash; Sección 7</a></p>
+          </article>
+
+          <!-- Par de barras de comisión 2008 → 2009 (D19, caso especial de
+               serie con 2 puntos). La Tabla 3 del cuerpo ("inicio de la
+               serie") tiene exactamente dos filas: 2008 = 1.92% [V] (año
+               bisagra) y 2009 = 1.75% [V] (−17 pb, primera baja del nuevo
+               régimen). Un sparkline de 2 puntos no cuenta una tendencia;
+               las barras pareadas cuentan la comparación pre/post con
+               honestidad al scope. Ratios: 1.000 y 1.75/1.92 = 0.911.
+               Ocupa el slot "spark" del grid D20 vía la clase
+               paper__resumen-hero-spark (grid-area: spark). -->
+          <figure class="paper__resumen-hero-spark" aria-labelledby="rhSparkCaption">
+            <figcaption class="rh-spark__caption">
+              <span id="rhSparkCaption" class="rh-spark__caption-label">Comisión promedio del SAR &middot; 2008&ndash;2009 (% sobre saldo)</span>
+              <span class="rh-spark__caption-meta">1.92%<span class="fuente-badge fuente-badge--v">V</span> &rarr; 1.75%<span class="fuente-badge fuente-badge--v">V</span> &middot; <strong>&minus;17 pb</strong> &middot; Arranque de la serie sobre saldo</span>
+            </figcaption>
+
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2008, comisión promedio 1.92%, año bisagra del régimen sobre saldo, verificado"
+                   data-tip-title="Cierre 2008" data-tip-detail="1.92%" data-tip-note="Inicio de la serie sobre saldo" data-tip-v="1">
+                <span class="rh-viz__year">2008</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">1.92<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2009, comisión promedio 1.75%, primera baja del nuevo régimen, verificado"
+                   data-tip-title="Cierre 2009" data-tip-detail="1.75%" data-tip-note="Primera baja del nuevo regimen" data-tip-v="1">
+                <span class="rh-viz__year">2009</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 0.911"></div>
+                  <span class="rh-viz__bar-label">1.75<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+            </div>
+
+            <p class="rh-viz__meta">Primer año completo del régimen sobre saldo instaurado en marzo de 2008. La baja de <strong>&minus;17 pb</strong> inaugura la tendencia descendente sostenida que llevaría la comisión promedio por debajo de 1% en años posteriores.</p>
+
+            <p class="rh-spark__ref"><a href="#comisiones">Tabla 3 &mdash; Sección 8 (la serie continúa en los Panoramas siguientes)</a></p>
+          </figure>
+
+          <article class="rh-viz rh-viz--afore" aria-labelledby="rhVizAforeTitle">
+            <p id="rhVizAforeTitle" class="rh-viz__title">Comisiones por AFORE (16 firmas, diciembre 2009)</p>
+
+            <!-- Dot plot horizontal (D19) — patrón de DISPERSIÓN con outlier
+                 (formalizado en para el 2021), variante de
+                 convergencia post-recortes: rango 97 pb (0.99% a 1.96%),
+                 PensionISSSTE outlier (--pos: 0%), cola baja (Inbursa 1.18),
+                 par medio (XXI Banorte 1.45, Bancomer 1.47), banda 1.70-1.77
+                 (5 firmas) y banda superior 1.88-1.96 (7 firmas) hacia la
+                 que convergieron los recortes del año (Coppel −136 pb).
+                 16 firmas de la Tabla 2 [V] en 15 filas: Coppel y Principal
+                 (ambas 1.94%) agrupadas en una fila multi-nombre (regla
+                 del protocolo para >15 filas). Posiciones:
+                 (val - 0.99) / (1.96 - 0.99) * 100. -->
+            <ol class="rh-afore-list" role="list">
+              <li class="rh-afore-row rh-afore-row--outlier" tabindex="0" role="listitem"
+                  data-tip-title="PensionISSSTE" data-tip-detail="0.99%" data-tip-note="La mas baja del sistema" data-tip-v="1">
+                <span class="rh-afore-name">PensionISSSTE</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 0%"></span></span>
+                <span class="rh-afore-value">0.99<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Inbursa" data-tip-detail="1.18%" data-tip-v="1">
+                <span class="rh-afore-name">Inbursa</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 19.6%"></span></span>
+                <span class="rh-afore-value">1.18<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="XXI Banorte" data-tip-detail="1.45%" data-tip-v="1">
+                <span class="rh-afore-name">XXI Banorte</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 47.4%"></span></span>
+                <span class="rh-afore-value">1.45<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Bancomer" data-tip-detail="1.47%" data-tip-v="1">
+                <span class="rh-afore-name">Bancomer</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 49.5%"></span></span>
+                <span class="rh-afore-value">1.47<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Afirme Bajio" data-tip-detail="1.70%" data-tip-v="1">
+                <span class="rh-afore-name">Afirme Bajío</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 73.2%"></span></span>
+                <span class="rh-afore-value">1.70<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Banorte Generali" data-tip-detail="1.71%" data-tip-note="Receptora de las 3 cesiones de 2009" data-tip-v="1">
+                <span class="rh-afore-name">Banorte Generali</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 74.2%"></span></span>
+                <span class="rh-afore-value">1.71<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="SURA (ING)" data-tip-detail="1.74%" data-tip-v="1">
+                <span class="rh-afore-name">SURA (ING)</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 77.3%"></span></span>
+                <span class="rh-afore-value">1.74<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Banamex" data-tip-detail="1.75%" data-tip-v="1">
+                <span class="rh-afore-name">Banamex</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 78.4%"></span></span>
+                <span class="rh-afore-value">1.75<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="HSBC" data-tip-detail="1.77%" data-tip-v="1">
+                <span class="rh-afore-name">HSBC</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 80.4%"></span></span>
+                <span class="rh-afore-value">1.77<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Scotia" data-tip-detail="1.88%" data-tip-v="1">
+                <span class="rh-afore-name">Scotia</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 91.8%"></span></span>
+                <span class="rh-afore-value">1.88<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="MetLife" data-tip-detail="1.89%" data-tip-note="-37 pb vs 2008" data-tip-v="1">
+                <span class="rh-afore-name">MetLife</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 92.8%"></span></span>
+                <span class="rh-afore-value">1.89<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Profuturo GNP" data-tip-detail="1.92%" data-tip-v="1">
+                <span class="rh-afore-name">Profuturo GNP</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 95.9%"></span></span>
+                <span class="rh-afore-value">1.92<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Invercap" data-tip-detail="1.93%" data-tip-note="-55 pb vs 2008" data-tip-v="1">
+                <span class="rh-afore-name">Invercap</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 96.9%"></span></span>
+                <span class="rh-afore-value">1.93<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Coppel y Principal" data-tip-detail="1.94%" data-tip-note="Coppel: -136 pb vs 2008, el mayor recorte" data-tip-v="1">
+                <span class="rh-afore-name">Coppel &middot; Principal</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 97.9%"></span></span>
+                <span class="rh-afore-value">1.94<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Azteca" data-tip-detail="1.96%" data-tip-v="1">
+                <span class="rh-afore-name">Azteca</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">1.96<span class="rh-afore-unit">%</span></span>
+              </li>
+            </ol>
+
+            <div class="rh-afore-axis" aria-hidden="true">
+              <span>0.99%</span>
+              <span class="rh-afore-axis__mid">Rango 97 pb</span>
+              <span>1.96%</span>
+            </div>
+
+            <p class="rh-viz__meta">Promedio del sistema 1.75%<span class="fuente-badge fuente-badge--v">V</span> &middot; Spread comprimido 230 &rarr; 97 pb en un año &middot; Mayor recorte: Coppel &minus;136 pb</p>
+            <p class="rh-viz__ref"><a href="#comisiones">Tabla 2 &mdash; Sección 8</a></p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MARGEN LATERAL (rollout 2009)
+         TOC de las 14 secciones del cuerpo (Sec 1 elevada al hero) +
+         leyenda [V]/[E] + back-link contextual.
+         ========================================== -->
+    <aside class="paper__margen" aria-label="Navegación y leyenda del estudio">
+      <div class="paper__margen-sticky">
+
+        <nav class="paper__margen-nav" aria-label="Secciones del estudio">
+          <details class="paper__margen-toc-wrap" open>
+            <summary class="paper__margen-toc-summary">
+              <span class="paper__margen-toc-eyebrow">En este estudio</span>
+              <span class="paper__margen-toc-counter">14 secciones</span>
+            </summary>
+            <ol class="paper__margen-toc">
+              <li><a href="#resumen">Resumen ejecutivo</a></li>
+              <li><a href="#introduccion">Introducción</a></li>
+              <li><a href="#metodologia">Metodología</a></li>
+              <li><a href="#contexto">Contexto económico 2009</a></li>
+              <li><a href="#estructura">Estructura del SAR</a></li>
+              <li><a href="#cuentas">Cuentas individuales</a></li>
+              <li><a href="#recursos">Recursos administrados</a></li>
+              <li><a href="#comisiones">Comisiones</a></li>
+              <li><a href="#rendimientos">Rendimientos</a></li>
+              <li><a href="#reestructuracion">Consolidación del sistema en 2009</a></li>
+              <li><a href="#normativo">Marco normativo</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#conclusiones">Conclusiones</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="paper__margen-leyenda">
+          <p class="paper__margen-eyebrow">Cómo leer</p>
+          <p class="paper__margen-leyenda-intro">Cada cifra del estudio lleva un sello que indica de dónde sale y queda anclada a su fuente.</p>
+          <ul class="paper__margen-leyenda-items">
+            <li><span class="fuente-badge fuente-badge--v">V</span><span>verificado de fuente oficial directa</span></li>
+            <li><span class="fuente-badge fuente-badge--e">E</span><span>derivado o estimado, declarado</span></li>
+          </ul>
+        </div>
+
+        <a href="/pensiones/sar-29" class="paper__margen-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Volver al índice
+        </a>
+
+      </div>
+    </aside>
+
+    <div class="paper__body">
+
+      <!-- Sección 1 (Resumen ejecutivo) elevada al bloque visual full-width
+           encima del cuerpo (sección "paper__resumen-hero" arriba). Toda la
+           sustancia se conserva; la presentación se elevó. -->
+
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Sección 2</div>
+        <h2>Introducción</h2>
+        <p>El Sistema de Ahorro para el Retiro (SAR) constituye el mecanismo de cuentas individuales mediante el cual los trabajadores afiliados al Instituto Mexicano del Seguro Social (IMSS) y al ISSSTE (desde 2008) acumulan recursos para financiar su pensión. Este sistema fue establecido mediante la reforma a la Ley del Seguro Social de 1995 y entró en operación el 1 de julio de 1997, sustituyendo el esquema de reparto por un modelo de capitalización individual administrado por entidades privadas reguladas y por PensionISSSTE como AFORE pública desde diciembre de 2008.</p>
+        <p>El presente estudio ofrece un panorama descriptivo del SAR durante 2009, a 12 años de la entrada en operación del sistema y primer año completo bajo el régimen de comisión sobre saldo establecido en marzo de 2008. Se analizan los principales indicadores —recursos administrados, AFOREs en operación, cuentas individuales, comisiones, rendimientos— en el contexto de un año de recuperación tras el choque de la crisis financiera global de 2008.</p>
+        <p>Este documento no emite juicios sobre AFOREs específicas ni recomendaciones financieras. Su objetivo es presentar datos verificables de fuentes primarias para que el lector forme su propio criterio. Las cifras clave están etiquetadas con badge <span class="fuente-badge fuente-badge--v">V</span> (verificada) o <span class="fuente-badge fuente-badge--e">E</span> (estimada/derivada) junto a su referencia de fuente en la Sección 14.</p>
+      </section>
+
+      <section class="paper__section" id="metodologia">
+        <div class="paper__section-number">Sección 3</div>
+        <h2>Metodología</h2>
+        <p>Este estudio adopta un enfoque descriptivo basado exclusivamente en fuentes primarias oficiales. Los datos cuantitativos provienen de:</p>
+        <ul>
+          <li><strong>CONSAR — Radiografía del Sistema de Pensiones a 20 años de su creación</strong> (julio 2017): serie anual oficial de activos administrados 1997-2017; cronología del régimen de inversión (<a href="#fuente-F1">F1</a>).</li>
+          <li><strong>CONSAR — Informes Trimestrales al Congreso de la Unión 2009</strong>: serie completa Q1-Q4 disponible públicamente en línea desde 2009 (<a href="#fuente-F3i">F3i</a>).</li>
+          <li><strong>CONSAR — Informe al Congreso 1er Trimestre 2014, Cuadro 2.21</strong>: comisión promedio del sistema dic-2009 = 1.75% (<a href="#fuente-F12">F12</a>).</li>
+          <li><strong>CONSAR — Eventos Corporativos en el SAR</strong> (mayo 2018): tres cesiones de cartera a Banorte Generali en 2009 (<a href="#fuente-F5">F5</a>).</li>
+          <li><strong>CONSAR vía datos.gob.mx</strong>: panel mensual de cuentas, comisiones, recursos, traspasos (CC-BY-4.0; <a href="#fuente-F2">F2</a>, <a href="#fuente-F3">F3</a>).</li>
+          <li><strong>INEGI — INPC</strong>: inflación dic-dic 2009 (<a href="#fuente-F9">F9</a>).</li>
+          <li><strong>Banco de México</strong>: serie histórica de tasa objetivo 2008-2009 (<a href="#fuente-F10">F10</a>).</li>
+        </ul>
+        <p>El periodo de análisis es el año calendario 2009, con referencias al cierre de 2008 cuando metodológicamente corresponde. Este estudio no realiza proyecciones ni inferencias causales. Su alcance es descriptivo de los datos observados durante 2009.</p>
+      </section>
+
+      <section class="paper__section" id="contexto">
+        <div class="paper__section-number">Sección 4</div>
+        <h2>Contexto económico 2009</h2>
+        <p>El año 2009 fue de <strong>recuperación tras el choque financiero global</strong> iniciado con la quiebra de Lehman Brothers en septiembre de 2008. La actividad económica mexicana se contrajo significativamente en la primera mitad del año (PIB anual con caída cercana a 5%), pero los mercados financieros internacionales restauraron parcialmente sus valuaciones desde el segundo trimestre, beneficiando las carteras de las SIEFOREs.</p>
+        <p>En el ámbito monetario doméstico, el Banco de México ejecutó un ciclo de <strong>recortes agresivos</strong> a la tasa de referencia, bajándola de 8.25% al cierre de 2008 a <strong>4.50%</strong> al cierre de 2009 <span class="fuente-badge fuente-badge--v">V</span> (Banxico, <a href="#fuente-F10">F10</a>), una reducción acumulada de 375 puntos base en doce meses. Este ciclo de relajamiento monetario fue parte de la respuesta de política para apoyar la actividad económica tras el choque global.</p>
+        <p>La inflación anual al cierre de diciembre 2009 fue de <strong>3.57%</strong> <span class="fuente-badge fuente-badge--v">V</span> (INEGI INPC, <a href="#fuente-F9">F9</a>), prácticamente la mitad que en 2008 (6.53%), reflejando la disipación del choque inflacionario de commodities de 2008 y el efecto deflacionario de la contracción de actividad. Este nivel se ubicó dentro del rango objetivo de Banxico (3% ±1 punto porcentual).</p>
+        <p>El contexto internacional pasó de la crisis aguda de fines de 2008 a una fase de estabilización progresiva durante 2009: el G20 coordinó respuestas fiscales y monetarias expansivas, la Reserva Federal estadounidense desplegó políticas no convencionales (relajamiento cuantitativo), y los precios de activos riesgosos recuperaron parte de las pérdidas del año anterior. El peso mexicano se depreció en los primeros meses pero recobró estabilidad relativa hacia el cierre del año.</p>
+      </section>
+
+      <section class="paper__section" id="estructura">
+        <div class="paper__section-number">Sección 5</div>
+        <h2>Estructura del SAR</h2>
+        <p>El marco legal vigente en 2009 era la Ley de los Sistemas de Ahorro para el Retiro (Ley SAR, DOF 23 mayo 1996) y la Ley del Seguro Social de 1995 (vigente desde el 1 de julio de 1997, "Ley 97"). Los trabajadores con cotización previa al 1 de julio de 1997 conservaban derechos bajo la Ley del Seguro Social de 1973 ("Ley 73"). Los trabajadores del Estado se rigen por la Ley del ISSSTE reformada en 2007, con su AFORE pública dedicada (PensionISSSTE) desde diciembre de 2008.</p>
+        <p>Al cierre de 2009, el sistema operaba con <strong>16 administradoras de cuentas individuales, incluyendo PensionISSSTE</strong> <span class="fuente-badge fuente-badge--v">V</span> (Informe Trimestral CONSAR Q4-2009, §I.2 y Cuadro 1.1, <a href="#fuente-F13">F13</a>), tras las tres cesiones de cartera del año a Banorte Generali (ver Sección 10). La estructura de SIEFOREs Básicas continuó con las cuatro creadas en 2008: SB1 (mayor edad, conservadora), SB2, SB3 y SB4 (más jóvenes, mayor exposición a renta variable). El régimen de comisión sobre saldo —establecido en marzo de 2008— vivió en 2009 su primer año completo de aplicación.</p>
+        <p>El régimen de inversión durante 2009 mantuvo las clases de activos autorizadas en años previos (deuda nacional y extranjera, renta variable nacional y extranjera, FIBRAs y estructurados desde 2007). La cartera del sistema se mantuvo predominantemente gubernamental, con menor exposición a renta variable que en el periodo pre-crisis.</p>
+      </section>
+
+      <section class="paper__section" id="cuentas">
+        <div class="paper__section-number">Sección 6</div>
+        <h2>Cuentas individuales</h2>
+        <p>Al cierre de 2009, el sistema administraba aproximadamente <strong>41 millones de cuentas individuales</strong> <span class="fuente-badge fuente-badge--e">E</span>, con crecimiento estimado del 2.5% respecto a 2008 (~40 millones). El panel mensual CONSAR vía datos.gob.mx (<a href="#fuente-F2">F2</a>) contiene la serie por AFORE para cada mes de 2009.</p>
+        <p>El número de cuentas individuales del SAR incluye trabajadores afiliados activos, cuentas inactivas, cuentas asignadas mediante la Cuenta Concentradora y trabajadores que han cesado actividad. La fracción de cuentas con cotización regular es menor que el total registrado; CONSAR no publicaba para el periodo una desagregación pública sistemática de cuentas activas vs. inactivas.</p>
+      </section>
+
+      <section class="paper__section" id="recursos">
+        <div class="paper__section-number">Sección 7</div>
+        <h2>Recursos administrados</h2>
+        <p>Los activos administrados por las AFOREs al cierre de 2009 fueron de <strong>1,151,186 millones de pesos</strong> <span class="fuente-badge fuente-badge--v">V</span> (CONSAR Radiografía 20 años, p. 4, <a href="#fuente-F1">F1</a>), equivalentes aproximadamente a <strong>~9.0% del PIB</strong> <span class="fuente-badge fuente-badge--e">E</span>. El sistema <strong>cruzó por primera vez la marca del billón de pesos en activos invertidos por las SIEFOREs</strong> en 2009. El crecimiento nominal respecto a 2008 fue de <strong>22.7%</strong>, recuperando con creces el ritmo de expansión que se había moderado por el choque financiero global.</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. Recursos administrados por las SIEFOREs, cierre 2008 vs cierre 2009</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th class="num">Cierre 2008</th>
+                <th class="num">Cierre 2009</th>
+                <th class="num">Variación</th>
+                <th class="origen">Origen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Recursos administrados (mdp)</td>
+                <td class="num">938,345 <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="num">1,151,186 <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="num">+22.7%</td>
+                <td class="origen"><a href="#fuente-F1">F1</a></td>
+              </tr>
+              <tr>
+                <td>Recursos como % del PIB (aprox.)</td>
+                <td class="num">~7.7% <span class="fuente-badge fuente-badge--e">E</span></td>
+                <td class="num">~9.0% <span class="fuente-badge fuente-badge--e">E</span></td>
+                <td class="num">+1.3 pp</td>
+                <td class="origen"><a href="#fuente-F1">F1</a> + <a href="#fuente-F9">F9</a></td>
+              </tr>
+              <tr>
+                <td>Número de AFOREs (aproximado al cierre)</td>
+                <td class="num">~20 <span class="fuente-badge fuente-badge--e">E</span></td>
+                <td class="num">~18 <span class="fuente-badge fuente-badge--e">E</span></td>
+                <td class="num">-2</td>
+                <td class="origen"><a href="#fuente-F5">F5</a></td>
+              </tr>
+              <tr>
+                <td>Comisión promedio sistema (% sobre saldo)</td>
+                <td class="num">1.92 <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="num">1.75 <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="num">-17 pb</td>
+                <td class="origen"><a href="#fuente-F12">F12</a></td>
+              </tr>
+              <tr>
+                <td>Cuentas individuales (millones, aproximado)</td>
+                <td class="num">~40 <span class="fuente-badge fuente-badge--e">E</span></td>
+                <td class="num">~41 <span class="fuente-badge fuente-badge--e">E</span></td>
+                <td class="num">+2.5%</td>
+                <td class="origen"><a href="#fuente-F2">F2</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR — Radiografía del Sistema de Pensiones a 20 años (F1, jul 2017, p. 4) para recursos; CONSAR Informe al Congreso 1T-2014 (F12) para comisiones; CONSAR vía datos.gob.mx (F2) para cuentas; CONSAR Eventos Corporativos (F5) para AFOREs. Columna "Origen" remite a la Sección 14.</p>
+        </div>
+
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 1. Recursos administrados por las SIEFOREs, cierre 2008 vs cierre 2009 (mdp)</p>
+          <div class="paper__grafica-container"><canvas id="chart-recursos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR — Radiografía del Sistema de Pensiones a 20 años (jul 2017, p. 4). Cifras a cierre de cada año en millones de pesos corrientes.</p>
+        </div>
+
+        <p>El crecimiento de 22.7% nominal durante 2009 combinó la recuperación de valuaciones financieras tras la crisis con el flujo continuo de aportaciones obrero-patronales. El cruce de la marca del billón de pesos representa un hito histórico: 12 años después de la entrada en operación del SAR (julio 1997), los activos invertidos por las SIEFOREs alcanzaron por primera vez los 12 dígitos. En los años siguientes, el sistema continuaría expandiéndose hacia múltiplos de esta marca (2 billones en 2013, 3 billones en 2017, 4 billones en 2019).</p>
+      </section>
+
+      <section class="paper__section" id="comisiones">
+        <div class="paper__section-number">Sección 8</div>
+        <h2>Comisiones</h2>
+
+        <!-- Bloque de Régimen — segundo año del régimen sobre saldo -->
+        <div class="paper__regimen-box">
+          <h3 class="paper__regimen-titulo">Régimen de comisiones vigente en 2009</h3>
+          <p class="paper__regimen-tag"><span class="regimen-flag regimen-flag--saldo">Sobre saldo</span></p>
+          <p>2009 fue el <strong>primer año completo</strong> bajo el régimen de <strong>comisión sobre saldo administrado</strong>, instaurado en marzo de 2008 cuando se eliminó la comisión sobre flujo vigente desde 1997. Bajo este esquema, las AFOREs cobran un porcentaje anual sobre el saldo administrado en las cuentas individuales, prorrateado a lo largo del año.</p>
+          <p>La <strong>comisión promedio del sistema</strong> al cierre de diciembre 2009 fue de <strong>1.75%</strong> sobre saldo <span class="fuente-badge fuente-badge--v">V</span> (CONSAR Informe al Congreso 1T-2014, Cuadro 2.21, <a href="#fuente-F12">F12</a>), una reducción de 17 puntos base respecto al 1.92% de diciembre 2008. Es la primera baja del nuevo régimen y el inicio de una tendencia descendente sostenida que llevaría la comisión promedio por debajo de 1% en años posteriores y hacia 0.5% en la siguiente década.</p>
+          <p><strong>Nota de comparabilidad temporal:</strong> las cifras de comisión sobre saldo de 2008 en adelante no son comparables numéricamente con las cifras de comisión sobre flujo del periodo 1997-2007. Cualquier gráfica que cruce marzo 2008 debe presentar ruptura visual o eje secundario, con la nota: "Antes de marzo 2008: comisión sobre flujo (% del SBC). Desde marzo 2008: comisión sobre saldo (% anual sobre saldo administrado). Series no comparables directamente."</p>
+        </div>
+
+        <h3>Comisiones sobre saldo por AFORE, diciembre 2009</h3>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Comisión sobre saldo por AFORE al cierre de diciembre 2009 (%)</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Comisión 2008</th>
+                <th class="num">Comisión 2009</th>
+                <th class="num">Cambio (pb)</th>
+                <th class="origen">Origen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>PensionISSSTE</td><td class="num">1.00 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">0.99 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">-1</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>Inbursa</td><td class="num">1.18 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.18 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">0</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>XXI Banorte</td><td class="num">1.45 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.45 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">0</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>Bancomer</td><td class="num">1.47 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.47 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">0</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>Afirme Bajío</td><td class="num">1.70 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.70 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">0</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>Banorte Generali</td><td class="num">1.71 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.71 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">0</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>SURA (ING)</td><td class="num">1.74 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.74 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">0</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>Banamex</td><td class="num">1.84 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.75 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">-9</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>HSBC</td><td class="num">1.77 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.77 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">0</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>Scotia</td><td class="num">1.98 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.88 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">-10</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>MetLife</td><td class="num">2.26 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.89 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">-37</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>Profuturo GNP</td><td class="num">1.96 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.92 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">-4</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>Invercap</td><td class="num">2.48 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.93 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">-55</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>Coppel</td><td class="num">3.30 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.94 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">-136</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>Principal</td><td class="num">2.05 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.94 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">-11</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td>Azteca</td><td class="num">1.96 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">1.96 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">0</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr class="highlight"><td><strong>Promedio del sistema</strong></td><td class="num"><strong>1.92 <span class="fuente-badge fuente-badge--v">V</span></strong></td><td class="num"><strong>1.75 <span class="fuente-badge fuente-badge--v">V</span></strong></td><td class="num"><strong>-17</strong></td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR — Informe al H. Congreso de la Unión, 1er Trimestre 2014, Cuadro 2.21. Las dos cesiones (Ahorra Ahora y Ixe, ambas a Banorte Generali en el año) y Argos (cesión en diciembre) no aparecen como filas independientes porque sus carteras pasaron a Banorte Generali antes del cierre del año.</p>
+        </div>
+
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 2. Comisión sobre saldo por AFORE al cierre de diciembre 2009 (%)</p>
+          <div class="paper__grafica-container paper__grafica-container--tall"><canvas id="chart-comisiones"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR Informe al Congreso 1T-2014, Cuadro 2.21. Línea punteada dorada: promedio del sistema 1.75%.</p>
+        </div>
+
+        <p>El primer año completo del régimen sobre saldo mostró reducciones diferenciadas: las AFOREs con comisiones más altas en 2008 (Coppel 3.30%, Invercap 2.48%, MetLife 2.26%) ejecutaron los recortes más pronunciados, convergiendo hacia el rango competitivo del sistema (1.89%-1.96%). Coppel redujo su comisión 136 puntos base —el recorte más agresivo del año—, derivado tanto de la presión competitiva como del mecanismo de asignación regulatoria del IRN que penaliza comisiones elevadas. El spread del sistema se comprimió de 2.30 puntos porcentuales en 2008 (Coppel 3.30 vs PensionISSSTE 1.00) a 0.97 puntos porcentuales en 2009 (Azteca 1.96 vs PensionISSSTE 0.99).</p>
+
+        <h3>Inicio de la serie histórica de comisión promedio del sistema</h3>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 3. Comisión promedio del sistema sobre saldo, inicio de la serie (2008-2009)</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th class="num">Año</th>
+                <th class="num">Comisión promedio (%)</th>
+                <th class="num">Cambio anual (pb)</th>
+                <th class="origen">Origen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">2008</td><td class="num">1.92 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">— (año bisagra)</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+              <tr><td class="num">2009</td><td class="num">1.75 <span class="fuente-badge fuente-badge--v">V</span></td><td class="num">-17</td><td class="origen"><a href="#fuente-F12">F12</a></td></tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR Informe al Congreso 1T-2014, Cuadro 2.21. La serie continúa en los Panoramas siguientes (2010: 1.62%, 2011: 1.48%, etc.). La cifra anterior a 2008 NO se incluye en esta serie porque pertenecía al régimen sobre flujo, con base de cálculo distinta.</p>
+        </div>
+      </section>
+
+      <section class="paper__section" id="rendimientos">
+        <div class="paper__section-number">Sección 9</div>
+        <h2>Rendimientos</h2>
+        <p>El año 2009 fue de <strong>recuperación significativa</strong> en los rendimientos del SAR tras el impacto adverso de la crisis financiera global. Se estima que el rendimiento nominal promedio del sistema se ubicó en aproximadamente <strong>~12%</strong> <span class="fuente-badge fuente-badge--e">E</span>, una mejora sustantiva respecto al ~3% nominal estimado para 2008. Esta cifra se reporta como estimación derivada del comportamiento agregado del sistema y de la recuperación de mercados financieros durante el año; CONSAR no publica un rendimiento oficial agregado único del sistema para 2009 con cita directa accesible.</p>
+        <p>El <strong>rendimiento real estimado</strong> del año, descontando la inflación de 3.57%, fue de aproximadamente <strong>~8%</strong> <span class="fuente-badge fuente-badge--e">E</span>, recuperando trayectoria positiva tras el resultado adverso de 2008. Descontando además la comisión promedio del sistema de 1.75% del rendimiento nominal estimado de ~12%, el rendimiento neto antes de inflación se ubica en aproximadamente ~10%; el rendimiento real neto para el trabajador promedio se estima en <strong>~6%</strong> <span class="fuente-badge fuente-badge--e">E</span>.</p>
+        <p>Es importante advertir que no existe un dato oficial único de rendimiento del SAR para 2009. Los rendimientos varían entre las cuatro SIEFOREs Básicas (SB1 a SB4), entre AFOREs, y según el periodo de medición. Las SIEFOREs con mayor exposición a renta variable (SB3 y SB4) capturaron en mayor proporción la recuperación de mercados accionarios del año, mientras que SB1 (conservadora) reflejó la baja de tasas de interés que apoyó valuaciones de instrumentos de deuda.</p>
+        <p>El rendimiento de 2009 puede leerse como compensación parcial de la pérdida valorativa de 2008. En horizontes plurianuales, los dos años se promedian a una trayectoria positiva consistente con el promedio histórico del sistema. Esta observación confirma el principio de que el ahorro para el retiro debe evaluarse en ventanas largas, no en años individuales aislados.</p>
+      </section>
+
+      <section class="paper__section" id="reestructuracion">
+        <div class="paper__section-number">Sección 10</div>
+        <h2>Consolidación del sistema en 2009</h2>
+        <p>El evento corporativo dominante de 2009 fue la <strong>consolidación visible del número de AFOREs</strong>, con tres cesiones de cartera a Banorte Generali concentradas en el año.</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 4. Eventos corporativos del SAR en 2009</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th class="origen">Origen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10-mar-2009</td>
+                <td>Cesión de cartera</td>
+                <td>Afore Ahorra Ahora cede su cartera a Banorte Generali <span class="fuente-badge fuente-badge--v">V</span>.</td>
+                <td class="origen"><a href="#fuente-F5">F5</a></td>
+              </tr>
+              <tr>
+                <td>29-jun-2009</td>
+                <td>Cesión de cartera</td>
+                <td>Ixe Afore cede su cartera a Banorte Generali <span class="fuente-badge fuente-badge--v">V</span>.</td>
+                <td class="origen"><a href="#fuente-F5">F5</a></td>
+              </tr>
+              <tr>
+                <td>01-dic-2009</td>
+                <td>Cesión de cartera</td>
+                <td>Afore Argos cede su cartera a Banorte Generali <span class="fuente-badge fuente-badge--v">V</span>.</td>
+                <td class="origen"><a href="#fuente-F5">F5</a></td>
+              </tr>
+              <tr>
+                <td>2009</td>
+                <td>Hito de transparencia</td>
+                <td>Primer año con Informes Trimestrales CONSAR al Congreso de la Unión disponibles públicamente en línea (repositorio oficial Q1-Q4 2009) <span class="fuente-badge fuente-badge--v">V</span>.</td>
+                <td class="origen"><a href="#fuente-F3i">F3i</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR — Eventos Corporativos en el Sistema de Ahorro para el Retiro (F5, mayo 2018). Repositorio CONSAR de informes trimestrales al Congreso (F3i).</p>
+        </div>
+
+        <p>Las tres cesiones a Banorte Generali en 2009 dejaron el sistema en 16 administradoras al cierre del año, incluyendo PensionISSSTE <span class="fuente-badge fuente-badge--v">V</span> (<a href="#fuente-F13">F13</a>), en lo que constituye una <strong>consolidación temprana del sistema</strong>: tras llegar al máximo de 21 AFOREs en 2006-2007, el SAR inició un proceso de concentración que continuaría en años posteriores (Scotia cede cartera a Profuturo en 2010, HSBC se fusiona con Principal en 2011, etc.) hasta estabilizarse en 10 AFOREs desde 2018. Banorte Generali, receptora de las tres cesiones de 2009, formaría posteriormente XXI Banorte (en 2012, mediante fusión con Afore XXI), que es hoy una de las administradoras de mayor tamaño del sistema.</p>
+        <p>El año 2009 también es relevante para la <strong>trazabilidad documental del SAR</strong>: es el primer año con Informes Trimestrales CONSAR al H. Congreso de la Unión disponibles públicamente en línea de manera sistemática (Q1, Q2, Q3 y Q4). Este repositorio (<a href="#fuente-F3i">F3i</a>) constituye desde entonces la fuente primaria principal para verificación de cifras del sistema. Para los años pre-2009, la consulta requiere otras fuentes oficiales (Radiografía CONSAR 2017, comunicados de prensa, CEFP).</p>
+      </section>
+
+      <section class="paper__section" id="normativo">
+        <div class="paper__section-number">Sección 11</div>
+        <h2>Marco normativo</h2>
+        <p>El Sistema de Ahorro para el Retiro opera bajo el marco jurídico establecido por la <strong>Ley de los Sistemas de Ahorro para el Retiro</strong>, publicada en el Diario Oficial de la Federación el 23 de mayo de 1996. Esta ley establece las bases de organización y funcionamiento del SAR, las facultades de CONSAR como órgano regulador, y los derechos y obligaciones de los trabajadores y las administradoras.</p>
+        <p>El régimen de pensiones de cuentas individuales del IMSS fue establecido mediante la reforma a la <strong>Ley del Seguro Social</strong> publicada el 21 de diciembre de 1995, vigente desde el 1 de julio de 1997. La <strong>Ley del ISSSTE</strong> fue reformada en 2007 para crear el régimen de cuentas individuales aplicable a trabajadores del Estado, con PensionISSSTE como AFORE pública operando desde diciembre de 2008.</p>
+        <p>La regulación específica de las inversiones de las SIEFOREs en 2009 se encontraba contenida en la <strong>Circular Única de SIEFOREs</strong>, emitida por CONSAR, con las reformas de 2008 que ampliaron la estructura de multifondos básicos a SB1-SB4. Durante 2009 no se registraron reformas de fondo al marco normativo del SAR; las modificaciones regulatorias del periodo se limitaron a ajustes técnicos relacionados con la operación del régimen sobre saldo en su primer año completo y la aplicación del Indicador de Rendimiento Neto (IRN) como mecanismo de asignación de cuentas inactivas.</p>
+        <p>Este estudio presenta exclusivamente hechos descriptivos derivados de la legislación vigente. Cualquier interpretación sobre el alcance específico de las disposiciones legales corresponde a las autoridades competentes y, en última instancia, al Poder Judicial.</p>
+      </section>
+
+      <section class="paper__section" id="limitaciones">
+        <div class="paper__section-number">Sección 12</div>
+        <h2>Limitaciones</h2>
+        <ul>
+          <li><strong>Alcance descriptivo.</strong> El estudio describe los indicadores observados durante 2009; no realiza inferencias causales ni proyecciones.</li>
+          <li><strong>Rendimientos anuales marcados [E].</strong> No existe una cifra oficial agregada única del rendimiento nominal anual del sistema para 2009 con cita pública directa. Las cifras ~12% nominal y ~8% real se reportan como estimaciones y se respeta la regla de omisión honesta del estándar editorial del observatorio Regla 4.</li>
+          <li><strong>Número de AFOREs al cierre [E].</strong> La cifra ~18 al cierre depende de las fechas exactas de transición operativa de las tres cesiones a Banorte Generali; antes del año hubo más AFOREs en operación durante meses específicos.</li>
+          <li><strong>Cuentas individuales [E].</strong> El total ~41 millones es estimación derivada del panel mensual `datos.gob.mx/cuentas_administradas_afore`; el desglose por AFORE de cuentas activas vs inactivas requiere extracción específica del panel.</li>
+          <li><strong>Sin análisis causal.</strong> El año concentra recuperación financiera, recortes de Banxico, consolidación corporativa y primer año del nuevo régimen de comisiones. Este estudio documenta los hechos sin establecer relaciones causales entre ellos.</li>
+          <li><strong>Fuentes disponibles.</strong> El análisis se sustenta exclusivamente en información publicada por fuentes oficiales (CONSAR, INEGI, Banxico) y en el Panel DM-SAR-DATA-001. No se consideraron datos internos de AFOREs ni estudios no publicados.</li>
+        </ul>
+      </section>
+
+      <section class="paper__section" id="conclusiones">
+        <div class="paper__section-number">Sección 13</div>
+        <h2>Conclusiones</h2>
+        <ol>
+          <li>El SAR administró 1,151,186 mdp al cierre de 2009 <span class="fuente-badge fuente-badge--v">V</span>, <strong>cruzando por primera vez la marca del billón de pesos en activos invertidos por las SIEFOREs</strong>. El crecimiento nominal de 22.7% respecto a 2008 combinó la recuperación financiera post-crisis con el flujo continuo de aportaciones.</li>
+          <li>La <strong>comisión promedio del sistema se redujo a 1.75%</strong> sobre saldo <span class="fuente-badge fuente-badge--v">V</span> (-17 pb respecto a 2008), inaugurando la tendencia descendente del nuevo régimen. La reducción más agresiva la ejecutó Coppel (-136 pb), seguida por Invercap (-55 pb) y MetLife (-37 pb), comprimiendo el spread del sistema de 230 pb a 97 pb en un año.</li>
+          <li><strong>Consolidación visible del sistema:</strong> tres cesiones de cartera a Banorte Generali (Ahorra Ahora en marzo, Ixe en junio, Argos en diciembre) <span class="fuente-badge fuente-badge--v">V</span> redujeron el número de AFOREs en operación a aproximadamente 18 al cierre, desde el máximo histórico de 21 alcanzado en 2006-2007.</li>
+          <li><strong>Recuperación de rendimientos:</strong> el rendimiento nominal del sistema se estima en ~12% (vs ~3% en 2008) y el real en ~8% <span class="fuente-badge fuente-badge--e">E</span>, beneficiado por la recuperación de mercados financieros internacionales y la baja de tasas de interés de Banxico.</li>
+          <li>El Banco de México ejecutó <strong>recortes agresivos</strong> a la tasa de referencia, bajándola de 8.25% a 4.50% al cierre <span class="fuente-badge fuente-badge--v">V</span> (-375 pb en doce meses) como respuesta de política a la moderación inflacionaria y al apoyo a la actividad económica.</li>
+          <li>La inflación al cierre fue de <strong>3.57%</strong> <span class="fuente-badge fuente-badge--v">V</span>, prácticamente la mitad que en 2008 (6.53%), ubicándose dentro del rango objetivo de Banxico.</li>
+          <li>2009 es el <strong>primer año con Informes Trimestrales CONSAR al Congreso disponibles públicamente en línea</strong> <span class="fuente-badge fuente-badge--v">V</span>, hito de transparencia que se mantiene desde entonces y que constituye la fuente primaria principal para los Panoramas de 2009 en adelante.</li>
+        </ol>
+        <p>Los datos presentados corresponden exclusivamente al periodo 2009.</p>
+      </section>
+
+      <hr class="paper__separator">
+
+      <section class="paper__section" id="fuentes">
+        <div class="paper__section-number">Sección 14</div>
+        <h2>Fuentes</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li id="fuente-F1"><span class="fuente-inst">CONSAR &middot; Secretaría de Hacienda y Crédito Público</span>. <span class="fuente-titulo">Radiografía del Sistema de Pensiones a 20 años de su creación</span>. México, julio de 2017. <a href="https://www.gob.mx/cms/uploads/attachment/file/241559/Radiograf_sistema_20an_os.pdf" target="_blank" rel="noopener">https://www.gob.mx/cms/uploads/attachment/file/241559/Radiograf_sistema_20an_os.pdf</a> &middot; Copia versionada: <code>engine/sources/CONSAR-Radiografia-20-anos-2017.pdf</code>.</li>
+            <li id="fuente-F2"><span class="fuente-inst">CONSAR vía datos.gob.mx</span>. <span class="fuente-titulo">Cuentas administradas por las AFOREs — panel mensual 1997-2025</span>. Licencia CC-BY-4.0. <a href="https://repodatos.atdt.gob.mx/api_update/consar/cuentas_administradas_afore/05_cuentas.csv" target="_blank" rel="noopener">https://repodatos.atdt.gob.mx/api_update/consar/cuentas_administradas_afore/05_cuentas.csv</a></li>
+            <li id="fuente-F3"><span class="fuente-inst">CONSAR vía datos.gob.mx</span>. <span class="fuente-titulo">Comisiones SIEFORE — panel 2008-2025</span>. Licencia CC-BY-4.0. Catálogo: <a href="https://datos.gob.mx/organization/consar" target="_blank" rel="noopener">https://datos.gob.mx/organization/consar</a></li>
+            <li id="fuente-F3i"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Informes Trimestrales al H. Congreso de la Unión — repositorio oficial (desde 2009 Q1)</span>. <a href="https://www.gob.mx/consar/documentos/informes-trimestrales-de-la-consar" target="_blank" rel="noopener">https://www.gob.mx/consar/documentos/informes-trimestrales-de-la-consar</a></li>
+            <li id="fuente-F5"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Eventos Corporativos en el Sistema de Ahorro para el Retiro</span>. Documento oficial, mayo 2018. <a href="https://www.consar.gob.mx/gobmx/aplicativo/factsheets/EC/ECSAR.pdf" target="_blank" rel="noopener">https://www.consar.gob.mx/gobmx/aplicativo/factsheets/EC/ECSAR.pdf</a> &middot; Copia versionada: <code>engine/sources/CONSAR-Eventos-Corporativos-2018.pdf</code>.</li>
+            <li id="fuente-F9"><span class="fuente-inst">INEGI</span>. <span class="fuente-titulo">Índice Nacional de Precios al Consumidor — INPC dic-dic 2009</span>. <a href="https://www.inegi.org.mx/app/indicesdeprecios/" target="_blank" rel="noopener">https://www.inegi.org.mx/app/indicesdeprecios/</a></li>
+            <li id="fuente-F10"><span class="fuente-inst">Banco de México</span>. <span class="fuente-titulo">Anuncios de las decisiones de política monetaria; serie histórica de tasa objetivo 2008-2009 (reducción de 8.25% a 4.50%)</span>. <a href="https://www.banxico.org.mx/publicaciones-y-prensa/anuncios-de-las-decisiones-de-politica-monetaria/anuncios-politica-monetaria-t.html" target="_blank" rel="noopener">https://www.banxico.org.mx/publicaciones-y-prensa/anuncios-de-las-decisiones-de-politica-monetaria/anuncios-politica-monetaria-t.html</a></li>
+            <li id="fuente-F12"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Informe al H. Congreso de la Unión, 1er Trimestre 2014, Cuadro 2.21</span> (consolida la serie de comisiones sobre saldo dic-2008 a dic-2013). <a href="https://www.gob.mx/cms/uploads/attachment/file/667687/CONSAR_Informe_al_Congreso_2014.pdf" target="_blank" rel="noopener">https://www.gob.mx/cms/uploads/attachment/file/667687/CONSAR_Informe_al_Congreso_2014.pdf</a></li>
+            <li id="fuente-LSAR"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 23 de mayo de 1996, con reformas posteriores. <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LSAR.pdf" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio/pdf/LSAR.pdf</a></li>
+            <li id="fuente-LSS"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Seguro Social</span> (DOF 21 diciembre 1995, vigente 1 julio 1997) y <span class="fuente-titulo">Ley del ISSSTE</span> (reforma 2007). <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+            <li id="fuente-F13"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Informe Trimestral al H. Congreso de la Unión sobre la situación del Sistema de Ahorro para el Retiro, cuarto trimestre de 2009</span>. México, 2010. <a href="https://www.gob.mx/cms/uploads/attachment/file/61284/2009_04_trimestre_4.pdf" target="_blank" rel="noopener">https://www.gob.mx/cms/uploads/attachment/file/61284/2009_04_trimestre_4.pdf</a> &middot; §I.2 y Cuadro 1.1: al cierre de diciembre de 2009 la industria estaba conformada por 16 administradoras de cuentas individuales (incluyendo al PENSIONISSSTE), con roster nominal. Copia versionada: <code>engine/sources/CONSAR-Informe-Trimestral-Q4-2009.pdf</code> (SHA-256 en <code>HASHES.txt</code>).</li>
+            <li id="fuente-DM"><span class="fuente-inst">Datos México</span>. <span class="fuente-titulo">Panel DM-SAR-DATA-001: Base de datos consolidada del SAR 1997-2025</span>. <a href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/" target="_blank" rel="noopener">https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/</a></li>
+          </ol>
+          <p>Fecha de consulta de fuentes electrónicas: junio de 2026.</p>
+          <p class="paper__fuentes-leyenda"><span class="fuente-badge fuente-badge--v">V</span> dato verificado de fuente oficial directa &middot; <span class="fuente-badge fuente-badge--e">E</span> dato estimado o derivado, declarado como tal &middot; estándar editorial del observatorio.</p>
+        </div>
+      </section>
+
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interés:</strong> El observatorio Datos México declara la ausencia de conflictos de interés en la elaboración de este estudio. Datos México no tiene relación comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> Todas las cifras cuantitativas presentadas en este estudio provienen de fuentes primarias oficiales (CONSAR, INEGI, Banxico) y del Panel DM-SAR-DATA-001. Cada cifra clave incluye badge <span class="fuente-badge fuente-badge--v">V</span> (verificada) o <span class="fuente-badge fuente-badge--e">E</span> (estimada/derivada) junto con la referencia a su fuente en la Sección 14. Los PDFs CONSAR y CEFP están versionados en <code>engine/sources/</code> con SHA-256 en <code>HASHES.txt</code> para trazabilidad permanente.</p>
+        <p><strong>Régimen de comisiones:</strong> Este paper cubre el primer año completo del régimen <strong>sobre saldo</strong> (vigente desde marzo 2008). Las comisiones reportadas inauguran la serie histórica que se mantiene hasta hoy y NO son comparables numéricamente con la serie del régimen sobre flujo (1997-2007).</p>
+        <p><strong>Alcance:</strong> Este documento tiene carácter informativo y no constituye asesoría financiera, legal ni recomendación alguna sobre productos, servicios o AFOREs específicas.</p>
+      </div>
+
+    </div>
+
+
+      <!-- DE LA LECTURA AL CÁLCULO -->
+      <aside class="paper__calc-cta">
+        <p class="paper__calc-cta-eyebrow">De la lectura al cálculo</p>
+        <p class="paper__calc-cta-body">
+          Los datos de esta serie alimentan las <strong>calculadoras del observatorio</strong>: herramientas
+          educativas con supuestos públicos, fuentes oficiales versionadas y validación actuarial.
+          <a href="/pensiones/calculadoras">Calcula tu caso →</a>
+        </p>
+      </aside>
+
+  </main>
+
+
+  <!-- Tooltip unificado + hover-por-área Ronda 6.
+       Un solo sistema premium para sparkline, barras y ticks:
+       - Contenido ASCII puro en data-tip-* (mata "?" del `·` U+00B7 y `[V]`).
+       - Detección del punto MÁS CERCANO por overlay en sparkline y escala.
+       - Marcador activo sincronizado con el tooltip.
+       - Fallback teclado / focus / touch preservado. -->
+  <script>
+  (function () {
+    'use strict';
+    var container = document.querySelector('.paper__resumen-hero-inner');
+    var tip       = document.getElementById('rhTip');
+    if (!container || !tip) return;
+    var titleEl   = tip.querySelector('.rh-tip__title');
+    var detailTx  = tip.querySelector('.rh-tip__detail-text');
+    var badgeEl   = tip.querySelector('.rh-tip__badge');
+    var noteEl    = tip.querySelector('.rh-tip__note');
+    var hideTimer;
+    var currentActive = null;
+
+    function positionOverElement(el) {
+      var r = el.getBoundingClientRect();
+      var c = container.getBoundingClientRect();
+      tip.style.left = (r.left - c.left + r.width / 2) + 'px';
+      tip.style.top  = (r.top  - c.top) + 'px';
+    }
+
+    function showFor(el) {
+      if (!el || !el.dataset.tipTitle) return;
+      clearTimeout(hideTimer);
+      titleEl.textContent = el.dataset.tipTitle;
+      detailTx.textContent = el.dataset.tipDetail || '';
+      noteEl.textContent = el.dataset.tipNote || '';
+      noteEl.style.display = el.dataset.tipNote ? 'block' : 'none';
+      badgeEl.style.display = el.dataset.tipV === '1' ? 'inline-block' : 'none';
+      positionOverElement(el);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tip.classList.add('is-visible');
+          tip.setAttribute('aria-hidden', 'false');
+        });
+      });
+    }
+    function hide() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('is-visible');
+        tip.setAttribute('aria-hidden', 'true');
+        if (currentActive && currentActive.classList) {
+          currentActive.classList.remove('is-active');
+        }
+        currentActive = null;
+        var activeDot = document.querySelector('.rh-spark__active');
+        if (activeDot) activeDot.setAttribute('opacity', '0');
+      }, 80);
+    }
+
+    function setActive(el) {
+      if (currentActive === el) return;
+      if (currentActive && currentActive.classList) currentActive.classList.remove('is-active');
+      currentActive = el;
+      if (el && el.classList) el.classList.add('is-active');
+    }
+
+    // ---------- 1. Sparkline: hover POR ÁREA ----------
+    var sparkSvg = document.querySelector('.rh-spark__svg');
+    var sparkOverlay = document.querySelector('.rh-spark__overlay');
+    var sparkPoints = Array.prototype.slice.call(document.querySelectorAll('.rh-spark__point'));
+    var activeDot = document.querySelector('.rh-spark__active');
+
+    if (sparkSvg && sparkOverlay && sparkPoints.length) {
+      var pointCoords = sparkPoints.map(function (p) {
+        return { el: p, cx: parseFloat(p.getAttribute('cx')), cy: parseFloat(p.getAttribute('cy')) };
+      });
+
+      function handleSparkMove(e) {
+        var svgRect = sparkSvg.getBoundingClientRect();
+        var xInPx = (e.clientX !== undefined ? e.clientX : e.touches[0].clientX) - svgRect.left;
+        var xInVb = xInPx / svgRect.width * 720; // viewBox width
+        // Punto más cercano por X
+        var nearest = pointCoords[0], minD = Math.abs(pointCoords[0].cx - xInVb);
+        for (var i = 1; i < pointCoords.length; i++) {
+          var d = Math.abs(pointCoords[i].cx - xInVb);
+          if (d < minD) { minD = d; nearest = pointCoords[i]; }
+        }
+        // Mueve el marcador activo al punto seleccionado
+        if (activeDot) {
+          activeDot.setAttribute('cx', nearest.cx);
+          activeDot.setAttribute('cy', nearest.cy);
+          activeDot.setAttribute('opacity', '1');
+        }
+        setActive(nearest.el);
+        showFor(nearest.el);
+      }
+
+      sparkOverlay.addEventListener('mousemove', handleSparkMove);
+      sparkOverlay.addEventListener('mouseleave', hide);
+      sparkOverlay.addEventListener('touchstart', handleSparkMove, { passive: true });
+      sparkOverlay.addEventListener('touchmove', handleSparkMove, { passive: true });
+    }
+
+    // ---------- 2. Escala AFOREs: hover POR ÁREA ----------
+    var scaleTrack = document.querySelector('.rh-viz__scale-track');
+    if (scaleTrack) {
+      var scaleTargets = Array.prototype.slice.call(
+        scaleTrack.querySelectorAll('[data-tip-title][data-tip-pos]')
+      );
+      function handleScaleMove(e) {
+        var rect = scaleTrack.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width * 100;
+        var nearest = scaleTargets[0];
+        var minD = Math.abs(parseFloat(nearest.dataset.tipPos) - pct);
+        for (var i = 1; i < scaleTargets.length; i++) {
+          var d = Math.abs(parseFloat(scaleTargets[i].dataset.tipPos) - pct);
+          if (d < minD) { minD = d; nearest = scaleTargets[i]; }
+        }
+        setActive(nearest);
+        showFor(nearest);
+      }
+      scaleTrack.addEventListener('mousemove', handleScaleMove);
+      scaleTrack.addEventListener('mouseleave', hide);
+      scaleTrack.addEventListener('touchmove', function (e) {
+        if (e.touches && e.touches[0]) {
+          handleScaleMove({ clientX: e.touches[0].clientX });
+        }
+      }, { passive: true });
+    }
+
+    // ---------- 3. Focus por teclado en todos los data-tip-title ----------
+    var focusables = container.querySelectorAll('[data-tip-title][tabindex]');
+    Array.prototype.forEach.call(focusables, function (el) {
+      el.addEventListener('focus', function () { setActive(el); showFor(el); });
+      el.addEventListener('blur', hide);
+    });
+
+    // ---------- 4. Rows generosas: barras Recursos + rows AFORE ----------
+    var hoverRows = container.querySelectorAll('.rh-viz__bar-row[data-tip-title], .rh-afore-row[data-tip-title]');
+    Array.prototype.forEach.call(hoverRows, function (el) {
+      el.addEventListener('mouseenter', function () { setActive(el); showFor(el); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('touchstart', function () { setActive(el); showFor(el); }, { passive: true });
+    });
+
+    // ---------- 5. Tocar fuera oculta el tooltip ----------
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('[data-tip-title], .rh-spark__overlay, .rh-viz__scale-track, .rh-afore-row')) hide();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      tip.classList.remove('is-visible');
+      if (activeDot) activeDot.setAttribute('opacity', '0');
+    });
+  })();
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navy = '#1B2A5E';
+    var gold = '#B8943E';
+
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = '#4B5563';
+
+    // Gráfica 1 — Recursos 2008 vs 2009
+    new Chart(document.getElementById('chart-recursos'), {
+      type: 'bar',
+      data: {
+        labels: ['Cierre 2008', 'Cierre 2009'],
+        datasets: [{
+          label: 'Recursos (mdp)',
+          data: [938345, 1151186],
+          backgroundColor: [navy, gold],
+          borderRadius: 4,
+          barPercentage: 0.5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: function(ctx) { return ctx.parsed.y.toLocaleString() + ' mdp'; } } }
+        },
+        scales: {
+          y: { beginAtZero: true, max: 1300000, title: { display: true, text: 'Millones de pesos (mdp)' }, grid: { color: 'rgba(0,0,0,0.06)' } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+
+    // Gráfica 2 — Comisiones sobre saldo por AFORE dic 2009 (orden mayor a menor)
+    var aforeData = [
+      ['Azteca', 1.96], ['Coppel', 1.94], ['Principal', 1.94], ['Invercap', 1.93],
+      ['Profuturo GNP', 1.92], ['MetLife', 1.89], ['Scotia', 1.88], ['HSBC', 1.77],
+      ['Banamex', 1.75], ['SURA (ING)', 1.74], ['Banorte Generali', 1.71], ['Afirme Bajío', 1.70],
+      ['Bancomer', 1.47], ['XXI Banorte', 1.45], ['Inbursa', 1.18], ['PensionISSSTE', 0.99]
+    ];
+    new Chart(document.getElementById('chart-comisiones'), {
+      type: 'bar',
+      data: {
+        labels: aforeData.map(function(d) { return d[0]; }),
+        datasets: [{
+          label: 'Comisión sobre saldo (%)',
+          data: aforeData.map(function(d) { return d[1]; }),
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: function(ctx) { return ctx.parsed.x.toFixed(2) + '%'; } } }
+        },
+        scales: {
+          x: { min: 0, max: 2.2, title: { display: true, text: 'Comisión sobre saldo (%)' }, grid: { color: 'rgba(0,0,0,0.06)' } },
+          y: { grid: { display: false } }
+        }
+      },
+      plugins: [{
+        id: 'promedioLine',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var xScale = chart.scales.x;
+          var x = xScale.getPixelForValue(1.75);
+          ctx.save();
+          ctx.beginPath();
+          ctx.setLineDash([6, 4]);
+          ctx.moveTo(x, chart.chartArea.top);
+          ctx.lineTo(x, chart.chartArea.bottom);
+          ctx.strokeStyle = gold;
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.fillStyle = gold;
+          ctx.textAlign = 'left';
+          ctx.fillText('Promedio 1.75%', x + 4, chart.chartArea.top + 14);
+          ctx.restore();
+        }
+      }]
+    });
+  });
+  </script>
+</body>
+</html>

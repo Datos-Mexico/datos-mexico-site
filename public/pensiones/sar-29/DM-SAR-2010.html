@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Sistema de Ahorro para el Retiro en México: Panorama 2010 | Datos México</title>
+  <meta name="description" content="Estudio descriptivo del Sistema de Ahorro para el Retiro en México durante 2010: estructura, recursos, comisiones, rendimientos y marco normativo. Versión corregida con fuentes oficiales primarias (CONSAR Informes Trimestrales Q4 2009 y Q1 2010).">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/DM-SAR-2010.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Sistema de Ahorro para el Retiro en México: Panorama 2010 | Datos México">
+  <meta property="og:description" content="Estudio descriptivo del SAR en México durante 2010: estructura, recursos administrados, comisiones, rendimientos y composición de inversión.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/DM-SAR-2010.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Chart.js -->
+  <script src="/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <main class="paper paper--margen" role="main">
+
+    <a href="/pensiones/sar-29" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a publicaciones
+    </a>
+
+    <header class="paper__portada">
+      <span class="paper__tipo">Estudio</span>
+      <p class="paper__id">DM-SAR-2010</p>
+      <h1 class="paper__titulo">El Sistema de Ahorro para el Retiro en México: Panorama 2010</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Febrero 2026 &middot; Versión corregida junio 2026</p>
+
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-2010</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         RESUMEN EJECUTIVO VISUAL (rollout 2010)
+         Reemplaza el .paper__resumen de texto. Toda cifra y su badge [V]/[E]
+         proviene del cuerpo CORREGIDO del paper (versión 2,) sin
+         alteración (Secciones 4, 6, 7, 8, 9 y Tablas 1, 2, 3); ninguna cifra
+         nueva. Cifras dominantes (rh-card__big) son [V]; los estimados
+         (+19.8% crecimiento, ~10.6% real 2009) viven como contexto [E].
+         Historia del año: recuperación post-crisis 2008-2009 (PIB +5.5%,
+         Sec 4; Conclusión 6) que llevó los recursos de 9.8% a 11.1% del PIB
+         (Sec 7), tras un 2009 en que el sistema rindió 14.2% nominal — la
+         cifra CONSAR corregida en la fe de erratas jamás la 14.37%
+         FIAP de la versión 1.
+         DECISIONES DE ESTE PAPER:
+         (1) La FE DE ERRATAS vive en el body ANTES de la Sección 1
+             original: se conserva INTACTA como primer bloque del body; solo
+             se elimina la <section id="resumen"> de texto. Compromiso de
+             transparencia del observatorio.
+         (2) SIN sparkline de comisión 2008→2010: el cuerpo NO contiene una
+             serie anual de comisión promedio (no hay Tabla 4 de comisiones;
+             la Tabla 4 del paper es composición de cartera). Omisión honesta:
+             el slot "spark" lo ocupa un ranking de rendimientos nominales
+             2010 (Tabla 3, 5 AFOREs, todas [V]) — sorted bar list (D19).
+         (3) Dot plot con 15 AFOREs (Tabla 2, enero 2010): patrón de
+             DISPERSIÓN AMPLIA — rango 0.64 pp (1.17% Argos a 1.81% Coppel),
+             sin cluster dominante; Argos (mínimo nombrado en el cuerpo,
+             Conclusión 2) como acento gold. Nombres tal cual Tabla 2 del
+             cuerpo (mercado 2010: Bancomer, HSBC, ING, Metlife, Afirme
+             Bajío, etc.). Posiciones: (val - 1.17) / (1.81 - 1.17) * 100.
+         ========================================== -->
+    <section class="paper__resumen-hero" id="resumen" aria-labelledby="resumenHeroTitle">
+      <div class="paper__resumen-hero-inner">
+
+        <!-- Tooltip unificado (Ronda 6): un solo sistema; ASCII
+             puro en data-tip-*; badge V como elemento HTML. -->
+        <div class="rh-tip" id="rhTip" role="status" aria-live="polite" aria-hidden="true">
+          <span class="rh-tip__title"></span>
+          <span class="rh-tip__detail">
+            <span class="rh-tip__detail-text"></span>
+            <span class="rh-tip__badge" aria-hidden="true">V</span>
+          </span>
+          <span class="rh-tip__note"></span>
+        </div>
+
+        <p class="paper__resumen-hero-eyebrow">Sección 1 &middot; En síntesis &middot; Panorama 2010</p>
+        <h2 id="resumenHeroTitle" class="paper__resumen-hero-titulo">En el año de la recuperación, el SAR alcanzó 11.1% del PIB.</h2>
+
+        <p class="paper__resumen-hero-lede">
+          A septiembre de 2010, el SAR administraba <strong>1,379.0 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;equivalentes a <strong>11.1% del PIB</strong><span class="fuente-badge fuente-badge--v">V</span>&mdash; en <strong>15 AFOREs</strong><span class="fuente-badge fuente-badge--v">V</span>, desde <strong>1,151.2 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span> (<strong>9.8% del PIB</strong><span class="fuente-badge fuente-badge--v">V</span>) al cierre de 2009 según CONSAR; los rendimientos netos acumulados sumaban 535.3 mmdp, <strong>38.8% del total</strong> de los activos administrados<span class="fuente-badge fuente-badge--v">V</span>. Las comisiones sobre saldo oscilaban entre <strong>1.17%</strong> y <strong>1.81%</strong><span class="fuente-badge fuente-badge--v">V</span>, con promedio simple de ~<strong>1.57%</strong><span class="fuente-badge fuente-badge--v">V</span>. El rendimiento nominal del sistema en 2009 fue de <strong>14.2%</strong><span class="fuente-badge fuente-badge--v">V</span> (real estimado ~<strong>10.6%</strong><span class="fuente-badge fuente-badge--e">E</span>); en 2010, las mejores AFOREs reportaron entre <strong>9.73%</strong> y <strong>11.49%</strong><span class="fuente-badge fuente-badge--v">V</span>. La cartera al cierre de 2009: <strong>66.3%</strong> valores gubernamentales y <strong>33.7%</strong> no gubernamentales<span class="fuente-badge fuente-badge--v">V</span>. El contexto: crecimiento del PIB de <strong>5.5%</strong><span class="fuente-badge fuente-badge--v">V</span> tras la crisis 2008-2009, inflación de ~<strong>4.2%</strong><span class="fuente-badge fuente-badge--v">V</span>, tasa de Banxico en <strong>4.50%</strong><span class="fuente-badge fuente-badge--v">V</span> todo el año y 40 millones de trabajadores registrados<span class="fuente-badge fuente-badge--v">V</span> al cierre de 2009.
+        </p>
+
+        <div class="paper__resumen-hero-grid">
+
+          <article class="rh-card">
+            <p class="rh-card__label">Recursos administrados &mdash; sep 2010</p>
+            <p class="rh-card__big">1,379.0<span class="rh-card__unit">mmdp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">11.1% del PIB<span class="fuente-badge fuente-badge--v">V</span> &middot; +19.8%<span class="fuente-badge fuente-badge--e">E</span> vs cierre 2009 (1,151.2 mmdp<span class="fuente-badge fuente-badge--v">V</span>)</p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card rh-card--accent">
+            <p class="rh-card__label">Rendimiento nominal del sistema &mdash; 2009</p>
+            <p class="rh-card__big">14.2<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Real estimado ~10.6%<span class="fuente-badge fuente-badge--e">E</span> &middot; Por SIEFORE: 9.6% (SB1) a 17.5% (SB5)<span class="fuente-badge fuente-badge--v">V</span> &middot; Cifra CONSAR Q4 2009, corregida en la fe de erratas</p>
+            <p class="rh-card__ref"><a href="#rendimientos">Sección 9 &mdash; Rendimientos</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Comisión promedio &mdash; ene 2010</p>
+            <p class="rh-card__big">1.57<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Rango 1.17% &ndash; 1.81%<span class="fuente-badge fuente-badge--v">V</span> &middot; 15 AFOREs<span class="fuente-badge fuente-badge--v">V</span> &middot; Esquema sobre saldo vigente desde 2008</p>
+            <p class="rh-card__ref"><a href="#comisiones">Sección 8 &mdash; Comisiones</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Crecimiento del PIB 2010</p>
+            <p class="rh-card__big">5.5<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Tras &minus;4.7% en 2009<span class="fuente-badge fuente-badge--v">V</span> &middot; Inflación ~4.2%<span class="fuente-badge fuente-badge--v">V</span> &middot; Tasa Banxico 4.50%<span class="fuente-badge fuente-badge--v">V</span> sin cambios</p>
+            <p class="rh-card__ref"><a href="#contexto">Sección 4 &mdash; Contexto económico 2010</a></p>
+          </article>
+
+        </div>
+
+        <!-- Retícula asimétrica (D20): 2 cols en escritorio con áreas
+                "recursos afore"     ← Recursos + Dot plot (der spans 2 filas)
+                "spark    afore"
+             El slot "spark" lo ocupa el ranking de rendimientos 2010 (ver
+             comentario de cabecera, decisión 2). Las filas del ranking usan
+             la estructura de barras del molde con la columna de etiqueta
+             ensanchada inline (6.5rem) para alojar nombres de AFORE en vez
+             de años. Móvil: stack DOM order (Recursos → Ranking → AFORE). -->
+        <div class="paper__resumen-hero-viz">
+
+          <article class="rh-viz rh-viz--recursos" aria-labelledby="rhVizRecTitle">
+            <p id="rhVizRecTitle" class="rh-viz__title">Recursos administrados (mmdp) &middot; dic 2009 &rarr; sep 2010</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre diciembre 2009, 1,151.2 mmdp, 9.8% del PIB, verificado"
+                   data-tip-title="Cierre dic-2009" data-tip-detail="1,151.2 mmdp" data-tip-note="9.8% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2009</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.835"></div>
+                  <span class="rh-viz__bar-label">1,151.2<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Septiembre 2010, 1,379.0 mmdp, 11.1% del PIB, verificado"
+                   data-tip-title="Septiembre 2010" data-tip-detail="1,379.0 mmdp" data-tip-note="11.1% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2010</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">1,379.0<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">+227.8 mmdp<span class="fuente-badge fuente-badge--e">E</span> &middot; +19.8%<span class="fuente-badge fuente-badge--e">E</span> en nueve meses &middot; 9.8% &rarr; 11.1% del PIB<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-viz__ref"><a href="#recursos">Tabla 1 &mdash; Sección 7</a></p>
+          </article>
+
+          <!-- Ranking de rendimientos nominales 2010 (sustituye a la
+               sparkline de comisión: el cuerpo no contiene serie anual de
+               comisión promedio — omisión honesta, D19). Cinco AFOREs de la
+               Tabla 3, todas [V]; ratios sobre el máximo (11.49): 1.000,
+               0.953, 0.911, 0.881, 0.847. La barra líder (Invercap) lleva
+               el degradado con remate gold del molde. Nombres tal cual
+               Tabla 3 (AFORE XXI, no XXI de la Tabla 2 — hilo de higiene). -->
+          <article class="paper__resumen-hero-spark" aria-labelledby="rhVizRendTitle">
+            <p id="rhVizRendTitle" class="rh-viz__title">Mejores rendimientos nominales 2010 (%)</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" style="grid-template-columns: 6.5rem 1fr;" tabindex="0" role="img"
+                   aria-label="Invercap, 11.49 por ciento nominal 2010, verificado"
+                   data-tip-title="Invercap" data-tip-detail="11.49%" data-tip-note="Mejor rendimiento nominal 2010" data-tip-v="1">
+                <span class="rh-viz__year">Invercap</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">11.49<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" style="grid-template-columns: 6.5rem 1fr;" tabindex="0" role="img"
+                   aria-label="Profuturo GNP, 10.95 por ciento nominal 2010, verificado"
+                   data-tip-title="Profuturo GNP" data-tip-detail="10.95%" data-tip-v="1">
+                <span class="rh-viz__year">Profuturo GNP</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.953"></div>
+                  <span class="rh-viz__bar-label">10.95<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" style="grid-template-columns: 6.5rem 1fr;" tabindex="0" role="img"
+                   aria-label="Banamex, 10.47 por ciento nominal 2010, verificado"
+                   data-tip-title="Banamex" data-tip-detail="10.47%" data-tip-v="1">
+                <span class="rh-viz__year">Banamex</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.911"></div>
+                  <span class="rh-viz__bar-label">10.47<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" style="grid-template-columns: 6.5rem 1fr;" tabindex="0" role="img"
+                   aria-label="AFORE XXI, 10.12 por ciento nominal 2010, verificado"
+                   data-tip-title="AFORE XXI" data-tip-detail="10.12%" data-tip-v="1">
+                <span class="rh-viz__year">AFORE XXI</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.881"></div>
+                  <span class="rh-viz__bar-label">10.12<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" style="grid-template-columns: 6.5rem 1fr;" tabindex="0" role="img"
+                   aria-label="ING, 9.73 por ciento nominal 2010, verificado"
+                   data-tip-title="ING" data-tip-detail="9.73%" data-tip-v="1">
+                <span class="rh-viz__year">ING</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.847"></div>
+                  <span class="rh-viz__bar-label">9.73<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">Cinco mejores AFOREs del año<span class="fuente-badge fuente-badge--v">V</span> &middot; Inflación 2010 ~4.2%<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-viz__ref"><a href="#rendimientos">Tabla 3 &mdash; Sección 9</a></p>
+          </article>
+
+          <article class="rh-viz rh-viz--afore" aria-labelledby="rhVizAforeTitle">
+            <p id="rhVizAforeTitle" class="rh-viz__title">Comisiones por AFORE (15 firmas, enero 2010)</p>
+
+            <!-- Dot plot horizontal (D19) — patrón de DISPERSIÓN AMPLIA:
+                 15 firmas repartidas a lo largo de 0.64 pp (1.17% a 1.81%),
+                 sin cluster dominante — el mercado de 2010 aún no conocía
+                 la compresión de la década siguiente. Argos (mínimo nombrado
+                 en Conclusión 2) como acento gold; Inbursa a 1 pb forma con
+                 él el par de bajo costo, separado 24 pb del resto.
+                 Posiciones: (val - 1.17) / (1.81 - 1.17) * 100. -->
+            <ol class="rh-afore-list" role="list">
+              <li class="rh-afore-row rh-afore-row--outlier" tabindex="0" role="listitem"
+                  data-tip-title="Argos" data-tip-detail="1.17%" data-tip-note="La comision mas baja de 2010" data-tip-v="1">
+                <span class="rh-afore-name">Argos</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 0%"></span></span>
+                <span class="rh-afore-value">1.17<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Inbursa" data-tip-detail="1.18%" data-tip-v="1">
+                <span class="rh-afore-name">Inbursa</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 1.6%"></span></span>
+                <span class="rh-afore-value">1.18<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="XXI" data-tip-detail="1.42%" data-tip-v="1">
+                <span class="rh-afore-name">XXI</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 39.1%"></span></span>
+                <span class="rh-afore-value">1.42<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Bancomer" data-tip-detail="1.45%" data-tip-v="1">
+                <span class="rh-afore-name">Bancomer</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 43.8%"></span></span>
+                <span class="rh-afore-value">1.45<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Afirme Bajio" data-tip-detail="1.51%" data-tip-v="1">
+                <span class="rh-afore-name">Afirme Bajío</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 53.1%"></span></span>
+                <span class="rh-afore-value">1.51<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Banamex" data-tip-detail="1.58%" data-tip-v="1">
+                <span class="rh-afore-name">Banamex</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 64.1%"></span></span>
+                <span class="rh-afore-value">1.58<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Banorte Generali" data-tip-detail="1.58%" data-tip-v="1">
+                <span class="rh-afore-name">Banorte Generali</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 64.1%"></span></span>
+                <span class="rh-afore-value">1.58<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="ING" data-tip-detail="1.61%" data-tip-v="1">
+                <span class="rh-afore-name">ING</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 68.8%"></span></span>
+                <span class="rh-afore-value">1.61<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="HSBC" data-tip-detail="1.61%" data-tip-v="1">
+                <span class="rh-afore-name">HSBC</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 68.8%"></span></span>
+                <span class="rh-afore-value">1.61<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Scotia" data-tip-detail="1.70%" data-tip-v="1">
+                <span class="rh-afore-name">Scotia</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 82.8%"></span></span>
+                <span class="rh-afore-value">1.70<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Profuturo GNP" data-tip-detail="1.70%" data-tip-v="1">
+                <span class="rh-afore-name">Profuturo GNP</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 82.8%"></span></span>
+                <span class="rh-afore-value">1.70<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Invercap" data-tip-detail="1.73%" data-tip-v="1">
+                <span class="rh-afore-name">Invercap</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 87.5%"></span></span>
+                <span class="rh-afore-value">1.73<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Metlife" data-tip-detail="1.74%" data-tip-v="1">
+                <span class="rh-afore-name">Metlife</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 89.1%"></span></span>
+                <span class="rh-afore-value">1.74<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Principal" data-tip-detail="1.79%" data-tip-v="1">
+                <span class="rh-afore-name">Principal</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 96.9%"></span></span>
+                <span class="rh-afore-value">1.79<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Coppel" data-tip-detail="1.81%" data-tip-v="1">
+                <span class="rh-afore-name">Coppel</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">1.81<span class="rh-afore-unit">%</span></span>
+              </li>
+            </ol>
+
+            <div class="rh-afore-axis" aria-hidden="true">
+              <span>1.17%</span>
+              <span class="rh-afore-axis__mid">Rango 0.64 pp</span>
+              <span>1.81%</span>
+            </div>
+
+            <p class="rh-viz__meta">Promedio simple del sistema ~1.57%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rango 0.64 pp<span class="fuente-badge fuente-badge--e">E</span> &middot; 15 AFOREs<span class="fuente-badge fuente-badge--v">V</span> en el esquema sobre saldo</p>
+            <p class="rh-viz__ref"><a href="#comisiones">Tabla 2 &mdash; Sección 8</a></p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MARGEN LATERAL (rollout 2010)
+         TOC de las 14 secciones del cuerpo (Sec 1 elevada al hero) +
+         leyenda [V]/[E] + back-link contextual. La fe de erratas
+         no es sección numerada: permanece como primer bloque del body.
+         ========================================== -->
+    <aside class="paper__margen" aria-label="Navegación y leyenda del estudio">
+      <div class="paper__margen-sticky">
+
+        <nav class="paper__margen-nav" aria-label="Secciones del estudio">
+          <details class="paper__margen-toc-wrap" open>
+            <summary class="paper__margen-toc-summary">
+              <span class="paper__margen-toc-eyebrow">En este estudio</span>
+              <span class="paper__margen-toc-counter">14 secciones</span>
+            </summary>
+            <ol class="paper__margen-toc">
+              <li><a href="#resumen">Resumen ejecutivo</a></li>
+              <li><a href="#introduccion">Introducción</a></li>
+              <li><a href="#metodologia">Metodología</a></li>
+              <li><a href="#contexto">Contexto económico 2010</a></li>
+              <li><a href="#estructura">Estructura del SAR</a></li>
+              <li><a href="#cuentas">Cuentas individuales</a></li>
+              <li><a href="#recursos">Recursos administrados</a></li>
+              <li><a href="#comisiones">Comisiones</a></li>
+              <li><a href="#rendimientos">Rendimientos</a></li>
+              <li><a href="#inversion">Composición de inversión</a></li>
+              <li><a href="#normativo">Marco normativo</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#conclusiones">Conclusiones</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="paper__margen-leyenda">
+          <p class="paper__margen-eyebrow">Cómo leer</p>
+          <p class="paper__margen-leyenda-intro">Cada cifra del estudio lleva un sello que indica de dónde sale y queda anclada a su fuente.</p>
+          <ul class="paper__margen-leyenda-items">
+            <li><span class="fuente-badge fuente-badge--v">V</span><span>verificado de fuente oficial directa</span></li>
+            <li><span class="fuente-badge fuente-badge--e">E</span><span>derivado o estimado, declarado</span></li>
+          </ul>
+        </div>
+
+        <a href="/pensiones/sar-29" class="paper__margen-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Volver al índice
+        </a>
+
+      </div>
+    </aside>
+
+    <div class="paper__body">
+
+      <!-- ============================================================
+           FE DE ERRATAS — visible al inicio del paper
+           ============================================================ -->
+      <section class="paper__section" id="erratas" aria-labelledby="erratas-title">
+        <div class="paper__resumen" style="border-left: 4px solid #B8943E; background-color: #FAF5E8;">
+          <h2 id="erratas-title" style="margin-top: 0; color: #1B2A5E;">Fe de erratas — versión 2 (junio de 2026,)</h2>
+          <p>Esta versión del paper <strong>corrige citas de fuentes secundarias detectadas en la versión publicada originalmente en febrero de 2026</strong>. Tras la auditoría editorial interna, se identificó que cuatro cifras del cierre de 2009 atribuían su respaldo a la <strong>Federación Internacional de Administradoras de Fondos de Pensiones (FIAP)</strong> y una mención de contexto macroeconómico atribuía respaldo a la <strong>Comisión Económica para América Latina y el Caribe (CEPAL)</strong>. Ninguna de estas dos es fuente primaria mexicana en el sentido del estándar editorial del observatorio. La declaración original que afirmaba *"no se utilizaron fuentes secundarias para datos cuantitativos"* era factualmente inexacta y queda corregida.</p>
+          <p>Las cifras se reemplazaron por sus equivalentes en fuentes oficiales primarias: <strong>Informe Trimestral CONSAR al H. Congreso de la Unión, cuarto trimestre de 2009</strong> (<a href="#fuente-F12">F12</a>) e <strong>Informe Trimestral CONSAR al H. Congreso de la Unión, primer trimestre de 2010</strong> (<a href="#fuente-F13">F13</a>), ambos versionados en <code>engine/sources/</code> con SHA-256 en <code>HASHES.txt</code>. Los cambios concretos:</p>
+          <div class="paper__tabla-wrap">
+            <table class="paper__tabla">
+              <thead>
+                <tr>
+                  <th>Indicador (cierre 2009)</th>
+                  <th>Versión 1 (febrero 2026, cita FIAP)</th>
+                  <th>Versión 2 (junio 2026, cita CONSAR oficial)</th>
+                  <th>Naturaleza del cambio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Recursos administrados</td>
+                  <td>1,151 mdp</td>
+                  <td>1,151,184.8 mdp (= 1,151.2 mmdp)</td>
+                  <td>Cambio de cita, mismo valor (CONSAR Q4 2009 p. 24, Cuadro 1.24)</td>
+                </tr>
+                <tr>
+                  <td>Como % del PIB</td>
+                  <td>10.0%</td>
+                  <td><strong>9.8%</strong></td>
+                  <td><strong>Cambio de valor</strong>: el dato oficial CONSAR difiere en 0.2 pp respecto al estimado FIAP</td>
+                </tr>
+                <tr>
+                  <td>Rendimiento nominal del sistema en 2009</td>
+                  <td>14.37%</td>
+                  <td><strong>14.2%</strong> (Q4 2009: "más de 14.2 por ciento") / <strong>14.3%</strong> (Q1 2010 reporta el cierre 2009 redondeado)</td>
+                  <td><strong>Cambio de valor</strong>: el dato oficial CONSAR redondea a un decimal con resultado ligeramente menor que la cifra FIAP</td>
+                </tr>
+                <tr>
+                  <td>Rendimiento real del sistema en 2009</td>
+                  <td>10.32% (FIAP)</td>
+                  <td><strong>~10.6%</strong> [E] derivado (14.2% nominal CONSAR − 3.57% inflación INPC INEGI dic-dic 2009). CONSAR Q4 2009 no publica un rendimiento real anual aislado del sistema completo; solo publica el rendimiento real histórico desde julio-1997 al cierre dic-2009: 6.4% anual.</td>
+                  <td><strong>Cambio de naturaleza</strong>: pasa de cifra atribuida a FIAP a estimación [E] derivada con citas a fuentes primarias</td>
+                </tr>
+                <tr>
+                  <td>SIEFORE Básica 5 — rendimiento 2009</td>
+                  <td>17.44% (FIAP)</td>
+                  <td><strong>17.5%</strong> (CONSAR Q4 2009 p. 4, resumen ejecutivo)</td>
+                  <td>Cambio de cita; ligero ajuste por redondeo CONSAR</td>
+                </tr>
+                <tr>
+                  <td>Composición de cartera, cierre 2009: gubernamentales / no gubernamentales</td>
+                  <td>66% gubernamental / 13% renta variable / 21% otros (FIAP)</td>
+                  <td><strong>66.3%</strong> valores gubernamentales / <strong>33.7%</strong> valores no gubernamentales, con desglose detallado: <strong>9.0%</strong> renta variable nacional + <strong>4.0%</strong> renta variable internacional + <strong>16.6%</strong> deuda no gubernamental nacional + <strong>4.1%</strong> deuda internacional (CONSAR Q4 2009 Cuadro 1.28)</td>
+                  <td>Cambio de cita, agregados coinciden con redondeo; ahora con desglose oficial completo</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Adicionalmente, en esta versión se aplicó el sistema de badges <span class="fuente-badge fuente-badge--v">V</span> (verificado de fuente oficial primaria directa) y <span class="fuente-badge fuente-badge--e">E</span> (estimado o derivado) a todas las cifras clave, junto con la columna "Origen" en tablas, conforme al estándar aplicado a los papers del Frente 1 (Panorama 1997-2025). Esto es un piloto: la auditoría identificó la oportunidad de retro-aplicar este estándar a los 16 papers originales (`-001` a `-016`); este paper es el primero corregido.</p>
+          <p><strong>Versión original conservada en el historial git del proyecto</strong> (commit anterior a este). El contenido analítico de las secciones se mantiene; solo se corrigieron citas y se etiquetaron cifras conforme al estándar.</p>
+        </div>
+      </section>
+
+      <!-- Sección 1 (Resumen ejecutivo) elevada al bloque visual full-width
+           encima del cuerpo (sección "paper__resumen-hero" arriba). Toda la
+           sustancia se conserva; la presentación se elevó. La fe de erratas permanece intacta arriba como primer bloque del body. -->
+
+      <!-- 2. INTRODUCCIÓN -->
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Sección 2</div>
+        <h2>Introducción</h2>
+        <p>El Sistema de Ahorro para el Retiro (SAR) es el mecanismo mediante el cual los trabajadores en México acumulan recursos para su retiro a través de cuentas individuales administradas por AFORE. Creado a partir de la reforma a la Ley del Seguro Social de 1995 (vigente desde julio de 1997), el SAR reemplazó parcialmente el sistema de reparto y se estableció como un esquema de contribución definida basado en cuentas individuales.</p>
+        <p>El presente estudio ofrece un panorama descriptivo del SAR durante el año 2010, a trece años de la entrada en vigor de la reforma. El objetivo es documentar, con base en fuentes primarias oficiales, el estado del sistema en ese periodo: su estructura, los recursos administrados, las comisiones cobradas, los rendimientos obtenidos y la composición de las inversiones.</p>
+        <p>Este estudio no busca emitir juicios de valor ni recomendar AFOREs específicas. Su propósito es presentar información verificable que permita al lector formar su propio criterio sobre el funcionamiento del sistema en 2010. Las cifras clave están etiquetadas con badge <span class="fuente-badge fuente-badge--v">V</span> (verificada de fuente oficial directa) o <span class="fuente-badge fuente-badge--e">E</span> (estimada/derivada) junto a la referencia a su fuente en la Sección 14.</p>
+      </section>
+
+      <!-- 3. METODOLOGÍA -->
+      <section class="paper__section" id="metodologia">
+        <div class="paper__section-number">Sección 3</div>
+        <h2>Metodología</h2>
+        <p>El presente estudio emplea un enfoque descriptivo con base exclusiva en fuentes primarias oficiales. Las principales fuentes consultadas son:</p>
+        <ul>
+          <li><strong>CONSAR — Informe Trimestral al H. Congreso de la Unión, cuarto trimestre de 2009</strong>: cifras del cierre dic-2009 (recursos, % del PIB, rendimientos del sistema, composición de cartera por tipo de instrumento, rendimientos por SIEFORE Básica) (<a href="#fuente-F12">F12</a>).</li>
+          <li><strong>CONSAR — Informe Trimestral al H. Congreso de la Unión, primer trimestre de 2010</strong>: cifras retrospectivas del rendimiento del sistema en 2009 reportadas en el informe del primer trimestre de 2010, así como composición de cartera al cierre del 1T 2010 (<a href="#fuente-F13">F13</a>).</li>
+          <li><strong>CONSAR — Informe Trimestral al H. Congreso de la Unión, tercer trimestre de 2010</strong>: recursos administrados a septiembre de 2010, comisiones vigentes y datos de mercado del 3T 2010 (<a href="#fuente-F14">F14</a>).</li>
+          <li><strong>CONSAR — Datos estadísticos del SAR</strong>: comisiones por AFORE vigentes en enero de 2010, rendimientos por AFORE del año 2010 (<a href="#fuente-F15">F15</a>).</li>
+          <li><strong>INEGI — Producto Interno Bruto y cuentas nacionales de México, 2009-2010</strong>: PIB nominal 2009-2010; Índice Nacional de Precios al Consumidor (INPC) para inflación dic-dic 2009 (3.57%) y dic-dic 2010 (~4.40%, alrededor de 4.2% medido por CONSAR/INEGI para el cierre del año) (<a href="#fuente-F9">F9</a>).</li>
+          <li><strong>Banco de México (Banxico)</strong>: tasa de referencia 2010 (4.50% durante todo el año), indicadores económicos (<a href="#fuente-F10">F10</a>).</li>
+          <li><strong>Ley de los Sistemas de Ahorro para el Retiro y Ley del Seguro Social</strong>: marco normativo del SAR (<a href="#fuente-LSAR">LSAR</a>, <a href="#fuente-LSS97">LSS97</a>).</li>
+        </ul>
+        <p>El periodo de análisis comprende el año calendario 2010, con referencias puntuales al cierre de 2009 para fines de contexto y comparación. Todas las cifras cuantitativas provienen directamente de las fuentes oficiales citadas. Las cifras estimadas o derivadas (como el rendimiento real del sistema en 2009, calculado descontando inflación) se marcan explícitamente con badge <span class="fuente-badge fuente-badge--e">E</span>.</p>
+      </section>
+
+      <!-- 4. CONTEXTO ECONÓMICO 2010 -->
+      <section class="paper__section" id="contexto">
+        <div class="paper__section-number">Sección 4</div>
+        <h2>Contexto económico 2010</h2>
+        <p>El año 2010 representó una etapa de recuperación económica para México tras la contracción derivada de la crisis financiera global de 2008-2009. Los principales indicadores macroeconómicos reflejaron esta mejoría:</p>
+        <ul>
+          <li><strong>Crecimiento del PIB:</strong> <strong>5.5%</strong> <span class="fuente-badge fuente-badge--v">V</span> (INEGI, <a href="#fuente-F9">F9</a>), después de una caída de -4.7% en 2009 <span class="fuente-badge fuente-badge--v">V</span>.</li>
+          <li><strong>Inflación:</strong> aproximadamente <strong>4.2%</strong> al cierre del año <span class="fuente-badge fuente-badge--v">V</span> (INEGI INPC dic-dic 2010, <a href="#fuente-F9">F9</a>; Banxico, <a href="#fuente-F10">F10</a>).</li>
+          <li><strong>Tasa de referencia de Banxico:</strong> <strong>4.50%</strong>, mantenida sin cambios durante todo 2010 <span class="fuente-badge fuente-badge--v">V</span> (Banxico, anuncios de política monetaria 2010, <a href="#fuente-F10">F10</a>).</li>
+        </ul>
+        <p>Este entorno de recuperación económica y estabilidad en tasas de interés proporcionó un contexto relevante para el desempeño de los fondos de pensiones, dado que la composición de las carteras de inversión de las SIEFORE incluía una proporción significativa de instrumentos de deuda gubernamental cuyo rendimiento está vinculado a las condiciones macroeconómicas.</p>
+      </section>
+
+      <!-- 5. ESTRUCTURA DEL SAR -->
+      <section class="paper__section" id="estructura">
+        <div class="paper__section-number">Sección 5</div>
+        <h2>Estructura del SAR</h2>
+
+        <h3>Marco legal</h3>
+        <p>El SAR se sustenta en dos instrumentos legales principales:</p>
+        <ul>
+          <li><strong>Ley del Seguro Social</strong> (publicada el 21 de diciembre de 1995, vigente desde el 1 de julio de 1997): estableció el esquema de contribución definida con cuentas individuales para los trabajadores afiliados al IMSS (<a href="#fuente-LSS97">LSS97</a>).</li>
+          <li><strong>Ley de los Sistemas de Ahorro para el Retiro</strong> (Ley del SAR, DOF 23 de mayo de 1996): define la regulación de las AFORE, SIEFORE, y el papel de la CONSAR como órgano regulador (<a href="#fuente-LSAR">LSAR</a>).</li>
+        </ul>
+        <p>Es pertinente distinguir dos regímenes dentro del IMSS:</p>
+        <ul>
+          <li><strong>Ley de 1973 (Ley 73):</strong> aplica a trabajadores que comenzaron a cotizar antes del 1 de julio de 1997. Otorga pensión por reparto bajo requisitos de edad y semanas cotizadas.</li>
+          <li><strong>Ley de 1997 (Ley 97):</strong> aplica a trabajadores que comenzaron a cotizar a partir del 1 de julio de 1997. Opera bajo el esquema de contribución definida con cuenta individual.</li>
+        </ul>
+
+        <h3>Participantes del sistema</h3>
+        <ul>
+          <li><strong>CONSAR:</strong> órgano regulador y supervisor del SAR.</li>
+          <li><strong>AFORE</strong> (Administradoras de Fondos para el Retiro): entidades financieras encargadas de administrar las cuentas individuales. En 2010 operaban <strong>15 AFORE</strong> <span class="fuente-badge fuente-badge--v">V</span> (CONSAR, <a href="#fuente-F15">F15</a>).</li>
+          <li><strong>SIEFORE</strong> (Sociedades de Inversión Especializadas en Fondos para el Retiro): vehículos de inversión donde se canalizan los recursos de los trabajadores. Operaban <strong>cinco fondos básicos (SB1 a SB5)</strong> diferenciados por el perfil de riesgo-edad del trabajador <span class="fuente-badge fuente-badge--v">V</span>.</li>
+        </ul>
+
+        <h3>Estructura de SIEFOREs Básicas</h3>
+        <ul>
+          <li><strong>SB1:</strong> trabajadores de 56 años y mayores.</li>
+          <li><strong>SB2:</strong> trabajadores de 46 a 55 años.</li>
+          <li><strong>SB3:</strong> trabajadores de 37 a 45 años.</li>
+          <li><strong>SB4:</strong> trabajadores de 27 a 36 años.</li>
+          <li><strong>SB5:</strong> trabajadores de 26 años y menores.</li>
+        </ul>
+        <p>La asignación a cada SIEFORE Básica se realizaba de acuerdo con la edad del trabajador, permitiendo que los trabajadores más jóvenes accedieran a fondos con mayor exposición a renta variable y, por tanto, mayor potencial de rendimiento a largo plazo, pero también mayor volatilidad.</p>
+      </section>
+
+      <!-- 6. CUENTAS INDIVIDUALES -->
+      <section class="paper__section" id="cuentas">
+        <div class="paper__section-number">Sección 6</div>
+        <h2>Cuentas individuales</h2>
+        <p>Para 2010, el SAR registraba aproximadamente <strong>38 a 41 millones de cuentas individuales</strong> <span class="fuente-badge fuente-badge--e">E</span> (rango reportado por CONSAR en informes trimestrales; el valor exacto varía según fecha de corte y categoría de conteo). Esta cifra incluye:</p>
+        <ul>
+          <li><strong>Cuentas activas:</strong> aquellas con aportaciones recientes.</li>
+          <li><strong>Cuentas asignadas:</strong> cuentas de trabajadores que no eligieron AFORE y fueron asignados por CONSAR.</li>
+          <li><strong>Cuentas inactivas:</strong> aquellas sin movimientos recientes de aportación.</li>
+        </ul>
+        <p>La diferencia entre el número total de cuentas y el número de trabajadores activos cotizando al IMSS refleja la naturaleza del mercado laboral mexicano, donde una proporción significativa de la fuerza laboral transita entre el empleo formal e informal.</p>
+        <p>El Informe Trimestral CONSAR Q4 2009 (<a href="#fuente-F12">F12</a>) reportaba <strong>40 millones de trabajadores registrados</strong> <span class="fuente-badge fuente-badge--v">V</span> al cierre del año 2009 como referencia cercana al periodo de análisis.</p>
+      </section>
+
+      <!-- 7. RECURSOS ADMINISTRADOS -->
+      <section class="paper__section" id="recursos">
+        <div class="paper__section-number">Sección 7</div>
+        <h2>Recursos administrados</h2>
+        <p>Al cierre de septiembre de 2010, los recursos administrados por el SAR ascendieron a <strong>1,379.0 miles de millones de pesos (mmdp)</strong> <span class="fuente-badge fuente-badge--v">V</span>, equivalentes a <strong>11.1% del PIB</strong> <span class="fuente-badge fuente-badge--v">V</span>, según el Informe Trimestral CONSAR al H. Congreso de la Unión del tercer trimestre de 2010 (<a href="#fuente-F14">F14</a>).</p>
+        <p>Para referencia, al cierre de diciembre de 2009, los recursos administrados habían sido de <strong>1,151,184.8 millones de pesos</strong> (= <strong>1,151.2 mmdp</strong>) <span class="fuente-badge fuente-badge--v">V</span>, equivalentes a <strong>9.8% del PIB</strong> <span class="fuente-badge fuente-badge--v">V</span>, según el Informe Trimestral CONSAR Q4 2009 (<a href="#fuente-F12">F12</a>, p. 24, Cuadro 1.24). El crecimiento aproximado de los recursos administrados en los primeros nueve meses de 2010 fue de aproximadamente <strong>19.8%</strong> <span class="fuente-badge fuente-badge--e">E</span> (cálculo derivado: 1,379.0 / 1,151.2 − 1).</p>
+
+        <h3>Composición de los recursos</h3>
+        <p>Del total de recursos a septiembre de 2010, los rendimientos netos acumulados representaban <strong>535.3 mmdp</strong>, equivalentes a <strong>38.8% del total de los activos administrados</strong> <span class="fuente-badge fuente-badge--v">V</span> (CONSAR Q3 2010, <a href="#fuente-F14">F14</a>). Esto significa que más de una tercera parte del ahorro en el sistema correspondía a rendimientos generados por las inversiones, y no únicamente a las aportaciones de los trabajadores y patrones.</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. Recursos administrados por el SAR, 2009-2010</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Periodo</th>
+                <th class="num">Recursos (mmdp)</th>
+                <th class="num">% del PIB</th>
+                <th class="origen">Origen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cierre dic-2009</td>
+                <td class="num">1,151.2 <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="num">9.8% <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F12">F12</a></td>
+              </tr>
+              <tr>
+                <td>Septiembre 2010</td>
+                <td class="num">1,379.0 <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="num">11.1% <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F14">F14</a></td>
+              </tr>
+              <tr>
+                <td>Crecimiento (cierre 2009 → sep 2010)</td>
+                <td class="num">+227.8 mmdp <span class="fuente-badge fuente-badge--e">E</span></td>
+                <td class="num">+19.8% <span class="fuente-badge fuente-badge--e">E</span></td>
+                <td class="origen"><a href="#fuente-F12">F12</a> + <a href="#fuente-F14">F14</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR, Informe Trimestral al H. Congreso de la Unión, Q4 2009 (cierre dic-2009) y Q3 2010 (septiembre 2010). Cifras en miles de millones de pesos (mmdp) nominales. El crecimiento es cálculo derivado [E].</p>
+        </div>
+
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 1. Recursos administrados por el SAR, cierre 2009 vs septiembre 2010</p>
+          <div class="paper__grafica-container"><canvas id="chart-recursos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, Informe Trimestral Q4 2009 (cierre dic-2009: 1,151.2 mmdp, 9.8% del PIB) e Informe Trimestral Q3 2010 (septiembre 2010: 1,379.0 mmdp, 11.1% del PIB).</p>
+        </div>
+      </section>
+
+      <!-- 8. COMISIONES -->
+      <section class="paper__section" id="comisiones">
+        <div class="paper__section-number">Sección 8</div>
+        <h2>Comisiones</h2>
+        <p>Las comisiones que cobran las AFORE a los trabajadores constituyen el principal costo directo del sistema para el ahorrador. A partir de 2008, CONSAR implementó la transición hacia un esquema único de comisión sobre saldo, eliminando gradualmente las comisiones sobre flujo (aportaciones) que existían anteriormente.</p>
+        <p>A enero de 2010, las comisiones sobre saldo de las 15 AFORE vigentes eran las siguientes:</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Comisiones sobre saldo por AFORE, enero 2010</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Comisión sobre saldo (%)</th>
+                <th class="origen">Origen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Argos</td><td class="num">1.17 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Inbursa</td><td class="num">1.18 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>XXI</td><td class="num">1.42 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Bancomer</td><td class="num">1.45 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Afirme Bajío</td><td class="num">1.51 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Banamex</td><td class="num">1.58 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Banorte Generali</td><td class="num">1.58 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>ING</td><td class="num">1.61 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>HSBC</td><td class="num">1.61 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Scotia</td><td class="num">1.70 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Profuturo GNP</td><td class="num">1.70 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Invercap</td><td class="num">1.73 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Metlife</td><td class="num">1.74 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Principal</td><td class="num">1.79 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Coppel</td><td class="num">1.81 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR, datos de comisiones vigentes enero 2010 (<a href="#fuente-F15">F15</a>). Comisiones expresadas como porcentaje anual sobre saldo administrado.</p>
+        </div>
+
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 2. Comisiones sobre saldo por AFORE, enero 2010</p>
+          <div class="paper__grafica-container paper__grafica-container--tall"><canvas id="chart-comisiones"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, datos de comisiones vigentes enero 2010.</p>
+        </div>
+
+        <p>El rango de comisiones iba desde <strong>1.17%</strong> (Argos) hasta <strong>1.81%</strong> (Coppel) <span class="fuente-badge fuente-badge--v">V</span>, una diferencia de <strong>0.64 puntos porcentuales</strong> <span class="fuente-badge fuente-badge--e">E</span> (cálculo derivado). El promedio simple de las 15 AFORE era de aproximadamente <strong>1.57%</strong> <span class="fuente-badge fuente-badge--v">V</span>. Las comisiones sobre saldo se aplican de forma anual sobre el total de los recursos administrados en la cuenta individual del trabajador, lo que significa que afectan directamente el rendimiento neto que recibe el ahorrador.</p>
+      </section>
+
+      <!-- 9. RENDIMIENTOS -->
+      <section class="paper__section" id="rendimientos">
+        <div class="paper__section-number">Sección 9</div>
+        <h2>Rendimientos</h2>
+        <p>Los rendimientos del SAR varían según el tipo de SIEFORE y el periodo considerado. A continuación se presentan los datos disponibles de fuentes oficiales:</p>
+
+        <h3>Rendimientos del sistema en 2009</h3>
+        <p>Según el Informe Trimestral CONSAR al H. Congreso de la Unión correspondiente al cuarto trimestre de 2009 (<a href="#fuente-F12">F12</a>, Resumen Ejecutivo p. 4), el rendimiento nominal del sistema en 2009 fue de <strong>14.2%</strong> <span class="fuente-badge fuente-badge--v">V</span> (cita textual: <em>"el rendimiento competitivo de todo el sistema financiero, mismo que al cierre del último trimestre de 2009 alcanzó más de 14.2 por ciento"</em>). El Informe Trimestral CONSAR del primer trimestre de 2010 (<a href="#fuente-F13">F13</a>) reportó retrospectivamente el rendimiento de 2009 redondeado a un decimal en <strong>14.3%</strong> <span class="fuente-badge fuente-badge--v">V</span>. La diferencia entre 14.2% y 14.3% refleja convenciones de redondeo entre los dos cortes temporales del mismo dato.</p>
+        <p>El rendimiento real del sistema en 2009 se estima en <strong>~10.6%</strong> <span class="fuente-badge fuente-badge--e">E</span>, calculado a partir del rendimiento nominal CONSAR de 14.2% descontando la inflación dic-dic 2009 de <strong>3.57%</strong> <span class="fuente-badge fuente-badge--v">V</span> reportada por INEGI (<a href="#fuente-F9">F9</a>). El Informe Trimestral CONSAR Q4 2009 no publica un rendimiento real anual aislado para 2009; reporta únicamente el rendimiento real histórico desde el inicio del sistema (julio 1997) hasta el cierre dic-2009: <strong>6.4% anual</strong> <span class="fuente-badge fuente-badge--v">V</span> (<a href="#fuente-F12">F12</a>, Sección I.4.3).</p>
+        <p>Por tipo de SIEFORE Básica, CONSAR Q4 2009 (<a href="#fuente-F12">F12</a>, Resumen Ejecutivo p. 4) reporta los rendimientos nominales 2009 por edad: <strong>9.6%</strong> en la SIEFORE Básica 1 (trabajadores próximos al retiro) hasta <strong>17.5%</strong> en la SIEFORE Básica 5 (trabajadores más jóvenes, con mayor exposición a renta variable) <span class="fuente-badge fuente-badge--v">V</span>. La SB5 capturó el efecto positivo de la recuperación de los mercados accionarios tras la crisis 2008.</p>
+
+        <h3>Rendimientos destacados en 2010</h3>
+        <p>Durante 2010, las AFORE con mejores rendimientos nominales reportados fueron:</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 3. AFOREs con mejores rendimientos nominales, 2010</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Rendimiento nominal (%)</th>
+                <th class="origen">Origen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Invercap</td><td class="num">11.49 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Profuturo GNP</td><td class="num">10.95 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>Banamex</td><td class="num">10.47 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>AFORE XXI</td><td class="num">10.12 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+              <tr><td>ING</td><td class="num">9.73 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F15">F15</a></td></tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR, indicadores de rendimiento 2010 (<a href="#fuente-F15">F15</a>). Cifras en rendimiento nominal anual. El rendimiento neto para el trabajador depende de la comisión cobrada por cada AFORE.</p>
+        </div>
+
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 3. AFOREs con mejores rendimientos nominales, 2010</p>
+          <div class="paper__grafica-container"><canvas id="chart-rendimientos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, indicadores de rendimiento 2010. Línea punteada: inflación 2010 (~4.2%, INEGI/Banxico).</p>
+        </div>
+
+        <p>Es importante señalar que los rendimientos nominales no incorporan el efecto de la inflación. En un entorno inflacionario de aproximadamente 4.2% en 2010, el rendimiento real para el trabajador sería menor. Adicionalmente, el rendimiento neto que efectivamente recibe el ahorrador resulta de restar la comisión sobre saldo al rendimiento bruto obtenido.</p>
+      </section>
+
+      <!-- 10. COMPOSICIÓN DE INVERSIÓN -->
+      <section class="paper__section" id="inversion">
+        <div class="paper__section-number">Sección 10</div>
+        <h2>Composición de inversión</h2>
+        <p>Al cierre de diciembre de 2009, la composición de la cartera de inversión del SAR según el Informe Trimestral CONSAR Q4 2009 (<a href="#fuente-F12">F12</a>) se distribuía de la siguiente forma:</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 4. Composición de la cartera de inversión del SAR, cierre dic-2009</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Categoría</th>
+                <th class="num">% del total</th>
+                <th class="origen">Origen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Valores gubernamentales</strong> (en pesos y otras divisas)</td>
+                <td class="num">66.3% <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F12">F12</a></td>
+              </tr>
+              <tr>
+                <td><strong>Valores no gubernamentales</strong></td>
+                <td class="num">33.7% <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F12">F12</a></td>
+              </tr>
+              <tr>
+                <td style="padding-left: 1.5rem;">Renta variable nacional</td>
+                <td class="num">9.0% <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F12">F12</a></td>
+              </tr>
+              <tr>
+                <td style="padding-left: 1.5rem;">Renta variable internacional (índices accionarios)</td>
+                <td class="num">4.0% <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F12">F12</a></td>
+              </tr>
+              <tr>
+                <td style="padding-left: 1.5rem;">Deuda no gubernamental nacional</td>
+                <td class="num">16.6% <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F12">F12</a></td>
+              </tr>
+              <tr>
+                <td style="padding-left: 1.5rem;">Deuda emitida por entidades internacionales</td>
+                <td class="num">4.1% <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F12">F12</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR, Informe Trimestral al H. Congreso de la Unión, cuarto trimestre de 2009 (<a href="#fuente-F12">F12</a>), Cuadro 1.28 (Composición de las Carteras de las SIEFORES) y secciones I.4.2 y I.4.3 del informe.</p>
+        </div>
+
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 4. Composición de la cartera de inversión del SAR, cierre dic-2009</p>
+          <div class="paper__grafica-container"><canvas id="chart-composicion"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, Informe Trimestral Q4 2009 (<a href="#fuente-F12">F12</a>).</p>
+        </div>
+
+        <p>La predominancia de los valores gubernamentales en la cartera refleja tanto el marco regulatorio que establecía límites de inversión por tipo de activo para cada SIEFORE, como la preferencia histórica por instrumentos de bajo riesgo en el sistema. Las SIEFOREs Básicas con mayor número (SB4 y SB5, para trabajadores jóvenes) tenían límites de renta variable más amplios que las SIEFOREs para trabajadores cercanos al retiro (SB1 y SB2).</p>
+        <p>La participación de renta variable en las carteras de los fondos de pensiones mexicanos era considerablemente menor en comparación con otros sistemas de contribución definida internacionalmente. Esto se explica, entre otros factores, por el marco regulatorio vigente y por la gradual apertura que CONSAR fue implementando en los años previos para permitir mayor diversificación de los portafolios.</p>
+      </section>
+
+      <!-- 11. MARCO NORMATIVO -->
+      <section class="paper__section" id="normativo">
+        <div class="paper__section-number">Sección 11</div>
+        <h2>Marco normativo</h2>
+        <p>El SAR operaba en 2010 bajo el siguiente marco regulatorio:</p>
+        <ul>
+          <li><strong>Ley de los Sistemas de Ahorro para el Retiro</strong> (Ley del SAR): publicada en el Diario Oficial de la Federación el 23 de mayo de 1996 (<a href="#fuente-LSAR">LSAR</a>). Establece las reglas generales de operación del sistema, la constitución y funcionamiento de las AFORE y SIEFORE, y las facultades de la CONSAR.</li>
+          <li><strong>Ley del Seguro Social de 1995</strong> (vigente desde el 1 de julio de 1997, <a href="#fuente-LSS97">LSS97</a>): estableció el régimen de contribución definida con cuentas individuales para los trabajadores afiliados al IMSS que comenzaron a cotizar a partir de esa fecha (régimen conocido como "Ley 97").</li>
+          <li><strong>Ley del Seguro Social de 1973</strong> (abrogada, pero con efectos vigentes): aplica a los trabajadores que comenzaron a cotizar antes del 1 de julio de 1997 y que pueden optar por pensionarse bajo sus disposiciones (régimen conocido como "Ley 73"). Esta ley fue abrogada por la de 1995, pero el artículo transitorio permite a los trabajadores con derechos adquiridos elegir el régimen que les resulte más favorable.</li>
+          <li><strong>Disposiciones de carácter general (Circulares CONSAR):</strong> regulan aspectos operativos como el régimen de inversión de las SIEFORE, los límites de comisiones, los requisitos de información y transparencia, y los procedimientos de traspaso entre AFORE. En 2010, las circulares vigentes incluían el régimen de inversión que definía los porcentajes máximos de inversión en cada clase de activo por tipo de SIEFORE Básica.</li>
+        </ul>
+        <p>Cabe señalar que las interpretaciones específicas sobre la aplicación de estas disposiciones corresponden a las autoridades competentes (CONSAR, IMSS, tribunales). La descripción aquí presentada tiene carácter informativo y no constituye asesoría legal.</p>
+      </section>
+
+      <!-- 12. LIMITACIONES -->
+      <section class="paper__section" id="limitaciones">
+        <div class="paper__section-number">Sección 12</div>
+        <h2>Limitaciones</h2>
+        <p>El presente estudio tiene las siguientes limitaciones que el lector debe considerar:</p>
+        <ul>
+          <li><strong>Alcance descriptivo:</strong> este documento se limita a presentar información disponible de fuentes oficiales sobre el SAR en 2010. No se realizan análisis predictivos, proyecciones ni evaluaciones del desempeño del sistema.</li>
+          <li><strong>Periodo específico:</strong> las cifras y datos corresponden al año 2010 y no deben extrapolarse a otros periodos. Las condiciones del SAR han cambiado significativamente desde entonces.</li>
+          <li><strong>Rendimiento real del sistema 2009 estimado.</strong> El Informe Trimestral CONSAR Q4 2009 (<a href="#fuente-F12">F12</a>) publica el rendimiento nominal del sistema en 2009 ("más de 14.2%") y el rendimiento real histórico desde el inicio del sistema (6.4% acumulado julio-1997 a dic-2009), pero no publica un rendimiento real anual aislado para 2009. El rendimiento real 2009 reportado en este paper (~10.6%) es <strong>estimación derivada</strong> [E] descontando la inflación INPC INEGI 2009 (3.57%) del nominal CONSAR (14.2%).</li>
+          <li><strong>Datos agregados:</strong> algunas cifras, particularmente las de cuentas individuales (rango de 38 a 41 millones), se reportan como rangos aproximados debido a las variaciones entre las fuentes consultadas y los distintos momentos de corte.</li>
+          <li><strong>Sin análisis causal:</strong> no se establecen relaciones de causalidad entre variables. Las observaciones sobre contexto económico y desempeño del SAR son descriptivas y no implican causalidad.</li>
+          <li><strong>Fuentes disponibles:</strong> el análisis se basa en informes y datos publicados por las instituciones citadas. Datos no publicados o de acceso restringido no fueron considerados.</li>
+          <li><strong>Versión corregida en .</strong> La versión publicada originalmente (febrero 2026) citaba la Federación Internacional de Administradoras de Fondos de Pensiones (FIAP) y la Comisión Económica para América Latina y el Caribe (CEPAL) como respaldo de varias cifras de 2009 y contexto macroeconómico. Tras la auditoría esas atribuciones fueron sustituidas por los Informes Trimestrales CONSAR Q4 2009 (<a href="#fuente-F12">F12</a>) y Q1 2010 (<a href="#fuente-F13">F13</a>) — fuentes oficiales primarias mexicanas — y la declaración interna de fuentes corregida. Ver Fe de erratas al inicio del paper para detalle de los cambios.</li>
+        </ul>
+      </section>
+
+      <!-- 13. CONCLUSIONES -->
+      <section class="paper__section" id="conclusiones">
+        <div class="paper__section-number">Sección 13</div>
+        <h2>Conclusiones</h2>
+        <p>Con base en los datos presentados, se identifican las siguientes observaciones sobre el SAR en 2010:</p>
+        <ol>
+          <li>A septiembre de 2010, el SAR administraba <strong>1,379.0 mmdp (11.1% del PIB)</strong> <span class="fuente-badge fuente-badge--v">V</span>, un crecimiento respecto a los <strong>1,151.2 mmdp (9.8% del PIB)</strong> <span class="fuente-badge fuente-badge--v">V</span> al cierre de 2009 según CONSAR Q4 2009. Los rendimientos netos acumulados representaban <strong>38.8%</strong> del total de los recursos a septiembre de 2010 <span class="fuente-badge fuente-badge--v">V</span>.</li>
+          <li>Las <strong>15 AFORE</strong> en operación cobraban comisiones sobre saldo que oscilaban entre <strong>1.17%</strong> y <strong>1.81%</strong> <span class="fuente-badge fuente-badge--v">V</span>. La diferencia entre la AFORE con menor comisión (Argos, 1.17%) y la de mayor comisión (Coppel, 1.81%) era de <strong>0.64 puntos porcentuales</strong> <span class="fuente-badge fuente-badge--e">E</span> (cálculo derivado).</li>
+          <li>Los rendimientos nominales del sistema en 2009 alcanzaron <strong>14.2%</strong> <span class="fuente-badge fuente-badge--v">V</span> (CONSAR Q4 2009; 14.3% reportado retrospectivamente en CONSAR Q1 2010), con un rendimiento real estimado de <strong>~10.6%</strong> <span class="fuente-badge fuente-badge--e">E</span> descontando inflación INEGI. Por SIEFORE Básica: 9.6% en SB1 hasta 17.5% en SB5. En 2010, las AFORE con mejores resultados reportaron rendimientos nominales entre 9.73% y 11.49%.</li>
+          <li>La cartera de inversión al cierre de 2009 estaba concentrada en <strong>66.3% valores gubernamentales</strong> y <strong>33.7% valores no gubernamentales</strong> <span class="fuente-badge fuente-badge--v">V</span>, con un desglose de 9.0% renta variable nacional + 4.0% renta variable internacional + 16.6% deuda no gubernamental nacional + 4.1% deuda emitida por entidades internacionales (CONSAR Q4 2009).</li>
+          <li>El sistema operaba con cinco SIEFOREs Básicas (SB1 a SB5) que diferenciaban el perfil de inversión según la edad del trabajador, permitiendo mayor exposición a renta variable en los fondos destinados a trabajadores más jóvenes.</li>
+          <li>El contexto de recuperación económica en 2010 (PIB +5.5%, tasa Banxico 4.50%, inflación ~4.2%) fue favorable para el desempeño de los activos en cartera, particularmente los instrumentos de deuda que representaban la mayor proporción del portafolio.</li>
+        </ol>
+        <p>Los datos presentados corresponden exclusivamente al periodo 2010 (con referencias al cierre 2009) y reflejan las condiciones específicas de ese momento.</p>
+      </section>
+
+      <hr class="paper__separator">
+
+      <!-- 14. FUENTES -->
+      <section class="paper__section" id="fuentes">
+        <div class="paper__section-number">Sección 14</div>
+        <h2>Fuentes</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li id="fuente-F1"><span class="fuente-inst">CONSAR &middot; Secretaría de Hacienda y Crédito Público</span>. <span class="fuente-titulo">Radiografía del Sistema de Pensiones a 20 años de su creación</span>. México, julio de 2017. <a href="https://www.gob.mx/cms/uploads/attachment/file/241559/Radiograf_sistema_20an_os.pdf" target="_blank" rel="noopener">https://www.gob.mx/cms/uploads/attachment/file/241559/Radiograf_sistema_20an_os.pdf</a> &middot; serie anual de activos administrados 1997-2017 confirmando el dato de cierre 2009 = 1,151,186 mdp. Copia versionada: <code>engine/sources/CONSAR-Radiografia-20-anos-2017.pdf</code>.</li>
+            <li id="fuente-F9"><span class="fuente-inst">INEGI</span>. <span class="fuente-titulo">Producto Interno Bruto y cuentas nacionales de México, 2009-2010; Índice Nacional de Precios al Consumidor (INPC) dic-dic 2009 (3.57%) y dic-dic 2010 (~4.40%)</span>. <a href="https://www.inegi.org.mx/app/indicesdeprecios/" target="_blank" rel="noopener">https://www.inegi.org.mx/app/indicesdeprecios/</a></li>
+            <li id="fuente-F10"><span class="fuente-inst">Banco de México</span>. <span class="fuente-titulo">Sistema de Información Económica (SIE) — anuncios de política monetaria 2010 (tasa de referencia mantenida en 4.50%); indicadores económicos</span>. <a href="https://www.banxico.org.mx/SieInternet/" target="_blank" rel="noopener">https://www.banxico.org.mx/SieInternet/</a></li>
+            <li id="fuente-F12"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Informe Trimestral al H. Congreso de la Unión sobre la situación del Sistema de Ahorro para el Retiro, cuarto trimestre de 2009</span>. México, 2010. <a href="https://www.gob.mx/cms/uploads/attachment/file/61284/2009_04_trimestre_4.pdf" target="_blank" rel="noopener">https://www.gob.mx/cms/uploads/attachment/file/61284/2009_04_trimestre_4.pdf</a> &middot; reporta el cierre dic-2009: recursos administrados (1,151,184.8 mdp, p. 24, Cuadro 1.24); 9.8% del PIB (Resumen Ejecutivo p. 4); rendimiento del sistema en 2009 ("más de 14.2 por ciento", Resumen Ejecutivo); rendimientos por SIEFORE Básica (SB1 9.6%, SB5 17.5%); composición de cartera (66.3% gubernamentales, 33.7% no gubernamentales, con desglose: 9.0% renta variable nacional, 4.0% renta variable internacional, 16.6% deuda no gubernamental nacional, 4.1% deuda emitida por entidades internacionales — Cuadro 1.28 y secciones I.4.2 y I.4.3); plusvalías acumuladas 2009 (122,115 mdp); rendimiento real histórico julio-1997 a dic-2009 (6.4% anual, Sección I.4.3). Copia versionada: <code>engine/sources/CONSAR-Informe-Trimestral-Q4-2009.pdf</code> (SHA-256 en <code>HASHES.txt</code>).</li>
+            <li id="fuente-F13"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Informe Trimestral al H. Congreso de la Unión sobre la situación del Sistema de Ahorro para el Retiro, primer trimestre de 2010</span>. México, 2010. <a href="https://www.gob.mx/cms/uploads/attachment/file/61286/2010_05_trimestre_1.pdf" target="_blank" rel="noopener">https://www.gob.mx/cms/uploads/attachment/file/61286/2010_05_trimestre_1.pdf</a> &middot; reporta retrospectivamente el rendimiento del sistema en 2009 (14.3% redondeado a un decimal); rendimiento histórico del sistema (13.7%); composición de cartera al cierre 1T 2010 (64.6% gubernamentales, 35.4% no gubernamentales); renta variable a marzo 2010 (17.6%); plusvalías 1T 2010. Copia versionada: <code>engine/sources/CONSAR-Informe-Trimestral-Q1-2010.pdf</code> (SHA-256 en <code>HASHES.txt</code>).</li>
+            <li id="fuente-F14"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Informe Trimestral al H. Congreso de la Unión sobre la situación del Sistema de Ahorro para el Retiro, tercer trimestre de 2010</span>. México, 2010. <a href="https://www.gob.mx/consar/documentos/informes-trimestrales-de-la-consar" target="_blank" rel="noopener">https://www.gob.mx/consar/documentos/informes-trimestrales-de-la-consar</a> &middot; reporta recursos administrados a septiembre de 2010 (1,379.0 mmdp, 11.1% del PIB); rendimientos netos acumulados (535.3 mmdp, 38.8% del total).</li>
+            <li id="fuente-F15"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Datos estadísticos del SAR: comisiones por AFORE vigentes en enero de 2010, rendimientos por AFORE 2010</span>. México, 2010. <a href="https://www.consar.gob.mx/gobmx/aplicativo/siset/Enlace.aspx" target="_blank" rel="noopener">https://www.consar.gob.mx/gobmx/aplicativo/siset/Enlace.aspx</a> &middot; portal SISET con series históricas del SAR.</li>
+            <li id="fuente-LSAR"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 23 de mayo de 1996, con reformas posteriores. <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LSAR.pdf" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio/pdf/LSAR.pdf</a></li>
+            <li id="fuente-LSS97"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Seguro Social</span>. Diario Oficial de la Federación, 21 de diciembre de 1995, vigente desde el 1 de julio de 1997, con reformas posteriores. <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LSS.pdf" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio/pdf/LSS.pdf</a></li>
+            <li id="fuente-DM"><span class="fuente-inst">Datos México</span>. <span class="fuente-titulo">Panel DM-SAR-DATA-001: Base de datos consolidada del SAR 1997-2025</span>. <a href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/" target="_blank" rel="noopener">https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/</a></li>
+          </ol>
+          <p>Fecha de consulta de fuentes electrónicas: junio de 2026.</p>
+          <p class="paper__fuentes-leyenda"><span class="fuente-badge fuente-badge--v">V</span> dato verificado de fuente oficial directa &middot; <span class="fuente-badge fuente-badge--e">E</span> dato estimado o derivado, declarado como tal &middot; estándar editorial del observatorio.</p>
+        </div>
+      </section>
+
+      <!-- DECLARACIONES -->
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interés:</strong> El observatorio Datos México declara la ausencia de conflictos de interés en la elaboración de este estudio. Datos México no tiene relación comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> todas las cifras cuantitativas presentadas en este estudio provienen de fuentes primarias oficiales mexicanas: CONSAR (Informes Trimestrales al H. Congreso de la Unión y portal SISET), INEGI (Producto Interno Bruto e Índice Nacional de Precios al Consumidor) y Banco de México (Sistema de Información Económica y anuncios de política monetaria). Cada cifra clave incluye badge <span class="fuente-badge fuente-badge--v">V</span> (verificada) o <span class="fuente-badge fuente-badge--e">E</span> (estimada/derivada) junto con la referencia a su fuente en la Sección 14. Los PDFs CONSAR están versionados en <code>engine/sources/</code> con SHA-256 en <code>HASHES.txt</code>.</p>
+        <p><strong>Corrección documentada:</strong> esta versión del paper sustituye a la publicada originalmente en febrero de 2026, que atribuía a la <strong>FIAP</strong> (Federación Internacional de Administradoras de Fondos de Pensiones — federación gremial internacional) y a la <strong>CEPAL</strong> (Comisión Económica para América Latina y el Caribe — organismo regional) el respaldo de varias cifras de 2009 y contexto macroeconómico. Tras la auditoría editorial interna, las atribuciones se reemplazaron por las fuentes oficiales primarias mexicanas correspondientes (Informes Trimestrales CONSAR Q4 2009 y Q1 2010, ambos versionados en <code>engine/sources/</code>). El detalle de los cambios de cifra y de cita se encuentra en la Fe de erratas al inicio del paper.</p>
+        <p><strong>Alcance:</strong> este documento tiene carácter informativo y no constituye asesoría financiera, legal ni recomendación alguna sobre productos, servicios o AFOREs específicas.</p>
+      </div>
+
+    </div>
+
+
+      <!-- DE LA LECTURA AL CÁLCULO -->
+      <aside class="paper__calc-cta">
+        <p class="paper__calc-cta-eyebrow">De la lectura al cálculo</p>
+        <p class="paper__calc-cta-body">
+          Los datos de esta serie alimentan las <strong>calculadoras del observatorio</strong>: herramientas
+          educativas con supuestos públicos, fuentes oficiales versionadas y validación actuarial.
+          <a href="/pensiones/calculadoras">Calcula tu caso →</a>
+        </p>
+      </aside>
+
+  </main>
+
+
+  <!-- Tooltip unificado + hover-por-área Ronda 6.
+       Un solo sistema premium para sparkline, barras y ticks:
+       - Contenido ASCII puro en data-tip-* (mata "?" del `·` U+00B7 y `[V]`).
+       - Detección del punto MÁS CERCANO por overlay en sparkline y escala.
+       - Marcador activo sincronizado con el tooltip.
+       - Fallback teclado / focus / touch preservado. -->
+  <script>
+  (function () {
+    'use strict';
+    var container = document.querySelector('.paper__resumen-hero-inner');
+    var tip       = document.getElementById('rhTip');
+    if (!container || !tip) return;
+    var titleEl   = tip.querySelector('.rh-tip__title');
+    var detailTx  = tip.querySelector('.rh-tip__detail-text');
+    var badgeEl   = tip.querySelector('.rh-tip__badge');
+    var noteEl    = tip.querySelector('.rh-tip__note');
+    var hideTimer;
+    var currentActive = null;
+
+    function positionOverElement(el) {
+      var r = el.getBoundingClientRect();
+      var c = container.getBoundingClientRect();
+      tip.style.left = (r.left - c.left + r.width / 2) + 'px';
+      tip.style.top  = (r.top  - c.top) + 'px';
+    }
+
+    function showFor(el) {
+      if (!el || !el.dataset.tipTitle) return;
+      clearTimeout(hideTimer);
+      titleEl.textContent = el.dataset.tipTitle;
+      detailTx.textContent = el.dataset.tipDetail || '';
+      noteEl.textContent = el.dataset.tipNote || '';
+      noteEl.style.display = el.dataset.tipNote ? 'block' : 'none';
+      badgeEl.style.display = el.dataset.tipV === '1' ? 'inline-block' : 'none';
+      positionOverElement(el);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tip.classList.add('is-visible');
+          tip.setAttribute('aria-hidden', 'false');
+        });
+      });
+    }
+    function hide() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('is-visible');
+        tip.setAttribute('aria-hidden', 'true');
+        if (currentActive && currentActive.classList) {
+          currentActive.classList.remove('is-active');
+        }
+        currentActive = null;
+        var activeDot = document.querySelector('.rh-spark__active');
+        if (activeDot) activeDot.setAttribute('opacity', '0');
+      }, 80);
+    }
+
+    function setActive(el) {
+      if (currentActive === el) return;
+      if (currentActive && currentActive.classList) currentActive.classList.remove('is-active');
+      currentActive = el;
+      if (el && el.classList) el.classList.add('is-active');
+    }
+
+    // ---------- 1. Sparkline: hover POR ÁREA ----------
+    var sparkSvg = document.querySelector('.rh-spark__svg');
+    var sparkOverlay = document.querySelector('.rh-spark__overlay');
+    var sparkPoints = Array.prototype.slice.call(document.querySelectorAll('.rh-spark__point'));
+    var activeDot = document.querySelector('.rh-spark__active');
+
+    if (sparkSvg && sparkOverlay && sparkPoints.length) {
+      var pointCoords = sparkPoints.map(function (p) {
+        return { el: p, cx: parseFloat(p.getAttribute('cx')), cy: parseFloat(p.getAttribute('cy')) };
+      });
+
+      function handleSparkMove(e) {
+        var svgRect = sparkSvg.getBoundingClientRect();
+        var xInPx = (e.clientX !== undefined ? e.clientX : e.touches[0].clientX) - svgRect.left;
+        var xInVb = xInPx / svgRect.width * 720; // viewBox width
+        // Punto más cercano por X
+        var nearest = pointCoords[0], minD = Math.abs(pointCoords[0].cx - xInVb);
+        for (var i = 1; i < pointCoords.length; i++) {
+          var d = Math.abs(pointCoords[i].cx - xInVb);
+          if (d < minD) { minD = d; nearest = pointCoords[i]; }
+        }
+        // Mueve el marcador activo al punto seleccionado
+        if (activeDot) {
+          activeDot.setAttribute('cx', nearest.cx);
+          activeDot.setAttribute('cy', nearest.cy);
+          activeDot.setAttribute('opacity', '1');
+        }
+        setActive(nearest.el);
+        showFor(nearest.el);
+      }
+
+      sparkOverlay.addEventListener('mousemove', handleSparkMove);
+      sparkOverlay.addEventListener('mouseleave', hide);
+      sparkOverlay.addEventListener('touchstart', handleSparkMove, { passive: true });
+      sparkOverlay.addEventListener('touchmove', handleSparkMove, { passive: true });
+    }
+
+    // ---------- 2. Escala AFOREs: hover POR ÁREA ----------
+    var scaleTrack = document.querySelector('.rh-viz__scale-track');
+    if (scaleTrack) {
+      var scaleTargets = Array.prototype.slice.call(
+        scaleTrack.querySelectorAll('[data-tip-title][data-tip-pos]')
+      );
+      function handleScaleMove(e) {
+        var rect = scaleTrack.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width * 100;
+        var nearest = scaleTargets[0];
+        var minD = Math.abs(parseFloat(nearest.dataset.tipPos) - pct);
+        for (var i = 1; i < scaleTargets.length; i++) {
+          var d = Math.abs(parseFloat(scaleTargets[i].dataset.tipPos) - pct);
+          if (d < minD) { minD = d; nearest = scaleTargets[i]; }
+        }
+        setActive(nearest);
+        showFor(nearest);
+      }
+      scaleTrack.addEventListener('mousemove', handleScaleMove);
+      scaleTrack.addEventListener('mouseleave', hide);
+      scaleTrack.addEventListener('touchmove', function (e) {
+        if (e.touches && e.touches[0]) {
+          handleScaleMove({ clientX: e.touches[0].clientX });
+        }
+      }, { passive: true });
+    }
+
+    // ---------- 3. Focus por teclado en todos los data-tip-title ----------
+    var focusables = container.querySelectorAll('[data-tip-title][tabindex]');
+    Array.prototype.forEach.call(focusables, function (el) {
+      el.addEventListener('focus', function () { setActive(el); showFor(el); });
+      el.addEventListener('blur', hide);
+    });
+
+    // ---------- 4. Rows generosas: barras Recursos + rows AFORE ----------
+    var hoverRows = container.querySelectorAll('.rh-viz__bar-row[data-tip-title], .rh-afore-row[data-tip-title]');
+    Array.prototype.forEach.call(hoverRows, function (el) {
+      el.addEventListener('mouseenter', function () { setActive(el); showFor(el); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('touchstart', function () { setActive(el); showFor(el); }, { passive: true });
+    });
+
+    // ---------- 5. Tocar fuera oculta el tooltip ----------
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('[data-tip-title], .rh-spark__overlay, .rh-viz__scale-track, .rh-afore-row')) hide();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      tip.classList.remove('is-visible');
+      if (activeDot) activeDot.setAttribute('opacity', '0');
+    });
+  })();
+  </script>
+
+  <!-- Gráficas del paper -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navy = '#1B2A5E';
+    var gold = '#B8943E';
+    var bgAlt = '#F4F5FA';
+    var gris = '#9CA3AF';
+
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = '#4B5563';
+
+    // ── Gráfica 1: Recursos administrados 2009 vs 2010 ──
+    new Chart(document.getElementById('chart-recursos'), {
+      type: 'bar',
+      data: {
+        labels: ['Cierre dic-2009', 'Septiembre 2010'],
+        datasets: [{
+          label: 'Recursos (mmdp)',
+          data: [1151.2, 1379],
+          backgroundColor: [navy, gold],
+          borderRadius: 4,
+          barPercentage: 0.5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                var pib = ctx.dataIndex === 0 ? '9.8' : '11.1';
+                return ctx.parsed.y.toLocaleString() + ' mmdp (' + pib + '% del PIB)';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 1600,
+            title: { display: true, text: 'Miles de millones de pesos (mmdp)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'pibLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          var pibValues = ['9.8% del PIB', '11.1% del PIB'];
+          ctx.save();
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(bar, i) {
+            ctx.fillText(pibValues[i], bar.x, bar.y - 8);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+
+    // ── Gráfica 2: Comisiones por AFORE ──
+    new Chart(document.getElementById('chart-comisiones'), {
+      type: 'bar',
+      data: {
+        labels: [
+          'Coppel','Principal','Metlife','Invercap','Scotia',
+          'Profuturo GNP','ING','HSBC','Banamex','Banorte Generali',
+          'Afirme Bajío','Bancomer','XXI','Inbursa','Argos'
+        ],
+        datasets: [{
+          label: 'Comisión sobre saldo (%)',
+          data: [1.81,1.79,1.74,1.73,1.70,1.70,1.61,1.61,1.58,1.58,1.51,1.45,1.42,1.18,1.17],
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: {
+            min: 0,
+            max: 2.0,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          y: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'promedioLine',
+        afterDraw: function(chart) {
+          var xScale = chart.scales.x;
+          var yScale = chart.scales.y;
+          var ctx = chart.ctx;
+          var xPos = xScale.getPixelForValue(1.57);
+          ctx.save();
+          ctx.beginPath();
+          ctx.setLineDash([6, 4]);
+          ctx.strokeStyle = gold;
+          ctx.lineWidth = 2;
+          ctx.moveTo(xPos, yScale.top);
+          ctx.lineTo(xPos, yScale.bottom);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = gold;
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('Promedio 1.57%', xPos, yScale.top - 6);
+          ctx.restore();
+        }
+      }]
+    });
+
+    // ── Gráfica 3: Rendimientos por AFORE 2010 ──
+    new Chart(document.getElementById('chart-rendimientos'), {
+      type: 'bar',
+      data: {
+        labels: ['Invercap', 'Profuturo GNP', 'Banamex', 'AFORE XXI', 'ING'],
+        datasets: [{
+          label: 'Rendimiento nominal (%)',
+          data: [11.49, 10.95, 10.47, 10.12, 9.73],
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: {
+            min: 0,
+            max: 13,
+            title: { display: true, text: 'Rendimiento nominal (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          y: { grid: { display: false } }
+        }
+      },
+      plugins: [{
+        id: 'inflacionLine',
+        afterDraw: function(chart) {
+          var xScale = chart.scales.x;
+          var yScale = chart.scales.y;
+          var ctx = chart.ctx;
+          var xPos = xScale.getPixelForValue(4.2);
+          ctx.save();
+          ctx.beginPath();
+          ctx.setLineDash([6, 4]);
+          ctx.strokeStyle = gold;
+          ctx.lineWidth = 2;
+          ctx.moveTo(xPos, yScale.top);
+          ctx.lineTo(xPos, yScale.bottom);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = gold;
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('Inflación 4.2%', xPos, yScale.top - 6);
+          ctx.restore();
+        }
+      }]
+    });
+
+    // ── Gráfica 4: Composición de inversión (dona) ──
+    new Chart(document.getElementById('chart-composicion'), {
+      type: 'doughnut',
+      data: {
+        labels: [
+          'Valores gubernamentales (66.3%)',
+          'Renta variable nacional (9.0%)',
+          'Renta variable internacional (4.0%)',
+          'Deuda no gubernamental nacional (16.6%)',
+          'Deuda emitida por entidades internacionales (4.1%)'
+        ],
+        datasets: [{
+          data: [66.3, 9.0, 4.0, 16.6, 4.1],
+          backgroundColor: [navy, gold, '#D4B57A', gris, '#B8C4D6'],
+          borderWidth: 2,
+          borderColor: '#ffffff'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '55%',
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              padding: 12,
+              usePointStyle: true,
+              pointStyleWidth: 12,
+              boxWidth: 12,
+              font: { size: 11 }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.label + ' = ' + ctx.parsed + '%';
+              }
+            }
+          }
+        }
+      }
+    });
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Sistema de Ahorro para el Retiro en México: Panorama 2015 | Datos México</title>
+  <meta name="description" content="Estudio descriptivo del Sistema de Ahorro para el Retiro en México durante 2015: inflación históricamente baja de 2.13%, comisiones promedio en 1.11%, primer año con PensionISSSTE por debajo de 0.99%, y recursos de 2.55 billones de pesos.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/DM-SAR-2015.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Sistema de Ahorro para el Retiro en México: Panorama 2015 | Datos México">
+  <meta property="og:description" content="Estudio descriptivo del SAR en México durante 2015: inflación histórica de 2.13%, comisiones en mínimos de 1.11%, y diagnóstico de CONSAR como antesala a reformas futuras.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/DM-SAR-2015.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Chart.js -->
+  <script src="/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <!-- PAPER -->
+  <main class="paper paper--margen" role="main">
+
+    <!-- Back link -->
+    <a href="/pensiones/sar-29" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a publicaciones
+    </a>
+
+    <!-- ==========================================
+         PORTADA
+         ========================================== -->
+    <header class="paper__portada">
+      <span class="paper__tipo">Estudio</span>
+      <p class="paper__id">DM-SAR-2015</p>
+      <h1 class="paper__titulo">El Sistema de Ahorro para el Retiro en México: Panorama 2015</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Abril 2026</p>
+
+      <!-- Sello Datos México -->
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-2015</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         RESUMEN EJECUTIVO VISUAL (rollout 2015)
+         Reemplaza el .paper__resumen de texto. Toda cifra y su badge [V]/[E]
+         proviene del cuerpo del paper sin alteración (Secciones 4, 6, 7, 8,
+         9, 10 y Tablas 1, 2, 4); ninguna cifra nueva. Cifras dominantes
+         (rh-card__big) son [V]; los estimados (~2,550 mmdp, ~13.9% del PIB,
+         ~55 M cuentas, ~5% nominal, ~3% real) viven como contexto [E] en
+         lede y metas. Historia doble del año: mínimos históricos en dos
+         frentes — la inflación más baja desde la creación del SAR (2.13%,
+         Sec 4, Sec 10.1, Conclusión 6) y la comisión promedio más baja del
+         esquema sobre saldo (1.11%, Sec 8), con PensionISSSTE rompiendo el
+         piso de facto de 0.99% (0.92%, Sec 8, Conclusión 4, Tabla 3) —
+         mientras los rendimientos retroceden (~5% E nominal vs 10.51% V de
+         2014) y Banxico inicia un nuevo ciclo con el primer alza en más de
+         seis años (3.25%, Sec 10.2). Los recursos 2015 del cuerpo son
+         estimados [E] (Tabla 1), por lo que la Card 1 ancla en el
+         crecimiento +6.9% [V] (regla big=[V]) y los ~2,550 mmdp [E] viven
+         en lede y meta. Dot plot de 11 AFOREs en DISPERSIÓN con outlier
+         (patrón formalizado en para el 2021): rango 28 pb sin
+         cluster dominante, con el outlier gold (PensionISSSTE 0.92%) como
+         protagonista del año.
+         ========================================== -->
+    <section class="paper__resumen-hero" id="resumen" aria-labelledby="resumenHeroTitle">
+      <div class="paper__resumen-hero-inner">
+
+        <!-- Tooltip unificado (Ronda 6): un solo sistema; ASCII
+             puro en data-tip-*; badge V como elemento HTML. -->
+        <div class="rh-tip" id="rhTip" role="status" aria-live="polite" aria-hidden="true">
+          <span class="rh-tip__title"></span>
+          <span class="rh-tip__detail">
+            <span class="rh-tip__detail-text"></span>
+            <span class="rh-tip__badge" aria-hidden="true">V</span>
+          </span>
+          <span class="rh-tip__note"></span>
+        </div>
+
+        <p class="paper__resumen-hero-eyebrow">Sección 1 &middot; En síntesis &middot; Panorama 2015</p>
+        <h2 id="resumenHeroTitle" class="paper__resumen-hero-titulo">La inflación más baja desde la creación del SAR y la primera AFORE debajo de 0.99%.</h2>
+
+        <p class="paper__resumen-hero-lede">
+          Al cierre de 2015, el SAR administraba recursos estimados en <strong>~2,550 mmdp</strong><span class="fuente-badge fuente-badge--e">E</span> &mdash;equivalentes a <strong>~13.9% del PIB</strong><span class="fuente-badge fuente-badge--e">E</span>&mdash;, un crecimiento de <strong>+6.9%</strong><span class="fuente-badge fuente-badge--v">V</span> sobre los <strong>2,385 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span> de 2014, con <strong>~55 millones</strong><span class="fuente-badge fuente-badge--e">E</span> de cuentas individuales y 11 AFOREs operando sin eventos corporativos: un año de estabilidad estructural. Las comisiones sobre saldo oscilaron entre <strong>0.92%</strong><span class="fuente-badge fuente-badge--v">V</span> (PensionISSSTE, la primera AFORE en la historia en romper la barrera de <strong>0.99%</strong><span class="fuente-badge fuente-badge--v">V</span>) y <strong>1.20%</strong><span class="fuente-badge fuente-badge--v">V</span> (Coppel), con un promedio del sistema de <strong>1.11%</strong><span class="fuente-badge fuente-badge--v">V</span>, la tasa más baja en la historia del esquema sobre saldo. El contexto macro fue excepcional: inflación de <strong>2.13%</strong><span class="fuente-badge fuente-badge--v">V</span>, la más baja desde la creación del SAR en 1997, y tasa de Banxico en <strong>3.25%</strong><span class="fuente-badge fuente-badge--v">V</span> tras el primer incremento en más de seis años. Los rendimientos nominales se estiman en <strong>~5%</strong><span class="fuente-badge fuente-badge--e">E</span> (<strong>~3%</strong><span class="fuente-badge fuente-badge--e">E</span> real), un retroceso considerable frente al <strong>10.51%</strong><span class="fuente-badge fuente-badge--v">V</span> nominal de 2014.
+        </p>
+
+        <div class="paper__resumen-hero-grid">
+
+          <article class="rh-card">
+            <p class="rh-card__label">Crecimiento de recursos</p>
+            <p class="rh-card__big">+6.9<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">~2,550 mmdp<span class="fuente-badge fuente-badge--e">E</span> estimados &middot; ~13.9% del PIB<span class="fuente-badge fuente-badge--e">E</span> &middot; &minus;0.4 pp del PIB<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card rh-card--accent">
+            <p class="rh-card__label">PensionISSSTE &mdash; primera AFORE debajo de 0.99%</p>
+            <p class="rh-card__big">0.92<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Rompe el piso de facto de 0.99%<span class="fuente-badge fuente-badge--v">V</span> &middot; Nuevo umbral en la presión competitiva sobre comisiones</p>
+            <p class="rh-card__ref"><a href="#comisiones">Sección 8 &mdash; Comisiones</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Comisión promedio</p>
+            <p class="rh-card__big">1.11<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Mínimo del esquema sobre saldo &middot; &minus;0.08 pp vs 2014<span class="fuente-badge fuente-badge--v">V</span> &middot; &minus;42.2% vs 2008<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#comisiones">Sección 8 &mdash; Comisiones</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Inflación cierre 2015</p>
+            <p class="rh-card__big">2.13<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">La más baja desde la creación del SAR en 1997 &middot; Tasa Banxico 3.25%<span class="fuente-badge fuente-badge--v">V</span>, primer alza en más de seis años &middot; Rendimiento nominal estimado ~5%<span class="fuente-badge fuente-badge--e">E</span></p>
+            <p class="rh-card__ref"><a href="#contexto">Sección 4 &mdash; Contexto económico 2015</a></p>
+          </article>
+
+        </div>
+
+        <!-- Retícula asimétrica (D20): 2 cols en escritorio con áreas
+                "recursos afore"     ← Recursos + Dot plot (der spans 2 filas)
+                "spark    afore"
+             Móvil: stack DOM order (Recursos → Sparkline → AFORE). -->
+        <div class="paper__resumen-hero-viz">
+
+          <article class="rh-viz rh-viz--recursos" aria-labelledby="rhVizRecTitle">
+            <p id="rhVizRecTitle" class="rh-viz__title">Recursos administrados (mmdp)</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2014, 2,385 mmdp, 14.3% del PIB, verificado"
+                   data-tip-title="Cierre 2014" data-tip-detail="2,385 mmdp" data-tip-note="14.3% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2014</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.935"></div>
+                  <span class="rh-viz__bar-label">2,385<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2015, ~2,550 mmdp, ~13.9% del PIB, estimado"
+                   data-tip-title="Cierre 2015" data-tip-detail="~2,550 mmdp (estimado)" data-tip-note="~13.9% del PIB (estimado)">
+                <span class="rh-viz__year">2015</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">~2,550<span class="fuente-badge fuente-badge--e">E</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">+6.9%<span class="fuente-badge fuente-badge--v">V</span> nominal &middot; &minus;0.4 pp del PIB<span class="fuente-badge fuente-badge--v">V</span> &middot; Desaceleración vs +15.8%<span class="fuente-badge fuente-badge--v">V</span> de 2014</p>
+            <p class="rh-viz__ref"><a href="#recursos">Tabla 1 &mdash; Sección 7</a></p>
+          </article>
+
+          <!-- Sparkline 2008-2015 (8 puntos, serie completa de Tabla 4).
+               viewBox 720x84; puntos equidistantes x=20..700 (spacing ~97.14).
+               Y interpolada linealmente entre 1.92% (y=6) y 1.11% (y=77),
+               reescalada al MIN del scope del paper 2015 (honestidad al
+               scope: no se usa el mínimo de años posteriores). Descenso
+               monotónico sin plateau; el punto terminal 2015 lleva
+               data-tip-note "Minimo historico del esquema sobre saldo"
+               (hito verificado del cuerpo, Sec 8). Marker inicial navy en
+               (20,6), marker terminal gold en (700,77). Datos verificados
+               de Tabla 4 del cuerpo (Sec 8). -->
+          <figure class="paper__resumen-hero-spark" aria-labelledby="rhSparkCaption">
+            <figcaption class="rh-spark__caption">
+              <span id="rhSparkCaption" class="rh-spark__caption-label">Comisión promedio del SAR &middot; 2008–2015 (% sobre saldo)</span>
+              <span class="rh-spark__caption-meta">1.92%<span class="fuente-badge fuente-badge--v">V</span> &rarr; 1.11%<span class="fuente-badge fuente-badge--v">V</span> &middot; <strong>&minus;42.2%</strong><span class="fuente-badge fuente-badge--v">V</span> acumulado</span>
+            </figcaption>
+
+            <div class="rh-spark__wrapper">
+              <svg class="rh-spark__svg" viewBox="0 0 720 84" role="img" aria-label="Tendencia de la comisión promedio del SAR de 2008 a 2015">
+                <defs>
+                  <linearGradient id="rhSparkGrad" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(27,42,94,0.22)"/>
+                    <stop offset="100%" stop-color="rgba(27,42,94,0)"/>
+                  </linearGradient>
+                </defs>
+                <line x1="20" y1="78" x2="700" y2="78" stroke="rgba(27,42,94,0.14)" stroke-width="1"/>
+                <path d="M20,6 L117.14,20.9 L214.29,32.3 L311.43,44.6 L408.57,53.3 L505.71,61.2 L602.86,70 L700,77 L700,78 L20,78 Z" fill="url(#rhSparkGrad)"/>
+                <polyline points="20,6 117.14,20.9 214.29,32.3 311.43,44.6 408.57,53.3 505.71,61.2 602.86,70 700,77" fill="none" stroke="#1B2A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <g class="rh-spark__points">
+                  <circle class="rh-spark__point" cx="20"     cy="6"    r="9" data-tip-title="2008" data-tip-detail="1.92%" tabindex="0" role="img" aria-label="2008: 1.92%"></circle>
+                  <circle class="rh-spark__point" cx="117.14" cy="20.9" r="9" data-tip-title="2009" data-tip-detail="1.75%" tabindex="0" role="img" aria-label="2009: 1.75%"></circle>
+                  <circle class="rh-spark__point" cx="214.29" cy="32.3" r="9" data-tip-title="2010" data-tip-detail="1.62%" tabindex="0" role="img" aria-label="2010: 1.62%"></circle>
+                  <circle class="rh-spark__point" cx="311.43" cy="44.6" r="9" data-tip-title="2011" data-tip-detail="1.48%" tabindex="0" role="img" aria-label="2011: 1.48%"></circle>
+                  <circle class="rh-spark__point" cx="408.57" cy="53.3" r="9" data-tip-title="2012" data-tip-detail="1.38%" tabindex="0" role="img" aria-label="2012: 1.38%"></circle>
+                  <circle class="rh-spark__point" cx="505.71" cy="61.2" r="9" data-tip-title="2013" data-tip-detail="1.29%" tabindex="0" role="img" aria-label="2013: 1.29%"></circle>
+                  <circle class="rh-spark__point" cx="602.86" cy="70"   r="9" data-tip-title="2014" data-tip-detail="1.19%" tabindex="0" role="img" aria-label="2014: 1.19%"></circle>
+                  <circle class="rh-spark__point" cx="700"    cy="77"   r="9" data-tip-title="2015" data-tip-detail="1.11%" data-tip-note="Minimo historico del esquema sobre saldo" tabindex="0" role="img" aria-label="2015: 1.11%, mínimo histórico del esquema sobre saldo"></circle>
+                </g>
+                <circle cx="20" cy="6" r="4" fill="#1B2A5E" pointer-events="none"/>
+                <circle cx="700" cy="77" r="4" fill="#B8943E" pointer-events="none"/>
+                <circle class="rh-spark__active" cx="0" cy="0" r="5" fill="#1B2A5E" stroke="#FFFFFF" stroke-width="2" opacity="0" pointer-events="none"/>
+                <rect class="rh-spark__overlay" x="0" y="0" width="720" height="84" fill="transparent" pointer-events="all"/>
+              </svg>
+            </div>
+
+            <div class="rh-spark__axis" aria-hidden="true">
+              <span>2008</span>
+              <span>2015</span>
+            </div>
+
+            <p class="rh-spark__ref"><a href="#comisiones">Tabla 4 &mdash; Sección 8 (datos verificados [V] CONSAR)</a></p>
+          </figure>
+
+          <article class="rh-viz rh-viz--afore" aria-labelledby="rhVizAforeTitle">
+            <p id="rhVizAforeTitle" class="rh-viz__title">Comisiones por AFORE (11 firmas, cierre 2015)</p>
+
+            <!-- Dot plot horizontal (D19) — patrón de DISPERSIÓN con outlier
+                 (formalizado en para el 2021): mercado aún no
+                 comprimido. Rango 28 pb (0.92% a 1.20%): PensionISSSTE
+                 outlier (--pos: 0%) y 10 firmas distribuidas de 1.04 a 1.20
+                 en dos bandas sueltas (1.04-1.11 y 1.17-1.20), sin cluster
+                 de un solo valor. La firma del año es el outlier: primera
+                 AFORE en romper la barrera de 0.99% (Sec 8, Conclusión 4,
+                 Tabla 3). Nombres canónicos del cuerpo (Sec 5 y Tabla 2,
+                 consistentes entre sí; el cuerpo aclara que en 2015 la
+                 AFORE operaba como "Banamex", no "Citibanamex", Sec 5).
+                 Posiciones: (val - 0.92) / (1.20 - 0.92) * 100. -->
+            <ol class="rh-afore-list" role="list">
+              <li class="rh-afore-row rh-afore-row--outlier" tabindex="0" role="listitem"
+                  data-tip-title="PensionISSSTE" data-tip-detail="0.92%" data-tip-note="Primera AFORE debajo de 0.99%" data-tip-v="1">
+                <span class="rh-afore-name">PensionISSSTE</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 0%"></span></span>
+                <span class="rh-afore-value">0.92<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="XXI Banorte" data-tip-detail="1.04%" data-tip-v="1">
+                <span class="rh-afore-name">XXI Banorte</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 42.9%"></span></span>
+                <span class="rh-afore-value">1.04<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Banamex" data-tip-detail="1.05%" data-tip-v="1">
+                <span class="rh-afore-name">Banamex</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 46.4%"></span></span>
+                <span class="rh-afore-value">1.05<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Inbursa" data-tip-detail="1.08%" data-tip-v="1">
+                <span class="rh-afore-name">Inbursa</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 57.1%"></span></span>
+                <span class="rh-afore-value">1.08<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Profuturo GNP" data-tip-detail="1.11%" data-tip-v="1">
+                <span class="rh-afore-name">Profuturo GNP</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 67.9%"></span></span>
+                <span class="rh-afore-value">1.11<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="SURA" data-tip-detail="1.11%" data-tip-v="1">
+                <span class="rh-afore-name">SURA</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 67.9%"></span></span>
+                <span class="rh-afore-value">1.11<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Principal" data-tip-detail="1.17%" data-tip-v="1">
+                <span class="rh-afore-name">Principal</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 89.3%"></span></span>
+                <span class="rh-afore-value">1.17<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Invercap" data-tip-detail="1.18%" data-tip-v="1">
+                <span class="rh-afore-name">Invercap</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 92.9%"></span></span>
+                <span class="rh-afore-value">1.18<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="MetLife" data-tip-detail="1.18%" data-tip-v="1">
+                <span class="rh-afore-name">MetLife</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 92.9%"></span></span>
+                <span class="rh-afore-value">1.18<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Azteca" data-tip-detail="1.19%" data-tip-v="1">
+                <span class="rh-afore-name">Azteca</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 96.4%"></span></span>
+                <span class="rh-afore-value">1.19<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Coppel" data-tip-detail="1.20%" data-tip-v="1">
+                <span class="rh-afore-name">Coppel</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">1.20<span class="rh-afore-unit">%</span></span>
+              </li>
+            </ol>
+
+            <div class="rh-afore-axis" aria-hidden="true">
+              <span>0.92%</span>
+              <span class="rh-afore-axis__mid">Rango 28 pb</span>
+              <span>1.20%</span>
+            </div>
+
+            <p class="rh-viz__meta">Promedio del sistema 1.11%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rango 28 pb<span class="fuente-badge fuente-badge--v">V</span> &middot; 1 outlier de 11 &middot; Las 11 AFOREs redujeron su comisión vs 2014</p>
+            <p class="rh-viz__ref"><a href="#comisiones">Tabla 2 &mdash; Sección 8</a></p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MARGEN LATERAL (rollout 2015)
+         TOC de las 14 secciones del cuerpo (Sec 1 elevada al hero) +
+         leyenda [V]/[E] + back-link contextual.
+         ========================================== -->
+    <aside class="paper__margen" aria-label="Navegación y leyenda del estudio">
+      <div class="paper__margen-sticky">
+
+        <nav class="paper__margen-nav" aria-label="Secciones del estudio">
+          <details class="paper__margen-toc-wrap" open>
+            <summary class="paper__margen-toc-summary">
+              <span class="paper__margen-toc-eyebrow">En este estudio</span>
+              <span class="paper__margen-toc-counter">14 secciones</span>
+            </summary>
+            <ol class="paper__margen-toc">
+              <li><a href="#resumen">Resumen ejecutivo</a></li>
+              <li><a href="#introduccion">Introducción</a></li>
+              <li><a href="#metodologia">Metodología</a></li>
+              <li><a href="#contexto">Contexto económico 2015</a></li>
+              <li><a href="#estructura">Estructura del SAR</a></li>
+              <li><a href="#cuentas">Cuentas individuales</a></li>
+              <li><a href="#recursos">Recursos administrados</a></li>
+              <li><a href="#comisiones">Comisiones</a></li>
+              <li><a href="#rendimientos">Rendimientos</a></li>
+              <li><a href="#evolucion">Evolución del sistema</a></li>
+              <li><a href="#normativo">Marco normativo</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#conclusiones">Conclusiones</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="paper__margen-leyenda">
+          <p class="paper__margen-eyebrow">Cómo leer</p>
+          <p class="paper__margen-leyenda-intro">Cada cifra del estudio lleva un sello que indica de dónde sale y queda anclada a su fuente.</p>
+          <ul class="paper__margen-leyenda-items">
+            <li><span class="fuente-badge fuente-badge--v">V</span><span>verificado de fuente oficial directa</span></li>
+            <li><span class="fuente-badge fuente-badge--e">E</span><span>derivado o estimado, declarado</span></li>
+          </ul>
+        </div>
+
+        <a href="/pensiones/sar-29" class="paper__margen-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Volver al índice
+        </a>
+
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         CUERPO DEL PAPER
+         ========================================== -->
+    <div class="paper__body">
+
+      <!-- Sección 1 (Resumen ejecutivo) elevada al bloque visual full-width
+           encima del cuerpo (sección "paper__resumen-hero" arriba). Toda la
+           sustancia se conserva; la presentación se elevó. -->
+
+      <!-- 2. INTRODUCCION -->
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Sección 2</div>
+        <h2>Introducción</h2>
+        <p>El Sistema de Ahorro para el Retiro (SAR) es el mecanismo mediante el cual los trabajadores en México acumulan recursos para su retiro a través de cuentas individuales administradas por AFORE. Creado a partir de la reforma a la Ley del Seguro Social de 1995 (vigente desde julio de 1997), el SAR reemplazó parcialmente el sistema de reparto y se estableció como un esquema de contribución definida basado en cuentas individuales.</p>
+        <p>El presente estudio ofrece un panorama descriptivo del SAR durante el año 2015, a dieciocho años de la entrada en vigor de la reforma. El objetivo es documentar, con base en fuentes primarias oficiales, el estado del sistema en ese periodo: su estructura, los recursos administrados, las comisiones cobradas, los rendimientos obtenidos y el contexto macroeconómico que marcó el año.</p>
+        <p>Este estudio no busca emitir juicios de valor ni recomendar AFOREs específicas. Su propósito es presentar información verificable que permita al lector formar su propio criterio sobre el funcionamiento del sistema en 2015.</p>
+      </section>
+
+      <!-- 3. METODOLOGIA -->
+      <section class="paper__section" id="metodologia">
+        <div class="paper__section-number">Sección 3</div>
+        <h2>Metodología</h2>
+        <p>El presente estudio emplea un enfoque descriptivo con base exclusiva en fuentes primarias oficiales. Las principales fuentes consultadas son:</p>
+        <ul>
+          <li><strong>CONSAR</strong> (Comisión Nacional del Sistema de Ahorro para el Retiro): Informes trimestrales al H. Congreso de la Unión correspondientes a 2015, así como datos estadísticos publicados en su portal.</li>
+          <li><strong>INEGI</strong> (Instituto Nacional de Estadística y Geografía): Datos de PIB, inflación e indicadores económicos 2015.</li>
+          <li><strong>Banxico</strong> (Banco de México): Datos de tasa de referencia e inflación.</li>
+          <li><strong>Panel DM-SAR-DATA-001:</strong> Base de datos consolidada con información de CONSAR, consultada en abril de 2026.</li>
+        </ul>
+        <p>El periodo de análisis comprende el año calendario 2015, con referencias puntuales al cierre de 2014 para fines de contexto y comparación. No se realizan proyecciones, estimaciones propias ni inferencias causales. Todas las cifras cuantitativas provienen directamente de las fuentes citadas o del Panel DM-SAR-DATA-001.</p>
+      </section>
+
+      <!-- 4. CONTEXTO ECONOMICO 2015 -->
+      <section class="paper__section" id="contexto">
+        <div class="paper__section-number">Sección 4</div>
+        <h2>Contexto económico 2015</h2>
+        <p>El año 2015 presentó un entorno macroeconómico marcado por inflación históricamente baja, crecimiento económico moderado e inicio de normalización monetaria internacional. Los principales indicadores macroeconómicos fueron:</p>
+        <ul>
+          <li><strong>Crecimiento del PIB:</strong> ~2.5% <span class="fuente-badge fuente-badge--e">E</span>, según datos del INEGI, una mejora respecto al ~2.1% <span class="fuente-badge fuente-badge--e">E</span> registrado en 2014, aunque todavía por debajo del potencial de crecimiento de largo plazo.</li>
+          <li><strong>Inflación:</strong> 2.13% <span class="fuente-badge fuente-badge--v">V</span> al cierre del año, según datos de INEGI y Banxico, representando el nivel más bajo de inflación desde la creación del SAR en 1997. Este fue un logro histórico de la política monetaria mexicana, resultado de una combinación de factores domésticos e internacionales.</li>
+          <li><strong>Tasa de referencia de Banxico:</strong> 3.25% <span class="fuente-badge fuente-badge--v">V</span> al cierre del año, tras un incremento de 25 puntos base en diciembre 2015 desde el 3.00% <span class="fuente-badge fuente-badge--v">V</span> que se había mantenido durante la mayor parte del año. Este fue el primer incremento en más de seis años, marcando el inicio de un nuevo ciclo de política monetaria.</li>
+        </ul>
+        <p>El contexto internacional estuvo dominado por la anticipación y finalmente la materialización del primer incremento de tasas de interés de la Reserva Federal de Estados Unidos desde 2006. En diciembre de 2015, la Fed inició su ciclo de normalización monetaria, incrementando la tasa de fondos federales de 0-0.25% <span class="fuente-badge fuente-badge--v">V</span> a 0.25-0.50% <span class="fuente-badge fuente-badge--v">V</span>. Este evento generó volatilidad moderada en mercados emergentes y presiones sobre los flujos de capital.</p>
+        <p>En el ámbito interno, la caída de precios del petróleo continuó afectando las finanzas públicas de México, generando presiones fiscales y ajustes en el gasto público. El precio de la mezcla mexicana de petróleo promedió aproximadamente 44 dólares por barril durante 2015, muy por debajo de los 85 dólares de 2014. Esta caída de ingresos petroleros obligó a ajustes fiscales adicionales.</p>
+        <p>La combinación de inflación históricamente baja (2.13% <span class="fuente-badge fuente-badge--v">V</span>), crecimiento económico moderado, caída de precios del petróleo e inicio de normalización monetaria internacional creó un entorno complejo para los fondos de pensiones. Los rendimientos nominales de ~5% <span class="fuente-badge fuente-badge--e">E</span> durante 2015 reflejaron este entorno más desafiante respecto al sólido 10.51% <span class="fuente-badge fuente-badge--v">V</span> de 2014.</p>
+      </section>
+
+      <!-- 5. ESTRUCTURA DEL SAR -->
+      <section class="paper__section" id="estructura">
+        <div class="paper__section-number">Sección 5</div>
+        <h2>Estructura del SAR</h2>
+
+        <h3>Marco legal</h3>
+        <p>El SAR continuó operando en 2015 bajo el mismo marco legal fundamental vigente desde la reforma:</p>
+        <ul>
+          <li><strong>Ley del Seguro Social</strong> (publicada el 21 de diciembre de 1995, vigente desde el 1 de julio de 1997): Estableció el esquema de contribución definida con cuentas individuales para los trabajadores afiliados al IMSS.</li>
+          <li><strong>Ley de los Sistemas de Ahorro para el Retiro</strong> (Ley del SAR): Define la regulación de las AFORE, SIEFORE, y el papel de la CONSAR como órgano regulador.</li>
+        </ul>
+        <p>Los dos regímenes del IMSS continuaron vigentes:</p>
+        <ul>
+          <li><strong>Ley de 1973 (Ley 73):</strong> Aplica a trabajadores que comenzaron a cotizar antes del 1 de julio de 1997. Otorga pensión por reparto bajo requisitos de edad y semanas cotizadas.</li>
+          <li><strong>Ley de 1997 (Ley 97):</strong> Aplica a trabajadores que comenzaron a cotizar a partir del 1 de julio de 1997. Opera bajo el esquema de contribución definida con cuenta individual.</li>
+        </ul>
+
+        <h3>Participantes del sistema</h3>
+        <p>Durante 2015, operaron las mismas 11 AFORE que operaron en 2014, sin cambios estructurales. Las 11 AFOREs activas al cierre de 2015 fueron: Azteca, Banamex, Coppel, Inbursa, Invercap, MetLife, PensionISSSTE, Principal, Profuturo GNP, SURA y XXI Banorte.</p>
+        <p>Es importante notar que en 2015 la AFORE todavía operaba bajo el nombre "Banamex", no "Citibanamex". El cambio de denominación comercial a "Citibanamex" ocurrió posteriormente, alrededor de 2017.</p>
+        <p>Este fue un año de estabilidad estructural en el sistema, sin fusiones, adquisiciones ni cesiones de cartera. El número de 11 AFOREs se mantuvo constante, consolidando la estructura que había resultado de la cesión de Afirme Bajío a Profuturo GNP en febrero de 2014.</p>
+
+        <h3>Estructura de SIEFOREs Básicas</h3>
+        <p>El sistema continuó operando con cuatro SIEFOREs básicas diferenciadas por edad:</p>
+        <ul>
+          <li><strong>SB1:</strong> Trabajadores de 60 años y mayores.</li>
+          <li><strong>SB2:</strong> Trabajadores de 46 a 59 años.</li>
+          <li><strong>SB3:</strong> Trabajadores de 37 a 45 años.</li>
+          <li><strong>SB4:</strong> Trabajadores de 36 años y menores.</li>
+        </ul>
+        <p>Durante 2015, CONSAR mantuvo el régimen de inversión de las SIEFOREs con los límites establecidos para instrumentos alternativos como Certificados de Capital de Desarrollo (CKDs), Fideicomisos de Infraestructura y Bienes Raíces (FIBRAs) e instrumentos estructurados, con el objetivo de incrementar la diversificación de los portafolios y potenciar los rendimientos de largo plazo.</p>
+
+        <h3>Diagnóstico de CONSAR: antesala a reformas futuras</h3>
+        <p>Durante 2015, CONSAR publicó un diagnóstico del sistema de pensiones en México, identificando desafíos estructurales de largo plazo relacionados con tasas de reemplazo, densidad de cotización y suficiencia de ahorro para el retiro. Este diagnóstico se convirtió en un documento de referencia que sentó las bases para las discusiones de reforma que se materializarían en años posteriores, aunque sin cambios normativos inmediatos en 2015.</p>
+      </section>
+
+      <!-- 6. CUENTAS INDIVIDUALES -->
+      <section class="paper__section" id="cuentas">
+        <div class="paper__section-number">Sección 6</div>
+        <h2>Cuentas individuales</h2>
+        <p>Al cierre de diciembre de 2015, el número de cuentas individuales administradas por el SAR se estima en aproximadamente ~55 millones [E], un incremento de ~3.8% <span class="fuente-badge fuente-badge--e">E</span> respecto a los ~53 millones registrados al cierre de 2014. Este crecimiento refleja la incorporación continua de nuevos trabajadores al sistema, así como el envejecimiento de la población afiliada.</p>
+        <p>El crecimiento de ~3.8% <span class="fuente-badge fuente-badge--e">E</span> en cuentas fue inferior al crecimiento de ~6.0% <span class="fuente-badge fuente-badge--e">E</span> registrado entre 2013 y 2014, reflejando una desaceleración en el ritmo de expansión del sistema, posiblemente vinculada a la moderación del crecimiento económico y la creación de empleo formal.</p>
+        <p>Los datos desagregados por AFORE para 2015 son estimaciones [E], por lo que no se presenta una tabla per-AFORE para este año. En ausencia de eventos corporativos (fusiones o cesiones de cartera), se estima que la distribución de cuentas entre las 11 AFOREs se mantuvo relativamente estable respecto a 2014.</p>
+      </section>
+
+      <!-- 7. RECURSOS ADMINISTRADOS -->
+      <section class="paper__section" id="recursos">
+        <div class="paper__section-number">Sección 7</div>
+        <h2>Recursos administrados</h2>
+        <p>Al cierre de diciembre de 2015, los recursos administrados por el SAR se estiman en aproximadamente ~2,550 miles de millones de pesos (mmdp) [E], equivalentes a ~13.9% <span class="fuente-badge fuente-badge--e">E</span> del PIB. Esto representó un incremento de 6.9% <span class="fuente-badge fuente-badge--v">V</span> respecto a los 2,385 mmdp <span class="fuente-badge fuente-badge--v">V</span> registrados al cierre de 2014, marcando una desaceleración considerable respecto al crecimiento de 15.8% <span class="fuente-badge fuente-badge--v">V</span> observado entre 2013 y 2014.</p>
+
+        <!-- Tabla 1: Recursos 2014 vs 2015 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. Recursos administrados por el SAR, 2014 vs 2015</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th class="num">Cierre 2014</th>
+                <th class="num">Cierre 2015</th>
+                <th class="num">Variación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Recursos administrados (mmdp)</td>
+                <td class="num">2,385</td>
+                <td class="num">~2,550</td>
+                <td class="num">+6.9%</td>
+              </tr>
+              <tr>
+                <td>Recursos como % del PIB</td>
+                <td class="num">14.3%</td>
+                <td class="num">~13.9%</td>
+                <td class="num">-0.4 pp</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Cifras en miles de millones de pesos (mmdp) nominales. Datos de 2014 verificados [V], datos de 2015 estimados [E].</p>
+        </div>
+
+        <!-- Grafica 1: Recursos 2014 vs 2015 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 1. Recursos administrados por el SAR, 2014 vs 2015 (mmdp)</p>
+          <div class="paper__grafica-container"><canvas id="chart-recursos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, informes trimestrales 2014-2015; Panel DM-SAR-DATA-001. Datos de 2015 estimados [E].</p>
+        </div>
+
+        <p>El crecimiento de 6.9% <span class="fuente-badge fuente-badge--v">V</span> en recursos totales del sistema durante 2015 fue significativamente inferior al 15.8% <span class="fuente-badge fuente-badge--v">V</span> de 2014, reflejando rendimientos más modestos (~5% <span class="fuente-badge fuente-badge--e">E</span> nominal vs 10.51% <span class="fuente-badge fuente-badge--v">V</span> del año previo) en un contexto de mayor volatilidad en mercados financieros internacionales y presiones de inicio de normalización monetaria. Notablemente, la proporción recursos/PIB se redujo en 0.4 puntos porcentuales (de 14.3% a ~13.9% <span class="fuente-badge fuente-badge--e">E</span>), una disminución inusual que refleja el crecimiento nominal del PIB superior al crecimiento de los recursos del SAR.</p>
+        <p>A pesar de esta desaceleración, los recursos del SAR continuaron consolidándose como uno de los vehículos de ahorro de largo plazo más importantes de la economía mexicana, representando cerca de 14% <span class="fuente-badge fuente-badge--v">V</span> del PIB y manteniendo una trayectoria de crecimiento sostenido.</p>
+      </section>
+
+      <!-- 8. COMISIONES -->
+      <section class="paper__section" id="comisiones">
+        <div class="paper__section-number">Sección 8</div>
+        <h2>Comisiones</h2>
+        <p>Las comisiones sobre saldo continuaron su tendencia descendente durante 2015, alcanzando el nivel más bajo en la historia del esquema sobre saldo. El promedio del sistema se ubicó en 1.11% <span class="fuente-badge fuente-badge--v">V</span> [V], una reducción respecto al promedio de 1.19% <span class="fuente-badge fuente-badge--v">V</span> registrado en 2014. Esta reducción reflejó tanto la presión regulatoria continua de CONSAR como la competencia entre administradoras, así como la mayor escala del sistema que permite distribuir costos fijos sobre bases de activos crecientes.</p>
+        <p>A diciembre de 2015, las comisiones sobre saldo por AFORE eran las siguientes:</p>
+
+        <!-- Tabla 2: Comisiones dic 2015 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Comisiones sobre saldo por AFORE, diciembre 2015</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Comisión sobre saldo (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PensionISSSTE</td>
+                <td class="num">0.92</td>
+              </tr>
+              <tr>
+                <td>XXI Banorte</td>
+                <td class="num">1.04</td>
+              </tr>
+              <tr>
+                <td>Banamex</td>
+                <td class="num">1.05</td>
+              </tr>
+              <tr>
+                <td>Inbursa</td>
+                <td class="num">1.08</td>
+              </tr>
+              <tr>
+                <td>Profuturo GNP</td>
+                <td class="num">1.11</td>
+              </tr>
+              <tr>
+                <td>SURA</td>
+                <td class="num">1.11</td>
+              </tr>
+              <tr>
+                <td>Principal</td>
+                <td class="num">1.17</td>
+              </tr>
+              <tr>
+                <td>Invercap</td>
+                <td class="num">1.18</td>
+              </tr>
+              <tr>
+                <td>MetLife</td>
+                <td class="num">1.18</td>
+              </tr>
+              <tr>
+                <td>Azteca</td>
+                <td class="num">1.19</td>
+              </tr>
+              <tr>
+                <td>Coppel</td>
+                <td class="num">1.20</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Comisiones expresadas como porcentaje anual sobre saldo administrado. Todos los datos verificados [V].</p>
+        </div>
+
+        <!-- Grafica 2: Comisiones dic 2015 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 2. Comisiones sobre saldo por AFORE, diciembre 2015</p>
+          <div class="paper__grafica-container paper__grafica-container--tall"><canvas id="chart-comisiones"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Línea punteada: promedio del sistema (1.11% <span class="fuente-badge fuente-badge--v">V</span>).</p>
+        </div>
+
+        <p>El rango de comisiones iba desde 0.92% <span class="fuente-badge fuente-badge--v">V</span> (PensionISSSTE) hasta 1.20% <span class="fuente-badge fuente-badge--v">V</span> (Coppel), una diferencia de 0.28 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>, inferior al spread de 0.35 pp <span class="fuente-badge fuente-badge--v">V</span> observado en 2014. La convergencia gradual de comisiones continuó como tendencia dominante del sistema.</p>
+        <p>Un hito histórico de 2015 fue que PensionISSSTE se convirtió en la primera AFORE en bajar de la barrera de 0.99% <span class="fuente-badge fuente-badge--v">V</span>, alcanzando 0.92% <span class="fuente-badge fuente-badge--v">V</span>. Durante años, PensionISSSTE había mantenido una comisión de 0.99% <span class="fuente-badge fuente-badge--v">V</span>, considerada un piso de facto del sistema. La ruptura de esta barrera marcó un nuevo umbral en la presión competitiva sobre comisiones.</p>
+        <p>Todas las 11 AFOREs redujeron sus comisiones entre 2014 y 2015, evidenciando que la presión competitiva y regulatoria afectó al sistema de forma generalizada, no solo a administradoras específicas. Las reducciones más significativas fueron: XXI Banorte (de 1.07% <span class="fuente-badge fuente-badge--v">V</span> a 1.04% <span class="fuente-badge fuente-badge--v">V</span>), Banamex (de 1.09% <span class="fuente-badge fuente-badge--v">V</span> a 1.05% <span class="fuente-badge fuente-badge--v">V</span>), Coppel (de 1.34% <span class="fuente-badge fuente-badge--v">V</span> a 1.20% <span class="fuente-badge fuente-badge--v">V</span>) e Invercap (de 1.32% <span class="fuente-badge fuente-badge--v">V</span> a 1.18% <span class="fuente-badge fuente-badge--v">V</span>).</p>
+
+        <!-- Tabla 4: Evolucion comisiones 2008-2015 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 4. Evolución de la comisión promedio del sistema, 2008-2015</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Año</th>
+                <th class="num">Comisión promedio (%)</th>
+                <th class="num">Variación vs año anterior</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2008</td>
+                <td class="num">1.92</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td>2009</td>
+                <td class="num">1.75</td>
+                <td class="num">-0.17 pp</td>
+              </tr>
+              <tr>
+                <td>2010</td>
+                <td class="num">1.62</td>
+                <td class="num">-0.13 pp</td>
+              </tr>
+              <tr>
+                <td>2011</td>
+                <td class="num">1.48</td>
+                <td class="num">-0.14 pp</td>
+              </tr>
+              <tr>
+                <td>2012</td>
+                <td class="num">1.38</td>
+                <td class="num">-0.10 pp</td>
+              </tr>
+              <tr>
+                <td>2013</td>
+                <td class="num">1.29</td>
+                <td class="num">-0.09 pp</td>
+              </tr>
+              <tr>
+                <td>2014</td>
+                <td class="num">1.19</td>
+                <td class="num">-0.10 pp</td>
+              </tr>
+              <tr>
+                <td>2015</td>
+                <td class="num">1.11</td>
+                <td class="num">-0.08 pp</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR Informe al Congreso. Comisión promedio del sistema sobre saldo administrado. Todos los datos verificados [V].</p>
+        </div>
+
+        <!-- Grafica 3: Tendencia comisiones 2008-2015 -->
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 3. Evolución de la comisión promedio del sistema, 2008-2015</p>
+          <div class="paper__grafica-container"><canvas id="chart-tendencia"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, Informes al H. Congreso de la Unión; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>En ocho años, la comisión promedio del sistema se redujo de 1.92% <span class="fuente-badge fuente-badge--v">V</span> a 1.11% <span class="fuente-badge fuente-badge--v">V</span>, una disminución acumulada de 0.81 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> (-42.2% <span class="fuente-badge fuente-badge--v">V</span>). La tendencia descendente fue consistente en cada uno de los años del periodo 2008-2015, evidenciando la efectividad sostenida de la presión regulatoria de CONSAR y la dinámica competitiva del sistema. El nivel de 1.11% <span class="fuente-badge fuente-badge--v">V</span> en 2015 representó el más bajo desde el inicio del esquema sobre saldo.</p>
+      </section>
+
+      <!-- 9. RENDIMIENTOS -->
+      <section class="paper__section" id="rendimientos">
+        <div class="paper__section-number">Sección 9</div>
+        <h2>Rendimientos</h2>
+        <p>Los rendimientos del SAR durante 2015 se estiman en aproximadamente ~5% <span class="fuente-badge fuente-badge--e">E</span> en términos nominales [E], equivalentes a ~3% <span class="fuente-badge fuente-badge--e">E</span> en términos reales una vez descontada la inflación de 2.13% <span class="fuente-badge fuente-badge--v">V</span>. Estos fueron rendimientos significativamente inferiores al 10.51% nominal (~6.2% <span class="fuente-badge fuente-badge--e">E</span> real) registrado en 2014, representando un retroceso considerable en el desempeño de los fondos de pensiones.</p>
+        <p>Es importante señalar que no existe un dato oficial único de rendimiento anual del sistema para 2015, ya que los rendimientos varían significativamente según:</p>
+        <ul>
+          <li>El tipo de SIEFORE Básica (SB1 a SB4), con diferente exposición a renta variable.</li>
+          <li>La AFORE específica y su estrategia de inversión.</li>
+          <li>El periodo de medición considerado.</li>
+        </ul>
+        <p>Los rendimientos más modestos de 2015 reflejaron principalmente:</p>
+        <ul>
+          <li><strong>Volatilidad en mercados de renta variable:</strong> Los índices bursátiles en México mostraron un desempeño débil durante 2015, presionados por la caída de precios de materias primas (especialmente petróleo), la desaceleración de China y la anticipación de incrementos de tasas de interés en Estados Unidos.</li>
+          <li><strong>Presiones en mercados de deuda:</strong> Los mercados de bonos enfrentaron presiones derivadas del inicio del ciclo de normalización monetaria de la Reserva Federal, aunque estas presiones fueron parcialmente mitigadas por la inflación históricamente baja en México.</li>
+          <li><strong>Depreciación del peso:</strong> El peso mexicano se depreció durante 2015, generando efectos mixtos en los portafolios de las SIEFOREs (favorables para inversiones en activos denominados en moneda extranjera, pero reflejando presiones económicas internas).</li>
+        </ul>
+        <p>En un contexto de inflación históricamente baja (2.13% <span class="fuente-badge fuente-badge--v">V</span>), los rendimientos reales de ~3% <span class="fuente-badge fuente-badge--e">E</span> [E] fueron positivos pero modestos en perspectiva histórica. El rendimiento neto que efectivamente recibe el ahorrador resulta de restar la comisión sobre saldo al rendimiento bruto obtenido. Con una comisión promedio de 1.11% <span class="fuente-badge fuente-badge--v">V</span>, el rendimiento neto nominal estimado para el ahorrador promedio sería de aproximadamente ~3.9% <span class="fuente-badge fuente-badge--e">E</span> (~1.9% <span class="fuente-badge fuente-badge--e">E</span> en términos reales), significativamente inferior al ~9.3% <span class="fuente-badge fuente-badge--e">E</span> nominal (~5.0% <span class="fuente-badge fuente-badge--e">E</span> real) estimado para 2014.</p>
+        <p>La combinación de rendimientos más débiles y comisiones en mínimos históricos resultó en rendimientos netos positivos pero moderados, reflejando el entorno más desafiante de 2015 para la inversión de largo plazo.</p>
+      </section>
+
+      <!-- 10. EVOLUCION DEL SISTEMA -->
+      <section class="paper__section" id="evolucion">
+        <div class="paper__section-number">Sección 10</div>
+        <h2>Evolución del sistema</h2>
+        <p>El año 2015 se caracterizó por estabilidad estructural en el sistema de AFOREs, sin eventos corporativos significativos (fusiones, adquisiciones o cesiones de cartera). Sin embargo, el año fue notable por el contexto macroeconómico excepcional y el inicio de un nuevo ciclo de política monetaria.</p>
+
+        <h3>10.1 Inflación históricamente baja: 2.13% <span class="fuente-badge fuente-badge--v">V</span></h3>
+        <p>La inflación de 2.13% <span class="fuente-badge fuente-badge--v">V</span> registrada en 2015 fue la más baja desde la creación del SAR en 1997, representando un logro histórico de la política monetaria mexicana. Este nivel de inflación fue el resultado de una combinación de factores:</p>
+        <ul>
+          <li><strong>Caída de precios de materias primas:</strong> La caída global de precios del petróleo y otras materias primas redujo presiones inflacionarias en la economía mexicana.</li>
+          <li><strong>Política monetaria restrictiva:</strong> Banxico mantuvo durante la mayor parte de 2015 una postura monetaria que había logrado anclar expectativas de inflación en niveles bajos.</li>
+          <li><strong>Desaceleración económica global:</strong> La desaceleración de China y otras economías emergentes redujo demanda global y presiones sobre precios de bienes transables.</li>
+          <li><strong>Reforma energética:</strong> El inicio de la apertura del sector energético generó expectativas de mayor competencia y eficiencia, aunque sin efectos inmediatos en precios.</li>
+        </ul>
+        <p>Para el SAR, la inflación históricamente baja fue favorable en el sentido de preservar el poder adquisitivo de los recursos administrados, aunque también reflejó un entorno económico más débil que presionó rendimientos nominales.</p>
+
+        <h3>10.2 Primer incremento de tasa de Banxico en más de seis años</h3>
+        <p>En diciembre de 2015, el Banco de México incrementó la tasa de referencia de 3.00% <span class="fuente-badge fuente-badge--v">V</span> a 3.25% <span class="fuente-badge fuente-badge--v">V</span>, marcando el primer aumento en más de seis años y el inicio de un nuevo ciclo de política monetaria:</p>
+        <ul>
+          <li><strong>Contexto del incremento:</strong> El incremento ocurrió en el mismo mes en que la Reserva Federal de Estados Unidos inició su ciclo de normalización monetaria, incrementando la tasa de fondos federales de 0-0.25% <span class="fuente-badge fuente-badge--v">V</span> a 0.25-0.50% <span class="fuente-badge fuente-badge--v">V</span>.</li>
+          <li><strong>Razón explícita:</strong> Banxico justificó el incremento como una medida preventiva para anclar expectativas de inflación y evitar presiones cambiarias derivadas de la divergencia de políticas monetarias entre México y Estados Unidos.</li>
+          <li><strong>Fin del ciclo acomodaticio:</strong> La tasa de 3.00% <span class="fuente-badge fuente-badge--v">V</span> había sido el piso histórico desde junio de 2014. El incremento a 3.25% <span class="fuente-badge fuente-badge--v">V</span> marcó el fin de la política monetaria acomodaticia que había prevalecido desde 2013.</li>
+        </ul>
+        <p>Para el SAR, el incremento de tasa tuvo implicaciones mixtas: favorable para rendimientos futuros de instrumentos de renta fija, pero reflejo de un entorno de mayor volatilidad y presiones económicas que afectarían los rendimientos de 2015.</p>
+
+        <h3>10.3 Diagnóstico de CONSAR: antesala a reformas</h3>
+        <p>Durante 2015, CONSAR publicó un diagnóstico comprehensivo del sistema de pensiones en México, identificando desafíos estructurales de largo plazo:</p>
+        <ul>
+          <li><strong>Tasas de reemplazo bajas:</strong> El diagnóstico estimó que bajo las condiciones vigentes, muchos trabajadores alcanzarían tasas de reemplazo (relación entre pensión y último salario) inferiores al 30% <span class="fuente-badge fuente-badge--v">V</span>, consideradas insuficientes para mantener niveles de vida en el retiro.</li>
+          <li><strong>Densidad de cotización:</strong> Se identificó que los trabajadores mexicanos cotizan en promedio solo 50-60% <span class="fuente-badge fuente-badge--v">V</span> de su vida laboral, limitando la acumulación de recursos para el retiro.</li>
+          <li><strong>Bajas aportaciones obligatorias:</strong> La tasa de aportación obligatoria de 6.5% <span class="fuente-badge fuente-badge--v">V</span> del salario base de cotización fue identificada como insuficiente para generar pensiones adecuadas.</li>
+        </ul>
+        <p>Aunque el diagnóstico no resultó en cambios normativos inmediatos durante 2015, sentó las bases para las discusiones de reforma que se materializarían en la década siguiente. Este documento se convirtió en referencia obligada para cualquier discusión sobre el futuro del SAR.</p>
+
+        <!-- Tabla 3: Eventos significativos 2015 -->
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 3. Eventos significativos del SAR en 2015</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2015</td>
+                <td>Macroeconómico</td>
+                <td>Inflación históricamente baja de 2.13%, la menor desde 1997</td>
+              </tr>
+              <tr>
+                <td>Diciembre 2015</td>
+                <td>Política monetaria</td>
+                <td>Banxico incrementa tasa de 3.0% a 3.25%, primer aumento en más de 6 años</td>
+              </tr>
+              <tr>
+                <td>Diciembre 2015</td>
+                <td>Política monetaria</td>
+                <td>Reserva Federal inicia normalización, incrementa tasa a 0.25-0.50%</td>
+              </tr>
+              <tr>
+                <td>2015</td>
+                <td>Regulatorio</td>
+                <td>CONSAR publica diagnóstico del sistema de pensiones</td>
+              </tr>
+              <tr>
+                <td>2015</td>
+                <td>Comisiones</td>
+                <td>PensionISSSTE rompe barrera de 0.99%, alcanza 0.92%</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR, comunicados oficiales 2015; Banxico; Reserva Federal; Panel DM-SAR-DATA-001.</p>
+        </div>
+      </section>
+
+      <!-- 11. MARCO NORMATIVO -->
+      <section class="paper__section" id="normativo">
+        <div class="paper__section-number">Sección 11</div>
+        <h2>Marco normativo</h2>
+        <p>El SAR operaba en 2015 bajo el mismo marco regulatorio fundamental vigente desde la reforma de 1997:</p>
+        <ul>
+          <li><strong>Ley de los Sistemas de Ahorro para el Retiro</strong> (Ley del SAR): Publicada en el Diario Oficial de la Federación el 23 de mayo de 1996. Establece las reglas generales de operación del sistema, la constitución y funcionamiento de las AFORE y SIEFORE, y las facultades de la CONSAR.</li>
+          <li><strong>Ley del Seguro Social de 1995</strong> (vigente desde el 1 de julio de 1997): Estableció el régimen de contribución definida con cuentas individuales para los trabajadores afiliados al IMSS.</li>
+          <li><strong>Ley del Seguro Social de 1973</strong> (abrogada, pero con efectos vigentes): Aplica a los trabajadores que comenzaron a cotizar antes del 1 de julio de 1997 y que pueden optar por pensionarse bajo sus disposiciones.</li>
+          <li><strong>Circular Única de SIEFOREs:</strong> Las disposiciones de carácter general emitidas por CONSAR regulaban el régimen de inversión. Durante 2015, se mantuvo el marco ampliado para instrumentos alternativos como Certificados de Capital de Desarrollo (CKDs), Fideicomisos de Infraestructura y Bienes Raíces (FIBRAs) e instrumentos estructurados. La estructura de SB1 a SB4 continuó vigente.</li>
+        </ul>
+        <p>Cabe señalar que las interpretaciones específicas sobre la aplicación de estas disposiciones corresponden a las autoridades competentes (CONSAR, IMSS, tribunales). La descripción aquí presentada tiene carácter informativo y no constituye asesoría legal.</p>
+      </section>
+
+      <!-- 12. LIMITACIONES -->
+      <section class="paper__section" id="limitaciones">
+        <div class="paper__section-number">Sección 12</div>
+        <h2>Limitaciones</h2>
+        <p>El presente estudio tiene las siguientes limitaciones que el lector debe considerar:</p>
+        <ul>
+          <li><strong>Alcance descriptivo:</strong> Este documento se limita a presentar información disponible de fuentes oficiales sobre el SAR en 2015. No se realizan análisis predictivos, proyecciones ni evaluaciones del desempeño del sistema.</li>
+          <li><strong>Periodo específico:</strong> Las cifras y datos corresponden al año 2015 y no deben extrapolarse a otros periodos. Las condiciones del SAR han cambiado significativamente desde entonces.</li>
+          <li><strong>Recursos estimados:</strong> Los recursos totales (~2,550 mmdp) y su proporción del PIB (~13.9% <span class="fuente-badge fuente-badge--e">E</span>) son estimaciones [E] basadas en la trayectoria reportada por CONSAR. Cifras exactas pueden variar según metodología de cálculo.</li>
+          <li><strong>Cuentas estimadas:</strong> El número total de cuentas individuales (~55 millones) es una estimación [E] basada en la trayectoria reportada por CONSAR. Los datos desagregados por AFORE no se presentan por tratarse de estimaciones.</li>
+          <li><strong>Rendimientos estimados:</strong> Los rendimientos nominales (~5% <span class="fuente-badge fuente-badge--e">E</span>) y reales (~3% <span class="fuente-badge fuente-badge--e">E</span>) son estimaciones [E] basadas en rangos reportados por CONSAR. Rendimientos específicos varían por SIEFORE y AFORE.</li>
+          <li><strong>Datos agregados:</strong> Algunas cifras de cuentas individuales totales provienen de estimaciones y pueden variar según la metodología de conteo (cuentas activas, asignadas, inactivas).</li>
+          <li><strong>Sin análisis causal:</strong> No se establecen relaciones de causalidad entre variables. Las observaciones sobre contexto económico y desempeño del SAR son descriptivas y no implican causalidad.</li>
+          <li><strong>Fuentes disponibles:</strong> El análisis se basa en informes y datos publicados por las instituciones citadas. Datos no publicados o de acceso restringido no fueron considerados.</li>
+        </ul>
+      </section>
+
+      <!-- 13. CONCLUSIONES -->
+      <section class="paper__section" id="conclusiones">
+        <div class="paper__section-number">Sección 13</div>
+        <h2>Conclusiones</h2>
+        <p>Con base en los datos presentados, se identifican las siguientes observaciones sobre el SAR en 2015:</p>
+        <ol>
+          <li>Al cierre de 2015, el SAR administraba aproximadamente ~2,550 mmdp (~13.9% <span class="fuente-badge fuente-badge--e">E</span> del PIB) [E], un crecimiento de 6.9% <span class="fuente-badge fuente-badge--v">V</span> respecto al cierre de 2014 (2,385 mmdp <span class="fuente-badge fuente-badge--v">V</span>). Este crecimiento fue significativamente inferior al 15.8% <span class="fuente-badge fuente-badge--v">V</span> de 2014, reflejando rendimientos más modestos (~5% <span class="fuente-badge fuente-badge--e">E</span> nominal) en un entorno de mayor volatilidad financiera internacional. La proporción recursos/PIB se redujo en 0.4 pp <span class="fuente-badge fuente-badge--v">V</span>, una disminución inusual.</li>
+          <li>El número de cuentas individuales se estima en aproximadamente ~55 millones al cierre de 2015 [E], un incremento de ~3.8% <span class="fuente-badge fuente-badge--e">E</span> respecto a los ~53 millones de 2014. El crecimiento en cuentas fue inferior al ~6.0% <span class="fuente-badge fuente-badge--e">E</span> de 2013-2014, reflejando moderación en la expansión del empleo formal.</li>
+          <li>Las comisiones sobre saldo se redujeron de un promedio de 1.19% <span class="fuente-badge fuente-badge--v">V</span> en 2014 a 1.11% <span class="fuente-badge fuente-badge--v">V</span> en diciembre de 2015 [V], el nivel más bajo en la historia del esquema sobre saldo. El rango osciló entre 0.92% <span class="fuente-badge fuente-badge--v">V</span> (PensionISSSTE) y 1.20% <span class="fuente-badge fuente-badge--v">V</span> (Coppel), con un spread de 0.28 pp <span class="fuente-badge fuente-badge--v">V</span>. La comisión promedio acumuló una reducción de 0.81 pp <span class="fuente-badge fuente-badge--v">V</span> (-42.2% <span class="fuente-badge fuente-badge--v">V</span>) en el periodo 2008-2015.</li>
+          <li>Un hito histórico fue que PensionISSSTE se convirtió en la primera AFORE en romper la barrera de 0.99% <span class="fuente-badge fuente-badge--v">V</span>, alcanzando 0.92% <span class="fuente-badge fuente-badge--v">V</span>, marcando un nuevo umbral en la presión competitiva del sistema. Todas las 11 AFOREs redujeron sus comisiones entre 2014 y 2015, evidenciando presión generalizada.</li>
+          <li>Los rendimientos nominales del sistema se estiman en aproximadamente ~5% <span class="fuente-badge fuente-badge--e">E</span> [E], equivalentes a ~3% <span class="fuente-badge fuente-badge--e">E</span> en términos reales considerando la inflación de 2.13% <span class="fuente-badge fuente-badge--v">V</span>. El rendimiento neto estimado para el ahorrador promedio, descontando la comisión de 1.11% <span class="fuente-badge fuente-badge--v">V</span>, sería de aproximadamente ~3.9% <span class="fuente-badge fuente-badge--e">E</span> nominal (~1.9% <span class="fuente-badge fuente-badge--e">E</span> real). Estos fueron rendimientos significativamente inferiores al 10.51% nominal (~6.2% <span class="fuente-badge fuente-badge--e">E</span> real) de 2014, reflejando un entorno más desafiante de volatilidad en mercados y presiones de normalización monetaria internacional.</li>
+          <li>La inflación de 2.13% <span class="fuente-badge fuente-badge--v">V</span> en 2015 fue la más baja desde la creación del SAR en 1997, representando un logro histórico de la política monetaria mexicana. Este nivel récord de inflación baja fue resultado de la caída de precios de materias primas, política monetaria efectiva y desaceleración económica global.</li>
+          <li>En diciembre de 2015, el Banco de México incrementó la tasa de referencia de 3.00% <span class="fuente-badge fuente-badge--v">V</span> a 3.25% <span class="fuente-badge fuente-badge--v">V</span>, marcando el primer aumento en más de seis años y el fin del ciclo de política monetaria acomodaticia que había prevalecido desde 2013. Este incremento ocurrió en el mismo mes en que la Reserva Federal inició su ciclo de normalización monetaria.</li>
+          <li>El año 2015 no presentó eventos corporativos significativos (fusiones, adquisiciones o cesiones de cartera), consolidándose como un periodo de estabilidad estructural en el sistema con 11 AFOREs operando durante todo el año. CONSAR publicó un diagnóstico del sistema de pensiones que sentó las bases para discusiones de reforma en años posteriores.</li>
+        </ol>
+        <p>Los datos presentados corresponden exclusivamente al periodo 2015 y reflejan las condiciones específicas de ese momento. El lector puede utilizar esta información como referencia para comprender el estado del SAR en dicho año.</p>
+      </section>
+
+      <hr class="paper__separator">
+
+      <!-- 14. FUENTES -->
+      <section class="paper__section" id="fuentes">
+        <div class="paper__section-number">Sección 14</div>
+        <h2>Fuentes</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li id="fuente-F1"><span class="fuente-inst">CONSAR</span> (Comisión Nacional del Sistema de Ahorro para el Retiro). <span class="fuente-titulo">Informes Trimestrales al H. Congreso de la Unión sobre la situación del SAR, 2015</span>. México, 2015. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F2"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Datos estadísticos del SAR: comisiones, cuentas, recursos y traspasos</span>. México, 2015. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F3"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Diagnóstico del Sistema de Pensiones en México</span>. México, 2015. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F4"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Circular Única de SIEFOREs: régimen de inversión</span>. México, 2015. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F5"><span class="fuente-inst">INEGI</span> (Instituto Nacional de Estadística y Geografía). <span class="fuente-titulo">Producto Interno Bruto y cuentas nacionales de México, 2015</span>. México, 2016. <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">https://www.inegi.org.mx</a></li>
+            <li id="fuente-F6"><span class="fuente-inst">Banco de México</span> (Banxico). <span class="fuente-titulo">Indicadores económicos: tasas de interés e inflación, 2015</span>. México, 2015. <a href="https://www.banxico.org.mx" target="_blank" rel="noopener">https://www.banxico.org.mx</a></li>
+            <li id="fuente-F7"><span class="fuente-inst">Banco de México</span> (Banxico). <span class="fuente-titulo">Anuncio de política monetaria, diciembre 2015</span>. México, 2015. <a href="https://www.banxico.org.mx" target="_blank" rel="noopener">https://www.banxico.org.mx</a></li>
+            <li id="fuente-F8"><span class="fuente-inst">Datos México</span>. <span class="fuente-titulo">Panel DM-SAR-DATA-001: Base de datos consolidada del SAR</span>. México, 2026. <a href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/" target="_blank" rel="noopener">https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/</a></li>
+            <li id="fuente-F9"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 23 de mayo de 1996. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+            <li id="fuente-F10"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Seguro Social</span>. Diario Oficial de la Federación, 21 de diciembre de 1995. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+          </ol>
+          <p>Fecha de consulta de fuentes electrónicas: abril de 2026.</p>
+          <p class="paper__fuentes-leyenda"><span class="fuente-badge fuente-badge--v">V</span> dato verificado de fuente oficial directa &middot; <span class="fuente-badge fuente-badge--e">E</span> dato estimado o derivado, declarado como tal &middot; estándar editorial del observatorio.</p>
+        </div>
+      </section>
+
+      <!-- DECLARACIONES -->
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interés:</strong> El observatorio Datos México declara la ausencia de conflictos de interés en la elaboración de este estudio. Datos México no tiene relación comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> Todas las cifras cuantitativas presentadas en este estudio provienen de fuentes primarias oficiales (CONSAR, INEGI, Banxico) y del Panel DM-SAR-DATA-001. No se utilizaron fuentes secundarias para datos cuantitativos.</p>
+        <p><strong>Alcance:</strong> Este documento tiene carácter informativo y no constituye asesoría financiera, legal ni recomendación alguna sobre productos, servicios o AFOREs específicas.</p>
+      </div>
+
+    </div><!-- /paper__body -->
+
+
+      <!-- DE LA LECTURA AL CÁLCULO -->
+      <aside class="paper__calc-cta">
+        <p class="paper__calc-cta-eyebrow">De la lectura al cálculo</p>
+        <p class="paper__calc-cta-body">
+          Los datos de esta serie alimentan las <strong>calculadoras del observatorio</strong>: herramientas
+          educativas con supuestos públicos, fuentes oficiales versionadas y validación actuarial.
+          <a href="/pensiones/calculadoras">Calcula tu caso →</a>
+        </p>
+      </aside>
+
+  </main>
+
+  <!-- Scripts -->
+
+  <!-- Tooltip unificado + hover-por-área Ronda 6.
+       Un solo sistema premium para sparkline, barras y ticks:
+       - Contenido ASCII puro en data-tip-* (mata "?" del `·` U+00B7 y `[V]`).
+       - Detección del punto MÁS CERCANO por overlay en sparkline y escala.
+       - Marcador activo sincronizado con el tooltip.
+       - Fallback teclado / focus / touch preservado. -->
+  <script>
+  (function () {
+    'use strict';
+    var container = document.querySelector('.paper__resumen-hero-inner');
+    var tip       = document.getElementById('rhTip');
+    if (!container || !tip) return;
+    var titleEl   = tip.querySelector('.rh-tip__title');
+    var detailTx  = tip.querySelector('.rh-tip__detail-text');
+    var badgeEl   = tip.querySelector('.rh-tip__badge');
+    var noteEl    = tip.querySelector('.rh-tip__note');
+    var hideTimer;
+    var currentActive = null;
+
+    function positionOverElement(el) {
+      var r = el.getBoundingClientRect();
+      var c = container.getBoundingClientRect();
+      tip.style.left = (r.left - c.left + r.width / 2) + 'px';
+      tip.style.top  = (r.top  - c.top) + 'px';
+    }
+
+    function showFor(el) {
+      if (!el || !el.dataset.tipTitle) return;
+      clearTimeout(hideTimer);
+      titleEl.textContent = el.dataset.tipTitle;
+      detailTx.textContent = el.dataset.tipDetail || '';
+      noteEl.textContent = el.dataset.tipNote || '';
+      noteEl.style.display = el.dataset.tipNote ? 'block' : 'none';
+      badgeEl.style.display = el.dataset.tipV === '1' ? 'inline-block' : 'none';
+      positionOverElement(el);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tip.classList.add('is-visible');
+          tip.setAttribute('aria-hidden', 'false');
+        });
+      });
+    }
+    function hide() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('is-visible');
+        tip.setAttribute('aria-hidden', 'true');
+        if (currentActive && currentActive.classList) {
+          currentActive.classList.remove('is-active');
+        }
+        currentActive = null;
+        var activeDot = document.querySelector('.rh-spark__active');
+        if (activeDot) activeDot.setAttribute('opacity', '0');
+      }, 80);
+    }
+
+    function setActive(el) {
+      if (currentActive === el) return;
+      if (currentActive && currentActive.classList) currentActive.classList.remove('is-active');
+      currentActive = el;
+      if (el && el.classList) el.classList.add('is-active');
+    }
+
+    // ---------- 1. Sparkline: hover POR ÁREA ----------
+    var sparkSvg = document.querySelector('.rh-spark__svg');
+    var sparkOverlay = document.querySelector('.rh-spark__overlay');
+    var sparkPoints = Array.prototype.slice.call(document.querySelectorAll('.rh-spark__point'));
+    var activeDot = document.querySelector('.rh-spark__active');
+
+    if (sparkSvg && sparkOverlay && sparkPoints.length) {
+      var pointCoords = sparkPoints.map(function (p) {
+        return { el: p, cx: parseFloat(p.getAttribute('cx')), cy: parseFloat(p.getAttribute('cy')) };
+      });
+
+      function handleSparkMove(e) {
+        var svgRect = sparkSvg.getBoundingClientRect();
+        var xInPx = (e.clientX !== undefined ? e.clientX : e.touches[0].clientX) - svgRect.left;
+        var xInVb = xInPx / svgRect.width * 720; // viewBox width
+        // Punto más cercano por X
+        var nearest = pointCoords[0], minD = Math.abs(pointCoords[0].cx - xInVb);
+        for (var i = 1; i < pointCoords.length; i++) {
+          var d = Math.abs(pointCoords[i].cx - xInVb);
+          if (d < minD) { minD = d; nearest = pointCoords[i]; }
+        }
+        // Mueve el marcador activo al punto seleccionado
+        if (activeDot) {
+          activeDot.setAttribute('cx', nearest.cx);
+          activeDot.setAttribute('cy', nearest.cy);
+          activeDot.setAttribute('opacity', '1');
+        }
+        setActive(nearest.el);
+        showFor(nearest.el);
+      }
+
+      sparkOverlay.addEventListener('mousemove', handleSparkMove);
+      sparkOverlay.addEventListener('mouseleave', hide);
+      sparkOverlay.addEventListener('touchstart', handleSparkMove, { passive: true });
+      sparkOverlay.addEventListener('touchmove', handleSparkMove, { passive: true });
+    }
+
+    // ---------- 2. Escala AFOREs: hover POR ÁREA ----------
+    var scaleTrack = document.querySelector('.rh-viz__scale-track');
+    if (scaleTrack) {
+      var scaleTargets = Array.prototype.slice.call(
+        scaleTrack.querySelectorAll('[data-tip-title][data-tip-pos]')
+      );
+      function handleScaleMove(e) {
+        var rect = scaleTrack.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width * 100;
+        var nearest = scaleTargets[0];
+        var minD = Math.abs(parseFloat(nearest.dataset.tipPos) - pct);
+        for (var i = 1; i < scaleTargets.length; i++) {
+          var d = Math.abs(parseFloat(scaleTargets[i].dataset.tipPos) - pct);
+          if (d < minD) { minD = d; nearest = scaleTargets[i]; }
+        }
+        setActive(nearest);
+        showFor(nearest);
+      }
+      scaleTrack.addEventListener('mousemove', handleScaleMove);
+      scaleTrack.addEventListener('mouseleave', hide);
+      scaleTrack.addEventListener('touchmove', function (e) {
+        if (e.touches && e.touches[0]) {
+          handleScaleMove({ clientX: e.touches[0].clientX });
+        }
+      }, { passive: true });
+    }
+
+    // ---------- 3. Focus por teclado en todos los data-tip-title ----------
+    var focusables = container.querySelectorAll('[data-tip-title][tabindex]');
+    Array.prototype.forEach.call(focusables, function (el) {
+      el.addEventListener('focus', function () { setActive(el); showFor(el); });
+      el.addEventListener('blur', hide);
+    });
+
+    // ---------- 4. Rows generosas: barras Recursos + rows AFORE ----------
+    var hoverRows = container.querySelectorAll('.rh-viz__bar-row[data-tip-title], .rh-afore-row[data-tip-title]');
+    Array.prototype.forEach.call(hoverRows, function (el) {
+      el.addEventListener('mouseenter', function () { setActive(el); showFor(el); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('touchstart', function () { setActive(el); showFor(el); }, { passive: true });
+    });
+
+    // ---------- 5. Tocar fuera oculta el tooltip ----------
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('[data-tip-title], .rh-spark__overlay, .rh-viz__scale-track, .rh-afore-row')) hide();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      tip.classList.remove('is-visible');
+      if (activeDot) activeDot.setAttribute('opacity', '0');
+    });
+  })();
+  </script>
+
+  <!-- Graficas del paper -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navy = '#1B2A5E';
+    var gold = '#B8943E';
+    var bgAlt = '#F4F5FA';
+    var gris = '#9CA3AF';
+
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = '#4B5563';
+
+    // ── Grafica 1: Recursos administrados 2014 vs 2015 (barras verticales) ──
+    new Chart(document.getElementById('chart-recursos'), {
+      type: 'bar',
+      data: {
+        labels: ['Cierre 2014', 'Cierre 2015'],
+        datasets: [{
+          label: 'Recursos (mmdp)',
+          data: [2385, 2550],
+          backgroundColor: [navy, gold],
+          borderRadius: 4,
+          barPercentage: 0.5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                var pib = ctx.dataIndex === 0 ? '14.3' : '~13.9';
+                return ctx.parsed.y.toLocaleString() + ' mmdp (' + pib + '% del PIB)';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 3000,
+            title: { display: true, text: 'Miles de millones de pesos (mmdp)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'pibLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          var pibValues = ['14.3% del PIB', '~13.9% del PIB'];
+          ctx.save();
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(bar, i) {
+            ctx.fillText(pibValues[i], bar.x, bar.y - 8);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+
+    // ── Grafica 2: Comisiones por AFORE dic 2015 (barras horizontales) ──
+    new Chart(document.getElementById('chart-comisiones'), {
+      type: 'bar',
+      data: {
+        labels: [
+          'Coppel','Azteca','MetLife','Invercap',
+          'Principal','SURA','Profuturo GNP',
+          'Inbursa','Banamex','XXI Banorte','PensionISSSTE'
+        ],
+        datasets: [{
+          label: 'Comisión sobre saldo (%)',
+          data: [1.20,1.19,1.18,1.18,1.17,1.11,1.11,1.08,1.05,1.04,0.92],
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: {
+            min: 0,
+            max: 2.0,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          y: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'promedioLine',
+        afterDraw: function(chart) {
+          var xScale = chart.scales.x;
+          var yScale = chart.scales.y;
+          var ctx = chart.ctx;
+          var xPos = xScale.getPixelForValue(1.11);
+          ctx.save();
+          ctx.beginPath();
+          ctx.setLineDash([6, 4]);
+          ctx.strokeStyle = gold;
+          ctx.lineWidth = 2;
+          ctx.moveTo(xPos, yScale.top);
+          ctx.lineTo(xPos, yScale.bottom);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = gold;
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('Promedio 1.11%', xPos, yScale.top - 6);
+          ctx.restore();
+        }
+      }]
+    });
+
+    // ── Grafica 3: Evolucion comision promedio 2008-2015 (linea) ──
+    new Chart(document.getElementById('chart-tendencia'), {
+      type: 'line',
+      data: {
+        labels: ['2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015'],
+        datasets: [{
+          label: 'Comisión promedio (%)',
+          data: [1.92, 1.75, 1.62, 1.48, 1.38, 1.29, 1.19, 1.11],
+          borderColor: navy,
+          backgroundColor: navy,
+          borderWidth: 3,
+          pointRadius: 6,
+          pointBackgroundColor: navy,
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          tension: 0.3,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return 'Comisión promedio: ' + ctx.parsed.y + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            min: 1.0,
+            max: 2.2,
+            title: { display: true, text: 'Comisión promedio sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'dataLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          ctx.save();
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(point, i) {
+            var value = chart.data.datasets[0].data[i];
+            ctx.fillText(value + '%', point.x, point.y - 14);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+  });
+  </script>
+</body>
+</html>

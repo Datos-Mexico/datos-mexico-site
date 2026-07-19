@@ -1,0 +1,196 @@
+================================================================================
+  DM-SAR-DATA-001
+  Panel Mensual del SAR por AFORE, 1997-2025
+================================================================================
+
+  Licencia: datos de origen CC BY 4.0 (CONSAR, datos.gob.mx);
+            compilacion del Observatorio Datos Mexico
+  Publicado: Febrero 2026
+  Autor: Equipo de Datos Mexico
+  Formato: CSV (UTF-8, delimitador coma)
+  Registros: 2,932
+  Columnas: 18
+  Periodo: Diciembre 1997 - Junio 2025 (331 meses)
+  Granularidad: Una fila por AFORE por mes
+  AFOREs: 10
+
+================================================================================
+  DICCIONARIO DE VARIABLES
+================================================================================
+
+  fecha
+    Tipo: fecha (YYYY-MM-DD)
+    Descripcion: Primer dia del mes de referencia. Los datos corresponden
+    al cierre del mes indicado.
+
+  afore
+    Tipo: texto
+    Descripcion: Nombre normalizado de la AFORE en minusculas.
+    Valores: azteca, banamex, coppel, inbursa, invercap,
+    pensionissste, principal, profuturo, sura, xxi banorte.
+    Nota: Los nombres reflejan la AFORE sobreviviente tras fusiones.
+    Las series historicas incorporan los datos de AFOREs absorbidas.
+
+  comision_sobre_saldo_pct
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Comision anual cobrada por la AFORE como porcentaje
+    del saldo administrado (%). Disponible a partir de marzo 2008
+    (cambio de regimen de comision sobre flujo a comision sobre saldo).
+    Vacio para el periodo 1997-2008.
+
+  total_cuentas
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Total de cuentas individuales administradas por la
+    AFORE. Incluye cuentas de trabajadores registrados y asignados.
+
+  trabajadores_registrados
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Numero de trabajadores que eligieron activamente
+    esta AFORE.
+
+  trabajadores_asignados
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Numero de trabajadores que fueron asignados a esta
+    AFORE por CONSAR (no eligieron activamente).
+
+  trabajadores_imss
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Numero de trabajadores afiliados al IMSS en esta AFORE.
+
+  trabajadores_issste
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Numero de trabajadores afiliados al ISSSTE en esta AFORE.
+
+  rcv_imss_mdp
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Recursos de Retiro, Cesantia en Edad Avanzada y Vejez
+    (RCV) de trabajadores IMSS, en millones de pesos (mdp).
+
+  rcv_issste_mdp
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Recursos RCV de trabajadores ISSSTE, en millones
+    de pesos (mdp).
+
+  ahorro_voluntario_mdp
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Recursos de ahorro voluntario y solidario, en millones
+    de pesos (mdp).
+
+  recursos_administrados_mdp
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Total de recursos administrados por la AFORE, en
+    millones de pesos (mdp). Incluye RCV, ahorro voluntario, fondos
+    de prevision social y capital de la AFORE.
+
+  recursos_registrados_mdp
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Total de recursos registrados en el SAR para esta
+    AFORE, en millones de pesos (mdp). Incluye recursos administrados
+    mas bono de pension ISSSTE, vivienda (INFONAVIT/FOVISSSTE) y
+    recursos depositados en Banco de Mexico.
+
+  vivienda_mdp
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Recursos de subcuenta de vivienda (INFONAVIT y
+    FOVISSSTE), en millones de pesos (mdp).
+
+  entradas_mdp
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Flujos de entrada (aportaciones y traspasos recibidos)
+    en el mes, en millones de pesos (mdp). Disponible a partir de
+    enero 2009.
+
+  salidas_mdp
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Flujos de salida (retiros y traspasos cedidos) en
+    el mes, en millones de pesos (mdp). Disponible a partir de
+    enero 2009.
+
+  traspasos_cedidos
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Numero de cuentas traspasadas desde esta AFORE
+    hacia otra AFORE en el mes.
+
+  traspasos_recibidos
+    Tipo: numerico (puede estar vacio)
+    Descripcion: Numero de cuentas traspasadas desde otra AFORE
+    hacia esta AFORE en el mes.
+
+================================================================================
+  COBERTURA DE DATOS POR VARIABLE
+================================================================================
+
+  Variable                     Registros   Cobertura   Desde
+  comision_sobre_saldo_pct     2,071       70%         2008-03
+  total_cuentas                2,929       99%         1997-12
+  trabajadores_registrados     2,929       99%         1997-12
+  trabajadores_asignados       2,677       91%         1997-12
+  trabajadores_imss            2,929       99%         1997-12
+  trabajadores_issste          2,342       79%         2008-12
+  rcv_imss_mdp                 2,899       98%         1998-05
+  rcv_issste_mdp               2,397       81%         2008-12
+  ahorro_voluntario_mdp        2,899       98%         1998-05
+  recursos_administrados_mdp   2,899       98%         1998-05
+  recursos_registrados_mdp     2,899       98%         1998-05
+  vivienda_mdp                 2,899       98%         1998-05
+  entradas_mdp                 1,980       67%         2009-01
+  salidas_mdp                  1,980       67%         2009-01
+  traspasos_cedidos            2,864       97%         1998-11
+  traspasos_recibidos          2,864       97%         1998-11
+
+================================================================================
+  NOTAS METODOLOGICAS
+================================================================================
+
+  1. FUENTE UNICA
+     Este dataset fue construido integramente a partir de los datos
+     abiertos publicados por CONSAR en el portal datos.gob.mx:
+       - Comisiones (datosgob comisiones)
+       - Cuentas administradas (datosgob cuentas)
+       - Recursos registrados en el SAR (datosgob recursos)
+       - Entradas y salidas de flujos (datosgob entradas_salidas)
+       - Traspasos entre AFOREs (datosgob traspasos)
+
+     Los datos originales de CONSAR estan disponibles en:
+     https://datos.gob.mx (buscar "consar")
+
+  2. DATOS VERIFICADOS, NO PREPROCESADOS
+     Este dataset ha sido verificado en su correspondencia con las
+     fuentes primarias de CONSAR. Sin embargo, NO se entrega limpio
+     ni transformado. Es responsabilidad del usuario realizar la
+     limpieza, transformacion y uso adecuado de los datos segun sus
+     necesidades de analisis.
+
+     Ejemplos de limpieza que el usuario debera considerar:
+       - Valores vacios indican dato no disponible para ese periodo.
+       - Algunas series comienzan en diferentes fechas.
+       - Los nombres de AFOREs reflejan la entidad sobreviviente
+         tras fusiones; los datos historicos pre-fusion estan
+         consolidados bajo el nombre actual.
+       - Las cifras en mdp son nominales, no ajustadas por inflacion.
+
+  3. FUSIONES Y CESIONES
+     Las series historicas de AFOREs absorbidas estan incorporadas
+     en la AFORE sobreviviente. Fusiones principales:
+       - Principal absorbe: HSBC (2011), MetLife (2018)
+       - Profuturo absorbe: Scotia (2010), Afirme Bajio (2014)
+       - XXI Banorte absorbe: Banorte Generali (2012), Bancomer (2013)
+       - SURA = ex-ING (cambio de nombre 2012)
+
+  4. PERIODO DE COMISIONES
+     Las comisiones sobre saldo estan disponibles desde marzo 2008.
+     Antes de esa fecha, las AFOREs cobraban comisiones sobre flujo
+     de aportaciones, que no son directamente comparables.
+
+================================================================================
+  LICENCIA
+================================================================================
+
+  Los datos originales de CONSAR estan publicados bajo licencia
+  Creative Commons Attribution 4.0 en datos.gob.mx. El Observatorio
+  Datos Mexico los compila, estructura y documenta.
+
+  Observatorio Datos Mexico
+  https://datosmexico.org
+
+================================================================================

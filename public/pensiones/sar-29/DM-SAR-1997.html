@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Sistema de Ahorro para el Retiro en México: Panorama 1997 | Datos México</title>
+  <meta name="description" content="Análisis del SAR en 1997: año fundacional, seis meses de operación (1-jul a 31-dic). 6,177 mdp en recursos administrados, 17 AFOREs originales, 11,188,114 trabajadores registrados (52.8% del mercado potencial). Régimen sobre flujo. Inflación dic-dic 15.72%. Cierre simbólico de la serie Panorama 1997-2025.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/DM-SAR-1997.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Sistema de Ahorro para el Retiro en México: Panorama 1997 | Datos México">
+  <meta property="og:description" content="Estudio DM-SAR-1997: año fundacional del SAR; seis meses de operación (1-jul-1997 a 31-dic-1997); 17 AFOREs originales; 6,177 mdp administrados al cierre.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/DM-SAR-1997.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Chart.js -->
+  <script src="/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <main class="paper paper--margen" role="main">
+
+    <a href="/pensiones/sar-29" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a publicaciones
+    </a>
+
+    <header class="paper__portada">
+      <span class="paper__tipo">Estudio</span>
+      <p class="paper__id">DM-SAR-1997</p>
+      <h1 class="paper__titulo">El Sistema de Ahorro para el Retiro en México: Panorama 1997</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Junio 2026</p>
+
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-1997</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         RESUMEN EJECUTIVO VISUAL (rollout 1997 — el año
+         fundacional, último paper de la serie en recibir el molde)
+         Reemplaza el .paper__resumen de texto. Toda cifra y su badge [V]/[E]
+         proviene del cuerpo del paper sin alteración (Secciones 4, 5, 6, 7,
+         8, 10 y Tablas 1, 2, 3); ninguna cifra nueva.
+         ADAPTACIÓN PRE-2008 + AÑO CERO (estándar editorial del observatorio):
+         - R2: sin serie de comisiones (el sparkline sobre saldo no existe;
+           su slot lo ocupa el rango oficial sobre flujo 0.93%-1.62% [V]).
+         - Salvaguarda de medio año OBLIGATORIA y temprana: la tira
+           .rh-regimen-note del hero declara los seis meses de operación
+           (1-jul a 31-dic-1997) junto al régimen sobre flujo.
+         - Sin comparación interanual: no existe año previo. La viz de
+           recursos del molde (2 barras año-1 vs año) se sustituye por la
+           cobertura del mercado potencial (11,188,114 de 21,191,512 =
+           52.8% [V], Tabla 2) — la única comparación interna [V] del año.
+         - Sin dot plot: no hay métrica per-AFORE [V] para dic-1997
+           (omisión declarada en Sec 12). El slot afore lo ocupa el
+           registro solemne de las 17 AFOREs fundadoras [V] (Tabla 1).
+         - Regla 4 reforzada: cero rendimiento del año en el hero.
+         - Historia (D19): el arranque del sistema — "año cero" contado
+           con sobriedad: línea base, no crecimiento.
+         - Cards dominantes [V]: 6,177 mdp; 11,188,114 trabajadores;
+           17 AFOREs; 15.72% inflación. Los [E] (~0.15% PIB) como meta.
+         ========================================== -->
+    <section class="paper__resumen-hero" id="resumen" aria-labelledby="resumenHeroTitle">
+      <div class="paper__resumen-hero-inner">
+
+        <!-- Tooltip unificado (Ronda 6): un solo sistema; ASCII
+             puro en data-tip-*; badge V como elemento HTML. -->
+        <div class="rh-tip" id="rhTip" role="status" aria-live="polite" aria-hidden="true">
+          <span class="rh-tip__title"></span>
+          <span class="rh-tip__detail">
+            <span class="rh-tip__detail-text"></span>
+            <span class="rh-tip__badge" aria-hidden="true">V</span>
+          </span>
+          <span class="rh-tip__note"></span>
+        </div>
+
+        <p class="paper__resumen-hero-eyebrow">Sección 1 &middot; En síntesis &middot; Panorama 1997</p>
+        <h2 id="resumenHeroTitle" class="paper__resumen-hero-titulo">El año fundacional: el SAR inicia operaciones con 17 AFOREs.</h2>
+
+        <p class="paper__resumen-hero-lede">
+          El Sistema de Ahorro para el Retiro basado en cuentas individuales <strong>inició formalmente operaciones el 1 de julio de 1997</strong><span class="fuente-badge fuente-badge--v">V</span>; las cifras de este año corresponden a <strong>seis meses de operación</strong> y no son comparables con años calendario completos. Al cierre de diciembre, el sistema administraba <strong>6,177 millones de pesos</strong><span class="fuente-badge fuente-badge--v">V</span> (~<strong>0.15% del PIB</strong><span class="fuente-badge fuente-badge--e">E</span>; la fuente contemporánea CEFP reporta 4,783 mdp<span class="fuente-badge fuente-badge--v">V</span> con diferencia metodológica declarada), operaba con las <strong>17 AFOREs originales</strong><span class="fuente-badge fuente-badge--v">V</span> y registraba <strong>11,188,114 trabajadores</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;el <strong>52.8% del mercado potencial</strong><span class="fuente-badge fuente-badge--v">V</span> captado en medio año. Las comisiones nacieron bajo el régimen <strong>sobre flujo</strong> (rango oficial 1997-2007: <strong>0.93%&ndash;1.62%</strong> sobre SBC<span class="fuente-badge fuente-badge--v">V</span>); el régimen de inversión limitaba a las SIEFOREs a <strong>deuda nacional y divisas</strong><span class="fuente-badge fuente-badge--v">V</span>, con un único fondo por AFORE. La inflación cerró en <strong>15.72%</strong><span class="fuente-badge fuente-badge--v">V</span> y la tasa de Cetes 28 días en la última subasta del año fue de <strong>18.75%</strong><span class="fuente-badge fuente-badge--v">V</span> (promedio de diciembre: 18.85%<span class="fuente-badge fuente-badge--v">V</span>). Por la naturaleza de arranque parcial, este estudio <strong>no reporta rendimiento anual del sistema</strong> (omisión honesta, estándar editorial del observatorio Regla 4).
+        </p>
+
+        <p class="rh-regimen-note">
+          <span class="regimen-flag regimen-flag--flujo">Sobre flujo &middot; Año fundacional</span>
+          <span>El SAR operó solo <strong>seis meses</strong> en 1997 (1 de julio al 31 de diciembre): ninguna cifra es comparable con años completos. Las comisiones se cobraban sobre la aportación (% del SBC), no sobre saldo &mdash;no comparables con la serie 2008+. <a href="#comisiones">Ver régimen vigente en la Sección 8</a></span>
+        </p>
+
+        <div class="paper__resumen-hero-grid">
+
+          <article class="rh-card">
+            <p class="rh-card__label">Recursos administrados &mdash; línea base</p>
+            <p class="rh-card__big">6,177<span class="rh-card__unit">mdp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">~0.15% del PIB<span class="fuente-badge fuente-badge--e">E</span> &middot; Saldo acumulado de seis meses &middot; CEFP contemporáneo: 4,783 mdp<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card rh-card--accent">
+            <p class="rh-card__label">Trabajadores registrados &mdash; línea base del sistema</p>
+            <p class="rh-card__big">11,188,114<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">52.8% del mercado potencial<span class="fuente-badge fuente-badge--v">V</span> captado en los primeros seis meses de operación</p>
+            <p class="rh-card__ref"><a href="#cuentas">Sección 6 &mdash; Cuentas individuales</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">AFOREs originales</p>
+            <p class="rh-card__big">17<span class="rh-card__unit">firmas</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Universo estable todo el semestre &middot; 14 activas a dic-1998 + 3 absorbidas en Q4-1998 = 17 (unión de dos fuentes oficiales)</p>
+            <p class="rh-card__ref"><a href="#estructura">Sección 5 &mdash; Estructura del SAR</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Inflación cierre 1997</p>
+            <p class="rh-card__big">15.72<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Cetes 28d última subasta 18.75%<span class="fuente-badge fuente-badge--v">V</span> &middot; Promedio dic 18.85%<span class="fuente-badge fuente-badge--v">V</span> &middot; Banxico operaba con el "corto"</p>
+            <p class="rh-card__ref"><a href="#contexto">Sección 4 &mdash; Contexto económico 1997</a></p>
+          </article>
+
+        </div>
+
+        <!-- Retícula asimétrica (D20) con slots genéricos:
+                "recursos afore"   ← Cobertura + Fundadoras (der spans 2)
+                "spark    afore"   ← Stat del régimen sobre flujo
+             Móvil: stack DOM (Cobertura → Stat flujo → Fundadoras). -->
+        <div class="paper__resumen-hero-viz">
+
+          <!-- Slot recursos: sin año previo no hay comparación interanual;
+               la única comparación interna [V] del año es la cobertura del
+               mercado potencial (Tabla 2, Sec 6). -->
+          <article class="rh-viz rh-viz--recursos" aria-labelledby="rhVizCobTitle">
+            <p id="rhVizCobTitle" class="rh-viz__title">Cobertura del mercado potencial (dic-1997)</p>
+            <div class="rh-viz__bars rh-viz__bars--wide-labels">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Mercado potencial estimado por CONSAR, 21,191,512 trabajadores, verificado"
+                   data-tip-title="Mercado potencial CONSAR" data-tip-detail="21,191,512 trabajadores" data-tip-note="Universo estimado para 1997" data-tip-v="1">
+                <span class="rh-viz__year">Potencial</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">21,191,512<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Trabajadores registrados al cierre de diciembre de 1997, 11,188,114, 52.8 por ciento del mercado potencial, verificado"
+                   data-tip-title="Registrados dic-1997" data-tip-detail="11,188,114 trabajadores" data-tip-note="52.8% del mercado potencial" data-tip-v="1">
+                <span class="rh-viz__year">Registrados</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 0.528"></div>
+                  <span class="rh-viz__bar-label rh-viz__bar-label--dark">11,188,114<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">52.8% del mercado potencial<span class="fuente-badge fuente-badge--v">V</span> captado en seis meses de operación</p>
+            <p class="rh-viz__ref"><a href="#cuentas">Tabla 2 &mdash; Sección 6</a></p>
+          </article>
+
+          <!-- Slot del sparkline (R2): sin serie de comisiones.
+               Cifra destacada [V] del régimen sobre flujo fundacional. -->
+          <article class="rh-viz rh-viz--slot-spark" aria-labelledby="rhVizFlujoTitle">
+            <p id="rhVizFlujoTitle" class="rh-viz__title">Comisión sobre flujo &middot; rango oficial 1997-2007</p>
+            <div class="rh-stat" tabindex="0" role="img"
+                 aria-label="Rango oficial de comision sobre flujo 1997-2007: 0.93 a 1.62 por ciento sobre el salario base de cotizacion, verificado"
+                 data-tip-title="Comision sobre flujo" data-tip-detail="0.93% a 1.62% del SBC" data-tip-note="Rango oficial 1997-2007 (CEFP/063/2007)" data-tip-v="1">
+              <p class="rh-stat__big rh-stat__big--gold">0.93&ndash;1.62<span class="rh-stat__unit">% del SBC</span><span class="fuente-badge fuente-badge--v">V</span></p>
+              <p class="rh-stat__caption">Régimen vigente desde el primer día del sistema. Porcentaje sobre la aportación; no comparable con la serie sobre saldo 2008+. Sin cuadro per-AFORE para dic-1997 (omisión declarada).</p>
+            </div>
+            <p class="rh-viz__ref"><a href="#comisiones">CEFP/063/2007 &mdash; Sección 8</a></p>
+          </article>
+
+          <!-- Slot afore: sin métrica per-AFORE [V] para dic-1997 no hay
+               dot plot (omisión honesta, Sec 12). En su lugar, el registro
+               de las 17 fundadoras [V] (Tabla 1, unión de dos fuentes). -->
+          <article class="rh-viz rh-viz--slot-afore" aria-labelledby="rhVizFundTitle">
+            <p id="rhVizFundTitle" class="rh-viz__title">Las 17 AFOREs fundadoras (1 de julio de 1997)</p>
+            <div class="rh-stat" tabindex="0" role="img"
+                 aria-label="17 AFOREs originales iniciaron operaciones el 1 de julio de 1997, conjunto enumerado por union de dos fuentes oficiales, verificado"
+                 data-tip-title="17 AFOREs originales" data-tip-detail="Universo estable jul-1997 a sep-1998" data-tip-note="14 activas a dic-1998 + 3 absorbidas en Q4-1998" data-tip-v="1">
+              <p class="rh-stat__big">17<span class="rh-stat__unit">AFOREs originales</span><span class="fuente-badge fuente-badge--v">V</span></p>
+              <p class="rh-stat__caption">Banamex &middot; Bancomer &middot; Banorte Generali &middot; Garante &middot; G&eacute;nesis &middot; HSBC &middot; Inbursa &middot; Principal &middot; Profuturo GNP &middot; Santander &middot; SURA &middot; Tepeyac &middot; XXI Banorte &middot; Zurich &middot; y las tres absorbidas en Q4-1998: Previnter &middot; Atl&aacute;ntico Promex &middot; Capitaliza</p>
+            </div>
+            <p class="rh-viz__meta">Universo estable durante todo el segundo semestre<span class="fuente-badge fuente-badge--v">V</span> &middot; Primera fusión del sistema: 1-oct-1998</p>
+            <p class="rh-viz__ref"><a href="#estructura">Tabla 1 &mdash; Sección 5</a></p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MARGEN LATERAL (rollout 1997)
+         TOC de las 14 secciones del cuerpo (Sec 1 elevada al hero) +
+         leyenda [V]/[E] + back-link contextual.
+         ========================================== -->
+    <aside class="paper__margen" aria-label="Navegación y leyenda del estudio">
+      <div class="paper__margen-sticky">
+
+        <nav class="paper__margen-nav" aria-label="Secciones del estudio">
+          <details class="paper__margen-toc-wrap" open>
+            <summary class="paper__margen-toc-summary">
+              <span class="paper__margen-toc-eyebrow">En este estudio</span>
+              <span class="paper__margen-toc-counter">14 secciones</span>
+            </summary>
+            <ol class="paper__margen-toc">
+              <li><a href="#resumen">Resumen ejecutivo</a></li>
+              <li><a href="#introduccion">Introducción</a></li>
+              <li><a href="#metodologia">Metodología</a></li>
+              <li><a href="#contexto">Contexto económico 1997</a></li>
+              <li><a href="#estructura">Estructura del SAR</a></li>
+              <li><a href="#cuentas">Cuentas individuales</a></li>
+              <li><a href="#recursos">Recursos administrados</a></li>
+              <li><a href="#comisiones">Comisiones</a></li>
+              <li><a href="#rendimientos">Rendimientos</a></li>
+              <li><a href="#inicio-sistema">El inicio del sistema</a></li>
+              <li><a href="#normativo">Marco normativo</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#conclusiones">Conclusiones</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="paper__margen-leyenda">
+          <p class="paper__margen-eyebrow">Cómo leer</p>
+          <p class="paper__margen-leyenda-intro">Cada cifra del estudio lleva un sello que indica de dónde sale y queda anclada a su fuente.</p>
+          <ul class="paper__margen-leyenda-items">
+            <li><span class="fuente-badge fuente-badge--v">V</span><span>verificado de fuente oficial directa</span></li>
+            <li><span class="fuente-badge fuente-badge--e">E</span><span>derivado o estimado, declarado</span></li>
+          </ul>
+        </div>
+
+        <a href="/pensiones/sar-29" class="paper__margen-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Volver al índice
+        </a>
+
+      </div>
+    </aside>
+
+    <div class="paper__body">
+
+      <!-- Sección 1 (Resumen ejecutivo) elevada al bloque visual full-width
+           encima del cuerpo (sección "paper__resumen-hero" arriba). Toda la
+           sustancia se conserva; la presentación se elevó. -->
+
+      <!-- 2. INTRODUCCIÓN -->
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Sección 2</div>
+        <h2>Introducción</h2>
+        <p>El Sistema de Ahorro para el Retiro (SAR) basado en cuentas individuales es el mecanismo mediante el cual los trabajadores afiliados al Instituto Mexicano del Seguro Social (IMSS) acumulan recursos para financiar su pensión en cuentas administradas por entidades privadas reguladas, conocidas como AFOREs. El sistema fue establecido por la reforma a la Ley del Seguro Social publicada el 21 de diciembre de 1995, y entró formalmente en operación el <strong>1 de julio de 1997</strong>.</p>
+        <p>El presente estudio ofrece un panorama descriptivo del SAR durante 1997, el <strong>año fundacional del sistema</strong>. A diferencia de los papers posteriores de la serie Panorama, que cubren años calendario completos, este estudio retrata un periodo de <strong>seis meses de operación</strong> (1 de julio a 31 de diciembre de 1997). Esta naturaleza parcial gobierna todas las cifras y todas las comparaciones: cualquier indicador anualizable (rendimiento anual, comisión equivalente, % del PIB anual) requiere lectura cuidadosa o, cuando no hay fuente oficial directa para el medio año, omisión declarada.</p>
+        <p>Se analizan los principales indicadores que las fuentes oficiales sí publican con cobertura del cierre de diciembre de 1997 —recursos administrados, AFOREs en operación, cuentas individuales, marco regulatorio, régimen de comisiones, contexto macroeconómico— y se documentan explícitamente las omisiones honestas donde no existe fuente oficial directa para el periodo de operación de seis meses.</p>
+        <p>Este documento no emite juicios sobre AFOREs específicas ni recomendaciones financieras. Su objetivo es presentar datos verificables de fuentes primarias para que el lector forme su propio criterio. Las cifras clave están etiquetadas con badge <span class="fuente-badge fuente-badge--v">V</span> (verificada) o <span class="fuente-badge fuente-badge--e">E</span> (estimada/derivada) junto a su referencia de fuente en la Sección 14.</p>
+      </section>
+
+      <!-- 3. METODOLOGÍA -->
+      <section class="paper__section" id="metodologia">
+        <div class="paper__section-number">Sección 3</div>
+        <h2>Metodología</h2>
+        <p>Este estudio adopta un enfoque descriptivo basado exclusivamente en fuentes primarias oficiales. Los datos cuantitativos provienen de:</p>
+        <ul>
+          <li><strong>CONSAR — Radiografía del Sistema de Pensiones a 20 años de su creación</strong> (julio 2017, CONSAR/SHCP): serie anual oficial de activos administrados 1997-2017, con la cifra etiquetada para 1997 en la gráfica de p. 4; matriz del régimen de inversión por año (p. 8); cronología de cambios al régimen (p. 9) (<a href="#fuente-F1">F1</a>).</li>
+          <li><strong>CONSAR vía datos.gob.mx</strong>: panel mensual de cuentas administradas por AFORE 1997-2025 (CC-BY-4.0; <a href="#fuente-F2">F2</a>). El panel cubre dic-1997 únicamente para las seis AFOREs sobrevivientes hasta la fecha (con cifras consolidadas tras décadas de fusiones), lo que limita su utilidad para corroborar el agregado del sistema en 1997.</li>
+          <li><strong>CONSAR — Base de datos diaria 1997-2006: saldos, valores y comisiones</strong>: dataset de alta granularidad publicado por CONSAR, no incluido en el alcance de extracción de este paper; queda disponible para procesamientos posteriores (<a href="#fuente-F4">F4</a>).</li>
+          <li><strong>CONSAR — Eventos Corporativos en el SAR</strong> (mayo 2018): cronología oficial de fusiones, cesiones de cartera e inicios de operación; documenta que la primera operación corporativa del sistema fue la fusión Profuturo-Previnter del 1-oct-1998, lo cual implica estabilidad del universo de 17 AFOREs durante todo el segundo semestre de 1997 (<a href="#fuente-F5">F5</a>).</li>
+          <li><strong>CEFP/008/2004 — El Sistema de Pensiones (Afores) en México, 1997-2003</strong>: Centro de Estudios de las Finanzas Públicas, Cámara de Diputados; Cuadro I.3 con serie 1997-2003 de trabajadores registrados; Cuadro V.3 con recursos invertidos por las SIEFOREs incluyendo dic-1997 (4,783 mdp); contexto narrativo del inicio del sistema (p. 5); rendimientos históricos acumulados desde 2-jul-1997 (Cuadro VI.1, p. 40) (<a href="#fuente-F7">F7</a>).</li>
+          <li><strong>CEFP/063/2007 — Comisiones y rendimientos de las afores</strong>: rangos oficiales de comisión sobre flujo 1997-2007 (<a href="#fuente-F8">F8</a>).</li>
+          <li><strong>INEGI — INPC</strong>: inflación dic-dic 1997 (<a href="#fuente-F9">F9</a>).</li>
+          <li><strong>Banco de México — SIE (contexto)</strong>: en 1997 Banxico operaba con el esquema del "corto" (sin tasa objetivo formal hasta enero de 2008) (<a href="#fuente-F10">F10</a>).</li>
+          <li><strong>Banco de México — SIE API REST (Cetes 28 días dic-1997)</strong>: descarga directa de la tasa de subasta primaria semanal (serie SF43936) y promedio mensual (serie SF282) para diciembre de 1997, vía API oficial con token autorizado (<a href="#fuente-F11">F11</a>).</li>
+        </ul>
+        <p>El periodo de análisis es el <strong>segundo semestre de 1997 (1 de julio al 31 de diciembre)</strong>, periodo en el que efectivamente operó el SAR durante su año fundacional. Por la naturaleza parcial del periodo, este estudio <strong>no anualiza</strong> cifras de 6 meses ni reporta tasas de crecimiento interanuales (no existe año previo con el cual comparar).</p>
+        <p>Por tratarse de régimen sobre flujo (vigente jul-1997 a feb-2008), las cifras de comisión NO son comparables numéricamente con la serie 2008+ (sobre saldo), como se detalla en la Sección 8. Este estudio no realiza proyecciones ni inferencias causales. Su alcance es descriptivo de los datos observados durante el segundo semestre de 1997.</p>
+      </section>
+
+      <!-- 4. CONTEXTO ECONÓMICO -->
+      <section class="paper__section" id="contexto">
+        <div class="paper__section-number">Sección 4</div>
+        <h2>Contexto económico 1997</h2>
+        <p>El año 1997 fue un periodo de <strong>recuperación gradual</strong> de la economía mexicana tras la severa crisis financiera de diciembre de 1994 y la profunda recesión de 1995. La estabilización macroeconómica y la consolidación del sistema bancario tras los rescates del FOBAPROA marcaban el contexto doméstico, mientras que en el ámbito internacional comenzaba a desplegarse la <strong>crisis financiera asiática</strong> (devaluaciones de Tailandia en julio, contagio a Corea, Indonesia y Malasia en el segundo semestre).</p>
+        <p>Para el SAR, este contexto significó un <strong>arranque en condiciones de tasas nominales elevadas pero con inflación todavía alta</strong>. La inflación anual al cierre de diciembre fue de <strong>15.72%</strong> <span class="fuente-badge fuente-badge--v">V</span> (INEGI INPC, <a href="#fuente-F9">F9</a>), una lectura que reflejaba la moderación tras los picos de la crisis 1994-1995 pero que aún se ubicaba muy por encima de los niveles que México alcanzaría una vez consolidada la convergencia macroeconómica de la siguiente década.</p>
+        <p>En el ámbito monetario doméstico, durante 1997 el Banco de México operaba con el esquema del <strong>"corto"</strong> (objetivo de saldos diarios) como instrumento principal de política monetaria, sin tasa de interés objetivo formal. La formalización de la tasa objetivo no ocurriría hasta enero de 2008. Como referencia indirecta del costo del dinero, la <strong>tasa de Cetes 28 días en la última subasta primaria de 1997 (31 de diciembre) fue de 18.75%</strong> <span class="fuente-badge fuente-badge--v">V</span> (Banxico SIE, serie SF43936, <a href="#fuente-F11">F11</a>); el <strong>promedio mensual de diciembre de 1997 fue de 18.85%</strong> <span class="fuente-badge fuente-badge--v">V</span> (Banxico SIE, serie SF282, <a href="#fuente-F11">F11</a>). Las cinco subastas semanales del mes mostraron una tasa que osciló entre <strong>18.22% y 19.33%</strong> <span class="fuente-badge fuente-badge--v">V</span>, con tendencia descendente en la última semana del año.</p>
+        <p>Para el SAR recién creado —cuyas SIEFOREs estaban restringidas a deuda nacional y divisas, principalmente valores gubernamentales— este entorno de tasas nominales elevadas implicó cupones altos en las carteras, pero con una inflación significativa que erosionaba el rendimiento real. Al haber operado el sistema solo seis meses durante 1997, no existe una cifra oficial directa accesible de rendimiento anualizado para el año fundacional (ver Sección 9).</p>
+      </section>
+
+      <!-- 5. ESTRUCTURA DEL SAR -->
+      <section class="paper__section" id="estructura">
+        <div class="paper__section-number">Sección 5</div>
+        <h2>Estructura del SAR</h2>
+        <p>El marco legal vigente en 1997 al iniciar operaciones el sistema era la <strong>Ley de los Sistemas de Ahorro para el Retiro</strong> (Ley SAR, DOF 23 de mayo de 1996) y la <strong>Ley del Seguro Social de 1995</strong> (DOF 21 de diciembre de 1995, vigente desde el 1 de julio de 1997, conocida como "Ley 97"). Los trabajadores con cotización previa al 1 de julio de 1997 conservaban derechos bajo el régimen de la Ley del Seguro Social de 1973 ("Ley 73"). El sistema operó únicamente durante el <strong>segundo semestre del año</strong> bajo este marco legal recién entrado en vigor.</p>
+        <p>El sistema arrancó operaciones el 1 de julio de 1997 con <strong>17 AFOREs</strong> autorizadas, dato consistente con (i) el contexto narrativo de CEFP/008/2004 p. 5 (<em>"...con la entrada en vigor de éste se crean las Afores..."</em>) <span class="fuente-badge fuente-badge--v">V</span> (<a href="#fuente-F7">F7</a>); (ii) la cronología oficial de CONSAR Eventos Corporativos, que registra como primera operación corporativa del sistema la fusión Profuturo-Previnter del 1 de octubre de 1998 (<a href="#fuente-F5">F5</a>) — implicando que el universo de 17 AFOREs originales se mantuvo estable durante todo el segundo semestre de 1997 y los primeros nueve meses de 1998; y (iii) la lista nominal de 14 AFOREs activas al cierre de dic-1998 reportada por CONSAR Radiografía 20 años p. 7 <span class="fuente-badge fuente-badge--v">V</span> (<a href="#fuente-F1">F1</a>), que reconcilia aritméticamente con 17 originales − 3 fusiones del cuarto trimestre de 1998 = 14.</p>
+        <p>Las 17 AFOREs originales pueden enumerarse mediante la <strong>unión de dos fuentes oficiales independientes</strong>: las 14 firmas con participación nominal al cierre dic-1998 (Radiografía 20 años, p. 7) más las 3 firmas absorbidas en operaciones corporativas del cuarto trimestre de 1998 documentadas con fecha exacta por CONSAR Eventos Corporativos (<a href="#fuente-F5">F5</a>):</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. AFOREs originales que iniciaron operaciones del SAR el 1 de julio de 1997 — conjunto enumerado por unión de dos fuentes oficiales independientes</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th>Situación al cierre dic-1998</th>
+                <th class="origen">Origen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Bancomer</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>Banamex</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>Inbursa</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>Profuturo GNP</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>Garante</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>SURA</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>Santander</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>XXI Banorte</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>Banorte Generali</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>HSBC</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>Principal</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>Génesis</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>Tepeyac</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>Zurich</td><td>Activa al cierre dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F1">F1</a></td></tr>
+              <tr><td>Previnter</td><td>Absorbida por Profuturo el 1-oct-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F5">F5</a></td></tr>
+              <tr><td>Atlántico Promex</td><td>Absorbida por Principal el 1-nov-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F5">F5</a></td></tr>
+              <tr><td>Capitaliza</td><td>Absorbida por Inbursa el 1-dic-1998 <span class="fuente-badge fuente-badge--v">V</span></td><td class="origen"><a href="#fuente-F5">F5</a></td></tr>
+              <tr><td><strong>Total: 17 AFOREs originales</strong> <span class="fuente-badge fuente-badge--v">V</span> (derivado por unión)</td><td><strong>14 activas en F1 + 3 absorbidas en F5 = 17</strong></td><td class="origen"><a href="#fuente-F1">F1</a> + <a href="#fuente-F5">F5</a></td></tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: unión de dos fuentes oficiales primarias independientes: CONSAR Radiografía 20 años (jul 2017, p. 7) para la lista nominal de 14 AFOREs activas al cierre dic-1998; CONSAR Eventos Corporativos (may 2018) para las 3 AFOREs absorbidas durante el cuarto trimestre de 1998. La aritmética 14 + 3 = 17 coincide exactamente con el conteo histórico de AFOREs originales registrado en el contexto narrativo de CEFP/008/2004 (p. 5). Nota metodológica: este paper reporta el conjunto como <strong>[V]</strong> porque cada uno de los 17 nombres proviene de fuente oficial directa; el conteo total se valida por aritmética sobre dos cortes oficiales independientes. No se enumera participación porcentual por AFORE para dic-1997 porque las fuentes versionadas no publican un corte transversal de participación de mercado para esa fecha (ver Sección 12 y Sección 8 de Comisiones).</p>
+        </div>
+
+        <p>El régimen de inversión vigente en 1997 limitaba a las SIEFOREs a <strong>deuda nacional y divisas</strong> <span class="fuente-badge fuente-badge--v">V</span> según la matriz oficial del régimen por año (<a href="#fuente-F1">F1</a>, p. 8). La cronología CONSAR registra para los primeros años del sistema: <em>"Las inversiones se realizaban principalmente en valores gubernamentales"</em> <span class="fuente-badge fuente-badge--v">V</span> (Radiografía p. 9). La renta variable nacional permaneció prohibida hasta 2004 inclusive; los valores extranjeros no se autorizarían hasta enero de 2005. El régimen vigente en 1997 contaba con un <strong>único fondo por AFORE</strong> (SIEFORE Básica unificada): la segregación en SIEFOREs Básicas multifondo por edad (SB1 y SB2) no ocurriría hasta octubre de 2004.</p>
+      </section>
+
+      <!-- 6. CUENTAS INDIVIDUALES -->
+      <section class="paper__section" id="cuentas">
+        <div class="paper__section-number">Sección 6</div>
+        <h2>Cuentas individuales</h2>
+        <p>Al cierre de diciembre de 1997, el sistema administraba <strong>11,188,114 trabajadores registrados</strong> <span class="fuente-badge fuente-badge--v">V</span> en las AFOREs (CEFP/008/2004 Cuadro I.3, p. 20, <a href="#fuente-F7">F7</a>). La cifra equivalía al <strong>52.8% del mercado potencial</strong> estimado por CONSAR para 1997 <span class="fuente-badge fuente-badge--v">V</span> (misma fuente).</p>
+        <p>Este dato refleja la rapidez con la que el sistema, en sus primeros seis meses de operación, captó a más de la mitad del universo potencial de trabajadores afiliados al IMSS susceptibles de tener cuenta SAR. No existe un año previo del sistema con el cual comparar el crecimiento de cuentas; en su lugar, el dato del cierre dic-1997 establece la <strong>línea base histórica</strong> de la serie.</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Trabajadores registrados en las AFOREs al cierre de dic-1997 — línea base del sistema</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th class="num">dic-1997</th>
+                <th class="origen">Origen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Trabajadores registrados (total SAR)</td>
+                <td class="num">11,188,114 <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F7">F7</a></td>
+              </tr>
+              <tr>
+                <td>Mercado potencial estimado por CONSAR</td>
+                <td class="num">21,191,512 <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F7">F7</a></td>
+              </tr>
+              <tr>
+                <td>Participación en el mercado potencial</td>
+                <td class="num">52.8% <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F7">F7</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CEFP/008/2004, Cuadro I.3 "Proporción de trabajadores registrados respecto del mercado potencial, 1997 dic./2003 dic.", p. 20. El total del mercado potencial CONSAR (21,191,512) se obtiene aritméticamente como 11,188,114 / 0.528. Las cifras corresponden al cierre de diciembre de 1997, tras seis meses de operación del sistema.</p>
+        </div>
+
+        <p>El panel mensual de cuentas publicado por CONSAR en datos.gob.mx (<a href="#fuente-F2">F2</a>) <strong>no permite corroborar de manera independiente</strong> el dato agregado del sistema para dic-1997. La extracción directa del CSV para esa fecha contiene registros únicamente para seis AFOREs (Banamex, Inbursa, Principal, Profuturo, SURA, XXI Banorte) sumando 4,467,709 cuentas, lo cual corresponde a las AFOREs sobrevivientes hasta la fecha de publicación del panel con sus carteras consolidadas tras décadas de fusiones, no al universo histórico de las 17 AFOREs originales en operación en dic-1997. Por esta razón, el dato agregado de 11,188,114 <span class="fuente-badge fuente-badge--v">V</span> se sostiene exclusivamente sobre la fuente CEFP/008/2004 Cuadro I.3, sin corroboración cruzada disponible en fuentes versionadas (ver Sección 12).</p>
+        <p>La cifra de "trabajadores registrados" comprende todas las cuentas vigentes en alguna AFORE al cierre del periodo. Para 1997, dada la naturaleza fundacional del sistema, no existe una desagregación pública sistemática entre cuentas activas e inactivas: prácticamente todas las cuentas registradas eran nuevas. CEFP/008/2004 no publica desglose per-AFORE de cuentas para dic-1997.</p>
+      </section>
+
+      <!-- 7. RECURSOS ADMINISTRADOS -->
+      <section class="paper__section" id="recursos">
+        <div class="paper__section-number">Sección 7</div>
+        <h2>Recursos administrados</h2>
+        <p>Los activos administrados por las AFOREs al cierre de 1997 fueron de <strong>6,177 millones de pesos</strong> <span class="fuente-badge fuente-badge--v">V</span> (CONSAR Radiografía 20 años, p. 4, <a href="#fuente-F1">F1</a>), equivalentes aproximadamente al <strong>~0.15% del PIB</strong> <span class="fuente-badge fuente-badge--e">E</span> (cálculo derivado del PIB nominal INEGI 1997). Esta cifra corresponde al saldo acumulado tras <strong>seis meses de aportaciones obrero-patronales</strong> al sistema recién creado, en un universo de 11.19 millones de trabajadores registrados.</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 3. Recursos administrados por las SIEFOREs al cierre de dic-1997 (cifras alternativas según fuente)</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th class="num">Cierre dic-1997</th>
+                <th class="origen">Origen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Activos administrados por las AFOREs (mdp) — Radiografía CONSAR 2017</td>
+                <td class="num">6,177 <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F1">F1</a></td>
+              </tr>
+              <tr>
+                <td>Recursos invertidos por las SIEFOREs (mdp) — CEFP/008/2004 contemporáneo</td>
+                <td class="num">4,783 <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F7">F7</a></td>
+              </tr>
+              <tr>
+                <td>Como % del PIB (cálculo derivado)</td>
+                <td class="num">~0.15% <span class="fuente-badge fuente-badge--e">E</span></td>
+                <td class="origen"><a href="#fuente-F1">F1</a> + <a href="#fuente-F9">F9</a></td>
+              </tr>
+              <tr>
+                <td>Trabajadores registrados (millones)</td>
+                <td class="num">11.19 <span class="fuente-badge fuente-badge--v">V</span></td>
+                <td class="origen"><a href="#fuente-F7">F7</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR Radiografía 20 años (F1, jul 2017, p. 4) reporta 6,177 mdp como cifra etiquetada explícitamente sobre la primera barra de la gráfica "Activos Administrados por las AFOREs". CEFP/008/2004 Cuadro V.3 (F7, p. 37) reporta 4,783 mdp como "recursos invertidos por las SIEFOREs" para dic-1997. La diferencia (~1,400 mdp) plausiblemente refleja: (i) distintas fechas de publicación (CEFP contemporáneo 2004 vs Radiografía retrospectiva 2017) con posibles revisiones metodológicas posteriores; (ii) la cifra CEFP "recursos invertidos por las SIEFOREs" podría excluir activos administrados por las AFOREs que no estuvieran invertidos en las SIEFOREs a la fecha de corte (capital propio de las AFOREs, recursos en tránsito). Este paper reporta ambas cifras como <strong>[V]</strong> por provenir de fuente oficial directa, declarando la diferencia metodológica.</p>
+        </div>
+
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 1. Recursos administrados por las AFOREs al cierre de dic-1997 — línea base del sistema (mdp)</p>
+          <div class="paper__grafica-container"><canvas id="chart-recursos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR — Radiografía del Sistema de Pensiones a 20 años (jul 2017, p. 4), cifra etiquetada explícitamente sobre la primera barra de la gráfica "Activos Administrados por las AFOREs" del documento original. Cifra al cierre de diciembre de 1997 en millones de pesos corrientes. <strong>Nota crítica: 1997 cubre únicamente seis meses de operación del SAR (1-jul a 31-dic-1997); el sistema arrancó desde cero el 1 de julio de 1997, por lo que esta cifra representa el saldo acumulado del primer medio año del sistema, no un nivel anualizado</strong>. Como referencia metodológica alternativa, CEFP/008/2004 Cuadro V.3 (p. 37) reporta 4,783 mdp como "recursos invertidos por las SIEFOREs" a la misma fecha; la diferencia se documenta en la Tabla 3 y en la Sección 12. No se presenta comparación con años posteriores en esta gráfica porque no existe año previo del sistema con el cual comparar y porque cualquier comparación con años calendario completos requiere la salvaguarda explícita de 6 vs 12 meses (ver Gráfica 1 del paper <a href="/pensiones/sar-29/DM-SAR-1998.html">DM-SAR-1998</a> que muestra el salto 1997→1998 con disclaimer).</p>
+        </div>
+
+        <p>La cifra de recursos al cierre de 1997 (6,177 mdp) reflejaba la <strong>fase inicial del sistema</strong>: el SAR llevaba solo seis meses de operación, las contribuciones obrero-patronales habían sido depositadas durante medio año, y los rendimientos del fondo único de cada AFORE se concentraban en deuda gubernamental dada la restricción del régimen de inversión vigente. La magnitud relativa de los recursos (~0.15% del PIB <span class="fuente-badge fuente-badge--e">E</span>) era muy modesta y muy lejana del <strong>14.88% del PIB</strong> que las AFOREs alcanzarían a junio de 2017 según la propia Radiografía CONSAR (<a href="#fuente-F1">F1</a>, p. 4).</p>
+      </section>
+
+      <!-- 8. COMISIONES -->
+      <section class="paper__section" id="comisiones">
+        <div class="paper__section-number">Sección 8</div>
+        <h2>Comisiones</h2>
+
+        <div class="paper__regimen-box">
+          <h3 class="paper__regimen-titulo">Régimen de comisiones vigente en 1997</h3>
+          <p class="paper__regimen-tag"><span class="regimen-flag regimen-flag--flujo">Sobre flujo</span></p>
+          <p>Desde el arranque del sistema el 1 de julio de 1997, las AFOREs cobraron su comisión bajo el <strong>régimen sobre flujo</strong>: un porcentaje aplicado sobre la aportación obrero-patronal calculada sobre el salario base de cotización (SBC) del trabajador. Algunas administradoras combinaban además una comisión menor sobre saldo. Este esquema —vigente desde el inicio mismo del sistema— rigió hasta marzo de 2008, cuando una reforma regulatoria eliminó la comisión sobre flujo y dejó únicamente la comisión sobre saldo administrado.</p>
+          <p>El rango oficial de comisiones sobre flujo durante el periodo 1997-2007 osciló entre <strong>0.93% y 1.62%</strong> sobre el SBC <span class="fuente-badge fuente-badge--v">V</span>, según la AFORE y el año (CEFP/063/2007, <a href="#fuente-F8">F8</a>). El ingreso acumulado del sistema por comisiones entre 1998 y 2007 fue de <strong>119,509.97 mdp</strong> <span class="fuente-badge fuente-badge--v">V</span> (misma fuente). CEFP no reporta el ingreso por comisiones específicamente para el medio año de 1997 como dato anual aislado.</p>
+          <p><strong>Por qué no es comparable con la serie 2008+:</strong> la base de cálculo cambia. Una comisión sobre flujo grava la aportación que entra; una comisión sobre saldo grava el patrimonio acumulado. Cualquier "equivalente sobre saldo" depende del horizonte de permanencia del trabajador (1, 5, 10, 25 años) y no produce un único número. Por ello, las cifras de comisión de 1997 se presentan en sus propios términos y <strong>no deben graficarse en una serie continua con las comisiones de 2008 en adelante sin ruptura visual y disclaimer explícito</strong> (estándar editorial del observatorio).</p>
+        </div>
+
+        <p>Las fuentes oficiales versionadas en <code>engine/sources/</code> <strong>no contienen una tabla pública con la comisión específica por AFORE para dic-1997</strong>. La razón es estructural: durante el medio año de arranque del sistema, la información de comisiones se construía y publicaba con periodicidad anual a partir de 1998 en adelante; el corte del medio año de 1997 quedó documentado únicamente en el rango agregado oficial del periodo 1997-2007 (0.93%-1.62% sobre SBC) y en datos derivados retrospectivamente (rendimientos acumulados desde el 2-jul-1997 reportados en años posteriores).</p>
+        <p>Por consistencia con el estándar editorial del observatorio (omisión honesta), este paper <strong>no reporta una tabla per-AFORE de comisión sobre flujo específicamente para dic-1997 con badge <span class="fuente-badge fuente-badge--v">V</span></strong>; el rango oficial del periodo 1997-2007 y el ingreso acumulado del sistema 1998-2007 son las referencias agregadas disponibles. Esta omisión es consistente con el tratamiento dado a 1998 y 1999 (papers <a href="/pensiones/sar-29/DM-SAR-1998.html">DM-SAR-1998</a> y <a href="/pensiones/sar-29/DM-SAR-1999.html">DM-SAR-1999</a>) en los que las fuentes tampoco contenían un corte nominal por AFORE.</p>
+        <p>Bajo el régimen sobre flujo, no existe en 1997 una tabla pública uniforme de "comisión sobre saldo equivalente promedio del sistema" porque la equivalencia varía con el horizonte de permanencia. Por esa razón, en este paper <strong>no se incluye una tabla per-AFORE de comisión sobre saldo</strong> ni una gráfica de "tendencia de la comisión promedio" como las que aparecen en los papers de 2008 en adelante.</p>
+      </section>
+
+      <!-- 9. RENDIMIENTOS -->
+      <section class="paper__section" id="rendimientos">
+        <div class="paper__section-number">Sección 9</div>
+        <h2>Rendimientos</h2>
+        <p>Para 1997, <strong>no existe una cifra oficial directa de rendimiento anual del sistema</strong> en las fuentes versionadas en <code>engine/sources/</code>, y por la naturaleza del periodo (seis meses de operación) <strong>tampoco sería metodológicamente correcto anualizar</strong> el rendimiento del medio año sin distorsión.</p>
+        <p>La referencia oficial más cercana disponible es el <strong>rendimiento histórico acumulado del sistema desde el 2 de julio de 1997 hasta el 31 de diciembre de 2003</strong>, reportado por CEFP/008/2004 (Cuadro VI.1, p. 40, <a href="#fuente-F7">F7</a>):</p>
+        <ul>
+          <li><strong>Rendimiento real promedio Siefore: 8.15%</strong> <span class="fuente-badge fuente-badge--v">V</span> (acumulado 2-jul-1997 a 31-dic-2003, ponderado por activos netos).</li>
+          <li><strong>Rendimiento real promedio Gestión: 8.65%</strong> <span class="fuente-badge fuente-badge--v">V</span> (mismo periodo y metodología).</li>
+        </ul>
+        <p>Este dato describe el rendimiento <strong>acumulado de los primeros 6 años y medio</strong> de operación del sistema, no el rendimiento aislado del medio año de 1997. Por construcción matemática, el rendimiento del medio año de 1997 está contenido como una fracción dentro de este acumulado.</p>
+        <p>En consistencia con el estándar editorial del observatorio (omisión honesta) reforzada para el año fundacional, este paper <strong>no reporta una cifra puntual de rendimiento nominal o real del sistema para 1997 con badge <span class="fuente-badge fuente-badge--v">V</span></strong>. Las estimaciones derivadas de literatura secundaria o de procesamiento independiente se reportarían únicamente con badge <span class="fuente-badge fuente-badge--e">E</span> y cita de la fuente derivada; se prefiere declarar la limitación antes que presentar como verificado un dato no respaldado por fuente oficial primaria.</p>
+        <p>Para precisión adicional sobre rendimientos del periodo, CONSAR puso a disposición pública una <strong>base de datos diaria 1997-2006</strong> (<a href="#fuente-F4">F4</a>) que contiene saldos, valores y comisiones del sistema con granularidad diaria desde el 2 de julio de 1997. La extracción del rendimiento del medio año de 1997 a partir de esa base es trabajo de procesamiento posterior, no incluido en el alcance de este paper. Sería especialmente valioso como dato de cierre histórico de la serie F1.</p>
+        <p>Cualitativamente, el contexto de 1997 fue de <strong>tasas nominales elevadas con inflación significativa</strong>: la cartera concentrada en deuda gubernamental ofrecía cupones altos (Cetes 28 días subasta primaria del 31-dic-1997 = 18.75% <span class="fuente-badge fuente-badge--v">V</span>; promedio mensual diciembre 1997 = 18.85% <span class="fuente-badge fuente-badge--v">V</span>, Banxico SIE), pero la inflación de 15.72% <span class="fuente-badge fuente-badge--v">V</span> erosionaba el rendimiento real. Sin una cifra oficial directa accesible para el medio año de 1997, este efecto se documenta cualitativamente.</p>
+      </section>
+
+      <!-- 10. SECCIÓN VARIABLE: INICIO DEL SISTEMA -->
+      <section class="paper__section" id="inicio-sistema">
+        <div class="paper__section-number">Sección 10</div>
+        <h2>El inicio del sistema: arranque del SAR el 1 de julio de 1997</h2>
+        <p>El acontecimiento dominante de 1997 en el ámbito de las pensiones en México fue la <strong>entrada en operación del nuevo SAR basado en cuentas individuales administradas por AFOREs</strong>, el 1 de julio de 1997. Este evento marcó la transición desde el régimen previo de pensiones del IMSS (Ley 73, basado en reparto) hacia un sistema de capitalización individual, derivado de la reforma a la Ley del Seguro Social publicada en el Diario Oficial de la Federación el 21 de diciembre de 1995.</p>
+        <p>La fecha de inicio está documentada explícitamente en CEFP/008/2004 (<a href="#fuente-F7">F7</a>, p. 5):</p>
+        <blockquote style="border-left: 3px solid #B8943E; padding-left: 1rem; margin: 1.5rem 0; color: #4B5563; font-style: italic;">
+          "A partir del 1º de julio de 1997 inició formalmente el funcionamiento del nuevo esquema de pensiones y con la entrada en vigor de éste se crean las Afores..."
+        </blockquote>
+        <p>El arranque del sistema tuvo cinco características estructurales que conviene registrar como <strong>línea base histórica</strong>:</p>
+        <ol>
+          <li><strong>17 AFOREs originales</strong> iniciaron operaciones el 1 de julio de 1997 <span class="fuente-badge fuente-badge--v">V</span>, conjunto enumerado por la unión de las 14 firmas con participación nominal al cierre dic-1998 (Radiografía 20 años, p. 7) y las 3 firmas absorbidas durante el cuarto trimestre de 1998 (Eventos Corporativos), aritmética que coincide exactamente (Tabla 1, Sección 5).</li>
+          <li><strong>Régimen de inversión restringido</strong> a deuda nacional y divisas, principalmente valores gubernamentales <span class="fuente-badge fuente-badge--v">V</span> (Radiografía 20 años, p. 8 y p. 9). La renta variable nacional y los valores extranjeros no se incorporarían al universo invertible sino hasta varios años después (2005).</li>
+          <li><strong>Un único fondo por AFORE</strong> (SIEFORE Básica unificada): la segregación en multifondos por edad (SB1 y SB2) ocurriría hasta octubre de 2004; los fondos SB3 y SB4 se crearían en 2008.</li>
+          <li><strong>Régimen de comisiones sobre flujo</strong> desde el primer día del sistema, con rango oficial del periodo 1997-2007 de 0.93% a 1.62% sobre SBC <span class="fuente-badge fuente-badge--v">V</span> (CEFP/063/2007).</li>
+          <li><strong>Estabilidad del universo de AFOREs durante todo el segundo semestre de 1997</strong>: CONSAR Eventos Corporativos no documenta ninguna fusión, cesión ni baja entre el 1 de julio de 1997 y el 30 de septiembre de 1998 <span class="fuente-badge fuente-badge--v">V</span> (<a href="#fuente-F5">F5</a>). La primera operación corporativa del sistema fue la fusión Profuturo-Previnter del 1 de octubre de 1998, ya registrada en el paper <a href="/pensiones/sar-29/DM-SAR-1998.html">DM-SAR-1998</a> (Panorama 1998).</li>
+        </ol>
+        <p>Estas cinco características —17 AFOREs originales, régimen de inversión restringido, fondo único por AFORE, comisión sobre flujo, estabilidad del universo durante el primer semestre— configuran el <strong>punto cero del sistema</strong> desde el cual evolucionó toda la trayectoria posterior del SAR documentada en la serie Panorama 1998-2025.</p>
+      </section>
+
+      <!-- 11. MARCO NORMATIVO -->
+      <section class="paper__section" id="normativo">
+        <div class="paper__section-number">Sección 11</div>
+        <h2>Marco normativo</h2>
+        <p>El Sistema de Ahorro para el Retiro inició operaciones el 1 de julio de 1997 bajo el siguiente marco jurídico:</p>
+        <ul>
+          <li><strong>Ley del Seguro Social</strong> (DOF 21 de diciembre de 1995, vigente desde el 1 de julio de 1997, "Ley 97"): estableció el régimen de pensiones de cuentas individuales administradas por AFOREs para los trabajadores afiliados al IMSS, sustituyendo el esquema de reparto previsto en la Ley del Seguro Social de 1973 ("Ley 73"). Los trabajadores con cotización previa al 1 de julio de 1997 conservaron derechos bajo el régimen de la Ley 73 (régimen "de transición").</li>
+          <li><strong>Ley de los Sistemas de Ahorro para el Retiro</strong> (Ley SAR, DOF 23 de mayo de 1996): estableció las bases de organización y funcionamiento del SAR, las facultades de CONSAR como órgano regulador, y los derechos y obligaciones de los trabajadores y las administradoras.</li>
+        </ul>
+        <p>1997 fue el <strong>primer año bajo la Ley 97</strong> y el primer año del marco SAR vigente. El sistema operó únicamente durante el segundo semestre del año bajo estas leyes recién entradas en vigor. La regulación específica de las inversiones de las SIEFOREs se encontraba contenida en las disposiciones CONSAR de la época, con los lineamientos del régimen de inversión limitando los instrumentos elegibles a deuda nacional y divisas principalmente. Las ampliaciones del régimen comenzarían en 2001 (autorización de derivados y préstamo de valores) y avanzarían hasta los cambios estructurales de 2004 (multifondos SB1/SB2) y 2008 (cambio de régimen de comisiones a sobre saldo, creación de SB3/SB4).</p>
+        <p>Este estudio presenta exclusivamente hechos descriptivos derivados de la legislación vigente en el segundo semestre de 1997. Cualquier interpretación sobre el alcance específico de las disposiciones legales corresponde a las autoridades competentes y, en última instancia, al Poder Judicial.</p>
+      </section>
+
+      <!-- 12. LIMITACIONES -->
+      <section class="paper__section" id="limitaciones">
+        <div class="paper__section-number">Sección 12</div>
+        <h2>Limitaciones</h2>
+        <ul>
+          <li><strong>Alcance temporal: seis meses, no doce.</strong> El SAR operó únicamente durante el segundo semestre de 1997 (1 de julio al 31 de diciembre). Las cifras reportadas corresponden a ese periodo de operación parcial. <strong>Ningún indicador del año 1997 es directamente comparable con las cifras de años calendario completos</strong> de la serie Panorama 1998-2025 sin la salvaguarda explícita del alcance temporal de 6 vs 12 meses.</li>
+          <li><strong>Alcance descriptivo.</strong> El estudio describe los indicadores observados durante el segundo semestre de 1997; no realiza inferencias causales ni proyecciones.</li>
+          <li><strong>Régimen de comisiones distinto al actual.</strong> Las comisiones reportadas se rigen bajo el régimen sobre flujo, no comparables directamente con la serie sobre saldo vigente desde marzo 2008. El paper presenta las comisiones en sus propios términos y declara la asimetría (Sección 8).</li>
+          <li><strong>No existe año previo para comparación interanual.</strong> 1997 es el año fundacional del sistema. Este paper no reporta tasas de crecimiento ni variaciones interanuales: simplemente establece la línea base histórica.</li>
+          <li><strong>Rendimiento anual del sistema NO reportado como cifra puntual.</strong> En consistencia con el estándar editorial del observatorio Regla 4 reforzada para el año fundacional, el rendimiento nominal o real del sistema para 1997 no se presenta como cifra verificada por (i) carencia de fuente oficial directa accesible para el medio año, y (ii) por incorrección metodológica de cualquier intento de anualización del rendimiento de 6 meses. Se reporta como referencia el rendimiento histórico acumulado 2-jul-1997 a 31-dic-2003 (CEFP/008/2004 Cuadro VI.1) y se documenta la disponibilidad de la base diaria CONSAR 1997-2006 (<a href="#fuente-F4">F4</a>) para procesamiento posterior.</li>
+          <li><strong>Régimen monetario sin tasa objetivo formal.</strong> En 1997 Banxico aún no operaba con tasa objetivo formal (esquema del "corto" vigente hasta enero de 2008). Por esa razón, no existe una "tasa de política monetaria" equivalente para 1997. Como referencia indirecta del costo del dinero, este paper reporta la tasa Cetes 28 días de la última subasta primaria del año (31-dic-1997: 18.75% <span class="fuente-badge fuente-badge--v">V</span>) y el promedio mensual oficial de diciembre (18.85% <span class="fuente-badge fuente-badge--v">V</span>), descargadas directamente de Banxico SIE en este ticket (<a href="#fuente-F11">F11</a>, series SF43936 y SF282). El handoff §4.4 había marcado preliminarmente esta tasa como "~20% [E]" basado en una aproximación del master <code>.md</code>; el dato oficial verificado es <strong>18.75% (cierre) / 18.85% (promedio mensual)</strong>. La diferencia (~1.15-1.25 pp respecto al "~20%" del master) es material y se documenta aquí como resolución honesta de la discrepancia, con el mismo método aplicado en (14 AFOREs dic-1998) y en §12 de este paper (6,177 mdp dic-1997 vs "57.2 mmdp" del master).</li>
+          <li><strong>Comisión específica por AFORE no reportada para dic-1997.</strong> Las fuentes versionadas no contienen un cuadro nominal por AFORE para el medio año fundacional. El rango agregado del periodo 1997-2007 (CEFP/063/2007) es la referencia disponible.</li>
+          <li><strong>Composición específica de cartera dic-1997 no desglosada.</strong> Las fuentes versionadas (Radiografía CONSAR p. 13; CEFP/008/2004 Cuadro V.4) publican composición de cartera para años posteriores con cortes específicos (2003, 2005, 2008, 2013, 2016, may-2017), no para dic-1997. Este paper documenta cualitativamente que la inversión se concentraba "principalmente en valores gubernamentales" (citado textualmente de Radiografía p. 9), sin afirmar porcentajes específicos sin fuente.</li>
+          <li><strong>Participación porcentual por AFORE para dic-1997 no reportada.</strong> A diferencia de dic-1998 (donde Radiografía p. 7 publica un corte transversal de participación nominal por AFORE), las fuentes versionadas no contienen un equivalente para dic-1997. Este paper enumera el conjunto nominal de las 17 AFOREs originales (Tabla 1) sin atribuir participación porcentual al cierre 1997.</li>
+          <li><strong>Cobertura parcial del CSV CONSAR vía datos.gob.mx para dic-1997.</strong> El panel mensual (<a href="#fuente-F2">F2</a>) contiene registros únicamente para seis AFOREs sobrevivientes hasta la fecha (Banamex, Inbursa, Principal, Profuturo, SURA, XXI Banorte) sumando 4,467,709 cuentas, lo cual corresponde a las carteras consolidadas tras décadas de fusiones, no al universo histórico de 17 AFOREs originales. El dato agregado del sistema (11,188,114 trabajadores registrados) se sostiene exclusivamente sobre CEFP/008/2004 Cuadro I.3, sin corroboración cruzada independiente disponible en fuentes versionadas para dic-1997.</li>
+          <li><strong>Resolución de discrepancia previa sobre recursos administrados en dic-1997.</strong> El master <code>.md</code> del proyecto registraba "57.2 mmdp" como recursos al cierre de 1997, cifra que el repositorio había marcado para verificación. Tras lectura directa del PDF versionado de CONSAR Radiografía 20 años (p. 4, gráfica de Activos Administrados por las AFOREs, primera barra de la serie con cifra etiquetada explícitamente), se confirma que <strong>la cifra correcta para dic-1997 es 6,177 mdp</strong> <span class="fuente-badge fuente-badge--v">V</span>. La cifra de "57,193.8 mdp" del master corresponde aproximadamente al cierre de 1998 (56,693 mdp Radiografía / 58,683.9 mdp CEFP RVC contemporáneo). La corrección se aplica a este paper y se reflejará en la actualización del master <code>.md</code> y del catálogo del proyecto durante el PR de publicación del paper.</li>
+          <li><strong>Datos estimados [E] declarados.</strong> El porcentaje del PIB (cálculo derivado con cifras PIB INEGI 1997) y la tasa de Cetes 28d cierre dic-1997 se reportan como estimaciones, declaradas explícitamente con su badge <span class="fuente-badge fuente-badge--e">E</span>.</li>
+        </ul>
+      </section>
+
+      <!-- 13. CONCLUSIONES -->
+      <section class="paper__section" id="conclusiones">
+        <div class="paper__section-number">Sección 13</div>
+        <h2>Conclusiones</h2>
+        <ol>
+          <li>El Sistema de Ahorro para el Retiro basado en cuentas individuales administradas por AFOREs <strong>inició formalmente operaciones el 1 de julio de 1997</strong> <span class="fuente-badge fuente-badge--v">V</span>, tras la entrada en vigor de la reforma a la Ley del Seguro Social publicada el 21 de diciembre de 1995. 1997 cubre únicamente <strong>seis meses</strong> de operación del sistema, no un año calendario completo.</li>
+          <li>Al cierre de diciembre de 1997, el sistema administraba <strong>6,177 mdp</strong> <span class="fuente-badge fuente-badge--v">V</span> en activos invertidos por las SIEFOREs (Radiografía CONSAR 20 años, p. 4), equivalentes aproximadamente al ~0.15% del PIB <span class="fuente-badge fuente-badge--e">E</span>. La cifra alternativa CEFP/008/2004 contemporáneo (Cuadro V.3) reporta 4,783 mdp <span class="fuente-badge fuente-badge--v">V</span> por diferencias metodológicas declaradas en la Sección 7.</li>
+          <li>El sistema operó con <strong>17 AFOREs originales</strong> <span class="fuente-badge fuente-badge--v">V</span> durante todo el segundo semestre de 1997: las 14 firmas activas al cierre dic-1998 según Radiografía 20 años p. 7 (Bancomer, Banamex, Inbursa, Profuturo GNP, Garante, SURA, Santander, XXI Banorte, Banorte Generali, HSBC, Principal, Génesis, Tepeyac, Zurich) más las 3 absorbidas durante el cuarto trimestre de 1998 (Previnter, Atlántico Promex, Capitaliza), aritmética 14 + 3 = 17 que coincide exactamente con el conteo histórico. CONSAR Eventos Corporativos no documenta ninguna fusión ni baja entre el 1-jul-1997 y el 30-sep-1998.</li>
+          <li>Las cuentas individuales registradas al cierre dic-1997 fueron <strong>11,188,114</strong> <span class="fuente-badge fuente-badge--v">V</span>, equivalentes al 52.8% del mercado potencial estimado por CONSAR para 1997 (CEFP/008/2004 Cuadro I.3). El sistema captó a más de la mitad del universo potencial en sus primeros seis meses de operación.</li>
+          <li>Las comisiones operaron bajo el régimen <strong>sobre flujo</strong> desde el primer día del sistema, con rango oficial del periodo 1997-2007 de 0.93%-1.62% sobre SBC <span class="fuente-badge fuente-badge--v">V</span> (CEFP/063/2007). Las fuentes versionadas no documentan la cifra específica por AFORE para dic-1997.</li>
+          <li>El régimen de inversión vigente en 1997 limitaba a las SIEFOREs a deuda nacional y divisas, concentrándose en valores gubernamentales <span class="fuente-badge fuente-badge--v">V</span>. El sistema operaba con un único fondo por AFORE (SIEFORE Básica unificada).</li>
+          <li>La inflación dic-dic 1997 cerró en <strong>15.72%</strong> <span class="fuente-badge fuente-badge--v">V</span>, reflejando la moderación tras los picos de la crisis 1994-1995 pero todavía muy por encima de los niveles que México alcanzaría una vez consolidada la convergencia macroeconómica de la siguiente década. Banxico operaba con el esquema del "corto" sin tasa objetivo formal; como referencia indirecta del costo del dinero, la tasa Cetes 28 días en la última subasta primaria de 1997 (31 de diciembre) fue de <strong>18.75%</strong> <span class="fuente-badge fuente-badge--v">V</span> y el promedio mensual de diciembre fue de <strong>18.85%</strong> <span class="fuente-badge fuente-badge--v">V</span> (Banxico SIE, series SF43936 y SF282).</li>
+          <li>Por la naturaleza de arranque parcial del año, este paper <strong>no reporta rendimiento anual del sistema con badge verificado</strong> (ni anualización del medio año, ni cifra puntual sin fuente directa). Se reporta como referencia el rendimiento histórico acumulado 2-jul-1997 a 31-dic-2003 (CEFP/008/2004 Cuadro VI.1): 8.15% real Siefore / 8.65% real Gestión <span class="fuente-badge fuente-badge--v">V</span>, datos que contienen el medio año de 1997 como fracción dentro del acumulado.</li>
+        </ol>
+        <p>Los datos presentados corresponden exclusivamente al segundo semestre de 1997 (1 de julio al 31 de diciembre), periodo de operación parcial que constituye el <strong>año fundacional</strong> del SAR.</p>
+      </section>
+
+      <hr class="paper__separator">
+
+      <!-- 14. FUENTES -->
+      <section class="paper__section" id="fuentes">
+        <div class="paper__section-number">Sección 14</div>
+        <h2>Fuentes</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li id="fuente-F1"><span class="fuente-inst">CONSAR &middot; Secretaría de Hacienda y Crédito Público</span>. <span class="fuente-titulo">Radiografía del Sistema de Pensiones a 20 años de su creación</span>. México, julio de 2017. <a href="https://www.gob.mx/cms/uploads/attachment/file/241559/Radiograf_sistema_20an_os.pdf" target="_blank" rel="noopener">https://www.gob.mx/cms/uploads/attachment/file/241559/Radiograf_sistema_20an_os.pdf</a> &middot; serie anual de activos administrados 1997-2017, con cifra etiquetada para 1997 (6,177 mdp) sobre la primera barra de la gráfica de p. 4; matriz régimen de inversión por año (p. 8); cronología de cambios al régimen incluida la nota "Las inversiones se realizaban principalmente en valores gubernamentales" (p. 9); lista nominal de 14 AFOREs activas al cierre dic-1998 (p. 7), referencia cruzada para la enumeración del conjunto de 17 originales de 1997. Copia versionada: <code>engine/sources/CONSAR-Radiografia-20-anos-2017.pdf</code> (SHA-256 en <code>HASHES.txt</code>).</li>
+            <li id="fuente-F2"><span class="fuente-inst">CONSAR vía datos.gob.mx</span>. <span class="fuente-titulo">Cuentas administradas por las AFOREs — panel mensual 1997-2025</span>. Licencia CC-BY-4.0. <a href="https://repodatos.atdt.gob.mx/api_update/consar/cuentas_administradas_afore/05_cuentas.csv" target="_blank" rel="noopener">https://repodatos.atdt.gob.mx/api_update/consar/cuentas_administradas_afore/05_cuentas.csv</a> &middot; Para dic-1997, el panel contiene registros únicamente de las seis AFOREs sobrevivientes hasta la fecha con sus carteras consolidadas tras décadas de fusiones; cobertura parcial declarada como limitación en Sección 12.</li>
+            <li id="fuente-F4"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Base de datos diaria del SAR 1997-2006: saldos, valores y comisiones</span>. Comunicado oficial CONSAR. <a href="https://www.gob.mx/consar/prensa/la-consar-pone-a-disposicion-del-publico-la-base-de-datos-que-contiene-la-informacion-diaria-1997-2006-de-los-saldos-los-valores-y-las-comisiones-del-sar" target="_blank" rel="noopener">https://www.gob.mx/consar/prensa/la-consar-pone-a-disposicion-del-publico-la-base-de-datos-que-contiene-la-informacion-diaria-1997-2006-de-los-saldos-los-valores-y-las-comisiones-del-sar</a> &middot; cubre desde el 2-jul-1997; vía futura disponible para procesar el rendimiento del medio año de 1997 con metodología explícita.</li>
+            <li id="fuente-F5"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Eventos Corporativos en el Sistema de Ahorro para el Retiro</span>. Documento oficial, mayo 2018. <a href="https://www.consar.gob.mx/gobmx/aplicativo/factsheets/EC/ECSAR.pdf" target="_blank" rel="noopener">https://www.consar.gob.mx/gobmx/aplicativo/factsheets/EC/ECSAR.pdf</a> &middot; cronología oficial CONSAR; no documenta ninguna fusión, cesión ni baja entre el 1-jul-1997 y el 30-sep-1998 (implica universo estable de 17 AFOREs durante todo el segundo semestre de 1997); documenta las tres fusiones del cuarto trimestre de 1998 referenciadas para la enumeración de las 17 originales: Profuturo-Previnter (1-oct-1998), Principal-Atlántico Promex (1-nov-1998), Inbursa-Capitaliza (1-dic-1998). Copia versionada: <code>engine/sources/CONSAR-Eventos-Corporativos-2018.pdf</code>.</li>
+            <li id="fuente-F7"><span class="fuente-inst">Centro de Estudios de las Finanzas Públicas (CEFP) — H. Cámara de Diputados</span>. <span class="fuente-titulo">CEFP/008/2004: El Sistema de Pensiones (Afores) en México, 1997-2003</span>. Febrero 2004. <a href="https://www.cefp.gob.mx/intr/edocumentos/pdf/cefp/cefp0082004.pdf" target="_blank" rel="noopener">https://www.cefp.gob.mx/intr/edocumentos/pdf/cefp/cefp0082004.pdf</a> &middot; contexto narrativo del inicio del sistema (p. 5, cita textual "A partir del 1º de julio de 1997 inició formalmente el funcionamiento del nuevo esquema de pensiones..."); Cuadro I.3 con serie 1997-2003 de trabajadores registrados (p. 20, dic-1997 = 11,188,114; 52.8% del mercado potencial); Cuadro V.3 con recursos invertidos por las SIEFOREs incluyendo dic-1997 (4,783 mdp, p. 37); Cuadro VI.1 con rendimiento histórico acumulado del sistema desde 2-jul-1997 a 31-dic-2003 (p. 40, 8.15% real Siefore / 8.65% real Gestión). Copia versionada: <code>engine/sources/CEFP-008-2004.pdf</code>.</li>
+            <li id="fuente-F8"><span class="fuente-inst">CEFP — H. Cámara de Diputados</span>. <span class="fuente-titulo">CEFP/063/2007: Comisiones y rendimientos de las afores</span>. <a href="https://www.cefp.gob.mx/notas/2007/notacefp0632007.pdf" target="_blank" rel="noopener">https://www.cefp.gob.mx/notas/2007/notacefp0632007.pdf</a> &middot; rango oficial agregado de comisión sobre flujo 1997-2007 (0.93%-1.62% sobre SBC); ingreso acumulado del sistema por comisiones 1998-2007 (119,509.97 mdp). Copia versionada: <code>engine/sources/CEFP-063-2007.pdf</code>.</li>
+            <li id="fuente-F9"><span class="fuente-inst">INEGI</span>. <span class="fuente-titulo">Índice Nacional de Precios al Consumidor — INPC dic-dic 1997</span>. <a href="https://www.inegi.org.mx/app/indicesdeprecios/" target="_blank" rel="noopener">https://www.inegi.org.mx/app/indicesdeprecios/</a> &middot; inflación anual dic-dic 1997 = 15.72%.</li>
+            <li id="fuente-F10"><span class="fuente-inst">Banco de México</span>. <span class="fuente-titulo">Sistema de Información Económica (SIE) — política monetaria 1997</span>. En 1997 Banxico operaba con el esquema del "corto" (objetivo de saldos diarios); la transición a tasa objetivo formal ocurrió en enero de 2008. <a href="https://www.banxico.org.mx/SieInternet/" target="_blank" rel="noopener">https://www.banxico.org.mx/SieInternet/</a></li>
+            <li id="fuente-F11"><span class="fuente-inst">Banco de México — Sistema de Información Económica (SIE)</span>. <span class="fuente-titulo">Tasa Cetes 28 días — diciembre de 1997</span>. Descargado vía API REST oficial de Banxico SIE con token de uso autorizado, series SF43936 (tasa subasta primaria semanal) y SF282 (tasa promedio mensual). Endpoints exactos: <a href="https://www.banxico.org.mx/SieAPIRest/service/v1/series/SF43936/datos/1997-12-01/1997-12-31" target="_blank" rel="noopener">SF43936</a> (cinco subastas semanales de dic-1997: 04-dic 18.22%, 11-dic 19.33%, 18-dic 18.97%, 24-dic 18.97%, <strong>31-dic 18.75%</strong>) y <a href="https://www.banxico.org.mx/SieAPIRest/service/v1/series/SF282/datos/1997-12-01/1997-12-31" target="_blank" rel="noopener">SF282</a> (promedio mensual dic-1997: <strong>18.85%</strong>). Copias versionadas: <code>engine/sources/Banxico-SIE-SF43936-Cetes28-subasta-dic1997.json</code> y <code>engine/sources/Banxico-SIE-SF282-Cetes28-promedio-dic1997.json</code> (SHA-256 en <code>HASHES.txt</code>).</li>
+            <li id="fuente-LSAR"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 23 de mayo de 1996, con reformas posteriores. <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LSAR.pdf" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio/pdf/LSAR.pdf</a></li>
+            <li id="fuente-LSS97"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Seguro Social</span>. Diario Oficial de la Federación, 21 de diciembre de 1995, vigente desde el 1 de julio de 1997, con reformas posteriores. <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LSS.pdf" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio/pdf/LSS.pdf</a></li>
+            <li id="fuente-DM"><span class="fuente-inst">Datos México</span>. <span class="fuente-titulo">Panel DM-SAR-DATA-001: Base de datos consolidada del SAR 1997-2025</span>. <a href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/" target="_blank" rel="noopener">https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/</a></li>
+          </ol>
+          <p>Fecha de consulta de fuentes electrónicas: junio de 2026.</p>
+          <p class="paper__fuentes-leyenda"><span class="fuente-badge fuente-badge--v">V</span> dato verificado de fuente oficial directa &middot; <span class="fuente-badge fuente-badge--e">E</span> dato estimado o derivado, declarado como tal &middot; estándar editorial del observatorio.</p>
+        </div>
+      </section>
+
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interés:</strong> El observatorio Datos México declara la ausencia de conflictos de interés en la elaboración de este estudio. Datos México no tiene relación comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> Todas las cifras cuantitativas presentadas en este estudio provienen de fuentes primarias oficiales (CONSAR, INEGI, Banxico, CEFP) y del Panel DM-SAR-DATA-001. Cada cifra clave incluye badge <span class="fuente-badge fuente-badge--v">V</span> (verificada) o <span class="fuente-badge fuente-badge--e">E</span> (estimada/derivada) junto con la referencia a su fuente en la Sección 14. Los PDFs CONSAR y CEFP están versionados en <code>engine/sources/</code> con SHA-256 en <code>HASHES.txt</code>.</p>
+        <p><strong>Régimen de comisiones:</strong> Este paper cubre el medio año fundacional del régimen <strong>sobre flujo</strong> (vigente julio 1997 – febrero 2008). Las comisiones reportadas NO son comparables directamente con la serie de la era sobre saldo (marzo 2008 en adelante) sin las salvaguardas declaradas en la Sección 8.</p>
+        <p><strong>Alcance temporal especial:</strong> Este estudio corresponde al segundo semestre de 1997 (1 de julio al 31 de diciembre), año fundacional del SAR. Las cifras del periodo no son directamente comparables con años calendario completos sin la salvaguarda del alcance temporal de 6 vs 12 meses, declarada explícitamente en las Secciones 1, 7, 9 y 12.</p>
+        <p><strong>Alcance:</strong> Este documento tiene carácter informativo y no constituye asesoría financiera, legal ni recomendación alguna sobre productos, servicios o AFOREs específicas.</p>
+      </div>
+
+    </div>
+
+
+      <!-- DE LA LECTURA AL CÁLCULO -->
+      <aside class="paper__calc-cta">
+        <p class="paper__calc-cta-eyebrow">De la lectura al cálculo</p>
+        <p class="paper__calc-cta-body">
+          Los datos de esta serie alimentan las <strong>calculadoras del observatorio</strong>: herramientas
+          educativas con supuestos públicos, fuentes oficiales versionadas y validación actuarial.
+          <a href="/pensiones/calculadoras">Calcula tu caso →</a>
+        </p>
+      </aside>
+
+  </main>
+
+
+  <!-- Tooltip unificado + hover-por-área Ronda 6.
+       Un solo sistema premium para sparkline, barras y ticks:
+       - Contenido ASCII puro en data-tip-* (mata "?" del `·` U+00B7 y `[V]`).
+       - Detección del punto MÁS CERCANO por overlay en sparkline y escala.
+       - Marcador activo sincronizado con el tooltip.
+       - Fallback teclado / focus / touch preservado. -->
+  <script>
+  (function () {
+    'use strict';
+    var container = document.querySelector('.paper__resumen-hero-inner');
+    var tip       = document.getElementById('rhTip');
+    if (!container || !tip) return;
+    var titleEl   = tip.querySelector('.rh-tip__title');
+    var detailTx  = tip.querySelector('.rh-tip__detail-text');
+    var badgeEl   = tip.querySelector('.rh-tip__badge');
+    var noteEl    = tip.querySelector('.rh-tip__note');
+    var hideTimer;
+    var currentActive = null;
+
+    function positionOverElement(el) {
+      var r = el.getBoundingClientRect();
+      var c = container.getBoundingClientRect();
+      tip.style.left = (r.left - c.left + r.width / 2) + 'px';
+      tip.style.top  = (r.top  - c.top) + 'px';
+    }
+
+    function showFor(el) {
+      if (!el || !el.dataset.tipTitle) return;
+      clearTimeout(hideTimer);
+      titleEl.textContent = el.dataset.tipTitle;
+      detailTx.textContent = el.dataset.tipDetail || '';
+      noteEl.textContent = el.dataset.tipNote || '';
+      noteEl.style.display = el.dataset.tipNote ? 'block' : 'none';
+      badgeEl.style.display = el.dataset.tipV === '1' ? 'inline-block' : 'none';
+      positionOverElement(el);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tip.classList.add('is-visible');
+          tip.setAttribute('aria-hidden', 'false');
+        });
+      });
+    }
+    function hide() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('is-visible');
+        tip.setAttribute('aria-hidden', 'true');
+        if (currentActive && currentActive.classList) {
+          currentActive.classList.remove('is-active');
+        }
+        currentActive = null;
+        var activeDot = document.querySelector('.rh-spark__active');
+        if (activeDot) activeDot.setAttribute('opacity', '0');
+      }, 80);
+    }
+
+    function setActive(el) {
+      if (currentActive === el) return;
+      if (currentActive && currentActive.classList) currentActive.classList.remove('is-active');
+      currentActive = el;
+      if (el && el.classList) el.classList.add('is-active');
+    }
+
+    // ---------- 1. Sparkline: hover POR ÁREA ----------
+    var sparkSvg = document.querySelector('.rh-spark__svg');
+    var sparkOverlay = document.querySelector('.rh-spark__overlay');
+    var sparkPoints = Array.prototype.slice.call(document.querySelectorAll('.rh-spark__point'));
+    var activeDot = document.querySelector('.rh-spark__active');
+
+    if (sparkSvg && sparkOverlay && sparkPoints.length) {
+      var pointCoords = sparkPoints.map(function (p) {
+        return { el: p, cx: parseFloat(p.getAttribute('cx')), cy: parseFloat(p.getAttribute('cy')) };
+      });
+
+      function handleSparkMove(e) {
+        var svgRect = sparkSvg.getBoundingClientRect();
+        var xInPx = (e.clientX !== undefined ? e.clientX : e.touches[0].clientX) - svgRect.left;
+        var xInVb = xInPx / svgRect.width * 720; // viewBox width
+        // Punto más cercano por X
+        var nearest = pointCoords[0], minD = Math.abs(pointCoords[0].cx - xInVb);
+        for (var i = 1; i < pointCoords.length; i++) {
+          var d = Math.abs(pointCoords[i].cx - xInVb);
+          if (d < minD) { minD = d; nearest = pointCoords[i]; }
+        }
+        // Mueve el marcador activo al punto seleccionado
+        if (activeDot) {
+          activeDot.setAttribute('cx', nearest.cx);
+          activeDot.setAttribute('cy', nearest.cy);
+          activeDot.setAttribute('opacity', '1');
+        }
+        setActive(nearest.el);
+        showFor(nearest.el);
+      }
+
+      sparkOverlay.addEventListener('mousemove', handleSparkMove);
+      sparkOverlay.addEventListener('mouseleave', hide);
+      sparkOverlay.addEventListener('touchstart', handleSparkMove, { passive: true });
+      sparkOverlay.addEventListener('touchmove', handleSparkMove, { passive: true });
+    }
+
+    // ---------- 2. Escala AFOREs: hover POR ÁREA ----------
+    var scaleTrack = document.querySelector('.rh-viz__scale-track');
+    if (scaleTrack) {
+      var scaleTargets = Array.prototype.slice.call(
+        scaleTrack.querySelectorAll('[data-tip-title][data-tip-pos]')
+      );
+      function handleScaleMove(e) {
+        var rect = scaleTrack.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width * 100;
+        var nearest = scaleTargets[0];
+        var minD = Math.abs(parseFloat(nearest.dataset.tipPos) - pct);
+        for (var i = 1; i < scaleTargets.length; i++) {
+          var d = Math.abs(parseFloat(scaleTargets[i].dataset.tipPos) - pct);
+          if (d < minD) { minD = d; nearest = scaleTargets[i]; }
+        }
+        setActive(nearest);
+        showFor(nearest);
+      }
+      scaleTrack.addEventListener('mousemove', handleScaleMove);
+      scaleTrack.addEventListener('mouseleave', hide);
+      scaleTrack.addEventListener('touchmove', function (e) {
+        if (e.touches && e.touches[0]) {
+          handleScaleMove({ clientX: e.touches[0].clientX });
+        }
+      }, { passive: true });
+    }
+
+    // ---------- 3. Focus por teclado en todos los data-tip-title ----------
+    var focusables = container.querySelectorAll('[data-tip-title][tabindex]');
+    Array.prototype.forEach.call(focusables, function (el) {
+      el.addEventListener('focus', function () { setActive(el); showFor(el); });
+      el.addEventListener('blur', hide);
+    });
+
+    // ---------- 4. Rows generosas: barras Recursos + rows AFORE ----------
+    var hoverRows = container.querySelectorAll('.rh-viz__bar-row[data-tip-title], .rh-afore-row[data-tip-title]');
+    Array.prototype.forEach.call(hoverRows, function (el) {
+      el.addEventListener('mouseenter', function () { setActive(el); showFor(el); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('touchstart', function () { setActive(el); showFor(el); }, { passive: true });
+    });
+
+    // ---------- 5. Tocar fuera oculta el tooltip ----------
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('[data-tip-title], .rh-spark__overlay, .rh-viz__scale-track, .rh-afore-row')) hide();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      tip.classList.remove('is-visible');
+      if (activeDot) activeDot.setAttribute('opacity', '0');
+    });
+  })();
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navy = '#1B2A5E';
+    var gold = '#B8943E';
+
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = '#4B5563';
+
+    new Chart(document.getElementById('chart-recursos'), {
+      type: 'bar',
+      data: {
+        labels: ['Cierre dic-1997 (6 meses de operación)'],
+        datasets: [{
+          label: 'Activos administrados por las AFOREs (mdp)',
+          data: [6177],
+          backgroundColor: [navy],
+          borderRadius: 4,
+          barPercentage: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: function(ctx) { return ctx.parsed.y.toLocaleString() + ' mdp (línea base del sistema)'; } } }
+        },
+        scales: {
+          y: { beginAtZero: true, max: 8000, title: { display: true, text: 'Millones de pesos (mdp)' }, grid: { color: 'rgba(0,0,0,0.06)' } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  });
+  </script>
+</body>
+</html>

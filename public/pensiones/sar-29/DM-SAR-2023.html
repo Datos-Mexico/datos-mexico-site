@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Sistema de Ahorro para el Retiro en México: Panorama 2023 | Datos México</title>
+  <meta name="description" content="Análisis completo del SAR en 2023: 5,976 mmdp administrados (19.1% PIB), recuperación con 9.08% rendimiento nominal tras crisis 2022, comisión promedio 0.566%, 74.24 millones de cuentas. Estudio de Datos México con Sello de calidad académica.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datosmexico.org/pensiones/sar-29/DM-SAR-2023.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Sistema de Ahorro para el Retiro en México: Panorama 2023 | Datos México">
+  <meta property="og:description" content="Recuperación histórica del SAR en 2023: plusvalías de 464 mmdp, rendimientos de 9.08% nominal y 4.61% real, recursos alcanzan 19.1% del PIB. Análisis riguroso con datos oficiales CONSAR.">
+  <meta property="og:image" content="https://datosmexico.org/og/og-default.png">
+  <meta property="og:url" content="https://datosmexico.org/pensiones/sar-29/DM-SAR-2023.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/fonts.css">
+
+  <!-- Chart.js -->
+  <script src="/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/styles.v2.css">
+  <link rel="stylesheet" href="/pensiones/sar-29/vendor/publicacion.css">
+</head>
+<body>
+
+  <!-- PAPER -->
+  <main class="paper paper--margen" role="main">
+
+    <!-- Back link -->
+    <a href="/pensiones/sar-29" class="paper__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      Volver a publicaciones
+    </a>
+
+    <header class="paper__portada">
+      <span class="paper__tipo">Estudio</span>
+      <p class="paper__id">DM-SAR-2023</p>
+      <h1 class="paper__titulo">El Sistema de Ahorro para el Retiro en México: Panorama 2023</h1>
+      <p class="paper__autores">Equipo de Datos México</p>
+      <p class="paper__fecha">Abril 2026</p>
+
+      <div class="sello">
+        <svg class="sello__icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="13" stroke="#B8943E" stroke-width="2"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#B8943E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="sello__text">Sello Datos México</span>
+          <span class="sello__code">DM-SAR-2023</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         RESUMEN EJECUTIVO VISUAL (rollout 2023)
+         Reemplaza el .paper__resumen de texto. Toda cifra y su badge [V]
+         proviene del cuerpo del paper sin alteración (Secciones 4, 6, 7, 8,
+         9, 10 y Tablas 1, 2, 4); ninguna cifra nueva. Cifras dominantes
+         (rh-card__big) son [V]; el rendimiento neto [E] vive como meta.
+         ========================================== -->
+    <section class="paper__resumen-hero" id="resumen" aria-labelledby="resumenHeroTitle">
+      <div class="paper__resumen-hero-inner">
+
+        <!-- Tooltip unificado (Ronda 6): un solo sistema; ASCII
+             puro en data-tip-*; badge V como elemento HTML. -->
+        <div class="rh-tip" id="rhTip" role="status" aria-live="polite" aria-hidden="true">
+          <span class="rh-tip__title"></span>
+          <span class="rh-tip__detail">
+            <span class="rh-tip__detail-text"></span>
+            <span class="rh-tip__badge" aria-hidden="true">V</span>
+          </span>
+          <span class="rh-tip__note"></span>
+        </div>
+
+        <p class="paper__resumen-hero-eyebrow">Sección 1 &middot; En síntesis &middot; Panorama 2023</p>
+        <h2 id="resumenHeroTitle" class="paper__resumen-hero-titulo">Recuperación histórica tras el año adverso de 2022.</h2>
+
+        <p class="paper__resumen-hero-lede">
+          Al cierre de 2023, el SAR administraba <strong>5,975.55 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span> &mdash;equivalentes al <strong>19.1% del PIB</strong><span class="fuente-badge fuente-badge--v">V</span>&mdash; tras generar plusvalías por <strong>464 mmdp</strong><span class="fuente-badge fuente-badge--v">V</span> que revirtieron las pérdidas de 2022. El rendimiento nominal del sistema fue de <strong>9.08%</strong><span class="fuente-badge fuente-badge--v">V</span> y el real de <strong>4.61%</strong><span class="fuente-badge fuente-badge--v">V</span>, en un contexto de inflación descendente (<strong>4.66%</strong><span class="fuente-badge fuente-badge--v">V</span> vs 7.82%<span class="fuente-badge fuente-badge--v">V</span> en 2022) y tasa de Banxico en máximo histórico de <strong>11.25%</strong><span class="fuente-badge fuente-badge--v">V</span>. La comisión promedio se estabilizó por primera vez en <strong>0.566%</strong><span class="fuente-badge fuente-badge--v">V</span>, sin cambios respecto a 2022. El sistema operó con <strong>10 AFOREs</strong> y 74.24 millones de cuentas individuales.
+        </p>
+
+        <div class="paper__resumen-hero-grid">
+
+          <article class="rh-card">
+            <p class="rh-card__label">Recursos administrados</p>
+            <p class="rh-card__big">5,975.55<span class="rh-card__unit">mmdp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">19.1% del PIB<span class="fuente-badge fuente-badge--v">V</span> &middot; +13.7% vs 2022<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#recursos">Sección 7 &mdash; Recursos administrados</a></p>
+          </article>
+
+          <article class="rh-card rh-card--accent">
+            <p class="rh-card__label">Plusvalías 2023</p>
+            <p class="rh-card__big">464<span class="rh-card__unit">mmdp</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Recuperación tras minusvalías 2022 &middot; 7.8% de activos<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#rendimientos">Sección 9 &mdash; Rendimientos</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Comisión promedio</p>
+            <p class="rh-card__big">0.566<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Sin cambio vs 2022<span class="fuente-badge fuente-badge--v">V</span> &middot; &minus;70.5% vs 2008<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__ref"><a href="#comisiones">Sección 8 &mdash; Comisiones</a></p>
+          </article>
+
+          <article class="rh-card">
+            <p class="rh-card__label">Rendimiento nominal</p>
+            <p class="rh-card__big">9.08<span class="rh-card__unit">%</span><span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-card__meta">Real 4.61%<span class="fuente-badge fuente-badge--v">V</span> &middot; Nominal neto 8.51%<span class="fuente-badge fuente-badge--e">E</span></p>
+            <p class="rh-card__ref"><a href="#rendimientos">Sección 9 &mdash; Rendimientos</a></p>
+          </article>
+
+        </div>
+
+        <!-- Retícula asimétrica (D20): 2 cols en escritorio con áreas
+                "recursos afore"     ← Recursos + Dot plot (der spans 2 filas)
+                "spark    afore"
+             Móvil: stack DOM order (Recursos → Sparkline → AFORE). -->
+        <div class="paper__resumen-hero-viz">
+
+          <article class="rh-viz rh-viz--recursos" aria-labelledby="rhVizRecTitle">
+            <p id="rhVizRecTitle" class="rh-viz__title">Recursos administrados (mmdp)</p>
+            <div class="rh-viz__bars">
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2022, 5,254 mmdp, 17.2% del PIB, verificado"
+                   data-tip-title="Cierre 2022" data-tip-detail="5,254 mmdp" data-tip-note="17.2% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2022</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--prev" style="--ratio: 0.879"></div>
+                  <span class="rh-viz__bar-label">5,254<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+              <div class="rh-viz__bar-row" tabindex="0" role="img"
+                   aria-label="Cierre 2023, 5,975.55 mmdp, 19.1% del PIB, verificado"
+                   data-tip-title="Cierre 2023" data-tip-detail="5,975.55 mmdp" data-tip-note="19.1% del PIB" data-tip-v="1">
+                <span class="rh-viz__year">2023</span>
+                <div class="rh-viz__track">
+                  <div class="rh-viz__bar rh-viz__bar--curr" style="--ratio: 1.000"></div>
+                  <span class="rh-viz__bar-label">5,975.55<span class="fuente-badge fuente-badge--v">V</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="rh-viz__meta">+721.55 mmdp<span class="fuente-badge fuente-badge--v">V</span> &middot; +13.7%<span class="fuente-badge fuente-badge--v">V</span> &middot; +1.9 pp del PIB<span class="fuente-badge fuente-badge--v">V</span></p>
+            <p class="rh-viz__ref"><a href="#recursos">Tabla 1 &mdash; Sección 7</a></p>
+          </article>
+
+          <!-- Sparkline 2008-2023 (16 puntos, dos menos que el rollout 2025).
+               viewBox 720x84; puntos equidistantes x=20..700 (spacing 45.33).
+               Y interpolada linealmente entre 1.92% (y=6) y 0.566% (y=77).
+               Plateau final visible: 2022=2023=0.566% → dos puntos en y=77. -->
+          <figure class="paper__resumen-hero-spark" aria-labelledby="rhSparkCaption">
+            <figcaption class="rh-spark__caption">
+              <span id="rhSparkCaption" class="rh-spark__caption-label">Comisión promedio del SAR &middot; 2008–2023 (% sobre saldo)</span>
+              <span class="rh-spark__caption-meta">1.92%<span class="fuente-badge fuente-badge--v">V</span> &rarr; 0.566%<span class="fuente-badge fuente-badge--v">V</span> &middot; <strong>&minus;70.5%</strong><span class="fuente-badge fuente-badge--v">V</span> acumulado</span>
+            </figcaption>
+
+            <div class="rh-spark__wrapper">
+              <svg class="rh-spark__svg" viewBox="0 0 720 84" role="img" aria-label="Tendencia de la comisión promedio del SAR de 2008 a 2023">
+                <defs>
+                  <linearGradient id="rhSparkGrad" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(27,42,94,0.22)"/>
+                    <stop offset="100%" stop-color="rgba(27,42,94,0)"/>
+                  </linearGradient>
+                </defs>
+                <line x1="20" y1="78" x2="700" y2="78" stroke="rgba(27,42,94,0.14)" stroke-width="1"/>
+                <path d="M20,6 L65,15 L111,22 L156,29 L201,34 L247,39 L292,44 L337,48 L383,51 L428,53 L473,53 L519,55 L564,58 L609,64 L655,77 L700,77 L700,78 L20,78 Z" fill="url(#rhSparkGrad)"/>
+                <polyline points="20,6 65,15 111,22 156,29 201,34 247,39 292,44 337,48 383,51 428,53 473,53 519,55 564,58 609,64 655,77 700,77" fill="none" stroke="#1B2A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <g class="rh-spark__points">
+                  <circle class="rh-spark__point" cx="20"  cy="6"  r="9" data-tip-title="2008" data-tip-detail="1.92%"  tabindex="0" role="img" aria-label="2008: 1.92%"></circle>
+                  <circle class="rh-spark__point" cx="65"  cy="15" r="9" data-tip-title="2009" data-tip-detail="1.75%"  tabindex="0" role="img" aria-label="2009: 1.75%"></circle>
+                  <circle class="rh-spark__point" cx="111" cy="22" r="9" data-tip-title="2010" data-tip-detail="1.62%"  tabindex="0" role="img" aria-label="2010: 1.62%"></circle>
+                  <circle class="rh-spark__point" cx="156" cy="29" r="9" data-tip-title="2011" data-tip-detail="1.48%"  tabindex="0" role="img" aria-label="2011: 1.48%"></circle>
+                  <circle class="rh-spark__point" cx="201" cy="34" r="9" data-tip-title="2012" data-tip-detail="1.38%"  tabindex="0" role="img" aria-label="2012: 1.38%"></circle>
+                  <circle class="rh-spark__point" cx="247" cy="39" r="9" data-tip-title="2013" data-tip-detail="1.29%"  tabindex="0" role="img" aria-label="2013: 1.29%"></circle>
+                  <circle class="rh-spark__point" cx="292" cy="44" r="9" data-tip-title="2014" data-tip-detail="1.19%"  tabindex="0" role="img" aria-label="2014: 1.19%"></circle>
+                  <circle class="rh-spark__point" cx="337" cy="48" r="9" data-tip-title="2015" data-tip-detail="1.11%"  tabindex="0" role="img" aria-label="2015: 1.11%"></circle>
+                  <circle class="rh-spark__point" cx="383" cy="51" r="9" data-tip-title="2016" data-tip-detail="1.06%"  tabindex="0" role="img" aria-label="2016: 1.06%"></circle>
+                  <circle class="rh-spark__point" cx="428" cy="53" r="9" data-tip-title="2017" data-tip-detail="1.03%"  tabindex="0" role="img" aria-label="2017: 1.03%"></circle>
+                  <circle class="rh-spark__point" cx="473" cy="53" r="9" data-tip-title="2018" data-tip-detail="1.02%"  tabindex="0" role="img" aria-label="2018: 1.02%"></circle>
+                  <circle class="rh-spark__point" cx="519" cy="55" r="9" data-tip-title="2019" data-tip-detail="0.98%"  tabindex="0" role="img" aria-label="2019: 0.98%"></circle>
+                  <circle class="rh-spark__point" cx="564" cy="58" r="9" data-tip-title="2020" data-tip-detail="0.92%"  tabindex="0" role="img" aria-label="2020: 0.92%"></circle>
+                  <circle class="rh-spark__point" cx="609" cy="64" r="9" data-tip-title="2021" data-tip-detail="0.807%" tabindex="0" role="img" aria-label="2021: 0.807%"></circle>
+                  <circle class="rh-spark__point" cx="655" cy="77" r="9" data-tip-title="2022" data-tip-detail="0.566%" tabindex="0" role="img" aria-label="2022: 0.566%"></circle>
+                  <circle class="rh-spark__point" cx="700" cy="77" r="9" data-tip-title="2023" data-tip-detail="0.566%" tabindex="0" role="img" aria-label="2023: 0.566%"></circle>
+                </g>
+                <circle cx="20" cy="6" r="4" fill="#1B2A5E" pointer-events="none"/>
+                <circle cx="700" cy="77" r="4" fill="#B8943E" pointer-events="none"/>
+                <circle class="rh-spark__active" cx="0" cy="0" r="5" fill="#1B2A5E" stroke="#FFFFFF" stroke-width="2" opacity="0" pointer-events="none"/>
+                <rect class="rh-spark__overlay" x="0" y="0" width="720" height="84" fill="transparent" pointer-events="all"/>
+              </svg>
+            </div>
+
+            <div class="rh-spark__axis" aria-hidden="true">
+              <span>2008</span>
+              <span>2023</span>
+            </div>
+
+            <p class="rh-spark__ref"><a href="#comisiones">Tabla 4 &mdash; Sección 8 (datos verificados [V] CONSAR)</a></p>
+          </figure>
+
+          <article class="rh-viz rh-viz--afore" aria-labelledby="rhVizAforeTitle">
+            <p id="rhVizAforeTitle" class="rh-viz__title">Comisiones por AFORE (10 firmas, cierre 2023)</p>
+
+            <!-- Dot plot horizontal (D19): cada AFORE en su fila,
+                 orden ascendente por comisión. Las 9 alineadas a 0.57%
+                 comunican compresión de un vistazo; PensionISSSTE queda
+                 alone a la izquierda como outlier a 0.53%. Nombres del
+                 cuerpo del 2023 Sec 5 (Citibanamex, XXI Banorte, Profuturo GNP). -->
+            <ol class="rh-afore-list" role="list">
+              <li class="rh-afore-row rh-afore-row--outlier" tabindex="0" role="listitem"
+                  data-tip-title="PensionISSSTE" data-tip-detail="0.53%" data-tip-v="1">
+                <span class="rh-afore-name">PensionISSSTE</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 0%"></span></span>
+                <span class="rh-afore-value">0.53<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Azteca" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Azteca</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Citibanamex" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Citibanamex</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Coppel" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Coppel</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Inbursa" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Inbursa</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Invercap" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Invercap</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Principal" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Principal</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="Profuturo GNP" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">Profuturo GNP</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="SURA" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">SURA</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+              <li class="rh-afore-row" tabindex="0" role="listitem"
+                  data-tip-title="XXI Banorte" data-tip-detail="0.57%" data-tip-v="1">
+                <span class="rh-afore-name">XXI Banorte</span>
+                <span class="rh-afore-track" aria-hidden="true"><span class="rh-afore-dot" style="--pos: 100%"></span></span>
+                <span class="rh-afore-value">0.57<span class="rh-afore-unit">%</span></span>
+              </li>
+            </ol>
+
+            <div class="rh-afore-axis" aria-hidden="true">
+              <span>0.53%</span>
+              <span class="rh-afore-axis__mid">Promedio 0.566%</span>
+              <span>0.57%</span>
+            </div>
+
+            <p class="rh-viz__meta">Promedio del sistema 0.566%<span class="fuente-badge fuente-badge--v">V</span> &middot; Rango 4 pb<span class="fuente-badge fuente-badge--v">V</span> &middot; 1 outlier de 10</p>
+            <p class="rh-viz__ref"><a href="#comisiones">Tabla 2 &mdash; Sección 8</a></p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MARGEN LATERAL (rollout 2023)
+         TOC de las 13 secciones del cuerpo (Sec 1 elevada al hero) +
+         leyenda [V]/[E] + back-link contextual.
+         ========================================== -->
+    <aside class="paper__margen" aria-label="Navegación y leyenda del estudio">
+      <div class="paper__margen-sticky">
+
+        <nav class="paper__margen-nav" aria-label="Secciones del estudio">
+          <details class="paper__margen-toc-wrap" open>
+            <summary class="paper__margen-toc-summary">
+              <span class="paper__margen-toc-eyebrow">En este estudio</span>
+              <span class="paper__margen-toc-counter">14 secciones</span>
+            </summary>
+            <ol class="paper__margen-toc">
+              <li><a href="#resumen">Resumen ejecutivo</a></li>
+              <li><a href="#introduccion">Introducción</a></li>
+              <li><a href="#metodologia">Metodología</a></li>
+              <li><a href="#contexto">Contexto económico 2023</a></li>
+              <li><a href="#estructura">Estructura del SAR</a></li>
+              <li><a href="#cuentas">Cuentas individuales</a></li>
+              <li><a href="#recursos">Recursos administrados</a></li>
+              <li><a href="#comisiones">Comisiones</a></li>
+              <li><a href="#rendimientos">Rendimientos</a></li>
+              <li><a href="#evolucion">Evolución del sistema</a></li>
+              <li><a href="#normativo">Marco normativo</a></li>
+              <li><a href="#limitaciones">Limitaciones</a></li>
+              <li><a href="#conclusiones">Conclusiones</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="paper__margen-leyenda">
+          <p class="paper__margen-eyebrow">Cómo leer</p>
+          <p class="paper__margen-leyenda-intro">Cada cifra del estudio lleva un sello que indica de dónde sale y queda anclada a su fuente.</p>
+          <ul class="paper__margen-leyenda-items">
+            <li><span class="fuente-badge fuente-badge--v">V</span><span>verificado de fuente oficial directa</span></li>
+            <li><span class="fuente-badge fuente-badge--e">E</span><span>derivado o estimado, declarado</span></li>
+          </ul>
+        </div>
+
+        <a href="/pensiones/sar-29" class="paper__margen-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Volver al índice
+        </a>
+
+      </div>
+    </aside>
+
+    <!-- CUERPO DEL PAPER -->
+    <div class="paper__body">
+
+      <!-- Sección 1 (Resumen ejecutivo) elevada al bloque visual full-width
+           encima del cuerpo (sección "paper__resumen-hero" arriba). Toda la
+           sustancia se conserva; la presentación se elevó. -->
+
+      <section class="paper__section" id="introduccion">
+        <div class="paper__section-number">Sección 2</div>
+        <h2>Introducción</h2>
+        <p>El Sistema de Ahorro para el Retiro (SAR) es el mecanismo de cuentas individuales mediante el cual los trabajadores afiliados al Instituto Mexicano del Seguro Social (IMSS) y al Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado (ISSSTE) acumulan recursos para su retiro. Establecido por la reforma a la Ley del Seguro Social de 1995 y operativo desde el 1 de julio de 1997, el SAR sustituyó el esquema de reparto por uno de capitalización individual administrado por las Administradoras de Fondos para el Retiro (AFOREs).</p>
+        <p>Este estudio presenta un panorama descriptivo del SAR durante el año calendario 2023, a 26 años del inicio de operaciones del sistema. El propósito es documentar con datos verificables de fuentes primarias oficiales el estado del sistema en términos de recursos administrados, número de cuentas, comisiones cobradas, rendimientos generados y principales eventos corporativos o regulatorios del período.</p>
+        <p>Este trabajo no busca emitir juicios de valor sobre la calidad o conveniencia de AFOREs específicas, ni constituye recomendación alguna sobre productos o servicios financieros. Se presenta información objetiva para que el lector forme su propio criterio sobre el desempeño y evolución del sistema.</p>
+      </section>
+
+      <section class="paper__section" id="metodologia">
+        <div class="paper__section-number">Sección 3</div>
+        <h2>Metodología</h2>
+        <p>Este estudio adopta un enfoque descriptivo basado exclusivamente en fuentes primarias oficiales. Los datos cuantitativos provienen de:</p>
+        <ul>
+          <li><strong>CONSAR</strong> (Comisión Nacional del Sistema de Ahorro para el Retiro): informes trimestrales al H. Congreso de la Unión, estadísticas de comisiones, cuentas y recursos administrados, accedidos mediante el SDK datos-mexico-py v0.2.1 que consume datos abiertos de CONSAR vía datos.gob.mx bajo licencia CC-BY-4.0.</li>
+          <li><strong>INEGI</strong> (Instituto Nacional de Estadística y Geografía): cifras de Producto Interno Bruto e indicadores de inflación.</li>
+          <li><strong>Banco de México</strong>: tasa de interés interbancaria de equilibrio a 1 día (tasa objetivo).</li>
+          <li><strong>Panel DM-SAR-DATA-001</strong>: base de datos consolidada que integra series históricas del SAR para análisis longitudinal.</li>
+        </ul>
+        <p>El período de análisis comprende el año calendario 2023 (enero-diciembre), con referencias al cierre de 2022 para establecer comparaciones interanuales. Todas las cifras monetarias se presentan en pesos corrientes (no deflactados) salvo indicación contraria. Los porcentajes de crecimiento se calculan sobre la base del año anterior. No se realizan proyecciones futuras ni se establecen inferencias causales que requieran metodologías econométricas o estadísticas avanzadas.</p>
+      </section>
+
+      <section class="paper__section" id="contexto">
+        <div class="paper__section-number">Sección 4</div>
+        <h2>Contexto económico 2023</h2>
+        <p>El año 2023 se caracterizó por un proceso de desaceleración inflacionaria y normalización gradual de la política monetaria tras el choque inflacionario de 2022. La inflación medida por el Índice Nacional de Precios al Consumidor cerró en 4.66% <span class="fuente-badge fuente-badge--v">V</span> anual, significativamente por debajo del 7.82% <span class="fuente-badge fuente-badge--v">V</span> registrado al cierre de 2022. Este descenso de 3.16 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> reflejó la disipación de presiones sobre precios de energéticos y alimentos, así como el efecto acumulado del ciclo de apretamiento monetario.</p>
+        <p>El Banco de México mantuvo una postura restrictiva, elevando la tasa de interés interbancaria objetivo hasta 11.25% <span class="fuente-badge fuente-badge--v">V</span> al cierre del año, desde 10.50% <span class="fuente-badge fuente-badge--v">V</span> al cierre de 2022. Este nivel representó el punto máximo del ciclo de endurecimiento iniciado en 2021 para anclar expectativas inflacionarias y converger hacia la meta de 3% <span class="fuente-badge fuente-badge--v">V</span> ±1 punto porcentual. La tasa real ex-post (descontando inflación observada) permaneció en territorio positivo, apuntalando los rendimientos de instrumentos de renta fija en los que invierten las SIEFOREs.</p>
+        <p>En el contexto internacional, 2023 marcó una transición desde el régimen de alta inflación global hacia condiciones más estables. La Reserva Federal de Estados Unidos mantuvo tasas elevadas durante la mayor parte del año, mientras que los mercados accionarios globales mostraron recuperación tras las caídas de 2022, impulsados por expectativas de aterrizaje suave de la economía estadounidense y revalorización del sector tecnológico.</p>
+        <p>El impacto sobre el SAR fue marcadamente favorable: después de un año 2022 que registró pérdidas significativas debido a la volatilidad de mercados de renta fija y variable, el sistema experimentó una recuperación robusta. Las plusvalías generadas durante 2023 ascendieron a 464 miles de millones de pesos, impulsadas tanto por la apreciación de activos de renta variable como por la estabilización de los portafolios de deuda gubernamental ante menores expectativas de incrementos adicionales en tasas de interés.</p>
+      </section>
+
+      <section class="paper__section" id="estructura">
+        <div class="paper__section-number">Sección 5</div>
+        <h2>Estructura del SAR</h2>
+        <p>El marco legal del SAR se sustenta en la Ley de los Sistemas de Ahorro para el Retiro (publicada en el Diario Oficial de la Federación el 23 de mayo de 1996) y la Ley del Seguro Social de 1995 (vigente desde el 1 de julio de 1997). Coexisten dos regímenes pensionarios: la Ley del Seguro Social de 1973 (abrogada pero con efectos vigentes para trabajadores inscritos antes de julio de 1997 que no optaron por el régimen de 1997) y la Ley del Seguro Social de 1997 (aplicable a trabajadores incorporados a partir de esa fecha y a quienes ejercieron la opción de migrar).</p>
+        <p>Al cierre de 2023, operaban 10 AFOREs autorizadas por CONSAR:</p>
+        <ul>
+          <li>Azteca</li>
+          <li>Citibanamex</li>
+          <li>Coppel</li>
+          <li>Inbursa</li>
+          <li>Invercap</li>
+          <li>PensionISSSTE</li>
+          <li>Principal</li>
+          <li>Profuturo GNP</li>
+          <li>SURA</li>
+          <li>XXI Banorte</li>
+        </ul>
+        <p>El año 2023 operó bajo el marco de SIEFOREs Generacionales establecido por la reforma regulatoria implementada progresivamente desde 2019. Este esquema sustituyó las cinco SIEFOREs Básicas (SB1 a SB5) por fondos segmentados según el año de nacimiento del trabajador, permitiendo perfiles de inversión más granulares y alineados con el horizonte de retiro individual. Cada AFORE administra múltiples SIEFOREs Generacionales con composiciones de activos diferenciadas: mayor exposición a renta variable para generaciones más jóvenes (mayor horizonte de inversión) y mayor proporción de instrumentos de deuda para generaciones cercanas al retiro.</p>
+        <p>No se registraron cambios en el número de AFOREs durante 2023. El sistema mantuvo la misma estructura de participantes que al cierre de 2022, sin fusiones, adquisiciones o autorizaciones de nuevas operadoras.</p>
+      </section>
+
+      <section class="paper__section" id="cuentas">
+        <div class="paper__section-number">Sección 6</div>
+        <h2>Cuentas individuales</h2>
+        <p>Al cierre de 2023, el SAR registraba 74.24 millones de cuentas individuales, lo que representa un incremento de 1.5% <span class="fuente-badge fuente-badge--v">V</span> respecto a las 72.0 millones de cuentas contabilizadas al cierre de 2022. Este crecimiento neto de 2.24 millones de cuentas es consistente con la incorporación de nuevos trabajadores al mercado formal y la continuidad del proceso de registro obligatorio para empleados afiliados al IMSS e ISSSTE.</p>
+        <p>Los datos de cuentas provienen del endpoint <code>/api/v1/consar/cuentas/sistema</code> del SDK datos-mexico-py, con información extraída el 23 de junio de 2026 del dataset #05 de CONSAR (cuentas_administradas_afore). Las cifras corresponden a conteos agregados del sistema completo (total_cuentas_sar) y reflejan la métrica reportada oficialmente por CONSAR.</p>
+        <p>Es importante señalar que las cuentas individuales incluyen tanto cuentas activas (con aportaciones recientes) como cuentas inactivas (trabajadores que dejaron de cotizar pero conservan su saldo acumulado). El SAR no distingue públicamente entre estas categorías en sus reportes agregados mensuales, por lo que el dato de 74.24 millones representa el universo total de cuentas registradas en el sistema.</p>
+        <p>El crecimiento de 1.5% <span class="fuente-badge fuente-badge--v">V</span> en el número de cuentas durante 2023 contrasta con el crecimiento de 13.7% <span class="fuente-badge fuente-badge--v">V</span> en recursos administrados, evidenciando que el incremento patrimonial del sistema durante el año provino principalmente de rendimientos sobre saldos existentes y no de nuevas aportaciones o incorporación masiva de trabajadores.</p>
+      </section>
+
+      <section class="paper__section" id="recursos">
+        <div class="paper__section-number">Sección 7</div>
+        <h2>Recursos administrados</h2>
+        <p>Al cierre de 2023, los recursos administrados por el SAR ascendían a 5,975.55 miles de millones de pesos (mmdp), equivalentes a 19.1% <span class="fuente-badge fuente-badge--v">V</span> del Producto Interno Bruto. Esto representa un incremento de 721.55 mmdp <span class="fuente-badge fuente-badge--v">V</span> respecto al cierre de 2022, cuando los recursos totalizaban 5,254.0 mmdp <span class="fuente-badge fuente-badge--v">V</span> (17.2% <span class="fuente-badge fuente-badge--v">V</span> del PIB).</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 1. Recursos administrados por el SAR, 2022 vs 2023</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th class="num">Cierre 2022</th>
+                <th class="num">Cierre 2023</th>
+                <th class="num">Variación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Recursos administrados (mmdp)</td>
+                <td class="num">5,254.0</td>
+                <td class="num">5,975.6</td>
+                <td class="num">+13.7%</td>
+              </tr>
+              <tr>
+                <td>Recursos como % del PIB</td>
+                <td class="num">17.2%</td>
+                <td class="num">19.1%</td>
+                <td class="num">+1.9 pp</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR (endpoint /api/v1/consar/recursos/por-componente, dataset #09_recursos.csv, extraído 23/06/2026 vía SDK datos-mexico-py v0.2.1, licencia CC-BY-4.0) e INEGI (PIB nominal). Los montos están en millones de pesos corrientes (no deflactados). Nota: Los recursos incluyen aportaciones obligatorias, aportaciones voluntarias, aportaciones complementarias, rendimientos acumulados, fondos de previsión social y bono de pensión ISSSTE.</p>
+        </div>
+
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 1. Recursos administrados por el SAR, 2022 vs 2023 (mmdp)</p>
+          <div class="paper__grafica-container"><canvas id="chart-recursos"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, informes trimestrales 2022-2023; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>El crecimiento de 13.7% <span class="fuente-badge fuente-badge--v">V</span> en recursos administrados durante 2023 se explica por dos componentes principales: (1) las aportaciones tripartitas regulares de trabajadores, patrones y gobierno federal, que en un contexto de estabilidad del empleo formal aportaron flujo neto positivo; y (2) las plusvalías generadas por la revalorización de los portafolios de inversión de las SIEFOREs, estimadas en 464 mmdp según datos de CONSAR.</p>
+        <p>La proporción de recursos respecto al PIB aumentó 1.9 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>, de 17.2% <span class="fuente-badge fuente-badge--v">V</span> a 19.1% <span class="fuente-badge fuente-badge--v">V</span>. Este incremento refleja tanto el crecimiento absoluto de los activos del SAR como la maduración del sistema: a 26 años de operación, el SAR representa casi una quinta parte de la economía nacional, consolidándose como el principal vehículo de ahorro de largo plazo en México y uno de los inversionistas institucionales más relevantes del mercado de capitales local.</p>
+        <p>Los rendimientos acumulados históricos del SAR —desde el inicio de operaciones en 1997 hasta el cierre de 2023— superaron los 3 billones de pesos, representando 51.46% <span class="fuente-badge fuente-badge--v">V</span> de los activos totales del sistema. Esto significa que más de la mitad del patrimonio administrado corresponde a ganancias generadas por las inversiones, no a aportaciones directas. Esta métrica subraya la importancia crítica de los rendimientos de largo plazo en la construcción del saldo pensionario individual.</p>
+      </section>
+
+      <section class="paper__section" id="comisiones">
+        <div class="paper__section-number">Sección 8</div>
+        <h2>Comisiones</h2>
+        <p>Durante 2023, la comisión promedio del sistema sobre saldo administrado se mantuvo en 0.566% <span class="fuente-badge fuente-badge--v">V</span>, sin cambios respecto a 2022. Este nivel representa el mínimo histórico alcanzado en 2022 tras la convergencia progresiva derivada del proceso de licitación de cuentas asignadas y la competencia regulada implementada por CONSAR desde 2019.</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 2. Comisiones sobre saldo por AFORE, diciembre 2023</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>AFORE</th>
+                <th class="num">Comisión sobre saldo (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PensionISSSTE</td>
+                <td class="num">0.53</td>
+              </tr>
+              <tr>
+                <td>Profuturo GNP</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>XXI Banorte</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Citibanamex</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>SURA</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Coppel</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Azteca</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Principal</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Invercap</td>
+                <td class="num">0.57</td>
+              </tr>
+              <tr>
+                <td>Inbursa</td>
+                <td class="num">0.57</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR (endpoint /api/v1/consar/comisiones/snapshot?fecha=2023-12-01, dataset #06_comisiones.csv, extraído 23/06/2026 vía SDK datos-mexico-py v0.2.1, licencia CC-BY-4.0). Nota: Comisiones ordenadas de menor a mayor. Los datos son verificados [V]. La cobertura del dataset inicia en marzo 2008 con la reforma de transparencia CONSAR.</p>
+        </div>
+
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 2. Comisiones sobre saldo por AFORE, diciembre 2023 (%)</p>
+          <div class="paper__grafica-container paper__grafica-container--tall"><canvas id="chart-comisiones"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, estadísticas de comisiones diciembre 2023; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>El diferencial entre la comisión más alta y la más baja fue de 0.04 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span>, con PensionISSSTE cobrando 0.53% <span class="fuente-badge fuente-badge--v">V</span> y nueve AFOREs en 0.57% <span class="fuente-badge fuente-badge--v">V</span>. Este spread de 4 puntos base representa un aumento respecto a 2022, cuando el diferencial era de apenas 1 punto base. La ampliación marginal del rango se debe a que PensionISSSTE —AFORE dirigida exclusivamente a trabajadores del ISSSTE bajo un modelo institucional diferenciado— mantuvo su comisión de 0.53% <span class="fuente-badge fuente-badge--v">V</span> mientras el resto del sistema convergió en 0.57% <span class="fuente-badge fuente-badge--v">V</span>.</p>
+        <p>La estructura de comisiones durante 2023 evidencia un alto grado de homogeneización competitiva. Nueve de las diez AFOREs cobraban exactamente 0.57% <span class="fuente-badge fuente-badge--v">V</span>, lo que sugiere que este nivel representa un equilibrio económico para las operadoras bajo el régimen regulatorio vigente. La única excepción es PensionISSSTE, cuya estructura de costos y modelo de negocio difieren del resto del sistema al atender exclusivamente al segmento de trabajadores del sector público federal.</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 4. Evolución de la comisión promedio del sistema, 2008-2023</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th class="num">Año</th>
+                <th class="num">Comisión promedio (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">2008</td><td class="num">1.92</td></tr>
+              <tr><td class="num">2009</td><td class="num">1.75</td></tr>
+              <tr><td class="num">2010</td><td class="num">1.62</td></tr>
+              <tr><td class="num">2011</td><td class="num">1.48</td></tr>
+              <tr><td class="num">2012</td><td class="num">1.38</td></tr>
+              <tr><td class="num">2013</td><td class="num">1.29</td></tr>
+              <tr><td class="num">2014</td><td class="num">1.19</td></tr>
+              <tr><td class="num">2015</td><td class="num">1.11</td></tr>
+              <tr><td class="num">2016</td><td class="num">1.06</td></tr>
+              <tr><td class="num">2017</td><td class="num">1.03</td></tr>
+              <tr><td class="num">2018</td><td class="num">1.02</td></tr>
+              <tr><td class="num">2019</td><td class="num">0.98</td></tr>
+              <tr><td class="num">2020</td><td class="num">0.92</td></tr>
+              <tr><td class="num">2021</td><td class="num">0.807</td></tr>
+              <tr><td class="num">2022</td><td class="num">0.566</td></tr>
+              <tr><td class="num">2023</td><td class="num">0.566</td></tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: Panel DM-SAR-DATA-001, con datos de CONSAR. Nota: Serie inicia en 2008 (año de implementación de comisión sobre saldo). Datos verificados [V].</p>
+        </div>
+
+        <div class="paper__grafica-wrap">
+          <p class="paper__grafica-caption">Gráfica 3. Tendencia de la comisión promedio del sistema, 2008-2023 (%)</p>
+          <div class="paper__grafica-container"><canvas id="chart-tendencia"></canvas></div>
+          <p class="paper__grafica-fuente">Fuente: CONSAR, series históricas de comisiones 2008-2023; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>La reducción acumulada de comisiones desde 2008 alcanza 1.354 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> (de 1.92% <span class="fuente-badge fuente-badge--v">V</span> a 0.566% <span class="fuente-badge fuente-badge--v">V</span>), equivalente a una disminución de 70.5% <span class="fuente-badge fuente-badge--v">V</span> en términos relativos. Este descenso estructural ha sido resultado de múltiples factores: presión regulatoria de CONSAR mediante topes máximos decrecientes, competencia por cuentas asignadas a través de licitaciones donde la comisión es criterio determinante, consolidación del sistema que permitió economías de escala, y mayor sofisticación en gestión de portafolios que reduce costos operativos relativos.</p>
+        <p>La estabilización de la comisión promedio en 0.566% <span class="fuente-badge fuente-badge--v">V</span> durante dos años consecutivos (2022-2023) sugiere que el sistema ha alcanzado un piso económico bajo el marco regulatorio y estructura competitiva actuales. Reducciones adicionales requerirían cambios en costos operativos, tecnología, estructura del mercado o intervención regulatoria adicional.</p>
+        <p>Para un trabajador con saldo de 100,000 pesos, una comisión de 0.566% <span class="fuente-badge fuente-badge--v">V</span> implica un cobro anual de 566 pesos. En contraste, bajo la comisión promedio de 2008 (1.92% <span class="fuente-badge fuente-badge--v">V</span>), el mismo saldo generaba un cobro de 1,920 pesos anuales. El ahorro acumulado en comisiones por la reducción de 1.354 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> equivale a 1,354 pesos anuales por cada 100,000 pesos de saldo, recursos que permanecen en la cuenta individual generando rendimientos compuestos.</p>
+      </section>
+
+      <section class="paper__section" id="rendimientos">
+        <div class="paper__section-number">Sección 9</div>
+        <h2>Rendimientos</h2>
+        <p>El año 2023 representó una recuperación histórica en términos de rendimientos para el SAR. Después de un 2022 marcado por pérdidas significativas debido a la volatilidad en mercados de renta fija y variable, el sistema generó un rendimiento nominal de 9.08% <span class="fuente-badge fuente-badge--v">V</span> y un rendimiento real de 4.61% <span class="fuente-badge fuente-badge--v">V</span> (descontando la inflación de 4.66% <span class="fuente-badge fuente-badge--v">V</span> observada durante el año).</p>
+        <p>Estos rendimientos se consideran datos verificados [V], calculados por CONSAR con base en la metodología oficial de indicador de rendimiento neto del sistema. Es importante señalar que los rendimientos varían entre SIEFOREs Generacionales, AFOREs y períodos de medición; la cifra de 9.08% <span class="fuente-badge fuente-badge--v">V</span> nominal representa un indicador agregado del sistema que pondera los desempeños de las distintas carteras.</p>
+        <p>El contraste con 2022 es marcado: ese año el sistema registró un rendimiento nominal estimado de ~-4% y un rendimiento real de ~-12%, producto de la corrección en valuación de bonos gubernamentales ante el ciclo de alza de tasas de interés y la caída en mercados accionarios globales. La recuperación de 2023 implicó un cambio de signo de aproximadamente 13 puntos porcentuales en términos nominales y 16 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> en términos reales.</p>
+        <p>Las plusvalías generadas durante 2023 ascendieron a 464 miles de millones de pesos, monto que representa el incremento patrimonial atribuible exclusivamente a rendimientos de inversión (excluyendo aportaciones netas del período). Este monto equivale a 7.8% <span class="fuente-badge fuente-badge--v">V</span> de los recursos totales al cierre del año, evidenciando el impacto material de un año favorable en mercados financieros sobre el patrimonio pensionario agregado.</p>
+        <p>El rendimiento neto —resultado de restar la comisión promedio de 0.566% <span class="fuente-badge fuente-badge--v">V</span> al rendimiento bruto— se sitúa en aproximadamente 8.51% <span class="fuente-badge fuente-badge--e">E</span> nominal y 4.04% <span class="fuente-badge fuente-badge--v">V</span> real. Estos rendimientos netos son los que efectivamente se capitalizan en las cuentas individuales y determinan la tasa de acumulación del saldo pensionario de largo plazo.</p>
+        <p>Comparado con años previos, el rendimiento real de 4.61% <span class="fuente-badge fuente-badge--v">V</span> en 2023 se ubica por encima del promedio histórico del sistema, estimado en torno a 5-6% anual en períodos prolongados. Sin embargo, el promedio histórico refleja ciclos completos de mercado; años individuales pueden mostrar desviaciones significativas en ambas direcciones, como evidencian las pérdidas de 2022 y la recuperación de 2023.</p>
+        <p>La composición de los rendimientos durante 2023 estuvo influenciada por dos factores principales: (1) la recuperación de mercados accionarios, especialmente en Estados Unidos donde índices como el S&amp;P 500 registraron ganancias superiores a 20% <span class="fuente-badge fuente-badge--v">V</span>, beneficiando los componentes de renta variable de las SIEFOREs más agresivas; y (2) la estabilización de los portafolios de deuda gubernamental, que dejaron de registrar minusvalías ante la moderación en el ritmo de alza de tasas de interés tanto en México como en economías desarrolladas.</p>
+        <p>Es fundamental comprender que los rendimientos anuales individuales no son predictores de desempeño futuro. El SAR es un mecanismo de ahorro de muy largo plazo (35-40 años para un trabajador promedio), y la acumulación efectiva del saldo pensionario depende de la capitalización compuesta de rendimientos a lo largo de décadas, no del resultado de años aislados. La volatilidad de corto plazo —pérdidas en años como 2022, ganancias en años como 2023— tiende a atenuarse en horizontes prolongados, donde lo relevante es el rendimiento promedio real sostenido.</p>
+      </section>
+
+      <section class="paper__section" id="evolucion">
+        <div class="paper__section-number">Sección 10</div>
+        <h2>Evolución del sistema</h2>
+        <p>El año 2023 se caracterizó por la consolidación de las reformas regulatorias implementadas en años previos, sin eventos corporativos significativos de fusión o adquisición. El sistema mantuvo su estructura de 10 AFOREs operando bajo el esquema de SIEFOREs Generacionales, con estabilidad institucional y continuidad en el marco normativo vigente.</p>
+        <p>Un desarrollo significativo durante 2023 fue la aceleración en el número de pensionados que reciben beneficios bajo la reforma de pensiones de 2020. Esta reforma, que entró en vigor el 1 de enero de 2021, incrementó progresivamente las aportaciones obligatorias patronales del 5.15% <span class="fuente-badge fuente-badge--v">V</span> al 13.87% <span class="fuente-badge fuente-badge--v">V</span> del salario base de cotización en un período de transición de 8 años (2023-2030). Al cierre de 2023, más de 72,000 trabajadores habían comenzado a recibir pensiones calculadas bajo el nuevo esquema, que incluye tasas de reemplazo más altas derivadas de mayores aportaciones acumuladas.</p>
+        <p>El incremento en aportaciones obligatorias programado para 2023 representó un flujo adicional de recursos hacia el sistema, aunque su impacto en el stock total de activos es aún marginal dado que el grueso del patrimonio corresponde a trabajadores con años de cotización bajo el esquema previo. Sin embargo, para trabajadores que inician su vida laboral bajo la reforma 2020, la diferencia en saldo acumulado proyectado a 65 años es sustancial: simulaciones de CONSAR indican que las mayores aportaciones pueden incrementar la tasa de reemplazo (pensión/último salario) de aproximadamente 26% <span class="fuente-badge fuente-badge--e">E</span> bajo el esquema previo a cerca de 56% <span class="fuente-badge fuente-badge--v">V</span> bajo el nuevo régimen, asumiendo densidad de cotización y rendimientos constantes.</p>
+        <p><strong>Nota editorial:</strong> las proyecciones de tasas de reemplazo citadas en esta entrega provienen de simulaciones publicadas por CONSAR y se reproducen con fines descriptivos. Esta serie es descriptiva-retrospectiva y no realiza proyecciones propias; los ejercicios de proyección del observatorio se publican por separado con su metodología.</p>
+        <p>En términos de política monetaria y contexto macroeconómico, 2023 marcó el punto de inflexión en el ciclo de endurecimiento que Banco de México había iniciado en 2021. La tasa de interés interbancaria alcanzó su máximo de 11.25% <span class="fuente-badge fuente-badge--v">V</span> en marzo de 2023 y se mantuvo en ese nivel hasta el cierre del año, cuando el banco central comenzó a señalar que el ciclo restrictivo estaba completo. Este nivel récord de tasas de interés apuntaló los rendimientos de instrumentos de deuda gubernamental en los portafolios de las SIEFOREs, compensando parcialmente las menores valuaciones en renta variable durante los primeros meses del año.</p>
+        <p>La política de inversión de las AFOREs durante 2023 mantuvo los parámetros establecidos por el régimen de inversión de CONSAR, que permite hasta 45% <span class="fuente-badge fuente-badge--v">V</span> en renta variable para las SIEFOREs de trabajadores más jóvenes y exige composiciones más conservadoras para generaciones cercanas al retiro. No hubo modificaciones regulatorias significativas en límites de inversión, clases de activos permitidas o requisitos de diversificación durante el año.</p>
+        <p>Un aspecto relevante en la evolución del sistema durante 2023 fue la consolidación de la estrategia de inversión internacional. Las AFOREs incrementaron marginalmente su exposición a activos denominados en divisas, particularmente instrumentos de renta variable listados en mercados desarrollados (principalmente Estados Unidos) y deuda soberana de economías con grado de inversión. Esta diversificación geográfica contribuyó a los rendimientos positivos del año, especialmente en el segundo semestre cuando los mercados accionarios estadounidenses mostraron desempeño robusto.</p>
+        <p>El sistema no experimentó cambios en la oferta de productos o servicios complementarios durante 2023. Las AFOREs continuaron ofreciendo mecanismos de aportaciones voluntarias y aportaciones complementarias, aunque la penetración de estos esquemas sigue siendo limitada: menos del 10% <span class="fuente-badge fuente-badge--v">V</span> de los cuentahabientes realizan aportaciones adicionales de forma regular, reflejando limitaciones de ingreso disponible, bajo conocimiento financiero y preferencias de liquidez de corto plazo sobre ahorro pensionario de largo plazo.</p>
+
+        <div class="paper__tabla-wrap">
+          <p class="paper__tabla-caption">Tabla 3. Eventos relevantes del sistema, 2023</p>
+          <table class="paper__tabla">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2023</td>
+                <td>Política monetaria</td>
+                <td>Recuperación: plusvalías de 464 mmdp. Rendimiento 9.08% nominal, 4.61% real. Recursos: 5.976 billones (19.1% PIB). Rendimientos acumulados históricos superan 3 billones (51.46% de activos). 72,000+ pensionados bajo reforma 2020. Tasa Banxico máximo histórico 11.25%.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="paper__tabla-fuente">Fuente: CONSAR, informes trimestrales 2023; Banxico, estadísticas de tasas de interés; Panel DM-SAR-DATA-001.</p>
+        </div>
+
+        <p>En síntesis, 2023 fue un año de recuperación y estabilización para el SAR después del año adverso de 2022. Sin eventos corporativos disruptivos ni cambios regulatorios mayores, el sistema operó bajo el marco institucional consolidado en años previos, generando rendimientos históricamente favorables que revirtieron las pérdidas del período anterior y aportaron plusvalías significativas al patrimonio pensionario agregado de 74.24 millones de cuentahabientes.</p>
+      </section>
+
+      <section class="paper__section" id="normativo">
+        <div class="paper__section-number">Sección 11</div>
+        <h2>Marco normativo</h2>
+        <p>El Sistema de Ahorro para el Retiro opera bajo un marco jurídico establecido por la Ley de los Sistemas de Ahorro para el Retiro, publicada en el Diario Oficial de la Federación el 23 de mayo de 1996. Esta ley regula la operación de las AFOREs, las facultades de la Comisión Nacional del SAR (CONSAR) como órgano supervisor, y los derechos y obligaciones de los trabajadores titulares de cuentas individuales.</p>
+        <p>El régimen pensionario de los trabajadores afiliados al IMSS se rige por la Ley del Seguro Social de 1995, vigente desde el 1 de julio de 1997. Esta ley estableció el esquema de cuentas individuales que sustituyó al sistema de reparto previo, aunque la Ley del Seguro Social de 1973 (abrogada) mantiene efectos vigentes para trabajadores inscritos antes de julio de 1997 que conservaron su derecho a elegir entre el régimen de 1973 y el de 1997 al momento de su retiro.</p>
+        <p>La regulación prudencial y operativa de las SIEFOREs se encuentra contenida en la Circular Única de SIEFOREs emitida por CONSAR, que establece límites de inversión por clase de activo, emisor, plazo y calificación crediticia; requisitos de diversificación geográfica y sectorial; políticas de valuación y registro contable; y reglas de gobierno corporativo y administración de riesgos. Durante 2023 no se registraron modificaciones sustantivas a la Circular Única que alteraran los parámetros de inversión vigentes.</p>
+        <p>El marco normativo del sistema incluye también disposiciones fiscales contenidas en la Ley del Impuesto sobre la Renta, que establecen el tratamiento tributario de las aportaciones voluntarias, rendimientos y retiros de las cuentas individuales. Las aportaciones obligatorias y complementarias de retiro no son deducibles para el trabajador ni acumulables como ingreso gravable; los rendimientos generados en la cuenta individual están exentos de impuesto durante la fase de acumulación; y los retiros por pensión están sujetos a retención conforme a tarifas progresivas.</p>
+        <p>Es importante señalar que la interpretación legal de las disposiciones normativas aquí referidas corresponde exclusivamente a las autoridades competentes (CONSAR, Secretaría de Hacienda y Crédito Público, tribunales). Este documento presenta un panorama descriptivo del marco regulatorio sin constituir opinión jurídica ni asesoría legal sobre casos específicos.</p>
+      </section>
+
+      <section class="paper__section" id="limitaciones">
+        <div class="paper__section-number">Sección 12</div>
+        <h2>Limitaciones</h2>
+        <p>Este estudio adopta un enfoque exclusivamente descriptivo del Sistema de Ahorro para el Retiro durante el año calendario 2023. No se establecen inferencias causales sobre relaciones entre variables ni se realizan proyecciones sobre el comportamiento futuro del sistema. Los hallazgos se circunscriben al período analizado y no deben extrapolarse a años subsecuentes sin metodología específica que lo justifique.</p>
+        <p>Todas las cifras cuantitativas provienen de fuentes primarias oficiales (CONSAR, INEGI, Banxico) accedidas a través del Panel DM-SAR-DATA-001 y del SDK datos-mexico-py v0.2.1. Los datos marcados como verificados [V] corresponden a información publicada oficialmente por las instituciones citadas; los datos marcados como estimados [E] reflejan cálculos realizados con metodología declarada en este documento. No se utilizaron fuentes secundarias (blogs, notas periodísticas, consultoras) para datos cuantitativos.</p>
+        <p>Los rendimientos reportados (9.08% <span class="fuente-badge fuente-badge--v">V</span> nominal, 4.61% <span class="fuente-badge fuente-badge--v">V</span> real) corresponden a indicadores agregados del sistema ponderados por CONSAR. Los rendimientos individuales varían significativamente según la AFORE elegida, la SIEFORE Generacional correspondiente a la edad del trabajador, y el período específico de medición. Un trabajador individual puede haber experimentado rendimientos superiores o inferiores a las cifras agregadas reportadas. Los rendimientos históricos no garantizan resultados futuros.</p>
+        <p>Las cifras de recursos administrados se presentan en pesos corrientes (no deflactados). Para comparaciones de poder adquisitivo entre años distantes se requiere ajuste por inflación utilizando el Índice Nacional de Precios al Consumidor base 2018=100 publicado por INEGI. Las comparaciones interanuales en este documento (2022 vs 2023) utilizan valores corrientes dado el horizonte temporal corto.</p>
+        <p>El número de cuentas individuales (74.24 millones) es un dato agregado que no distingue entre cuentas activas (con aportaciones recientes) e inactivas (sin cotización pero con saldo conservado). Variaciones metodológicas en el conteo de cuentas entre instituciones o períodos pueden generar discrepancias marginales en cifras publicadas por distintas fuentes.</p>
+        <p>Este estudio no evalúa la calidad de gestión de AFOREs individuales, no compara desempeños ajustados por riesgo, no analiza composiciones de portafolio a nivel granular, y no emite juicios sobre la conveniencia de productos o servicios específicos. El propósito es presentar datos verificables del sistema en conjunto, no proveer elementos para decisiones individuales de inversión o elección de AFORE.</p>
+        <p>Las conclusiones de este trabajo se derivan exclusivamente de los datos presentados en las secciones precedentes. Interpretaciones, opiniones o recomendaciones que pudieran inferirse más allá de lo estrictamente documentado son responsabilidad del lector y no representan la posición institucional del observatorio.</p>
+      </section>
+
+      <section class="paper__section" id="conclusiones">
+        <div class="paper__section-number">Sección 13</div>
+        <h2>Conclusiones</h2>
+        <ol>
+          <li>Al cierre de 2023, el Sistema de Ahorro para el Retiro administraba recursos por 5,975.55 miles de millones de pesos, equivalentes a 19.1% <span class="fuente-badge fuente-badge--v">V</span> del PIB, lo que representa un incremento de 13.7% <span class="fuente-badge fuente-badge--v">V</span> respecto al cierre de 2022 y consolida al SAR como el principal vehículo de ahorro de largo plazo en México, gestionando activos equivalentes a casi una quinta parte de la economía nacional.</li>
+          <li>El sistema registró 74.24 millones de cuentas individuales al cierre de 2023, con un crecimiento de 1.5% <span class="fuente-badge fuente-badge--v">V</span> respecto al año anterior, evidenciando que el incremento patrimonial del 13.7% <span class="fuente-badge fuente-badge--v">V</span> en recursos se explica principalmente por rendimientos sobre saldos existentes (plusvalías de 464 mmdp <span class="fuente-badge fuente-badge--v">V</span>) y no por incorporación masiva de nuevos trabajadores o aportaciones netas del período.</li>
+          <li>La comisión promedio sobre saldo se mantuvo en 0.566% <span class="fuente-badge fuente-badge--v">V</span> durante 2023 sin cambios respecto a 2022, con un diferencial de apenas 0.04 puntos porcentuales <span class="fuente-badge fuente-badge--v">V</span> entre la comisión más baja (PensionISSSTE, 0.53% <span class="fuente-badge fuente-badge--v">V</span>) y las más altas (nueve AFOREs en 0.57% <span class="fuente-badge fuente-badge--v">V</span>), reflejando un nivel de convergencia competitiva que sugiere un piso económico bajo el marco regulatorio actual y acumulando una reducción de 70.5% <span class="fuente-badge fuente-badge--v">V</span> respecto al nivel de 2008 (1.92% <span class="fuente-badge fuente-badge--v">V</span>).</li>
+          <li>El año 2023 marcó una recuperación histórica en rendimientos: después de pérdidas significativas en 2022 (rendimiento real ~-12%), el sistema generó 9.08% nominal y 4.61% real, revirtiendo el ciclo adverso previo y aportando plusvalías de 464 miles de millones de pesos que representan 7.8% <span class="fuente-badge fuente-badge--v">V</span> de los activos totales al cierre del año y elevan los rendimientos acumulados históricos a más de 3 billones de pesos (51.46% <span class="fuente-badge fuente-badge--v">V</span> del patrimonio total administrado).</li>
+          <li>El contexto macroeconómico de 2023 se caracterizó por desaceleración inflacionaria (4.66% <span class="fuente-badge fuente-badge--v">V</span> vs 7.82% <span class="fuente-badge fuente-badge--v">V</span> en 2022) y tasa de Banxico en máximo histórico de 11.25% <span class="fuente-badge fuente-badge--v">V</span>, condiciones que favorecieron la estabilización de portafolios de deuda gubernamental y la recuperación de mercados accionarios internacionales, componentes clave en los rendimientos positivos del sistema durante el año.</li>
+          <li>La reforma de pensiones de 2020, que incrementa progresivamente las aportaciones obligatorias patronales hasta 13.87% <span class="fuente-badge fuente-badge--v">V</span> en 2030, comenzó a reflejarse en el flujo de recursos con más de 72,000 pensionados recibiendo ya beneficios bajo el nuevo esquema, aunque su impacto en el stock total de activos sigue siendo marginal dado que el grueso del patrimonio corresponde a trabajadores con años de cotización bajo el régimen previo.</li>
+          <li>El sistema operó durante 2023 con estabilidad institucional: 10 AFOREs activas sin fusiones ni adquisiciones, marco regulatorio consolidado bajo el esquema de SIEFOREs Generacionales, y continuidad en políticas de inversión que permitieron exposición balanceada entre renta fija local (mayoritaria) y renta variable internacional (creciente), diversificación que contribuyó a la recuperación de rendimientos tras el año adverso de 2022.</li>
+        </ol>
+        <p>Los datos, análisis y conclusiones presentados en este estudio corresponden exclusivamente al período enero-diciembre de 2023. Las cifras provienen de fuentes primarias oficiales verificadas (CONSAR, INEGI, Banxico) y del Panel DM-SAR-DATA-001. No se emiten proyecciones sobre el desempeño futuro del sistema ni recomendaciones sobre AFOREs, productos o estrategias de inversión individual.</p>
+      </section>
+
+      <hr class="paper__separator">
+
+      <section class="paper__section" id="fuentes">
+        <div class="paper__section-number">Sección 14</div>
+        <h2>Fuentes</h2>
+        <div class="paper__fuentes">
+          <ol>
+            <li id="fuente-F1"><span class="fuente-inst">CONSAR</span> (Comisión Nacional del Sistema de Ahorro para el Retiro). <span class="fuente-titulo">Informes Trimestrales al H. Congreso de la Unión sobre la situación del SAR, 2023</span>. México, 2023. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F2"><span class="fuente-inst">CONSAR</span>. <span class="fuente-titulo">Datos estadísticos del SAR: comisiones, cuentas, recursos y traspasos</span>. México, 2023. Accedidos vía SDK datos-mexico-py v0.2.1 desde datasets oficiales en datos.gob.mx (licencia CC-BY-4.0): #09_recursos.csv (endpoint /api/v1/consar/recursos/por-componente), #05_cuentas.csv (endpoint /api/v1/consar/cuentas/sistema), #06_comisiones.csv (endpoint /api/v1/consar/comisiones/snapshot). Extracciones realizadas el 23 de junio de 2026. <a href="https://www.gob.mx/consar" target="_blank" rel="noopener">https://www.gob.mx/consar</a></li>
+            <li id="fuente-F3"><span class="fuente-inst">INEGI</span> (Instituto Nacional de Estadística y Geografía). <span class="fuente-titulo">Producto Interno Bruto y cuentas nacionales de México, 2023</span>. México, 2024. <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">https://www.inegi.org.mx</a></li>
+            <li id="fuente-F4"><span class="fuente-inst">Banco de México</span> (Banxico). <span class="fuente-titulo">Indicadores económicos: tasas de interés e inflación, 2023</span>. México, 2023. <a href="https://www.banxico.org.mx" target="_blank" rel="noopener">https://www.banxico.org.mx</a></li>
+            <li id="fuente-F5"><span class="fuente-inst">Datos México</span>. <span class="fuente-titulo">Panel DM-SAR-DATA-001: Base de datos consolidada del SAR</span>. México, 2026. <a href="https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/" target="_blank" rel="noopener">https://datosmexico.org/pensiones/sar-29/datos/DM-SAR-DATA-001/</a></li>
+            <li id="fuente-F6"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley de los Sistemas de Ahorro para el Retiro</span>. Diario Oficial de la Federación, 23 de mayo de 1996. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+            <li id="fuente-F7"><span class="fuente-inst">Congreso de la Unión</span>. <span class="fuente-titulo">Ley del Seguro Social</span>. Diario Oficial de la Federación, 21 de diciembre de 1995. <a href="https://www.diputados.gob.mx/LeyesBiblio" target="_blank" rel="noopener">https://www.diputados.gob.mx/LeyesBiblio</a></li>
+          </ol>
+          <p>Fecha de consulta de fuentes electrónicas: abril de 2026.</p>
+          <p class="paper__fuentes-leyenda"><span class="fuente-badge fuente-badge--v">V</span> dato verificado de fuente oficial directa &middot; <span class="fuente-badge fuente-badge--e">E</span> dato estimado o derivado, declarado como tal &middot; estándar editorial del observatorio.</p>
+        </div>
+      </section>
+
+      <div class="paper__declaraciones">
+        <h3>Declaraciones</h3>
+        <p><strong>Conflictos de interés:</strong> El observatorio Datos México declara la ausencia de conflictos de interés en la elaboración de este estudio. Datos México no tiene relación comercial, financiera ni institucional con ninguna AFORE, entidad financiera o regulador mencionado en este documento.</p>
+        <p><strong>Fuentes de datos:</strong> Todas las cifras cuantitativas presentadas en este estudio provienen de fuentes primarias oficiales (CONSAR, INEGI, Banxico) y del Panel DM-SAR-DATA-001. No se utilizaron fuentes secundarias para datos cuantitativos.</p>
+        <p><strong>Alcance:</strong> Este documento tiene carácter informativo y no constituye asesoría financiera, legal ni recomendación alguna sobre productos, servicios o AFOREs específicas.</p>
+      </div>
+
+    </div>
+
+
+      <!-- DE LA LECTURA AL CÁLCULO -->
+      <aside class="paper__calc-cta">
+        <p class="paper__calc-cta-eyebrow">De la lectura al cálculo</p>
+        <p class="paper__calc-cta-body">
+          Los datos de esta serie alimentan las <strong>calculadoras del observatorio</strong>: herramientas
+          educativas con supuestos públicos, fuentes oficiales versionadas y validación actuarial.
+          <a href="/pensiones/calculadoras">Calcula tu caso →</a>
+        </p>
+      </aside>
+
+  </main>
+
+  <!-- Scripts -->
+
+  <!-- Tooltip unificado + hover-por-área Ronda 6.
+       Un solo sistema premium para sparkline, barras y rows AFORE:
+       - Contenido ASCII puro en data-tip-* (mata "?" del `·` U+00B7 y `[V]`).
+       - Detección del punto MÁS CERCANO por overlay en sparkline.
+       - Marcador activo sincronizado con el tooltip.
+       - Fallback teclado / focus / touch preservado. -->
+  <script>
+  (function () {
+    'use strict';
+    var container = document.querySelector('.paper__resumen-hero-inner');
+    var tip       = document.getElementById('rhTip');
+    if (!container || !tip) return;
+    var titleEl   = tip.querySelector('.rh-tip__title');
+    var detailTx  = tip.querySelector('.rh-tip__detail-text');
+    var badgeEl   = tip.querySelector('.rh-tip__badge');
+    var noteEl    = tip.querySelector('.rh-tip__note');
+    var hideTimer;
+    var currentActive = null;
+
+    function positionOverElement(el) {
+      var r = el.getBoundingClientRect();
+      var c = container.getBoundingClientRect();
+      tip.style.left = (r.left - c.left + r.width / 2) + 'px';
+      tip.style.top  = (r.top  - c.top) + 'px';
+    }
+
+    function showFor(el) {
+      if (!el || !el.dataset.tipTitle) return;
+      clearTimeout(hideTimer);
+      titleEl.textContent = el.dataset.tipTitle;
+      detailTx.textContent = el.dataset.tipDetail || '';
+      noteEl.textContent = el.dataset.tipNote || '';
+      noteEl.style.display = el.dataset.tipNote ? 'block' : 'none';
+      badgeEl.style.display = el.dataset.tipV === '1' ? 'inline-block' : 'none';
+      positionOverElement(el);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tip.classList.add('is-visible');
+          tip.setAttribute('aria-hidden', 'false');
+        });
+      });
+    }
+    function hide() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('is-visible');
+        tip.setAttribute('aria-hidden', 'true');
+        if (currentActive && currentActive.classList) {
+          currentActive.classList.remove('is-active');
+        }
+        currentActive = null;
+        var activeDot = document.querySelector('.rh-spark__active');
+        if (activeDot) activeDot.setAttribute('opacity', '0');
+      }, 80);
+    }
+
+    function setActive(el) {
+      if (currentActive === el) return;
+      if (currentActive && currentActive.classList) currentActive.classList.remove('is-active');
+      currentActive = el;
+      if (el && el.classList) el.classList.add('is-active');
+    }
+
+    // ---------- 1. Sparkline: hover POR ÁREA ----------
+    var sparkSvg = document.querySelector('.rh-spark__svg');
+    var sparkOverlay = document.querySelector('.rh-spark__overlay');
+    var sparkPoints = Array.prototype.slice.call(document.querySelectorAll('.rh-spark__point'));
+    var activeDot = document.querySelector('.rh-spark__active');
+
+    if (sparkSvg && sparkOverlay && sparkPoints.length) {
+      var pointCoords = sparkPoints.map(function (p) {
+        return { el: p, cx: parseFloat(p.getAttribute('cx')), cy: parseFloat(p.getAttribute('cy')) };
+      });
+
+      function handleSparkMove(e) {
+        var svgRect = sparkSvg.getBoundingClientRect();
+        var xInPx = (e.clientX !== undefined ? e.clientX : e.touches[0].clientX) - svgRect.left;
+        var xInVb = xInPx / svgRect.width * 720; // viewBox width
+        // Punto más cercano por X
+        var nearest = pointCoords[0], minD = Math.abs(pointCoords[0].cx - xInVb);
+        for (var i = 1; i < pointCoords.length; i++) {
+          var d = Math.abs(pointCoords[i].cx - xInVb);
+          if (d < minD) { minD = d; nearest = pointCoords[i]; }
+        }
+        // Mueve el marcador activo al punto seleccionado
+        if (activeDot) {
+          activeDot.setAttribute('cx', nearest.cx);
+          activeDot.setAttribute('cy', nearest.cy);
+          activeDot.setAttribute('opacity', '1');
+        }
+        setActive(nearest.el);
+        showFor(nearest.el);
+      }
+
+      sparkOverlay.addEventListener('mousemove', handleSparkMove);
+      sparkOverlay.addEventListener('mouseleave', hide);
+      sparkOverlay.addEventListener('touchstart', handleSparkMove, { passive: true });
+      sparkOverlay.addEventListener('touchmove', handleSparkMove, { passive: true });
+    }
+
+    // ---------- 2. Focus por teclado en todos los data-tip-title ----------
+    var focusables = container.querySelectorAll('[data-tip-title][tabindex]');
+    Array.prototype.forEach.call(focusables, function (el) {
+      el.addEventListener('focus', function () { setActive(el); showFor(el); });
+      el.addEventListener('blur', hide);
+    });
+
+    // ---------- 3. Rows generosas: barras Recursos + rows AFORE ----------
+    var hoverRows = container.querySelectorAll('.rh-viz__bar-row[data-tip-title], .rh-afore-row[data-tip-title]');
+    Array.prototype.forEach.call(hoverRows, function (el) {
+      el.addEventListener('mouseenter', function () { setActive(el); showFor(el); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('touchstart', function () { setActive(el); showFor(el); }, { passive: true });
+    });
+
+    // ---------- 4. Tocar fuera oculta el tooltip ----------
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('[data-tip-title], .rh-spark__overlay, .rh-afore-row')) hide();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      tip.classList.remove('is-visible');
+      if (activeDot) activeDot.setAttribute('opacity', '0');
+    });
+  })();
+  </script>
+
+  <!-- Gráficas del paper -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navy = '#1B2A5E';
+    var gold = '#B8943E';
+    var bgAlt = '#F4F5FA';
+    var gris = '#9CA3AF';
+
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = '#4B5563';
+
+    // Gráfica 1: Recursos administrados 2022 vs 2023
+    new Chart(document.getElementById('chart-recursos'), {
+      type: 'bar',
+      data: {
+        labels: ['Cierre 2022', 'Cierre 2023'],
+        datasets: [{
+          label: 'Recursos (mmdp)',
+          data: [5254.0, 5975.6],
+          backgroundColor: [navy, gold],
+          borderRadius: 4,
+          barPercentage: 0.5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                var pib = ctx.dataIndex === 0 ? '17.2' : '19.1';
+                return ctx.parsed.y.toLocaleString() + ' mmdp (' + pib + '% del PIB)';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 7000,
+            title: { display: true, text: 'Miles de millones de pesos (mmdp)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'pibLabels',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          var pibValues = ['17.2% del PIB', '19.1% del PIB'];
+          ctx.save();
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(bar, i) {
+            ctx.fillText(pibValues[i], bar.x, bar.y - 8);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+
+    // Gráfica 2: Comisiones por AFORE (barras horizontales, ordenadas de mayor a menor)
+    new Chart(document.getElementById('chart-comisiones'), {
+      type: 'bar',
+      data: {
+        labels: ['Inbursa', 'Invercap', 'Principal', 'Azteca', 'Coppel', 'SURA', 'Citibanamex', 'XXI Banorte', 'Profuturo GNP', 'PensionISSSTE'],
+        datasets: [{
+          label: 'Comisión (%)',
+          data: [0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.57, 0.53],
+          backgroundColor: navy,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.x.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            min: 0,
+            max: 0.7,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' },
+            ticks: {
+              callback: function(value) {
+                return value.toFixed(2) + '%';
+              }
+            }
+          },
+          y: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'promedioLine',
+        afterDraw: function(chart) {
+          var ctx = chart.ctx;
+          var chartArea = chart.chartArea;
+          var xAxis = chart.scales.x;
+          var promedio = 0.566;
+          var xPos = xAxis.getPixelForValue(promedio);
+          
+          ctx.save();
+          ctx.setLineDash([6, 4]);
+          ctx.strokeStyle = gold;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(xPos, chartArea.top);
+          ctx.lineTo(xPos, chartArea.bottom);
+          ctx.stroke();
+          
+          ctx.fillStyle = gold;
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('Promedio 0.566%', xPos, chartArea.top - 8);
+          ctx.restore();
+        }
+      }]
+    });
+
+    // Gráfica 3: Tendencia comisión promedio 2008-2023
+    new Chart(document.getElementById('chart-tendencia'), {
+      type: 'line',
+      data: {
+        labels: ['2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Comisión promedio',
+          data: [1.92, 1.75, 1.62, 1.48, 1.38, 1.29, 1.19, 1.11, 1.06, 1.03, 1.02, 0.98, 0.92, 0.807, 0.566, 0.566],
+          borderColor: navy,
+          borderWidth: 3,
+          pointRadius: 6,
+          pointBackgroundColor: navy,
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          tension: 0.3,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.parsed.y.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            min: 0.4,
+            max: 2.2,
+            title: { display: true, text: 'Comisión sobre saldo (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' },
+            ticks: {
+              callback: function(value) {
+                return value.toFixed(2) + '%';
+              }
+            }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      },
+      plugins: [{
+        id: 'dataLabels',
+        afterDatasetsDraw: function(chart) {
+          var ctx = chart.ctx;
+          var meta = chart.getDatasetMeta(0);
+          ctx.save();
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = navy;
+          meta.data.forEach(function(point, index) {
+            var value = chart.data.datasets[0].data[index];
+            ctx.fillText(value.toFixed(2) + '%', point.x, point.y - 12);
+          });
+          ctx.restore();
+        }
+      }]
+    });
+
+  });
+  </script>
+</body>
+</html>

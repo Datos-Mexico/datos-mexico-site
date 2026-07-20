@@ -25,7 +25,7 @@
   letter-spacing: 0.1em;
   padding: 0.25rem 0.75rem;
   border-radius: 4px;
-  background: rgba(27, 42, 94, 0.1);
+  background: rgba(21, 128, 61, 0.1);
   color: var(--navy);
   margin-bottom: 1.25rem;
 }
@@ -67,7 +67,7 @@
   padding: 0.5rem 1rem;
   border: 2px solid var(--gold);
   border-radius: 6px;
-  background: rgba(184, 148, 62, 0.06);
+  background: rgba(180, 83, 9, 0.06);
 }
 
 .sello__icon {
@@ -213,7 +213,7 @@
 }
 
 .paper__tabla tbody tr:hover {
-  background: rgba(27, 42, 94, 0.03);
+  background: rgba(21, 128, 61, 0.03);
 }
 
 .paper__tabla-fuente {
@@ -231,7 +231,7 @@
 
 /* Highlight row */
 .paper__tabla tr.highlight td {
-  background: rgba(184, 148, 62, 0.08);
+  background: rgba(180, 83, 9, 0.08);
   font-weight: 600;
 }
 
@@ -264,7 +264,7 @@
 .paper__fuentes a {
   color: var(--gold);
   text-decoration: underline;
-  text-decoration-color: rgba(184, 148, 62, 0.4);
+  text-decoration-color: rgba(180, 83, 9, 0.4);
   transition: text-decoration-color var(--transition);
 }
 
@@ -461,15 +461,15 @@
 }
 
 .regimen-flag--flujo {
-  background: rgba(184, 148, 62, 0.15);
+  background: rgba(180, 83, 9, 0.15);
   color: #6e5828;
-  border: 1px solid rgba(184, 148, 62, 0.4);
+  border: 1px solid rgba(180, 83, 9, 0.4);
 }
 
 .regimen-flag--saldo {
-  background: rgba(27, 42, 94, 0.12);
+  background: rgba(21, 128, 61, 0.12);
   color: var(--navy);
-  border: 1px solid rgba(27, 42, 94, 0.3);
+  border: 1px solid rgba(21, 128, 61, 0.3);
 }
 
 .paper__regimen-box p {
@@ -503,9 +503,9 @@
 }
 
 .fuente-badge--e {
-  background: rgba(184, 148, 62, 0.12);
+  background: rgba(180, 83, 9, 0.12);
   color: #7a6024;
-  border: 1px solid rgba(184, 148, 62, 0.4);
+  border: 1px solid rgba(180, 83, 9, 0.4);
 }
 
 /* Columna "Origen" en tablas */
@@ -518,7 +518,7 @@
   color: var(--navy);
   font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px dashed rgba(27, 42, 94, 0.35);
+  border-bottom: 1px dashed rgba(21, 128, 61, 0.35);
 }
 
 .paper__tabla .origen a:hover {
@@ -686,13 +686,13 @@
 .paper__margen-toc a:focus-visible {
   color: var(--gold);
   border-left-color: var(--gold);
-  background: rgba(184, 148, 62, 0.06);
+  background: rgba(180, 83, 9, 0.06);
 }
 
 /* --- Leyenda [V]/[E] --- */
 .paper__margen-leyenda {
   padding-top: 1.4rem;
-  border-top: 1px solid rgba(27, 42, 94, 0.1);
+  border-top: 1px solid rgba(21, 128, 61, 0.1);
 }
 
 .paper__margen-leyenda-intro {
@@ -769,13 +769,13 @@
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
-    scrollbar-color: rgba(27, 42, 94, 0.2) transparent;
+    scrollbar-color: rgba(21, 128, 61, 0.2) transparent;
   }
 
   .paper--margen .paper__margen-sticky::-webkit-scrollbar { width: 4px; }
   .paper--margen .paper__margen-sticky::-webkit-scrollbar-track { background: transparent; }
   .paper--margen .paper__margen-sticky::-webkit-scrollbar-thumb {
-    background: rgba(27, 42, 94, 0.2);
+    background: rgba(21, 128, 61, 0.2);
     border-radius: 2px;
   }
 
@@ -813,7 +813,7 @@
     color: var(--gold);
     text-decoration: none;
     padding-top: 1.4rem;
-    border-top: 1px solid rgba(27, 42, 94, 0.1);
+    border-top: 1px solid rgba(21, 128, 61, 0.1);
     transition: color var(--transition), gap var(--transition);
   }
 
@@ -871,7 +871,7 @@
   left: 0;
   right: 0;
   height: 180px;
-  background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(184, 148, 62, 0.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(180, 83, 9, 0.07) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -931,7 +931,7 @@
 
 .paper--margen .rh-card {
   background: var(--white);
-  border: 1px solid rgba(27, 42, 94, 0.08);
+  border: 1px solid rgba(21, 128, 61, 0.08);
   border-radius: 4px;
   padding: 1.25rem 1.35rem 1.1rem;
   display: flex;
@@ -1013,7 +1013,7 @@
 .paper--margen .rh-card__ref {
   margin: 0.3rem 0 0;
   padding-top: 0.65rem;
-  border-top: 1px dashed rgba(27, 42, 94, 0.12);
+  border-top: 1px dashed rgba(21, 128, 61, 0.12);
   font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
 }
@@ -1025,7 +1025,7 @@
 .paper--margen .rh-card__ref a {
   color: var(--gold);
   text-decoration: none;
-  border-bottom: 1px solid rgba(184, 148, 62, 0.35);
+  border-bottom: 1px solid rgba(180, 83, 9, 0.35);
   transition: color var(--transition), border-bottom-color var(--transition);
 }
 
@@ -1049,7 +1049,7 @@
 /* --- Sparkline editorial --- */
 .paper--margen .paper__resumen-hero-spark {
   background: var(--white);
-  border: 1px solid rgba(27, 42, 94, 0.08);
+  border: 1px solid rgba(21, 128, 61, 0.08);
   border-radius: 4px;
   padding: 1.35rem 1.5rem 1.4rem;
   margin: 0;
@@ -1109,7 +1109,7 @@
 .paper--margen .rh-spark__ref {
   margin: 0;
   padding-top: 0.65rem;
-  border-top: 1px dashed rgba(27, 42, 94, 0.12);
+  border-top: 1px dashed rgba(21, 128, 61, 0.12);
   font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
 }
@@ -1117,7 +1117,7 @@
 .paper--margen .rh-spark__ref a {
   color: var(--gold);
   text-decoration: none;
-  border-bottom: 1px solid rgba(184, 148, 62, 0.35);
+  border-bottom: 1px solid rgba(180, 83, 9, 0.35);
   transition: color var(--transition), border-bottom-color var(--transition);
 }
 
@@ -1323,14 +1323,14 @@
    sigue navy — se re-declara aquí para que gane por source order. */
 .paper--margen .rh-card {
   background: var(--bg-alt);
-  border: 1px solid rgba(27, 42, 94, 0.08);
-  box-shadow: 0 1px 3px rgba(27, 42, 94, 0.04);
+  border: 1px solid rgba(21, 128, 61, 0.08);
+  box-shadow: 0 1px 3px rgba(21, 128, 61, 0.04);
 }
 
 .paper--margen .rh-card--accent {
   background: var(--navy);
   border-color: var(--navy);
-  box-shadow: 0 2px 6px rgba(27, 42, 94, 0.18);
+  box-shadow: 0 2px 6px rgba(21, 128, 61, 0.18);
 }
 
 /* Sparkline: aspect-ratio garantiza puntos circulares (B5 cerrado).
@@ -1347,8 +1347,8 @@
 /* La sparkline también vive en su tarjeta bg-alt */
 .paper--margen .paper__resumen-hero-spark {
   background: var(--bg-alt);
-  border: 1px solid rgba(27, 42, 94, 0.08);
-  box-shadow: 0 1px 3px rgba(27, 42, 94, 0.04);
+  border: 1px solid rgba(21, 128, 61, 0.08);
+  box-shadow: 0 1px 3px rgba(21, 128, 61, 0.04);
 }
 
 /* ==========================================================================
@@ -1370,10 +1370,10 @@
 
 .paper--margen .rh-viz {
   background: var(--bg-alt);
-  border: 1px solid rgba(27, 42, 94, 0.08);
+  border: 1px solid rgba(21, 128, 61, 0.08);
   border-radius: 4px;
   padding: 1.1rem 1.25rem 1.15rem;
-  box-shadow: 0 1px 3px rgba(27, 42, 94, 0.04);
+  box-shadow: 0 1px 3px rgba(21, 128, 61, 0.04);
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
@@ -1416,7 +1416,7 @@
 .paper--margen .rh-viz__track {
   position: relative;
   height: 22px;
-  background: rgba(27, 42, 94, 0.05);
+  background: rgba(21, 128, 61, 0.05);
   border-radius: 2px;
   overflow: visible;
 }
@@ -1432,7 +1432,7 @@
 }
 
 .paper--margen .rh-viz__bar--prev {
-  background: linear-gradient(90deg, var(--navy) 0%, rgba(27, 42, 94, 0.7) 100%);
+  background: linear-gradient(90deg, var(--navy) 0%, rgba(21, 128, 61, 0.7) 100%);
 }
 
 .paper--margen .rh-viz__bar--curr {
@@ -1469,10 +1469,10 @@
   position: relative;
   height: 36px;
   background: linear-gradient(to right,
-    rgba(184, 148, 62, 0.18) 0%,
-    rgba(184, 148, 62, 0.05) 30%,
-    rgba(27, 42, 94, 0.05) 70%,
-    rgba(27, 42, 94, 0.18) 100%);
+    rgba(180, 83, 9, 0.18) 0%,
+    rgba(180, 83, 9, 0.05) 30%,
+    rgba(21, 128, 61, 0.05) 70%,
+    rgba(21, 128, 61, 0.18) 100%);
   border-radius: 18px;
   margin: 0 0 0.4rem;
 }
@@ -1491,7 +1491,7 @@
   border-radius: 50%;
   background: var(--gold);
   border: 2px solid var(--white);
-  box-shadow: 0 1px 3px rgba(27, 42, 94, 0.25);
+  box-shadow: 0 1px 3px rgba(21, 128, 61, 0.25);
   z-index: 2;
 }
 
@@ -1518,7 +1518,7 @@
 .paper--margen .rh-viz__scale-mark {
   width: 2px;
   height: 28px;
-  background: rgba(27, 42, 94, 0.45);
+  background: rgba(21, 128, 61, 0.45);
   border-radius: 1px;
   z-index: 1;
 }
@@ -1566,7 +1566,7 @@
 .paper--margen .rh-viz__ref {
   margin: 0;
   padding-top: 0.7rem;
-  border-top: 1px dashed rgba(27, 42, 94, 0.12);
+  border-top: 1px dashed rgba(21, 128, 61, 0.12);
   font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
 }
@@ -1574,7 +1574,7 @@
 .paper--margen .rh-viz__ref a {
   color: var(--gold);
   text-decoration: none;
-  border-bottom: 1px solid rgba(184, 148, 62, 0.35);
+  border-bottom: 1px solid rgba(180, 83, 9, 0.35);
   transition: color var(--transition), border-bottom-color var(--transition);
 }
 
@@ -1586,8 +1586,8 @@
 
 /* ==========================================================================
    Ronda 4 : gráficos vivos — hover + tooltips + accesibilidad
-   Paleta editorial estricta (navy #1B2A5E, gold #B8943E, bg-alt #F4F5FA,
-   text-secondary #6C757D, white). Ningún color fuera de paleta.
+   Paleta editorial estricta (navy #15803D, gold #B45309, bg-alt #FAFAF9,
+   text-secondary #4B5563, white). Ningún color fuera de paleta.
    ========================================================================== */
 
 /* ---------- Sparkline interactivo ---------- */
@@ -1609,7 +1609,7 @@
 
 .paper--margen .rh-spark__point:hover,
 .paper--margen .rh-spark__point:focus {
-  fill: rgba(184, 148, 62, 0.18); /* gold con alfa, dentro de paleta */
+  fill: rgba(180, 83, 9, 0.18); /* gold con alfa, dentro de paleta */
   stroke: var(--navy);
   stroke-width: 1.5;
   outline: none;
@@ -1737,13 +1737,13 @@
 .paper--margen .rh-card:hover,
 .paper--margen .rh-card:focus-within {
   transform: translateY(-2px);
-  border-color: rgba(27, 42, 94, 0.16);
-  box-shadow: 0 8px 22px rgba(27, 42, 94, 0.1);
+  border-color: rgba(21, 128, 61, 0.16);
+  box-shadow: 0 8px 22px rgba(21, 128, 61, 0.1);
 }
 
 .paper--margen .rh-card--accent:hover,
 .paper--margen .rh-card--accent:focus-within {
-  box-shadow: 0 10px 26px rgba(27, 42, 94, 0.32);
+  box-shadow: 0 10px 26px rgba(21, 128, 61, 0.32);
 }
 
 /* ---------- Barras Recursos: brillo y resaltado en hover/focus ---------- */
@@ -1759,7 +1759,7 @@
 .paper--margen .rh-viz__bar-row:hover,
 .paper--margen .rh-viz__bar-row:focus-visible {
   outline: none;
-  background-color: rgba(27, 42, 94, 0.03);
+  background-color: rgba(21, 128, 61, 0.03);
 }
 
 .paper--margen .rh-viz__bar {
@@ -1769,7 +1769,7 @@
 .paper--margen .rh-viz__bar-row:hover .rh-viz__bar,
 .paper--margen .rh-viz__bar-row:focus-visible .rh-viz__bar {
   filter: brightness(1.08) saturate(1.08);
-  box-shadow: 0 1px 6px rgba(27, 42, 94, 0.22);
+  box-shadow: 0 1px 6px rgba(21, 128, 61, 0.22);
 }
 
 /* ---------- Scale ticks (AFOREs): scale + tooltip nativo ---------- */
@@ -1782,7 +1782,7 @@
 .paper--margen .rh-viz__scale-tick:hover,
 .paper--margen .rh-viz__scale-tick:focus-visible {
   transform: translate(-50%, -50%) scale(1.4);
-  box-shadow: 0 3px 10px rgba(27, 42, 94, 0.35);
+  box-shadow: 0 3px 10px rgba(21, 128, 61, 0.35);
   outline: none;
   z-index: 3;
 }
@@ -1791,7 +1791,7 @@
 .paper--margen .rh-viz__scale-tick:focus-visible.rh-viz__scale-tick--cluster::before,
 .paper--margen .rh-viz__scale-tick--cluster:hover::after,
 .paper--margen .rh-viz__scale-tick:focus-visible.rh-viz__scale-tick--cluster::after {
-  box-shadow: 0 3px 10px rgba(27, 42, 94, 0.3);
+  box-shadow: 0 3px 10px rgba(21, 128, 61, 0.3);
 }
 
 /* ---------- Reduced motion: respetamos la preferencia del usuario ---------- */
@@ -1831,7 +1831,7 @@
 /* Estado activo del punto del sparkline (aunque el punto es invisible,
    la escala del marcador visible .rh-spark__active hace el trabajo). */
 .paper--margen .rh-spark__point.is-active {
-  fill: rgba(184, 148, 62, 0.22);
+  fill: rgba(180, 83, 9, 0.22);
 }
 
 /* Marcador activo VISIBLE: navy con borde blanco, sigue al punto más cercano.
@@ -1852,23 +1852,23 @@
 /* Estado activo de los ticks: escalado igual al hover */
 .paper--margen .rh-viz__scale-tick.is-active {
   transform: translate(-50%, -50%) scale(1.4);
-  box-shadow: 0 3px 10px rgba(27, 42, 94, 0.35);
+  box-shadow: 0 3px 10px rgba(21, 128, 61, 0.35);
   z-index: 3;
 }
 
 .paper--margen .rh-viz__scale-mark.is-active {
   background: var(--gold);
   width: 3px;
-  box-shadow: 0 0 6px rgba(184, 148, 62, 0.6);
+  box-shadow: 0 0 6px rgba(180, 83, 9, 0.6);
 }
 
 /* Estado activo de la barra Recursos: brillo + sombra igual al hover */
 .paper--margen .rh-viz__bar-row.is-active {
-  background-color: rgba(27, 42, 94, 0.03);
+  background-color: rgba(21, 128, 61, 0.03);
 }
 .paper--margen .rh-viz__bar-row.is-active .rh-viz__bar {
   filter: brightness(1.08) saturate(1.08);
-  box-shadow: 0 1px 6px rgba(27, 42, 94, 0.22);
+  box-shadow: 0 1px 6px rgba(21, 128, 61, 0.22);
 }
 
 /* Reduced motion aplicado al marcador activo del sparkline */
@@ -1912,7 +1912,7 @@
 .paper--margen .rh-afore-row:hover,
 .paper--margen .rh-afore-row.is-active,
 .paper--margen .rh-afore-row:focus-visible {
-  background-color: rgba(27, 42, 94, 0.055);
+  background-color: rgba(21, 128, 61, 0.055);
   outline: none;
 }
 
@@ -1958,9 +1958,9 @@
   top: 50%;
   height: 1px;
   background: linear-gradient(to right,
-    rgba(27, 42, 94, 0.12) 0%,
-    rgba(27, 42, 94, 0.06) 50%,
-    rgba(27, 42, 94, 0.12) 100%);
+    rgba(21, 128, 61, 0.12) 0%,
+    rgba(21, 128, 61, 0.06) 50%,
+    rgba(21, 128, 61, 0.12) 100%);
   transform: translateY(-50%);
 }
 
@@ -1974,7 +1974,7 @@
   border-radius: 50%;
   background: var(--navy);
   border: 2px solid var(--white);
-  box-shadow: 0 1px 3px rgba(27, 42, 94, 0.22);
+  box-shadow: 0 1px 3px rgba(21, 128, 61, 0.22);
   transform: translate(-50%, -50%);
   transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.18s ease,
@@ -1983,20 +1983,20 @@
 
 .paper--margen .rh-afore-row--outlier .rh-afore-dot {
   background: var(--gold);
-  box-shadow: 0 1px 3px rgba(184, 148, 62, 0.28);
+  box-shadow: 0 1px 3px rgba(180, 83, 9, 0.28);
 }
 
 .paper--margen .rh-afore-row:hover .rh-afore-dot,
 .paper--margen .rh-afore-row.is-active .rh-afore-dot,
 .paper--margen .rh-afore-row:focus-visible .rh-afore-dot {
   transform: translate(-50%, -50%) scale(1.35);
-  box-shadow: 0 2px 8px rgba(27, 42, 94, 0.35);
+  box-shadow: 0 2px 8px rgba(21, 128, 61, 0.35);
   z-index: 2;
 }
 
 .paper--margen .rh-afore-row--outlier:hover .rh-afore-dot,
 .paper--margen .rh-afore-row--outlier.is-active .rh-afore-dot {
-  box-shadow: 0 2px 8px rgba(184, 148, 62, 0.45);
+  box-shadow: 0 2px 8px rgba(180, 83, 9, 0.45);
 }
 
 .paper--margen .rh-afore-value {
@@ -2022,7 +2022,7 @@
 }
 
 .paper--margen .rh-afore-row--outlier .rh-afore-unit {
-  color: rgba(184, 148, 62, 0.75);
+  color: rgba(180, 83, 9, 0.75);
 }
 
 /* Eje de valores debajo del dot plot */
@@ -2037,7 +2037,7 @@
   color: var(--text-secondary);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
-  border-top: 1px dashed rgba(27, 42, 94, 0.12);
+  border-top: 1px dashed rgba(21, 128, 61, 0.12);
   margin-top: 0.35rem;
 }
 
@@ -2244,7 +2244,7 @@
   gap: 0.5rem 0.75rem;
   margin: 1.1rem 0 0.35rem;
   padding: 0.7rem 1rem;
-  background: rgba(184, 148, 62, 0.07);
+  background: rgba(180, 83, 9, 0.07);
   border-left: 3px solid var(--gold);
   border-radius: 3px;
   font-size: 0.88rem;
@@ -2260,7 +2260,7 @@
   color: var(--navy);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: rgba(27, 42, 94, 0.35);
+  text-decoration-color: rgba(21, 128, 61, 0.35);
   text-underline-offset: 2px;
 }
 

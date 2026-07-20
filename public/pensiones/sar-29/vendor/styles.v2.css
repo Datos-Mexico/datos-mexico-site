@@ -5,13 +5,13 @@
 
 /* --- Variables --- */
 :root {
-  --navy: #1B2A5E;
-  --navy-dark: #0F1B3D;
-  --gold: #B8943E;
-  --gold-light: #D4B15A;
-  --bg-alt: #F4F5FA;
+  --navy: #15803D;
+  --navy-dark: #166534;
+  --gold: #B45309;
+  --gold-light: #D97706;
+  --bg-alt: #FAFAF9;
   --text-primary: #212529;
-  --text-secondary: #6C757D;
+  --text-secondary: #4B5563;
   --white: #FFFFFF;
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);

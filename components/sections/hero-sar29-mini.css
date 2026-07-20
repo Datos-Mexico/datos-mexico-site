@@ -1,0 +1,80 @@
+/* Miniatura viva de la serie SAR-29 para la tarjeta del hero (F9).
+   Paleta gris subordinada al hero — el color de marca es de la pieza real.
+   Cadencia de entrada idéntica al original (sar29-timeline.css):
+   0.9s cubic-bezier(0.16,1,0.3,1), stagger por barra vía --delay,
+   paused hasta que IntersectionObserver agrega .is-inview.
+   Cero cifras: sin tooltips, sin años, sin ejes. */
+
+.hp-mini {
+  --hp-base: #D6D3D1;   /* stone-300: reposo */
+  --hp-hot: #57534E;    /* mutedForeground del sitio: pico de proximidad */
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  width: 100%;
+  height: 100%;
+}
+
+/* La tarjeta entera es .group (tailwind); al posarse en ella la miniatura
+   sube apenas de tono — respuesta unificada, previa al efecto por barra. */
+.group:hover .hp-mini {
+  --hp-base: #C6C2BE;
+}
+
+.hp-mini__bar {
+  flex: 1 1 0;
+  height: max(2px, var(--h, 50%));
+  transform-origin: bottom center;
+  animation: hp-mini-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms) both;
+  animation-play-state: paused;
+}
+
+.hp-mini.is-inview .hp-mini__bar {
+  animation-play-state: running;
+}
+
+@keyframes hp-mini-rise {
+  from {
+    transform: scaleY(0);
+    opacity: 0.5;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Relleno interior: recibe el efecto de proximidad (--prox ∈ [0,1], lo
+   escribe el rAF del componente). Se separa del contenedor para que el
+   lift no compita con la animación de entrada del contenedor. */
+.hp-mini__fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5px 1.5px 0 0;
+  background-color: color-mix(
+    in srgb,
+    var(--hp-hot) calc(var(--prox, 0) * 100%),
+    var(--hp-base)
+  );
+  box-shadow: 0 -3px 10px rgba(87, 83, 78, calc(var(--prox, 0) * 0.28));
+  transform-origin: bottom center;
+  transform: scaleY(calc(1 + 0.12 * var(--prox, 0)));
+  transition: background-color 0.2s ease;
+  will-change: transform;
+}
+
+/* Fallback :hover directo (sin JS o puntero grueso): tono profundo, sin cifra. */
+.hp-mini__bar:hover .hp-mini__fill {
+  background-color: var(--hp-hot);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-mini__bar {
+    animation: none; /* estado final directo, sin entrada */
+  }
+  .hp-mini__fill {
+    transition: none;          /* el hover conserva respuesta, no animada */
+    transform: none !important; /* sin lift; solo cambio de tono */
+  }
+}

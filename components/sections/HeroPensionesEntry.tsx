@@ -1,14 +1,14 @@
 import { ArrowRight } from "lucide-react";
-import { sar29Entregas } from "@/lib/pensiones/sar29";
+import { HeroSar29Mini } from "./HeroSar29Mini";
 
 /**
  * Entrada a la sección /pensiones desde el hero de la home.
  *
  * Pieza subordinada: vive como último elemento del bloque del hero, después
  * del mensaje principal. No compite con el titular ni introduce requests
- * externos. El skyline de 29 barras es decorativo (aria-hidden), estático y
- * derivado de los mismos `barH` de la serie — insinúa la forma del SAR en 29
- * años sin animación (nada que condicionar bajo reduced-motion).
+ * externos. La miniatura de 29 barras (HeroSar29Mini, único client component)
+ * es decorativa (aria-hidden), en gris y sin cifras — insinúa la forma de la
+ * serie; el dato exacto es la recompensa de entrar a /pensiones.
  */
 export function HeroPensionesEntry() {
   return (
@@ -32,16 +32,10 @@ export function HeroPensionesEntry() {
         </div>
 
         <div
-          className="hidden items-end gap-[3px] md:flex md:h-14 md:w-[220px] lg:w-[248px]"
+          className="hidden md:block md:h-14 md:w-[220px] lg:w-[248px]"
           aria-hidden="true"
         >
-          {sar29Entregas.map((e) => (
-            <span
-              key={e.year}
-              className="flex-1 rounded-[1px] bg-primary/25 transition-colors group-hover:bg-primary/40"
-              style={{ height: `max(2px, ${e.barH})` }}
-            />
-          ))}
+          <HeroSar29Mini />
         </div>
 
         <span className="inline-flex flex-shrink-0 items-center gap-1.5 font-sans text-[15px] font-medium text-primary transition-[gap] group-hover:gap-2.5">

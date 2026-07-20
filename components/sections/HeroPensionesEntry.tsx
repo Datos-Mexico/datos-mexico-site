@@ -22,11 +22,12 @@ export function HeroPensionesEntry() {
             Pensiones
           </p>
           <h2 className="mt-2 font-serif text-[19px] font-semibold leading-[1.25] text-foreground md:text-[21px]">
-            El SAR en 29 años, diez calculadoras y un recorrido personal.
+            Veintinueve años del SAR, documentados año por año.
           </h2>
           <p className="mt-1.5 font-sans text-[14px] leading-[1.55] text-text-subtle md:text-[15px]">
-            La serie completa 1997–2025, las calculadoras de pensión IMSS y el
-            recorrido «Tu retiro», reunidos en una sola sección.
+            Serie descriptiva 1997–2025 verificada contra CONSAR, diez
+            calculadoras de pensión IMSS con supuestos públicos y el recorrido
+            «Tu retiro».
           </p>
         </div>
 
@@ -44,7 +45,7 @@ export function HeroPensionesEntry() {
         </div>
 
         <span className="inline-flex flex-shrink-0 items-center gap-1.5 font-sans text-[15px] font-medium text-primary transition-[gap] group-hover:gap-2.5">
-          Entrar a la sección
+          Ver la sección de pensiones
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </span>
       </div>

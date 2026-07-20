@@ -7,6 +7,7 @@ import { brand, navigation } from "@/lib/design-tokens";
 const resources = [
   { label: "Boletín", href: "/boletin", external: false },
   { label: "Modelo institucional", href: "/modelo", external: false },
+  { label: "Pensiones", href: "/pensiones", external: false },
   { label: "Repositorio público", href: "https://github.com/datos-mexico/datos-mexico-py", external: true },
   { label: "Docs SDK", href: "https://docs.datosmexico.org", external: true },
   { label: "API documentación", href: "https://api.datos-itam.org/docs", external: true },

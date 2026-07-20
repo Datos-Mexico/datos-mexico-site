@@ -2,6 +2,7 @@ import { Container } from "@/components/layout/Container";
 import { Display, Lead, Eyebrow, Mono } from "@/components/typography";
 import { Button } from "@/components/ui/Button";
 import { ExternalLinkIcon } from "@/components/ui/ExternalLinkIcon";
+import { HeroPensionesEntry } from "./HeroPensionesEntry";
 
 export function Hero() {
   return (
@@ -39,6 +40,8 @@ export function Hero() {
             <Mono className="mt-10 block text-[13px]">
               Validado al peso contra INEGI · CONSAR · Banxico
             </Mono>
+
+            <HeroPensionesEntry />
           </div>
         </div>
       </Container>

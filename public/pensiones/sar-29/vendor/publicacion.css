@@ -462,7 +462,7 @@
 
 .regimen-flag--flujo {
   background: rgba(180, 83, 9, 0.15);
-  color: #6e5828;
+  color: #92400E;
   border: 1px solid rgba(180, 83, 9, 0.4);
 }
 
@@ -504,7 +504,7 @@
 
 .fuente-badge--e {
   background: rgba(180, 83, 9, 0.12);
-  color: #7a6024;
+  color: #92400E;
   border: 1px solid rgba(180, 83, 9, 0.4);
 }
 
@@ -956,7 +956,7 @@
 }
 
 .paper--margen .rh-card--accent .rh-card__label {
-  color: var(--gold-light);
+  color: #FEF3C7;
 }
 
 .paper--margen .rh-card__big {
@@ -1030,8 +1030,8 @@
 }
 
 .paper--margen .rh-card--accent .rh-card__ref a {
-  color: var(--gold-light);
-  border-bottom-color: rgba(212, 177, 90, 0.4);
+  color: var(--white);
+  border-bottom-color: rgba(255, 255, 255, 0.4);
 }
 
 .paper--margen .rh-card__ref a:hover,
@@ -1635,8 +1635,8 @@
   padding: 0.55rem 0.85rem 0.6rem;
   border-radius: 4px;
   box-shadow:
-    0 8px 24px rgba(15, 27, 61, 0.28),
-    0 2px 6px rgba(15, 27, 61, 0.18);
+    0 8px 24px rgba(22, 101, 52, 0.28),
+    0 2px 6px rgba(22, 101, 52, 0.18);
   font-family: 'Inter', sans-serif;
   line-height: 1.35;
   white-space: nowrap;
@@ -1663,7 +1663,7 @@
   transform: translateX(-50%);
   border: 6px solid transparent;
   border-top-color: var(--navy-dark);
-  filter: drop-shadow(0 2px 1px rgba(15, 27, 61, 0.15));
+  filter: drop-shadow(0 2px 1px rgba(22, 101, 52, 0.15));
 }
 
 .paper--margen .rh-tip__title {
@@ -1671,7 +1671,7 @@
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: var(--gold-light);
+  color: #FEF3C7;
   margin-bottom: 0.15rem;
   font-variant-numeric: tabular-nums;
 }
@@ -1700,9 +1700,9 @@
   letter-spacing: 0.04em;
   padding: 0.05rem 0.3rem;
   border-radius: 2px;
-  background: rgba(212, 177, 90, 0.18);
-  color: var(--gold-light);
-  border: 1px solid rgba(212, 177, 90, 0.45);
+  background: rgba(217, 119, 6, 0.18);
+  color: #FEF3C7;
+  border: 1px solid rgba(217, 119, 6, 0.45);
   line-height: 1.2;
   vertical-align: middle;
 }

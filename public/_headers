@@ -1,2 +1,20 @@
-/pensiones/sar-29/vendor/*
+# Política de caché de la colección SAR-29 (F11).
+# Regla: immutable SOLO para URLs cuyo contenido no puede cambiar sin cambiar
+# de nombre (versión en el nombre o binarios congelados). Un nombre estable
+# con contenido mutable NUNCA lleva immutable — al cambiar su contenido, el
+# cambio exige version-bump de URL.
+
+/pensiones/sar-29/vendor/fonts/*
   Cache-Control: public, max-age=31536000, immutable
+
+/pensiones/sar-29/vendor/chart-4.5.1.umd.min.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/pensiones/sar-29/vendor/publicacion.v2.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/pensiones/sar-29/vendor/styles.v3.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/pensiones/sar-29/vendor/fonts.css
+  Cache-Control: public, max-age=0, must-revalidate

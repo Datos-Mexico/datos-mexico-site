@@ -1,4 +1,4 @@
-// Datos estatales de la coropleta de la home — 13 indicadores.
+// Datos estatales de la coropleta de la home — 18 indicadores.
 // ARCHIVO GENERADO por scripts/build-mapa-indicadores.ts — no editar a mano.
 // Cero transcripción: cada valor fue extraído programáticamente de su fuente
 // oficial y cruzado contra la cifra nacional publicada (el generador aborta
@@ -11,7 +11,7 @@
 import type { ClaveEntidad } from "./estados-geometria";
 
 export type IndicadorId =
-  "informalidad" | "pobreza-laboral" | "empleo-formal" | "pib" | "poblacion" | "ingreso" | "desempleo" | "homicidios" | "mujeres-asesinadas" | "victimas-delito" | "robo-coches" | "percepcion" | "escolaridad";
+  "informalidad" | "pobreza-laboral" | "empleo-formal" | "pib" | "poblacion" | "ingreso" | "desempleo" | "homicidios" | "mujeres-asesinadas" | "victimas-delito" | "robo-coches" | "percepcion" | "escolaridad" | "pobreza" | "pobreza-extrema" | "falta-comida" | "ingreso-hogar" | "gini";
 
 export interface IndicadorMapa {
   id: IndicadorId;
@@ -276,5 +276,96 @@ export const INDICADORES: readonly IndicadorMapa[] = [
     valoresFmt: {"10":"9.7","11":"9.0","12":"8.4","13":"9.4","14":"9.9","15":"10.1","16":"8.6","17":"9.8","18":"9.7","19":"10.7","20":"8.1","21":"9.2","22":"10.5","23":"10.2","24":"9.6","25":"10.2","26":"10.4","27":"9.7","28":"10.1","29":"9.8","30":"8.7","31":"9.6","32":"9.2","01":"10.3","02":"10.2","03":"10.3","04":"9.6","05":"10.4","06":"10.0","07":"7.8","08":"10.0","09":"11.5"},
     quintil: {"10":3,"11":1,"12":1,"13":2,"14":3,"15":4,"16":1,"17":3,"18":3,"19":5,"20":1,"21":1,"22":5,"23":4,"24":2,"25":4,"26":5,"27":2,"28":4,"29":3,"30":1,"31":2,"32":2,"07":1,"04":2,"08":3,"06":4,"02":4,"03":5,"01":5,"05":5,"09":5},
     rangosQuintil: [["7.8","9.2"],["9.2","9.7"],["9.7","10.0"],["10.0","10.2"],["10.3","11.5"]],
+  },
+  // Serie: "Población en situación de pobreza", porcentaje de personas, 2024.
+  // Extracción: https://www.inegi.org.mx/contenidos/desarrollosocial/pm/tabulados/pm_ef_2024.xlsx (hojas por entidad, bloque Porcentaje 2024)
+  // SHA-256 tabulado: 8ea643bcb15877f5fc666b0ccd02d28a06f2ac78d052ebb8fcc304814024b9d8
+  {
+    id: "pobreza",
+    grupo: "panorama",
+    nombre: "Pobreza multidimensional",
+    unidad: "% de personas en pobreza multidimensional",
+    tooltipSufijo: "de cada 100 personas viven en pobreza",
+    periodo: "2024",
+    fuenteCita: "Fuente: INEGI, Pobreza Multidimensional 2024 (serie CONEVAL continuada por INEGI, metodología intacta), tabulado por entidad federativa. Porcentaje de personas con ingreso bajo la línea de pobreza y al menos una carencia social. Bienal: próximo dato ~agosto 2027.",
+    valorNacional: 29.5585393874,
+    valorNacionalFmt: "29.6 %",
+    valores: {"10":27.8836341402,"11":25.9901386777,"12":58.0610891027,"13":35.3090128011,"14":18.6316104925,"15":31.1960352171,"16":34.2986448426,"17":35.3565354264,"18":23.5022095909,"19":10.5795446073,"20":51.6137646138,"21":43.442769114,"22":16.3260099131,"23":17.7468519293,"24":30.4051503805,"25":16.9986100247,"26":14.1142650311,"27":34.8039271812,"28":20.1531927416,"29":40.8051931057,"30":44.5017883949,"31":26.6402300924,"32":36.4275948228,"01":17.0684818735,"02":9.871686006100001,"03":10.1682404802,"04":36.7490351329,"05":12.3806823468,"06":14.9768884103,"07":65.9682118776,"08":15.1128018254,"09":19.7260753872},
+    valoresFmt: {"10":"27.9 %","11":"26.0 %","12":"58.1 %","13":"35.3 %","14":"18.6 %","15":"31.2 %","16":"34.3 %","17":"35.4 %","18":"23.5 %","19":"10.6 %","20":"51.6 %","21":"43.4 %","22":"16.3 %","23":"17.7 %","24":"30.4 %","25":"17.0 %","26":"14.1 %","27":"34.8 %","28":"20.2 %","29":"40.8 %","30":"44.5 %","31":"26.6 %","32":"36.4 %","01":"17.1 %","02":"9.9 %","03":"10.2 %","04":"36.7 %","05":"12.4 %","06":"15.0 %","07":"66.0 %","08":"15.1 %","09":"19.7 %"},
+    quintil: {"10":3,"11":3,"12":5,"13":4,"14":2,"15":4,"16":4,"17":4,"18":3,"19":1,"20":5,"21":5,"22":2,"23":2,"24":3,"25":2,"26":1,"27":4,"28":3,"29":5,"30":5,"31":3,"32":4,"02":1,"03":1,"05":1,"06":1,"08":1,"01":2,"09":2,"04":5,"07":5},
+    rangosQuintil: [["9.9","15.1"],["16.3","19.7"],["20.2","30.4"],["31.2","36.4"],["36.7","66.0"]],
+  },
+  // Serie: "Población en situación de pobreza extrema", porcentaje de personas, 2024.
+  // Extracción: https://www.inegi.org.mx/contenidos/desarrollosocial/pm/tabulados/pm_ef_2024.xlsx (hojas por entidad, bloque Porcentaje 2024)
+  // SHA-256 tabulado: 8ea643bcb15877f5fc666b0ccd02d28a06f2ac78d052ebb8fcc304814024b9d8
+  {
+    id: "pobreza-extrema",
+    grupo: "panorama",
+    nombre: "Pobreza extrema",
+    unidad: "% de personas en pobreza extrema",
+    tooltipSufijo: "de cada 100 personas viven en pobreza extrema",
+    periodo: "2024",
+    fuenteCita: "Fuente: INEGI, Pobreza Multidimensional 2024 (serie CONEVAL continuada por INEGI). Porcentaje de personas con ingreso bajo la línea de pobreza extrema (el valor de la canasta alimentaria) y tres o más carencias sociales. Bienal: próximo dato ~agosto 2027.",
+    valorNacional: 5.3381295562,
+    valorNacionalFmt: "5.3 %",
+    valores: {"10":4.3392616176,"11":1.7259924326,"12":21.3362936015,"13":5.6527683351,"14":1.3078076217,"15":3.7067994759,"16":5.4467678626,"17":4.8884739702,"18":3.7171981165,"19":0.4824983803,"20":16.2692873735,"21":7.2967397017,"22":1.1143855066,"23":2.6127171977,"24":5.0644666427,"25":1.4556316001,"26":1.4771867861,"27":6.4816968038,"28":1.4647916006,"29":4.3544878051,"30":8.8208331017,"31":3.5861751179,"32":3.5236728907,"01":0.5791350994000001,"02":0.3552322268,"03":1.2192593774,"04":5.8464229846,"05":0.750577418,"06":0.9522773556,"07":27.1267233355,"08":2.2368397013,"09":1.8141976236},
+    valoresFmt: {"10":"4.3 %","11":"1.7 %","12":"21.3 %","13":"5.7 %","14":"1.3 %","15":"3.7 %","16":"5.4 %","17":"4.9 %","18":"3.7 %","19":"0.5 %","20":"16.3 %","21":"7.3 %","22":"1.1 %","23":"2.6 %","24":"5.1 %","25":"1.5 %","26":"1.5 %","27":"6.5 %","28":"1.5 %","29":"4.4 %","30":"8.8 %","31":"3.6 %","32":"3.5 %","01":"0.6 %","02":"0.4 %","03":"1.2 %","04":"5.8 %","05":"0.8 %","06":"1.0 %","07":"27.1 %","08":"2.2 %","09":"1.8 %"},
+    quintil: {"10":4,"11":2,"12":5,"13":4,"14":2,"15":3,"16":4,"17":4,"18":3,"19":1,"20":5,"21":5,"22":1,"23":3,"24":4,"25":2,"26":2,"27":5,"28":2,"29":4,"30":5,"31":3,"32":3,"02":1,"01":1,"05":1,"06":1,"03":1,"09":2,"08":3,"04":5,"07":5},
+    rangosQuintil: [["0.4","1.2"],["1.3","1.8"],["2.2","3.7"],["4.3","5.7"],["5.8","27.1"]],
+  },
+  // Serie: "Carencia por acceso a la alimentación nutritiva y de calidad", porcentaje de personas, 2024.
+  // Extracción: https://www.inegi.org.mx/contenidos/desarrollosocial/pm/tabulados/pm_ef_2024.xlsx (hojas por entidad, bloque Porcentaje 2024)
+  // SHA-256 tabulado: 8ea643bcb15877f5fc666b0ccd02d28a06f2ac78d052ebb8fcc304814024b9d8
+  {
+    id: "falta-comida",
+    grupo: "panorama",
+    nombre: "Carencia alimentaria",
+    unidad: "% de personas con carencia por acceso a la alimentación",
+    tooltipSufijo: "de cada 100 personas viven en hogares donde falta comida",
+    periodo: "2024",
+    fuenteCita: "Fuente: INEGI, Pobreza Multidimensional 2024 (metodología CONEVAL). Carencia por acceso a la alimentación nutritiva y de calidad: personas en hogares con inseguridad alimentaria moderada o severa. Personas, no hogares. Bienal: próximo dato ~agosto 2027.",
+    valorNacional: 14.4004351413,
+    valorNacionalFmt: "14.4 %",
+    valores: {"10":14.516793877,"11":16.896124526,"12":27.9199584482,"13":16.3980931435,"14":7.967691035600001,"15":14.6053270552,"16":20.4210214307,"17":16.8544111935,"18":12.928198757,"19":9.271183374,"20":23.5179644611,"21":16.9514768796,"22":9.9152666358,"23":13.0818636766,"24":11.6794135617,"25":12.230443169,"26":14.2306010925,"27":32.6571802295,"28":9.745798626700001,"29":20.815157827,"30":14.1524490817,"31":14.6527908286,"32":11.2796768673,"01":8.7088100434,"02":8.1068927266,"03":9.6030344796,"04":16.9043446255,"05":8.9771078584,"06":10.1255888051,"07":20.6341413888,"08":9.9034163883,"09":9.8653007994},
+    valoresFmt: {"10":"14.5 %","11":"16.9 %","12":"27.9 %","13":"16.4 %","14":"8.0 %","15":"14.6 %","16":"20.4 %","17":"16.9 %","18":"12.9 %","19":"9.3 %","20":"23.5 %","21":"17.0 %","22":"9.9 %","23":"13.1 %","24":"11.7 %","25":"12.2 %","26":"14.2 %","27":"32.7 %","28":"9.7 %","29":"20.8 %","30":"14.2 %","31":"14.7 %","32":"11.3 %","01":"8.7 %","02":"8.1 %","03":"9.6 %","04":"16.9 %","05":"9.0 %","06":"10.1 %","07":"20.6 %","08":"9.9 %","09":"9.9 %"},
+    quintil: {"10":3,"11":4,"12":5,"13":4,"14":1,"15":4,"16":5,"17":4,"18":3,"19":1,"20":5,"21":5,"22":2,"23":3,"24":2,"25":3,"26":3,"27":5,"28":1,"29":5,"30":3,"31":4,"32":2,"02":1,"01":1,"05":1,"03":1,"09":2,"08":2,"06":2,"04":4,"07":5},
+    rangosQuintil: [["8.0","9.7"],["9.9","11.7"],["12.2","14.5"],["14.6","16.9"],["17.0","32.7"]],
+  },
+  // Serie: ingreso corriente total promedio trimestral por hogar (precios constantes 2024).
+  // Extracción: https://www.inegi.org.mx/contenidos/programas/enigh/nc/2024/tabulados/enigh2024_ns_ef_tabulados.xlsx (Cuadro 2.1, columna 2024)
+  // SHA-256 tabulado: 70b3c7ea2dc8dc015d8cd71538a24e27b18e2ea077dfa96216503a31075beb28
+  {
+    id: "ingreso-hogar",
+    grupo: "panorama",
+    nombre: "Ingreso del hogar",
+    unidad: "pesos por hogar al trimestre (2024)",
+    tooltipSufijo: "junta un hogar al trimestre en promedio",
+    periodo: "2024",
+    fuenteCita: "Fuente: INEGI, ENIGH 2024 (nueva serie), Cuadro 2.1. Ingreso corriente total promedio trimestral por hogar, pesos de 2024; incluye ingreso no monetario (estimación del alquiler de la vivienda propia y pagos en especie). No comparable con \"Lo que deja el trabajo\" (El Bolsillo): aquel mide solo ingreso laboral, mensual por persona y en pesos de 2020. Bienal: próximo dato ~julio 2027.",
+    valorNacional: 77863.8430119963,
+    valorNacionalFmt: "$77,864",
+    valores: {"10":69589.0916280382,"11":74544.7484356233,"12":48547.9912159928,"13":59460.7850570816,"14":87198.982104813,"15":74161.7932716856,"16":68233.8790480951,"17":66194.7129545029,"18":74601.1312547148,"19":117033.881116807,"20":52024.8931632056,"21":62161.6394297658,"22":97614.6432849339,"23":88754.4153171272,"24":73204.9674211823,"25":82837.0390308593,"26":94721.4940240843,"27":65000.5569398917,"28":77302.2871528748,"29":58833.8954117987,"30":53030.4179857877,"31":79972.1084247346,"32":60291.9710762925,"01":89819.456933644,"02":101187.423594563,"03":104727.724040704,"04":66235.7671024304,"05":87651.7744057107,"06":86241.1885160266,"07":41083.7712658137,"08":92363.3416910891,"09":110684.847460914},
+    valoresFmt: {"10":"$69,589","11":"$74,545","12":"$48,548","13":"$59,461","14":"$87,199","15":"$74,162","16":"$68,234","17":"$66,195","18":"$74,601","19":"$117,034","20":"$52,025","21":"$62,162","22":"$97,615","23":"$88,754","24":"$73,205","25":"$82,837","26":"$94,721","27":"$65,001","28":"$77,302","29":"$58,834","30":"$53,030","31":"$79,972","32":"$60,292","01":"$89,819","02":"$101,187","03":"$104,728","04":"$66,236","05":"$87,652","06":"$86,241","07":"$41,084","08":"$92,363","09":"$110,685"},
+    quintil: {"10":2,"11":3,"12":1,"13":1,"14":4,"15":3,"16":2,"17":2,"18":3,"19":5,"20":1,"21":2,"22":5,"23":4,"24":3,"25":4,"26":5,"27":2,"28":3,"29":1,"30":1,"31":3,"32":1,"07":1,"04":2,"06":4,"05":4,"01":4,"08":5,"02":5,"03":5,"09":5},
+    rangosQuintil: [["$41,084","$60,292"],["$62,162","$69,589"],["$73,205","$79,972"],["$82,837","$89,819"],["$92,363","$117,034"]],
+  },
+  // Serie: coeficiente de Gini por entidad federativa, Cuadro 2.1, columna 2024.
+  // Extracción: https://www.inegi.org.mx/contenidos/programas/enigh/nc/2024/tabulados/enigh2024_ns_ef_tabulados.xlsx (Cuadro 2.1, columna 2024)
+  // SHA-256 tabulado: 70b3c7ea2dc8dc015d8cd71538a24e27b18e2ea077dfa96216503a31075beb28
+  // Anclaje del copy: ratio deciles X/I nacional = 14.06 ∈ [13.5, 14.5].
+  {
+    id: "gini",
+    grupo: "panorama",
+    nombre: "Desigualdad (Gini)",
+    unidad: "coeficiente de Gini del ingreso por hogar (0 = parejo, 1 = concentrado)",
+    tooltipSufijo: "de Gini: 0 = ingreso parejo, 1 = todo en un hogar",
+    periodo: "2024",
+    fuenteCita: "Fuente: INEGI, ENIGH 2024, Cuadro 2.1. Coeficiente de Gini del ingreso corriente total trimestral por hogar, por entidad; 0 = ingreso parejo, 1 = concentración máxima (más alto = más desigual). La frase nacional cita el ratio entre el décimo y el primer decil del mismo cuadro (14.06, ancla dura del generador). Bienal: próximo dato ~julio 2027.",
+    valorNacional: 0.390521832467356,
+    valorNacionalFmt: "0.391",
+    valores: {"10":0.354908555195896,"11":0.357135780148284,"12":0.396077056643362,"13":0.361045354976185,"14":0.361218900878314,"15":0.347239071544379,"16":0.378581394746125,"17":0.361218499330243,"18":0.356256276112715,"19":0.418612672085036,"20":0.403077198958981,"21":0.370655129187651,"22":0.367869358567276,"23":0.34143278592043,"24":0.397896874952214,"25":0.337730023264168,"26":0.371901296647639,"27":0.390608810222367,"28":0.350791197504185,"29":0.346179060243563,"30":0.367288180736896,"31":0.38105613239191,"32":0.373135217938859,"01":0.351293221509239,"02":0.330811421237136,"03":0.336929175354161,"04":0.377576239190466,"05":0.34311128181513,"06":0.359412091696279,"07":0.37581412012754,"08":0.367953663021554,"09":0.394561517147646},
+    valoresFmt: {"10":"0.355","11":"0.357","12":"0.396","13":"0.361","14":"0.361","15":"0.347","16":"0.379","17":"0.361","18":"0.356","19":"0.419","20":"0.403","21":"0.371","22":"0.368","23":"0.341","24":"0.398","25":"0.338","26":"0.372","27":"0.391","28":"0.351","29":"0.346","30":"0.367","31":"0.381","32":"0.373","01":"0.351","02":"0.331","03":"0.337","04":"0.378","05":"0.343","06":"0.359","07":"0.376","08":"0.368","09":"0.395"},
+    quintil: {"10":2,"11":2,"12":5,"13":3,"14":3,"15":1,"16":4,"17":3,"18":2,"19":5,"20":5,"21":4,"22":3,"23":1,"24":5,"25":1,"26":4,"27":5,"28":2,"29":1,"30":3,"31":5,"32":4,"02":1,"03":1,"05":1,"01":2,"06":2,"08":3,"07":4,"04":4,"09":5},
+    rangosQuintil: [["0.331","0.347"],["0.351","0.359"],["0.361","0.368"],["0.371","0.379"],["0.381","0.419"]],
   },
 ];

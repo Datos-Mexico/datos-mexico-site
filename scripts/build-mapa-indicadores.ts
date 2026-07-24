@@ -101,6 +101,21 @@ const BISE_ESCOLARIDAD = "1005000038";
 const URL_CONAPO_CSV =
   "https://conapo.segob.gob.mx/work/models/CONAPO/Datos_Abiertos/pry23/00_Pob_Mitad_1950_2070.csv";
 
+// Ola 3 — vista "Alcanza para vivir": Pobreza Multidimensional 2024 (serie
+// CONEVAL continuada por INEGI, hoja por entidad, cifras de PERSONAS) y
+// ENIGH 2024 nueva serie (tabulados por entidad, Cuadro 2.1: ingreso
+// corriente promedio trimestral por hogar + coeficiente de Gini). Bienales.
+const URL_PM_XLSX = "https://www.inegi.org.mx/contenidos/desarrollosocial/pm/tabulados/pm_ef_2024.xlsx";
+const URL_ENIGH_EF_XLSX =
+  "https://www.inegi.org.mx/contenidos/programas/enigh/nc/2024/tabulados/enigh2024_ns_ef_tabulados.xlsx";
+const ENIGH_CUADRO_INGRESO = "Cuadro 2.1";
+const PM_ANIO = "2024";
+// La frase del Gini afirma que el décimo decil nacional junta 14 veces lo
+// que el primero; el ratio X/I del mismo cuadro debe seguir en este rango o
+// el generador aborta para forzar la revisión editorial del copy.
+const GINI_RATIO_MIN = 13.5;
+const GINI_RATIO_MAX = 14.5;
+
 // Anclas de validación: cifras nacionales PUBLICADAS en el boletín o
 // comunicado oficial de cada fuente (no son datos del mapa; son asserts).
 // Si el cruce falla más allá del redondeo, el script aborta.
@@ -123,6 +138,15 @@ const ANCLAS = {
   percepcionNacional: 75.6, // boletín ENVIPE 2025: % 18+ que considera insegura su entidad
   desocupacionNacional: 2.6, // boletín ENOE 301/26, TD nacional 1T 2026 (% de la PEA)
   escolaridadNacional: 9.74, // Censo 2020, grado promedio de escolaridad 15+
+  pobrezaMultiNacional2024: 29.6, // comunicado PM 2024 (13-ago-2025): % de personas en pobreza multidimensional
+  pobrezaMultiChiapas2024: 66.0, // PM 2024: entidad con mayor porcentaje
+  pobrezaMultiBC2024: 9.9, // PM 2024: entidad con menor porcentaje
+  pobrezaExtremaNacional2024: 5.3, // PM 2024: % de personas en pobreza extrema
+  faltaComidaNacional2024: 14.4, // PM 2024: carencia por acceso a la alimentación, % de PERSONAS
+  ingresoHogarNacional2024: 77_864, // ENIGH 2024 Cuadro 2.1: ingreso corriente promedio trimestral por hogar
+  ingresoHogarChiapas2024: 41_084, // ENIGH 2024: entidad con menor ingreso
+  ingresoHogarNL2024: 117_034, // ENIGH 2024: entidad con mayor ingreso
+  giniNacional2024: 0.391, // comunicado ENIGH 2024: coeficiente de Gini nacional del ingreso por hogar
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -697,6 +721,144 @@ async function extraePrevalencia(): Promise<Serie & { top3: string[] }> {
 }
 
 // -------------------------------------------------------------------------
+// Pobreza Multidimensional 2024: una hoja por entidad (EUM + 32, nombres
+// cortos propios del tabulado); el bloque "Porcentaje" trae la serie
+// 2016-2024 y TODO el tabulado está en personas (lo declara su encabezado).
+// -------------------------------------------------------------------------
+
+const PM_HOJA_A_CLAVE: Record<string, Clave> = {
+  "Ags.": "01", "BC": "02", "BCS": "03", "Camp.": "04", "Coah.": "05",
+  "Col.": "06", "Chis.": "07", "Chih.": "08", "CDMX": "09", "Dgo.": "10",
+  "Gto.": "11", "Gro.": "12", "Hgo.": "13", "Jal.": "14", "Mex.": "15",
+  "Mich.": "16", "Mor.": "17", "Nay.": "18", "NL": "19", "Oax.": "20",
+  "Pue.": "21", "Qro.": "22", "Q. Roo": "23", "SLP": "24", "Sin.": "25",
+  "Son.": "26", "Tab.": "27", "Tamps.": "28", "Tlax.": "29", "Ver.": "30",
+  "Yuc.": "31", "Zac.": "32",
+};
+
+async function extraePm(): Promise<{ pobreza: Serie; extrema: Serie; alimentacion: Serie }> {
+  const { buf, sha256 } = await descarga(URL_PM_XLSX, "pm-ef.xlsx", /spreadsheetml/);
+  const hojas = hojasXlsx(buf);
+
+  const leeHoja = (nombre: string): { pobreza: number; extrema: number; alimentacion: number } => {
+    const filas = hojas.get(nombre);
+    if (!filas) throw new Error(`PM: no existe la hoja "${nombre}"`);
+    // Fila 7 declara el bloque "Porcentaje"; fila 8 trae los años del
+    // bloque (columnas K en adelante). Se toma la columna del año objetivo.
+    if (!/Porcentaje/.test(filas[6]?.get("K") ?? "")) {
+      throw new Error(`PM ${nombre}: la columna K ya no abre el bloque Porcentaje`);
+    }
+    let col2024 = "";
+    for (const [c, v] of filas[7] ?? new Map()) {
+      if (c >= "K" && c <= "P" && String(v).trim() === PM_ANIO) col2024 = c;
+    }
+    if (!col2024) throw new Error(`PM ${nombre}: no se encontró la columna Porcentaje ${PM_ANIO}`);
+    const out: Partial<Record<"pobreza" | "extrema" | "alimentacion", number>> = {};
+    for (const f of filas) {
+      const a = (f.get("A") ?? f.get("B") ?? "").trim();
+      if (!a) continue;
+      const v = Number(f.get(col2024));
+      if (a === "Población en situación de pobreza") out.pobreza = v;
+      else if (a === "Población en situación de pobreza extrema") out.extrema = v;
+      else if (a.startsWith("Carencia por acceso a la alimentación")) out.alimentacion = v;
+    }
+    for (const k of ["pobreza", "extrema", "alimentacion"] as const) {
+      if (!Number.isFinite(out[k])) throw new Error(`PM ${nombre}: falta el indicador ${k}`);
+    }
+    return out as { pobreza: number; extrema: number; alimentacion: number };
+  };
+
+  const nacional = leeHoja("EUM");
+  const series = { pobreza: {} as Record<Clave, number>, extrema: {} as Record<Clave, number>, alimentacion: {} as Record<Clave, number> };
+  for (const [hoja, clave] of Object.entries(PM_HOJA_A_CLAVE)) {
+    const v = leeHoja(hoja);
+    series.pobreza[clave] = v.pobreza;
+    series.extrema[clave] = v.extrema;
+    series.alimentacion[clave] = v.alimentacion;
+  }
+  const url = `${URL_PM_XLSX} (hojas por entidad, bloque Porcentaje ${PM_ANIO})`;
+  return {
+    pobreza: { valores: series.pobreza, nacional: nacional.pobreza, sha256, url },
+    extrema: { valores: series.extrema, nacional: nacional.extrema, sha256, url },
+    alimentacion: { valores: series.alimentacion, nacional: nacional.alimentacion, sha256, url },
+  };
+}
+
+// -------------------------------------------------------------------------
+// ENIGH 2024, Cuadro 2.1: bloques por entidad — fila de la entidad (ingreso
+// corriente total promedio trimestral por hogar, precios constantes 2024),
+// diez filas de deciles y fila de cierre con el coeficiente de Gini. Los
+// nombres van en mayúsculas con acentos: se normalizan antes del cruce.
+// -------------------------------------------------------------------------
+
+function claveDeMayusculas(nombre: string): Clave | "00" | null {
+  const norm = (s: string) =>
+    s.trim().replace(/\s+/g, " ").normalize("NFD").replace(/\p{M}/gu, "").toUpperCase();
+  if (norm(nombre) === "NACIONAL") return "00";
+  for (const [n, clave] of Object.entries(NOMBRE_A_CLAVE)) {
+    if (norm(n) === norm(nombre)) return clave;
+  }
+  return null;
+}
+
+async function extraeEnigh(): Promise<{ ingreso: Serie; gini: Serie; ratioDeciles: number }> {
+  const { buf, sha256 } = await descarga(URL_ENIGH_EF_XLSX, "enigh-ef.xlsx", /spreadsheetml/);
+  const hojas = hojasXlsx(buf);
+  const filas = hojas.get(ENIGH_CUADRO_INGRESO);
+  if (!filas) throw new Error(`ENIGH: no existe el ${ENIGH_CUADRO_INGRESO}`);
+  if ((filas[3]?.get("G") ?? "").trim() !== "2024") {
+    throw new Error(`ENIGH ${ENIGH_CUADRO_INGRESO}: la columna G ya no es el año 2024`);
+  }
+  const ingreso: Record<Clave, number> = {};
+  const gini: Record<Clave, number> = {};
+  let ingresoNacional: number | null = null;
+  let giniNacional: number | null = null;
+  let bloque: Clave | "00" | null = null;
+  let decilI: number | null = null;
+  let decilX: number | null = null;
+  for (const f of filas) {
+    const a = (f.get("A") ?? "").trim();
+    if (!a) continue;
+    const clave = claveDeMayusculas(a);
+    if (clave !== null) {
+      bloque = clave;
+      const v = Number(f.get("G"));
+      if (!Number.isFinite(v)) throw new Error(`ENIGH: ingreso inválido para ${a}`);
+      if (clave === "00") ingresoNacional = v;
+      else ingreso[clave] = v;
+      continue;
+    }
+    if (bloque === "00") {
+      if (a === "I") decilI = Number(f.get("G"));
+      if (a === "X") decilX = Number(f.get("G"));
+    }
+    if (/^COEFICIENTE DE GINI/.test(a) && bloque !== null) {
+      const v = Number(f.get("G"));
+      if (!Number.isFinite(v)) throw new Error(`ENIGH: Gini inválido en el bloque ${bloque}`);
+      if (bloque === "00") giniNacional = v;
+      else gini[bloque] = v;
+      bloque = null;
+    }
+  }
+  if (decilI === null || decilX === null || !decilI) {
+    throw new Error("ENIGH: faltan los deciles nacionales I o X para el anclaje del copy");
+  }
+  const ratioDeciles = decilX / decilI;
+  if (ratioDeciles < GINI_RATIO_MIN || ratioDeciles > GINI_RATIO_MAX) {
+    throw new Error(
+      `ENIGH: el ratio de deciles X/I cambió (${ratioDeciles.toFixed(2)}) — revisar la frase del Gini ("14 veces") antes de regenerar`,
+    );
+  }
+  console.log(`[indicadores] anclaje OK — ratio deciles X/I nacional: ${ratioDeciles.toFixed(2)} ∈ [${GINI_RATIO_MIN}, ${GINI_RATIO_MAX}]`);
+  const url = `${URL_ENIGH_EF_XLSX} (${ENIGH_CUADRO_INGRESO}, columna 2024)`;
+  return {
+    ingreso: { valores: ingreso, nacional: ingresoNacional, sha256, url },
+    gini: { valores: gini, nacional: giniNacional, sha256, url },
+    ratioDeciles,
+  };
+}
+
+// -------------------------------------------------------------------------
 // Escolaridad (BISE): una llamada por área geográfica; se toma la
 // observación no nula más reciente y se exige que el año coincida en las 33.
 // -------------------------------------------------------------------------
@@ -1036,6 +1198,7 @@ const FORMATOS: Record<string, Formato> = {
   tasa100k: { valor: (v) => fmtMx(1).format(v), leyenda: (v) => fmtMx(1).format(v) },
   tasa100kEnteros: { valor: (v) => fmtMx(0).format(v), leyenda: (v) => fmtMx(0).format(v) },
   anios: { valor: (v) => fmtMx(1).format(v), leyenda: (v) => fmtMx(1).format(v) },
+  gini: { valor: (v) => fmtMx(3).format(v), leyenda: (v) => fmtMx(3).format(v) },
 };
 
 type Definicion = {
@@ -1054,7 +1217,7 @@ type Definicion = {
 
 async function main(): Promise<void> {
   console.log("[indicadores] extrayendo fuentes…");
-  const [til1, td, pl, imss, pibe, conapo, rnid, percepcion, prevalencia, escolaridad] = await Promise.all([
+  const [til1, td, pl, imss, pibe, conapo, rnid, percepcion, prevalencia, escolaridad, pm, enigh] = await Promise.all([
     extraePxwebTasa(PXWEB_TIL1, /TIL 1/, "til1.xlsx"),
     extraePxwebTasa(PXWEB_TD, /Tasa de desocupación/, "td.xlsx"),
     extraePl(),
@@ -1065,6 +1228,8 @@ async function main(): Promise<void> {
     extraePercepcion(),
     extraePrevalencia(),
     extraeEscolaridad(),
+    extraePm(),
+    extraeEnigh(),
   ]);
   const homicidios = rnid.homicidios;
 
@@ -1328,6 +1493,92 @@ async function main(): Promise<void> {
         `SHA-256 respuestas API: ${escolaridad.sha256}`,
       ],
     },
+    {
+      id: "pobreza",
+      grupo: "panorama",
+      nombre: "Pobreza multidimensional",
+      unidad: "% de personas en pobreza multidimensional",
+      tooltipSufijo: "de cada 100 personas viven en pobreza",
+      periodo: PM_ANIO,
+      formato: "pct",
+      valores: pm.pobreza.valores,
+      nacional: pm.pobreza.nacional ?? NaN,
+      fuenteCita: `Fuente: INEGI, Pobreza Multidimensional ${PM_ANIO} (serie CONEVAL continuada por INEGI, metodología intacta), tabulado por entidad federativa. Porcentaje de personas con ingreso bajo la línea de pobreza y al menos una carencia social. Bienal: próximo dato ~agosto 2027.`,
+      procedencia: [
+        `Serie: "Población en situación de pobreza", porcentaje de personas, ${PM_ANIO}.`,
+        `Extracción: ${pm.pobreza.url}`,
+        `SHA-256 tabulado: ${pm.pobreza.sha256}`,
+      ],
+    },
+    {
+      id: "pobreza-extrema",
+      grupo: "panorama",
+      nombre: "Pobreza extrema",
+      unidad: "% de personas en pobreza extrema",
+      tooltipSufijo: "de cada 100 personas viven en pobreza extrema",
+      periodo: PM_ANIO,
+      formato: "pct",
+      valores: pm.extrema.valores,
+      nacional: pm.extrema.nacional ?? NaN,
+      fuenteCita: `Fuente: INEGI, Pobreza Multidimensional ${PM_ANIO} (serie CONEVAL continuada por INEGI). Porcentaje de personas con ingreso bajo la línea de pobreza extrema (el valor de la canasta alimentaria) y tres o más carencias sociales. Bienal: próximo dato ~agosto 2027.`,
+      procedencia: [
+        `Serie: "Población en situación de pobreza extrema", porcentaje de personas, ${PM_ANIO}.`,
+        `Extracción: ${pm.extrema.url}`,
+        `SHA-256 tabulado: ${pm.extrema.sha256}`,
+      ],
+    },
+    {
+      id: "falta-comida",
+      grupo: "panorama",
+      nombre: "Carencia alimentaria",
+      unidad: "% de personas con carencia por acceso a la alimentación",
+      tooltipSufijo: "de cada 100 personas viven en hogares donde falta comida",
+      periodo: PM_ANIO,
+      formato: "pct",
+      valores: pm.alimentacion.valores,
+      nacional: pm.alimentacion.nacional ?? NaN,
+      fuenteCita: `Fuente: INEGI, Pobreza Multidimensional ${PM_ANIO} (metodología CONEVAL). Carencia por acceso a la alimentación nutritiva y de calidad: personas en hogares con inseguridad alimentaria moderada o severa. Personas, no hogares. Bienal: próximo dato ~agosto 2027.`,
+      procedencia: [
+        `Serie: "Carencia por acceso a la alimentación nutritiva y de calidad", porcentaje de personas, ${PM_ANIO}.`,
+        `Extracción: ${pm.alimentacion.url}`,
+        `SHA-256 tabulado: ${pm.alimentacion.sha256}`,
+      ],
+    },
+    {
+      id: "ingreso-hogar",
+      grupo: "panorama",
+      nombre: "Ingreso del hogar",
+      unidad: "pesos por hogar al trimestre (2024)",
+      tooltipSufijo: "junta un hogar al trimestre en promedio",
+      periodo: PM_ANIO,
+      formato: "pesos",
+      valores: enigh.ingreso.valores,
+      nacional: enigh.ingreso.nacional ?? NaN,
+      fuenteCita: `Fuente: INEGI, ENIGH ${PM_ANIO} (nueva serie), ${ENIGH_CUADRO_INGRESO}. Ingreso corriente total promedio trimestral por hogar, pesos de ${PM_ANIO}; incluye ingreso no monetario (estimación del alquiler de la vivienda propia y pagos en especie). No comparable con "Lo que deja el trabajo" (El Bolsillo): aquel mide solo ingreso laboral, mensual por persona y en pesos de 2020. Bienal: próximo dato ~julio 2027.`,
+      procedencia: [
+        `Serie: ingreso corriente total promedio trimestral por hogar (precios constantes ${PM_ANIO}).`,
+        `Extracción: ${enigh.ingreso.url}`,
+        `SHA-256 tabulado: ${enigh.ingreso.sha256}`,
+      ],
+    },
+    {
+      id: "gini",
+      grupo: "panorama",
+      nombre: "Desigualdad (Gini)",
+      unidad: "coeficiente de Gini del ingreso por hogar (0 = parejo, 1 = concentrado)",
+      tooltipSufijo: "de Gini: 0 = ingreso parejo, 1 = todo en un hogar",
+      periodo: PM_ANIO,
+      formato: "gini",
+      valores: enigh.gini.valores,
+      nacional: enigh.gini.nacional ?? NaN,
+      fuenteCita: `Fuente: INEGI, ENIGH ${PM_ANIO}, ${ENIGH_CUADRO_INGRESO}. Coeficiente de Gini del ingreso corriente total trimestral por hogar, por entidad; 0 = ingreso parejo, 1 = concentración máxima (más alto = más desigual). La frase nacional cita el ratio entre el décimo y el primer decil del mismo cuadro (${enigh.ratioDeciles.toFixed(2)}, ancla dura del generador). Bienal: próximo dato ~julio 2027.`,
+      procedencia: [
+        `Serie: coeficiente de Gini por entidad federativa, ${ENIGH_CUADRO_INGRESO}, columna ${PM_ANIO}.`,
+        `Extracción: ${enigh.gini.url}`,
+        `SHA-256 tabulado: ${enigh.gini.sha256}`,
+        `Anclaje del copy: ratio deciles X/I nacional = ${enigh.ratioDeciles.toFixed(2)} ∈ [${GINI_RATIO_MIN}, ${GINI_RATIO_MAX}].`,
+      ],
+    },
   ];
 
   // -------------------------------------------------------------------
@@ -1357,6 +1608,15 @@ async function main(): Promise<void> {
     ["robo de coches tasa vs evidencia Fase A", tasaRoboCochesNacional, ANCLAS.roboCochesTasa2025, 0.05],
     ["percepción vs boletín ENVIPE", percepcion.nacional ?? NaN, ANCLAS.percepcionNacional, 0.06],
     ["escolaridad vs Censo", escolaridad.nacional ?? NaN, ANCLAS.escolaridadNacional, 0.05],
+    ["pobreza multidimensional vs comunicado PM", pm.pobreza.nacional ?? NaN, ANCLAS.pobrezaMultiNacional2024, 0.05],
+    ["pobreza multidimensional Chiapas vs PM", pm.pobreza.valores["07"], ANCLAS.pobrezaMultiChiapas2024, 0.05],
+    ["pobreza multidimensional BC vs PM", pm.pobreza.valores["02"], ANCLAS.pobrezaMultiBC2024, 0.05],
+    ["pobreza extrema vs comunicado PM", pm.extrema.nacional ?? NaN, ANCLAS.pobrezaExtremaNacional2024, 0.05],
+    ["carencia alimentaria vs comunicado PM", pm.alimentacion.nacional ?? NaN, ANCLAS.faltaComidaNacional2024, 0.05],
+    ["ingreso del hogar vs Cuadro 2.1", enigh.ingreso.nacional ?? NaN, ANCLAS.ingresoHogarNacional2024, 0.5],
+    ["ingreso del hogar Chiapas vs Cuadro 2.1", enigh.ingreso.valores["07"], ANCLAS.ingresoHogarChiapas2024, 0.5],
+    ["ingreso del hogar NL vs Cuadro 2.1", enigh.ingreso.valores["19"], ANCLAS.ingresoHogarNL2024, 0.5],
+    ["Gini vs comunicado ENIGH", enigh.gini.nacional ?? NaN, ANCLAS.giniNacional2024, 0.0006],
   ];
   for (const [nombre, obtenido, esperado, tol] of cruces) {
     if (!aprox(obtenido, esperado, tol)) {

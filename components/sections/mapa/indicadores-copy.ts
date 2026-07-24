@@ -30,6 +30,8 @@ export const ORDEN_CANON: Record<GrupoPregunta, IndicadorId[]> = {
 // --- formateadores deterministas -----------------------------------------
 
 const de100 = (v: number) => String(Math.round(v));
+// Serie en tasa por 100 mil → "N de cada 100" en la capa humana.
+const de100k = (v: number) => String(Math.round(v / 1000));
 const dec1 = (v: number) => (Math.round(v * 10) / 10).toFixed(1);
 const comas = (v: number) =>
   String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -113,6 +115,35 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     frase: (v, p) =>
       `En ${p} se registraron ${dec1(v)} víctimas de homicidio doloso por cada 100 mil habitantes. Es la cifra oficial de las fiscalías; el registro no captura todo.`,
     tooltip: (v, p) => `${dec1(v)} víctimas de homicidio por cada 100 mil habitantes · ${p}`,
+  },
+  // El renglón más delicado del canon: cuenta feminicidio + homicidio doloso
+  // con víctima mujer porque separarlos compararía criterios de tipificación
+  // de fiscalías, no violencia (evidencia y dictamen de la Ola 2).
+  "mujeres-asesinadas": {
+    fichaLabel: "asesinadas /100 mil mujeres",
+    nombreHumano: "Mujeres asesinadas",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `En ${p} fueron asesinadas ${dec1(v)} de cada 100 mil mujeres en México, contando juntos feminicidios y homicidios dolosos: separarlos compararía el criterio de cada fiscalía, no la violencia. Es registro de fiscalías; no captura todo.`,
+    tooltip: (v, p) => `${dec1(v)} mujeres asesinadas (feminicidio + homicidio doloso) por cada 100 mil mujeres · ${p}`,
+  },
+  // La cláusula "los más comunes" está anclada al top-3 nacional de
+  // incidencia (ENVIPE, cuadro 1.13); el pipeline aborta si cambia.
+  "victimas-delito": {
+    fichaLabel: "víctimas /100 mil adultos",
+    nombreHumano: "Víctimas de delito",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `${de100k(v)} de cada 100 adultos fueron víctimas de algún delito durante ${p} — fraude, extorsión y robo o asalto en la calle o el transporte público son los más comunes (ENVIPE). Al venir de encuesta y no de denuncias, cuenta también lo que nunca llegó a una fiscalía.`,
+    tooltip: (v, p) => `${de100k(v)} de cada 100 adultos fueron víctimas de un delito · ${p}`,
+  },
+  "robo-coches": {
+    fichaLabel: "robos de coche /100 mil",
+    nombreHumano: "Robo de coches",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `En ${p} se abrieron ${dec1(v)} carpetas por robo de coche por cada 100 mil habitantes. Es de los delitos que más se denuncian — el seguro lo exige —, así que su registro se acerca a la realidad más que el de otros delitos.`,
+    tooltip: (v, p) => `${dec1(v)} carpetas por robo de coche por cada 100 mil habitantes · ${p}`,
   },
   percepcion: {
     fichaLabel: "se sienten inseguros",

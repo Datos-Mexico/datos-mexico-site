@@ -1,4 +1,4 @@
-// Genera `components/sections/mapa/indicadores-datos.ts`: los seis indicadores
+// Genera `components/sections/mapa/indicadores-datos.ts`: los indicadores
 // estatales de la coropleta de la home, extraídos programáticamente de sus
 // fuentes oficiales. Cero valores tecleados: si una fuente cambia de forma,
 // el script aborta antes que degradar a transcripción manual.
@@ -70,11 +70,25 @@ const URL_SESNSP_VICTIMAS =
   "https://sspcgob-my.sharepoint.com/:u:/g/personal/cni_sspc_gob_mx/IQAjMphIBZwaQZy25I_oN-HWAaJZJFxQWE1y2k3seT0lj74?e=6FGvmI";
 const URL_SESNSP_CARPETAS =
   "https://sspcgob-my.sharepoint.com/:u:/g/personal/cni_sspc_gob_mx/IQCImg0CgaACTJdHIpZ_yZKpAYKWg8wsEgtzU0nN3o-GVKU?e=dqWCtz";
-const HOMICIDIOS_ANIO = "2025";
+// Año RNID de la vista de seguridad: homicidios, mujeres asesinadas y robo
+// de coches usan el mismo año completo del registro.
+const RNID_ANIO = "2025";
 
 const URL_ENVIPE_XLSX =
   "https://www.inegi.org.mx/contenidos/programas/envipe/2025/tabulados/V_percepcion_seguridad_2025_est.xlsx";
 const ENVIPE_CUADRO = "5.13"; // percepción sobre la seguridad en la entidad federativa
+
+// ENVIPE, sección I "Nivel de victimización y delincuencia" (mismo dominio y
+// patrón de nombre que el tabulado de percepción; refresh conjunto ~10-sep).
+const URL_ENVIPE_VICT_XLSX =
+  "https://www.inegi.org.mx/contenidos/programas/envipe/2025/tabulados/I_nivel_victimizacion_2025_est.xlsx";
+const ENVIPE_PREVALENCIA_CUADRO = "1.1"; // tasa de prevalencia delictiva por entidad (residencia)
+const ENVIPE_TOP_DELITOS_CUADRO = "1.13"; // incidencia nacional: "los cinco delitos más frecuentes"
+// La frase humana de víctimas de delito afirma que fraude, extorsión y robo
+// o asalto en calle o transporte público son los delitos más comunes. Ese
+// enunciado queda anclado al bloque nacional del cuadro 1.13: si el top-3
+// cambia en un refresh, el generador aborta para forzar revisión del copy.
+const ENVIPE_TOP3_ESPERADO = ["Fraude", "Robo o asalto en calle o transporte público", "Extorsión"];
 
 const PXWEB_TD = "1000229"; // "10.2. Tasa de desocupación"
 
@@ -99,6 +113,13 @@ const ANCLAS = {
   ingresoNacional: 3_653, // boletín PL 1T 2026, pesos constantes 1T 2020
   homicidiosVictimas2025: 23_611, // RNID víctimas, homicidio doloso 2025 (corte jun-2026)
   homicidiosCarpetas2025: 20_193, // RNID carpetas, homicidio doloso 2025 (corte jun-2026)
+  mujeresAsesinadas2025: 2_818, // RNID víctimas 2025: feminicidio (733, todas mujeres) + homicidio doloso mujer (2,085)
+  mujeresAsesinadasTasa2025: 4.14, // evidencia Fase A Ola 2: tasa por 100 mil mujeres, CONAPO mitad-2025
+  prevalenciaNacional: 24_135, // comunicado ENVIPE 127/25: víctimas de delito por 100 mil habitantes de 18+, 2024
+  prevalenciaMaxEdomex: 34_851, // comunicado 127/25: tasa más alta (México)
+  prevalenciaMinChiapas: 15_576, // comunicado 127/25: tasa más baja (Chiapas)
+  roboCochesCarpetas2025: 70_409, // RNID carpetas 2025: robo de coche de 4 ruedas, con y sin violencia (corte jun-2026)
+  roboCochesTasa2025: 52.8, // evidencia Fase A Ola 2: tasa por 100 mil habitantes, CONAPO mitad-2025
   percepcionNacional: 75.6, // boletín ENVIPE 2025: % 18+ que considera insegura su entidad
   desocupacionNacional: 2.6, // boletín ENOE 301/26, TD nacional 1T 2026 (% de la PEA)
   escolaridadNacional: 9.74, // Censo 2020, grado promedio de escolaridad 15+
@@ -153,6 +174,13 @@ const NOMBRE_A_CLAVE: Record<string, Clave> = {
   "Zacatecas": "32",
 };
 const NACIONAL = new Set(["Estados Unidos Mexicanos", "Nacional", "República Mexicana"]);
+
+// Clave → primer nombre registrado (los oficiales largos van primero en la
+// tabla); para citas técnicas generadas que nombran una entidad.
+const CLAVE_A_NOMBRE: Record<Clave, string> = {};
+for (const [nombre, clave] of Object.entries(NOMBRE_A_CLAVE)) {
+  if (!(clave in CLAVE_A_NOMBRE)) CLAVE_A_NOMBRE[clave] = nombre;
+}
 
 function claveDe(nombre: string): Clave | "00" | null {
   const limpio = nombre.trim().replace(/\s+/g, " ");
@@ -447,23 +475,35 @@ async function descargaSharepoint(shareUrl: string, nombreCache: string): Promis
 }
 
 // Suma anual por entidad de un CSV RNID (latin-1, columnas Enero..Diciembre)
-// filtrando subtipo "Homicidio doloso" del año indicado.
-function sumaHomicidios(csvLatin1: Buffer, anio: string): { porEntidad: Record<Clave, number>; total: number } {
+// filtrando por subtipo del año indicado y, opcionalmente, por prefijo de
+// modalidad y por sexo de la víctima (la columna Sexo solo existe en el
+// archivo de víctimas; la de Modalidad, en ambos).
+function sumaRnid(
+  csvLatin1: Buffer,
+  anio: string,
+  filtro: { subtipo: string; modalidadPrefijo?: string; sexo?: string },
+): { porEntidad: Record<Clave, number>; total: number } {
   const filas = parseCsv(csvLatin1.toString("latin1"));
   const enc = filas[0];
   const iAnio = enc.indexOf("Año");
   const iCve = enc.indexOf("Clave_Ent");
   const iSub = enc.indexOf("Subtipo de delito");
+  const iMod = enc.indexOf("Modalidad");
+  const iSexo = enc.indexOf("Sexo");
   const iEnero = enc.indexOf("Enero");
   if (iAnio < 0 || iCve < 0 || iSub < 0 || iEnero < 0) {
     throw new Error(`RNID: encabezado inesperado: ${enc.slice(0, 8).join(",")}`);
   }
+  if (filtro.sexo !== undefined && iSexo < 0) throw new Error("RNID: el archivo no trae la columna Sexo");
+  if (filtro.modalidadPrefijo !== undefined && iMod < 0) throw new Error("RNID: el archivo no trae la columna Modalidad");
   const porEntidad: Record<Clave, number> = {};
   let total = 0;
   for (let i = 1; i < filas.length; i++) {
     const f = filas[i];
     if (f.length < iEnero + 12) continue;
-    if (f[iAnio] !== anio || f[iSub].trim() !== "Homicidio doloso") continue;
+    if (f[iAnio] !== anio || f[iSub].trim() !== filtro.subtipo) continue;
+    if (filtro.modalidadPrefijo !== undefined && !f[iMod].trim().startsWith(filtro.modalidadPrefijo)) continue;
+    if (filtro.sexo !== undefined && f[iSexo].trim() !== filtro.sexo) continue;
     const cve = Number(f[iCve]); // pad inconsistente entre archivos: numérico
     if (!(cve >= 1 && cve <= 32)) throw new Error(`RNID: Clave_Ent inválida "${f[iCve]}"`);
     let suma = 0;
@@ -478,19 +518,86 @@ function sumaHomicidios(csvLatin1: Buffer, anio: string): { porEntidad: Record<C
   return { porEntidad, total };
 }
 
-async function extraeHomicidios(): Promise<Serie & { carpetasTotal: number }> {
+// Las tres series RNID de la vista de seguridad salen de los mismos dos zips:
+// homicidios (rey, víctimas), mujeres asesinadas (víctimas: feminicidio +
+// homicidio doloso con víctima mujer — la suma neutraliza la tipificación
+// heterogénea entre fiscalías y no duplica: cada víctima vive en exactamente
+// un subtipo) y robo de coches (carpetas: coche de 4 ruedas, sin motos).
+async function extraeRnid(): Promise<{
+  homicidios: Serie & { carpetasTotal: number };
+  mujeres: Serie & { noIdent: { total: number; pctNacional: number; pctMax: number; claveMax: Clave } };
+  roboCoches: Serie & { pctConViolencia: number };
+}> {
   const victimas = await descargaSharepoint(URL_SESNSP_VICTIMAS, "sesnsp-victimas.zip");
   const carpetas = await descargaSharepoint(URL_SESNSP_CARPETAS, "sesnsp-carpetas.zip");
   const csvV = Array.from(entradasZip(victimas.buf).values())[0];
   const csvC = Array.from(entradasZip(carpetas.buf).values())[0];
-  const v = sumaHomicidios(csvV, HOMICIDIOS_ANIO);
-  const c = sumaHomicidios(csvC, HOMICIDIOS_ANIO);
+
+  const hd = sumaRnid(csvV, RNID_ANIO, { subtipo: "Homicidio doloso" });
+  const hdCarpetas = sumaRnid(csvC, RNID_ANIO, { subtipo: "Homicidio doloso" });
+
+  // Mujeres asesinadas: feminicidio (verificando que el registro no traiga
+  // víctimas de otro sexo — si aparecieran, la suma dejaría de ser limpia y
+  // el generador aborta) + homicidio doloso con víctima mujer.
+  const fem = sumaRnid(csvV, RNID_ANIO, { subtipo: "Feminicidio" });
+  const femMujer = sumaRnid(csvV, RNID_ANIO, { subtipo: "Feminicidio", sexo: "Mujer" });
+  if (fem.total !== femMujer.total) {
+    throw new Error(`RNID: feminicidio con víctimas de sexo distinto de mujer (${fem.total} vs ${femMujer.total})`);
+  }
+  const hdMujer = sumaRnid(csvV, RNID_ANIO, { subtipo: "Homicidio doloso", sexo: "Mujer" });
+  const mujeresValores: Record<Clave, number> = {};
+  for (const c of CLAVES) mujeresValores[c] = (fem.porEntidad[c] ?? 0) + (hdMujer.porEntidad[c] ?? 0);
+  const mujeresTotal = fem.total + hdMujer.total;
+
+  // Matiz piso-no-techo de la cita técnica: víctimas de homicidio doloso con
+  // sexo no identificado (no atribuibles a la serie de mujeres).
+  const hdNoIdent = sumaRnid(csvV, RNID_ANIO, { subtipo: "Homicidio doloso", sexo: "No identificado" });
+  let claveMax: Clave = CLAVES[0];
+  let pctMax = 0;
+  for (const c of CLAVES) {
+    const pct = hd.porEntidad[c] ? (100 * (hdNoIdent.porEntidad[c] ?? 0)) / hd.porEntidad[c] : 0;
+    if (pct > pctMax) {
+      pctMax = pct;
+      claveMax = c;
+    }
+  }
+
+  const coches = sumaRnid(csvC, RNID_ANIO, {
+    subtipo: "Robo de vehículo automotor",
+    modalidadPrefijo: "Robo de coche de 4 ruedas",
+  });
+  const cochesViolencia = sumaRnid(csvC, RNID_ANIO, {
+    subtipo: "Robo de vehículo automotor",
+    modalidadPrefijo: "Robo de coche de 4 ruedas Con violencia",
+  });
+
   return {
-    valores: v.porEntidad,
-    nacional: v.total,
-    carpetasTotal: c.total,
-    sha256: victimas.sha256,
-    url: URL_SESNSP_VICTIMAS,
+    homicidios: {
+      valores: hd.porEntidad,
+      nacional: hd.total,
+      carpetasTotal: hdCarpetas.total,
+      sha256: victimas.sha256,
+      url: URL_SESNSP_VICTIMAS,
+    },
+    mujeres: {
+      valores: mujeresValores,
+      nacional: mujeresTotal,
+      noIdent: {
+        total: hdNoIdent.total,
+        pctNacional: (100 * hdNoIdent.total) / hd.total,
+        pctMax,
+        claveMax,
+      },
+      sha256: victimas.sha256,
+      url: URL_SESNSP_VICTIMAS,
+    },
+    roboCoches: {
+      valores: coches.porEntidad,
+      nacional: coches.total,
+      pctConViolencia: (100 * cochesViolencia.total) / coches.total,
+      sha256: carpetas.sha256,
+      url: URL_SESNSP_CARPETAS,
+    },
   };
 }
 
@@ -524,23 +631,91 @@ async function extraePercepcion(): Promise<Serie> {
 }
 
 // -------------------------------------------------------------------------
+// ENVIPE victimización: Cuadro 1.1 — tasa de prevalencia delictiva por
+// entidad federativa por cada 100 mil habitantes de 18+ (columna B, "Tasa
+// total de prevalencia"). El denominador del cuadro es la población de 18+
+// RESIDENTE en la entidad (Nota 2 del propio cuadro): serie por residencia,
+// la del diseño muestral de la encuesta. El mismo tabulado ancla la cláusula
+// "los más comunes" contra el bloque nacional del cuadro 1.13.
+// -------------------------------------------------------------------------
+
+async function extraePrevalencia(): Promise<Serie & { top3: string[] }> {
+  const { buf, sha256 } = await descarga(URL_ENVIPE_VICT_XLSX, "envipe-victimizacion.xlsx", /spreadsheetml/);
+  const hojas = hojasXlsx(buf);
+  const filas = hojas.get(ENVIPE_PREVALENCIA_CUADRO);
+  if (!filas) throw new Error(`ENVIPE victimización: no existe el cuadro ${ENVIPE_PREVALENCIA_CUADRO}`);
+  const enc = filas[6]; // fila 7: encabezados de columna
+  if (!/Tasa total de prevalencia/.test(enc.get("B") ?? "")) {
+    throw new Error(`ENVIPE victimización: la columna B del cuadro ${ENVIPE_PREVALENCIA_CUADRO} ya no es "Tasa total de prevalencia"`);
+  }
+  const valores: Record<Clave, number> = {};
+  let nacional: number | null = null;
+  for (const f of filas.slice(9)) {
+    const nombre = f.get("A");
+    if (!nombre) continue;
+    const clave = claveDe(nombre);
+    if (clave === null) continue;
+    const v = Number(f.get("B"));
+    if (!Number.isFinite(v)) throw new Error(`ENVIPE victimización: valor inválido para ${nombre}`);
+    if (clave === "00") nacional = v;
+    else valores[clave] = v;
+  }
+
+  // Anclaje del copy: el bloque nacional del cuadro 1.13 lista los delitos
+  // más frecuentes con su tasa de incidencia; el top-3 debe seguir siendo
+  // {fraude, robo o asalto en calle o transporte público, extorsión}.
+  const filas13 = hojas.get(ENVIPE_TOP_DELITOS_CUADRO);
+  if (!filas13) throw new Error(`ENVIPE victimización: no existe el cuadro ${ENVIPE_TOP_DELITOS_CUADRO}`);
+  const delitos: { nombre: string; tasa: number }[] = [];
+  let enNacional = false;
+  for (const f of filas13.slice(7)) {
+    const a = (f.get("A") ?? "").trim();
+    if (!a) continue;
+    if (claveDe(a) === "00") {
+      enNacional = true;
+      continue;
+    }
+    if (!enNacional) continue;
+    if (claveDe(a) !== null) break; // empezó la siguiente entidad
+    const tasa = Number(f.get("C"));
+    if (!Number.isFinite(tasa)) continue;
+    delitos.push({ nombre: a.replace(/\d+$/, ""), tasa }); // "Fraude1" → "Fraude" (nota al pie)
+  }
+  const top3 = delitos
+    .sort((a, b) => b.tasa - a.tasa)
+    .slice(0, 3)
+    .map((d) => d.nombre);
+  const esperado = new Set(ENVIPE_TOP3_ESPERADO);
+  if (top3.length !== 3 || !top3.every((n) => esperado.has(n))) {
+    throw new Error(
+      `ENVIPE: el top-3 nacional de incidencia cambió (${top3.join(" · ")}) — revisar la frase de víctimas de delito antes de regenerar`,
+    );
+  }
+  console.log(`[indicadores] anclaje OK — los delitos más comunes (cuadro ${ENVIPE_TOP_DELITOS_CUADRO}): ${top3.join(" · ")}`);
+
+  return { valores, nacional, sha256, url: `${URL_ENVIPE_VICT_XLSX} (cuadro ${ENVIPE_PREVALENCIA_CUADRO})`, top3 };
+}
+
+// -------------------------------------------------------------------------
 // Escolaridad (BISE): una llamada por área geográfica; se toma la
 // observación no nula más reciente y se exige que el año coincida en las 33.
 // -------------------------------------------------------------------------
 
 async function extraeEscolaridad(): Promise<Serie & { periodo: string }> {
-  const token = process.env.INEGI_TOKEN;
-  if (!token) {
-    throw new Error(
-      "Falta INEGI_TOKEN en el entorno (token gratuito: inegi.org.mx/servicios/api_indicadores.html). No se escribe al repositorio.",
-    );
-  }
   mkdirSync(CACHE, { recursive: true });
   const rutaCache = path.join(CACHE, "escolaridad.json");
   let crudo: Record<string, unknown>;
   if (existsSync(rutaCache)) {
     crudo = JSON.parse(readFileSync(rutaCache, "utf8"));
   } else {
+    // El token solo hace falta cuando hay que llamar a la API; una corrida
+    // sobre caché (fuentes congeladas de una ola) no lo exige.
+    const token = process.env.INEGI_TOKEN;
+    if (!token) {
+      throw new Error(
+        "Falta INEGI_TOKEN en el entorno (token gratuito: inegi.org.mx/servicios/api_indicadores.html). No se escribe al repositorio.",
+      );
+    }
     crudo = {};
     for (const geo of ["00", ...CLAVES]) {
       const res = await fetch(
@@ -763,6 +938,7 @@ type Conapo = {
   m15mas2026: Record<Clave, number>;
   total2024: Record<Clave, number>;
   total2025: Record<Clave, number>;
+  mujeres2025: Record<Clave, number>;
   nacional2026: number;
   sha256: string;
 };
@@ -775,14 +951,16 @@ async function extraeConapo(): Promise<Conapo> {
   const iAnio = encabezado.findIndex((c) => /^A/.test(c) && /O$/i.test(c.normalize("NFD").replace(/\p{M}/gu, "")));
   const iCve = encabezado.indexOf("CVE_GEO");
   const iEdad = encabezado.indexOf("EDAD");
+  const iSexo = encabezado.indexOf("SEXO");
   const iPob = encabezado.indexOf("POBLACION");
-  if (iAnio < 0 || iCve < 0 || iEdad < 0 || iPob < 0) {
+  if (iAnio < 0 || iCve < 0 || iEdad < 0 || iSexo < 0 || iPob < 0) {
     throw new Error(`CONAPO: encabezado inesperado: ${encabezado.join(",")}`);
   }
   const total2026: Record<Clave, number> = {};
   const m15mas2026: Record<Clave, number> = {};
   const total2024: Record<Clave, number> = {};
   const total2025: Record<Clave, number> = {};
+  const mujeres2025: Record<Clave, number> = {};
   let nacional2026 = 0;
   for (let i = 1; i < filas.length; i++) {
     const f = filas[i].split(",");
@@ -804,11 +982,12 @@ async function extraeConapo(): Promise<Conapo> {
       if (edad >= 15) m15mas2026[clave] = (m15mas2026[clave] ?? 0) + pob;
     } else if (anio === 2025) {
       total2025[clave] = (total2025[clave] ?? 0) + pob;
+      if (f[iSexo].trim() === "Mujeres") mujeres2025[clave] = (mujeres2025[clave] ?? 0) + pob;
     } else {
       total2024[clave] = (total2024[clave] ?? 0) + pob;
     }
   }
-  return { total2026, m15mas2026, total2024, total2025, nacional2026, sha256 };
+  return { total2026, m15mas2026, total2024, total2025, mujeres2025, nacional2026, sha256 };
 }
 
 // ---------------------------------------------------------------------------
@@ -855,6 +1034,7 @@ const FORMATOS: Record<string, Formato> = {
     leyenda: (v) => `${fmtMx(1).format(v / 1e6)} M`,
   },
   tasa100k: { valor: (v) => fmtMx(1).format(v), leyenda: (v) => fmtMx(1).format(v) },
+  tasa100kEnteros: { valor: (v) => fmtMx(0).format(v), leyenda: (v) => fmtMx(0).format(v) },
   anios: { valor: (v) => fmtMx(1).format(v), leyenda: (v) => fmtMx(1).format(v) },
 };
 
@@ -874,17 +1054,19 @@ type Definicion = {
 
 async function main(): Promise<void> {
   console.log("[indicadores] extrayendo fuentes…");
-  const [til1, td, pl, imss, pibe, conapo, homicidios, percepcion, escolaridad] = await Promise.all([
+  const [til1, td, pl, imss, pibe, conapo, rnid, percepcion, prevalencia, escolaridad] = await Promise.all([
     extraePxwebTasa(PXWEB_TIL1, /TIL 1/, "til1.xlsx"),
     extraePxwebTasa(PXWEB_TD, /Tasa de desocupación/, "td.xlsx"),
     extraePl(),
     extraeImss(),
     extraePibe(),
     extraeConapo(),
-    extraeHomicidios(),
+    extraeRnid(),
     extraePercepcion(),
+    extraePrevalencia(),
     extraeEscolaridad(),
   ]);
+  const homicidios = rnid.homicidios;
 
   const hoyD = new Date();
   const hoy = `${hoyD.getFullYear()}-${String(hoyD.getMonth() + 1).padStart(2, "0")}-${String(hoyD.getDate()).padStart(2, "0")}`;
@@ -904,6 +1086,15 @@ async function main(): Promise<void> {
   for (const c of CLAVES) tasaHomicidios[c] = (homicidios.valores[c] / conapo.total2025[c]) * 100_000;
   const pob2025Nacional = CLAVES.reduce((sum, c) => sum + conapo.total2025[c], 0);
   const tasaHomicidiosNacional = ((homicidios.nacional ?? 0) / pob2025Nacional) * 100_000;
+
+  const tasaMujeres: Record<Clave, number> = {};
+  for (const c of CLAVES) tasaMujeres[c] = (rnid.mujeres.valores[c] / conapo.mujeres2025[c]) * 100_000;
+  const mujeres2025Nacional = CLAVES.reduce((sum, c) => sum + conapo.mujeres2025[c], 0);
+  const tasaMujeresNacional = ((rnid.mujeres.nacional ?? 0) / mujeres2025Nacional) * 100_000;
+
+  const tasaRoboCoches: Record<Clave, number> = {};
+  for (const c of CLAVES) tasaRoboCoches[c] = (rnid.roboCoches.valores[c] / conapo.total2025[c]) * 100_000;
+  const tasaRoboCochesNacional = ((rnid.roboCoches.nacional ?? 0) / pob2025Nacional) * 100_000;
 
   const perPl = pl.periodo; // "1T 2026"
   const perTil = til1.periodo.replace(/(\d{4}) (\d)T/, "$2T $1");
@@ -1037,16 +1228,70 @@ async function main(): Promise<void> {
       nombre: "Homicidios",
       unidad: "víctimas de homicidio doloso por 100 mil habitantes",
       tooltipSufijo: "víctimas de homicidio doloso por cada 100 mil habitantes",
-      periodo: HOMICIDIOS_ANIO,
+      periodo: RNID_ANIO,
       formato: "tasa100k",
       valores: tasaHomicidios,
       nacional: tasaHomicidiosNacional,
-      fuenteCita: `Fuente: SESNSP/CNI (RNID), víctimas de homicidio doloso en carpetas de investigación, ${HOMICIDIOS_ANIO}; tasa por 100 mil habitantes con población CONAPO. Cifra oficial de fiscalías: el registro no captura todos los casos.`,
+      fuenteCita: `Fuente: SESNSP/CNI (RNID), víctimas de homicidio doloso en carpetas de investigación, ${RNID_ANIO}; tasa por 100 mil habitantes con población CONAPO. Cifra oficial de fiscalías: el registro no captura todos los casos.`,
       procedencia: [
-        `Serie: RNID estatal, víctimas, subtipo "Homicidio doloso", año ${HOMICIDIOS_ANIO} completo (corte jun-2026).`,
+        `Serie: RNID estatal, víctimas, subtipo "Homicidio doloso", año ${RNID_ANIO} completo (corte jun-2026).`,
         `Extracción: ${homicidios.url} (SharePoint CNI, ruta resuelta por redirect)`,
         `SHA-256 zip víctimas: ${homicidios.sha256}`,
-        `Denominador: población a mitad de ${HOMICIDIOS_ANIO}, CONAPO pry23 (SHA-256 ${conapo.sha256}).`,
+        `Denominador: población a mitad de ${RNID_ANIO}, CONAPO pry23 (SHA-256 ${conapo.sha256}).`,
+      ],
+    },
+    {
+      id: "mujeres-asesinadas",
+      grupo: "panorama",
+      nombre: "Mujeres asesinadas",
+      unidad: "víctimas mujeres de feminicidio u homicidio doloso por 100 mil mujeres",
+      tooltipSufijo: "mujeres asesinadas por cada 100 mil mujeres",
+      periodo: RNID_ANIO,
+      formato: "tasa100k",
+      valores: tasaMujeres,
+      nacional: tasaMujeresNacional,
+      fuenteCita: `Fuente: SESNSP/CNI (RNID), víctimas mujeres de feminicidio y de homicidio doloso en carpetas de investigación, ${RNID_ANIO}; tasa por 100 mil mujeres con población CONAPO. Se suman ambos subtipos porque la tipificación de feminicidio varía por fiscalía. Excluye víctimas de sexo no identificado (${rnid.mujeres.noIdent.total} en ${RNID_ANIO}, ${fmtMx(1).format(rnid.mujeres.noIdent.pctNacional)} % nacional y hasta ${fmtMx(1).format(rnid.mujeres.noIdent.pctMax)} % en ${CLAVE_A_NOMBRE[rnid.mujeres.noIdent.claveMax]}): el conteo es piso, no techo. Cifra oficial de fiscalías: el registro no captura todos los casos.`,
+      procedencia: [
+        `Serie: RNID estatal, víctimas, subtipo "Feminicidio" (todas las víctimas son mujeres; el generador lo verifica) + subtipo "Homicidio doloso" con Sexo "Mujer", año ${RNID_ANIO} completo (corte jun-2026). Subtipos disjuntos: la suma no duplica.`,
+        `Extracción: ${rnid.mujeres.url} (SharePoint CNI, ruta resuelta por redirect)`,
+        `SHA-256 zip víctimas: ${rnid.mujeres.sha256}`,
+        `Denominador: mujeres a mitad de ${RNID_ANIO}, CONAPO pry23 (SHA-256 ${conapo.sha256}).`,
+      ],
+    },
+    {
+      id: "victimas-delito",
+      grupo: "panorama",
+      nombre: "Víctimas de delito",
+      unidad: "víctimas de delito por 100 mil habitantes de 18+ (entidad de residencia)",
+      tooltipSufijo: "víctimas de delito por cada 100 mil adultos",
+      periodo: "2024",
+      formato: "tasa100kEnteros",
+      valores: prevalencia.valores,
+      nacional: prevalencia.nacional ?? NaN,
+      fuenteCita: `Fuente: INEGI, ENVIPE 2025, Cuadro 1.1. Víctimas de delito por cada 100 mil habitantes de 18 años y más, por entidad de residencia; delitos ocurridos en 2024. Estimación de encuesta: margen de error promedio por entidad de 7 %.`,
+      procedencia: [
+        `Serie: ENVIPE, tasa de prevalencia delictiva por entidad federativa (residencia: víctimas de 18+ entre población de 18+ residente, Nota 2 del cuadro).`,
+        `Extracción: ${prevalencia.url}`,
+        `SHA-256 tabulado: ${prevalencia.sha256}`,
+        `Anclaje del copy: top-3 nacional de incidencia (cuadro ${ENVIPE_TOP_DELITOS_CUADRO}) = ${prevalencia.top3.join(" · ")}.`,
+      ],
+    },
+    {
+      id: "robo-coches",
+      grupo: "panorama",
+      nombre: "Robo de coches",
+      unidad: "carpetas por robo de coche de 4 ruedas por 100 mil habitantes",
+      tooltipSufijo: "robos de coche por cada 100 mil habitantes",
+      periodo: RNID_ANIO,
+      formato: "tasa100k",
+      valores: tasaRoboCoches,
+      nacional: tasaRoboCochesNacional,
+      fuenteCita: `Fuente: SESNSP/CNI (RNID), carpetas de investigación por robo de coche de 4 ruedas, con y sin violencia (excluye motocicletas y embarcaciones), ${RNID_ANIO}; tasa por 100 mil habitantes con población CONAPO. ${fmtMx(1).format(rnid.roboCoches.pctConViolencia)} % de las carpetas fue con violencia.`,
+      procedencia: [
+        `Serie: RNID estatal, carpetas, subtipo "Robo de vehículo automotor", modalidades "Robo de coche de 4 ruedas" con y sin violencia, año ${RNID_ANIO} completo (corte jun-2026).`,
+        `Extracción: ${rnid.roboCoches.url} (SharePoint CNI, ruta resuelta por redirect)`,
+        `SHA-256 zip carpetas: ${rnid.roboCoches.sha256}`,
+        `Denominador: población a mitad de ${RNID_ANIO}, CONAPO pry23 (SHA-256 ${conapo.sha256}).`,
       ],
     },
     {
@@ -1103,6 +1348,13 @@ async function main(): Promise<void> {
     ["desocupación vs boletín ENOE", td.nacional ?? NaN, ANCLAS.desocupacionNacional, 0.06],
     ["homicidios víctimas vs RNID", homicidios.nacional ?? NaN, ANCLAS.homicidiosVictimas2025, 0],
     ["homicidios carpetas vs RNID", homicidios.carpetasTotal, ANCLAS.homicidiosCarpetas2025, 0],
+    ["mujeres asesinadas vs suma RNID", rnid.mujeres.nacional ?? NaN, ANCLAS.mujeresAsesinadas2025, 0],
+    ["mujeres asesinadas tasa vs evidencia Fase A", tasaMujeresNacional, ANCLAS.mujeresAsesinadasTasa2025, 0.005],
+    ["prevalencia vs comunicado ENVIPE", prevalencia.nacional ?? NaN, ANCLAS.prevalenciaNacional, 0.5],
+    ["prevalencia Edomex vs comunicado", prevalencia.valores["15"], ANCLAS.prevalenciaMaxEdomex, 0.5],
+    ["prevalencia Chiapas vs comunicado", prevalencia.valores["07"], ANCLAS.prevalenciaMinChiapas, 0.5],
+    ["robo de coches carpetas vs RNID", rnid.roboCoches.nacional ?? NaN, ANCLAS.roboCochesCarpetas2025, 0],
+    ["robo de coches tasa vs evidencia Fase A", tasaRoboCochesNacional, ANCLAS.roboCochesTasa2025, 0.05],
     ["percepción vs boletín ENVIPE", percepcion.nacional ?? NaN, ANCLAS.percepcionNacional, 0.06],
     ["escolaridad vs Censo", escolaridad.nacional ?? NaN, ANCLAS.escolaridadNacional, 0.05],
   ];
@@ -1127,7 +1379,7 @@ async function main(): Promise<void> {
     return `${proc}\n  {\n    id: ${JSON.stringify(d.id)},\n    grupo: ${JSON.stringify(d.grupo)},\n    nombre: ${JSON.stringify(d.nombre)},\n    unidad: ${JSON.stringify(d.unidad)},\n    tooltipSufijo: ${JSON.stringify(d.tooltipSufijo)},\n    periodo: ${JSON.stringify(d.periodo)},\n    fuenteCita: ${JSON.stringify(d.fuenteCita)},\n    valorNacional: ${JSON.stringify(d.nacional)},\n    valorNacionalFmt: ${JSON.stringify(nacionalFmt)},\n    valores: ${JSON.stringify(d.valores)},\n    valoresFmt: ${JSON.stringify(valoresFmt)},\n    quintil: ${JSON.stringify(asignacion)},\n    rangosQuintil: ${JSON.stringify(rangosFmt)},\n  },`;
   });
 
-  const modulo = `// Datos estatales de la coropleta de la home — seis indicadores.
+  const modulo = `// Datos estatales de la coropleta de la home — ${defs.length} indicadores.
 // ARCHIVO GENERADO por scripts/build-mapa-indicadores.ts — no editar a mano.
 // Cero transcripción: cada valor fue extraído programáticamente de su fuente
 // oficial y cruzado contra la cifra nacional publicada (el generador aborta

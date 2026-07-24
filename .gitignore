@@ -53,3 +53,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Cadena de CA pública (raíz+intermedia GoDaddy) para validar el TLS de CONAPO;
+# no contiene material privado.
+!scripts/certs/conapo-ca-chain.pem

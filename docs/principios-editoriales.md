@@ -20,11 +20,16 @@ metodología, nunca en su lugar.
    producción y no ingreso; si mide registros de fiscalías, lo dice; si el
    universo es la población ocupada, la frase no lo estira a la población.
 
-3. **Matices declarados.** Si el dato tiene letra chica —cobertura,
+3. **La frase mide lo que necesita decir.** La frase explicativa de un
+   indicador no se recorta para caber en un límite de líneas: la extensión
+   la fija la honestidad del enunciado, no la retícula (doctrina que
+   sustituye al límite de dos líneas de la fase del canon).
+
+4. **Matices declarados.** Si el dato tiene letra chica —cobertura,
    denominador, dirección de la escala, rupturas de serie, subregistro—,
    la letra chica existe en la interfaz, no solo en la metodología.
 
-4. **Elección de indicadores.** Un indicador entra al canon si responde a
+5. **Elección de indicadores.** Un indicador entra al canon si responde a
    una pregunta que una persona común se hace de su estado; se excluye,
    aunque sea técnicamente impecable, si no la responde — y se excluye,
    aunque la responda, si su fuente no lo sostiene con honestidad (caso

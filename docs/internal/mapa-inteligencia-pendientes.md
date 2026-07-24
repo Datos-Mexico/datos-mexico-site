@@ -17,20 +17,32 @@
   duplicar "pobreza" en la capa humana junto a la pobreza laboral; es el
   mejor "¿alcanza para vivir?" para el drill-down por estado.
 
-## Ola 2 — Vista La Seguridad (siguiente)
+## Ola 2 — Vista La Seguridad (implementada; decisión de intervalo en vivo)
 
-- **Composición**: rey homicidios; satélites sentirse inseguro, robo de
-  autos (RNID, ficha F4 verificada), muertes violentas de mujeres (ficha
-  nueva: evaluar honestamente feminicidio tipificado vs homicidio doloso
-  de mujeres — la tipificación varía por fiscalía) y víctimas de delito
-  ENVIPE (ficha nueva: prevalencia delictiva estatal).
-- **Motor del pulso**: reglas ya registradas en `vistas.ts` (pausa con
-  cursor sobre mapa o vista; prefers-reduced-motion lo apaga). Intervalo:
-  propuesta dinámica `max(9s, 0.35s × palabras + 3s)` — los 3s de la
-  directiva original cubren ~7 palabras; decisión final del CEO viéndolo
-  en vivo.
-- **Corrección de registro**: el pipeline de indicadores tiene **11
-  cruces nacionales** (reportes de F3 decían 12 por error de conteo).
+- **Composición vigente**: rey homicidios; satélites sentirse inseguro,
+  robo de coches (serie cerrada por dictamen: coche de 4 ruedas con y sin
+  violencia, SIN motocicletas — el argumento del seguro es de coches),
+  mujeres asesinadas (dictamen: feminicidio + homicidio doloso con
+  víctima mujer por 100 mil mujeres; separarlos compararía tipificación
+  de fiscalías — evidencia: % feminicidio estatal 3.1%–85.7%; matiz
+  piso-no-techo por sexo no identificado en la cita técnica) y víctimas
+  de delito (prevalencia ENVIPE por entidad de residencia, Cuadro 1.1).
+- **Motor del pulso vivo**: rota solo entre vistas activas y con puntero
+  fino; pausa por cursor o foco en el bloque de la vista o la columna
+  completa del mapa; reanuda con reloj desde cero; reduced-motion lo
+  apaga; la rotación entra pintando al rey. Intervalo: parámetro `PULSO`
+  en `vistas.ts` + `?pulso=fijo|dinamico|<ms>` para decidir en vivo
+  (pendiente de dictamen; el modo por defecto vigente es el dinámico).
+- **Doctrina de los dots** (dictamen Ola 2): hover-sin-clicks aplica a
+  estados e items del selector porque no son destinos; las vistas SÍ son
+  destinos. Dots de vistas activas = botones con teclado; dots de vistas
+  sin ola = inertes y decorativos.
+- **Anclaje de copy**: la cláusula "los más comunes" de la frase de
+  víctimas de delito está anclada al top-3 nacional de incidencia
+  (ENVIPE cuadro 1.13); el pipeline aborta si el top-3 cambia, para
+  forzar revisión editorial antes de regenerar.
+- El pipeline tiene ahora **18 cruces nacionales** (11 previos + 7 de la
+  ola 2) más el anclaje del top-3.
 
 ## Pendientes de producto
 
@@ -49,14 +61,24 @@
   cifras de los boletines nuevos antes de correr. El CSV del IMSS es
   mensual (constante `URL_IMSS_CSV` + ancla del comunicado).
 - **~día 17 de cada mes** — SESNSP/CNI publica el corte mensual del RNID
-  (incidencia delictiva). El indicador de homicidios usa el año completo
-  anterior; el refresh relevante es el de enero (cierra el año) y cualquier
-  corrección retroactiva de la serie. Los share-links de SharePoint son
-  estables pero el nombre del archivo interno cambia por mes: el pipeline
-  resuelve la ruta vía redirect_url en cada corrida.
-- **~septiembre 2026** — ENVIPE 2026 (percepción de inseguridad estatal,
-  levantamiento mar-abr 2026). Patrón estable
-  `V_percepcion_seguridad_{año}_est.xlsx`; actualizar año y ancla nacional.
+  (incidencia delictiva). Los TRES indicadores RNID (homicidios, mujeres
+  asesinadas, robo de coches) usan el año completo anterior; el refresh
+  relevante es el de enero (cierra el año) y cualquier corrección
+  retroactiva de la serie. Al refrescar, actualizar también las anclas de
+  suma (2,818) y tasas (4.14 y 52.8) con la evidencia de la corrida
+  nueva. Los share-links de SharePoint son estables pero el nombre del
+  archivo interno cambia por mes: el pipeline resuelve la ruta vía
+  redirect_url en cada corrida. Regla de ola vigente: los zips congelados
+  en staging (`evidencia/f4-ola2/fuentes/`, con SHA-256) son la fuente de
+  la Ola 2; un corte nuevo a mitad de ola NO se integra en caliente.
+- **10-sep-2026** — ENVIPE 2026 (fecha anunciada en el calendario IIN del
+  SNIEG). Refresh conjunto de los dos indicadores ENVIPE: percepción
+  (`V_percepcion_seguridad_{año}_est.xlsx`, cuadro 5.13) y víctimas de
+  delito (`I_nivel_victimizacion_{año}_est.xlsx`, cuadro 1.1, entidad de
+  residencia). Actualizar año, anclas nacionales y extremos contra el
+  comunicado nuevo, y revisar el anclaje del top-3 de incidencia (cuadro
+  1.13): si el podio de delitos cambió, la frase de víctimas de delito se
+  revisa editorialmente antes de regenerar.
 - **22-sep-2026** — INEGI difunde la Encuesta Intercensal 2025. Revisar
   los denominadores CONAPO del pipeline (población total 2026, población
   15+ para la tasa IMSS, población 2024 para PIB per cápita): si la

@@ -6,6 +6,7 @@ import { INDICADORES, type IndicadorId } from "./indicadores-datos";
 import { VISTAS } from "./vistas";
 import { QUINTIL_FILLS } from "./rampa";
 import { COPY } from "./indicadores-copy";
+import { BloquePintado } from "./BloquePintado";
 import { FraseExplicativa } from "./FraseExplicativa";
 import { HeroMapaMexico, type DetalleEntidad } from "./HeroMapaMexico";
 import { VistaActiva } from "./VistaActiva";
@@ -53,6 +54,7 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
 
       <div className="lg:col-span-5">
         <HeroMapaMexico fills={fills} detalles={detalles} />
+        <BloquePintado indicador={activo} />
         <FraseExplicativa texto={frase} />
         <LeyendaQuintiles indicador={activo} />
       </div>

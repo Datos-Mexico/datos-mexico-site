@@ -8,7 +8,7 @@ export function FraseExplicativa({ texto }: { texto: string }) {
   return (
     <p
       aria-live="polite"
-      className="mt-4 font-serif text-[16px] leading-[1.45] text-foreground"
+      className="mt-2 font-serif text-[16px] leading-[1.45] text-foreground"
     >
       {texto}
     </p>

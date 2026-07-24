@@ -13,6 +13,10 @@ busca una vía alternativa para completar la acción bloqueada.
 La validación visual humana pendiente bloquea el merge igual que un check
 fallido.
 
+Si al momento de fusionar un PR los checks aún no registran, se menciona
+en el mismo turno del merge y la batería de verificación completa en
+producción se vuelve obligatoria, no opcional.
+
 ## Flujo vigente
 
 - Trabajo en branch dedicada; `main` solo recibe cambios vía PR.

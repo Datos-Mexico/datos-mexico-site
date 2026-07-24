@@ -17,7 +17,20 @@
   duplicar "pobreza" en la capa humana junto a la pobreza laboral; es el
   mejor "¿alcanza para vivir?" para el drill-down por estado.
 
-## Ola 2 — Vista La Seguridad (implementada; decisión de intervalo en vivo)
+## Ola 3 — Vista "Alcanza para vivir" (siguiente)
+
+- **Composición registrada**: rey pobreza (multidimensional, PM 2024
+  INEGI); satélites pobreza extrema, falta comida (carencia por acceso a
+  la alimentación), lo que junta un hogar (ingreso corriente ENIGH) y
+  desigualdad (Gini — el valor se lee del Cuadro 2.1 de `pm_ct_2024.xlsx`
+  en su Fase A).
+- **Fuentes**: `pm_ef_2024.xlsx` y ENIGH 2024, verificadas en el
+  inventario de F4. Fichas finas + copy palabra por palabra en su Fase A.
+- El pulso ya rota con 2 vistas; la tercera solo se suma a `VISTAS` con
+  `activa: true` y el motor la toma (verificar tiempos dinámicos de su
+  frase de rey).
+
+## Ola 2 — Vista La Seguridad (COMPLETA)
 
 - **Composición vigente**: rey homicidios; satélites sentirse inseguro,
   robo de coches (serie cerrada por dictamen: coche de 4 ruedas con y sin
@@ -28,11 +41,11 @@
   piso-no-techo por sexo no identificado en la cita técnica) y víctimas
   de delito (prevalencia ENVIPE por entidad de residencia, Cuadro 1.1).
 - **Motor del pulso vivo**: rota solo entre vistas activas y con puntero
-  fino; pausa por cursor o foco en el bloque de la vista o la columna
-  completa del mapa; reanuda con reloj desde cero; reduced-motion lo
-  apaga; la rotación entra pintando al rey. Intervalo: parámetro `PULSO`
-  en `vistas.ts` + `?pulso=fijo|dinamico|<ms>` para decidir en vivo
-  (pendiente de dictamen; el modo por defecto vigente es el dinámico).
+  fino; pausa por cursor o foco visible en el bloque de la vista o la
+  columna completa del mapa; reanuda con reloj desde cero; reduced-motion
+  lo apaga; la rotación entra pintando al rey. **Intervalo por dictamen:
+  dinámico** — el pulso respira con el texto, `max(9s, 0.35s × palabras
+  + 3s)` es el ritmo canónico; `?pulso=` queda como diagnóstico.
 - **Doctrina de los dots** (dictamen Ola 2): hover-sin-clicks aplica a
   estados e items del selector porque no son destinos; las vistas SÍ son
   destinos. Dots de vistas activas = botones con teclado; dots de vistas

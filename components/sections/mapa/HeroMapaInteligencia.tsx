@@ -14,16 +14,17 @@ import { LeyendaQuintiles } from "./LeyendaQuintiles";
 import { MasDelCanon } from "./MasDelCanon";
 
 /**
- * Contenedor de la capa de inteligencia del hero: el grid split (mensaje a
- * la izquierda con el selector de indicadores debajo; coropleta con leyenda
- * y cita a la derecha) y el único estado compartido — el indicador activo.
+ * Contenedor de la capa de inteligencia del hero (F4, vistas): el grid
+ * split — mensaje a la izquierda con la vista activa debajo; a la derecha
+ * la coropleta con el bloque del pintado, su frase, leyenda, cita y la
+ * fila de transición Más del canon — y el único estado compartido: lo
+ * pintado en el mapa.
  *
  * El mensaje llega como children server-rendered: este componente no toca
- * su contenido. Cambiar de indicador es un render (los 32 fills nuevos
- * animan por CSS); el movimiento del cursor nunca re-renderiza (patrón del
- * mapa). Registro dual: tooltip y aria usan la capa humana (indicadores-
- * copy); la cita técnica de la leyenda queda intacta. En móvil no hay
- * selector: coropleta estática del default con su frase, leyenda y cita.
+ * su contenido. Cambiar lo pintado es un render (los 32 fills animan por
+ * CSS); el movimiento del cursor nunca re-renderiza. Registro dual: la
+ * mini-ficha y el aria usan la capa humana; la cita técnica queda intacta.
+ * En móvil: coropleta estática del rey con bloque, frase, leyenda y cita.
  */
 const VISTA_ACTIVA = VISTAS.find((v) => v.activa) ?? VISTAS[0];
 

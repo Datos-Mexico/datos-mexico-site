@@ -32,14 +32,14 @@ export function IndicadorSelector({
           <li
             key={ind.id}
             onPointerEnter={alEntrar(ind.id)}
-            className={`flex items-baseline justify-between gap-4 border-l-2 py-[7px] pl-3 pr-2 transition-colors ${
+            className={`flex items-baseline justify-between gap-3 border-l-2 py-[5px] pl-2.5 pr-1 transition-colors ${
               ind.id === activo ? "border-primary bg-muted/40" : "border-transparent"
             }`}
           >
-            <span className="font-sans text-[14px] leading-tight text-foreground">
+            <span className="font-sans text-[13px] leading-tight text-foreground">
               {ind.nombre}
             </span>
-            <span className="whitespace-nowrap font-mono text-[12px] text-text-subtle">
+            <span className="whitespace-nowrap font-mono text-[11px] text-text-subtle">
               {ind.valorNacionalFmt} · {ind.periodo}
             </span>
           </li>
@@ -49,9 +49,9 @@ export function IndicadorSelector({
   );
 
   return (
-    <div className="mt-10 hidden max-w-md lg:block">
+    <div className="mt-8 hidden lg:grid lg:grid-cols-2 lg:gap-x-8">
       {grupo("laboral")}
-      {grupo("panorama", "mt-4")}
+      {grupo("panorama")}
     </div>
   );
 }

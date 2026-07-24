@@ -2,11 +2,8 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 import { ESTADOS, type ClaveEntidad } from "./estados-geometria";
-import {
-  INDICADORES,
-  INDICADOR_DEFAULT,
-  type IndicadorId,
-} from "./indicadores-datos";
+import { INDICADORES, type IndicadorId } from "./indicadores-datos";
+import { VISTAS } from "./vistas";
 import { QUINTIL_FILLS } from "./rampa";
 import { COPY } from "./indicadores-copy";
 import { FraseExplicativa } from "./FraseExplicativa";
@@ -26,9 +23,13 @@ import { LeyendaQuintiles } from "./LeyendaQuintiles";
  * copy); la cita técnica de la leyenda queda intacta. En móvil no hay
  * selector: coropleta estática del default con su frase, leyenda y cita.
  */
+const VISTA_ACTIVA = VISTAS.find((v) => v.activa) ?? VISTAS[0];
+
 export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
-  const [activoId, setActivoId] = useState<IndicadorId>(INDICADOR_DEFAULT);
-  const activo = INDICADORES.find((i) => i.id === activoId) ?? INDICADORES[0];
+  // Lo pintado en el mapa: el rey de la vista activa por defecto; el hover
+  // sobre satélites o sobre la fila "Más del canon" lo cambia y queda.
+  const [pintadoId, setPintadoId] = useState<IndicadorId>(VISTA_ACTIVA.rey ?? INDICADORES[0].id);
+  const activo = INDICADORES.find((i) => i.id === pintadoId) ?? INDICADORES[0];
 
   const { fills, detalles, frase } = useMemo(() => {
     const voz = COPY[activo.id];
@@ -47,7 +48,7 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
     <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
       <div className="max-w-4xl lg:col-span-7">
         {mensaje}
-        <IndicadorSelector activo={activoId} onActivar={setActivoId} />
+        <IndicadorSelector activo={pintadoId} onActivar={setPintadoId} />
       </div>
 
       <div className="lg:col-span-5">

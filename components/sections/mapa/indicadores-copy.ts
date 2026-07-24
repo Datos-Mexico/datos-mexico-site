@@ -33,6 +33,7 @@ const de100 = (v: number) => String(Math.round(v));
 // Serie en tasa por 100 mil → "N de cada 100" en la capa humana.
 const de100k = (v: number) => String(Math.round(v / 1000));
 const dec1 = (v: number) => (Math.round(v * 10) / 10).toFixed(1);
+const dec3 = (v: number) => (Math.round(v * 1000) / 1000).toFixed(3);
 const comas = (v: number) =>
   String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 const miles = (v: number) => comas(Math.round(v / 1000));
@@ -144,6 +145,53 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     frase: (v, p) =>
       `En ${p} se abrieron ${dec1(v)} carpetas por robo de coche por cada 100 mil habitantes. Es de los delitos que más se denuncian — el seguro lo exige —, así que su registro se acerca a la realidad más que el de otros delitos.`,
     tooltip: (v, p) => `${dec1(v)} carpetas por robo de coche por cada 100 mil habitantes · ${p}`,
+  },
+  // Los seis "derechos básicos" de la frase son exactamente las seis
+  // carencias sociales de la medición (rezago educativo, salud, seguridad
+  // social, calidad de la vivienda, servicios básicos, alimentación).
+  pobreza: {
+    fichaLabel: "en pobreza /100",
+    nombreHumano: "Pobreza",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `${de100(v)} de cada 100 personas viven en pobreza según la medición oficial: su ingreso no alcanza para lo indispensable y además les falta al menos uno de seis derechos básicos — escuela, salud, seguridad social, vivienda digna, servicios en casa o comida (${p}).`,
+    tooltip: (v, p) => `${de100(v)} de cada 100 personas viven en pobreza (medición multidimensional) · ${p}`,
+  },
+  "pobreza-extrema": {
+    fichaLabel: "en pobreza extrema /100",
+    nombreHumano: "Pobreza extrema",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `${dec1(v)} de cada 100 personas viven en pobreza extrema: ni gastando todo su ingreso en comida cubrirían la canasta alimentaria, y además les faltan tres o más de los seis derechos básicos (${p}).`,
+    tooltip: (v, p) => `${dec1(v)} de cada 100 personas viven en pobreza extrema · ${p}`,
+  },
+  "falta-comida": {
+    fichaLabel: "les falta comida /100",
+    nombreHumano: "Falta de comida",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `${de100(v)} de cada 100 personas viven en hogares donde por falta de dinero se comió poco, mal o con angustia de que no alcanzara: la carencia oficial de acceso a la alimentación (${p}). Son personas, no hogares.`,
+    tooltip: (v, p) => `${de100(v)} de cada 100 personas viven en hogares donde falta comida · ${p}`,
+  },
+  // El "$N al mes" es derivado en módulo (trimestral ÷ 3, redondeado):
+  // condición mecánica del dictamen — jamás hardcodeado.
+  "ingreso-hogar": {
+    fichaLabel: "junta un hogar /trimestre",
+    nombreHumano: "Lo que junta un hogar",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `Un hogar junta en promedio $${comas(v)} al trimestre — unos $${comas(v / 3)} al mes — sumando sueldos, negocios, apoyos y lo no monetario, como el valor de vivir en casa propia (ENIGH, pesos de ${p}).`,
+    tooltip: (v, p) => `un hogar junta $${comas(v)} al trimestre en promedio · ${p}`,
+  },
+  // La cláusula "14 veces" está anclada al ratio de deciles X/I del mismo
+  // Cuadro 2.1 (rango duro [13.5, 14.5] en el pipeline; aborta si se mueve).
+  gini: {
+    fichaLabel: "desigualdad (Gini 0-1)",
+    nombreHumano: "Desigualdad",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `Los hogares del décimo más rico juntan 14 veces lo que los del décimo más pobre. El coeficiente de Gini resume esa concentración en ${dec3(v)}, en una escala donde 0 es ingreso parejo y 1 es todo en un solo hogar (${p}).`,
+    tooltip: (v, p) => `Gini de ${dec3(v)}: 0 = ingreso parejo, 1 = todo en un hogar · ${p}`,
   },
   percepcion: {
     fichaLabel: "se sienten inseguros",

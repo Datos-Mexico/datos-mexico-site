@@ -3,8 +3,9 @@ import { QUINTIL_FILLS } from "./rampa";
 
 /**
  * Leyenda de quintiles de la coropleta: cinco pasos de la rampa con el rango
- * real (min-max) de cada quintil, la declaración de dirección de la escala
- * y la cita de fuente del indicador activo en el registro del observatorio.
+ * real (min-max) de cada quintil y la declaración de dirección de la escala.
+ * La cita de fuente vive al final de la columna (HeroMapaInteligencia): su
+ * largo varía por indicador y lo interactivo debe quedar por encima de ella.
  */
 export function LeyendaQuintiles({ indicador }: { indicador: IndicadorMapa }) {
   return (
@@ -24,9 +25,6 @@ export function LeyendaQuintiles({ indicador }: { indicador: IndicadorMapa }) {
       </div>
       <p className="mt-1.5 font-mono text-[11px] text-muted-foreground">
         Quintiles de las 32 entidades · más oscuro = mayor valor
-      </p>
-      <p className="mt-2 font-mono text-[12px] leading-[1.5] text-text-subtle">
-        {indicador.fuenteCita}
       </p>
     </div>
   );

@@ -1,6 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type FocusEvent,
+  type ReactNode,
+} from "react";
 import { ESTADOS, type ClaveEntidad } from "./estados-geometria";
 import { INDICADORES, type IndicadorId } from "./indicadores-datos";
 import { PULSO, VISTAS } from "./vistas";
@@ -44,6 +52,19 @@ import { MasDelCanon } from "./MasDelCanon";
  */
 const ACTIVAS = VISTAS.filter((v) => v.activa);
 
+// Entorno del pulso como stores externos (reactivos, sin setState en
+// efectos; en servidor: sin rotación y sin override).
+const MQ_REDUCIDA = "(prefers-reduced-motion: reduce)";
+const MQ_FINO = "(hover: hover) and (pointer: fine)";
+const suscribeMq = (query: string) => (cb: () => void) => {
+  const mq = window.matchMedia(query);
+  mq.addEventListener("change", cb);
+  return () => mq.removeEventListener("change", cb);
+};
+const suscribeReducida = suscribeMq(MQ_REDUCIDA);
+const suscribeFino = suscribeMq(MQ_FINO);
+const sinSuscripcion = () => () => {};
+
 // Tiempo de lectura de una vista: proporcional a las palabras de la frase
 // de su rey (modo dinámico) o fijo (decisión de dirección pendiente en vivo).
 function intervaloMs(vistaIdx: number, override: string | null): number {
@@ -75,26 +96,21 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
   // el cursor puede estar en una zona mientras el foco vive en la otra).
   const [pausas, setPausas] = useState(0);
 
-  const [reducida, setReducida] = useState(false); // prefers-reduced-motion
-  const [punteroFino, setPunteroFino] = useState(false);
-  const [pulsoParam, setPulsoParam] = useState<string | null>(null);
-
-  useEffect(() => {
-    const mqReducida = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const mqFino = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const sincroniza = () => {
-      setReducida(mqReducida.matches);
-      setPunteroFino(mqFino.matches);
-    };
-    sincroniza();
-    mqReducida.addEventListener("change", sincroniza);
-    mqFino.addEventListener("change", sincroniza);
-    setPulsoParam(new URLSearchParams(window.location.search).get("pulso"));
-    return () => {
-      mqReducida.removeEventListener("change", sincroniza);
-      mqFino.removeEventListener("change", sincroniza);
-    };
-  }, []);
+  const reducida = useSyncExternalStore(
+    suscribeReducida,
+    () => window.matchMedia(MQ_REDUCIDA).matches,
+    () => false,
+  );
+  const punteroFino = useSyncExternalStore(
+    suscribeFino,
+    () => window.matchMedia(MQ_FINO).matches,
+    () => false,
+  );
+  const pulsoParam = useSyncExternalStore(
+    sinSuscripcion,
+    () => new URLSearchParams(window.location.search).get("pulso"),
+    () => null,
+  );
 
   // El reloj del pulso. Cualquier pausa desmonta el timeout; al reanudar (o
   // al cambiar de vista) se programa un intervalo completo desde cero.
@@ -111,6 +127,25 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
 
   const pausar = () => setPausas((n) => n + 1);
   const reanudar = () => setPausas((n) => Math.max(0, n - 1));
+
+  // Pausa por foco: solo foco VISIBLE (navegación por teclado). El click de
+  // mouse deja el foco en el botón clickeado sin :focus-visible; contarlo
+  // pausaría el pulso para siempre tras cualquier click en un dot.
+  const focosPausantes = useRef(new WeakSet<Element>());
+  const alFocoCapture = (e: FocusEvent) => {
+    const t = e.target as Element;
+    if (t.matches?.(":focus-visible")) {
+      focosPausantes.current.add(t);
+      pausar();
+    }
+  };
+  const alBlurCapture = (e: FocusEvent) => {
+    const t = e.target as Element;
+    if (focosPausantes.current.has(t)) {
+      focosPausantes.current.delete(t);
+      reanudar();
+    }
+  };
 
   const pintar = (id: IndicadorId) => {
     setPintadoId(id);
@@ -165,15 +200,23 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
     return { fills, fichas, frase: voz.frase(activo.valorNacional, activo.periodo) };
   }, [activo, vista]);
 
+  // Estabilidad del hover (Ola 2): columnas ancladas arriba (items-start;
+  // con alturas de columna casi iguales por diseño, el cambio visual es de
+  // ~2px) + frase con altura reservada + cita técnica al final de la
+  // columna. Así ningún elemento interactivo se mueve cuando el repintado
+  // cambia el largo de la frase o de la cita: solo varía el borde inferior,
+  // debajo de todo lo hoverable. Sin esto, items-center recentraba ambas
+  // columnas en cada repintado y la lista podía entrar en ping-pong de
+  // hover bajo un cursor quieto.
   return (
-    <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
+    <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12">
       <div className="max-w-4xl lg:col-span-7">
         {mensaje}
         <div
           onPointerEnter={pausar}
           onPointerLeave={reanudar}
-          onFocusCapture={pausar}
-          onBlurCapture={reanudar}
+          onFocusCapture={alFocoCapture}
+          onBlurCapture={alBlurCapture}
         >
           <VistaActiva vista={vista} pintado={pintadoId} onPintar={pintar} onVista={irAVista} />
         </div>
@@ -183,14 +226,20 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
         className="lg:col-span-5"
         onPointerEnter={pausar}
         onPointerLeave={reanudar}
-        onFocusCapture={pausar}
-        onBlurCapture={reanudar}
+        onFocusCapture={alFocoCapture}
+        onBlurCapture={alBlurCapture}
       >
         <HeroMapaMexico fills={fills} fichas={fichas} />
         <BloquePintado indicador={activo} />
         <FraseExplicativa texto={frase} anuncia={origen === "user"} />
         <LeyendaQuintiles indicador={activo} />
         <MasDelCanon pintado={pintadoId} onPintar={pintar} />
+        {/* La cita técnica cierra la columna: su largo varía por indicador
+            (la de mujeres asesinadas es la más extensa del canon) y todo lo
+            interactivo debe quedar por encima del contenido variable. */}
+        <p className="mt-3 font-mono text-[12px] leading-[1.5] text-text-subtle">
+          {activo.fuenteCita}
+        </p>
       </div>
     </div>
   );

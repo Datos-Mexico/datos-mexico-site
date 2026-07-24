@@ -49,4 +49,6 @@
   migrar la fuente de población y documentar el cambio de serie en la
   cabecera generada. La misma fecha renueva el grado promedio de
   escolaridad (hoy Censo 2020, BISE 1005000038): refrescar el indicador y
-  su periodo declarado en la capa humana.
+  su periodo declarado en la capa humana, y revisar el ancla editorial
+  "apenas pasa de la secundaria terminada" del módulo de voz (cierta
+  mientras el promedio ronde 9-10 años; secundaria = 9).

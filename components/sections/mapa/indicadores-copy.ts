@@ -95,7 +95,7 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     nombreHumano: "Desempleo",
     grupoPregunta: "vive-de",
     frase: (v, p) =>
-      `Solo ${dec1(v)} de cada 100 personas en la fuerza laboral buscan trabajo sin encontrarlo (${periodoHumano(p)}) — en México el desempleo es bajo hasta donde hay pobreza: sin seguro de desempleo, la gente se ocupa en lo que haya.`,
+      `Solo ${dec1(v)} de cada 100 personas en la fuerza laboral buscan trabajo sin encontrarlo (${periodoHumano(p)}). El desempleo bajo no es bienestar: sin seguro de desempleo, la gente se ocupa en lo que haya.`,
     tooltip: (v, p) => `${dec1(v)} de cada 100 en la fuerza laboral buscan empleo sin hallarlo · ${p}`,
   },
   homicidios: {

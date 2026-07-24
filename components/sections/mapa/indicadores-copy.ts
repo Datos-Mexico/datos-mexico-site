@@ -230,4 +230,64 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
       `La economía mexicana produjo en ${p} el equivalente a ${miles(v)} mil pesos por habitante. Mide producción, no lo que gana la gente.`,
     tooltip: (v, p) => `su economía produce $${comas(v)} al año por habitante · ${p}`,
   },
+  // --- Vista "Salud y vida" (Ola 4) ---------------------------------------
+  // Doctrina de fidelidad de la ola (dictamen del CEO): el condicional de la
+  // esperanza de vida es obligatorio (la EV al nacer supone la mortalidad
+  // del año constante toda la vida: sin condicional, la frase promete
+  // biografía); la TEF dice NACIMIENTOS, jamás "hijos" (cuenta nacimientos,
+  // no madres ni embarazos); en TGF "hijos por mujer" sí es la definición
+  // oficial de la tasa. Cuatro de las cinco series son proyección CONAPO
+  // (base pry23): el matiz va por cita reforzada, no por declaración de
+  // vista.
+  // La cláusula "casi cinco años de diferencia" está anclada al gap estatal
+  // max−min de la EV (rango duro [4.5, 5.0] en el pipeline; aborta si se
+  // mueve). La cláusula "por debajo de los 2.1" del reemplazo está anclada
+  // igual (TGF nacional < 2.1).
+  "esperanza-vida": {
+    fichaLabel: "años de esperanza de vida",
+    nombreHumano: "Años de vida",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `Quien nace hoy en México puede esperar vivir ${dec1(v)} años en promedio — si las condiciones de mortalidad de hoy se mantuvieran toda su vida. Es una foto del presente, no una promesa: entre estados hay casi cinco años de diferencia (proyección CONAPO, ${p}).`,
+    tooltip: (v, p) => `esperanza de vida al nacer: ${dec1(v)} años · ${p}`,
+  },
+  // El renglón más delicado de la vista en tono: exacto, sin crueldad ni
+  // eufemismo, y con el matiz de subregistro en la propia frase. La serie es
+  // la TMI modelada de CONAPO; la registral (EDR/ENR) no se usa jamás
+  // (dictamen del inventario F4: subregistro no comparable).
+  "mortalidad-infantil": {
+    fichaLabel: "no llegan al año /mil",
+    nombreHumano: "Bebés que no llegan al año",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `De cada mil bebés que nacen vivos en México, ${dec1(v)} mueren antes de cumplir un año. La cifra es una estimación que corrige el subregistro: no todas estas muertes llegan a las actas (CONAPO, ${p}).`,
+    tooltip: (v, p) => `${dec1(v)} de cada mil bebés nacidos vivos mueren antes del año · ${p}`,
+  },
+  // La carencia mide AFILIACIÓN/DERECHO ("sin adscripción o derecho a
+  // recibir servicios médicos", definición CONEVAL), no atención efectiva:
+  // el remate de la frase lo distingue y está pre-aprobado por dictamen.
+  "sin-salud": {
+    fichaLabel: "sin acceso a salud /100",
+    nombreHumano: "Sin acceso a salud",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `${de100(v)} de cada 100 personas no tienen asegurado el servicio médico: no están afiliadas ni inscritas al IMSS, al ISSSTE, a IMSS-Bienestar ni a un seguro privado (${p}). Mide el derecho a ser atendido, no si alguien consiguió consulta.`,
+    tooltip: (v, p) => `${de100(v)} de cada 100 sin afiliación o derecho a servicios de salud · ${p}`,
+  },
+  "embarazo-adolescente": {
+    fichaLabel: "nacimientos 15-19 /mil",
+    nombreHumano: "Embarazo adolescente",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `Cada año hay ${dec1(v)} nacimientos por cada mil mujeres de 15 a 19 años (proyección CONAPO, ${p}). La tasa cuenta nacimientos de madres adolescentes, no embarazos ni muchachas.`,
+    tooltip: (v, p) => `${dec1(v)} nacimientos al año por cada mil mujeres de 15 a 19 · ${p}`,
+  },
+  "hijos-mujer": {
+    fichaLabel: "hijos por mujer",
+    nombreHumano: "Hijos por mujer",
+    grupoPregunta: "vive-como",
+    frase: (v, p) =>
+      `Al ritmo de fecundidad de hoy, una mujer en México tendría ${dec1(v)} hijos a lo largo de su vida (proyección CONAPO, ${p}) — por debajo de los 2.1 con los que una generación se reemplaza a sí misma.`,
+    tooltip: (v, p) => `${dec1(v)} hijos por mujer al ritmo de fecundidad actual · ${p}`,
+  },
 };

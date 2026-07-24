@@ -7,34 +7,48 @@ import "./hero-mapa.css";
 /**
  * Mapa de la República por entidad federativa para el hero de la home.
  *
- * Fase de esqueleto geográfico: sin datos, sin navegación. La única
- * interacción es hover con puntero fino — resalte del estado (CSS puro) y
- * tooltip con el nombre corto. En touch el mapa es una figura estática.
+ * Interacción por hover con puntero fino, solo escritorio; en touch el mapa
+ * es una figura estática. Sin clicks: los estados no son destinos todavía.
  *
- * - Tooltip: el nombre vive en estado de React (un render al entrar/salir
- *   de cada estado); la posición se escribe directo al style vía rAF-less
- *   pointermove sobre un ref, sin re-renders por movimiento.
+ * - Modo esqueleto (sin props): fill muted uniforme y hover a primary.
+ * - Modo coropleta (`fills`): cada entidad pinta su quintil; el hover no
+ *   pisa el fill — un path de contorno superpuesto (último nodo del svg,
+ *   inmune a la oclusión por vecinos posteriores en el orden del documento)
+ *   marca el estado activo con stroke de foreground.
+ * - Tooltip: nombre corto y, con `detalles`, el valor formateado con unidad
+ *   y periodo. El nombre vive en estado de React (un render al entrar/salir
+ *   de cada estado); la posición se escribe directo al style del ref en
+ *   pointermove, sin re-renders por movimiento.
  * - Accesibilidad: role="img" con etiqueta general; cada path lleva
- *   aria-label con el nombre oficial INEGI. La navegación por teclado
- *   queda para la fase de datos, cuando el foco tenga destino.
- * - Coropletas futuras: pasar `fills` (clave → color) pinta cada entidad
- *   sin tocar la estructura.
+ *   aria-label con el nombre oficial INEGI y, con `detalles`, el valor del
+ *   indicador activo. Navegación por teclado: pendiente global registrado.
  */
+export interface DetalleEntidad {
+  linea: string; // tooltip: "62.4 % de la población ocupada · 1T 2026"
+  aria: string; // "62.4 % de la población ocupada, 1T 2026"
+}
+
+const POR_CLAVE = new Map(ESTADOS.map((e) => [e.clave, e]));
+
 export function HeroMapaMexico({
   fills,
+  detalles,
 }: {
   fills?: Partial<Record<ClaveEntidad, string>>;
+  detalles?: Record<ClaveEntidad, DetalleEntidad>;
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
-  const [nombre, setNombre] = useState<string | null>(null);
+  const [hovered, setHovered] = useState<ClaveEntidad | null>(null);
 
-  const nombreDe = (target: EventTarget): string | null =>
-    target instanceof SVGPathElement ? (target.dataset.nombre ?? null) : null;
+  const claveDe = (target: EventTarget): ClaveEntidad | null =>
+    target instanceof SVGPathElement && target.dataset.clave
+      ? (target.dataset.clave as ClaveEntidad)
+      : null;
 
   const onPointerOver = (e: ReactPointerEvent<SVGSVGElement>) => {
     if (e.pointerType !== "mouse") return;
-    setNombre(nombreDe(e.target));
+    setHovered(claveDe(e.target));
   };
 
   const onPointerMove = (e: ReactPointerEvent<SVGSVGElement>) => {
@@ -49,13 +63,15 @@ export function HeroMapaMexico({
 
   const onPointerLeave = (e: ReactPointerEvent<SVGSVGElement>) => {
     if (e.pointerType !== "mouse") return;
-    setNombre(null);
+    setHovered(null);
   };
+
+  const activo = hovered ? POR_CLAVE.get(hovered) : undefined;
 
   return (
     <div ref={rootRef} className="relative">
       <svg
-        className="mapa-mx"
+        className={fills ? "mapa-mx mapa-mx--coropleta" : "mapa-mx"}
         viewBox={MAPA_VIEWBOX}
         role="img"
         aria-label="Mapa de México dividido en sus 32 entidades federativas"
@@ -72,19 +88,33 @@ export function HeroMapaMexico({
             data-clave={estado.clave}
             data-nombre={estado.nombreCorto}
             role="img"
-            aria-label={estado.nombreOficial}
+            aria-label={
+              detalles
+                ? `${estado.nombreOficial}: ${detalles[estado.clave].aria}`
+                : estado.nombreOficial
+            }
             style={fills?.[estado.clave] ? { fill: fills[estado.clave] } : undefined}
           />
         ))}
+        {fills && activo && (
+          <path className="mapa-mx__contorno" d={activo.d} aria-hidden="true" />
+        )}
       </svg>
       <div
         ref={tooltipRef}
         aria-hidden="true"
-        className={`pointer-events-none absolute left-0 top-0 z-10 whitespace-nowrap rounded border border-border bg-background px-2.5 py-1 font-sans text-[13px] font-medium text-foreground shadow-sm transition-opacity duration-150 motion-reduce:transition-none ${
-          nombre ? "opacity-100" : "opacity-0"
+        className={`pointer-events-none absolute left-0 top-0 z-10 rounded border border-border bg-background px-2.5 py-1.5 shadow-sm transition-opacity duration-150 motion-reduce:transition-none ${
+          activo ? "opacity-100" : "opacity-0"
         }`}
       >
-        {nombre}
+        <span className="block whitespace-nowrap font-sans text-[13px] font-medium leading-tight text-foreground">
+          {activo?.nombreCorto}
+        </span>
+        {activo && detalles && (
+          <span className="mt-0.5 block whitespace-nowrap font-mono text-[12px] leading-tight text-text-subtle">
+            {detalles[activo.clave].linea}
+          </span>
+        )}
       </div>
     </div>
   );

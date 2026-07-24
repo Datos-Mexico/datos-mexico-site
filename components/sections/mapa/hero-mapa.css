@@ -1,8 +1,9 @@
 /* Mapa de entidades del hero. Reposo en la paleta de superficies del sitio
    (muted sobre background con fronteras border, el mismo idioma de las
-   cards); hover al verde primario — el color interactivo del sistema, igual
-   que botones y ::selection. El resalte solo existe con puntero fino: en
-   touch el mapa es figura estática y no promete interacción. */
+   cards). En modo esqueleto el hover pinta el estado al verde primario; en
+   modo coropleta el fill codifica el quintil y el hover se marca con un
+   contorno superpuesto — el fill del dato nunca se pisa. El resalte solo
+   existe con puntero fino: en touch el mapa es figura estática. */
 
 .mapa-mx {
   display: block;
@@ -17,20 +18,30 @@
   /* Grosor constante en píxeles de pantalla, independiente de la escala
      del viewBox: fronteras finas también cuando el mapa se encoge. */
   vector-effect: non-scaling-stroke;
+  /* El repintado de coropleta (cambio de indicador) anima con la misma
+     cadencia que las micro-interacciones del sitio. */
+  transition: fill 0.18s ease;
 }
 
 @media (hover: hover) {
-  .mapa-mx__estado {
-    transition: fill 0.18s ease;
-  }
-
-  .mapa-mx__estado:hover {
+  .mapa-mx:not(.mapa-mx--coropleta) .mapa-mx__estado:hover {
     fill: var(--primary);
   }
 }
 
+/* Contorno del estado en hover (modo coropleta): path único al final del
+   svg — siempre por encima de los 32 estados, sin mordidas de los vecinos
+   posteriores en el orden del documento. */
+.mapa-mx__contorno {
+  fill: none;
+  stroke: var(--foreground);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mapa-mx__estado {
-    transition: none; /* el hover conserva respuesta de color, no animada */
+    transition: none; /* el cambio de color conserva respuesta, no animada */
   }
 }

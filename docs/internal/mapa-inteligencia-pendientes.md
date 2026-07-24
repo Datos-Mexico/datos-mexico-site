@@ -17,18 +17,41 @@
   duplicar "pobreza" en la capa humana junto a la pobreza laboral; es el
   mejor "¿alcanza para vivir?" para el drill-down por estado.
 
-## Ola 3 — Vista "Alcanza para vivir" (siguiente)
+## Ola 3 — Vista "Alcanza para vivir" (COMPLETA) + orden canónico
 
-- **Composición registrada**: rey pobreza (multidimensional, PM 2024
-  INEGI); satélites pobreza extrema, falta comida (carencia por acceso a
-  la alimentación), lo que junta un hogar (ingreso corriente ENIGH) y
-  desigualdad (Gini — el valor se lee del Cuadro 2.1 de `pm_ct_2024.xlsx`
-  en su Fase A).
-- **Fuentes**: `pm_ef_2024.xlsx` y ENIGH 2024, verificadas en el
-  inventario de F4. Fichas finas + copy palabra por palabra en su Fase A.
-- El pulso ya rota con 2 vistas; la tercera solo se suma a `VISTAS` con
-  `activa: true` y el motor la toma (verificar tiempos dinámicos de su
-  frase de rey).
+- **Composición vigente**: rey pobreza multidimensional (PM 2024, serie
+  CONEVAL continuada por INEGI — cifras de PERSONAS); satélites pobreza
+  extrema, falta de comida (carencia por acceso a la alimentación),
+  lo que junta un hogar (ENIGH 2024 Cuadro 2.1, ingreso corriente total
+  trimestral por hogar, incluye no monetario; el "$ al mes" de la frase
+  es derivado en módulo, trimestral ÷ 3) y desigualdad (Gini del mismo
+  cuadro; primera lectura estatal: 0.331 BC – 0.419 NL).
+- **Orden canónico definitivo** (dictamen Ola 3): Bolsillo · Alcanza
+  para vivir · Salud y vida · Casa y escuela · La seguridad · Economía y
+  conexión. Cada ola inserta su vista en su posición; el arreglo VISTAS
+  es la única fuente del orden (pulso y aria lo heredan). Doctrina en el
+  corolario 6 de principios editoriales.
+- **Anclajes de copy vigentes** (el pipeline aborta si se mueven, para
+  forzar revisión editorial): top-3 de delitos ENVIPE (cuadro 1.13,
+  frase de víctimas de delito) y ratio de deciles X/I nacional ∈
+  [13.5, 14.5] (Cuadro 2.1 ENIGH, cláusula "14 veces" del Gini).
+- El pipeline tiene ahora **27 cruces nacionales** (18 previos + 9 de la
+  ola 3) más los dos anclajes editoriales.
+
+## Mantenimiento bienal 2027 (fuentes de Alcanza para vivir)
+
+- **~julio 2027** — ENIGH 2026 (nueva serie): refresca ingreso del hogar
+  y Gini (patrón `enigh{año}_ns_ef_tabulados.xlsx`, Cuadro 2.1).
+  Checklist: anclas nacionales y extremos contra el comunicado nuevo;
+  ratio de deciles X/I (si sale de [13.5, 14.5] la cláusula "14 veces"
+  del Gini se revisa ANTES de regenerar); "pesos de {año}" en frase y
+  cita; el mensual derivado se recalcula solo.
+- **~agosto 2027** — Pobreza Multidimensional 2026 (se calcula con la
+  ENIGH 2026): refresca pobreza, pobreza extrema y falta de comida
+  (patrón `pm_ef_{año}.xlsx`, hojas por entidad). Checklist: anclas
+  nacionales + extremos; verificar que el tabulado siga declarando
+  personas; revisar el largo de las frases nuevas contra la reserva de
+  altura de la frase (5 líneas en lg — nota en FraseExplicativa).
 
 ## Ola 2 — Vista La Seguridad (COMPLETA)
 

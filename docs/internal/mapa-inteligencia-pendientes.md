@@ -17,6 +17,21 @@
   duplicar "pobreza" en la capa humana junto a la pobreza laboral; es el
   mejor "¿alcanza para vivir?" para el drill-down por estado.
 
+## Ola 2 — Vista La Seguridad (siguiente)
+
+- **Composición**: rey homicidios; satélites sentirse inseguro, robo de
+  autos (RNID, ficha F4 verificada), muertes violentas de mujeres (ficha
+  nueva: evaluar honestamente feminicidio tipificado vs homicidio doloso
+  de mujeres — la tipificación varía por fiscalía) y víctimas de delito
+  ENVIPE (ficha nueva: prevalencia delictiva estatal).
+- **Motor del pulso**: reglas ya registradas en `vistas.ts` (pausa con
+  cursor sobre mapa o vista; prefers-reduced-motion lo apaga). Intervalo:
+  propuesta dinámica `max(9s, 0.35s × palabras + 3s)` — los 3s de la
+  directiva original cubren ~7 palabras; decisión final del CEO viéndolo
+  en vivo.
+- **Corrección de registro**: el pipeline de indicadores tiene **11
+  cruces nacionales** (reportes de F3 decían 12 por error de conteo).
+
 ## Pendientes de producto
 
 - **Navegación por teclado del mapa** — registrado desde F1. Se aborda

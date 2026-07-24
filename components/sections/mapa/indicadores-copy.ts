@@ -234,9 +234,11 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
   // Doctrina de fidelidad de la ola (dictamen del CEO): el condicional de la
   // esperanza de vida es obligatorio (la EV al nacer supone la mortalidad
   // del año constante toda la vida: sin condicional, la frase promete
-  // biografía); la TEF dice NACIMIENTOS, jamás "hijos" (cuenta nacimientos,
-  // no madres ni embarazos); en TGF "hijos por mujer" sí es la definición
-  // oficial de la tasa. Cuatro de las cinco series son proyección CONAPO
+  // biografía) y "una foto del presente, no una promesa" es la equivalencia
+  // editorial válida de esa definición técnica (indicador del periodo, no
+  // pronóstico de la cohorte que nace); la TEF dice NACIMIENTOS, jamás
+  // "hijos" (cuenta nacimientos, no madres ni embarazos); en TGF "hijos por
+  // mujer" sí es la definición oficial de la tasa. Cuatro de las cinco series son proyección CONAPO
   // (base pry23): el matiz va por cita reforzada, no por declaración de
   // vista.
   // La cláusula "casi cinco años de diferencia" está anclada al gap estatal

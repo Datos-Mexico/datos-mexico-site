@@ -54,7 +54,13 @@ export const VISTAS: readonly VistaCanon[] = [
     rey: "pobreza",
     satelites: ["pobreza-extrema", "falta-comida", "ingreso-hogar", "gini"],
   },
-  { id: "salud", nombre: "Salud y vida", activa: false },
+  {
+    id: "salud",
+    nombre: "Salud y vida",
+    activa: true,
+    rey: "esperanza-vida",
+    satelites: ["mortalidad-infantil", "sin-salud", "embarazo-adolescente", "hijos-mujer"],
+  },
   { id: "casa", nombre: "Casa y escuela", activa: false },
   {
     id: "seguridad",

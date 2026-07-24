@@ -17,24 +17,33 @@
   duplicar "pobreza" en la capa humana junto a la pobreza laboral; es el
   mejor "¿alcanza para vivir?" para el drill-down por estado.
 
-## Ola 4 — Vista "Salud y vida" (siguiente)
+## Ola 4 — Vista "Salud y vida" (COMPLETA)
 
-- **Composición registrada**: rey esperanza de vida ("Años de vida");
-  satélites mortalidad infantil ("Bebés que no llegan al año" — TMI
-  modelada CONAPO, la registral EDR/ENR NO es comparable por
-  subregistro, dictamen del inventario F4), sin acceso a salud
-  (carencia PM — ya está en el archivo pm_ef que este pipeline parsea:
-  verificar reutilización del extractor antes de escribir uno nuevo),
-  embarazo adolescente (TEF CONAPO), y 4.º candidato CONAPO a proponer
-  en su Fase A (o argumentar vista de rey + 4 si ninguno es honesto).
-- **Fuentes ya integradas**: CONAPO pry23 (cadena CA propia en
-  scripts/certs/) y PM 2024 — la ola más barata del pulso; el trabajo
-  es copy y el matiz transversal "proyección, no conteo".
-- **Interacción de relojes**: la Intercensal 2025 (22-sep-2026) puede
-  detonar conciliación demográfica o nueva base de proyecciones CONAPO
-  — tocaría los denominadores del pipeline Y las series de esta futura
-  vista (esperanza de vida, TMI, TEF). Si la Ola 4 corre cerca de esa
-  fecha, decidir con el CEO si espera a la base nueva.
+- **Composición vigente**: rey esperanza de vida ("Años de vida", EV al
+  nacer CONAPO, frase con condicional obligatorio — la EV del periodo no
+  promete biografía); satélites mortalidad infantil ("Bebés que no llegan
+  al año" — TMI modelada CONAPO; la registral EDR/ENR NO se usa jamás,
+  subregistro no comparable, dictamen del inventario F4), sin acceso a
+  salud (carencia PM 2024, reutiliza el extractor de la Ola 3 — mide
+  afiliación/derecho, no atención efectiva y la frase lo distingue),
+  embarazo adolescente (TEF 15-19 — la frase dice NACIMIENTOS, jamás
+  "hijos": cuenta nacimientos, no madres ni embarazos) e hijos por mujer
+  (TGF, 4.º satélite del dictamen de Fase A; descartes registrados: edad
+  mediana por publicarse en enteros —10 estados empatan en 31—, migración
+  interestatal por nacional ND, dependencia y envejecimiento por
+  técnicos).
+- **Decisión de secuencia**: la ola corrió con la base CONAPO vigente
+  (pry23, base 2023, previa a la Intercensal 2025); cada cita CONAPO la
+  declara. Matiz "proyección" por cita reforzada, sin declaración de
+  vista (dictamen: sería imprecisa para la carencia de salud, que es
+  medición).
+- **Anclajes de copy vigentes** (el pipeline aborta si se mueven): gap
+  estatal max−min de la EV ∈ [4.5, 5.0] años (cláusula "casi cinco años
+  de diferencia"; hoy 4.64) y TGF nacional < 2.1 (cláusula del nivel de
+  reemplazo).
+- El pipeline tiene ahora **32 cruces nacionales** (27 previos + 5 de la
+  ola 4) más los cuatro anclajes editoriales (top-3 ENVIPE, ratio de
+  deciles, gap EV, TGF).
 
 ## Ola 3 — Vista "Alcanza para vivir" (COMPLETA) + orden canónico
 
@@ -66,11 +75,13 @@
   del Gini se revisa ANTES de regenerar); "pesos de {año}" en frase y
   cita; el mensual derivado se recalcula solo.
 - **~agosto 2027** — Pobreza Multidimensional 2026 (se calcula con la
-  ENIGH 2026): refresca pobreza, pobreza extrema y falta de comida
-  (patrón `pm_ef_{año}.xlsx`, hojas por entidad). Checklist: anclas
-  nacionales + extremos; verificar que el tabulado siga declarando
-  personas; revisar el largo de las frases nuevas contra la reserva de
-  altura de la frase (5 líneas en lg — nota en FraseExplicativa).
+  ENIGH 2026): refresca pobreza, pobreza extrema, falta de comida y sin
+  acceso a salud (patrón `pm_ef_{año}.xlsx`, hojas por entidad; la
+  carencia de salud vive en la vista Salud y vida, no en Alcanza para
+  vivir). Checklist: anclas nacionales + extremos; verificar que el
+  tabulado siga declarando personas; revisar el largo de las frases
+  nuevas contra la reserva de altura de la frase (5 líneas en lg — nota
+  en FraseExplicativa).
 
 ## Ola 2 — Vista La Seguridad (COMPLETA)
 
@@ -134,12 +145,16 @@
   comunicado nuevo, y revisar el anclaje del top-3 de incidencia (cuadro
   1.13): si el podio de delitos cambió, la frase de víctimas de delito se
   revisa editorialmente antes de regenerar.
-- **22-sep-2026** — INEGI difunde la Encuesta Intercensal 2025. Revisar
-  los denominadores CONAPO del pipeline (población total 2026, población
-  15+ para la tasa IMSS, población 2024 para PIB per cápita): si la
-  Intercensal detona conciliación demográfica o nueva base de proyecciones,
-  migrar la fuente de población y documentar el cambio de serie en la
-  cabecera generada. La misma fecha renueva el grado promedio de
+- **22-sep-2026** — INEGI difunde la Encuesta Intercensal 2025. El refresh
+  alcanza a TODA la base CONAPO del pipeline (decisión de secuencia de la
+  Ola 4): los denominadores (población total 2026, población 15+ para la
+  tasa IMSS, población 2024 para PIB per cápita, poblaciones 2025 de las
+  tasas RNID) Y las cuatro series de la vista Salud y vida (esperanza de
+  vida, TMI, TEF adolescente, TGF — hoy base 2023, declarada en cada
+  cita). Si la Intercensal detona conciliación demográfica o nueva base de
+  proyecciones, migrar la fuente de población, regenerar las series,
+  actualizar las anclas (incluidos el gap EV y la TGF del reemplazo) y
+  documentar el cambio de serie en la cabecera generada y en las citas. La misma fecha renueva el grado promedio de
   escolaridad (hoy Censo 2020, BISE 1005000038): refrescar el indicador y
   su periodo declarado en la capa humana, y revisar el ancla editorial
   "apenas pasa de la secundaria terminada" del módulo de voz (cierta

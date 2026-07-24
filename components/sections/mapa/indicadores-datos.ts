@@ -1,4 +1,4 @@
-// Datos estatales de la coropleta de la home — seis indicadores.
+// Datos estatales de la coropleta de la home — 13 indicadores.
 // ARCHIVO GENERADO por scripts/build-mapa-indicadores.ts — no editar a mano.
 // Cero transcripción: cada valor fue extraído programáticamente de su fuente
 // oficial y cruzado contra la cifra nacional publicada (el generador aborta
@@ -6,12 +6,12 @@
 // SHA-256 del archivo fuente) acompaña a cada bloque.
 // Quintiles: rank sobre los 32 valores (grupos 7-6-6-6-7, ascendente);
 // empates comparten el quintil inferior. Formateo es-MX precomputado.
-// Fecha de extracción: 2026-07-23.
+// Fecha de extracción: 2026-07-24.
 
 import type { ClaveEntidad } from "./estados-geometria";
 
 export type IndicadorId =
-  "informalidad" | "pobreza-laboral" | "empleo-formal" | "pib" | "poblacion" | "ingreso" | "desempleo" | "homicidios" | "percepcion" | "escolaridad";
+  "informalidad" | "pobreza-laboral" | "empleo-formal" | "pib" | "poblacion" | "ingreso" | "desempleo" | "homicidios" | "mujeres-asesinadas" | "victimas-delito" | "robo-coches" | "percepcion" | "escolaridad";
 
 export interface IndicadorMapa {
   id: IndicadorId;
@@ -183,6 +183,63 @@ export const INDICADORES: readonly IndicadorMapa[] = [
     valoresFmt: {"10":"3.1","11":"38.8","12":"36.4","13":"8.8","14":"13.4","15":"8.6","16":"25.1","17":"54.4","18":"14.6","19":"11.3","20":"20.2","21":"12.7","22":"5.8","23":"13.8","24":"6.9","25":"52.0","26":"36.2","27":"37.1","28":"5.9","29":"8.4","30":"11.7","31":"1.4","32":"8.4","01":"6.5","02":"41.5","03":"14.5","04":"11.7","05":"2.2","06":"81.1","07":"6.0","08":"44.5","09":"9.3"},
     quintil: {"10":1,"11":5,"12":4,"13":2,"14":3,"15":2,"16":4,"17":5,"18":4,"19":3,"20":4,"21":3,"22":1,"23":3,"24":2,"25":5,"26":4,"27":5,"28":1,"29":2,"30":3,"31":1,"32":2,"05":1,"07":1,"01":1,"09":2,"04":3,"03":4,"02":5,"08":5,"06":5},
     rangosQuintil: [["1.4","6.5"],["6.9","9.3"],["11.3","13.8"],["14.5","36.4"],["37.1","81.1"]],
+  },
+  // Serie: RNID estatal, víctimas, subtipo "Feminicidio" (todas las víctimas son mujeres; el generador lo verifica) + subtipo "Homicidio doloso" con Sexo "Mujer", año 2025 completo (corte jun-2026). Subtipos disjuntos: la suma no duplica.
+  // Extracción: https://sspcgob-my.sharepoint.com/:u:/g/personal/cni_sspc_gob_mx/IQAjMphIBZwaQZy25I_oN-HWAaJZJFxQWE1y2k3seT0lj74?e=6FGvmI (SharePoint CNI, ruta resuelta por redirect)
+  // SHA-256 zip víctimas: 9434d6e45a3337bcf50b7da220a740c45a535a5886e817f5b1814b0a6529559b
+  // Denominador: mujeres a mitad de 2025, CONAPO pry23 (SHA-256 4ad539174e1f5abf3bb70c9720c872e54470b2e35e6d810d66117752fc1cce28).
+  {
+    id: "mujeres-asesinadas",
+    grupo: "panorama",
+    nombre: "Mujeres asesinadas",
+    unidad: "víctimas mujeres de feminicidio u homicidio doloso por 100 mil mujeres",
+    tooltipSufijo: "mujeres asesinadas por cada 100 mil mujeres",
+    periodo: "2025",
+    fuenteCita: "Fuente: SESNSP/CNI (RNID), víctimas mujeres de feminicidio y de homicidio doloso en carpetas de investigación, 2025; tasa por 100 mil mujeres con población CONAPO. Se suman ambos subtipos porque la tipificación de feminicidio varía por fiscalía. Excluye víctimas de sexo no identificado (383 en 2025, 1.6 % nacional y hasta 13.5 % en Nayarit): el conteo es piso, no techo. Cifra oficial de fiscalías: el registro no captura todos los casos.",
+    valorNacional: 4.136799709208524,
+    valorNacionalFmt: "4.1",
+    valores: {"10":0.7202157354791646,"11":10.262423556099316,"12":7.161654577366179,"13":2.269382710445969,"14":3.52820410860478,"15":2.4997037083652693,"16":6.3890192506958225,"17":11.202983947724428,"18":2.994209199408344,"19":3.1013628766863657,"20":3.8461096379970874,"21":2.8393462405281182,"22":1.7738372312174657,"23":3.927466401003899,"24":1.8294328300868523,"25":6.337643552286491,"26":6.094525448172155,"27":6.092167371617463,"28":2.1669067881261963,"29":1.6066622929748693,"30":3.2211756296273317,"31":1.0187433095992264,"32":2.7427537018603867,"01":0.8863418519226655,"02":10.968369288762734,"03":3.8388929535990752,"04":2.6626194850493916,"05":0.7048938429872461,"06":25.306322707260072,"07":1.9192102066157737,"08":8.504772067163964,"09":2.4499472633146784},
+    valoresFmt: {"10":"0.7","11":"10.3","12":"7.2","13":"2.3","14":"3.5","15":"2.5","16":"6.4","17":"11.2","18":"3.0","19":"3.1","20":"3.8","21":"2.8","22":"1.8","23":"3.9","24":"1.8","25":"6.3","26":"6.1","27":"6.1","28":"2.2","29":"1.6","30":"3.2","31":"1.0","32":"2.7","01":"0.9","02":"11.0","03":"3.8","04":"2.7","05":"0.7","06":"25.3","07":"1.9","08":"8.5","09":"2.4"},
+    quintil: {"10":1,"11":5,"12":5,"13":2,"14":3,"15":2,"16":5,"17":5,"18":3,"19":3,"20":4,"21":3,"22":1,"23":4,"24":1,"25":4,"26":4,"27":4,"28":2,"29":1,"30":3,"31":1,"32":3,"05":1,"01":1,"07":2,"09":2,"04":2,"03":4,"08":5,"02":5,"06":5},
+    rangosQuintil: [["0.7","1.8"],["1.9","2.7"],["2.7","3.5"],["3.8","6.3"],["6.4","25.3"]],
+  },
+  // Serie: ENVIPE, tasa de prevalencia delictiva por entidad federativa (residencia: víctimas de 18+ entre población de 18+ residente, Nota 2 del cuadro).
+  // Extracción: https://www.inegi.org.mx/contenidos/programas/envipe/2025/tabulados/I_nivel_victimizacion_2025_est.xlsx (cuadro 1.1)
+  // SHA-256 tabulado: 9e18ab410dad58772562dfe2cbfde8a840438a62c26f0f2528008056954dc54b
+  // Anclaje del copy: top-3 nacional de incidencia (cuadro 1.13) = Fraude · Robo o asalto en calle o transporte público · Extorsión.
+  {
+    id: "victimas-delito",
+    grupo: "panorama",
+    nombre: "Víctimas de delito",
+    unidad: "víctimas de delito por 100 mil habitantes de 18+ (entidad de residencia)",
+    tooltipSufijo: "víctimas de delito por cada 100 mil adultos",
+    periodo: "2024",
+    fuenteCita: "Fuente: INEGI, ENVIPE 2025, Cuadro 1.1. Víctimas de delito por cada 100 mil habitantes de 18 años y más, por entidad de residencia; delitos ocurridos en 2024. Estimación de encuesta: margen de error promedio por entidad de 7 %.",
+    valorNacional: 24134.9420611221,
+    valorNacionalFmt: "24,135",
+    valores: {"10":20214.8284868738,"11":20490.2541031431,"12":19006.2762961587,"13":19271.6696689196,"14":24179.4099984684,"15":34851.106870986,"16":16571.5466833846,"17":23812.2378642241,"18":17128.3801262374,"19":23132.5607090786,"20":21302.914414702,"21":29208.8547319988,"22":28789.6119029565,"23":25599.3176786042,"24":25467.6575323325,"25":20823.8799535888,"26":23260.4760987605,"27":24874.2460946922,"28":16537.0587534717,"29":30497.9426849819,"30":17503.3603749446,"31":21072.7133321058,"32":18690.0775772329,"01":29473.0842316845,"02":20647.0118562457,"03":18826.7331439642,"04":18610.3881110041,"05":20007.3949200659,"06":18882.4268638396,"07":15575.967244443,"08":20600.85487136,"09":30804.3016605783},
+    valoresFmt: {"10":"20,215","11":"20,490","12":"19,006","13":"19,272","14":"24,179","15":"34,851","16":"16,572","17":"23,812","18":"17,128","19":"23,133","20":"21,303","21":"29,209","22":"28,790","23":"25,599","24":"25,468","25":"20,824","26":"23,260","27":"24,874","28":"16,537","29":"30,498","30":"17,503","31":"21,073","32":"18,690","01":"29,473","02":"20,647","03":"18,827","04":"18,610","05":"20,007","06":"18,882","07":"15,576","08":"20,601","09":"30,804"},
+    quintil: {"10":2,"11":3,"12":2,"13":2,"14":4,"15":5,"16":1,"17":4,"18":1,"19":4,"20":3,"21":5,"22":5,"23":5,"24":4,"25":3,"26":4,"27":4,"28":1,"29":5,"30":1,"31":3,"32":1,"07":1,"04":1,"03":2,"06":2,"05":2,"08":3,"02":3,"01":5,"09":5},
+    rangosQuintil: [["15,576","18,690"],["18,827","20,215"],["20,490","21,303"],["23,133","25,468"],["25,599","34,851"]],
+  },
+  // Serie: RNID estatal, carpetas, subtipo "Robo de vehículo automotor", modalidades "Robo de coche de 4 ruedas" con y sin violencia, año 2025 completo (corte jun-2026).
+  // Extracción: https://sspcgob-my.sharepoint.com/:u:/g/personal/cni_sspc_gob_mx/IQCImg0CgaACTJdHIpZ_yZKpAYKWg8wsEgtzU0nN3o-GVKU?e=dqWCtz (SharePoint CNI, ruta resuelta por redirect)
+  // SHA-256 zip carpetas: fa154574c10a2e0a77e1354540e3ee857ee823b140633cee4d41d4597c88bb3e
+  // Denominador: población a mitad de 2025, CONAPO pry23 (SHA-256 4ad539174e1f5abf3bb70c9720c872e54470b2e35e6d810d66117752fc1cce28).
+  {
+    id: "robo-coches",
+    grupo: "panorama",
+    nombre: "Robo de coches",
+    unidad: "carpetas por robo de coche de 4 ruedas por 100 mil habitantes",
+    tooltipSufijo: "robos de coche por cada 100 mil habitantes",
+    periodo: "2025",
+    fuenteCita: "Fuente: SESNSP/CNI (RNID), carpetas de investigación por robo de coche de 4 ruedas, con y sin violencia (excluye motocicletas y embarcaciones), 2025; tasa por 100 mil habitantes con población CONAPO. 39.6 % de las carpetas fue con violencia.",
+    valorNacional: 52.79325023798164,
+    valorNacionalFmt: "52.8",
+    valores: {"10":17.072036730305406,"11":48.488230285136794,"12":43.29947547203913,"13":51.15373181322706,"14":63.99855514669461,"15":72.80863308167223,"16":63.706261409743846,"17":117.89292657031288,"18":22.653785220972573,"19":15.561840931477535,"20":20.625080512709545,"21":97.52304202868295,"22":85.85676499696167,"23":33.8783368020563,"24":32.82127006233692,"25":138.35441695691813,"26":51.961912427621066,"27":46.11919908215499,"28":34.414509157060614,"29":38.40518995027357,"30":28.185229536002662,"31":0.8752871041165946,"32":38.23843973154864,"01":31.179032197676356,"02":177.70273590086597,"03":30.97166977120785,"04":1.147546285236191,"05":8.175852589965993,"06":30.24357812815716,"07":4.715202582621237,"08":64.87548013543962,"09":30.859163091656942},
+    valoresFmt: {"10":"17.1","11":"48.5","12":"43.3","13":"51.2","14":"64.0","15":"72.8","16":"63.7","17":"117.9","18":"22.7","19":"15.6","20":"20.6","21":"97.5","22":"85.9","23":"33.9","24":"32.8","25":"138.4","26":"52.0","27":"46.1","28":"34.4","29":"38.4","30":"28.2","31":"0.9","32":"38.2","01":"31.2","02":"177.7","03":"31.0","04":"1.1","05":"8.2","06":"30.2","07":"4.7","08":"64.9","09":"30.9"},
+    quintil: {"10":1,"11":4,"12":3,"13":4,"14":4,"15":5,"16":4,"17":5,"18":2,"19":1,"20":1,"21":5,"22":5,"23":3,"24":3,"25":5,"26":4,"27":4,"28":3,"29":3,"30":2,"31":1,"32":3,"04":1,"07":1,"05":1,"06":2,"09":2,"03":2,"01":2,"08":5,"02":5},
+    rangosQuintil: [["0.9","20.6"],["22.7","31.2"],["32.8","43.3"],["46.1","64.0"],["64.9","177.7"]],
   },
   // Serie: ENVIPE, percepción sobre la seguridad en la entidad federativa (relativos, "Inseguro").
   // Extracción: https://www.inegi.org.mx/contenidos/programas/envipe/2025/tabulados/V_percepcion_seguridad_2025_est.xlsx (cuadro 5.13)

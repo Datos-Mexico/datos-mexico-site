@@ -71,6 +71,7 @@ export function HeroMapaMexico({
             d={estado.d}
             data-clave={estado.clave}
             data-nombre={estado.nombreCorto}
+            role="img"
             aria-label={estado.nombreOficial}
             style={fills?.[estado.clave] ? { fill: fills[estado.clave] } : undefined}
           />

@@ -6,6 +6,17 @@
 > `npx tsx scripts/build-mapa-indicadores.ts` (ambos con verificaciones
 > duras: abortan si una fuente cambia de forma o un cruce nacional falla).
 
+## Candidatas registradas para la fase de drill-down
+
+- **Pobreza multidimensional estatal (INEGI, serie CONEVAL continuada)** —
+  candidata #1. Primera medición INEGI: PM 2024 (publicada 13-ago-2025,
+  metodología CONEVAL preservada, serie 2016-2024). Tabulado estatal
+  verificado: `https://www.inegi.org.mx/contenidos/desarrollosocial/pm/tabulados/pm_ef_2024.xlsx`
+  (457 KB; también existe `pm_ct_2024.xlsx` con Gini y cohesión social).
+  Bienal; próxima con datos 2026. Quedó fuera del canon del mapa para no
+  duplicar "pobreza" en la capa humana junto a la pobreza laboral; es el
+  mejor "¿alcanza para vivir?" para el drill-down por estado.
+
 ## Pendientes de producto
 
 - **Navegación por teclado del mapa** — registrado desde F1. Se aborda
@@ -22,9 +33,20 @@
   anclas nacionales de validación en `build-mapa-indicadores.ts` con las
   cifras de los boletines nuevos antes de correr. El CSV del IMSS es
   mensual (constante `URL_IMSS_CSV` + ancla del comunicado).
+- **~día 17 de cada mes** — SESNSP/CNI publica el corte mensual del RNID
+  (incidencia delictiva). El indicador de homicidios usa el año completo
+  anterior; el refresh relevante es el de enero (cierra el año) y cualquier
+  corrección retroactiva de la serie. Los share-links de SharePoint son
+  estables pero el nombre del archivo interno cambia por mes: el pipeline
+  resuelve la ruta vía redirect_url en cada corrida.
+- **~septiembre 2026** — ENVIPE 2026 (percepción de inseguridad estatal,
+  levantamiento mar-abr 2026). Patrón estable
+  `V_percepcion_seguridad_{año}_est.xlsx`; actualizar año y ancla nacional.
 - **22-sep-2026** — INEGI difunde la Encuesta Intercensal 2025. Revisar
   los denominadores CONAPO del pipeline (población total 2026, población
   15+ para la tasa IMSS, población 2024 para PIB per cápita): si la
   Intercensal detona conciliación demográfica o nueva base de proyecciones,
   migrar la fuente de población y documentar el cambio de serie en la
-  cabecera generada.
+  cabecera generada. La misma fecha renueva el grado promedio de
+  escolaridad (hoy Censo 2020, BISE 1005000038): refrescar el indicador y
+  su periodo declarado en la capa humana.

@@ -1,0 +1,36 @@
+/* Mapa de entidades del hero. Reposo en la paleta de superficies del sitio
+   (muted sobre background con fronteras border, el mismo idioma de las
+   cards); hover al verde primario — el color interactivo del sistema, igual
+   que botones y ::selection. El resalte solo existe con puntero fino: en
+   touch el mapa es figura estática y no promete interacción. */
+
+.mapa-mx {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mapa-mx__estado {
+  fill: var(--muted);
+  stroke: var(--border);
+  stroke-width: 1;
+  /* Grosor constante en píxeles de pantalla, independiente de la escala
+     del viewBox: fronteras finas también cuando el mapa se encoge. */
+  vector-effect: non-scaling-stroke;
+}
+
+@media (hover: hover) {
+  .mapa-mx__estado {
+    transition: fill 0.18s ease;
+  }
+
+  .mapa-mx__estado:hover {
+    fill: var(--primary);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mapa-mx__estado {
+    transition: none; /* el hover conserva respuesta de color, no animada */
+  }
+}

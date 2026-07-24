@@ -17,6 +17,25 @@
   duplicar "pobreza" en la capa humana junto a la pobreza laboral; es el
   mejor "¿alcanza para vivir?" para el drill-down por estado.
 
+## Ola 4 — Vista "Salud y vida" (siguiente)
+
+- **Composición registrada**: rey esperanza de vida ("Años de vida");
+  satélites mortalidad infantil ("Bebés que no llegan al año" — TMI
+  modelada CONAPO, la registral EDR/ENR NO es comparable por
+  subregistro, dictamen del inventario F4), sin acceso a salud
+  (carencia PM — ya está en el archivo pm_ef que este pipeline parsea:
+  verificar reutilización del extractor antes de escribir uno nuevo),
+  embarazo adolescente (TEF CONAPO), y 4.º candidato CONAPO a proponer
+  en su Fase A (o argumentar vista de rey + 4 si ninguno es honesto).
+- **Fuentes ya integradas**: CONAPO pry23 (cadena CA propia en
+  scripts/certs/) y PM 2024 — la ola más barata del pulso; el trabajo
+  es copy y el matiz transversal "proyección, no conteo".
+- **Interacción de relojes**: la Intercensal 2025 (22-sep-2026) puede
+  detonar conciliación demográfica o nueva base de proyecciones CONAPO
+  — tocaría los denominadores del pipeline Y las series de esta futura
+  vista (esperanza de vida, TMI, TEF). Si la Ola 4 corre cerca de esa
+  fecha, decidir con el CEO si espera a la base nueva.
+
 ## Ola 3 — Vista "Alcanza para vivir" (COMPLETA) + orden canónico
 
 - **Composición vigente**: rey pobreza multidimensional (PM 2024, serie

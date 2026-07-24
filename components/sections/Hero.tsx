@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section className="relative border-b border-border">
       <Container>
-        <div className="flex min-h-[80vh] flex-col justify-center py-20 md:py-28">
+        <div className="flex min-h-[80vh] flex-col justify-center py-20 md:py-28 lg:py-12">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
             <div className="max-w-4xl lg:col-span-7">
               <Eyebrow className="mb-6">

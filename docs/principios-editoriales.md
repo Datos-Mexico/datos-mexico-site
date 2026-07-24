@@ -35,6 +35,11 @@ metodología, nunca en su lugar.
    aunque la responda, si su fuente no lo sostiene con honestidad (caso
    registrado: percepción ENSU a nivel estatal).
 
+6. **Orden editorial de las vistas.** El observatorio ordena las vistas
+   por criterio editorial (el retrato abre por cómo se vive, no por la
+   violencia), pero jamás esconde, suaviza ni degrada un dato por
+   incómodo: la posición cambia, el rigor y el acceso no.
+
 Las reglas de gobernanza del repositorio (merge, deploy, bloqueos) viven en
 `CLAUDE.md`; los pendientes y el mantenimiento programado de datos, en
 `docs/internal/mapa-inteligencia-pendientes.md`.

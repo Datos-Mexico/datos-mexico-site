@@ -23,6 +23,14 @@ desde `lib/preguntas/loader.ts` mediante lectura del filesystem. El
 directorio está incluido en `.gitignore` y no debe versionarse en este
 repositorio.
 
+Quirk conocido: un build local regenera
+`lib/preguntas/registry.generated.ts` contra el HEAD vigente del corpus
+y puede dejar el archivo modificado en el working tree con cambios
+ajenos a la rama de trabajo. Antes de commitear, restaurar el archivo
+(`git checkout -- lib/preguntas/registry.generated.ts`) salvo que la
+actualización del corpus sea el objeto del commit (registrado en el
+cierre de la Ola 4 del mapa).
+
 ## Deploy command
 
 El deploy command no requiere modificaciones respecto a la

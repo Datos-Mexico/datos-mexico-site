@@ -44,6 +44,31 @@
 - El pipeline tiene ahora **32 cruces nacionales** (27 previos + 5 de la
   ola 4) más los cuatro anclajes editoriales (top-3 ENVIPE, ratio de
   deciles, gap EV, TGF).
+- **Precedente de quintiles** (dictamen del cierre de ola): la TGF
+  reparte 9-4-6-7-6 en lugar de 7-6-6-6-7 porque sus empates a dos
+  decimales (1.56×2, 1.63×3, 1.73×2) caen en fronteras de quintil y la
+  regla los comparte hacia el quintil inferior. Es la regla funcionando,
+  no un defecto: esperable en cualquier serie futura de poca
+  granularidad.
+
+## Ola 5 — Vista "Casa y escuela" (posición 4, registrada)
+
+- **Composición registrada** (a confirmar contra el inventario F4 en su
+  Fase A): rey rezago educativo; satélites años de escuela, jóvenes
+  estudiando, hacinamiento y casa propia. Internet pertenece a la
+  vista 6, no a esta.
+- **DEPENDENCIA DE CALENDARIO**: dos series censales esperan la
+  Intercensal del 22-sep-2026 por decisión F4 (no publicar el dato 2020
+  dos veces). La secuencia — Ola 5 antes o después de la Ola 6 — queda
+  ABIERTA para decisión del CEO al abrir la próxima sesión.
+
+## Ola 6 — Vista "Economía y conexión" (posición 6, registrada)
+
+- **Composición registrada** (a confirmar en su Fase A): rey producción
+  por habitante; satélites sueldo formal, dinero de fuera (remesas —
+  estrena Banxico como fuente), internet y población.
+- Sin dependencias de calendario: puede correr ya (decisión de
+  secuencia pendiente frente a la Ola 5, arriba).
 
 ## Ola 3 — Vista "Alcanza para vivir" (COMPLETA) + orden canónico
 
@@ -119,9 +144,14 @@
 
 ## Mantenimiento programado de datos
 
+- **~12-ago-2026 (IMSS mensual) y ~17-ago-2026 (SESNSP)** — primeros
+  relojes tras la Ola 4; si caen a mitad de una ola, regla vigente:
+  freno y micro-fase separada, jamás integración en caliente.
 - **25/26-ago-2026** — INEGI publica la ENOE 2T-2026 (25-ago, boletín 301/26:
   informalidad TIL1 y desocupación) y Pobreza Laboral 2T-2026 (26-ago:
-  pobreza laboral e ingreso, Cuadros 9 y 5). Regenerar indicadores: el descubrimiento del tabulado PL y el
+  pobreza laboral e ingreso, Cuadros 9 y 5). Primeras micro-fases de
+  mantenimiento del mapa: protocolo completo (anclas nuevas del boletín
+  antes de correr, batería de verificación, OK del CEO). Regenerar indicadores: el descubrimiento del tabulado PL y el
   `Periodo top 1` de PxWeb toman el trimestre nuevo solos; actualizar las
   anclas nacionales de validación en `build-mapa-indicadores.ts` con las
   cifras de los boletines nuevos antes de correr. El CSV del IMSS es

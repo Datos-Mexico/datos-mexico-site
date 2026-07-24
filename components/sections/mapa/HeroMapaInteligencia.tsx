@@ -8,7 +8,7 @@ import { QUINTIL_FILLS } from "./rampa";
 import { COPY } from "./indicadores-copy";
 import { FraseExplicativa } from "./FraseExplicativa";
 import { HeroMapaMexico, type DetalleEntidad } from "./HeroMapaMexico";
-import { IndicadorSelector } from "./IndicadorSelector";
+import { VistaActiva } from "./VistaActiva";
 import { LeyendaQuintiles } from "./LeyendaQuintiles";
 
 /**
@@ -48,7 +48,7 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
     <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
       <div className="max-w-4xl lg:col-span-7">
         {mensaje}
-        <IndicadorSelector activo={pintadoId} onActivar={setPintadoId} />
+        <VistaActiva vista={VISTA_ACTIVA} pintado={pintadoId} onPintar={setPintadoId} />
       </div>
 
       <div className="lg:col-span-5">

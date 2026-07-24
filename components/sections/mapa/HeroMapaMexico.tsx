@@ -11,31 +11,34 @@ import "./hero-mapa.css";
  * es una figura estática. Sin clicks: los estados no son destinos todavía.
  *
  * - Modo esqueleto (sin props): fill muted uniforme y hover a primary.
- * - Modo coropleta (`fills`): cada entidad pinta su quintil; el hover no
- *   pisa el fill — un path de contorno superpuesto (último nodo del svg,
- *   inmune a la oclusión por vecinos posteriores en el orden del documento)
- *   marca el estado activo con stroke de foreground.
- * - Tooltip: nombre corto y, con `detalles`, el valor formateado con unidad
- *   y periodo. El nombre vive en estado de React (un render al entrar/salir
- *   de cada estado); la posición se escribe directo al style del ref en
+ * - Modo coropleta (`fills`): cada entidad pinta su quintil; el hover se
+ *   marca con un path de contorno superpuesto (último nodo del svg, inmune
+ *   a la oclusión por vecinos posteriores), sin pisar el color del dato.
+ * - Mini-ficha de estado (F4): el hover muestra los datos de la vista para
+ *   ese estado — lo pintado en el slot del rey (valor grande) y los demás
+ *   en retícula 2×2. Anclada al cursor (+14/+18) con volteo en ambos ejes
+ *   para no salirse del viewport ni tapar el punto activo; aria-hidden —
+ *   el aria de cada path lleva el dato pintado (regla del registro dual).
+ * - El nombre del estado activo vive en estado de React (un render por
+ *   entrada/salida); la posición se escribe directo al style del ref en
  *   pointermove, sin re-renders por movimiento.
- * - Accesibilidad: role="img" con etiqueta general; cada path lleva
- *   aria-label con el nombre oficial INEGI y, con `detalles`, el valor del
- *   indicador activo. Navegación por teclado: pendiente global registrado.
+ * - Accesibilidad: role="img" general; cada path con aria-label del nombre
+ *   oficial INEGI y el valor pintado. Teclado: pendiente global registrado.
  */
-export interface DetalleEntidad {
-  linea: string; // tooltip: "62.4 % de la población ocupada · 1T 2026"
-  aria: string; // "62.4 % de la población ocupada, 1T 2026"
+export interface FichaEntidad {
+  aria: string; // línea humanizada del dato pintado, para el aria del path
+  rey: { valor: string; label: string; periodo: string };
+  satelites: { valor: string; label: string }[];
 }
 
 const POR_CLAVE = new Map(ESTADOS.map((e) => [e.clave, e]));
 
 export function HeroMapaMexico({
   fills,
-  detalles,
+  fichas,
 }: {
   fills?: Partial<Record<ClaveEntidad, string>>;
-  detalles?: Record<ClaveEntidad, DetalleEntidad>;
+  fichas?: Record<ClaveEntidad, FichaEntidad>;
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
@@ -56,8 +59,15 @@ export function HeroMapaMexico({
     const tip = tooltipRef.current;
     if (!root || !tip || e.pointerType !== "mouse") return;
     const r = root.getBoundingClientRect();
-    const x = Math.min(e.clientX - r.left + 14, r.width - tip.offsetWidth - 4);
-    const y = e.clientY - r.top + 18;
+    const w = tip.offsetWidth;
+    const h = tip.offsetHeight;
+    // Ancla al cursor con volteo: X salta a la izquierda si no cabe a la
+    // derecha del contenedor; Y salta arriba si la ficha se saldría del
+    // viewport. Nunca queda bajo el cursor.
+    let x = e.clientX - r.left + 14;
+    if (x + w > r.width - 4) x = e.clientX - r.left - w - 14;
+    let y = e.clientY - r.top + 18;
+    if (e.clientY + 18 + h > window.innerHeight - 8) y = e.clientY - r.top - h - 12;
     tip.style.transform = `translate(${Math.max(x, 4)}px, ${y}px)`;
   };
 
@@ -67,6 +77,7 @@ export function HeroMapaMexico({
   };
 
   const activo = hovered ? POR_CLAVE.get(hovered) : undefined;
+  const ficha = activo && fichas ? fichas[activo.clave] : undefined;
 
   return (
     <div ref={rootRef} className="relative">
@@ -89,8 +100,8 @@ export function HeroMapaMexico({
             data-nombre={estado.nombreCorto}
             role="img"
             aria-label={
-              detalles
-                ? `${estado.nombreOficial}: ${detalles[estado.clave].aria}`
+              fichas
+                ? `${estado.nombreOficial}: ${fichas[estado.clave].aria}`
                 : estado.nombreOficial
             }
             style={fills?.[estado.clave] ? { fill: fills[estado.clave] } : undefined}
@@ -103,17 +114,34 @@ export function HeroMapaMexico({
       <div
         ref={tooltipRef}
         aria-hidden="true"
-        className={`pointer-events-none absolute left-0 top-0 z-10 rounded border border-border bg-background px-2.5 py-1.5 shadow-sm transition-opacity duration-150 motion-reduce:transition-none ${
+        className={`pointer-events-none absolute left-0 top-0 z-10 w-[290px] rounded border border-border bg-background px-3.5 py-3 shadow-sm transition-opacity duration-150 motion-reduce:transition-none ${
           activo ? "opacity-100" : "opacity-0"
         }`}
       >
-        <span className="block whitespace-nowrap font-sans text-[13px] font-medium leading-tight text-foreground">
+        <span className="block font-sans text-[13px] font-semibold leading-tight text-foreground">
           {activo?.nombreCorto}
         </span>
-        {activo && detalles && (
-          <span className="mt-0.5 block whitespace-nowrap font-mono text-[12px] leading-tight text-text-subtle">
-            {detalles[activo.clave].linea}
-          </span>
+        {ficha && (
+          <>
+            <span className="mt-1.5 block font-mono text-[19px] font-semibold leading-none text-foreground">
+              {ficha.rey.valor}
+            </span>
+            <span className="mb-2.5 mt-0.5 block font-sans text-[11px] leading-tight text-text-subtle">
+              {ficha.rey.label} · {ficha.rey.periodo}
+            </span>
+            <span className="grid grid-cols-2 gap-x-4 gap-y-2 border-t border-border pt-2.5">
+              {ficha.satelites.map((s) => (
+                <span key={s.label} className="block">
+                  <span className="block font-mono text-[12px] font-medium leading-tight text-foreground">
+                    {s.valor}
+                  </span>
+                  <span className="mt-px block font-sans text-[10px] leading-tight text-text-subtle">
+                    {s.label}
+                  </span>
+                </span>
+              ))}
+            </span>
+          </>
         )}
       </div>
     </div>

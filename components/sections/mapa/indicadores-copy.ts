@@ -57,6 +57,9 @@ function periodoHumano(periodo: string): string {
 
 export interface CopyIndicador {
   nombreHumano: string;
+  // Micro-etiqueta para la retícula de la mini-ficha de estado (F4):
+  // corta, en minúsculas, con la unidad insinuada donde hace falta.
+  fichaLabel: string;
   grupoPregunta: GrupoPregunta;
   frase: (valorNacional: number, periodo: string) => string;
   tooltip: (valor: number, periodo: string) => string;
@@ -64,6 +67,7 @@ export interface CopyIndicador {
 
 export const COPY: Record<IndicadorId, CopyIndicador> = {
   informalidad: {
+    fichaLabel: "trabajo informal",
     nombreHumano: "Trabajo informal",
     grupoPregunta: "vive-de",
     frase: (v, p) =>
@@ -71,6 +75,7 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     tooltip: (v, p) => `${de100(v)} de cada 100 ocupados trabajan en la informalidad · ${p}`,
   },
   "pobreza-laboral": {
+    fichaLabel: "no alcanza para comer",
     nombreHumano: "El trabajo no alcanza para comer",
     grupoPregunta: "vive-de",
     frase: (v, p) =>
@@ -78,6 +83,7 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     tooltip: (v, p) => `${de100(v)} de cada 100: el ingreso del hogar no cubre la canasta alimentaria · ${p}`,
   },
   "empleo-formal": {
+    fichaLabel: "empleo formal /100",
     nombreHumano: "Empleo formal",
     grupoPregunta: "vive-de",
     frase: (v, p) =>
@@ -85,6 +91,7 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     tooltip: (v, p) => `${dec1(v)} puestos formales (IMSS) por cada 100 personas de 15+ · ${p}`,
   },
   ingreso: {
+    fichaLabel: "deja el trabajo /mes",
     nombreHumano: "Lo que deja el trabajo",
     grupoPregunta: "vive-de",
     frase: (v, p) =>
@@ -92,6 +99,7 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     tooltip: (v, p) => `el trabajo deja $${comas(v)} al mes por persona (pesos de 2020) · ${p}`,
   },
   desempleo: {
+    fichaLabel: "desempleo",
     nombreHumano: "Desempleo",
     grupoPregunta: "vive-de",
     frase: (v, p) =>
@@ -99,6 +107,7 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     tooltip: (v, p) => `${dec1(v)} de cada 100 en la fuerza laboral buscan empleo sin hallarlo · ${p}`,
   },
   homicidios: {
+    fichaLabel: "homicidios /100 mil",
     nombreHumano: "Homicidios",
     grupoPregunta: "vive-como",
     frase: (v, p) =>
@@ -106,6 +115,7 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     tooltip: (v, p) => `${dec1(v)} víctimas de homicidio por cada 100 mil habitantes · ${p}`,
   },
   percepcion: {
+    fichaLabel: "se sienten inseguros",
     nombreHumano: "Sentirse inseguro",
     grupoPregunta: "vive-como",
     frase: (v, p) =>
@@ -113,6 +123,7 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     tooltip: (v, p) => `${de100(v)} de cada 100 adultos consideran inseguro su estado · ${p}`,
   },
   poblacion: {
+    fichaLabel: "habitantes",
     nombreHumano: "Población",
     grupoPregunta: "vive-como",
     frase: (v, p) =>
@@ -120,6 +131,7 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     tooltip: (v, p) => `${comas(v)} habitantes · ${p}`,
   },
   escolaridad: {
+    fichaLabel: "años de escuela",
     nombreHumano: "Años de escuela",
     grupoPregunta: "vive-como",
     frase: (v, p) =>
@@ -127,6 +139,7 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
     tooltip: (v, p) => `${dec1(v)} años de escuela en promedio · ${p}`,
   },
   pib: {
+    fichaLabel: "produce /hab",
     nombreHumano: "Producción por habitante",
     grupoPregunta: "vive-como",
     frase: (v, p) =>

@@ -8,7 +8,7 @@ import { QUINTIL_FILLS } from "./rampa";
 import { COPY } from "./indicadores-copy";
 import { BloquePintado } from "./BloquePintado";
 import { FraseExplicativa } from "./FraseExplicativa";
-import { HeroMapaMexico, type DetalleEntidad } from "./HeroMapaMexico";
+import { HeroMapaMexico, type FichaEntidad } from "./HeroMapaMexico";
 import { VistaActiva } from "./VistaActiva";
 import { LeyendaQuintiles } from "./LeyendaQuintiles";
 
@@ -32,17 +32,44 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
   const [pintadoId, setPintadoId] = useState<IndicadorId>(VISTA_ACTIVA.rey ?? INDICADORES[0].id);
   const activo = INDICADORES.find((i) => i.id === pintadoId) ?? INDICADORES[0];
 
-  const { fills, detalles, frase } = useMemo(() => {
+  const { fills, fichas, frase } = useMemo(() => {
     const voz = COPY[activo.id];
+    // Mini-ficha: lo pintado ocupa el slot del rey; la retícula lleva los
+    // demás indicadores de la vista (si lo pintado es de la vista, los 4
+    // restantes; si viene de Más del canon, los 4 satélites de la vista).
+    const idsVista = VISTA_ACTIVA.rey
+      ? [VISTA_ACTIVA.rey, ...(VISTA_ACTIVA.satelites ?? [])]
+      : [];
+    const enVista = idsVista.includes(activo.id);
+    const idsReticula = enVista
+      ? idsVista.filter((id) => id !== activo.id)
+      : (VISTA_ACTIVA.satelites ?? []);
+    const porId = new Map(INDICADORES.map((i) => [i.id, i]));
+    const minusc = (t: string) => t.charAt(0).toLowerCase() + t.slice(1);
+
     const fills: Partial<Record<ClaveEntidad, string>> = {};
-    const detalles = {} as Record<ClaveEntidad, DetalleEntidad>;
+    const fichas = {} as Record<ClaveEntidad, FichaEntidad>;
     for (const e of ESTADOS) {
       const c = e.clave;
       fills[c] = QUINTIL_FILLS[activo.quintil[c] - 1];
       const linea = voz.tooltip(activo.valores[c], activo.periodo);
-      detalles[c] = { linea, aria: linea.replace(" · ", ", ") };
+      fichas[c] = {
+        aria: linea.replace(" · ", ", "),
+        rey: {
+          valor: activo.valoresFmt[c],
+          label: minusc(voz.nombreHumano),
+          periodo: activo.periodo,
+        },
+        satelites: idsReticula.map((id) => {
+          const ind = porId.get(id);
+          return {
+            valor: ind ? ind.valoresFmt[c] : "",
+            label: COPY[id].fichaLabel,
+          };
+        }),
+      };
     }
-    return { fills, detalles, frase: voz.frase(activo.valorNacional, activo.periodo) };
+    return { fills, fichas, frase: voz.frase(activo.valorNacional, activo.periodo) };
   }, [activo]);
 
   return (
@@ -53,7 +80,7 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
       </div>
 
       <div className="lg:col-span-5">
-        <HeroMapaMexico fills={fills} detalles={detalles} />
+        <HeroMapaMexico fills={fills} fichas={fichas} />
         <BloquePintado indicador={activo} />
         <FraseExplicativa texto={frase} />
         <LeyendaQuintiles indicador={activo} />

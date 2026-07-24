@@ -117,6 +117,16 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
     setOrigen("user");
   };
 
+  // Navegación directa por dot (solo vistas activas): salta, pinta al rey y
+  // reinicia el reloj (el cambio de vistaIdx reprograma el timeout).
+  const irAVista = (id: string) => {
+    const idx = ACTIVAS.findIndex((v) => v.id === id);
+    if (idx < 0 || idx === vistaIdx) return;
+    setVistaIdx(idx);
+    setPintadoId(ACTIVAS[idx].rey ?? INDICADORES[0].id);
+    setOrigen("user");
+  };
+
   const { fills, fichas, frase } = useMemo(() => {
     const voz = COPY[activo.id];
     // Mini-ficha: lo pintado ocupa el slot del rey; la retícula lleva los
@@ -165,7 +175,7 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
           onFocusCapture={pausar}
           onBlurCapture={reanudar}
         >
-          <VistaActiva vista={vista} pintado={pintadoId} onPintar={pintar} />
+          <VistaActiva vista={vista} pintado={pintadoId} onPintar={pintar} onVista={irAVista} />
         </div>
       </div>
 

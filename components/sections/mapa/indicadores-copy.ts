@@ -165,12 +165,17 @@ export const COPY: Record<IndicadorId, CopyIndicador> = {
       `${dec1(v)} de cada 100 personas viven en pobreza extrema: ni gastando todo su ingreso en comida cubrirían la canasta alimentaria, y además les faltan tres o más de los seis derechos básicos (${p}).`,
     tooltip: (v, p) => `${dec1(v)} de cada 100 personas viven en pobreza extrema · ${p}`,
   },
+  // Las tres cláusulas de la frase están cotejadas contra los reactivos de
+  // la escala oficial (EMSA): "poco" = comió menos / una vez al día / se
+  // quedó sin comida; "mal" = poca variedad / dejó de desayunar, comer o
+  // cenar; "se pasó hambre" = sintió hambre pero no comió. El reactivo de
+  // preocupación NO forma parte de la EMSA: la frase no lo afirma.
   "falta-comida": {
     fichaLabel: "les falta comida /100",
     nombreHumano: "Falta de comida",
     grupoPregunta: "vive-como",
     frase: (v, p) =>
-      `${de100(v)} de cada 100 personas viven en hogares donde por falta de dinero se comió poco, mal o con angustia de que no alcanzara: la carencia oficial de acceso a la alimentación (${p}). Son personas, no hogares.`,
+      `${de100(v)} de cada 100 personas viven en hogares donde por falta de dinero se comió poco, se comió mal o de plano se pasó hambre: la carencia oficial de acceso a la alimentación (${p}). Son personas, no hogares.`,
     tooltip: (v, p) => `${de100(v)} de cada 100 personas viven en hogares donde falta comida · ${p}`,
   },
   // El "$N al mes" es derivado en módulo (trimestral ÷ 3, redondeado):

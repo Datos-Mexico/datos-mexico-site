@@ -3,6 +3,13 @@
 // activa y el mapa pinta al rey por defecto. Las vistas sin ola de datos
 // todavía existen solo de nombre, para los dots del pulso.
 //
+// El ARREGLO va en el orden canónico definitivo de dirección (Ola 3):
+// 1 El bolsillo · 2 Alcanza para vivir · 3 Salud y vida · 4 Casa y escuela
+// · 5 La seguridad · 6 Economía y conexión. Cada ola inserta su vista en su
+// posición; la rotación del pulso y la numeración de los dots heredan este
+// orden solas. El orden es criterio editorial y nunca degrada un dato (ver
+// corolario 6 de docs/principios-editoriales.md).
+//
 // El pulso (rotación automática de vistas, vivo desde la Ola 2): rota solo
 // entre vistas activas y solo con puntero fino; se pausa con el cursor o el
 // foco sobre la columna del mapa o el bloque de la vista; al reanudar, el
@@ -41,15 +48,21 @@ export const VISTAS: readonly VistaCanon[] = [
     satelites: ["ingreso", "informalidad", "desempleo", "empleo-formal"],
   },
   {
+    id: "alcanza",
+    nombre: "Alcanza para vivir",
+    activa: true,
+    rey: "pobreza",
+    satelites: ["pobreza-extrema", "falta-comida", "ingreso-hogar", "gini"],
+  },
+  { id: "salud", nombre: "Salud y vida", activa: false },
+  { id: "casa", nombre: "Casa y escuela", activa: false },
+  {
     id: "seguridad",
     nombre: "La seguridad",
     activa: true,
     rey: "homicidios",
     satelites: ["percepcion", "robo-coches", "mujeres-asesinadas", "victimas-delito"],
   },
-  { id: "alcanza", nombre: "Alcanza para vivir", activa: false },
-  { id: "salud", nombre: "Salud y vida", activa: false },
-  { id: "casa", nombre: "Casa y escuela", activa: false },
   { id: "economia", nombre: "Economía y conexión", activa: false },
 ];
 

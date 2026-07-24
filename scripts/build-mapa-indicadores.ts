@@ -63,6 +63,27 @@ const URL_PIBE_ZIP =
   "https://www.inegi.org.mx/contenidos/programas/pibent/2018/datosabiertos/conjunto_de_datos_pibe_csv.zip";
 const PIBE_ANIO = "2024";
 
+// SESNSP/CNI — RNID, serie estatal 2015-2025 (share-links estables de
+// SharePoint; el nombre del archivo interno cambia por corte mensual, la
+// ruta real se resuelve por redirect en cada corrida).
+const URL_SESNSP_VICTIMAS =
+  "https://sspcgob-my.sharepoint.com/:u:/g/personal/cni_sspc_gob_mx/IQAjMphIBZwaQZy25I_oN-HWAaJZJFxQWE1y2k3seT0lj74?e=6FGvmI";
+const URL_SESNSP_CARPETAS =
+  "https://sspcgob-my.sharepoint.com/:u:/g/personal/cni_sspc_gob_mx/IQCImg0CgaACTJdHIpZ_yZKpAYKWg8wsEgtzU0nN3o-GVKU?e=dqWCtz";
+const HOMICIDIOS_ANIO = "2025";
+
+const URL_ENVIPE_XLSX =
+  "https://www.inegi.org.mx/contenidos/programas/envipe/2025/tabulados/V_percepcion_seguridad_2025_est.xlsx";
+const ENVIPE_CUADRO = "5.13"; // percepción sobre la seguridad en la entidad federativa
+
+const PXWEB_TD = "1000229"; // "10.2. Tasa de desocupación"
+
+// Grado promedio de escolaridad 15+ (Censo 2020) vía API BISE; el token es
+// personal y viaja SOLO por la variable de entorno INEGI_TOKEN (registro
+// gratuito en inegi.org.mx/servicios/api_indicadores.html). Jamás se
+// escribe al repositorio.
+const BISE_ESCOLARIDAD = "1005000038";
+
 const URL_CONAPO_CSV =
   "https://conapo.segob.gob.mx/work/models/CONAPO/Datos_Abiertos/pry23/00_Pob_Mitad_1950_2070.csv";
 
@@ -76,6 +97,11 @@ const ANCLAS = {
   pibeNacionalMdp: 33_582_899.273, // PIBE 2024 corrientes, datos abiertos 02-jul-2026
   poblacionNacional2026: 134_407_258, // CONAPO pry23, mitad de 2026
   ingresoNacional: 3_653, // boletín PL 1T 2026, pesos constantes 1T 2020
+  homicidiosVictimas2025: 23_611, // RNID víctimas, homicidio doloso 2025 (corte jun-2026)
+  homicidiosCarpetas2025: 20_193, // RNID carpetas, homicidio doloso 2025 (corte jun-2026)
+  percepcionNacional: 75.6, // boletín ENVIPE 2025: % 18+ que considera insegura su entidad
+  desocupacionNacional: 2.6, // boletín ENOE 301/26, TD nacional 1T 2026 (% de la PEA)
+  escolaridadNacional: 9.74, // Censo 2020, grado promedio de escolaridad 15+
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -328,14 +354,14 @@ function parseCsv(texto: string): string[][] {
 
 type Serie = { valores: Record<Clave, number>; nacional: number | null; sha256: string; url: string };
 
-async function extraeInformalidad(): Promise<Serie & { periodo: string }> {
+async function extraePxwebTasa(indicador: string, etiquetaFila: RegExp, nombreCache: string): Promise<Serie & { periodo: string }> {
   const cuerpo = {
     showdecimals: 2,
     file: PXWEB_MATRIZ,
     lang: "es",
     query: {
       query: [
-        { code: "Indicador", variableType: null, selection: { filter: "item", values: [PXWEB_TIL1] } },
+        { code: "Indicador", variableType: null, selection: { filter: "item", values: [indicador] } },
         { code: "Área geográfica", variableType: null, selection: { filter: "item", values: ["00", ...CLAVES] } },
         { code: "Sexo", variableType: null, selection: { filter: "item", values: ["0"] } },
         { code: "Tipo de dato", variableType: null, selection: { filter: "item", values: ["0"] } },
@@ -349,7 +375,7 @@ async function extraeInformalidad(): Promise<Serie & { periodo: string }> {
     statist: "",
     hiderows: false,
   };
-  const { buf, sha256 } = await descarga(URL_PXWEB_EXPORT, "til1.xlsx", /spreadsheetml/, {
+  const { buf, sha256 } = await descarga(URL_PXWEB_EXPORT, nombreCache, /spreadsheetml/, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(cuerpo),
@@ -364,18 +390,191 @@ async function extraeInformalidad(): Promise<Serie & { periodo: string }> {
     const b = f.get("B") ?? "";
     const c = f.get("C") ?? "";
     if (a === "Indicador" && /\dT/.test(c)) periodo = c; // fila de encabezado con "2026 1T"
-    if (a.includes("TIL 1") && b) {
+    if (etiquetaFila.test(a) && b) {
       const clave = claveDe(b);
-      if (clave === null) throw new Error(`TIL1: entidad desconocida "${b}"`);
+      if (clave === null) throw new Error(`PxWeb ${indicador}: entidad desconocida "${b}"`);
       const v = Number(c);
-      if (!Number.isFinite(v)) throw new Error(`TIL1: valor inválido para ${b}`);
+      if (!Number.isFinite(v)) throw new Error(`PxWeb ${indicador}: valor inválido para ${b}`);
       if (clave === "00") nacional = v;
       else valores[clave] = v;
     }
   }
-  if (!periodo) throw new Error("TIL1: no se encontró el periodo en el export");
-  if (nacional === null) throw new Error("TIL1: falta la fila nacional (área 00)");
-  return { valores, nacional, sha256, url: `${URL_PXWEB_EXPORT} (matriz ${PXWEB_MATRIZ}, indicador ${PXWEB_TIL1})`, periodo };
+  if (!periodo) throw new Error(`PxWeb ${indicador}: no se encontró el periodo en el export`);
+  if (nacional === null) throw new Error(`PxWeb ${indicador}: falta la fila nacional (área 00)`);
+  return { valores, nacional, sha256, url: `${URL_PXWEB_EXPORT} (matriz ${PXWEB_MATRIZ}, indicador ${indicador})`, periodo };
+}
+
+// -------------------------------------------------------------------------
+// SESNSP/CNI (RNID): el share-link de SharePoint exige un handshake de
+// cookies anónimas (FedAuth); la ruta real del archivo viene en el
+// parámetro `id` de la URL final de redirección.
+// -------------------------------------------------------------------------
+
+const UA_NAVEGADOR = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)";
+
+async function descargaSharepoint(shareUrl: string, nombreCache: string): Promise<{ buf: Buffer; sha256: string }> {
+  mkdirSync(CACHE, { recursive: true });
+  const ruta = path.join(CACHE, nombreCache);
+  if (existsSync(ruta)) {
+    const buf = readFileSync(ruta);
+    return { buf, sha256: createHash("sha256").update(buf).digest("hex") };
+  }
+  const jar: string[] = [];
+  let url = shareUrl;
+  for (let salto = 0; salto < 8; salto++) {
+    const res = await fetch(url, {
+      redirect: "manual",
+      headers: { "User-Agent": UA_NAVEGADOR, ...(jar.length ? { Cookie: jar.join("; ") } : {}) },
+    });
+    for (const sc of res.headers.getSetCookie()) jar.push(sc.split(";")[0]);
+    const loc = res.headers.get("location");
+    if (!loc) break;
+    url = new URL(loc, url).toString();
+  }
+  const id = new URL(url).searchParams.get("id");
+  if (!id) throw new Error(`SharePoint: la redirección no trae la ruta del archivo (${url.slice(0, 120)})`);
+  const urlArchivo = `${new URL(url).origin}${encodeURI(id)}?ga=1`;
+  const res = await fetch(urlArchivo, {
+    headers: { "User-Agent": UA_NAVEGADOR, Cookie: jar.join("; ") },
+  });
+  const tipo = res.headers.get("content-type") ?? "";
+  if (res.status !== 200 || !/zip|octet/.test(tipo)) {
+    throw new Error(`SharePoint: HTTP ${res.status}, content-type "${tipo}" al bajar ${id}`);
+  }
+  const buf = Buffer.from(await res.arrayBuffer());
+  writeFileSync(ruta, buf);
+  return { buf, sha256: createHash("sha256").update(buf).digest("hex") };
+}
+
+// Suma anual por entidad de un CSV RNID (latin-1, columnas Enero..Diciembre)
+// filtrando subtipo "Homicidio doloso" del año indicado.
+function sumaHomicidios(csvLatin1: Buffer, anio: string): { porEntidad: Record<Clave, number>; total: number } {
+  const filas = parseCsv(csvLatin1.toString("latin1"));
+  const enc = filas[0];
+  const iAnio = enc.indexOf("Año");
+  const iCve = enc.indexOf("Clave_Ent");
+  const iSub = enc.indexOf("Subtipo de delito");
+  const iEnero = enc.indexOf("Enero");
+  if (iAnio < 0 || iCve < 0 || iSub < 0 || iEnero < 0) {
+    throw new Error(`RNID: encabezado inesperado: ${enc.slice(0, 8).join(",")}`);
+  }
+  const porEntidad: Record<Clave, number> = {};
+  let total = 0;
+  for (let i = 1; i < filas.length; i++) {
+    const f = filas[i];
+    if (f.length < iEnero + 12) continue;
+    if (f[iAnio] !== anio || f[iSub].trim() !== "Homicidio doloso") continue;
+    const cve = Number(f[iCve]); // pad inconsistente entre archivos: numérico
+    if (!(cve >= 1 && cve <= 32)) throw new Error(`RNID: Clave_Ent inválida "${f[iCve]}"`);
+    let suma = 0;
+    for (let m = 0; m < 12; m++) {
+      const v = f[iEnero + m].trim();
+      if (v !== "") suma += Number(v);
+    }
+    const clave = String(cve).padStart(2, "0");
+    porEntidad[clave] = (porEntidad[clave] ?? 0) + suma;
+    total += suma;
+  }
+  return { porEntidad, total };
+}
+
+async function extraeHomicidios(): Promise<Serie & { carpetasTotal: number }> {
+  const victimas = await descargaSharepoint(URL_SESNSP_VICTIMAS, "sesnsp-victimas.zip");
+  const carpetas = await descargaSharepoint(URL_SESNSP_CARPETAS, "sesnsp-carpetas.zip");
+  const csvV = Array.from(entradasZip(victimas.buf).values())[0];
+  const csvC = Array.from(entradasZip(carpetas.buf).values())[0];
+  const v = sumaHomicidios(csvV, HOMICIDIOS_ANIO);
+  const c = sumaHomicidios(csvC, HOMICIDIOS_ANIO);
+  return {
+    valores: v.porEntidad,
+    nacional: v.total,
+    carpetasTotal: c.total,
+    sha256: victimas.sha256,
+    url: URL_SESNSP_VICTIMAS,
+  };
+}
+
+// -------------------------------------------------------------------------
+// ENVIPE: Cuadro 5.13 — % de población de 18+ que considera insegura su
+// entidad federativa (columna H, "Inseguro / Relativos").
+// -------------------------------------------------------------------------
+
+async function extraePercepcion(): Promise<Serie> {
+  const { buf, sha256 } = await descarga(URL_ENVIPE_XLSX, "envipe.xlsx", /spreadsheetml/);
+  const hojas = hojasXlsx(buf);
+  const filas = hojas.get(ENVIPE_CUADRO);
+  if (!filas) throw new Error(`ENVIPE: no existe el cuadro ${ENVIPE_CUADRO}`);
+  const sub = filas[8]; // fila 9: "Absolutos/Relativos"
+  if (!/Relativos/.test(sub.get("H") ?? "")) {
+    throw new Error(`ENVIPE: la columna H del cuadro ${ENVIPE_CUADRO} ya no es "Relativos" de Inseguro`);
+  }
+  const valores: Record<Clave, number> = {};
+  let nacional: number | null = null;
+  for (const f of filas.slice(10)) {
+    const nombre = f.get("A");
+    if (!nombre) continue;
+    const clave = claveDe(nombre);
+    if (clave === null) continue;
+    const v = Number(f.get("H"));
+    if (!Number.isFinite(v)) throw new Error(`ENVIPE: valor inválido para ${nombre}`);
+    if (clave === "00") nacional = v;
+    else valores[clave] = v;
+  }
+  return { valores, nacional, sha256, url: `${URL_ENVIPE_XLSX} (cuadro ${ENVIPE_CUADRO})` };
+}
+
+// -------------------------------------------------------------------------
+// Escolaridad (BISE): una llamada por área geográfica; se toma la
+// observación no nula más reciente y se exige que el año coincida en las 33.
+// -------------------------------------------------------------------------
+
+async function extraeEscolaridad(): Promise<Serie & { periodo: string }> {
+  const token = process.env.INEGI_TOKEN;
+  if (!token) {
+    throw new Error(
+      "Falta INEGI_TOKEN en el entorno (token gratuito: inegi.org.mx/servicios/api_indicadores.html). No se escribe al repositorio.",
+    );
+  }
+  mkdirSync(CACHE, { recursive: true });
+  const rutaCache = path.join(CACHE, "escolaridad.json");
+  let crudo: Record<string, unknown>;
+  if (existsSync(rutaCache)) {
+    crudo = JSON.parse(readFileSync(rutaCache, "utf8"));
+  } else {
+    crudo = {};
+    for (const geo of ["00", ...CLAVES]) {
+      const res = await fetch(
+        `https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/${BISE_ESCOLARIDAD}/es/${geo}/false/BISE/2.0/${token}?type=json`,
+      );
+      if (res.status !== 200) throw new Error(`BISE escolaridad: HTTP ${res.status} para geo ${geo}`);
+      crudo[geo] = await res.json();
+    }
+    writeFileSync(rutaCache, JSON.stringify(crudo));
+  }
+  const sha256 = createHash("sha256").update(JSON.stringify(crudo)).digest("hex");
+  const valores: Record<Clave, number> = {};
+  let nacional: number | null = null;
+  let periodo = "";
+  for (const [geo, d] of Object.entries(crudo)) {
+    const obs = (d as { Series: { OBSERVATIONS: { TIME_PERIOD: string; OBS_VALUE: string | null }[] }[] })
+      .Series[0].OBSERVATIONS.filter((o) => o.OBS_VALUE !== null);
+    const reciente = obs.reduce((a, b) => (Number(b.TIME_PERIOD) > Number(a.TIME_PERIOD) ? b : a));
+    if (!periodo) periodo = reciente.TIME_PERIOD;
+    if (reciente.TIME_PERIOD !== periodo) {
+      throw new Error(`BISE escolaridad: periodos mezclados (${periodo} vs ${reciente.TIME_PERIOD} en geo ${geo})`);
+    }
+    const v = Number(reciente.OBS_VALUE);
+    if (!Number.isFinite(v)) throw new Error(`BISE escolaridad: valor inválido en geo ${geo}`);
+    if (geo === "00") nacional = v;
+    else valores[geo] = v;
+  }
+  return {
+    valores,
+    nacional,
+    sha256,
+    url: `https://www.inegi.org.mx/app/api/indicadores/.../INDICATOR/${BISE_ESCOLARIDAD}/es/{00..32}/false/BISE/2.0/{INEGI_TOKEN}`,
+    periodo,
+  };
 }
 
 async function descubreTabuladoPl(): Promise<string> {
@@ -563,6 +762,7 @@ type Conapo = {
   total2026: Record<Clave, number>;
   m15mas2026: Record<Clave, number>;
   total2024: Record<Clave, number>;
+  total2025: Record<Clave, number>;
   nacional2026: number;
   sha256: string;
 };
@@ -582,12 +782,13 @@ async function extraeConapo(): Promise<Conapo> {
   const total2026: Record<Clave, number> = {};
   const m15mas2026: Record<Clave, number> = {};
   const total2024: Record<Clave, number> = {};
+  const total2025: Record<Clave, number> = {};
   let nacional2026 = 0;
   for (let i = 1; i < filas.length; i++) {
     const f = filas[i].split(",");
     if (f.length < 5) continue;
     const anio = Number(f[iAnio]);
-    if (anio !== 2024 && anio !== 2026) continue;
+    if (anio !== 2024 && anio !== 2025 && anio !== 2026) continue;
     const cve = Number(f[iCve]);
     const edad = Number(f[iEdad]);
     const pob = Number(f[iPob]);
@@ -601,11 +802,13 @@ async function extraeConapo(): Promise<Conapo> {
     if (anio === 2026) {
       total2026[clave] = (total2026[clave] ?? 0) + pob;
       if (edad >= 15) m15mas2026[clave] = (m15mas2026[clave] ?? 0) + pob;
+    } else if (anio === 2025) {
+      total2025[clave] = (total2025[clave] ?? 0) + pob;
     } else {
       total2024[clave] = (total2024[clave] ?? 0) + pob;
     }
   }
-  return { total2026, m15mas2026, total2024, nacional2026, sha256 };
+  return { total2026, m15mas2026, total2024, total2025, nacional2026, sha256 };
 }
 
 // ---------------------------------------------------------------------------
@@ -651,6 +854,8 @@ const FORMATOS: Record<string, Formato> = {
     valor: (v) => fmtMx(0).format(v),
     leyenda: (v) => `${fmtMx(1).format(v / 1e6)} M`,
   },
+  tasa100k: { valor: (v) => fmtMx(1).format(v), leyenda: (v) => fmtMx(1).format(v) },
+  anios: { valor: (v) => fmtMx(1).format(v), leyenda: (v) => fmtMx(1).format(v) },
 };
 
 type Definicion = {
@@ -669,12 +874,16 @@ type Definicion = {
 
 async function main(): Promise<void> {
   console.log("[indicadores] extrayendo fuentes…");
-  const [til1, pl, imss, pibe, conapo] = await Promise.all([
-    extraeInformalidad(),
+  const [til1, td, pl, imss, pibe, conapo, homicidios, percepcion, escolaridad] = await Promise.all([
+    extraePxwebTasa(PXWEB_TIL1, /TIL 1/, "til1.xlsx"),
+    extraePxwebTasa(PXWEB_TD, /Tasa de desocupación/, "td.xlsx"),
     extraePl(),
     extraeImss(),
     extraePibe(),
     extraeConapo(),
+    extraeHomicidios(),
+    extraePercepcion(),
+    extraeEscolaridad(),
   ]);
 
   const hoyD = new Date();
@@ -691,8 +900,14 @@ async function main(): Promise<void> {
   const pobNacional2024 = CLAVES.reduce((s, c) => s + conapo.total2024[c], 0);
   const pibPcNacional = ((pibe.nacional ?? 0) * 1e6) / pobNacional2024;
 
+  const tasaHomicidios: Record<Clave, number> = {};
+  for (const c of CLAVES) tasaHomicidios[c] = (homicidios.valores[c] / conapo.total2025[c]) * 100_000;
+  const pob2025Nacional = CLAVES.reduce((sum, c) => sum + conapo.total2025[c], 0);
+  const tasaHomicidiosNacional = ((homicidios.nacional ?? 0) / pob2025Nacional) * 100_000;
+
   const perPl = pl.periodo; // "1T 2026"
   const perTil = til1.periodo.replace(/(\d{4}) (\d)T/, "$2T $1");
+  const perTd = td.periodo.replace(/(\d{4}) (\d)T/, "$2T $1");
 
   const defs: Definicion[] = [
     {
@@ -799,6 +1014,75 @@ async function main(): Promise<void> {
         `SHA-256 tabulado: ${pl.ingreso.sha256}`,
       ],
     },
+    {
+      id: "desempleo",
+      grupo: "laboral",
+      nombre: "Desempleo",
+      unidad: "% de la población económicamente activa",
+      tooltipSufijo: "de la población económicamente activa",
+      periodo: perTd,
+      formato: "pct",
+      valores: td.valores,
+      nacional: td.nacional ?? NaN,
+      fuenteCita: `Fuente: INEGI, ENOE. Tasa de desocupación (% de la PEA), ${perTd}. En México el desempleo bajo convive con alta informalidad.`,
+      procedencia: [
+        `Serie: "10.2. Tasa de desocupación", indicadores estratégicos ENOE 15+.`,
+        `Extracción: ${td.url}`,
+        `SHA-256 export: ${td.sha256}`,
+      ],
+    },
+    {
+      id: "homicidios",
+      grupo: "panorama",
+      nombre: "Homicidios",
+      unidad: "víctimas de homicidio doloso por 100 mil habitantes",
+      tooltipSufijo: "víctimas de homicidio doloso por cada 100 mil habitantes",
+      periodo: HOMICIDIOS_ANIO,
+      formato: "tasa100k",
+      valores: tasaHomicidios,
+      nacional: tasaHomicidiosNacional,
+      fuenteCita: `Fuente: SESNSP/CNI (RNID), víctimas de homicidio doloso en carpetas de investigación, ${HOMICIDIOS_ANIO}; tasa por 100 mil habitantes con población CONAPO. Cifra oficial de fiscalías: el registro no captura todos los casos.`,
+      procedencia: [
+        `Serie: RNID estatal, víctimas, subtipo "Homicidio doloso", año ${HOMICIDIOS_ANIO} completo (corte jun-2026).`,
+        `Extracción: ${homicidios.url} (SharePoint CNI, ruta resuelta por redirect)`,
+        `SHA-256 zip víctimas: ${homicidios.sha256}`,
+        `Denominador: población a mitad de ${HOMICIDIOS_ANIO}, CONAPO pry23 (SHA-256 ${conapo.sha256}).`,
+      ],
+    },
+    {
+      id: "percepcion",
+      grupo: "panorama",
+      nombre: "Percepción de inseguridad",
+      unidad: "% de la población de 18+ que considera insegura su entidad",
+      tooltipSufijo: "de cada 100 adultos la consideran insegura",
+      periodo: "2025",
+      formato: "pct",
+      valores: percepcion.valores,
+      nacional: percepcion.nacional ?? NaN,
+      fuenteCita: `Fuente: INEGI, ENVIPE 2025 (levantamiento marzo-abril 2025), Cuadro 5.13. Población de 18 años y más que considera insegura su entidad federativa.`,
+      procedencia: [
+        `Serie: ENVIPE, percepción sobre la seguridad en la entidad federativa (relativos, "Inseguro").`,
+        `Extracción: ${percepcion.url}`,
+        `SHA-256 tabulado: ${percepcion.sha256}`,
+      ],
+    },
+    {
+      id: "escolaridad",
+      grupo: "panorama",
+      nombre: "Escolaridad",
+      unidad: "años promedio de escolaridad (población de 15+)",
+      tooltipSufijo: "años de escuela en promedio",
+      periodo: `Censo ${escolaridad.periodo}`,
+      formato: "anios",
+      valores: escolaridad.valores,
+      nacional: escolaridad.nacional ?? NaN,
+      fuenteCita: `Fuente: INEGI, Censo de Población y Vivienda ${escolaridad.periodo} (BISE ${BISE_ESCOLARIDAD}). Grado promedio de escolaridad de la población de 15 años y más. Se actualiza con la Encuesta Intercensal 2025 (sep 2026).`,
+      procedencia: [
+        `Serie: grado promedio de escolaridad 15+, BISE ${BISE_ESCOLARIDAD}.`,
+        `Extracción: ${escolaridad.url}`,
+        `SHA-256 respuestas API: ${escolaridad.sha256}`,
+      ],
+    },
   ];
 
   // -------------------------------------------------------------------
@@ -816,6 +1100,11 @@ async function main(): Promise<void> {
     ["PIBE vs datos abiertos", pibe.nacional ?? NaN, ANCLAS.pibeNacionalMdp, 0.001],
     ["población vs CONAPO", conapo.nacional2026, ANCLAS.poblacionNacional2026, 1],
     ["ingreso vs boletín", pl.ingreso.nacional ?? NaN, ANCLAS.ingresoNacional, 0.5],
+    ["desocupación vs boletín ENOE", td.nacional ?? NaN, ANCLAS.desocupacionNacional, 0.06],
+    ["homicidios víctimas vs RNID", homicidios.nacional ?? NaN, ANCLAS.homicidiosVictimas2025, 0],
+    ["homicidios carpetas vs RNID", homicidios.carpetasTotal, ANCLAS.homicidiosCarpetas2025, 0],
+    ["percepción vs boletín ENVIPE", percepcion.nacional ?? NaN, ANCLAS.percepcionNacional, 0.06],
+    ["escolaridad vs Censo", escolaridad.nacional ?? NaN, ANCLAS.escolaridadNacional, 0.05],
   ];
   for (const [nombre, obtenido, esperado, tol] of cruces) {
     if (!aprox(obtenido, esperado, tol)) {
@@ -835,7 +1124,7 @@ async function main(): Promise<void> {
     const rangosFmt = rangos.map(([a, b]) => [fmt.leyenda(a), fmt.leyenda(b)]);
     const nacionalFmt = fmt.valor(d.nacional);
     const proc = d.procedencia.map((l) => `  // ${l}`).join("\n");
-    return `${proc}\n  {\n    id: ${JSON.stringify(d.id)},\n    grupo: ${JSON.stringify(d.grupo)},\n    nombre: ${JSON.stringify(d.nombre)},\n    unidad: ${JSON.stringify(d.unidad)},\n    tooltipSufijo: ${JSON.stringify(d.tooltipSufijo)},\n    periodo: ${JSON.stringify(d.periodo)},\n    fuenteCita: ${JSON.stringify(d.fuenteCita)},\n    valorNacionalFmt: ${JSON.stringify(nacionalFmt)},\n    valores: ${JSON.stringify(d.valores)},\n    valoresFmt: ${JSON.stringify(valoresFmt)},\n    quintil: ${JSON.stringify(asignacion)},\n    rangosQuintil: ${JSON.stringify(rangosFmt)},\n  },`;
+    return `${proc}\n  {\n    id: ${JSON.stringify(d.id)},\n    grupo: ${JSON.stringify(d.grupo)},\n    nombre: ${JSON.stringify(d.nombre)},\n    unidad: ${JSON.stringify(d.unidad)},\n    tooltipSufijo: ${JSON.stringify(d.tooltipSufijo)},\n    periodo: ${JSON.stringify(d.periodo)},\n    fuenteCita: ${JSON.stringify(d.fuenteCita)},\n    valorNacional: ${JSON.stringify(d.nacional)},\n    valorNacionalFmt: ${JSON.stringify(nacionalFmt)},\n    valores: ${JSON.stringify(d.valores)},\n    valoresFmt: ${JSON.stringify(valoresFmt)},\n    quintil: ${JSON.stringify(asignacion)},\n    rangosQuintil: ${JSON.stringify(rangosFmt)},\n  },`;
   });
 
   const modulo = `// Datos estatales de la coropleta de la home — seis indicadores.
@@ -861,6 +1150,7 @@ export interface IndicadorMapa {
   tooltipSufijo: string;
   periodo: string;
   fuenteCita: string;
+  valorNacional: number;
   valorNacionalFmt: string;
   valores: Record<ClaveEntidad, number>;
   valoresFmt: Record<ClaveEntidad, string>;

@@ -26,9 +26,9 @@
 
 ## Mantenimiento programado de datos
 
-- **26-ago-2026** — INEGI publica Pobreza Laboral 2T-2026 (pobreza laboral
-  e ingreso laboral real, Cuadros 9 y 5) y la ENOE 2T-2026 (informalidad
-  TIL1). Regenerar indicadores: el descubrimiento del tabulado PL y el
+- **25/26-ago-2026** — INEGI publica la ENOE 2T-2026 (25-ago, boletín 301/26:
+  informalidad TIL1 y desocupación) y Pobreza Laboral 2T-2026 (26-ago:
+  pobreza laboral e ingreso, Cuadros 9 y 5). Regenerar indicadores: el descubrimiento del tabulado PL y el
   `Periodo top 1` de PxWeb toman el trimestre nuevo solos; actualizar las
   anclas nacionales de validación en `build-mapa-indicadores.ts` con las
   cifras de los boletines nuevos antes de correr. El CSV del IMSS es

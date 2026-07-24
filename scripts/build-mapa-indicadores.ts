@@ -101,6 +101,27 @@ const BISE_ESCOLARIDAD = "1005000038";
 const URL_CONAPO_CSV =
   "https://conapo.segob.gob.mx/work/models/CONAPO/Datos_Abiertos/pry23/00_Pob_Mitad_1950_2070.csv";
 
+// Ola 4 — vista "Salud y vida": el catálogo de indicadores demográficos de
+// la misma base pry23 (71 columnas, 1950-2070 × 33 entidades) trae en un
+// solo archivo la esperanza de vida al nacer (EV), la tasa de mortalidad
+// infantil modelada (TMI — jamás la registral EDR/ENR, no comparable por
+// subregistro: dictamen del inventario F4), la TEF adolescente 15-19
+// (TEF_ADO) y la tasa global de fecundidad (TGF). Base 2023, previa a la
+// conciliación con la Intercensal 2025: el refresh post-Intercensal
+// (~22-sep-2026) alcanza a TODA la base CONAPO de este pipeline.
+const URL_CONAPO_IND_CSV =
+  "https://conapo.segob.gob.mx/work/models/CONAPO/Datos_Abiertos/pry23/05_Indicadores_demograficos_proyecciones.csv";
+const CONAPO_IND_ANIO = "2026";
+// La frase del rey afirma "entre estados hay casi cinco años de diferencia":
+// el gap max-min estatal de la EV debe seguir en este rango o el generador
+// aborta para forzar la revisión editorial del copy (hoy: 78.07 NL − 73.43
+// Chiapas = 4.64).
+const EV_GAP_MIN = 4.5;
+const EV_GAP_MAX = 5.0;
+// La frase de hijos por mujer cita el nivel de reemplazo: si la TGF nacional
+// alcanzara 2.1, la cláusula "por debajo de los 2.1" dejaría de ser cierta.
+const TGF_REEMPLAZO = 2.1;
+
 // Ola 3 — vista "Alcanza para vivir": Pobreza Multidimensional 2024 (serie
 // CONEVAL continuada por INEGI, hoja por entidad, cifras de PERSONAS) y
 // ENIGH 2024 nueva serie (tabulados por entidad, Cuadro 2.1: ingreso
@@ -147,6 +168,11 @@ const ANCLAS = {
   ingresoHogarChiapas2024: 41_084, // ENIGH 2024: entidad con menor ingreso
   ingresoHogarNL2024: 117_034, // ENIGH 2024: entidad con mayor ingreso
   giniNacional2024: 0.391, // comunicado ENIGH 2024: coeficiente de Gini nacional del ingreso por hogar
+  esperanzaVidaNacional2026: 75.86, // CONAPO pry23, EV al nacer 2026 (evidencia Fase A Ola 4, catálogo 05)
+  tmiNacional2026: 11.64, // CONAPO pry23, TMI 2026 por mil nacidos vivos (evidencia Fase A Ola 4)
+  sinSaludNacional2024: 34.2, // PM 2024: carencia por acceso a los servicios de salud, % de PERSONAS
+  tefNacional2026: 57.94, // CONAPO pry23, TEF 15-19 2026 por mil mujeres (evidencia Fase A Ola 4)
+  tgfNacional2026: 1.84, // CONAPO pry23, TGF 2026 hijos por mujer (evidencia Fase A Ola 4)
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -234,9 +260,9 @@ async function descarga(url: string, nombreCache: string, tipoEsperado: RegExp, 
 }
 
 // CONAPO exige cadena de CA explícita (node:https con `ca`).
-function descargaConapo(): Promise<{ ruta: string; sha256: string }> {
+function descargaConapo(url: string, nombreCache: string): Promise<{ ruta: string; sha256: string }> {
   mkdirSync(CACHE, { recursive: true });
-  const ruta = path.join(CACHE, "conapo-pob-mitad.csv");
+  const ruta = path.join(CACHE, nombreCache);
   if (existsSync(ruta)) {
     return Promise.resolve({ ruta, sha256: sha256Archivo(ruta) });
   }
@@ -244,7 +270,7 @@ function descargaConapo(): Promise<{ ruta: string; sha256: string }> {
   return new Promise((resolve, reject) => {
     const out = createWriteStream(ruta + ".tmp");
     https
-      .get(URL_CONAPO_CSV, { ca }, (res) => {
+      .get(url, { ca }, (res) => {
         if (res.statusCode !== 200) {
           reject(new Error(`CONAPO HTTP ${res.statusCode}`));
           return;
@@ -736,11 +762,11 @@ const PM_HOJA_A_CLAVE: Record<string, Clave> = {
   "Yuc.": "31", "Zac.": "32",
 };
 
-async function extraePm(): Promise<{ pobreza: Serie; extrema: Serie; alimentacion: Serie }> {
+async function extraePm(): Promise<{ pobreza: Serie; extrema: Serie; alimentacion: Serie; salud: Serie }> {
   const { buf, sha256 } = await descarga(URL_PM_XLSX, "pm-ef.xlsx", /spreadsheetml/);
   const hojas = hojasXlsx(buf);
 
-  const leeHoja = (nombre: string): { pobreza: number; extrema: number; alimentacion: number } => {
+  const leeHoja = (nombre: string): { pobreza: number; extrema: number; alimentacion: number; salud: number } => {
     const filas = hojas.get(nombre);
     if (!filas) throw new Error(`PM: no existe la hoja "${nombre}"`);
     // Fila 7 declara el bloque "Porcentaje"; fila 8 trae los años del
@@ -753,7 +779,7 @@ async function extraePm(): Promise<{ pobreza: Serie; extrema: Serie; alimentacio
       if (c >= "K" && c <= "P" && String(v).trim() === PM_ANIO) col2024 = c;
     }
     if (!col2024) throw new Error(`PM ${nombre}: no se encontró la columna Porcentaje ${PM_ANIO}`);
-    const out: Partial<Record<"pobreza" | "extrema" | "alimentacion", number>> = {};
+    const out: Partial<Record<"pobreza" | "extrema" | "alimentacion" | "salud", number>> = {};
     for (const f of filas) {
       const a = (f.get("A") ?? f.get("B") ?? "").trim();
       if (!a) continue;
@@ -761,26 +787,29 @@ async function extraePm(): Promise<{ pobreza: Serie; extrema: Serie; alimentacio
       if (a === "Población en situación de pobreza") out.pobreza = v;
       else if (a === "Población en situación de pobreza extrema") out.extrema = v;
       else if (a.startsWith("Carencia por acceso a la alimentación")) out.alimentacion = v;
+      else if (a === "Carencia por acceso a los servicios de salud") out.salud = v;
     }
-    for (const k of ["pobreza", "extrema", "alimentacion"] as const) {
+    for (const k of ["pobreza", "extrema", "alimentacion", "salud"] as const) {
       if (!Number.isFinite(out[k])) throw new Error(`PM ${nombre}: falta el indicador ${k}`);
     }
-    return out as { pobreza: number; extrema: number; alimentacion: number };
+    return out as { pobreza: number; extrema: number; alimentacion: number; salud: number };
   };
 
   const nacional = leeHoja("EUM");
-  const series = { pobreza: {} as Record<Clave, number>, extrema: {} as Record<Clave, number>, alimentacion: {} as Record<Clave, number> };
+  const series = { pobreza: {} as Record<Clave, number>, extrema: {} as Record<Clave, number>, alimentacion: {} as Record<Clave, number>, salud: {} as Record<Clave, number> };
   for (const [hoja, clave] of Object.entries(PM_HOJA_A_CLAVE)) {
     const v = leeHoja(hoja);
     series.pobreza[clave] = v.pobreza;
     series.extrema[clave] = v.extrema;
     series.alimentacion[clave] = v.alimentacion;
+    series.salud[clave] = v.salud;
   }
   const url = `${URL_PM_XLSX} (hojas por entidad, bloque Porcentaje ${PM_ANIO})`;
   return {
     pobreza: { valores: series.pobreza, nacional: nacional.pobreza, sha256, url },
     extrema: { valores: series.extrema, nacional: nacional.extrema, sha256, url },
     alimentacion: { valores: series.alimentacion, nacional: nacional.alimentacion, sha256, url },
+    salud: { valores: series.salud, nacional: nacional.salud, sha256, url },
   };
 }
 
@@ -1106,7 +1135,7 @@ type Conapo = {
 };
 
 async function extraeConapo(): Promise<Conapo> {
-  const { ruta, sha256 } = await descargaConapo();
+  const { ruta, sha256 } = await descargaConapo(URL_CONAPO_CSV, "conapo-pob-mitad.csv");
   const texto = readFileSync(ruta, "utf8").replace(/^﻿/, "");
   const filas = texto.split("\n");
   const encabezado = filas[0].split(",").map((c) => c.trim().replace(/"/g, ""));
@@ -1150,6 +1179,62 @@ async function extraeConapo(): Promise<Conapo> {
     }
   }
   return { total2026, m15mas2026, total2024, total2025, mujeres2025, nacional2026, sha256 };
+}
+
+// Catálogo de indicadores demográficos pry23 (Ola 4): una fila por entidad y
+// año con las columnas nombradas en el encabezado. Las cuatro series de la
+// vista de salud se leen del año objetivo; el nacional viene como fila
+// propia (CVE_GEO 0, "República Mexicana"), no se agrega.
+type ConapoIndicadores = {
+  ev: Serie;
+  tmi: Serie;
+  tef: Serie;
+  tgf: Serie;
+};
+
+async function extraeConapoIndicadores(): Promise<ConapoIndicadores> {
+  const { ruta, sha256 } = await descargaConapo(URL_CONAPO_IND_CSV, "conapo-indicadores.csv");
+  const texto = readFileSync(ruta, "utf8").replace(/^﻿/, "");
+  const filas = texto.split("\n");
+  const encabezado = filas[0].split(",").map((c) => c.trim().replace(/"/g, ""));
+  const iAnio = encabezado.findIndex((c) => /^A/.test(c) && /O$/i.test(c.normalize("NFD").replace(/\p{M}/gu, "")));
+  const iCve = encabezado.indexOf("CVE_GEO");
+  const columnas = { ev: "EV", tmi: "TMI", tef: "TEF_ADO", tgf: "TGF" } as const;
+  const indices = Object.fromEntries(
+    Object.entries(columnas).map(([k, col]) => [k, encabezado.indexOf(col)]),
+  ) as Record<keyof typeof columnas, number>;
+  if (iAnio < 0 || iCve < 0 || Object.values(indices).some((i) => i < 0)) {
+    throw new Error(`CONAPO indicadores: encabezado inesperado: ${encabezado.join(",")}`);
+  }
+  const series: Record<keyof typeof columnas, { valores: Record<Clave, number>; nacional: number | null }> = {
+    ev: { valores: {}, nacional: null },
+    tmi: { valores: {}, nacional: null },
+    tef: { valores: {}, nacional: null },
+    tgf: { valores: {}, nacional: null },
+  };
+  for (let i = 1; i < filas.length; i++) {
+    const f = filas[i].split(",");
+    if (f.length < encabezado.length) continue;
+    if (f[iAnio].trim() !== CONAPO_IND_ANIO) continue;
+    const cve = Number(f[iCve]);
+    if (!Number.isInteger(cve) || cve < 0 || cve > 32) continue;
+    for (const k of Object.keys(columnas) as (keyof typeof columnas)[]) {
+      const v = Number(f[indices[k]]);
+      if (!Number.isFinite(v)) throw new Error(`CONAPO indicadores: ${columnas[k]} no numérico en CVE_GEO ${cve}, ${CONAPO_IND_ANIO}`);
+      if (cve === 0) series[k].nacional = v;
+      else series[k].valores[String(cve).padStart(2, "0")] = v;
+    }
+  }
+  const url = `${URL_CONAPO_IND_CSV} (columnas EV, TMI, TEF_ADO y TGF, año ${CONAPO_IND_ANIO})`;
+  const out = {} as ConapoIndicadores;
+  for (const k of Object.keys(columnas) as (keyof typeof columnas)[]) {
+    const n = Object.keys(series[k].valores).length;
+    if (n !== 32 || series[k].nacional === null) {
+      throw new Error(`CONAPO indicadores: ${columnas[k]} incompleto (${n}/32, nacional ${series[k].nacional})`);
+    }
+    out[k] = { ...series[k], sha256, url };
+  }
+  return out;
 }
 
 // ---------------------------------------------------------------------------
@@ -1199,6 +1284,8 @@ const FORMATOS: Record<string, Formato> = {
   tasa100kEnteros: { valor: (v) => fmtMx(0).format(v), leyenda: (v) => fmtMx(0).format(v) },
   anios: { valor: (v) => fmtMx(1).format(v), leyenda: (v) => fmtMx(1).format(v) },
   gini: { valor: (v) => fmtMx(3).format(v), leyenda: (v) => fmtMx(3).format(v) },
+  // TGF con dos decimales: a un decimal media tabla se empata (1.5-2.0).
+  dosDec: { valor: (v) => fmtMx(2).format(v), leyenda: (v) => fmtMx(2).format(v) },
 };
 
 type Definicion = {
@@ -1217,7 +1304,7 @@ type Definicion = {
 
 async function main(): Promise<void> {
   console.log("[indicadores] extrayendo fuentes…");
-  const [til1, td, pl, imss, pibe, conapo, rnid, percepcion, prevalencia, escolaridad, pm, enigh] = await Promise.all([
+  const [til1, td, pl, imss, pibe, conapo, rnid, percepcion, prevalencia, escolaridad, pm, enigh, conapoInd] = await Promise.all([
     extraePxwebTasa(PXWEB_TIL1, /TIL 1/, "til1.xlsx"),
     extraePxwebTasa(PXWEB_TD, /Tasa de desocupación/, "td.xlsx"),
     extraePl(),
@@ -1230,6 +1317,7 @@ async function main(): Promise<void> {
     extraeEscolaridad(),
     extraePm(),
     extraeEnigh(),
+    extraeConapoIndicadores(),
   ]);
   const homicidios = rnid.homicidios;
 
@@ -1579,6 +1667,98 @@ async function main(): Promise<void> {
         `Anclaje del copy: ratio deciles X/I nacional = ${enigh.ratioDeciles.toFixed(2)} ∈ [${GINI_RATIO_MIN}, ${GINI_RATIO_MAX}].`,
       ],
     },
+    // --- Ola 4: vista "Salud y vida" -----------------------------------
+    // Las cuatro series CONAPO son PROYECCIÓN (base pry23, previa a la
+    // Intercensal 2025): la cita de cada una lo declara — matiz por cita
+    // reforzada, dictamen de la Ola 4. La carencia de salud es medición
+    // (PM 2024) y su cita declara el periodo distinto del resto de la vista.
+    {
+      id: "esperanza-vida",
+      grupo: "panorama",
+      nombre: "Esperanza de vida",
+      unidad: "años de esperanza de vida al nacer",
+      tooltipSufijo: "años de esperanza de vida al nacer",
+      periodo: CONAPO_IND_ANIO,
+      formato: "anios",
+      valores: conapoInd.ev.valores,
+      nacional: conapoInd.ev.nacional ?? NaN,
+      fuenteCita: `Fuente: CONAPO, Proyecciones de la Población de México y de las Entidades Federativas 2020-2070 (base 2023, previa a la conciliación con la Intercensal 2025; se actualiza con la base nueva, ~sep 2026). Esperanza de vida al nacer, ${CONAPO_IND_ANIO}: años que viviría en promedio un recién nacido si la mortalidad del año se mantuviera constante toda su vida. Proyección demográfica, no conteo.`,
+      procedencia: [
+        `Serie: esperanza de vida al nacer (columna EV del catálogo de indicadores demográficos pry23), año ${CONAPO_IND_ANIO}.`,
+        `Extracción: ${conapoInd.ev.url} (TLS validado con cadena CA GoDaddy en scripts/certs/).`,
+        `SHA-256 CSV indicadores: ${conapoInd.ev.sha256}`,
+        `Anclaje del copy: gap estatal max−min ∈ [${EV_GAP_MIN}, ${EV_GAP_MAX}] años ("casi cinco años de diferencia").`,
+      ],
+    },
+    {
+      id: "mortalidad-infantil",
+      grupo: "panorama",
+      nombre: "Mortalidad infantil",
+      unidad: "defunciones de menores de un año por mil nacidos vivos (estimación)",
+      tooltipSufijo: "de cada mil bebés nacidos vivos mueren antes del año",
+      periodo: CONAPO_IND_ANIO,
+      formato: "tasa100",
+      valores: conapoInd.tmi.valores,
+      nacional: conapoInd.tmi.nacional ?? NaN,
+      fuenteCita: `Fuente: CONAPO, Proyecciones de la Población de México y de las Entidades Federativas 2020-2070 (base 2023, previa a la conciliación con la Intercensal 2025; se actualiza con la base nueva, ~sep 2026). Tasa de mortalidad infantil, ${CONAPO_IND_ANIO}: defunciones de menores de un año por cada mil nacidos vivos. Estimación demográfica que corrige el subregistro de las actas; no es la serie registral.`,
+      procedencia: [
+        `Serie: tasa de mortalidad infantil modelada (columna TMI del catálogo de indicadores demográficos pry23), año ${CONAPO_IND_ANIO}. La registral (EDR/ENR) NO se usa: subregistro no comparable entre entidades (dictamen del inventario F4).`,
+        `Extracción: ${conapoInd.tmi.url} (TLS validado con cadena CA GoDaddy en scripts/certs/).`,
+        `SHA-256 CSV indicadores: ${conapoInd.tmi.sha256}`,
+      ],
+    },
+    {
+      id: "sin-salud",
+      grupo: "panorama",
+      nombre: "Sin acceso a salud",
+      unidad: "% de personas con carencia por acceso a los servicios de salud",
+      tooltipSufijo: "de cada 100 sin afiliación o derecho a servicios de salud",
+      periodo: PM_ANIO,
+      formato: "pct",
+      valores: pm.salud.valores,
+      nacional: pm.salud.nacional ?? NaN,
+      fuenteCita: `Fuente: INEGI, Pobreza Multidimensional ${PM_ANIO} (metodología CONEVAL). Carencia por acceso a los servicios de salud: población sin adscripción, afiliación o derecho a recibir servicios médicos en institución pública o privada. Porcentaje de personas. Dato ${PM_ANIO} (bienal, próximo ~agosto 2027), a diferencia del resto de la vista (${CONAPO_IND_ANIO} proyectado).`,
+      procedencia: [
+        `Serie: "Carencia por acceso a los servicios de salud", porcentaje de personas, ${PM_ANIO}.`,
+        `Extracción: ${pm.salud.url}`,
+        `SHA-256 tabulado: ${pm.salud.sha256}`,
+      ],
+    },
+    {
+      id: "embarazo-adolescente",
+      grupo: "panorama",
+      nombre: "Embarazo adolescente",
+      unidad: "nacimientos por mil mujeres de 15 a 19 años",
+      tooltipSufijo: "nacimientos al año por cada mil mujeres de 15 a 19",
+      periodo: CONAPO_IND_ANIO,
+      formato: "tasa100",
+      valores: conapoInd.tef.valores,
+      nacional: conapoInd.tef.nacional ?? NaN,
+      fuenteCita: `Fuente: CONAPO, Proyecciones de la Población de México y de las Entidades Federativas 2020-2070 (base 2023, previa a la conciliación con la Intercensal 2025; se actualiza con la base nueva, ~sep 2026). Tasa específica de fecundidad del grupo 15-19, ${CONAPO_IND_ANIO}: nacimientos anuales por cada mil mujeres de 15 a 19 años. Cuenta nacimientos, no embarazos ni madres. Proyección demográfica, no conteo.`,
+      procedencia: [
+        `Serie: TEF adolescente (columna TEF_ADO del catálogo de indicadores demográficos pry23), año ${CONAPO_IND_ANIO}; cotejada 33/33 contra el grupo 15-19 del archivo 04_Tasas_Especificas_Fecundidad (evidencia Fase A Ola 4).`,
+        `Extracción: ${conapoInd.tef.url} (TLS validado con cadena CA GoDaddy en scripts/certs/).`,
+        `SHA-256 CSV indicadores: ${conapoInd.tef.sha256}`,
+      ],
+    },
+    {
+      id: "hijos-mujer",
+      grupo: "panorama",
+      nombre: "Hijos por mujer",
+      unidad: "hijos por mujer al final de la vida reproductiva (TGF)",
+      tooltipSufijo: "hijos por mujer al ritmo de fecundidad del año",
+      periodo: CONAPO_IND_ANIO,
+      formato: "dosDec",
+      valores: conapoInd.tgf.valores,
+      nacional: conapoInd.tgf.nacional ?? NaN,
+      fuenteCita: `Fuente: CONAPO, Proyecciones de la Población de México y de las Entidades Federativas 2020-2070 (base 2023, previa a la conciliación con la Intercensal 2025; se actualiza con la base nueva, ~sep 2026). Tasa global de fecundidad, ${CONAPO_IND_ANIO}: hijos que tendría una mujer al final de su vida reproductiva si rigieran las tasas de fecundidad del año. Proyección demográfica, no conteo. La frase nacional cita el nivel de reemplazo (${TGF_REEMPLAZO}), ancla dura del generador.`,
+      procedencia: [
+        `Serie: tasa global de fecundidad (columna TGF del catálogo de indicadores demográficos pry23), año ${CONAPO_IND_ANIO}.`,
+        `Extracción: ${conapoInd.tgf.url} (TLS validado con cadena CA GoDaddy en scripts/certs/).`,
+        `SHA-256 CSV indicadores: ${conapoInd.tgf.sha256}`,
+        `Anclaje del copy: TGF nacional < ${TGF_REEMPLAZO} ("por debajo de los 2.1 con los que una generación se reemplaza a sí misma").`,
+      ],
+    },
   ];
 
   // -------------------------------------------------------------------
@@ -1617,6 +1797,11 @@ async function main(): Promise<void> {
     ["ingreso del hogar Chiapas vs Cuadro 2.1", enigh.ingreso.valores["07"], ANCLAS.ingresoHogarChiapas2024, 0.5],
     ["ingreso del hogar NL vs Cuadro 2.1", enigh.ingreso.valores["19"], ANCLAS.ingresoHogarNL2024, 0.5],
     ["Gini vs comunicado ENIGH", enigh.gini.nacional ?? NaN, ANCLAS.giniNacional2024, 0.0006],
+    ["esperanza de vida vs CONAPO", conapoInd.ev.nacional ?? NaN, ANCLAS.esperanzaVidaNacional2026, 0.005],
+    ["mortalidad infantil vs CONAPO", conapoInd.tmi.nacional ?? NaN, ANCLAS.tmiNacional2026, 0.005],
+    ["sin acceso a salud vs comunicado PM", pm.salud.nacional ?? NaN, ANCLAS.sinSaludNacional2024, 0.05],
+    ["embarazo adolescente vs CONAPO", conapoInd.tef.nacional ?? NaN, ANCLAS.tefNacional2026, 0.005],
+    ["hijos por mujer vs CONAPO", conapoInd.tgf.nacional ?? NaN, ANCLAS.tgfNacional2026, 0.005],
   ];
   for (const [nombre, obtenido, esperado, tol] of cruces) {
     if (!aprox(obtenido, esperado, tol)) {
@@ -1624,6 +1809,25 @@ async function main(): Promise<void> {
     }
     console.log(`[indicadores] cruce OK — ${nombre}: ${obtenido} ≈ ${esperado}`);
   }
+
+  // Anclajes editoriales de la Ola 4 (como el ratio de deciles del Gini):
+  // si el dato deja de sostener la cláusula del copy, se aborta para forzar
+  // la revisión editorial antes de regenerar.
+  const evEstatales = CLAVES.map((c) => conapoInd.ev.valores[c]);
+  const evGap = Math.max(...evEstatales) - Math.min(...evEstatales);
+  if (evGap < EV_GAP_MIN || evGap > EV_GAP_MAX) {
+    throw new Error(
+      `Anclaje editorial fallido: gap estatal de esperanza de vida ${evGap.toFixed(2)} fuera de [${EV_GAP_MIN}, ${EV_GAP_MAX}] — revisar "casi cinco años de diferencia" antes de regenerar`,
+    );
+  }
+  console.log(`[indicadores] anclaje editorial OK — gap EV estatal: ${evGap.toFixed(2)} ∈ [${EV_GAP_MIN}, ${EV_GAP_MAX}]`);
+  const tgfNacional = conapoInd.tgf.nacional ?? NaN;
+  if (!(tgfNacional < TGF_REEMPLAZO)) {
+    throw new Error(
+      `Anclaje editorial fallido: TGF nacional ${tgfNacional} ya no está por debajo del reemplazo ${TGF_REEMPLAZO} — revisar la cláusula del copy antes de regenerar`,
+    );
+  }
+  console.log(`[indicadores] anclaje editorial OK — TGF nacional ${tgfNacional} < ${TGF_REEMPLAZO}`);
 
   // -------------------------------------------------------------------
   // Emisión

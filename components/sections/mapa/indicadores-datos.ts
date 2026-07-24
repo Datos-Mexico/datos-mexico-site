@@ -1,4 +1,4 @@
-// Datos estatales de la coropleta de la home — 18 indicadores.
+// Datos estatales de la coropleta de la home — 23 indicadores.
 // ARCHIVO GENERADO por scripts/build-mapa-indicadores.ts — no editar a mano.
 // Cero transcripción: cada valor fue extraído programáticamente de su fuente
 // oficial y cruzado contra la cifra nacional publicada (el generador aborta
@@ -11,7 +11,7 @@
 import type { ClaveEntidad } from "./estados-geometria";
 
 export type IndicadorId =
-  "informalidad" | "pobreza-laboral" | "empleo-formal" | "pib" | "poblacion" | "ingreso" | "desempleo" | "homicidios" | "mujeres-asesinadas" | "victimas-delito" | "robo-coches" | "percepcion" | "escolaridad" | "pobreza" | "pobreza-extrema" | "falta-comida" | "ingreso-hogar" | "gini";
+  "informalidad" | "pobreza-laboral" | "empleo-formal" | "pib" | "poblacion" | "ingreso" | "desempleo" | "homicidios" | "mujeres-asesinadas" | "victimas-delito" | "robo-coches" | "percepcion" | "escolaridad" | "pobreza" | "pobreza-extrema" | "falta-comida" | "ingreso-hogar" | "gini" | "esperanza-vida" | "mortalidad-infantil" | "sin-salud" | "embarazo-adolescente" | "hijos-mujer";
 
 export interface IndicadorMapa {
   id: IndicadorId;
@@ -367,5 +367,97 @@ export const INDICADORES: readonly IndicadorMapa[] = [
     valoresFmt: {"10":"0.355","11":"0.357","12":"0.396","13":"0.361","14":"0.361","15":"0.347","16":"0.379","17":"0.361","18":"0.356","19":"0.419","20":"0.403","21":"0.371","22":"0.368","23":"0.341","24":"0.398","25":"0.338","26":"0.372","27":"0.391","28":"0.351","29":"0.346","30":"0.367","31":"0.381","32":"0.373","01":"0.351","02":"0.331","03":"0.337","04":"0.378","05":"0.343","06":"0.359","07":"0.376","08":"0.368","09":"0.395"},
     quintil: {"10":2,"11":2,"12":5,"13":3,"14":3,"15":1,"16":4,"17":3,"18":2,"19":5,"20":5,"21":4,"22":3,"23":1,"24":5,"25":1,"26":4,"27":5,"28":2,"29":1,"30":3,"31":5,"32":4,"02":1,"03":1,"05":1,"01":2,"06":2,"08":3,"07":4,"04":4,"09":5},
     rangosQuintil: [["0.331","0.347"],["0.351","0.359"],["0.361","0.368"],["0.371","0.379"],["0.381","0.419"]],
+  },
+  // Serie: esperanza de vida al nacer (columna EV del catálogo de indicadores demográficos pry23), año 2026.
+  // Extracción: https://conapo.segob.gob.mx/work/models/CONAPO/Datos_Abiertos/pry23/05_Indicadores_demograficos_proyecciones.csv (columnas EV, TMI, TEF_ADO y TGF, año 2026) (TLS validado con cadena CA GoDaddy en scripts/certs/).
+  // SHA-256 CSV indicadores: 7e47173dd9d78e48c77ffb793fb7953fce4eef085d9caac5006fcaadac3b3947
+  // Anclaje del copy: gap estatal max−min ∈ [4.5, 5] años ("casi cinco años de diferencia").
+  {
+    id: "esperanza-vida",
+    grupo: "panorama",
+    nombre: "Esperanza de vida",
+    unidad: "años de esperanza de vida al nacer",
+    tooltipSufijo: "años de esperanza de vida al nacer",
+    periodo: "2026",
+    fuenteCita: "Fuente: CONAPO, Proyecciones de la Población de México y de las Entidades Federativas 2020-2070 (base 2023, previa a la conciliación con la Intercensal 2025; se actualiza con la base nueva, ~sep 2026). Esperanza de vida al nacer, 2026: años que viviría en promedio un recién nacido si la mortalidad del año se mantuviera constante toda su vida. Proyección demográfica, no conteo.",
+    valorNacional: 75.86,
+    valorNacionalFmt: "75.9",
+    valores: {"10":75.9,"11":75.31,"12":73.54,"13":74.31,"14":76.39,"15":75.51,"16":74.54,"17":74.74,"18":75.99,"19":78.07,"20":73.73,"21":74.32,"22":76.62,"23":76.36,"24":75.66,"25":76.48,"26":77.11,"27":74.21,"28":76.23,"29":74.59,"30":74.14,"31":75.4,"32":74.78,"01":77.19,"02":76.92,"03":77.52,"04":74.9,"05":77.43,"06":76.52,"07":73.43,"08":76.98,"09":77.16},
+    valoresFmt: {"10":"75.9","11":"75.3","12":"73.5","13":"74.3","14":"76.4","15":"75.5","16":"74.5","17":"74.7","18":"76.0","19":"78.1","20":"73.7","21":"74.3","22":"76.6","23":"76.4","24":"75.7","25":"76.5","26":"77.1","27":"74.2","28":"76.2","29":"74.6","30":"74.1","31":"75.4","32":"74.8","01":"77.2","02":"76.9","03":"77.5","04":"74.9","05":"77.4","06":"76.5","07":"73.4","08":"77.0","09":"77.2"},
+    quintil: {"10":3,"11":2,"12":1,"13":1,"14":4,"15":3,"16":2,"17":2,"18":3,"19":5,"20":1,"21":1,"22":4,"23":4,"24":3,"25":4,"26":5,"27":1,"28":3,"29":2,"30":1,"31":3,"32":2,"07":1,"04":2,"06":4,"02":4,"08":5,"09":5,"01":5,"05":5,"03":5},
+    rangosQuintil: [["73.4","74.3"],["74.5","75.3"],["75.4","76.2"],["76.4","76.9"],["77.0","78.1"]],
+  },
+  // Serie: tasa de mortalidad infantil modelada (columna TMI del catálogo de indicadores demográficos pry23), año 2026. La registral (EDR/ENR) NO se usa: subregistro no comparable entre entidades (dictamen del inventario F4).
+  // Extracción: https://conapo.segob.gob.mx/work/models/CONAPO/Datos_Abiertos/pry23/05_Indicadores_demograficos_proyecciones.csv (columnas EV, TMI, TEF_ADO y TGF, año 2026) (TLS validado con cadena CA GoDaddy en scripts/certs/).
+  // SHA-256 CSV indicadores: 7e47173dd9d78e48c77ffb793fb7953fce4eef085d9caac5006fcaadac3b3947
+  {
+    id: "mortalidad-infantil",
+    grupo: "panorama",
+    nombre: "Mortalidad infantil",
+    unidad: "defunciones de menores de un año por mil nacidos vivos (estimación)",
+    tooltipSufijo: "de cada mil bebés nacidos vivos mueren antes del año",
+    periodo: "2026",
+    fuenteCita: "Fuente: CONAPO, Proyecciones de la Población de México y de las Entidades Federativas 2020-2070 (base 2023, previa a la conciliación con la Intercensal 2025; se actualiza con la base nueva, ~sep 2026). Tasa de mortalidad infantil, 2026: defunciones de menores de un año por cada mil nacidos vivos. Estimación demográfica que corrige el subregistro de las actas; no es la serie registral.",
+    valorNacional: 11.64,
+    valorNacionalFmt: "11.6",
+    valores: {"10":12.09,"11":12.72,"12":14.14,"13":13.05,"14":11.69,"15":12.38,"16":13.26,"17":12.82,"18":11.91,"19":9.25,"20":13.85,"21":13.5,"22":11.6,"23":11.19,"24":12.3,"25":11.46,"26":10.96,"27":13.32,"28":11.49,"29":13.12,"30":13.3,"31":12.39,"32":12.71,"01":10.8,"02":10.36,"03":10.39,"04":12.17,"05":9.96,"06":11.02,"07":14.08,"08":10.6,"09":10.7},
+    valoresFmt: {"10":"12.1","11":"12.7","12":"14.1","13":"13.1","14":"11.7","15":"12.4","16":"13.3","17":"12.8","18":"11.9","19":"9.3","20":"13.9","21":"13.5","22":"11.6","23":"11.2","24":"12.3","25":"11.5","26":"11.0","27":"13.3","28":"11.5","29":"13.1","30":"13.3","31":"12.4","32":"12.7","01":"10.8","02":"10.4","03":"10.4","04":"12.2","05":"10.0","06":"11.0","07":"14.1","08":"10.6","09":"10.7"},
+    quintil: {"10":3,"11":4,"12":5,"13":4,"14":3,"15":3,"16":5,"17":4,"18":3,"19":1,"20":5,"21":5,"22":2,"23":2,"24":3,"25":2,"26":2,"27":5,"28":2,"29":4,"30":5,"31":4,"32":4,"05":1,"02":1,"03":1,"08":1,"09":1,"01":1,"06":2,"04":3,"07":5},
+    rangosQuintil: [["9.3","10.8"],["11.0","11.6"],["11.7","12.4"],["12.4","13.1"],["13.3","14.1"]],
+  },
+  // Serie: "Carencia por acceso a los servicios de salud", porcentaje de personas, 2024.
+  // Extracción: https://www.inegi.org.mx/contenidos/desarrollosocial/pm/tabulados/pm_ef_2024.xlsx (hojas por entidad, bloque Porcentaje 2024)
+  // SHA-256 tabulado: 8ea643bcb15877f5fc666b0ccd02d28a06f2ac78d052ebb8fcc304814024b9d8
+  {
+    id: "sin-salud",
+    grupo: "panorama",
+    nombre: "Sin acceso a salud",
+    unidad: "% de personas con carencia por acceso a los servicios de salud",
+    tooltipSufijo: "de cada 100 sin afiliación o derecho a servicios de salud",
+    periodo: "2024",
+    fuenteCita: "Fuente: INEGI, Pobreza Multidimensional 2024 (metodología CONEVAL). Carencia por acceso a los servicios de salud: población sin adscripción, afiliación o derecho a recibir servicios médicos en institución pública o privada. Porcentaje de personas. Dato 2024 (bienal, próximo ~agosto 2027), a diferencia del resto de la vista (2026 proyectado).",
+    valorNacional: 34.1749024711,
+    valorNacionalFmt: "34.2 %",
+    valores: {"10":30.4479948554,"11":33.7149518775,"12":38.8583471738,"13":43.5261242317,"14":32.0414413824,"15":40.2351245476,"16":46.0542148001,"17":43.9949979868,"18":25.6974775581,"19":15.8220280235,"20":43.850328131,"21":47.3050612608,"22":24.1364488333,"23":30.3481690717,"24":33.4315966833,"25":24.7062923884,"26":24.1188720437,"27":35.0750490858,"28":25.123452974,"29":39.2702034384,"30":40.7247601574,"31":26.0559599382,"32":33.7807179497,"01":25.2041038608,"02":23.2629654343,"03":19.6225125582,"04":28.4975572918,"05":20.2975541074,"06":24.028204814,"07":63.3423515429,"08":20.889162116,"09":21.7933556498},
+    valoresFmt: {"10":"30.4 %","11":"33.7 %","12":"38.9 %","13":"43.5 %","14":"32.0 %","15":"40.2 %","16":"46.1 %","17":"44.0 %","18":"25.7 %","19":"15.8 %","20":"43.9 %","21":"47.3 %","22":"24.1 %","23":"30.3 %","24":"33.4 %","25":"24.7 %","26":"24.1 %","27":"35.1 %","28":"25.1 %","29":"39.3 %","30":"40.7 %","31":"26.1 %","32":"33.8 %","01":"25.2 %","02":"23.3 %","03":"19.6 %","04":"28.5 %","05":"20.3 %","06":"24.0 %","07":"63.3 %","08":"20.9 %","09":"21.8 %"},
+    quintil: {"10":3,"11":4,"12":4,"13":5,"14":3,"15":4,"16":5,"17":5,"18":2,"19":1,"20":5,"21":5,"22":2,"23":3,"24":3,"25":2,"26":2,"27":4,"28":2,"29":4,"30":5,"31":3,"32":4,"03":1,"05":1,"08":1,"09":1,"02":1,"06":1,"01":2,"04":3,"07":5},
+    rangosQuintil: [["15.8","24.0"],["24.1","25.7"],["26.1","33.4"],["33.7","40.2"],["40.7","63.3"]],
+  },
+  // Serie: TEF adolescente (columna TEF_ADO del catálogo de indicadores demográficos pry23), año 2026; cotejada 33/33 contra el grupo 15-19 del archivo 04_Tasas_Especificas_Fecundidad (evidencia Fase A Ola 4).
+  // Extracción: https://conapo.segob.gob.mx/work/models/CONAPO/Datos_Abiertos/pry23/05_Indicadores_demograficos_proyecciones.csv (columnas EV, TMI, TEF_ADO y TGF, año 2026) (TLS validado con cadena CA GoDaddy en scripts/certs/).
+  // SHA-256 CSV indicadores: 7e47173dd9d78e48c77ffb793fb7953fce4eef085d9caac5006fcaadac3b3947
+  {
+    id: "embarazo-adolescente",
+    grupo: "panorama",
+    nombre: "Embarazo adolescente",
+    unidad: "nacimientos por mil mujeres de 15 a 19 años",
+    tooltipSufijo: "nacimientos al año por cada mil mujeres de 15 a 19",
+    periodo: "2026",
+    fuenteCita: "Fuente: CONAPO, Proyecciones de la Población de México y de las Entidades Federativas 2020-2070 (base 2023, previa a la conciliación con la Intercensal 2025; se actualiza con la base nueva, ~sep 2026). Tasa específica de fecundidad del grupo 15-19, 2026: nacimientos anuales por cada mil mujeres de 15 a 19 años. Cuenta nacimientos, no embarazos ni madres. Proyección demográfica, no conteo.",
+    valorNacional: 57.94,
+    valorNacionalFmt: "57.9",
+    valores: {"10":49.07,"11":53.88,"12":57.34,"13":50.73,"14":63,"15":53.42,"16":63.82,"17":50.46,"18":60.89,"19":67.17,"20":63.16,"21":66.13,"22":59.1,"23":52.16,"24":54.26,"25":58.73,"26":57.87,"27":55.19,"28":57.59,"29":68.32,"30":50.53,"31":46.93,"32":65.23,"01":59.24,"02":48.27,"03":56.09,"04":50.37,"05":68.99,"06":49.34,"07":77.24,"08":54.54,"09":47.32},
+    valoresFmt: {"10":"49.1","11":"53.9","12":"57.3","13":"50.7","14":"63.0","15":"53.4","16":"63.8","17":"50.5","18":"60.9","19":"67.2","20":"63.2","21":"66.1","22":"59.1","23":"52.2","24":"54.3","25":"58.7","26":"57.9","27":"55.2","28":"57.6","29":"68.3","30":"50.5","31":"46.9","32":"65.2","01":"59.2","02":"48.3","03":"56.1","04":"50.4","05":"69.0","06":"49.3","07":"77.2","08":"54.5","09":"47.3"},
+    quintil: {"10":1,"11":2,"12":3,"13":2,"14":4,"15":2,"16":5,"17":1,"18":4,"19":5,"20":4,"21":5,"22":4,"23":2,"24":2,"25":4,"26":3,"27":3,"28":3,"29":5,"30":2,"31":1,"32":5,"09":1,"02":1,"06":1,"04":1,"08":3,"03":3,"01":4,"05":5,"07":5},
+    rangosQuintil: [["46.9","50.5"],["50.5","54.3"],["54.5","57.9"],["58.7","63.2"],["63.8","77.2"]],
+  },
+  // Serie: tasa global de fecundidad (columna TGF del catálogo de indicadores demográficos pry23), año 2026.
+  // Extracción: https://conapo.segob.gob.mx/work/models/CONAPO/Datos_Abiertos/pry23/05_Indicadores_demograficos_proyecciones.csv (columnas EV, TMI, TEF_ADO y TGF, año 2026) (TLS validado con cadena CA GoDaddy en scripts/certs/).
+  // SHA-256 CSV indicadores: 7e47173dd9d78e48c77ffb793fb7953fce4eef085d9caac5006fcaadac3b3947
+  // Anclaje del copy: TGF nacional < 2.1 ("por debajo de los 2.1 con los que una generación se reemplaza a sí misma").
+  {
+    id: "hijos-mujer",
+    grupo: "panorama",
+    nombre: "Hijos por mujer",
+    unidad: "hijos por mujer al final de la vida reproductiva (TGF)",
+    tooltipSufijo: "hijos por mujer al ritmo de fecundidad del año",
+    periodo: "2026",
+    fuenteCita: "Fuente: CONAPO, Proyecciones de la Población de México y de las Entidades Federativas 2020-2070 (base 2023, previa a la conciliación con la Intercensal 2025; se actualiza con la base nueva, ~sep 2026). Tasa global de fecundidad, 2026: hijos que tendría una mujer al final de su vida reproductiva si rigieran las tasas de fecundidad del año. Proyección demográfica, no conteo. La frase nacional cita el nivel de reemplazo (2.1), ancla dura del generador.",
+    valorNacional: 1.84,
+    valorNacionalFmt: "1.84",
+    valores: {"10":1.78,"11":1.85,"12":2.15,"13":1.56,"14":1.88,"15":1.63,"16":2.16,"17":1.63,"18":1.74,"19":1.96,"20":2.17,"21":2.2,"22":1.73,"23":1.73,"24":1.97,"25":1.76,"26":1.75,"27":1.88,"28":1.81,"29":2,"30":1.63,"31":1.54,"32":2.28,"01":1.97,"02":1.52,"03":1.69,"04":1.56,"05":2,"06":1.61,"07":2.73,"08":1.7,"09":1.37},
+    valoresFmt: {"10":"1.78","11":"1.85","12":"2.15","13":"1.56","14":"1.88","15":"1.63","16":"2.16","17":"1.63","18":"1.74","19":"1.96","20":"2.17","21":"2.20","22":"1.73","23":"1.73","24":"1.97","25":"1.76","26":"1.75","27":"1.88","28":"1.81","29":"2.00","30":"1.63","31":"1.54","32":"2.28","01":"1.97","02":"1.52","03":"1.69","04":"1.56","05":"2.00","06":"1.61","07":"2.73","08":"1.70","09":"1.37"},
+    quintil: {"10":3,"11":3,"12":5,"13":1,"14":4,"15":1,"16":5,"17":1,"18":3,"19":4,"20":5,"21":5,"22":2,"23":2,"24":4,"25":3,"26":3,"27":4,"28":3,"29":4,"30":1,"31":1,"32":5,"09":1,"02":1,"04":1,"06":1,"03":2,"08":2,"01":4,"05":4,"07":5},
+    rangosQuintil: [["1.37","1.63"],["1.69","1.73"],["1.74","1.85"],["1.88","2.00"],["2.15","2.73"]],
   },
 ];

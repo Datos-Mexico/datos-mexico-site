@@ -59,7 +59,11 @@ export function VistaActiva({
         <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
           {vista.nombre}
         </p>
-        <span className="flex items-center gap-[5px]" role="img" aria-label={`Vista 1 de ${VISTAS.length}: ${vista.nombre}`}>
+        <span
+          className="flex items-center gap-[5px]"
+          role="img"
+          aria-label={`Vista ${VISTAS.findIndex((v) => v.id === vista.id) + 1} de ${VISTAS.length}: ${vista.nombre}`}
+        >
           {VISTAS.map((v) => (
             <span
               key={v.id}

@@ -39,7 +39,7 @@ export function IndicadorSelector({
             <li
               key={id}
               onPointerEnter={alEntrar(id)}
-              className={`flex items-baseline justify-between gap-3 border-l-2 py-1 pl-2.5 pr-1 transition-colors ${
+              className={`flex items-baseline justify-between gap-3 border-l-2 py-[3px] pl-2.5 pr-1 transition-colors ${
                 id === activo ? "border-primary bg-muted/40" : "border-transparent"
               }`}
             >
@@ -57,7 +57,7 @@ export function IndicadorSelector({
   );
 
   return (
-    <div className="mt-8 hidden lg:grid lg:grid-cols-2 lg:gap-x-8">
+    <div className="mt-6 hidden lg:grid lg:grid-cols-2 lg:gap-x-8">
       {grupo("vive-de")}
       {grupo("vive-como")}
     </div>

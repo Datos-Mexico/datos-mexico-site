@@ -11,6 +11,7 @@ import { FraseExplicativa } from "./FraseExplicativa";
 import { HeroMapaMexico, type FichaEntidad } from "./HeroMapaMexico";
 import { VistaActiva } from "./VistaActiva";
 import { LeyendaQuintiles } from "./LeyendaQuintiles";
+import { MasDelCanon } from "./MasDelCanon";
 
 /**
  * Contenedor de la capa de inteligencia del hero: el grid split (mensaje a
@@ -84,6 +85,7 @@ export function HeroMapaInteligencia({ mensaje }: { mensaje: ReactNode }) {
         <BloquePintado indicador={activo} />
         <FraseExplicativa texto={frase} />
         <LeyendaQuintiles indicador={activo} />
+        <MasDelCanon pintado={pintadoId} onPintar={setPintadoId} />
       </div>
     </div>
   );

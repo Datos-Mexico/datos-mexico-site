@@ -11,10 +11,11 @@
 
 import type { IndicadorId } from "./indicadores-datos";
 
-// Intervalo del pulso: parámetro de dirección. El modo dinámico da tiempo
-// de lectura proporcional a la frase del rey de la vista en pantalla; el
-// query-param ?pulso=fijo|dinamico permite compararlos en vivo antes de
-// fijar la decisión.
+// Intervalo del pulso — doctrina fijada por dirección (Ola 2): el pulso
+// respira con el texto; max(minMs, porPalabraMs × palabras + baseMs) sobre
+// la frase del rey de la vista en pantalla es el ritmo canónico. "dinamico"
+// es el default de producción; el query-param ?pulso=fijo|dinamico|<ms>
+// queda como herramienta de diagnóstico.
 export const PULSO = {
   modo: "dinamico" as "dinamico" | "fijo",
   fijoMs: 12_000,

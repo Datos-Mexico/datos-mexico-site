@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+import { useLayoutEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { ESTADOS, MAPA_VIEWBOX, type ClaveEntidad } from "./estados-geometria";
 import "./hero-mapa.css";
 
@@ -42,6 +42,7 @@ export function HeroMapaMexico({
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<{ x: number; y: number } | null>(null);
   const [hovered, setHovered] = useState<ClaveEntidad | null>(null);
 
   const claveDe = (target: EventTarget): ClaveEntidad | null =>
@@ -54,22 +55,35 @@ export function HeroMapaMexico({
     setHovered(claveDe(e.target));
   };
 
-  const onPointerMove = (e: ReactPointerEvent<SVGSVGElement>) => {
+  // Ancla al cursor con volteo: X salta a la izquierda si no cabe a la
+  // derecha del contenedor; Y salta arriba si la ficha se saldría del
+  // viewport. Nunca queda bajo el cursor.
+  const posiciona = (cx: number, cy: number) => {
     const root = rootRef.current;
     const tip = tooltipRef.current;
-    if (!root || !tip || e.pointerType !== "mouse") return;
+    if (!root || !tip) return;
     const r = root.getBoundingClientRect();
     const w = tip.offsetWidth;
     const h = tip.offsetHeight;
-    // Ancla al cursor con volteo: X salta a la izquierda si no cabe a la
-    // derecha del contenedor; Y salta arriba si la ficha se saldría del
-    // viewport. Nunca queda bajo el cursor.
-    let x = e.clientX - r.left + 14;
-    if (x + w > r.width - 4) x = e.clientX - r.left - w - 14;
-    let y = e.clientY - r.top + 18;
-    if (e.clientY + 18 + h > window.innerHeight - 8) y = e.clientY - r.top - h - 12;
+    let x = cx - r.left + 14;
+    if (x + w > r.width - 4) x = cx - r.left - w - 14;
+    let y = cy - r.top + 18;
+    if (cy + 18 + h > window.innerHeight - 8) y = cy - r.top - h - 12;
     tip.style.transform = `translate(${Math.max(x, 4)}px, ${y}px)`;
   };
+
+  const onPointerMove = (e: ReactPointerEvent<SVGSVGElement>) => {
+    if (e.pointerType !== "mouse") return;
+    cursorRef.current = { x: e.clientX, y: e.clientY };
+    posiciona(e.clientX, e.clientY);
+  };
+
+  // Al cambiar de estado la ficha re-renderiza y sus dimensiones cambian:
+  // se reposiciona con las medidas frescas para que el volteo actúe desde
+  // la primera entrada (no hasta el siguiente movimiento del cursor).
+  useLayoutEffect(() => {
+    if (hovered && cursorRef.current) posiciona(cursorRef.current.x, cursorRef.current.y);
+  });
 
   const onPointerLeave = (e: ReactPointerEvent<SVGSVGElement>) => {
     if (e.pointerType !== "mouse") return;
